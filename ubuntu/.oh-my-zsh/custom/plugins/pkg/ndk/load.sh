@@ -9,14 +9,14 @@ case "${version}" in
   if [ -d "${HOME}/.local/pkgs/ndk/r21e" ]; then
     export ANDROID_NDK="${HOME}/.local/pkgs/ndk/r21e"
   else
-    echo "NDK ${version} is not installed"
+    echo "NDK ${version} not found"
   fi
   ;;
 "r14" | "r14b")
   if [ -d "${HOME}/.local/pkgs/ndk/r14b" ]; then
     export ANDROID_NDK="${HOME}/.local/pkgs/ndk/r14b"
   else
-    echo "NDK ${version} is not installed"
+    echo "NDK ${version} not found"
   fi
   ;;
 *)
