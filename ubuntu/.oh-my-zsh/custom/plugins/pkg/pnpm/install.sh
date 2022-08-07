@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -o errexit
+set -o nounset
+
+brew install node
+brew install pnpm
+
+pnpm setup

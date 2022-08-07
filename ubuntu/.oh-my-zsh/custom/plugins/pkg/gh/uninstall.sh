@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -o errexit
+set -o nounset
+
+brew uninstall gh
+
+git config --global --unset-all "credential.https://github.com.helper"
+git config --global --unset-all "credential.https://gist.github.com.helper"
