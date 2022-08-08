@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+export LESS='-R --use-color -Dd+R$-Du+G'
+
 function color-table() {
   local csi="\x1b["
   local reset="${csi}0m"

@@ -30,4 +30,3 @@ function pkg() {
 }
 
 pkg load llvm
-pkg load most
