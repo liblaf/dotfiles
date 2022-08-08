@@ -42,6 +42,7 @@ function u-clean() {
 
 function apt-clean() {
   echo "Cleaning APT ..."
+  sudo apt clean
   sudo apt autoclean
   sudo apt autoremove
 }
