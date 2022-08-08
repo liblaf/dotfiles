@@ -2,6 +2,8 @@
 set -o errexit
 set -o nounset
 
+rm --force "${HOME}/.czrc"
+rm --force --recursive "${HOME}/.npm/"
 rm --force --recursive "${PNPM_HOME}"
 
 brew uninstall pnpm
