@@ -11,3 +11,5 @@ cp --recursive "${prefix}/.oh-my-zsh/custom/" "${ZSH_CUSTOM:-"${ZSH:-"${HOME}/.o
 cp "${prefix}/.zshrc" "${HOME}/"
 cp "${prefix}/.zprofile" "${HOME}/"
 cp "${prefix}/.p10k.zsh" "${HOME}/"
+cp "${prefix}/.Brewfile" "${HOME}/"
+brew bundle install --global
