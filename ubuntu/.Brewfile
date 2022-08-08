@@ -1,5 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/core"
+brew "bear"
+brew "gdu"
 brew "gh"
 brew "httpie"
 brew "jenv"
