@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+function cz() {
+  command cz --gpg-sign
+}
+
 function git-config() {
   old_user_name="$(git config --global user.name)"
   echo -n "Enter your Git username [${old_user_name}]: "
