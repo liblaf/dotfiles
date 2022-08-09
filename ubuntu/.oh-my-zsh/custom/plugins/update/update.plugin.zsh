@@ -5,6 +5,7 @@ function u-update() {
   snap-update
   brew-update
   python-update
+  node-update
 }
 
 function apt-update() {
@@ -34,10 +35,19 @@ function python-update() {
     xargs --max-args=1 --no-run-if-empty pip install --upgrade
 }
 
+function node-update() {
+  echo "Updating Node.js ..."
+  pnpm env use --global tls
+  echo "Updating pnpm packages ..."
+  pnpm update --global
+}
+
 function u-clean() {
   apt-clean
   brew-clean
   cache-clean
+  python-clean
+  node-clean
 }
 
 function apt-clean() {
@@ -56,4 +66,13 @@ function brew-clean() {
 function cache-clean() {
   echo "Cleaning cache ..."
   rm --force --recursive "${HOME}/.cache/"
+}
+
+function python-clean() {
+  conda clean --all
+  pip cache purge
+}
+
+function node-clean() {
+  pnpm store purge
 }
