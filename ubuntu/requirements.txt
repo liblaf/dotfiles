@@ -1,0 +1,3 @@
+black
+pipreqs
+ranger-fm
