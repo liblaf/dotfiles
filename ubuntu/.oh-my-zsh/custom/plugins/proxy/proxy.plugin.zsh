@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 function get-ip() {
-  if [[-n "${WSL_DISTRO_NAME}" ]]; then
+  if [[ -n "${WSL_DISTRO_NAME}" ]]; then
     export router_ip="$(ip route | grep 'default' | awk '{print $3}')"
   else
     export router_ip="127.0.0.1"
