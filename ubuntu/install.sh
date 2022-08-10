@@ -14,6 +14,7 @@ cp "${prefix}/.p10k.zsh" "${HOME}/"
 
 # Homebrew
 cp "${prefix}/.Brewfile" "${HOME}/"
+rm --force "${HOME}/.Brewfile.lock.json"
 brew bundle install --global
 
 # Python
