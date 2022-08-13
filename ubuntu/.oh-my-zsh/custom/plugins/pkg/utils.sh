@@ -41,7 +41,7 @@ function extract() {
   if [[ "${input}" =~ ^.*\.zip$ ]]; then
     7zz x "${overwrite_mode}" -snld -o"${output}" -- "${input}"
   elif [[ "${input}" =~ ^.*\.tar\.gz$ ]]; then
-    7zz x -so -- "${input}" |
-      7zz x "${overwrite_mode}" -si -ttar -o"${output}"
+    7zz x -so -snld -- "${input}" |
+      7zz x "${overwrite_mode}" -si -snld -ttar -o"${output}"
   fi
 }
