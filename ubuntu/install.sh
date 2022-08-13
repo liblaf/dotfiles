@@ -5,7 +5,7 @@ set -o nounset
 
 cd "$(dirname "${0}")"
 prefix="$(pwd)"
-git submodule update --init --depth 1 --recursive
+git submodule update --init --remote --depth 1 --recursive
 rm --force --recursive "${ZSH_CUSTOM:-"${ZSH:-"${HOME}/.oh-my-zsh"}/custom"}"
 cp --recursive "${prefix}/.oh-my-zsh/custom/" "${ZSH_CUSTOM:-"${ZSH:-"${HOME}/.oh-my-zsh"}/custom"}"
 cp "${prefix}/.zshrc" "${HOME}/"
