@@ -37,7 +37,7 @@ function python-update() {
 
 function node-update() {
   echo "Updating Node.js ..."
-  pnpm env use --global tls
+  pnpm env use --global lts
   echo "Updating pnpm packages ..."
   pnpm update --global
 }
