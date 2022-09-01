@@ -79,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   aliases gitignore
-  color git key perms pkg proxy update
+  color ialias igit key ntp perms pkg proxy update
   zsh-autosuggestions zsh-syntax-highlighting
 )
 
