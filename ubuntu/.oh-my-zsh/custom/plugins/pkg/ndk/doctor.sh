@@ -18,6 +18,8 @@ case "${version}" in
   filepath="${HOME}/Downloads/${filename}"
   download "https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/tags/ndk-r21e/${filename}" "${filepath}"
   extract "${filepath}" "${HOME}/.local/pkgs/ndk/r21e/toolchains/llvm/prebuilt/linux-x86_64/"
+  rm "${HOME}/.local/pkgs/ndk/r21e/toolchains/llvm/prebuilt/linux-x86_64/bin/clang.real"
+  rm "${HOME}/.local/pkgs/ndk/r21e/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++.real"
   ;;
 *)
   echo "This script does not support NDK version \"${version}\""
