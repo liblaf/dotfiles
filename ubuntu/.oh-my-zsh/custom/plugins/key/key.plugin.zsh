@@ -44,6 +44,7 @@ function export-keys() {
   echo "Exporting keys to \"${prefix}/\" ..."
 
   # ssh
+  local ssh_prefix="${prefix}/ssh"
   echo "Exporting SSH keys to \"${ssh_prefix}\" ..."
   mkdir --parents "${ssh_prefix}/"
   if [[ -r "${HOME}/.ssh/config" ]]; then
