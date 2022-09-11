@@ -15,7 +15,11 @@ cp "${prefix}/.p10k.zsh" "${HOME}/"
 # Homebrew
 cp "${prefix}/.Brewfile" "${HOME}/"
 rm --force "${HOME}/.Brewfile.lock.json"
-brew bundle install --global
+if command -v brew >"/dev/null"; then
+  brew bundle install --global
+fi
 
 # Python
-pip install --requirement "${prefix}/requirements.txt"
+if command -v pip >"/dev/null"; then
+  pip install --requirement "${prefix}/requirements.txt"
+fi
