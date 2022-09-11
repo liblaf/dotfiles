@@ -13,3 +13,6 @@
 [submodule "ubuntu/.oh-my-zsh/custom/plugins/wakatime"]
 	path = ubuntu/.oh-my-zsh/custom/plugins/wakatime
 	url = https://github.com/sobolevn/wakatime-zsh-plugin.git
+[submodule "ubuntu/grub-theme/argon-grub-theme"]
+	path = ubuntu/grub-theme/argon-grub-theme
+	url = https://github.com/stuarthayhurst/argon-grub-theme.git

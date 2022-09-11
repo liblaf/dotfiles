@@ -23,3 +23,6 @@ fi
 if command -v pip >"/dev/null"; then
   pip install --requirement "${prefix}/requirements.txt"
 fi
+
+# GRUB Theme
+bash "${prefix}/grub-theme/install.sh"
