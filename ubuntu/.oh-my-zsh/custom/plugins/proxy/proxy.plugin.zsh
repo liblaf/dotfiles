@@ -11,7 +11,9 @@ function get-ip() {
 
 function print-ip() {
   get-ip
-  https --body "https://ipapi.co/yaml/"
+  if command -v https >"/dev/null"; then
+    https --body "https://ipapi.co/yaml/"
+  fi
   echo "Router IP : ${router_ip}"
   echo "Host IP   : ${host_ip}"
 }
