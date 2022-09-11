@@ -80,7 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   aliases gitignore
   color ialias igit key ntp perms pkg proxy update
-  zsh-autosuggestions zsh-syntax-highlighting
+  wakatime zsh-autosuggestions zsh-syntax-highlighting
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
