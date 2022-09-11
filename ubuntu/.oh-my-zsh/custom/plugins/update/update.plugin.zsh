@@ -69,10 +69,12 @@ function cache-clean() {
 }
 
 function python-clean() {
+  echo "Cleaning python ..."
   conda clean --all
   pip cache purge
 }
 
 function node-clean() {
-  pnpm store purge
+  echo "Cleaning Node.js ..."
+  pnpm store prune
 }
