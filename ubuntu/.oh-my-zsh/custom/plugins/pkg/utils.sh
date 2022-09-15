@@ -29,12 +29,13 @@ function download() {
 function extract() {
   local input="${1}"
   local output="${2:-"$(pwd)"}"
+  local overwrite_mode=""
   if [[ -e "${output}" ]]; then
     echo "Are you sure to overwrite all existing files under \"${output}\"?"
     if confirm "YES to comfirm or NO to skip extracting of existing files."; then
-      local overwrite_mode="-aoa"
+      overwrite_mode="-aoa"
     else
-      local overwrite_mode="-aos"
+      overwrite_mode="-aos"
     fi
   fi
   mkdir --parents "${output}"
