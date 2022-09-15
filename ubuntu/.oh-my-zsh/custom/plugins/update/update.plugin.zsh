@@ -48,6 +48,7 @@ function u-clean() {
   cache-clean
   python-clean
   node-clean
+  zsh-clean
 }
 
 function apt-clean() {
@@ -77,4 +78,9 @@ function python-clean() {
 function node-clean() {
   echo "Cleaning Node.js ..."
   pnpm store prune
+}
+
+function zsh-clean() {
+  echo "Cleaning ZSH ..."
+  rm --force ${HOME}/.zcompdump*
 }
