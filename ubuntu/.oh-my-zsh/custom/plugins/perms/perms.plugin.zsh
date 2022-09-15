@@ -7,8 +7,10 @@ function reset-perms() {
     local prefix="$(pwd)"
   fi
   echo "Resetting perms under \"${prefix}\" ..."
+  local default_d_perms="$(umask -S)"
+  local default_perms="$(echo "${default_d_perms}" | tr --delete 'x')"
   find "${prefix}" -type d |
-    xargs --max-args=1 --max-procs=0 chmod u=rwx,go=rx
+    xargs --max-args=1 --max-procs=0 --no-run-if-empty chmod "${default_d_perms}"
   find "${prefix}" -type f |
-    xargs --max-args=1 --max-procs=0 chmod ug=rw,o=r
+    xargs --max-args=1 --max-procs=0 --no-run-if-empty chmod "${default_perms}"
 }
