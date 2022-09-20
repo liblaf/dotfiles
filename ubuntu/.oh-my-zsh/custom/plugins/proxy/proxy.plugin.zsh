@@ -9,7 +9,7 @@ function get-ip() {
   export host_ip="$(hostname --all-ip-address | awk '{print $1}')"
 }
 
-function print-ip() {
+function ip-loc() {
   get-ip
   if command -v https >"/dev/null"; then
     https --body "https://ipapi.co/yaml/"
@@ -38,7 +38,7 @@ function proxy() {
     export ftp_proxy="${FTP_PROXY}"
     export all_proxy="${ALL_PROXY}"
     export no_proxy="${NO_PROXY}"
-    print-ip
+    ip-loc
     ;;
   esac
   unset router_ip
@@ -64,7 +64,7 @@ function unproxy() {
     unset ftp_proxy
     unset all_proxy
     unset no_proxy
-    print-ip
+    ip-loc
     ;;
   esac
   unset router_ip
