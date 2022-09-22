@@ -2,7 +2,7 @@
 
 function ntp() {
   # https://tuna.moe/help/ntp/
-  sudo ntpdate "${1:-"ntp.tuna.tsinghua.edu.cn"}"
+  sudo sntp "${1:-"ntp.tuna.tsinghua.edu.cn"}"
 }
 
 function time-sync() {
