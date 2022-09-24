@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 export LESS='-R --use-color -Dd+R$-Du+G'
 
@@ -14,14 +14,4 @@ function color-table() {
     done
     echo
   done
-}
-
-function color-makefile() {
-  cat <<-EOF | tee --append Makefile >"/dev/null"
-ERROR   := \$(shell tput bold)\$(shell tput setaf 1)
-SUCCESS := \$(shell tput bold)\$(shell tput setaf 2)
-WARNING := \$(shell tput bold)\$(shell tput setaf 3)
-INFO    := \$(shell tput bold)\$(shell tput setaf 4)
-RESET   := \$(shell tput init)
-EOF
 }

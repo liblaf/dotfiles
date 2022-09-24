@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 function import-keys() {
   if [[ -n "${1}" && -d "${1}" ]]; then

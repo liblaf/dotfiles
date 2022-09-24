@@ -1,10 +1,4 @@
-#!/usr/bin/env bash
-
-if command -v cz >"/dev/null"; then
-  function cz() {
-    command cz --gpg-sign
-  }
-fi
+#!/usr/bin/env zsh
 
 function git-config() {
   old_user_name="$(git config --global user.name)"

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-function u-update() {
+function update() {
   apt-update
-  snap-update
   brew-update
-  python-update
-  node-update
+  pip-update
+  pnpm-update
+  snap-update
 }
 
 function apt-update() {
@@ -25,7 +25,7 @@ function brew-update() {
   brew upgrade
 }
 
-function python-update() {
+function pip-update() {
   echo "Updating Conda packages ..."
   conda update --all
   echo "Updating pip packages ..."
@@ -35,19 +35,19 @@ function python-update() {
     xargs --max-args=1 --no-run-if-empty pip install --upgrade
 }
 
-function node-update() {
+function pnpm-update() {
   echo "Updating Node.js ..."
   pnpm env use --global lts
   echo "Updating pnpm packages ..."
   pnpm update --global
 }
 
-function u-clean() {
+function clean() {
   apt-clean
   brew-clean
   cache-clean
-  python-clean
-  node-clean
+  pip-clean
+  pnpm-clean
   zsh-clean
 }
 
@@ -69,14 +69,14 @@ function cache-clean() {
   rm --force --recursive "${HOME}/.cache/"
 }
 
-function python-clean() {
+function pip-clean() {
   echo "Cleaning python ..."
   conda clean --all
   pip cache purge
 }
 
-function node-clean() {
-  echo "Cleaning Node.js ..."
+function pnpm-clean() {
+  echo "Cleaning pnpm store ..."
   pnpm store prune
 }
 
