@@ -1,12 +1,31 @@
 #!/usr/bin/env bash
 
+if command -v "https" >"/dev/null"; then
+  # HTTPie
+  function _download() {
+    https --body --download --output "${output}" "${url}"
+  }
+elif command -v "curl" >"/dev/null"; then
+  # cURL
+  function _download() {
+    curl --output "${output}" "${url}"
+  }
+elif command -v "wget" >"/dev/null"; then
+  function _download() {
+    wget --output-document="${output}" "${url}"
+  }
+else
+  echo "Download tool not found!"
+  echo "Supported download tools: \"HTTPie\", \"cURL\", \"wget\""
+fi
+
 function confirm() {
   echo -n "${@:-"Are you sure?"} [y/N] "
   read response
   if [[ "${response}" =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    true
+    return 0
   else
-    false
+    return 1
   fi
 }
 
@@ -15,34 +34,52 @@ function download() {
   local output="${2:-"$(basename "${url}")"}"
   if [[ -e "${output}" ]]; then
     if confirm "Are you sure to overwrite \"${output}\"?"; then
-      wget --output-document="${output}" "${url}"
+      _download
     fi
   else
     local dirname="$(dirname "${output}")"
     if [[ -n "${dirname}" ]]; then
       mkdir --parents "${dirname}"
     fi
-    wget --output-document="${output}" "${url}"
+    _download
   fi
 }
 
 function extract() {
   local input="${1}"
   local output="${2:-"$(pwd)"}"
-  local overwrite_mode=""
+  local overwrite=""
   if [[ -e "${output}" ]]; then
-    echo "Are you sure to overwrite all existing files under \"${output}\"?"
-    if confirm "YES to comfirm or NO to skip extracting of existing files."; then
-      overwrite_mode="-aoa"
+    echo "YES    : overwrite existing files without prompting."
+    echo "NO     : never overwrite existing files."
+    echo "Ctrl-C : cancel extraction."
+    if confirm "Are you sure to overwrite existing files under \"${output}\"?"; then
+      overwrite="y"
     else
-      overwrite_mode="-aos"
+      overwrite="n"
     fi
+  else
+    mkdir --parents "${output}"
   fi
-  mkdir --parents "${output}"
   if [[ "${input}" =~ ^.*\.zip$ ]]; then
-    7zz x "${overwrite_mode}" -snld -o"${output}" -- "${input}"
+    if [[ "${overwrite}" == "y" ]]; then
+      overwrite="-o"
+    else
+      overwrite="-n"
+    fi
+    local num_files="$(zipinfo -1 "${input}" | wc --lines)"
+    unzip ${overwrite} "${input}" -d "${output}" |
+      pv --size "${num_files}" --line-mode --name "${input} => ${output}" >"/dev/null"
   elif [[ "${input}" =~ ^.*\.tar\.gz$ ]]; then
-    7zz x -so -snld -- "${input}" |
-      7zz x "${overwrite_mode}" -si -snld -ttar -o"${output}"
+    if [[ "${overwrite}" == "y" ]]; then
+      overwrite="--overwrite"
+    else
+      overwrite="--keep-old-files"
+    fi
+    pv --name "${input} => ${output}" "${input}" |
+      tar --extract ${overwrite} --gunzip --directory "${output}"
+  else
+    echo "Cannot extract \"${input}\"."
+    echo "Supported formats: *.zip, *.tar.gz"
   fi
 }
