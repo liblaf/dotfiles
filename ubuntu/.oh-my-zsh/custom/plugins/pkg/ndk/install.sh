@@ -6,7 +6,6 @@ source "$(dirname "$(dirname "${0}")")/utils.sh"
 
 echo "Do not use this script to install NDK."
 echo "Use SDK Manager in Android Studio instead."
-exit 1
 
 version="${1}"
 
