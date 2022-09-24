@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+set -o errexit
+set -o nounset
 
-sudo snap remove --purge code
+sudo apt purge --auto-remove code
