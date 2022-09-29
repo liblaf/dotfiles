@@ -78,9 +78,29 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  color ialias igit key ntp perms pkg proxy update
-  wakatime zsh-autosuggestions zsh-syntax-highlighting
-  aliases gitignore
+  aliases
+  brew
+  colored-man-pages
+  command-not-found
+  extract
+  fzf
+  gitignore
+  perms
+  universalarchive
+  zoxide
+
+  conda-zsh-completion
+  wakatime
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+
+  ialias
+  igit
+  key
+  ntp
+  pkg
+  proxy
+  update
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src

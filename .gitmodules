@@ -16,3 +16,6 @@
 [submodule "ubuntu/grub-theme/argon-grub-theme"]
 	path = ubuntu/grub-theme/argon-grub-theme
 	url = https://github.com/stuarthayhurst/argon-grub-theme.git
+[submodule "ubuntu/.oh-my-zsh/custom/plugins/conda-zsh-completion"]
+	path = ubuntu/.oh-my-zsh/custom/plugins/conda-zsh-completion
+	url = https://github.com/conda-incubator/conda-zsh-completion.git

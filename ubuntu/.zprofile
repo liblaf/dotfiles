@@ -1,19 +1,31 @@
-# ~/.zprofile: executed by the command interpreter for login shells.
+# ~/.zprofile: user .zprofile file for zsh(1).
+#
+# This file is sourced only for login shells (i.e. shells
+# invoked with "-" as the first character of argv[0], and
+# shells invoked with the -l flag.)
+#
+# Global Order: zshenv, zprofile, zshrc, zlogin
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ]; then
-  PATH="$HOME/bin:$PATH"
+if ! command -v brew &>"/dev/null"; then
+  if [[ -x /opt/homebrew/bin/brew ]]; then
+    BREW_LOCATION="/opt/homebrew/bin/brew"
+  elif [[ -x /usr/local/bin/brew ]]; then
+    BREW_LOCATION="/usr/local/bin/brew"
+  elif [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+    BREW_LOCATION="/home/linuxbrew/.linuxbrew/bin/brew"
+  elif [[ -x "$HOME/.linuxbrew/bin/brew" ]]; then
+    BREW_LOCATION="$HOME/.linuxbrew/bin/brew"
+  else
+    return
+  fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ]; then
-  PATH="$HOME/.local/bin:$PATH"
+if [[ -z "$HOMEBREW_PREFIX" ]]; then
+  if [[ -z $BREW_LOCATION ]]; then
+    eval "$(brew shellenv)"
+  else
+    eval "$("$BREW_LOCATION" shellenv)"
+  fi
 fi
 
-if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-if [ -d "$(brew --prefix)/share/zsh/site-functions" ]; then
-  export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-fi
+export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
