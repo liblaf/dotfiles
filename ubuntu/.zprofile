@@ -28,4 +28,7 @@ if [[ -z "$HOMEBREW_PREFIX" ]]; then
   fi
 fi
 
-export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+if [[ -d "$(brew --prefix)/share/zsh/site-functions" ]]; then
+  fpath+="$(brew --prefix)/share/zsh/site-functions"
+  export FPATH
+fi
