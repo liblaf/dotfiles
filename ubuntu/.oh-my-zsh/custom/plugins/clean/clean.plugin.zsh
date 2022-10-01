@@ -19,7 +19,7 @@ function clean-brew() {
 }
 
 function clean-cache() {
-  _exec rm --force "${HOME}/.cache/"
+  _exec rm --force --recursive "${HOME}/.cache/"
 }
 
 function clean-pip() {
