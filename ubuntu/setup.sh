@@ -1,44 +1,31 @@
 #!/usr/bin/env bash
-set -o xtrace
-set -o errexit
-set -o nounset
 
-cd "$(dirname "${0}")"
-prefix="$(pwd)"
-
-function setup-omz() {
-  git submodule update --init --remote --depth 1 --recursive
-  rm --force --recursive "${ZSH_CUSTOM:-"${ZSH:-"${HOME}/.oh-my-zsh"}/custom"}"
-  cp --recursive "${prefix}/.oh-my-zsh/custom/" "${ZSH_CUSTOM:-"${ZSH:-"${HOME}/.oh-my-zsh"}/custom"}"
-  cp "${prefix}/.zshrc" "${HOME}/"
-  cp "${prefix}/.zprofile" "${HOME}/"
-  cp "${prefix}/.p10k.zsh" "${HOME}/"
+function install-common() {
+  sudo apt install build-essential procps curl file git # brew requirements
+  sudo apt install sntp
+  sudo apt install libarchive-tools # ranger requirements (bsdtar)
 }
 
-function setup-brew() {
-  cp "${prefix}/.Brewfile" "${HOME}/"
-  rm --force "${HOME}/.Brewfile.lock.json"
-  if command -v brew >"/dev/null"; then
-    brew bundle install --global
-  fi
+function install-zsh() {
+  sudo apt install zsh
+  chsh --shell "$(which zsh)"
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
-function setup-pip() {
-  if command -v pip >"/dev/null"; then
-    pip install --requirement "${prefix}/requirements.txt"
-  fi
+function install-brew() {
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
-function setup-grub-theme() {
-  bash "${prefix}/grub-theme/install.sh"
-}
+sub_command="${1:-"all"}"
+shift
 
-if [[ -n "${@}" ]]; then
-  for sub_command in "${@}"; do
-    "setup-${sub_command}"
-  done
-else
-  for sub_command in omz brew pip grub-theme; do
-    "setup-${sub_command}"
-  done
-fi
+case "${sub_command}" in
+"all")
+  install-common
+  install-zsh
+  install-brew
+  ;;
+*)
+  "install-${sub_command}"
+  ;;
+esac
