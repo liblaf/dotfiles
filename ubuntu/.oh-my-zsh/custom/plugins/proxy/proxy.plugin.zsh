@@ -73,11 +73,13 @@ function unproxy() {
 
 function proxy-git() {
   get-ip
-  git config --global "http.https://github.com.proxy" "${HTTP_PROXY}"
+  git config --global "http.proxy" "${HTTP_PROXY}"
+  git config --global "https.proxy" "${HTTPS_PROXY}"
 }
 
 function unproxy-git() {
-  git config --global --unset-all "http.https://github.com.proxy"
+  git config --global --unset "http.proxy"
+  git config --global --unset "https.proxy"
 }
 
 function proxy-apt() {
