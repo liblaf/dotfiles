@@ -22,7 +22,7 @@ function update-pip() {
   pip list --outdated --format freeze |
     grep --invert-match '^\-e' |
     cut --delimiter='=' --fields=1 |
-    xargs --max-args=1 --no-run-if-empty _exec pip install --upgrade
+    _exec xargs --max-args=1 --no-run-if-empty pip install --upgrade
 }
 
 function update-pnpm() {
