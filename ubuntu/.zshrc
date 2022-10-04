@@ -97,7 +97,7 @@ plugins=(
   zsh-syntax-highlighting
 
   clean
-  ialias
+  my-aliases
   igit
   key
   ntp
