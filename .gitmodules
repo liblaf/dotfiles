@@ -19,3 +19,9 @@
 [submodule "ubuntu/grub2-themes"]
 	path = ubuntu/grub2-themes
 	url = https://github.com/vinceliuice/grub2-themes.git
+[submodule "ubuntu/ohmyzsh"]
+	path = ubuntu/ohmyzsh
+	url = https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git
+[submodule "ubuntu/brew-install"]
+	path = ubuntu/brew-install
+	url = https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git

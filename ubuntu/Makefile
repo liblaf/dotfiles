@@ -4,6 +4,9 @@ git-submodules:
 	git submodule update --init --remote --depth 1 --recursive
 
 brew: .Brewfile
+ifndef HOMEBREW_PREFIX
+	bash brew-install/install.sh
+endif
 	cp $< $(HOME)/
 	brew bundle install --global
 
@@ -21,6 +24,12 @@ grub: git-submodules | grub2-themes
 	# cd grub-theme/argon-grub-theme/ && sudo bash install.sh --install --background dusk --resolution 4k --fontsize 32 --help-label
 
 ohmyzsh: git-submodules .zprofile .zshrc .p10k.zsh | .oh-my-zsh/
+ifdef ZSH
+	git -C $${ZSH} remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git
+	git -C $${ZSH} pull
+else
+	REMOTE=https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git sh ohmyzsh/tools/install.sh
+endif
 	cp .zprofile $(HOME)/
 	cp .zshrc $(HOME)/
 	cp .p10k.zsh $(HOME)/
