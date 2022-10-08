@@ -4,7 +4,7 @@ set -o nounset
 
 source "$(dirname "$(dirname "${0}")")/utils.sh"
 
-version="${version:-"0.20.4"}"
+version="${version:-"0.20.5"}"
 filename="Clash.for.Windows-${version}-x64-linux.tar.gz"
 filepath="${HOME}/Downloads/${filename}"
 download "https://github.com/Fndroid/clash_for_windows_pkg/releases/download/${version}/${filename}" "${filepath}"
