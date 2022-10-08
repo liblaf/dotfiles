@@ -20,6 +20,12 @@ if ! command -v brew &>"/dev/null"; then
   fi
 fi
 
+# https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+# https://mirrors.tuna.tsinghua.edu.cn/help/homebrew-bottles/
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+
 if [[ -z "$HOMEBREW_PREFIX" ]]; then
   if [[ -z $BREW_LOCATION ]]; then
     eval "$(brew shellenv)"
