@@ -96,6 +96,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
 
+  argcomplete
   clean
   my-aliases
   igit
