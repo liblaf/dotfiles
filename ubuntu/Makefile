@@ -29,11 +29,12 @@ ifdef ZSH
 	git -C $${ZSH} pull
 else
 	REMOTE=https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git sh ohmyzsh/tools/install.sh
+	bash $|/custom/plugins/pkg/fonts/install.sh
 endif
 	cp .zprofile $(HOME)/
 	cp .zshrc $(HOME)/
 	cp .p10k.zsh $(HOME)/
-	cp --recursive .oh-my-zsh/ $(HOME)/
+	cp --recursive $| $(HOME)/
 
 pip:
 	python -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip
