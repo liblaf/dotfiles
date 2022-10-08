@@ -7,3 +7,18 @@ filename="code.deb"
 filepath="${HOME}/Downloads/${filename}"
 download "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" "${filepath}"
 sudo apt install "${filepath}"
+
+extensions=(
+  aaron-bond.better-comments
+  donjayamanne.python-extension-pack
+  eamodio.gitlens
+  esbenp.prettier-vscode
+  foxundermoon.shell-format
+  ms-vscode.cpptools-extension-pack
+  streetsidesoftware.code-spell-checker
+  WakaTime.vscode-wakatime
+)
+
+for extension in "${extensions[@]}"; do
+  code --install-extension "${extension}"
+done
