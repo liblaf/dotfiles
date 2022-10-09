@@ -15,6 +15,7 @@ extensions=(
   esbenp.prettier-vscode
   foxundermoon.shell-format
   James-Yu.latex-workshop
+  llvm-vs-code-extensions.vscode-clangd
   ms-vscode.cpptools-extension-pack
   streetsidesoftware.code-spell-checker
   WakaTime.vscode-wakatime
