@@ -14,6 +14,7 @@ extensions=(
   eamodio.gitlens
   esbenp.prettier-vscode
   foxundermoon.shell-format
+  James-Yu.latex-workshop
   ms-vscode.cpptools-extension-pack
   streetsidesoftware.code-spell-checker
   WakaTime.vscode-wakatime
