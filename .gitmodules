@@ -1,27 +1,27 @@
 [submodule "ubuntu/.oh-my-zsh/custom/plugins/conda-zsh-completion"]
-	path = ubuntu/.oh-my-zsh/custom/plugins/conda-zsh-completion
-	url = https://github.com/conda-incubator/conda-zsh-completion.git
+path = ubuntu/.oh-my-zsh/custom/plugins/conda-zsh-completion
+url = https://github.com/conda-incubator/conda-zsh-completion.git
 [submodule "ubuntu/.oh-my-zsh/custom/plugins/wakatime"]
-	path = ubuntu/.oh-my-zsh/custom/plugins/wakatime
-	url = https://github.com/sobolevn/wakatime-zsh-plugin.git
+path = ubuntu/.oh-my-zsh/custom/plugins/wakatime
+url = https://github.com/sobolevn/wakatime-zsh-plugin.git
 [submodule "ubuntu/.oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-	path = ubuntu/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions.git
+path = ubuntu/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+url = https://github.com/zsh-users/zsh-autosuggestions.git
 [submodule "ubuntu/.oh-my-zsh/custom/plugins/zsh-completions"]
-	path = ubuntu/.oh-my-zsh/custom/plugins/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions.git
+path = ubuntu/.oh-my-zsh/custom/plugins/zsh-completions
+url = https://github.com/zsh-users/zsh-completions.git
 [submodule "ubuntu/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-	path = ubuntu/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+path = ubuntu/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 [submodule "ubuntu/.oh-my-zsh/custom/themes/powerlevel10k"]
-	path = ubuntu/.oh-my-zsh/custom/themes/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "ubuntu/grub2-themes"]
-	path = ubuntu/grub2-themes
-	url = https://github.com/vinceliuice/grub2-themes.git
-[submodule "ubuntu/ohmyzsh"]
-	path = ubuntu/ohmyzsh
-	url = https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git
+path = ubuntu/.oh-my-zsh/custom/themes/powerlevel10k
+url = https://github.com/romkatv/powerlevel10k.git
 [submodule "ubuntu/brew-install"]
-	path = ubuntu/brew-install
-	url = https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git
+path = ubuntu/brew-install
+url = https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git
+[submodule "ubuntu/grub2-themes"]
+path = ubuntu/grub2-themes
+url = https://github.com/vinceliuice/grub2-themes.git
+[submodule "ubuntu/ohmyzsh"]
+path = ubuntu/ohmyzsh
+url = https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git
