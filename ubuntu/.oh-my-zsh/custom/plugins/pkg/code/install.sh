@@ -19,6 +19,7 @@ extensions=(
   ms-vscode.cpptools-extension-pack
   streetsidesoftware.code-spell-checker
   WakaTime.vscode-wakatime
+  wwm.better-align
 )
 
 for extension in "${extensions[@]}"; do
