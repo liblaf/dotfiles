@@ -5,47 +5,38 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "gitsubmodule"
-    directory:
-      - "/ubuntu/.oh-my-zsh/custom/plugins/conda-zsh-completion"
+    directory: "/ubuntu/.oh-my-zsh/custom/plugins/conda-zsh-completion"
     schedule:
       interval: "weekly"
   - package-ecosystem: "gitsubmodule"
-    directory:
-      - "/ubuntu/.oh-my-zsh/custom/plugins/wakatime"
+    directory: "/ubuntu/.oh-my-zsh/custom/plugins/wakatime"
     schedule:
       interval: "weekly"
   - package-ecosystem: "gitsubmodule"
-    directory:
-      - "/ubuntu/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    directory: "/ubuntu/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
     schedule:
       interval: "weekly"
   - package-ecosystem: "gitsubmodule"
-    directory:
-      - "/ubuntu/.oh-my-zsh/custom/plugins/zsh-completions"
+    directory: "/ubuntu/.oh-my-zsh/custom/plugins/zsh-completions"
     schedule:
       interval: "weekly"
   - package-ecosystem: "gitsubmodule"
-    directory:
-      - "/ubuntu/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    directory: "/ubuntu/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
     schedule:
       interval: "weekly"
   - package-ecosystem: "gitsubmodule"
-    directory:
-      - "/ubuntu/.oh-my-zsh/custom/themes/powerlevel10k"
+    directory: "/ubuntu/.oh-my-zsh/custom/themes/powerlevel10k"
     schedule:
       interval: "weekly"
   - package-ecosystem: "gitsubmodule"
-    directory:
-      - "/ubuntu/brew-install"
+    directory: "/ubuntu/brew-install"
     schedule:
       interval: "weekly"
   - package-ecosystem: "gitsubmodule"
-    directory:
-      - "/ubuntu/grub2-themes"
+    directory: "/ubuntu/grub2-themes"
     schedule:
       interval: "weekly"
   - package-ecosystem: "gitsubmodule"
-    directory:
-      - "/ubuntu/ohmyzsh"
+    directory: "/ubuntu/ohmyzsh"
     schedule:
       interval: "weekly"
