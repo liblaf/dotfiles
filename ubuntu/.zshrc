@@ -96,11 +96,11 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
 
-  argcomplete
   clean
-  my-aliases
+  completion
   igit
   key
+  my-aliases
   ntp
   pkg
   proxy
