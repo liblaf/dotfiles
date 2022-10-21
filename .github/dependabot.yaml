@@ -4,3 +4,16 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+  - package-ecosystem: "gitsubmodule"
+    directory:
+      - "/ubuntu/.oh-my-zsh/custom/plugins/conda-zsh-completion"
+      - "/ubuntu/.oh-my-zsh/custom/plugins/wakatime"
+      - "/ubuntu/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+      - "/ubuntu/.oh-my-zsh/custom/plugins/zsh-completions"
+      - "/ubuntu/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+      - "/ubuntu/.oh-my-zsh/custom/themes/powerlevel10k"
+      - "/ubuntu/brew-install"
+      - "/ubuntu/grub2-themes"
+      - "/ubuntu/ohmyzsh"
+    schedule:
+      interval: "weekly"
