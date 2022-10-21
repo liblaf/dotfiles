@@ -21,20 +21,18 @@ fzf: .fzf.zsh
 
 grub: git-submodules | grub2-themes
 	sudo $|/install.sh --screen 4k
-	# cd grub-theme/argon-grub-theme/ && sudo bash install.sh --install --background dusk --resolution 4k --fontsize 32 --help-label
 
-ohmyzsh: git-submodules .zprofile .zshrc .p10k.zsh | .oh-my-zsh/
-ifdef ZSH
-	git -C $${ZSH} remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git
-	git -C $${ZSH} pull
-else
+ohmyzsh: git-submodules .p10k.zsh .zprofile .zshrc | .oh-my-zsh/
+ifndef ZSH
 	REMOTE=https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git sh ohmyzsh/tools/install.sh
 	bash $|/custom/plugins/pkg/fonts/install.sh
+	git -C $$ZSH remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git
+	git -C $$ZSH pull
 endif
+	cp --recursive $| $(HOME)/
+	cp .p10k.zsh $(HOME)/
 	cp .zprofile $(HOME)/
 	cp .zshrc $(HOME)/
-	cp .p10k.zsh $(HOME)/
-	cp --recursive $| $(HOME)/
 
 pip:
 	python -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip
