@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/zsh
 
 function _exist() {
   if command -v "${@}" >"/dev/null" 2>&1; then
@@ -11,6 +11,11 @@ function _exist() {
 # bat
 if _exist bat; then
   alias cat="bat"
+fi
+
+# bottom
+if _exist btm; then
+  alias top="btm"
 fi
 
 # colored
@@ -28,11 +33,6 @@ if _exist exa; then
   if ! command -v tree >"/dev/null"; then
     alias tree="exa --tree --icons"
   fi
-fi
-
-# glances
-if _exist glances; then
-  alias top="glances"
 fi
 
 # zoxide
