@@ -1,31 +1,42 @@
-#!/usr/bin/env zsh
+#!/usr/bin/zsh
 
-pkg_scripts_dir="$(dirname "${0}")"
+function pkg_exec() {
+  if [[ -e "${PKG_HOME}/${name}/${cmd}.zsh" ]]; then
+    zsh "${PKG_HOME}/${name}/${cmd}.zsh" "${@}"
+  elif [[ -e "${PKG_HOME}/${name}/${cmd}.sh" ]]; then
+    bash "${PKG_HOME}/${name}/${cmd}.sh" "${@}"
+  else
+    bash "${PKG_HOME}/${name}/${cmd}.sh" "${@}"
+  fi
+}
+
+function pkg_source() {
+  if [[ -e "${PKG_HOME}/${name}/${cmd}.zsh" ]]; then
+    source "${PKG_HOME}/${name}/${cmd}.zsh"
+  elif [[ -e "${PKG_HOME}/${name}/${cmd}.sh" ]]; then
+    source "${PKG_HOME}/${name}/${cmd}.sh"
+  else
+    source "${PKG_HOME}/${name}/${cmd}.sh"
+  fi
+}
 
 function pkg() {
+  local PKG_HOME="${ZSH_CUSTOM}/plugins/pkg"
+  export PKG_HOME
   local cmd="${1}"
-  shift
-  local name="${1}"
-  shift
+  local name="${2}"
+  shift 2
   case "${cmd}" in
-  install)
-    bash "${pkg_scripts_dir}/${name}/${cmd}.sh" "${@}"
+  doctor) pkg_exec "${@}" ;;
+  install) pkg_exec "${@}" ;;
+  load) pkg_source "${@}" ;;
+  reinstall)
+    pkg uninstall "${name}" "${@}"
+    pkg install "${name}" "${@}"
     ;;
-  uninstall)
-    bash "${pkg_scripts_dir}/${name}/${cmd}.sh" "${@}"
-    ;;
-  load)
-    source "${pkg_scripts_dir}/${name}/${cmd}.sh" "${@}"
-    ;;
-  unload)
-    source "${pkg_scripts_dir}/${name}/${cmd}.sh" "${@}"
-    ;;
-  doctor)
-    bash "${pkg_scripts_dir}/${name}/${cmd}.sh" "${@}"
-    ;;
-  *)
-    bash "${pkg_scripts_dir}/${name}/${cmd}.sh" "${@}"
-    ;;
+  uninstall) pkg_exec "${@}" ;;
+  unload) pkg_source "${@}" ;;
+  *) pkg_exec "${@}" ;;
   esac
 }
 

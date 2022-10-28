@@ -1,5 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 set -o errexit
 set -o nounset
 
-brew uninstall llvm
+if [[ -n "${1:-""}" ]]; then
+  brew uninstall "llvm@${1}"
+else
+  brew uninstall llvm
+fi

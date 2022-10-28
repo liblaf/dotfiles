@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 set -o errexit
 set -o nounset
 
-rm --force --recursive "${HOME}/.local/pkgs/clash-for-windows/"
+source "${PKG_HOME}/utility.sh"
 
-DESKTOP_FILE_INSTALL_DIR="${HOME}/.local/share/applications"
+rm --force --recursive "${HOME}/.local/opt/clash-for-windows"
 rm --force "${DESKTOP_FILE_INSTALL_DIR}/clash-for-windows.desktop"

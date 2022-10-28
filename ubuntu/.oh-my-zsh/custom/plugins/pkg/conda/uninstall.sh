@@ -5,9 +5,9 @@ set -o nounset
 
 conda init --reverse zsh
 
-rm --force --recursive "${CONDA_PREFIX}/"
+rm --force --recursive "${CONDA_PREFIX}"
 rm --force "${HOME}/.condarc"
-rm --force --recursive "${HOME}/.conda/"
-rm --force --recursive "${HOME}/.continuum/"
+rm --force --recursive "${HOME}/.conda"
+rm --force --recursive "${HOME}/.continuum"
 
 unset CONDA_PREFIX

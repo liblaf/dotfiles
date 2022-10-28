@@ -1,8 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 set -o errexit
 set -o nounset
 
-source "$(dirname "$(dirname "$(realpath "${0}")")")/utils.sh"
+source "${PKG_HOME}/utility.sh"
+
 filename="code.deb"
 filepath="${HOME}/Downloads/${filename}"
 download "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" "${filepath}"
@@ -17,6 +18,7 @@ extensions=(
   James-Yu.latex-workshop
   llvm-vs-code-extensions.vscode-clangd
   ms-vscode.cpptools-extension-pack
+  nico-castell.linux-desktop-file
   streetsidesoftware.code-spell-checker
   WakaTime.vscode-wakatime
   wwm.better-align
