@@ -29,7 +29,7 @@ plugins=(
 
   clean
   completion
-  igit
+  git-setup
   key
   my-aliases
   ntp
