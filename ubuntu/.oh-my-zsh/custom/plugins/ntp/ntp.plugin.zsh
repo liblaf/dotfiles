@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/zsh
 
 function ntp() {
   # https://tuna.moe/help/ntp/

@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/zsh
 
 function get-ip() {
   if [[ -n "${WSL_DISTRO_NAME}" ]]; then
@@ -11,7 +11,7 @@ function get-ip() {
 
 function ip-loc() {
   get-ip
-  if command -v https >"/dev/null"; then
+  if command -v https >/dev/null 2>&1; then
     https --body "https://ipapi.co/yaml/"
   fi
   echo "Router IP : ${router_ip}"
@@ -84,8 +84,8 @@ function unproxy-git() {
 
 function proxy-apt() {
   get-ip
-  echo "Acquire::http::Proxy \"${HTTP_PROXY}\";" | sudo tee "/etc/apt/apt.conf.d/proxy.conf" >"/dev/null"
-  echo "Acquire::https::Proxy \"${HTTPS_PROXY}\";" | sudo tee --append "/etc/apt/apt.conf.d/proxy.conf" >"/dev/null"
+  echo "Acquire::http::Proxy \"${HTTP_PROXY}\";" | sudo tee "/etc/apt/apt.conf.d/proxy.conf" >/dev/null
+  echo "Acquire::https::Proxy \"${HTTPS_PROXY}\";" | sudo tee --append "/etc/apt/apt.conf.d/proxy.conf" >/dev/null
 }
 
 function unproxy-apt() {

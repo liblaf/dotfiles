@@ -1,11 +1,4 @@
-#!/usr/bin/env bash
-
-function _exec() {
-  echo -n "\x1b[1;94m"
-  echo "${@}"
-  echo -n "\x1b[0m"
-  "${@}"
-}
+#!/usr/bin/zsh
 
 function clean-apt() {
   _exec sudo apt clean
@@ -36,6 +29,12 @@ function clean-zsh() {
 }
 
 function clean() {
+  function _exec() {
+    echo -n "\x1b[1;94m"
+    echo "${@}"
+    echo -n "\x1b[0m"
+    "${@}"
+  }
   case "${1:-"all"}" in
   "all")
     for target in apt brew cache pip pnpm zsh; do
@@ -46,4 +45,5 @@ function clean() {
     "clean-${1}"
     ;;
   esac
+  unset _exec
 }
