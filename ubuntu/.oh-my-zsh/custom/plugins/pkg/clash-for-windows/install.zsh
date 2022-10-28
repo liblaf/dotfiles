@@ -15,7 +15,7 @@ mv "${HOME}/.local/opt/Clash for Windows-${version}-x64-linux" "${HOME}/.local/o
 
 # install desktop entry
 download "https://github.com/Dreamacro/clash/raw/master/docs/logo.png" "${HOME}/.local/opt/clash-for-windows/logo.png"
-name="Clash for Windows"
-exec="${HOME}/.local/opt/clash-for-windows/cfw"
-icon="${HOME}/.local/opt/clash-for-windows/logo.png"
+Name="Clash for Windows"
+Exec="${HOME}/.local/opt/clash-for-windows/cfw"
+Icon="${HOME}/.local/opt/clash-for-windows/logo.png"
 desktop-entry-install "clash-for-windows"

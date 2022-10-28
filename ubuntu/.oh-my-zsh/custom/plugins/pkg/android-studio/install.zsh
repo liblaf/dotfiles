@@ -13,9 +13,9 @@ function install-android-studio() {
   rm --force --recursive "${HOME}/.local/opt/android-studio/${version}"
   mv ${HOME}/.local/opt/android-studio-*/android-studio "${HOME}/.local/opt/android-studio/${version}"
   rm --force --recursive ${HOME}/.local/opt/android-studio-*
-  local name="Android Studio ${version}"
-  local exec="${HOME}/.local/opt/android-studio/${version}/bin/studio.sh"
-  local icon="${HOME}/.local/opt/android-studio/${version}/bin/studio.png"
+  local Name="Android Studio ${version}"
+  local Exec="${HOME}/.local/opt/android-studio/${version}/bin/studio.sh"
+  local Icon="${HOME}/.local/opt/android-studio/${version}/bin/studio.png"
   desktop-entry-install "android-studio-${version}"
   note Add \`adb\` to path: \`pkg doctor android-studio\`
 }

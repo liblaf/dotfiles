@@ -15,3 +15,12 @@ if command -v extract >/dev/null 2>&1; then
 fi
 
 source "${PKG_HOME}/utility.sh"
+
+function desktop-entry-install-append() {
+  local key="${1}"
+  local default="${2:-""}"
+  local value="${(P)key:-"${default}"}"
+  if [[ -n "${value:-""}" ]]; then
+    echo "${key}=${value}" >>"${filepath}"
+  fi
+}

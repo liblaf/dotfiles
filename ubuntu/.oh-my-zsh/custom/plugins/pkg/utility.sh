@@ -24,21 +24,39 @@ function take() {
   cd "${@}"
 }
 
+function replace() {
+  rm --force --recursive "${2}"
+  mv "${1}" "${2}"
+}
+
+function desktop-entry-install-append() {
+  local key="${1}"
+  local default="${2:-""}"
+  local value="${!key:-"${default}"}"
+  if [[ -n "${value:-""}" ]]; then
+    echo "${key}=${value}" >>"${filepath}"
+  fi
+}
+
 function desktop-entry-install() {
+  function append() {
+    desktop-entry-install-append "${@}"
+  }
   local filename="${1}.desktop"
   mkdir --parents "${DESKTOP_FILE_INSTALL_DIR}"
   local filepath="${DESKTOP_FILE_INSTALL_DIR}/${filename}"
   echo "[Desktop Entry]" >"${filepath}"
-  echo "Type=${type:-"Application"}" >>"${filepath}"
-  echo "Name=${name:-"${1}"}" >>"${filepath}"
-  if [[ -n "${folder:-""}" ]]; then
-    echo "Path=${folder}" >>"${filepath}"
-  fi
-  echo "Exec=${exec}" >>"${filepath}"
-  if [[ -n "${icon:-""}" ]]; then
-    echo "Icon=${icon}" >>"${filepath}"
-  fi
-  echo "Terminal=${terminal:-"false"}" >>"${filepath}"
+  append Type "Application"
+  append Name "${1}"
+  append Comment
+  append Path
+  append Exec
+  append Icon
+  append Terminal "false"
+  append Categories
+  append MimeType
+  append GenericName
+  append StartupNotify
   desktop-file-install --dir "${DESKTOP_FILE_INSTALL_DIR}" "${filepath}"
 }
 
