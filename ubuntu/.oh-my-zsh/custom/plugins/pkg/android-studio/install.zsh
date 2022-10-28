@@ -10,8 +10,7 @@ function install-android-studio() {
   local filepath="${HOME}/Downloads/${filename}"
   download "https://redirector.gvt1.com/edgedl/android/studio/ide-zips/${version}/${filename}" "${filepath}"
   ext "${filepath}" "${HOME}/.local/opt"
-  rm --force --recursive "${HOME}/.local/opt/android-studio/${version}"
-  mv ${HOME}/.local/opt/android-studio-*/android-studio "${HOME}/.local/opt/android-studio/${version}"
+  replace ${HOME}/.local/opt/android-studio-*/android-studio "${HOME}/.local/opt/android-studio/${version}"
   rm --force --recursive ${HOME}/.local/opt/android-studio-*
   local Name="Android Studio ${version}"
   local Exec="${HOME}/.local/opt/android-studio/${version}/bin/studio.sh"
