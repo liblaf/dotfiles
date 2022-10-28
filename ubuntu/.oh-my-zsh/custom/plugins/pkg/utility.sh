@@ -2,6 +2,13 @@
 
 export DESKTOP_FILE_INSTALL_DIR="${HOME}/.local/share/applications"
 
+function note() {
+  echo -e -n "\033[1;94m"
+  echo -n "[NOTE] "
+  echo -n "${@}"
+  echo -e "\033[0m"
+}
+
 function confirm() {
   echo -n "${@:-"Are you sure?"} [y/N] "
   read response
