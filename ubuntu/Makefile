@@ -10,7 +10,7 @@ ZSHRC    := $(HOME)/.zshrc
 all: $(ALL)
 
 .PHONY: brew
-brew: .Brewfile gitmodules
+brew: .Brewfile
 ifndef HOMEBREW_PREFIX
 	@ warn \`brew\` is not installed
 	@ exec bash brew-install/install.sh
@@ -27,7 +27,7 @@ $(CONDA): .condarc
 	@ exec cp $^ $@
 
 .PHONY: grub
-grub: gitmodules
+grub:
 	@ exec sudo grub2-themes/install.sh --screen 4k
 
 .PHONY: pip
@@ -50,7 +50,8 @@ ifndef ZSH
 	@ git -C $(HOME)/.oh-my-zsh pull
 	@ warn You need to re-run \`make\` to install ohmyzsh
 else
-	@ exec cp --recursive .oh-my-zsh/custom/* $(ZSH_CUSTOM)
+	@ exec rm --force --recursive $(ZSH_CUSTOM)
+	@ exec cp --recursive .oh-my-zsh/custom $(ZSH_CUSTOM)
 endif
 
 $(FZF)      : .fzf.zsh
