@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 
 function pkg-list() {
-  fd --type directory . ubuntu/.oh-my-zsh/custom/plugins/pkg --exec basename |
+  fd --type directory . "${ZSH_CUSTOM}/plugins/pkg" --exec basename |
     sort |
     pr --columns 4 --omit-header --omit-pagination --width 80
 }
