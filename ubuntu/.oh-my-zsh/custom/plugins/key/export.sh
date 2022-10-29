@@ -3,11 +3,17 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-function note() {
-  echo -e -n "\033[1;94m"
-  echo -n "[NOTE] "
-  echo -n "${@}"
-  echo -e "\033[0m"
+function info() {
+  rich --print "[bold bright_blue]${*}"
+}
+
+function success() {
+  rich --print "[bold bright_green]${*}"
+}
+
+function call() {
+  info "+ ${*}"
+  "${@}"
 }
 
 if [[ -n "${1:-""}" ]]; then
@@ -15,29 +21,30 @@ if [[ -n "${1:-""}" ]]; then
 else
   keys_home="$(pwd)"
 fi
-note "Exporting keys to \"${keys_home}/\" ..."
+success "Exporting keys to ${keys_home} ..."
 
 # ssh
 ssh_home="${keys_home}/ssh"
-note "Exporting SSH keys to \"${ssh_home}\" ..."
+success "Exporting SSH keys to ${ssh_home} ..."
 mkdir --parents "${ssh_home}"
 if [[ -r "${HOME}/.ssh/config" ]]; then
-  note "Exporting SSH config ..."
-  cp "${HOME}/.ssh/config" "${ssh_home}"
+  success "Exporting SSH config ..."
+  call cp "${HOME}/.ssh/config" "${ssh_home}"
 else
-  note "SSH config file not found"
+  success "SSH config file not found"
 fi
 for type in dsa ecdsa ed25519 ed25519-sk rsa; do
   if [[ -r "${HOME}/.ssh/id_${type}" ]]; then
-    note "Exporting SSH ${type} key ..."
-    cp "${HOME}/.ssh/id_${type}" "${ssh_home}"
-    cp "${HOME}/.ssh/id_${type}.pub" "${ssh_home}"
+    success "Exporting SSH ${type} key ..."
+    call cp "${HOME}/.ssh/id_${type}" "${ssh_home}"
+    call cp "${HOME}/.ssh/id_${type}.pub" "${ssh_home}"
   fi
 done
 
 # gpg
 gpg_home="${keys_home}/gpg"
-note "Exporting GPG keys to \"${gpg_home}\" ..."
+success "Exporting GPG keys to ${gpg_home} ..."
 mkdir --parents "${gpg_home}"
+info "+ gpg --export-secret-keys --armor"
 gpg --export-secret-keys --armor |
   tee "${gpg_home}/secret.key" >/dev/null

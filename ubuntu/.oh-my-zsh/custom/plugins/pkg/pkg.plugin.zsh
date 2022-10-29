@@ -1,6 +1,12 @@
 #!/usr/bin/zsh
 
-function pkg_exec() {
+function pkg-list() {
+  fd --type directory . ubuntu/.oh-my-zsh/custom/plugins/pkg --exec basename |
+    sort |
+    pr --columns 4 --omit-header --omit-pagination --width 80
+}
+
+function pkg-call() {
   if [[ -e "${PKG_HOME}/${name}/${cmd}.zsh" ]]; then
     zsh "${PKG_HOME}/${name}/${cmd}.zsh" "${@}"
   elif [[ -e "${PKG_HOME}/${name}/${cmd}.sh" ]]; then
@@ -10,7 +16,7 @@ function pkg_exec() {
   fi
 }
 
-function pkg_source() {
+function pkg-source() {
   if [[ -e "${PKG_HOME}/${name}/${cmd}.zsh" ]]; then
     source "${PKG_HOME}/${name}/${cmd}.zsh"
   elif [[ -e "${PKG_HOME}/${name}/${cmd}.sh" ]]; then
@@ -24,19 +30,23 @@ function pkg() {
   local PKG_HOME="${ZSH_CUSTOM}/plugins/pkg"
   export PKG_HOME
   local cmd="${1}"
-  local name="${2}"
-  shift 2
+  shift 1
+  if [[ -n "${1}" ]]; then
+    local name="${1}"
+    shift 1
+  fi
   case "${cmd}" in
-  doctor) pkg_exec "${@}" ;;
-  install) pkg_exec "${@}" ;;
-  load) pkg_source "${@}" ;;
+  doctor) pkg-call "${@}" ;;
+  install) pkg-call "${@}" ;;
+  list) pkg-list ;;
+  load) pkg-source "${@}" ;;
   reinstall)
-    pkg uninstall "${name}" "${@}"
     pkg install "${name}" "${@}"
+    pkg uninstall "${name}" "${@}"
     ;;
-  uninstall) pkg_exec "${@}" ;;
-  unload) pkg_source "${@}" ;;
-  *) pkg_exec "${@}" ;;
+  uninstall) pkg-call "${@}" ;;
+  unload) pkg-source "${@}" ;;
+  *) pkg-call "${@}" ;;
   esac
 }
 

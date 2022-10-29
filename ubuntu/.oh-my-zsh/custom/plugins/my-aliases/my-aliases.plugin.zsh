@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-function _exist() {
+function exist() {
   if command -v "${@}" >"/dev/null" 2>&1; then
     return 0
   else
@@ -9,22 +9,22 @@ function _exist() {
 }
 
 # bat
-if _exist bat; then
+if exist bat; then
   alias cat="bat"
 fi
 
 # bottom
-if _exist btm; then
+if exist btm; then
   alias top="btm"
 fi
 
 # colored
-if _exist colored; then
+if exist colored; then
   alias less="colored less"
 fi
 
 # exa
-if _exist exa; then
+if exist exa; then
   alias l="exa --long --icons --all --header --git"
   alias la="exa --long --icons --all --header --git"
   alias ll="exa --long --icons --header --git"
@@ -35,9 +35,19 @@ if _exist exa; then
   fi
 fi
 
+# neovim
+if exist nvim; then
+  alias vim="nvim"
+fi
+
+# texdoc-cli
+if exist texdoc-cli; then
+  alias texdoc="texdoc-cli pkg"
+fi
+
 # zoxide
-if _exist z; then
+if exist z; then
   alias cd="z"
 fi
 
-unset _exist
+unset exist

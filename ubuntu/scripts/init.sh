@@ -1,32 +1,20 @@
 function info() {
-  echo -e -n "\033[94m"
-  echo -n "   [INFO] "
-  echo -n "${@}"
-  echo -e "\033[0m"
+  rich --print "[bold bright_blue]   [INFO] ${*}"
 }
 
 function success() {
-  echo -e -n "\033[1;92m"
-  echo -n "[SUCCESS] "
-  echo -n "${@}"
-  echo -e "\033[0m"
+  rich --print "[bold bright_green][SUCCESS] ${*}"
 }
 
-function warn() {
-  echo -e -n "\033[1;93m"
-  echo -n "[WARNING] "
-  echo -n "${@}"
-  echo -e "\033[0m"
+function warning() {
+  rich --print "[bold bright_yellow][WARNING] ${*}"
 }
 
 function error() {
-  echo -e -n "\033[1;91m"
-  echo -n "  [ERROR] "
-  echo -n "${@}"
-  echo -e "\033[0m"
+  rich --print "[bold bright_red]  [ERROR] ${*}"
 }
 
-function exec() {
-  info "${@}"
+function call() {
+  rich --print "[bold bright_blue]+ ${*}"
   "${@}"
 }

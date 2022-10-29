@@ -15,10 +15,13 @@ plugins=(
   brew
   colored-man-pages
   command-not-found
+  common-aliases
   extract
   fzf
+  git
   gitignore
   perms
+  tmux
   universalarchive
   zoxide
 
@@ -29,9 +32,9 @@ plugins=(
 
   clean
   completion
-  git-setup
   key
   my-aliases
+  my-git
   ntp
   pkg
   proxy

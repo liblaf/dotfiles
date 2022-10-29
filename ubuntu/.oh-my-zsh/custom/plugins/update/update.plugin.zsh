@@ -1,19 +1,29 @@
 #!/usr/bin/zsh
 
+function call() {
+  rich --print "[bold bright_blue]+ ${*}"
+  "${@}"
+}
+
 function update-apt() {
-  _exec sudo apt update
-  _exec sudo apt upgrade
+  call sudo apt update
+  call sudo apt dist-upgrade
 }
 
 function update-brew() {
-  _exec brew update
-  _exec brew upgrade
+  call brew update
+  call brew upgrade
+}
+
+function update-npm() {
+  call pnpm env use --global lts
+  call pnpm update --global
 }
 
 function update-pip() {
-  _exec conda update --all
+  call conda update --all
   while read pkg; do
-    _exec pip install --upgrade "${pkg}"
+    call pip install --upgrade "${pkg}"
   done < <(
     pip list --outdated --format json |
       jq --raw-output '.[] | "\(.name)==\(.latest_version)"' |
@@ -21,31 +31,29 @@ function update-pip() {
   )
 }
 
-function update-pnpm() {
-  _exec pnpm env use --global lts
-  _exec pnpm update --global
+function update-snap() {
+  call sudo snap refresh
 }
 
-function update-snap() {
-  _exec sudo snap refresh
+function update-tldr() {
+  tldr --update
 }
 
 function update() {
-  function _exec() {
-    echo -n "\x1b[1;94m"
-    echo "${@}"
-    echo -n "\x1b[0m"
-    "${@}"
-  }
-  case "${1:-"all"}" in
+  if [[ -n "${1}" ]]; then
+    local cmd="${1}"
+    shift 1
+  else
+    local cmd="all"
+  fi
+  case "${cmd}" in
   "all")
-    for target in apt brew pip pnpm snap; do
-      "update-${target}"
+    for target in apt brew cache npm tldr; do
+      "update-${target}" "${@}"
     done
     ;;
   *)
-    "update-${1}"
+    "update-${cmd}" "${@}"
     ;;
   esac
-  unset _exec
 }

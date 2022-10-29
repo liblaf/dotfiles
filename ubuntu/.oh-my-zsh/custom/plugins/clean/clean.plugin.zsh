@@ -1,49 +1,64 @@
 #!/usr/bin/zsh
 
+function call() {
+  rich --print "[bold bright_blue]+ ${*}"
+  "${@}"
+}
+
 function clean-apt() {
-  _exec sudo apt clean
-  _exec sudo apt autoclean
-  _exec sudo apt autoremove
+  call sudo apt autoclean
+  call sudo apt autoremove
+  call sudo apt clean
 }
 
 function clean-brew() {
-  _exec brew autoremove
-  _exec brew cleanup
+  call brew autoremove
+  call brew cleanup
 }
 
 function clean-cache() {
-  _exec rm --force --recursive "${HOME}/.cache/"
+  call rm --force --recursive "${HOME}/.cache/"
+  local files=(/tmp/*)
+  for file in "${files[@]}"; do
+    call rm --force --recursive "${file}"
+  done
+}
+
+function clean-npm() {
+  call pnpm store prune
 }
 
 function clean-pip() {
-  _exec conda clean --all
-  _exec pip cache purge
+  call conda clean --all
+  call pip cache purge
 }
 
-function clean-pnpm() {
-  _exec pnpm store prune
+function clean-tldr() {
+  call tldr --clear-cache
 }
 
 function clean-zsh() {
-  _exec rm --force ${HOME}/.zcompdump*
+  local files=(${HOME}/.zcompdump* ${HOME}/.bash*)
+  for file in "${files[@]}"; do
+    call rm --force --recursive "${file}"
+  done
 }
 
 function clean() {
-  function _exec() {
-    echo -n "\x1b[1;94m"
-    echo "${@}"
-    echo -n "\x1b[0m"
-    "${@}"
-  }
-  case "${1:-"all"}" in
+  if [[ -n "${1}" ]]; then
+    local cmd="${1}"
+    shift 1
+  else
+    local cmd="all"
+  fi
+  case "${cmd}" in
   "all")
-    for target in apt brew cache pip pnpm zsh; do
-      "clean-${target}"
+    for target in apt brew cache npm pip tldr zsh; do
+      "clean-${target}" "${@}"
     done
     ;;
   *)
-    "clean-${1}"
+    "clean-${cmd}" "${@}"
     ;;
   esac
-  unset _exec
 }

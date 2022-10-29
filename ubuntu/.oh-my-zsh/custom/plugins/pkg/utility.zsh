@@ -11,6 +11,8 @@ if command -v extract >/dev/null 2>&1; then
       set +o errexit
       extract "${1}"
     )
+    success "Extract: [link=${1}]${1}[/link]"
+    success "         => [link=${work_dir}]${work_dir}[/link]"
   }
 fi
 

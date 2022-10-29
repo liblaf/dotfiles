@@ -9,7 +9,7 @@ tag_format = "$version"
 version_files = ["pyproject.toml:version"]
 
 [tool.poetry]
-name = "template"
+name = "dotfiles"
 version = "0.0.0"
 description = ""
 authors = ["Qin Li <liblaf@outlook.com>"]

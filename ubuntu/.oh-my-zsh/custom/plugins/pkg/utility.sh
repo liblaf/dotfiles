@@ -2,17 +2,30 @@
 
 export DESKTOP_FILE_INSTALL_DIR="${HOME}/.local/share/applications"
 
-function note() {
-  echo -e -n "\033[1;94m"
-  echo -n "[NOTE] "
-  echo -n "${@}"
-  echo -e "\033[0m"
+function info() {
+  rich --print "[bold bright_blue]${*}"
+}
+
+function success() {
+  rich --print "[bold bright_green]${*}"
+}
+
+function call() {
+  info "+ ${*}"
+  "${@}"
 }
 
 function confirm() {
-  echo -n "${@:-"Are you sure?"} [y/N] "
-  read response
-  if [[ "${response}" =~ ^([yY][eE][sS]|[yY])$ ]]; then
+  echo -e -n "\x1b[1;92m"
+  echo -n "?"
+  echo -e -n "\x1b[0m\x1b[1m"
+  echo -n " ${@:-"Confirm"} "
+  echo -e -n "\x1b[0m\x1b[90m"
+  echo -n "(y/N) "
+  echo -e -n "\x1b[0m\x1b[96m"
+  read res
+  echo -e "\x1b[0m"
+  if [[ "${res}" =~ ^([yY][eE][sS]|[yY])$ ]]; then
     return 0
   else
     return 1
@@ -93,43 +106,6 @@ function download() {
     fi
     _download
   fi
+  success "Download: [link=${output}]${output}[/link]"
+  success "          <= [link=${url}]${url}[/link]"
 }
-
-# function extract() {
-#   local input="${1}"
-#   local output="${2:-"$(pwd)"}"
-#   local overwrite=""
-#   if [[ -e "${output}" ]]; then
-#     echo "YES    : overwrite existing files without prompting."
-#     echo "NO     : never overwrite existing files."
-#     echo "Ctrl-C : cancel extraction."
-#     if confirm "Are you sure to overwrite existing files under \"${output}\"?"; then
-#       overwrite="y"
-#     else
-#       overwrite="n"
-#     fi
-#   else
-#     mkdir --parents "${output}"
-#   fi
-#   if [[ "${input}" =~ ^.*\.zip$ ]]; then
-#     if [[ "${overwrite}" == "y" ]]; then
-#       overwrite="-o"
-#     else
-#       overwrite="-n"
-#     fi
-#     local num_files="$(zipinfo -1 "${input}" | wc --lines)"
-#     unzip ${overwrite} "${input}" -d "${output}" |
-#       pv --size "${num_files}" --line-mode --name "${input} => ${output}" >"/dev/null"
-#   elif [[ "${input}" =~ ^.*\.tar\.gz$ ]]; then
-#     if [[ "${overwrite}" == "y" ]]; then
-#       overwrite="--overwrite"
-#     else
-#       overwrite="--keep-old-files"
-#     fi
-#     pv --name "${input} => ${output}" "${input}" |
-#       tar --extract ${overwrite} --gunzip --directory "${output}"
-#   else
-#     echo "Cannot extract \"${input}\"."
-#     echo "Supported formats: *.zip, *.tar.gz"
-#   fi
-# }
