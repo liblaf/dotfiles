@@ -49,14 +49,14 @@ ulimit -n "$(ulimit -H -n)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/liblaf/.local/pkgs/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/liblaf/.local/opt/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/liblaf/.local/pkgs/conda/etc/profile.d/conda.sh" ]; then
-        . "/home/liblaf/.local/pkgs/conda/etc/profile.d/conda.sh"
+    if [ -f "/home/liblaf/.local/opt/conda/etc/profile.d/conda.sh" ]; then
+        . "/home/liblaf/.local/opt/conda/etc/profile.d/conda.sh"
     else
-        export PATH="/home/liblaf/.local/pkgs/conda/bin:$PATH"
+        export PATH="/home/liblaf/.local/opt/conda/bin:$PATH"
     fi
 fi
 unset __conda_setup
