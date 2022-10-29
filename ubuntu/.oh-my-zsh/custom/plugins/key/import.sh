@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 set -o errexit
 set -o nounset
+set -o pipefail
 
 function note() {
   echo -e -n "\033[1;94m"

@@ -2,6 +2,7 @@
 # https://conda.io/projects/conda/en/latest/user-guide/install/macos.html#uninstalling-anaconda-or-miniconda
 set -o errexit
 set -o nounset
+set -o pipefail
 
 conda init --reverse zsh
 

@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 set -o errexit
 set -o nounset
+set -o pipefail
 
 source "${PKG_HOME}/utility.sh"
 
@@ -17,9 +18,11 @@ extensions=(
   foxundermoon.shell-format
   James-Yu.latex-workshop
   llvm-vs-code-extensions.vscode-clangd
+  ms-python.black-formatter
   ms-vscode.cpptools-extension-pack
   nico-castell.linux-desktop-file
   streetsidesoftware.code-spell-checker
+  tamasfe.even-better-toml
   WakaTime.vscode-wakatime
   wwm.better-align
 )

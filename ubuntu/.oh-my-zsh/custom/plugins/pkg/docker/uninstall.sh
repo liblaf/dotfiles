@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -o errexit
 set -o nounset
+set -o pipefail
 
 rootlesskit rm -rf ~/.local/share/docker
 cd ~/bin

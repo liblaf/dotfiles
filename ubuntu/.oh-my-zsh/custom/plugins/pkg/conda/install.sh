@@ -2,6 +2,7 @@
 # https://conda.io/projects/conda/en/latest/user-guide/install/macos.html#install-macos-silent
 set -o errexit
 set -o nounset
+set -o pipefail
 
 source "${PKG_HOME}/utility.sh"
 

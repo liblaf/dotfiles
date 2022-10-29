@@ -2,6 +2,7 @@
 # https://www.zotero.org/download/
 set -o errexit
 set -o nounset
+set -o pipefail
 
 source "${PKG_HOME}/utility.zsh"
 
