@@ -9,12 +9,18 @@ ZSHRC    := $(HOME)/.zshrc
 .PHONY: all
 all: $(ALL)
 
+APT_PKGS := build-essential curl git zsh
+APT_PKGS += libarchive-tools sntp
+APT_PKGS += libfuse2 libffi7
 .PHONY: apt
-apt: PKGS := build-essential curl git zsh
-apt: PKGS += libarchive-tools sntp
-apt: PKGS += libfuse2 libffi7
-apt:
-	@ for pkg in $(PKGS); do { call sudo apt install $${pkg}; }	done
+apt: $(addsuffix .deb, $(APT_PKGS))
+
+define apt-install =
+.PHONY: $(1).deb
+$(1).deb:
+	@ call sudo apt install $(1)
+endef
+$(foreach pkg, $(APT_PKGS), $(eval $(call apt-install, $(pkg))))
 
 .PHONY: brew
 brew: .Brewfile
