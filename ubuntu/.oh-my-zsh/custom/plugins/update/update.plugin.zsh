@@ -36,7 +36,7 @@ function update-snap() {
 }
 
 function update-tldr() {
-  tldr --update
+  call tldr --update
 }
 
 function update() {
@@ -48,7 +48,7 @@ function update() {
   fi
   case "${cmd}" in
   "all")
-    for target in apt brew cache npm tldr; do
+    for target in apt brew cache npm snap tldr; do
       "update-${target}" "${@}"
     done
     ;;
