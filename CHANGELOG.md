@@ -1,3 +1,9 @@
+## 0.1.4 (2022-10-30)
+
+### Fix
+
+- **zsh/my-git**: pass args to template.sh
+
 ## 0.1.3 (2022-10-30)
 
 ### Fix
