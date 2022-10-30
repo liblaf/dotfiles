@@ -1,3 +1,10 @@
+## 0.1.2 (2022-10-30)
+
+### Fix
+
+- **zsh/update**: auto update snap
+- **zsh/clean**: fix glob error
+
 ## 0.1.1 (2022-10-30)
 
 ### Fix
