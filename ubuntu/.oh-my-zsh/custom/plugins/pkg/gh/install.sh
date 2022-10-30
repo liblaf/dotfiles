@@ -7,3 +7,5 @@ brew install gh
 
 gh auth login
 gh auth setup-git
+
+gh extension install dlvhdr/gh-dash
