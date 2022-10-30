@@ -1,3 +1,1 @@
 # dotfiles
-
-configuration files
