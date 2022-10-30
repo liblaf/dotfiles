@@ -27,5 +27,5 @@ extensions=(
 )
 
 for extension in "${extensions[@]}"; do
-  code --install-extension "${extension}"
+  code --install-extension "${extension}" --force
 done
