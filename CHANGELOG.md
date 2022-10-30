@@ -1,3 +1,11 @@
+## 0.1.3 (2022-10-30)
+
+### Fix
+
+- **zsh/pkg**: add gh extention dlvhdr/gh-dash
+- **zsh/pkg**: force install vscode extension
+- **zsh/update**: auto update gh extension
+
 ## 0.1.2 (2022-10-30)
 
 ### Fix
