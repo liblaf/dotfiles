@@ -72,6 +72,8 @@ jobs:
         name: Detect Build Script
         shell: bash
         run: |
+          set +o errexit
+          set +o pipefail
           cat pyproject.toml | grep "build = \".*.build:run\""
           if (( $? == 0 )); then
             echo "build=true" >> $GITHUB_OUTPUT
