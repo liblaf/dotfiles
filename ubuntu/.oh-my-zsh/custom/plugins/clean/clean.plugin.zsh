@@ -17,11 +17,8 @@ function clean-brew() {
 }
 
 function clean-cache() {
-  call rm --force --recursive "${HOME}/.cache/"
-  local files=(/tmp/*)
-  for file in "${files[@]}"; do
-    call rm --force --recursive "${file}"
-  done
+  fd --hidden --no-ignore --max-depth 1 . /tmp
+  call fd --hidden --no-ignore --max-depth 1 . /tmp --exec rm --force --recursive
 }
 
 function clean-npm() {
@@ -38,9 +35,9 @@ function clean-tldr() {
 }
 
 function clean-zsh() {
-  local files=(${HOME}/.zcompdump* ${HOME}/.bash*)
-  for file in "${files[@]}"; do
-    call rm --force --recursive "${file}"
+  for pattern in "zcompdump" "bash" "^.profile$"; do
+    fd --hidden --no-ignore --max-depth 1 "${pattern}" "${HOME}"
+    call fd --hidden --no-ignore --max-depth 1 "${pattern}" "${HOME}" --exec rm --force --recursive
   done
 }
 
