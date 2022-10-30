@@ -12,5 +12,5 @@ name="${1}"
 
 call gh repo create "${name}" --clone --public --template template
 call cd "${name}"
-call bash "scripts/template.sh"
 call pre-commit install --install-hooks
+call bash "scripts/template.sh"
