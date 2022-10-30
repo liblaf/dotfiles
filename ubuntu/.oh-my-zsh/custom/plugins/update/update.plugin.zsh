@@ -15,6 +15,10 @@ function update-brew() {
   call brew upgrade
 }
 
+function update-gh() {
+  call gh extension upgrade --all
+}
+
 function update-npm() {
   call pnpm env use --global lts
   call pnpm update --global
@@ -48,7 +52,7 @@ function update() {
   fi
   case "${cmd}" in
   "all")
-    for target in apt brew cache npm snap tldr; do
+    for target in apt brew gh npm snap tldr; do
       "update-${target}" "${@}"
     done
     ;;
