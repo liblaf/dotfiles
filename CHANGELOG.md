@@ -1,3 +1,13 @@
+## 0.2.0 (2022-11-06)
+
+### Feat
+
+- config onedrive
+
+### Fix
+
+- **zsh/my-git**: prevent exit on confirm no
+
 ## 0.1.4 (2022-10-30)
 
 ### Fix
