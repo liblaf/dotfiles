@@ -1,7 +1,5 @@
 #!/usr/bin/bash
-set -o errexit
 set -o nounset
-set -o pipefail
 
 function info() {
   rich --print "[bold bright_blue]${*}"
