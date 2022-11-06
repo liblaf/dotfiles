@@ -40,6 +40,12 @@ if exist nvim; then
   alias vim="nvim"
 fi
 
+# onedrive
+if exist onedrive; then
+  alias drive-p="onedrive --confdir \"${HOME}/.config/onedrive-personal\""
+  alias drive="onedrive --confdir \"${HOME}/.config/onedrive-public\""
+fi
+
 # texdoc-cli
 if exist texdoc-cli; then
   alias texdoc="texdoc-cli pkg"

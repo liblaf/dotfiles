@@ -1,5 +1,5 @@
 SHELL    := /usr/bin/bash --init-file $(CURDIR)/scripts/init.sh -o errexit -i
-ALL      := apt brew grub pip ubuntu zsh
+ALL      := apt brew config grub pip ubuntu zsh
 CONDARC  := $(HOME)/.condarc
 FZF      := $(HOME)/.fzf.zsh
 P10K     := $(HOME)/.p10k.zsh
@@ -32,6 +32,10 @@ else
 	@ call cp $< $(HOME)
 	@ call brew bundle install --global --no-lock
 endif
+
+.PHONY: config
+config:
+	@ call cp --recursive .config $(HOME)
 
 .PHONY: grub
 grub:
