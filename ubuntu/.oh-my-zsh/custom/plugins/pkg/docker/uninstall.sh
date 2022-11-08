@@ -3,6 +3,15 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-rootlesskit rm -rf ~/.local/share/docker
-cd ~/bin
-rm -f containerd containerd-shim containerd-shim-runc-v2 ctr docker docker-init docker-proxy dockerd dockerd-rootless-setuptool.sh dockerd-rootless.sh rootlesskit rootlesskit-docker-proxy runc vpnkit
+source "${PKG_HOME}/utility.sh"
+
+# Uninstall the Docker Engine, CLI, containerd, and Docker Compose packages:
+sudo apt purge docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+# Images, containers, volumes, or custom configuration files on your host
+# aren't automatically removed. To delete all images, containers, and volumes:
+sudo rm --force --recursive /var/lib/docker
+sudo rm --force --recursive /var/lib/containerd
+
+# You must delete any edited configuration files manually.
+info "You must delete any edited configuration files manually."
