@@ -7,33 +7,33 @@ source "$(dirname "$(dirname "${0}")")/utils.sh"
 
 function get-version() {
   case "${1}" in
-  "r25b" | "25" | "25.1" | "25.1.8937393")
-    ndk_version="25.1.8937393"
-    ndk_tag="r25b"
-    ;;
-  "r24" | "24" | "24.0" | "24.0.8215888")
-    ndk_version="24.0.8215888"
-    ndk_tag="r24"
-    ;;
-  "r23c" | "23" | "23.2" | "23.2.8568313")
-    ndk_version="23.2.8568313"
-    ndk_tag="r23c"
-    ;;
-  "r22b" | "22.1" | "22.1.7171670")
-    ndk_version="22.1.7171670"
-    ndk_tag="r22b"
-    ;;
-  "r22" | "22" | "22.0" | "22.0.7026061")
-    ndk_version="22.0.7026061"
-    ndk_tag="r22"
-    ;;
-  "r21e" | "21" | "21.4" | "21.4.7075529")
-    ndk_version="21.4.7075529"
-    ndk_tag="r21e"
-    ;;
-  *)
-    echo "This script does not support NDK version \"${1}\""
-    ;;
+    "r25b" | "25" | "25.1" | "25.1.8937393")
+      ndk_version="25.1.8937393"
+      ndk_tag="r25b"
+      ;;
+    "r24" | "24" | "24.0" | "24.0.8215888")
+      ndk_version="24.0.8215888"
+      ndk_tag="r24"
+      ;;
+    "r23c" | "23" | "23.2" | "23.2.8568313")
+      ndk_version="23.2.8568313"
+      ndk_tag="r23c"
+      ;;
+    "r22b" | "22.1" | "22.1.7171670")
+      ndk_version="22.1.7171670"
+      ndk_tag="r22b"
+      ;;
+    "r22" | "22" | "22.0" | "22.0.7026061")
+      ndk_version="22.0.7026061"
+      ndk_tag="r22"
+      ;;
+    "r21e" | "21" | "21.4" | "21.4.7075529")
+      ndk_version="21.4.7075529"
+      ndk_tag="r21e"
+      ;;
+    *)
+      echo "This script does not support NDK version \"${1}\""
+      ;;
   esac
   echo "NDK Version   : ${ndk_version}"
   echo "NDK Tag       : ${ndk_tag}"
@@ -60,7 +60,7 @@ function copy-prebuilt() {
   cp --recursive "${SOURCE_LLVM_HOME}" "${DEST_LLVM_HOME}"
 }
 
-if [[ -n "${1}" ]]; then
+if [[ -n ${1} ]]; then
   sub_command="${1}"
   shift 1
 else
@@ -68,13 +68,13 @@ else
 fi
 
 case "${sub_command}" in
-"install-prebuilt")
-  install-prebuilt "${@}"
-  ;;
-"copy-prebuilt")
-  copy-prebuilt "${@}"
-  ;;
-*)
-  echo "Unknown sub-command \"${sub_command}\""
-  ;;
+  "install-prebuilt")
+    install-prebuilt "${@}"
+    ;;
+  "copy-prebuilt")
+    copy-prebuilt "${@}"
+    ;;
+  *)
+    echo "Unknown sub-command \"${sub_command}\""
+    ;;
 esac

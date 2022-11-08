@@ -16,7 +16,7 @@ function call() {
   "${@}"
 }
 
-if [[ -n "${1:-""}" && -d "${1}" ]]; then
+if [[ -n ${1:-""} && -d ${1} ]]; then
   keys_home="${1}"
 else
   keys_home="$(pwd)"

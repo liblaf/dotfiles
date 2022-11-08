@@ -20,17 +20,17 @@ function install-ndk() {
 }
 
 case "${version}" in
-"r25b" | "25" | "25.1" | "25.1.8937393")
-  version="25.1.8937393"
-  filename="android-ndk-r25b-linux.zip"
-  install-ndk
-  ;;
-"r21e" | "21" | "21.4" | "21.4.7075529")
-  version="21.4.7075529"
-  filename="android-ndk-r21e-linux-x86_64.zip"
-  install-ndk
-  ;;
-*)
-  echo "This script does not support NDK version \"${version}\""
-  ;;
+  "r25b" | "25" | "25.1" | "25.1.8937393")
+    version="25.1.8937393"
+    filename="android-ndk-r25b-linux.zip"
+    install-ndk
+    ;;
+  "r21e" | "21" | "21.4" | "21.4.7075529")
+    version="21.4.7075529"
+    filename="android-ndk-r21e-linux-x86_64.zip"
+    install-ndk
+    ;;
+  *)
+    echo "This script does not support NDK version \"${version}\""
+    ;;
 esac

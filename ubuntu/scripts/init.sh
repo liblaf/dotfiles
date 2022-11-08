@@ -1,5 +1,5 @@
 function exist() {
-  command -v "${@}" >/dev/null 2>&1
+  command -v "${@}" > /dev/null 2>&1
 }
 
 if exist rich; then

@@ -16,7 +16,7 @@ function call() {
   "${@}"
 }
 
-if [[ -n "${1:-""}" ]]; then
+if [[ -n ${1:-""} ]]; then
   keys_home="${1}"
 else
   keys_home="$(pwd)"
@@ -47,4 +47,4 @@ success "Exporting GPG keys to ${gpg_home} ..."
 mkdir --parents "${gpg_home}"
 info "+ gpg --export-secret-keys --armor"
 gpg --export-secret-keys --armor |
-  tee "${gpg_home}/secret.key" >/dev/null
+  tee "${gpg_home}/secret.key" > /dev/null

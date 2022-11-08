@@ -20,12 +20,12 @@ sub_command="${1:-"all"}"
 shift
 
 case "${sub_command}" in
-"all")
-  install-common
-  install-zsh
-  install-brew
-  ;;
-*)
-  "install-${sub_command}"
-  ;;
+  "all")
+    install-common
+    install-zsh
+    install-brew
+    ;;
+  *)
+    "install-${sub_command}"
+    ;;
 esac

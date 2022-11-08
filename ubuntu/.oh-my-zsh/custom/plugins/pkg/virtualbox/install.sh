@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-cat <<-EOF | sudo tee "/etc/apt/sources.list.d/virtualbox.list" >"/dev/null"
+cat <<- EOF | sudo tee "/etc/apt/sources.list.d/virtualbox.list" > "/dev/null"
 deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] https://download.virtualbox.org/virtualbox/debian jammy contrib
 EOF
 
