@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 
 function exist() {
-  if command -v "${@}" >"/dev/null" 2>&1; then
+  if command -v "${@}" > "/dev/null" 2>&1; then
     return 0
   else
     return 1
@@ -30,7 +30,7 @@ if exist exa; then
   alias ll="exa --long --icons --header --git"
   alias ls="exa --git"
   alias lsa="exa --long --icons --all --all --header --git"
-  if ! command -v tree >"/dev/null"; then
+  if ! command -v tree > "/dev/null"; then
     alias tree="exa --tree --icons"
   fi
 fi

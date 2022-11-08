@@ -31,23 +31,29 @@ function pkg() {
   export PKG_HOME
   local cmd="${1}"
   shift 1
-  if [[ -n "${1}" ]]; then
+  if [[ -n ${1} ]]; then
     local name="${1}"
     shift 1
   fi
   case "${cmd}" in
-  doctor) pkg-call "${@}" ;;
-  install) pkg-call "${@}" ;;
-  list) pkg-list ;;
-  load) pkg-source "${@}" ;;
-  reinstall)
-    pkg install "${name}" "${@}"
-    pkg uninstall "${name}" "${@}"
-    ;;
-  uninstall) pkg-call "${@}" ;;
-  unload) pkg-source "${@}" ;;
-  *) pkg-call "${@}" ;;
+    doctor) pkg-call "${@}" ;;
+    install) pkg-call "${@}" ;;
+    list) pkg-list ;;
+    load) pkg-source "${@}" ;;
+    reinstall)
+      pkg install "${name}" "${@}"
+      pkg uninstall "${name}" "${@}"
+      ;;
+    uninstall) pkg-call "${@}" ;;
+    unload) pkg-source "${@}" ;;
+    *) pkg-call "${@}" ;;
   esac
 }
 
-pkg load llvm
+pkgs=(
+  docker
+  llvm
+)
+for pkg in "${pkgs[@]}"; do
+  pkg load "${pkg}"
+done

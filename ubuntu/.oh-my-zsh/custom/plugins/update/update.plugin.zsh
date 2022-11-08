@@ -44,20 +44,20 @@ function update-tldr() {
 }
 
 function update() {
-  if [[ -n "${1}" ]]; then
+  if [[ -n ${1} ]]; then
     local cmd="${1}"
     shift 1
   else
     local cmd="all"
   fi
   case "${cmd}" in
-  "all")
-    for target in apt brew gh npm snap tldr; do
-      "update-${target}" "${@}"
-    done
-    ;;
-  *)
-    "update-${cmd}" "${@}"
-    ;;
+    "all")
+      for target in apt brew gh npm snap tldr; do
+        "update-${target}" "${@}"
+      done
+      ;;
+    *)
+      "update-${cmd}" "${@}"
+      ;;
   esac
 }

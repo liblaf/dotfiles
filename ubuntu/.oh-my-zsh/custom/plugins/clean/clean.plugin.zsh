@@ -42,20 +42,20 @@ function clean-zsh() {
 }
 
 function clean() {
-  if [[ -n "${1}" ]]; then
+  if [[ -n ${1} ]]; then
     local cmd="${1}"
     shift 1
   else
     local cmd="all"
   fi
   case "${cmd}" in
-  "all")
-    for target in apt brew cache npm pip tldr zsh; do
-      "clean-${target}" "${@}"
-    done
-    ;;
-  *)
-    "clean-${cmd}" "${@}"
-    ;;
+    "all")
+      for target in apt brew cache npm pip tldr zsh; do
+        "clean-${target}" "${@}"
+      done
+      ;;
+    *)
+      "clean-${cmd}" "${@}"
+      ;;
   esac
 }

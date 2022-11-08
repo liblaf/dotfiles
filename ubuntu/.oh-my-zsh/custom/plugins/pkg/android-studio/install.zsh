@@ -21,22 +21,22 @@ function install-android-studio() {
 }
 
 case "${version}" in
-"2021" | "2021.3" | "2021.3.1" | "2021.3.1.16")
-  version="2021.3.1.16"
-  filename="android-studio-2021.3.1.16-linux.tar.gz"
-  install-android-studio
-  ;;
-"2" | "2.3" | "2.3.3" | "2.3.3.0")
-  version="2.3.3.0"
-  filename="android-studio-ide-162.4069837-linux.zip"
-  install-android-studio
-  ;;
-"2.3.2" | "2.3.2.0")
-  version="2.3.2.0"
-  filename="android-studio-ide-162.3934792-linux.zip"
-  install-android-studio
-  ;;
-*)
-  echo "This script does not support Android Studio version \"${version}\""
-  ;;
+  "2021" | "2021.3" | "2021.3.1" | "2021.3.1.16")
+    version="2021.3.1.16"
+    filename="android-studio-2021.3.1.16-linux.tar.gz"
+    install-android-studio
+    ;;
+  "2" | "2.3" | "2.3.3" | "2.3.3.0")
+    version="2.3.3.0"
+    filename="android-studio-ide-162.4069837-linux.zip"
+    install-android-studio
+    ;;
+  "2.3.2" | "2.3.2.0")
+    version="2.3.2.0"
+    filename="android-studio-ide-162.3934792-linux.zip"
+    install-android-studio
+    ;;
+  *)
+    echo "This script does not support Android Studio version \"${version}\""
+    ;;
 esac
