@@ -1,7 +1,8 @@
 SHELL    := /usr/bin/bash --init-file $(CURDIR)/scripts/init.sh -o errexit -i
-ALL      := apt brew config grub pip ubuntu zsh
+ALL      := apt brew config grub npm pip ubuntu zsh
 CONDARC  := $(HOME)/.condarc
 FZF      := $(HOME)/.fzf.zsh
+NPMRC    := $(HOME)/.npmrc
 P10K     := $(HOME)/.p10k.zsh
 ZPROFILE := $(HOME)/.zprofile
 ZSHRC    := $(HOME)/.zshrc
@@ -40,6 +41,12 @@ config:
 .PHONY: grub
 grub:
 	@ call sudo grub2-themes/install.sh --screen 4k
+
+.PHONY: npm
+npm: $(NPMRC)
+
+$(NPMRC): .npmrc
+	@ call cp $< $(HOME)
 
 .PHONY: pip
 pip: $(CONDARC)
