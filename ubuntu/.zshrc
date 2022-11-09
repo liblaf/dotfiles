@@ -19,7 +19,6 @@ plugins=(
   extract
   fzf
   git
-  gitignore
   perms
   tmux
   universalarchive
