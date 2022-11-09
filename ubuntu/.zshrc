@@ -27,6 +27,7 @@ plugins=(
 
   conda-zsh-completion
   wakatime
+  zsh-autocomplete
   zsh-autosuggestions
   zsh-syntax-highlighting
 
