@@ -63,3 +63,9 @@ else
     "${@}"
   }
 fi
+
+function copy() {
+  mkdir --parents "$(realpath --canonicalize-missing "${2}/..")"
+  cp --recursive "${1}" "${2}"
+  success "${2} <= ${1}"
+}
