@@ -1,0 +1,9 @@
+[Unit]
+Description = Ondrive Business
+After       = network.target
+
+[Service]
+ExecStart = /home/linuxbrew/.linuxbrew/bin/rclone mount drive: %h/drive --vfs-cache-mode full
+
+[Install]
+WantedBy = default.target
