@@ -10,3 +10,5 @@ $(DRIVE)  : .config/systemd/user/drive.service
 $(DRIVE_P): .config/systemd/user/drive-p.service
 $(DRIVE) $(DRIVE_P):
 	@ copy $< $@
+	@ call systemctl --user enable drive
+	@ call systemctl --user enable drive-p
