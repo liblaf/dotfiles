@@ -2,12 +2,78 @@
 
 export DESKTOP_FILE_INSTALL_DIR="${HOME}/.local/share/applications"
 
+function exists() {
+  command -v "${@}" > /dev/null 2>&1
+}
+
+function _log() {
+  echo -e -n "\x1b[${1}m"
+  echo -n "${*:2}"
+  echo -e "\x1b[0m"
+}
+
+function critical() {
+  if exists rich; then
+    rich --print --style "bold reverse bright_red" "${*}"
+  else
+    _log "1;7;91" "${*}"
+  fi
+}
+
+function error() {
+  if exists rich; then
+    rich --print --style "bold red" "${*}"
+  else
+    _log "1;91" "${*}"
+  fi
+}
+
+function warning() {
+  if exists rich; then
+    rich --print --style "bold bright_yellow" "${*}"
+  else
+    _log "1;93" "${*}"
+  fi
+}
+
 function info() {
-  rich --print "[bold bright_blue]${*}"
+  if exists rich; then
+    rich --print --style "bright_blue" "${*}"
+  else
+    _log "94" "${*}"
+  fi
+}
+
+function debug() {
+  if exists rich; then
+    rich --print --style "" "${*}"
+  else
+    _log "0" "${*}"
+  fi
+}
+
+function trace() {
+  if exists rich; then
+    rich --print --style "dim" "${*}"
+  else
+    _log "2" "${*}"
+  fi
 }
 
 function success() {
-  rich --print "[bold bright_green]${*}"
+  if exists rich; then
+    rich --print --style "bold bright_green" "${*}"
+  else
+    _log "1;92" "${*}"
+  fi
+}
+
+function tip() {
+  if exists rich; then
+    rich --print --style "bold bright_cyan" "${*}"
+  else
+    _log "1;96" "${*}"
+  fi
 }
 
 function call() {
@@ -19,10 +85,10 @@ function confirm() {
   echo -e -n "\x1b[1;92m"
   echo -n "?"
   echo -e -n "\x1b[0m\x1b[1m"
-  echo -n " ${@:-"Confirm"} "
+  echo -n " ${*:-"Confirm"} "
   echo -e -n "\x1b[0m\x1b[90m"
   echo -n "(y/N) "
-  echo -e -n "\x1b[0m\x1b[96m"
+  echo -e -n "\x1b[0m\x1b[2m"
   read res
   echo -e "\x1b[0m"
   if [[ ${res} =~ ^([yY][eE][sS]|[yY])$ ]]; then
@@ -37,12 +103,37 @@ function take() {
   cd "${@}"
 }
 
-function replace() {
-  rm --force --recursive "${2}"
+function move() {
+  mkdir --parents "$(realpath --canonicalize-missing "${2}/..")"
   mv "${1}" "${2}"
+  success "Move: ${1} -> ${2}"
 }
 
-function desktop-entry-install-append() {
+function copy() {
+  mkdir --parents "$(realpath --canonicalize-missing "${2}/..")"
+  cp --recursive "${1}" "${2}"
+  success "Copy: ${1} -> ${2}"
+}
+
+function remove() {
+  rm --force --recursive "${@}"
+  success "Remove: ${@}"
+}
+
+function replace() {
+  rm --force --recursive "${2}"
+  mkdir --parents "$(realpath --canonicalize-missing "${2}/..")"
+  mv "${1}" "${2}"
+  success "Replace: ${1} -> ${2}"
+}
+
+function link() {
+  mkdir --parents "$(realpath --canonicalize-missing "${2}/..")"
+  ln --force --relative --symbolic "${1}" "${2}"
+  success "Link: ${2} -> ${1}"
+}
+
+function make-desktop-entry-append() {
   local key="${1}"
   local default="${2:-""}"
   local value="${!key:-"${default}"}"
@@ -51,9 +142,9 @@ function desktop-entry-install-append() {
   fi
 }
 
-function desktop-entry-install() {
+function make-desktop-entry() {
   function append() {
-    desktop-entry-install-append "${@}"
+    make-desktop-entry-append "${@}"
   }
   local filename="${1}.desktop"
   mkdir --parents "${DESKTOP_FILE_INSTALL_DIR}"
@@ -71,26 +162,21 @@ function desktop-entry-install() {
   append GenericName
   append StartupNotify
   desktop-file-install --dir "${DESKTOP_FILE_INSTALL_DIR}" "${filepath}"
+  success "Desktop Entry: ${1}"
 }
 
-if command -v https > /dev/null 2>&1; then
-  # HTTPie
-  function _download() {
+function _download() {
+  if exists https; then
     https --body --download --output "${output}" "${url}"
-  }
-elif command -v curl > /dev/null 2>&1; then
-  # cURL
-  function _download() {
+  elif exists curl; then
     curl --output "${output}" "${url}"
-  }
-elif command -v wget > /dev/null 2>&1; then
-  function _download() {
+  elif exists wget; then
     wget --output-document="${output}" "${url}"
-  }
-else
-  echo "Download tool not found!"
-  echo 'Supported download tools: "HTTPie", "cURL", "wget"'
-fi
+  else
+    error "Download tool not found!"
+    tip 'Supported download tools: "httpie", "cURL", "Wget"'
+  fi
+}
 
 function download() {
   local url="${1}"
@@ -106,6 +192,5 @@ function download() {
     fi
     _download
   fi
-  success "Download: [link=${output}]${output}[/link]"
-  success "          <= [link=${url}]${url}[/link]"
+  success "Download: ${url} -> ${output}"
 }

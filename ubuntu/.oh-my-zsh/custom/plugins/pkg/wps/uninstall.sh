@@ -3,4 +3,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-sudo apt purge wps-office
+source "${PKG_HOME}/utility.sh"
+
+call sudo apt purge wps-office

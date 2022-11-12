@@ -6,7 +6,7 @@ source "${PKG_HOME}/utility.sh"
 filename="get-docker.sh"
 filepath="${HOME}/Downloads/${filename}"
 download "https://get.docker.com" "${filepath}"
-sudo bash "${filepath}"
+call sudo bash "${filepath}"
 
-sudo apt install uidmap
-dockerd-rootless-setuptool.sh install
+call sudo apt install uidmap
+call dockerd-rootless-setuptool.sh install

@@ -4,11 +4,13 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-conda init --reverse zsh
+source "${PKG_HOME}/utility.sh"
 
-rm --force --recursive "${CONDA_PREFIX}"
-rm --force "${HOME}/.condarc"
-rm --force --recursive "${HOME}/.conda"
-rm --force --recursive "${HOME}/.continuum"
+call conda init --reverse zsh
 
-unset CONDA_PREFIX
+remove "${CONDA_PREFIX}"
+remove "${HOME}/.condarc"
+remove "${HOME}/.conda"
+remove "${HOME}/.continuum"
+
+call unset CONDA_PREFIX

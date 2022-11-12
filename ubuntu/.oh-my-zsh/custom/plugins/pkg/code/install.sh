@@ -8,7 +8,7 @@ source "${PKG_HOME}/utility.sh"
 filename="code.deb"
 filepath="${HOME}/Downloads/${filename}"
 download "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" "${filepath}"
-sudo apt install "${filepath}"
+call sudo apt install "${filepath}"
 
 extensions=(
   aaron-bond.better-comments
@@ -27,5 +27,5 @@ extensions=(
 )
 
 for extension in "${extensions[@]}"; do
-  code --install-extension "${extension}" --force
+  call code --install-extension "${extension}" --force
 done

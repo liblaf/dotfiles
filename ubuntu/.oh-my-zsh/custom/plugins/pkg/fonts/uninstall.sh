@@ -3,5 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-rm --force --recursive "${HOME}/.local/share/fonts"
-fc-cache --force --verbose
+source "${PKG_HOME}/utility.sh"
+
+remove "${HOME}/.local/share/fonts"
+call fc-cache --force

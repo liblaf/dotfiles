@@ -3,4 +3,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-sudo snap install vlc
+source "${PKG_HOME}/utility.sh"
+
+call sudo snap install vlc

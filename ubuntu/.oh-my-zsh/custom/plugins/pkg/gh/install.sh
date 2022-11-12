@@ -3,9 +3,11 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-brew install gh
+source "${PKG_HOME}/utility.sh"
 
-gh auth login
-gh auth setup-git
+call brew install gh
 
-gh extension install dlvhdr/gh-dash
+call gh auth login
+call gh auth setup-git
+
+call gh extension install dlvhdr/gh-dash

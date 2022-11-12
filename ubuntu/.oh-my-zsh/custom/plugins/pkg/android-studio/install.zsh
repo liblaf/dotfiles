@@ -16,8 +16,8 @@ function install-android-studio() {
   local Name="Android Studio ${version}"
   local Exec="${HOME}/.local/opt/android-studio/${version}/bin/studio.sh"
   local Icon="${HOME}/.local/opt/android-studio/${version}/bin/studio.png"
-  desktop-entry-install "android-studio-${version}"
-  note Add \`adb\` to path: \`pkg doctor android-studio\`
+  make-desktop-entry "android-studio-${version}"
+  info 'Add `adb` to path: `pkg doctor android-studio`'
 }
 
 case "${version}" in

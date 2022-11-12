@@ -11,5 +11,5 @@ filepath="${HOME}/Downloads/${filename}"
 download "https://repo.anaconda.com/miniconda/${filename}" "${filepath}"
 
 mkdir --parents "${HOME}/.local/opt"
-bash "${filepath}" -b -p "${HOME}/.local/opt/conda"
-"${HOME}/.local/opt/conda/bin/conda" init zsh
+call bash "${filepath}" -b -p "${HOME}/.local/opt/conda"
+call "${HOME}/.local/opt/conda/bin/conda" init zsh

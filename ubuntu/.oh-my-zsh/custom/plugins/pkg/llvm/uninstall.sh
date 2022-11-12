@@ -3,8 +3,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+source "${PKG_HOME}/utility.sh"
+
 if [[ -n ${1:-""} ]]; then
-  brew uninstall "llvm@${1}"
+  call brew uninstall "llvm@${1}"
 else
-  brew uninstall llvm
+  call brew uninstall llvm
 fi

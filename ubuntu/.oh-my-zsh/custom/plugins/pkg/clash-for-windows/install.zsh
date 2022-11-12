@@ -18,4 +18,4 @@ download "https://github.com/Dreamacro/clash/raw/master/docs/logo.png" "${HOME}/
 Name="Clash for Windows"
 Exec="${HOME}/.local/opt/clash-for-windows/cfw"
 Icon="${HOME}/.local/opt/clash-for-windows/logo.png"
-desktop-entry-install "clash-for-windows"
+make-desktop-entry "clash-for-windows"

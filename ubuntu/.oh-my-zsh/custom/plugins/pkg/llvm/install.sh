@@ -3,8 +3,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+source "${PKG_HOME}/utility.sh"
+
 if [[ -n ${1:-""} ]]; then
-  brew install "llvm@${1}"
+  call brew install "llvm@${1}"
 else
-  brew install llvm
+  call brew install llvm
 fi

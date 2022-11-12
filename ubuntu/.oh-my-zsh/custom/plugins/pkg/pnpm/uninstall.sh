@@ -3,10 +3,12 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-rm --force --recursive "${HOME}/.npm"
-rm --force --recursive "${PNPM_HOME}"
+source "${PKG_HOME}/utility.sh"
 
-brew uninstall pnpm
-brew uninstall node
+remove "${HOME}/.npm"
+remove "${PNPM_HOME}"
 
-unset PNPM_HOME
+call brew uninstall pnpm
+call brew uninstall node
+
+call unset PNPM_HOME
