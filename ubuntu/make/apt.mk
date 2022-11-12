@@ -15,6 +15,6 @@ apt-mirror:
 define apt-rule =
 .PHONY: $(1)-apt
 $(1)-apt:
-	@ call sudo apt install $(1)
+	@ if ! apt list $(1) 2>&1 | grep "\[installed\]" > /dev/null 2>&1; then call sudo apt install $(1);	fi
 endef
 $(foreach pkg, $(APT_PKGS), $(eval $(call apt-rule, $(pkg))))
