@@ -51,6 +51,7 @@ function pkg() {
 }
 
 pkgs=(
+  conda
   docker
   llvm
 )
