@@ -1,2 +1,3 @@
 lookForAlignDelims:
+  gather: 1
   split: 1
