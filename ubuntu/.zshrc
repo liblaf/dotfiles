@@ -41,7 +41,7 @@ plugins=(
   update
 )
 
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+# fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,21 +49,6 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ulimit -n "$(ulimit -H -n)"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/liblaf/.local/opt/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/liblaf/.local/opt/conda/etc/profile.d/conda.sh" ]; then
-        . "/home/liblaf/.local/opt/conda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/liblaf/.local/opt/conda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # pnpm
 export PNPM_HOME="/home/liblaf/.local/share/pnpm"
