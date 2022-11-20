@@ -1,10 +1,13 @@
+[commit]
+signingkey = 7A12444CF9D6DD75
+
+[core]
+pager = delta
+
 [init]
 defaultBranch = main
 
 [user]
-name = Qin Li
 email = 30631553+liblaf@users.noreply.github.com
-signingkey = 7A12444CF9D6DD75
-
-[commit]
 gpgsign = true
+name = Qin Li
