@@ -1,3 +1,13 @@
+defaultIndent: "  "
+
 lookForAlignDelims:
-  gather: 1
-  split: 1
+  equation:
+    delimiterRegEx: '(?<!\\)(&|\\qc)'
+  equation*:
+    delimiterRegEx: '(?<!\\)(&|\\qc)'
+  gather:
+    delimiterRegEx: '(?<!\\)(&|\\qc)'
+  gather*:
+    delimiterRegEx: '(?<!\\)(&|\\qc)'
+  split:
+    delimiterRegEx: '(?<!\\)(&|\\qc)'
