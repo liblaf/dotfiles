@@ -52,7 +52,7 @@ fi
 # https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key
 echo "GPG secret keys:"
 gpg --list-secret-keys --keyid-format=long
-call git config --global commit.gpgsign true
+call git config --global commit.gpgSign true
 old_user_signingkey="$(git config --global user.signingkey)"
 if [[ -z ${old_user_signingkey} ]]; then
   old_user_signingkey="7A12444CF9D6DD75"
