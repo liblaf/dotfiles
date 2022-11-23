@@ -1,3 +1,39 @@
+## 0.5.0 (2022-11-23)
+
+### Feat
+
+- **zsh/pkg**: add asciinema
+- **templates**: add markdown
+- add gitconfig
+- config rclone
+
+### Fix
+
+- **git**: fix config
+- **latexindent**: update settings
+- **rclone**: delete
+- **git**: set pager to delta
+- **brew**: update Brewfile
+- **zsh/pkg**: conda activate base
+- **brew**: update Brewfile
+- **zsh/pkg**: load conda on startup
+- **latexindent**: fix path
+- **zsh/my-aliases**: simplify code
+- **apt**: skip installed packages
+- **rclone**: enable systemd services by default
+- **zsh/pkg**: update utility
+- **brew**: add duf
+- **zsh**: remove plugin gitignore
+- **zsh**: add fzf
+
+### Refactor
+
+- split makefiles
+
+### Perf
+
+- **zshrc**: reduce startup time
+
 ## 0.4.0 (2022-11-09)
 
 ### Feat
