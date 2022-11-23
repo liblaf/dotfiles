@@ -4,6 +4,10 @@ function git-init() {
   bash "${ZSH_CUSTOM}/plugins/my-git/git-init.sh" "${@}"
 }
 
+function git-reset() {
+  bash "${ZSH_CUSTOM}/plugins/my-git/git-reset.sh" "${@}"
+}
+
 function git-set-pypi() {
   bash "${ZSH_CUSTOM}/plugins/my-git/git-set-pypi.sh" "${@}"
 }
