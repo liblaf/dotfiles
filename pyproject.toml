@@ -8,13 +8,16 @@ version = "0.4.0"
 tag_format = "$version"
 version_files = ["pyproject.toml:version"]
 
+[tool.isort]
+profile = "black"
+
 [tool.poetry]
 name = "dotfiles"
 version = "0.4.0"
 description = ""
 authors = ["Qin Li <liblaf@outlook.com>"]
-license = "MIT"
 readme = "README.md"
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.10"
