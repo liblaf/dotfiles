@@ -4,47 +4,9 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
 export ZSH="${HOME}/.oh-my-zsh"
 export ZSH_CUSTOM="${ZSH}/custom"
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-plugins=(
-  aliases
-  brew
-  colored-man-pages
-  command-not-found
-  common-aliases
-  extract
-  fzf
-  git
-  perms
-  tmux
-  universalarchive
-  zoxide
-
-  conda-zsh-completion
-  wakatime
-  zsh-autocomplete
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-
-  clean
-  completion
-  key
-  my-aliases
-  my-git
-  ntp
-  pkg
-  proxy
-  update
-)
-
-# fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-
-source $ZSH/oh-my-zsh.sh
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -58,4 +20,34 @@ export PATH="$PNPM_HOME:$PATH"
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+plugins=(
+  aliases
+  brew
+  colored-man-pages
+  command-not-found
+  common-aliases
+  cp
+  extract
+  git
+  perms
+  tmux
+  universalarchive
+  zoxide
+
+  conda-zsh-completion
+  wakatime
+  zsh-autocomplete
+  zsh-syntax-highlighting
+
+  clean
+  completion
+  key
+  my-aliases
+  my-git
+  ntp
+  pkg
+  proxy
+  rclone
+  update
+)
+source $ZSH/oh-my-zsh.sh
