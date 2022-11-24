@@ -1,55 +1,55 @@
 #!/usr/bin/zsh
 
-function exist() {
-  command -v "${@}" > "/dev/null" 2>&1
+function exists() {
+  command -v "${@}" > /dev/null 2>&1
 }
 
 # bat
-if exist bat; then
+if exists bat; then
   alias cat="bat"
 fi
 
 # bottom
-if exist btm; then
+if exists btm; then
   alias top="btm"
 fi
 
 # colored
-if exist colored; then
+if exists colored; then
   alias less="colored less"
 fi
 
+# commitizen
+if exists cz; then
+  alias c="cz c"
+fi
+
 # exa
-if exist exa; then
+if exists exa; then
   alias l="exa --long --icons --all --header --git"
   alias la="exa --long --icons --all --header --git"
   alias ll="exa --long --icons --header --git"
   alias ls="exa --git"
   alias lsa="exa --long --icons --all --all --header --git"
-  if ! command -v tree > "/dev/null"; then
+  if ! exists tree; then
     alias tree="exa --tree --icons"
   fi
 fi
 
 # neovim
-if exist nvim; then
+if exists nvim; then
   alias vim="nvim"
 fi
 
-# onedrive
-if exist onedrive; then
-  alias drive-p="onedrive --confdir \"${HOME}/.config/onedrive-personal\""
-  alias drive="onedrive --confdir \"${HOME}/.config/onedrive-public\""
-fi
-
 # texdoc-cli
-if exist texdoc-cli; then
+if exists texdoc-cli; then
   alias texdoc="texdoc-cli pkg"
 fi
 
 # zoxide
-if exist z; then
+if exists z; then
   alias cd="z"
 fi
 
-unset exist
+bindkey -s "^L" "clear\n"
+bindkey -s "^[l" "l\n"
