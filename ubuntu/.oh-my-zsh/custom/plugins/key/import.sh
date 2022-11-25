@@ -48,3 +48,7 @@ done
 gpg_home="${keys_home}/gpg"
 success "Importing GPG keys from ${gpg_home} ..."
 call gpg --import "${gpg_home}/secret.key"
+signing_key="$(git config user.signingKey)"
+if [[ -n ${signing_key} ]]; then
+  call gpg --edit-key "$(git config user.signingKey)" trust
+fi
