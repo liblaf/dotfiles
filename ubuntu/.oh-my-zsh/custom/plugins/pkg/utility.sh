@@ -143,24 +143,21 @@ function make-desktop-entry-append() {
 }
 
 function make-desktop-entry() {
-  function append() {
-    make-desktop-entry-append "${@}"
-  }
   local filename="${1}.desktop"
   mkdir --parents "${DESKTOP_FILE_INSTALL_DIR}"
   local filepath="${DESKTOP_FILE_INSTALL_DIR}/${filename}"
   echo "[Desktop Entry]" > "${filepath}"
-  append Type "Application"
-  append Name "${1}"
-  append Comment
-  append Path
-  append Exec
-  append Icon
-  append Terminal "false"
-  append Categories
-  append MimeType
-  append GenericName
-  append StartupNotify
+  make-desktop-entry-append Type "Application"
+  make-desktop-entry-append Name "${1}"
+  make-desktop-entry-append Comment
+  make-desktop-entry-append Path
+  make-desktop-entry-append Exec
+  make-desktop-entry-append Icon
+  make-desktop-entry-append Terminal "false"
+  make-desktop-entry-append Categories
+  make-desktop-entry-append MimeType
+  make-desktop-entry-append GenericName
+  make-desktop-entry-append StartupNotify
   desktop-file-install --dir "${DESKTOP_FILE_INSTALL_DIR}" "${filepath}"
   success "Desktop Entry: ${1}"
 }
