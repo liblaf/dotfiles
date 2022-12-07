@@ -5,7 +5,7 @@ set -o pipefail
 
 source "${PKG_HOME}/utility.zsh"
 
-version="${version:-"0.20.7"}"
+version="${version:-"0.20.10"}"
 filename="Clash.for.Windows-${version}-x64-linux.tar.gz"
 filepath="${HOME}/Downloads/${filename}"
 download "https://github.com/Fndroid/clash_for_windows_pkg/releases/download/${version}/${filename}" "${filepath}"
