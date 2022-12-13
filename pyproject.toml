@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.commitizen]
 name = "cz_conventional_commits"
-version = "0.5.1"
+version = "0.6.0"
 tag_format = "$version"
 version_files = ["pyproject.toml:version"]
 
@@ -13,7 +13,7 @@ profile = "black"
 
 [tool.poetry]
 name = "dotfiles"
-version = "0.5.1"
+version = "0.6.0"
 description = ""
 authors = ["Qin Li <liblaf@outlook.com>"]
 readme = "README.md"

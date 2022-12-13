@@ -1,3 +1,19 @@
+## 0.6.0 (2022-12-13)
+
+### Feat
+
+- **zsh/pkg**: add wechat
+
+### Fix
+
+- **zsh/key**: trust imported gpg keys
+- **zsh/rclone**: add plugin
+- **zsh/my-aliases**: add commitizen & bindkey
+
+### Refactor
+
+- **apt**: pretty output
+
 ## 0.5.1 (2022-11-23)
 
 ### Fix
