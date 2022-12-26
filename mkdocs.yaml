@@ -1,15 +1,31 @@
 site_name: dotfiles
+
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.prune
+    - navigation.indexes
+    - toc.follow
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
         icon: material/brightness-4
+        name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
         icon: material/brightness-7
+        name: Switch to dark mode
+
 plugins:
   - search
   - git-revision-date-localized:
@@ -18,6 +34,7 @@ plugins:
       repository: liblaf/dotfiles
       branch: main
   - git-authors
+
 repo_url: https://github.com/liblaf/dotfiles
 repo_name: liblaf/dotfiles
-edit_uri: edit/main/docs
+edit_uri: edit/main/docs/

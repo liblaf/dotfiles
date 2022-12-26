@@ -4,13 +4,12 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v3
       - name: Deploy MkDocs
         uses: ./.github/actions/docs
