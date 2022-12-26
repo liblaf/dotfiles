@@ -2,11 +2,11 @@
 
 function get-ip() {
   if [[ -n ${WSL_DISTRO_NAME} ]]; then
-    export router_ip="$(ip route | grep 'default' | awk '{print $3}')"
+    export router_ip="$(ip route | grep 'default' | awk '{ print $3 }')"
   else
     export router_ip="127.0.0.1"
   fi
-  export host_ip="$(hostname --all-ip-address | awk '{print $1}')"
+  export host_ip="$(hostname --all-ip-address | awk '{ print $1 }')"
 }
 
 function ip-loc() {
@@ -19,14 +19,14 @@ function ip-loc() {
 }
 
 function proxy() {
-  case "${1}" in
+  case "${1:-"env"}" in
     apt)
       proxy-apt
       ;;
     git)
       proxy-git
       ;;
-    *)
+    env)
       get-ip
       export HTTP_PROXY="http://${router_ip}:57890/"
       export HTTPS_PROXY="http://${router_ip}:57890/"
@@ -46,14 +46,14 @@ function proxy() {
 }
 
 function unproxy() {
-  case "${1}" in
+  case "${1:-"env"}" in
     apt)
       unproxy-apt
       ;;
     git)
       unproxy-git
       ;;
-    *)
+    env)
       unset HTTP_PROXY
       unset HTTPS_PROXY
       unset FTP_PROXY

@@ -38,6 +38,7 @@ fi
 
 # neovim
 if exists nvim; then
+  alias vi="nvim"
   alias vim="nvim"
 fi
 
@@ -51,5 +52,6 @@ if exists z; then
   alias cd="z"
 fi
 
-bindkey -s "^L" "clear\n"
-bindkey -s "^[l" "l\n"
+bindkey -s "^[L" "l\n"
+
+unset -f exists

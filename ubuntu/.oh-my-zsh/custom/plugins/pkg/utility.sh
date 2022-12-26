@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 export DESKTOP_FILE_INSTALL_DIR="${HOME}/.local/share/applications"
 

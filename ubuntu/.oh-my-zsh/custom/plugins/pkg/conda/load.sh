@@ -2,5 +2,5 @@
 
 if [ -f "${HOME}/.local/opt/conda/etc/profile.d/conda.sh" ]; then
   source "${HOME}/.local/opt/conda/etc/profile.d/conda.sh"
-  conda activate base
+  # conda activate default
 fi
