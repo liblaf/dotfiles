@@ -15,7 +15,7 @@ jobs:
       version: ${{ steps.cz.outputs.version }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.2.0
+        uses: actions/checkout@v3.3.0
         with:
           fetch-depth: 0
       - id: cz
@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.2.0
+        uses: actions/checkout@v3.3.0
       - run: git pull
       - name: Publish Package
         uses: ./.github/actions/publish
@@ -62,7 +62,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.2.0
+        uses: actions/checkout@v3.3.0
       - run: git pull
       - id: detect
         name: Detect Build Script
@@ -98,7 +98,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3.2.0
+        uses: actions/checkout@v3.3.0
       - run: git pull
       - name: Download Artifacts
         uses: actions/download-artifact@v3.0.1
