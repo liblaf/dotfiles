@@ -5,7 +5,7 @@ ci:
     - shfmt-system
 repos:
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: "v2.38.0"
+    rev: "v2.39.1"
     hooks:
       - id: commitizen
   - repo: https://github.com/liblaf/pre-commit-hooks
@@ -53,14 +53,14 @@ repos:
       - id: black
       - id: black-jupyter
   - repo: https://github.com/PyCQA/isort
-    rev: "v5.11.3"
+    rev: "5.11.4"
     hooks:
       - id: isort
         args:
           - "--profile"
           - "black"
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: "0.19.2"
+    rev: "0.20.0"
     hooks:
       - id: check-dependabot
       - id: check-github-actions
