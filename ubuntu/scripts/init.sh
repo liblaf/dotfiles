@@ -5,7 +5,7 @@ function exists() {
 }
 
 function info() {
-  if ! exists rich; then
+  if exists rich; then
     rich --print --style "bold bright_blue" "${*}"
   else
     echo -e -n "\x1b[1;94m"
@@ -15,7 +15,7 @@ function info() {
 }
 
 function success() {
-  if ! exists rich; then
+  if exists rich; then
     rich --print --style "bold bright_green" "${*}"
   else
     echo -e -n "\x1b[1;92m"

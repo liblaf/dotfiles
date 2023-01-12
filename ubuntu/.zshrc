@@ -13,12 +13,29 @@ if [[ -r "${XDG_CACHE_HOME:-"${HOME}/.cache"}/p10k-instant-prompt-${USER}.zsh" ]
   source "${XDG_CACHE_HOME:-"${HOME}/.cache"}/p10k-instant-prompt-${USER}.zsh"
 fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="${HOME}/.local/bin:${PATH}"
+
+# https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
+export HOMEBREW_BREW_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git"
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+# https://mirrors.tuna.tsinghua.edu.cn/help/homebrew-bottles/
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+# brew shellenv
+export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar"
+export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew"
+export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}"
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:"
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH-}"
+
+export FPATH="${HOMEBREW_PREFIX}/share/zsh/site-functions:${FPATH}"
+
+ulimit -n "$(ulimit -H -n)"
 
 export ZSH="${HOME}/.oh-my-zsh"
 export ZSH_CUSTOM="${ZSH}/custom"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
 plugins=(
   aliases
   brew
@@ -38,17 +55,19 @@ plugins=(
   zsh-autocomplete
   zsh-syntax-highlighting
 
-  clean
+  # clean
   completion
   ipkg
-  key
+  iutility
+  # key
   my-aliases
-  my-git
+  # my-git
   ntp
   proxy
   rclone
-  update
+  # update
 )
+
 ipkg_loads=(
   conda
   docker
@@ -56,6 +75,9 @@ ipkg_loads=(
 )
 
 source "${ZSH}/oh-my-zsh.sh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # pnpm
 export PNPM_HOME="${HOME}/.local/share/pnpm"

@@ -1,16 +1,14 @@
 ALL += zsh
 
-P10K   := $(HOME)/.p10k.zsh
-ZSHENV := $(HOME)/.zshenv
-ZSHRC  := $(HOME)/.zshrc
+P10K  := $(HOME)/.p10k.zsh
+ZSHRC := $(HOME)/.zshrc
 
 .PHONY: zsh
-zsh: $(P10K) $(ZSHENV) $(ZSHRC)
+zsh: $(P10K) $(ZSHRC)
 	@ call rm --force --recursive $(ZSH_CUSTOM)
 	@ call cp --recursive .oh-my-zsh/custom $(ZSH_CUSTOM)
 
-$(P10K)   : .p10k.zsh
-$(ZSHENV) : .zshenv
-$(ZSHRC)  : .zshrc
-$(P10K) $(ZSHENV) $(ZSHRC):
+$(P10K)  : .p10k.zsh
+$(ZSHRC) : .zshrc
+$(P10K) $(ZSHRC):
 	@ copy $< $@
