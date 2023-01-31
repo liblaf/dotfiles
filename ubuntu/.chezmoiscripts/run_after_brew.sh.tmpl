@@ -1,0 +1,9 @@
+#!/bin/bash
+# .Brewfile hash: {{ include "dot_Brewfile" | sha256sum }}
+set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+run brew bundle install --global --verbose --no-lock

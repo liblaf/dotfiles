@@ -1,0 +1,19 @@
+# https://latexindentpl.readthedocs.io/en/latest/sec-default-user-local.html
+# https://github.com/cmhughes/latexindent.pl/blob/main/defaultSettings.yaml
+
+defaultIndent: "  "
+
+lookForAlignDelims:
+  equation:
+    delimiterRegEx: '(?<!\\)(&|\\qc)'
+  equation*:
+    delimiterRegEx: '(?<!\\)(&|\\qc)'
+  gather:
+    delimiterRegEx: '(?<!\\)(&|\\qc)'
+  gather*:
+    delimiterRegEx: '(?<!\\)(&|\\qc)'
+  split:
+    delimiterRegEx: '(?<!\\)(&|\\qc)'
+
+modifyLineBreaks:
+  preserveBlankLines: 0

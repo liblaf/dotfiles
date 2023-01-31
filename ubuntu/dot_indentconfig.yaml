@@ -1,0 +1,4 @@
+# https://latexindentpl.readthedocs.io/en/latest/sec-indent-config-and-settings.html
+
+paths:
+  - /home/liblaf/.config/latexindent/settings.yaml

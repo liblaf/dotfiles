@@ -1,0 +1,69 @@
+[".local/bin/ihelper"]
+executable = true
+type = "file"
+url = '{{ (index ( gitHubLatestRelease "liblaf/ihelper" ).Assets 0).BrowserDownloadURL }}'
+
+[".local/bin/ipkg"]
+executable = true
+type = "file"
+url = '{{ (index ( gitHubLatestRelease "liblaf/ipkg" ).Assets 0).BrowserDownloadURL }}'
+
+[".local/share/fonts/FiraCode"]
+type = "archive"
+url = '{{ (index ( gitHubLatestRelease "tonsky/FiraCode" ).Assets 0).BrowserDownloadURL }}'
+
+[".local/share/fonts/MesloLGS NF/MesloLGS NF Bold Italic.ttf"]
+type = "file"
+url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold Italic.ttf"
+
+[".local/share/fonts/MesloLGS NF/MesloLGS NF Bold.ttf"]
+type = "file"
+url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold.ttf"
+
+[".local/share/fonts/MesloLGS NF/MesloLGS NF Italic.ttf"]
+type = "file"
+url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Italic.ttf"
+
+[".local/share/fonts/MesloLGS NF/MesloLGS NF Regular.ttf"]
+type = "file"
+url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Regular.ttf"
+
+[".oh-my-zsh"]
+stripComponents = 1
+type = "archive"
+url = "https://api.github.com/repos/ohmyzsh/ohmyzsh/tarball/"
+
+[".oh-my-zsh/custom/plugins/conda-zsh-completion"]
+stripComponents = 1
+type = "archive"
+url = "https://api.github.com/repos/conda-incubator/conda-zsh-completion/tarball/"
+
+[".oh-my-zsh/custom/plugins/wakatime"]
+stripComponents = 1
+type = "archive"
+url = "https://api.github.com/repos/sobolevn/wakatime-zsh-plugin/tarball/"
+
+[".oh-my-zsh/custom/plugins/zsh-autocomplete"]
+stripComponents = 1
+type = "archive"
+url = "https://api.github.com/repos/marlonrichert/zsh-autocomplete/tarball/"
+
+[".oh-my-zsh/custom/plugins/zsh-bitwarden"]
+stripComponents = 1
+type = "archive"
+url = "https://api.github.com/repos/Game4Move78/zsh-bitwarden/tarball"
+
+[".oh-my-zsh/custom/plugins/zsh-proxy"]
+stripComponents = 1
+type = "archive"
+url = "https://api.github.com/repos/SukkaW/zsh-proxy/tarball/"
+
+[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+stripComponents = 1
+type = "archive"
+url = "https://api.github.com/repos/zsh-users/zsh-syntax-highlighting/tarball/"
+
+[".oh-my-zsh/custom/themes/powerlevel10k"]
+stripComponents = 1
+type = "archive"
+url = "https://api.github.com/repos/romkatv/powerlevel10k/tarball/"

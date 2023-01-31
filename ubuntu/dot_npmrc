@@ -1,0 +1,3 @@
+# https://npmmirror.com/
+# https://pnpm.io/npmrc
+registry = https://registry.npmmirror.com/
