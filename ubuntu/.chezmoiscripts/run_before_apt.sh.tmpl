@@ -5,14 +5,15 @@ set -o pipefail
 
 {{ template "init.sh" }}
 
+run sudo apt update
+
 APT_PACKAGES=(
   apt-file
   build-essential
   curl
   git
-  libfuse2
   sntp
   zsh
 )
 
-run sudo apt install "${APT_PACKAGES[@]}"
+run sudo apt install ${APT_PACKAGES[@]}
