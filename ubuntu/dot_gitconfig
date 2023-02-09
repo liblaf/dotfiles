@@ -10,7 +10,7 @@ defaultBranch = main
 [user]
 email = liblaf@outlook.com
 name = Qin Li
-signingkey = FADAB8CB07433BD7
+signingkey = 2198BD1124420B81
 
 [credential "https://github.com"]
 helper = !gh auth git-credential
