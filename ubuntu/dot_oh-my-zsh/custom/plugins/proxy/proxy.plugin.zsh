@@ -127,9 +127,7 @@ function __disable_proxy_shell() {
 __all_targes=(apt git pnpm shell)
 
 function __auto_proxy() {
-  for t in "${__all_targes[@]}"; do
-    __enable_proxy_${t}
-  done
+  __enable_proxy_shell
 }
 
 function proxy() {
