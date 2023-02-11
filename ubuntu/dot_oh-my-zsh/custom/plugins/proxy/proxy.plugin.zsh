@@ -52,7 +52,9 @@ function __enable_proxy_apt() {
     sudo touch /etc/apt/apt.conf.d/proxy.conf
     echo -e "Acquire::http::Proxy \"${__http_proxy}\";" | sudo tee -a /etc/apt/apt.conf.d/proxy.conf > /dev/null
     echo -e "Acquire::https::Proxy \"${__https_proxy}\";" | sudo tee -a /etc/apt/apt.conf.d/proxy.conf > /dev/null
-    echo "- apt"
+    return 0
+  else
+    return 1
   fi
 }
 
@@ -65,7 +67,7 @@ function __disable_proxy_apt() {
 function __enable_proxy_git() {
   git config --global http.proxy "${__http_proxy}"
   git config --global https.proxy "${__https_proxy}"
-  echo "- git"
+  return 0
 }
 
 function __disable_proxy_git() {
@@ -77,7 +79,9 @@ function __enable_proxy_pnpm() {
   if command -v pnpm > /dev/null; then
     pnpm config --global set proxy "${__http_proxy}" > /dev/null 2>&1
     pnpm config --global set https-proxy "${__https_proxy}" > /dev/null 2>&1
-    echo "- pnpm"
+    return 0
+  else
+    return 1
   fi
 }
 
@@ -103,7 +107,7 @@ function __enable_proxy_shell() {
   export https_proxy="${__https_proxy}"
   export no_proxy="${__no_proxy}"
 
-  echo "- shell"
+  return 0
 }
 
 function __disable_proxy_shell() {
@@ -120,6 +124,14 @@ function __disable_proxy_shell() {
   unset no_proxy
 }
 
+__all_targes=(apt git pnpm shell)
+
+function __auto_proxy() {
+  for t in "${__all_targes[@]}"; do
+    __enable_proxy_${t}
+  done
+}
+
 function proxy() {
   echo "========================================"
   echo -n "Resetting proxy... "
@@ -127,21 +139,17 @@ function proxy() {
   echo "Done!"
   echo "----------------------------------------"
   echo "Enable proxy for:"
-  if [[ ${#} -eq 0 ]]; then
-    local -a arr=(apt git pnpm shell)
-  else
-    local -a arr="${@}"
-  fi
-  for t in "${arr[@]}"; do
-    __enable_proxy_${t}
+  for t in "${__all_targes[@]}"; do
+    if __enable_proxy_${t}; then
+      echo "- ${t}"
+    fi
   done
   echo "Done!"
   __check_ip
 }
 
 function noproxy() {
-  local -a arr=(apt git pnpm shell)
-  for t in "${arr[@]}"; do
+  for t in "${__all_targes[@]}"; do
     __disable_proxy_${t}
   done
 }
@@ -149,3 +157,5 @@ function noproxy() {
 function myip() {
   __check_ip
 }
+
+__auto_proxy
