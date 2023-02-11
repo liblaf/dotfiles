@@ -102,13 +102,12 @@ plugins=(
   wakatime
   zsh-autocomplete
   zsh-bitwarden
-  zsh-proxy
   zsh-syntax-highlighting
 
   completions
-  ipkg
   my-aliases
   ntp
+  proxy
   rclone
 )
 

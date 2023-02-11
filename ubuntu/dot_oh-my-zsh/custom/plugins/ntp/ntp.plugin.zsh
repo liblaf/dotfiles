@@ -2,7 +2,7 @@
 
 function ntp() {
   # https://tuna.moe/help/ntp/
-  sudo sntp "${1:-"ntp.tuna.tsinghua.edu.cn"}"
+  sudo systemctl restart systemd-timesyncd
 }
 
 function time-sync() {
