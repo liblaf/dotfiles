@@ -1,3 +1,8 @@
+[".local/Cellar/upgit/upgit"]
+executable = true
+type = "file"
+url = "https://github.com/pluveto/upgit/releases/latest/download/upgit_linux_amd64"
+
 [".local/bin/ihelper"]
 executable = true
 type = "file"
@@ -7,6 +12,10 @@ url = '{{ (index ( gitHubLatestRelease "liblaf/ihelper" ).Assets 0).BrowserDownl
 executable = true
 type = "file"
 url = '{{ (index ( gitHubLatestRelease "liblaf/ipkg" ).Assets 0).BrowserDownloadURL }}'
+
+[".local/share/fonts/08_NotoSansCJKsc"]
+type = "archive"
+url = "https://github.com/notofonts/noto-cjk/releases/latest/download/08_NotoSansCJKsc.zip"
 
 [".local/share/fonts/FiraCode"]
 type = "archive"
