@@ -7,7 +7,7 @@ set -o pipefail
 
 run sudo apt update
 
-APT_PACKAGES=(
+packages=(
   apt-file
   build-essential
   curl
@@ -15,4 +15,4 @@ APT_PACKAGES=(
   zsh
 )
 
-run sudo apt install ${APT_PACKAGES[@]}
+run sudo apt install ${packages[@]}
