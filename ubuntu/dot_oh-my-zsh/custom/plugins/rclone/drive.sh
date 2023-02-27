@@ -1,20 +1,14 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -o errexit
 set -o nounset
 set -o pipefail
 
-function info() {
-  if command -v rich > /dev/null 2>&1; then
-    rich --print --style "bold bright_blue" "${*}"
-  else
-    echo -e -n "\x1b[1;94m"
-    echo -n "${*}"
-    echo -e "\x1b[0m"
+function run() {
+  if command -v gum > /dev/null 2>&1; then
+    prefix="$(gum style --background=14 --padding="0 1" RUN)"
+    message="$(gum style --foreground=14 "${*}")"
+    gum join --horizontal "${prefix}" " " "${message}"
   fi
-}
-
-function call() {
-  info "+ ${*}"
   "${@}"
 }
 
@@ -34,7 +28,7 @@ case "${cmd}" in
     else
       path="/"
     fi
-    call rclone bisync "${local}/${path}" "${remote}/${path}" --verbose "${@}"
+    run rclone bisync "${local}/${path}" "${remote}/${path}" --verbose "${@}"
     ;;
   push)
     if [[ -n ${2:-""} ]]; then
@@ -43,7 +37,7 @@ case "${cmd}" in
     else
       path="/"
     fi
-    call rclone sync "${local}/${path}" "${remote}/${path}" --verbose "${@}"
+    run rclone sync "${local}/${path}" "${remote}/${path}" --verbose "${@}"
     ;;
   pull)
     if [[ -n ${2:-""} ]]; then
@@ -52,6 +46,6 @@ case "${cmd}" in
     else
       path="/"
     fi
-    call rclone sync "${remote}/${path}" "${local}/${path}" --verbose "${@}"
+    run rclone sync "${remote}/${path}" "${local}/${path}" --verbose "${@}"
     ;;
 esac

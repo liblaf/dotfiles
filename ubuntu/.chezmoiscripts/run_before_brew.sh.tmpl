@@ -1,0 +1,8 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+run brew bundle install --file="{{ .chezmoi.sourceDir }}/ignore/Brewfile" --verbose --no-lock

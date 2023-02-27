@@ -48,7 +48,7 @@ function __check_ip() {
 }
 
 function __enable_proxy_apt() {
-  if [ -d "/etc/apt/apt.conf.d" ]; then
+  if [ -d /etc/apt/apt.conf.d ]; then
     sudo touch /etc/apt/apt.conf.d/proxy.conf
     echo -e "Acquire::http::Proxy \"${__http_proxy}\";" | sudo tee -a /etc/apt/apt.conf.d/proxy.conf > /dev/null
     echo -e "Acquire::https::Proxy \"${__https_proxy}\";" | sudo tee -a /etc/apt/apt.conf.d/proxy.conf > /dev/null
@@ -59,7 +59,7 @@ function __enable_proxy_apt() {
 }
 
 function __disable_proxy_apt() {
-  if [ -d "/etc/apt/apt.conf.d" ]; then
+  if [ -d /etc/apt/apt.conf.d ]; then
     sudo rm -rf /etc/apt/apt.conf.d/proxy.conf
   fi
 }
@@ -124,10 +124,20 @@ function __disable_proxy_shell() {
   unset no_proxy
 }
 
-__all_targes=(apt git pnpm shell)
+function __enable_proxy_system() {
+  dconf write /system/proxy/mode "'manual'"
+}
+
+function __disable_proxy_system() {
+  dconf reset /system/proxy/mode
+}
+
+__all_targes=(apt git pnpm shell system)
 
 function __auto_proxy() {
-  __enable_proxy_shell
+  if [[ $(dconf read /system/proxy/mode) == "'manual'" ]]; then
+    __enable_proxy_shell
+  fi
 }
 
 function proxy() {
@@ -150,6 +160,16 @@ function noproxy() {
   for t in "${__all_targes[@]}"; do
     __disable_proxy_${t}
   done
+  if command -v warp-cli > /dev/null; then
+    warp-cli disconnect
+  fi
+}
+
+function warp() {
+  noproxy
+  if command -v warp-cli > /dev/null; then
+    warp-cli connect
+  fi
 }
 
 function myip() {

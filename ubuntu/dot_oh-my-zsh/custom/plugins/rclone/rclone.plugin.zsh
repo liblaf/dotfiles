@@ -1,6 +1,10 @@
 #!/usr/bin/zsh
 
-if command -v rclone > /dev/null 2>&1; then
+function exists() {
+  command -v "${@}" > /dev/null 2>&1
+}
+
+if exists rclone; then
 
   function dp() {
     local remote="drive-personal:"
@@ -15,3 +19,5 @@ if command -v rclone > /dev/null 2>&1; then
   }
 
 fi
+
+unset -f exists
