@@ -3,39 +3,13 @@ executable = true
 type = "file"
 url = "https://github.com/pluveto/upgit/releases/latest/download/upgit_linux_amd64"
 
-[".local/bin/ihelper"]
-executable = true
-type = "file"
-url = '{{ (index ( gitHubLatestRelease "liblaf/ihelper" ).Assets 0).BrowserDownloadURL }}'
-
-[".local/bin/ipkg"]
-executable = true
-type = "file"
-url = '{{ (index ( gitHubLatestRelease "liblaf/ipkg" ).Assets 0).BrowserDownloadURL }}'
-
 [".local/share/fonts/08_NotoSansCJKsc"]
 type = "archive"
 url = "https://github.com/notofonts/noto-cjk/releases/latest/download/08_NotoSansCJKsc.zip"
 
 [".local/share/fonts/FiraCode"]
 type = "archive"
-url = '{{ (index ( gitHubLatestRelease "tonsky/FiraCode" ).Assets 0).BrowserDownloadURL }}'
-
-[".local/share/fonts/MesloLGS NF/MesloLGS NF Bold Italic.ttf"]
-type = "file"
-url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold Italic.ttf"
-
-[".local/share/fonts/MesloLGS NF/MesloLGS NF Bold.ttf"]
-type = "file"
-url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold.ttf"
-
-[".local/share/fonts/MesloLGS NF/MesloLGS NF Italic.ttf"]
-type = "file"
-url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Italic.ttf"
-
-[".local/share/fonts/MesloLGS NF/MesloLGS NF Regular.ttf"]
-type = "file"
-url = "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Regular.ttf"
+url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
 
 [".oh-my-zsh"]
 stripComponents = 1
@@ -66,8 +40,3 @@ url = "https://api.github.com/repos/Game4Move78/zsh-bitwarden/tarball"
 stripComponents = 1
 type = "archive"
 url = "https://api.github.com/repos/zsh-users/zsh-syntax-highlighting/tarball/"
-
-[".oh-my-zsh/custom/themes/powerlevel10k"]
-stripComponents = 1
-type = "archive"
-url = "https://api.github.com/repos/romkatv/powerlevel10k/tarball/"

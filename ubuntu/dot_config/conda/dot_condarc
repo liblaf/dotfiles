@@ -15,4 +15,5 @@ custom_channels:
   pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 
-env_prompt: "({name}) "
+# https://starship.rs/config/#conda
+changeps1: false
