@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 symbol = "  "
@@ -27,6 +29,20 @@ symbol = " "
 
 [crystal]
 format = '\[[$symbol($version)]($style)\]'
+
+[custom.proxy]
+command = "echo ${ALL_PROXY} | sed -e 's@^.*://@@' -e 's@/$@@g'"
+description = "proxy"
+format = '\[[$symbol$output]($style)\]'
+symbol = "\ueb01 "
+when = 'test -n "${ALL_PROXY}"'
+
+[custom.warp]
+command = "echo WARP"
+description = "warp"
+format = '\[[$symbol$output]($style)\]'
+symbol = "\uf0c2 "
+when = "warp-cli status | grep Connected"
 
 [daml]
 format = '\[[$symbol($version)]($style)\]'

@@ -1,12 +1,12 @@
-[".local/opt/upgit/upgit"]
-executable = true
-type = "file"
-url = "https://github.com/pluveto/upgit/releases/latest/download/upgit_linux_amd64"
-
 [".local/bin/thu-learn-downloader"]
 executable = true
 type = "file"
 url = "https://github.com/liblaf/thu-learn-downloader/releases/latest/download/thu-learn-downloader-Linux-X64"
+
+[".local/opt/upgit/upgit"]
+executable = true
+type = "file"
+url = "https://github.com/pluveto/upgit/releases/latest/download/upgit_linux_amd64"
 
 [".local/share/fonts/08_NotoSansCJKsc"]
 type = "archive"
@@ -19,29 +19,29 @@ url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode
 [".oh-my-zsh"]
 stripComponents = 1
 type = "archive"
-url = "https://api.github.com/repos/ohmyzsh/ohmyzsh/tarball/"
+url = "https://github.com/ohmyzsh/ohmyzsh/archive/refs/heads/master.zip"
 
 [".oh-my-zsh/custom/plugins/conda-zsh-completion"]
 stripComponents = 1
 type = "archive"
-url = "https://api.github.com/repos/conda-incubator/conda-zsh-completion/tarball/"
+url = "https://github.com/conda-incubator/conda-zsh-completion/archive/refs/heads/master.zip"
 
 [".oh-my-zsh/custom/plugins/wakatime"]
 stripComponents = 1
 type = "archive"
-url = "https://api.github.com/repos/sobolevn/wakatime-zsh-plugin/tarball/"
+url = "https://github.com/sobolevn/wakatime-zsh-plugin/archive/refs/heads/master.zip"
 
 [".oh-my-zsh/custom/plugins/zsh-autocomplete"]
 stripComponents = 1
 type = "archive"
-url = "https://api.github.com/repos/marlonrichert/zsh-autocomplete/tarball/"
+url = "https://github.com/marlonrichert/zsh-autocomplete/archive/refs/heads/main.zip"
 
 [".oh-my-zsh/custom/plugins/zsh-bitwarden"]
 stripComponents = 1
 type = "archive"
-url = "https://api.github.com/repos/Game4Move78/zsh-bitwarden/tarball"
+url = "https://github.com/Game4Move78/zsh-bitwarden/archive/refs/heads/master.zip"
 
 [".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
 stripComponents = 1
 type = "archive"
-url = "https://api.github.com/repos/zsh-users/zsh-syntax-highlighting/tarball/"
+url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/heads/master.zip"

@@ -143,7 +143,8 @@ function __auto_proxy() {
 function proxy() {
   echo "========================================"
   echo -n "Resetting proxy... "
-  noproxy
+  noproxy > /dev/null
+  nowarp > /dev/null
   echo "Done!"
   echo "----------------------------------------"
   echo "Enable proxy for:"
@@ -160,16 +161,15 @@ function noproxy() {
   for t in "${__all_targes[@]}"; do
     __disable_proxy_${t}
   done
-  if command -v warp-cli > /dev/null; then
-    warp-cli disconnect
-  fi
 }
 
 function warp() {
-  noproxy
-  if command -v warp-cli > /dev/null; then
-    warp-cli connect
-  fi
+  noproxy > /dev/null
+  warp-cli connect
+}
+
+function nowarp() {
+  warp-cli disconnect
 }
 
 function myip() {
