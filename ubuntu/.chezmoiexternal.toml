@@ -1,7 +1,17 @@
+[".local/bin/pkg"]
+executable = true
+type = "file"
+url = "https://github.com/liblaf/utils.go/releases/latest/download/pkg-linux-amd64"
+
 [".local/bin/thu-learn-downloader"]
 executable = true
 type = "file"
 url = "https://github.com/liblaf/thu-learn-downloader/releases/latest/download/thu-learn-downloader-Linux-X64"
+
+[".local/bin/utils"]
+executable = true
+type = "file"
+url = "https://github.com/liblaf/utils.go/releases/latest/download/utils-linux-amd64"
 
 [".local/opt/upgit/upgit"]
 executable = true
