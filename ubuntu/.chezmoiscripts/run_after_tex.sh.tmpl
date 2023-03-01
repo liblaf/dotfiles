@@ -6,4 +6,5 @@ set -o pipefail
 {{ template "init.sh" }}
 
 run tlmgr --usermode init-usertree
+run tlmgr --usermode update --self
 run tlmgr --usermode install biblatex

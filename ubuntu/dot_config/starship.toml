@@ -89,6 +89,10 @@ format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 format = '\[[$symbol$branch]($style)\]'
 symbol = " "
 
+[git_metrics]
+disabled = false
+format = '\[[+$added]($added_style)[-$deleted]($deleted_style)\]'
+
 [git_status]
 format = '([\[$all_status$ahead_behind\]]($style))'
 
@@ -137,6 +141,7 @@ format = '\[[$symbol($version)]($style)\]'
 symbol = " "
 
 [memory_usage]
+disabled = false
 format = '\[$symbol[$ram( | $swap)]($style)\]'
 symbol = " "
 
@@ -255,8 +260,13 @@ symbol = " "
 format = '\[[$symbol$environment]($style)\]'
 symbol = "🅢 "
 
+[status]
+disabled = false
+
 [sudo]
-format = '\[[as $symbol]\]'
+disabled = false
+format = '\[[as $symbol]($style)\]'
+symbol = "🧙"
 
 [swift]
 format = '\[[$symbol($version)]($style)\]'
