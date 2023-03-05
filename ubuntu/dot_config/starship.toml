@@ -1,93 +1,48 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-[aws]
-format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
-symbol = "  "
-
-[buf]
-symbol = " "
-
-[bun]
-format = '\[[$symbol($version)]($style)\]'
-
 [c]
-format = '\[[$symbol($version(-$name))]($style)\]'
-symbol = " "
-
-[cmake]
-format = '\[[$symbol($version)]($style)\]'
+commands = [["clang", "--version"], ["gcc", "--version"], ["cc", "--version"]]
+format = '\[[$symbol( ($name-)$version)]($style)\]'
+symbol = "\ue61e"
+version_format = "${raw}"
 
 [cmd_duration]
-format = '\[[⏱ $duration]($style)\]'
-
-[cobol]
-format = '\[[$symbol($version)]($style)\]'
+format = "\\[[\U000f13ab $duration]($style)\\]"
 
 [conda]
-format = '\[[$symbol$environment]($style)\]'
-symbol = " "
+format = '\[[${symbol} ${environment}](${style})\]'
+symbol = "\uf10c"
 
-[crystal]
-format = '\[[$symbol($version)]($style)\]'
+[custom.bitwarden]
+description = "Bitwarden"
+format = '\[[${symbol} Bitwarden](${style})\]'
+symbol = "\uf132"
+when = 'test -n "${BW_SESSION}"'
 
 [custom.proxy]
 command = "echo ${ALL_PROXY} | sed -e 's@^.*://@@' -e 's@/$@@g'"
 description = "proxy"
-format = '\[[$symbol$output]($style)\]'
-symbol = "\ueb01 "
+format = '\[[$symbol $output]($style)\]'
+symbol = "\ueb01"
 when = 'test -n "${ALL_PROXY}"'
 
 [custom.warp]
 command = "echo WARP"
 description = "warp"
-format = '\[[$symbol$output]($style)\]'
-symbol = "\uf0c2 "
+format = '\[[$symbol $output]($style)\]'
+symbol = "\uf0c2"
 when = "warp-cli status | grep Connected"
 
-[daml]
-format = '\[[$symbol($version)]($style)\]'
-
-[dart]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-
-[deno]
-format = '\[[$symbol($version)]($style)\]'
-
 [directory]
-read_only = " "
+read_only = " \uf023"
 
 [docker_context]
-format = '\[[$symbol$context]($style)\]'
-symbol = " "
-
-[dotnet]
-format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
-
-[elixir]
-format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
-symbol = " "
-
-[elm]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-
-[erlang]
-format = '\[[$symbol($version)]($style)\]'
-
-[fennel]
-format = '\[[$symbol($version)]($style)\]'
-
-[fossil_branch]
-format = '\[[$symbol$branch]($style)\]'
-symbol = " "
-
-[gcloud]
-format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+format = '\[[$symbol $context]($style)\]'
+symbol = "\U000f0868"
 
 [git_branch]
-format = '\[[$symbol$branch]($style)\]'
-symbol = " "
+format = '\[[$symbol $branch]($style)\]'
+symbol = "\ue725"
 
 [git_metrics]
 disabled = false
@@ -97,195 +52,47 @@ format = '\[[+$added]($added_style)[-$deleted]($deleted_style)\]'
 format = '([\[$all_status$ahead_behind\]]($style))'
 
 [golang]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-
-[gradle]
-format = '\[[$symbol($version)]($style)\]'
-
-[guix_shell]
-format = '\[[$symbol]($style)\]'
-symbol = " "
-
-[haskell]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-
-[haxe]
-format = '\[[$symbol($version)]($style)\]'
-symbol = "⌘ "
-
-[helm]
-format = '\[[$symbol($version)]($style)\]'
-
-[hg_branch]
-format = '\[[$symbol$branch]($style)\]'
-symbol = " "
+format = '\[[$symbol( $version)]($style)\]'
+symbol = "\ue627"
+version_format = "${raw}"
 
 [java]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-
-[julia]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-
-[kotlin]
-format = '\[[$symbol($version)]($style)\]'
-
-[kubernetes]
-format = '\[[$symbol$context( \($namespace\))]($style)\]'
-
-[lua]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
+format = '\[[$symbol( $version)]($style)\]'
+symbol = "\ue738"
+version_format = "${raw}"
 
 [memory_usage]
 disabled = false
-format = '\[$symbol[$ram( | $swap)]($style)\]'
-symbol = " "
-
-[meson]
-format = '\[[$symbol$project]($style)\]'
-symbol = "喝 "
-
-[nim]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-
-[nix_shell]
-format = '\[[$symbol$state( \($name\))]($style)\]'
-symbol = " "
+format = '\[$symbol [$ram]($style)\]'
+symbol = "\U000f035b"
+threshold = 0
 
 [nodejs]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-
-[ocaml]
-format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
-
-[opa]
-format = '\[[$symbol($version)]($style)\]'
-
-[openstack]
-format = '\[[$symbol$cloud(\($project\))]($style)\]'
-
-[os]
-format = '\[[$symbol]($style)\]'
-
-[os.symbols]
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Garuda = "﯑ "
-Gentoo = " "
-HardenedBSD = "ﲊ "
-Illumos = " "
-Linux = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-OpenBSD = " "
-OracleLinux = " "
-Pop = " "
-Raspbian = " "
-RedHatEnterprise = " "
-Redhat = " "
-Redox = " "
-SUSE = " "
-Solus = "ﴱ "
-Ubuntu = " "
-Unknown = " "
-Windows = " "
-openSUSE = " "
+format = '\[[$symbol( $version)]($style)\]'
+symbol = "\U000f0399"
+version_format = "${raw}"
 
 [package]
-format = '\[[$symbol$version]($style)\]'
-symbol = " "
-
-[perl]
-format = '\[[$symbol($version)]($style)\]'
-
-[php]
-format = '\[[$symbol($version)]($style)\]'
-
-[pijul_channel]
-format = '\[[$symbol$channel]($style)\]'
-symbol = "🪺 "
-
-[pulumi]
-format = '\[[$symbol$stack]($style)\]'
-
-[purescript]
-format = '\[[$symbol($version)]($style)\]'
+format = '\[[$symbol $version]($style)\]'
+symbol = "\ueb29"
+version_format = "${raw}"
 
 [python]
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
-symbol = " "
-
-[raku]
-format = '\[[$symbol($version-$vm_version)]($style)\]'
-
-[red]
-format = '\[[$symbol($version)]($style)\]'
-
-[rlang]
-symbol = "ﳒ "
-
-[ruby]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
+format = '\[[${symbol} ${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+symbol = "\U000f0320"
+version_format = "${raw}"
 
 [rust]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-
-[scala]
-format = '\[[$symbol($version)]($style)\]'
-symbol = " "
-
-[spack]
-format = '\[[$symbol$environment]($style)\]'
-symbol = "🅢 "
+format = '\[[$symbol( $version)]($style)\]'
+symbol = "\U000f1617"
+version_format = "${raw}"
 
 [status]
 disabled = false
 format = '[$symbol $status]($style) '
+symbol = "\uf00d"
 
 [sudo]
 disabled = false
-format = '\[[as $symbol]($style)\]'
-symbol = "🧙"
-
-[swift]
-format = '\[[$symbol($version)]($style)\]'
-
-[terraform]
-format = '\[[$symbol$workspace]($style)\]'
-
-[time]
-format = '\[[$time]($style)\]'
-
-[username]
-format = '\[[$user]($style)\]'
-
-[vagrant]
-format = '\[[$symbol($version)]($style)\]'
-
-[vlang]
-format = '\[[$symbol($version)]($style)\]'
-
-[zig]
-format = '\[[$symbol($version)]($style)\]'
+format = '\[[$symbol sudo]($style)\]'
+symbol = "\U000f0a8b"
