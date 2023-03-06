@@ -13,7 +13,7 @@ if exists rclone; then
   }
 
   function db() {
-    local remote="drive-personal:"
+    local remote="drive-business:"
     local local="${HOME}/Desktop/drive-business"
     env remote="${remote}" local="${local}" bash "${ZSH_CUSTOM}/plugins/rclone/drive.sh" "${@}"
   }
