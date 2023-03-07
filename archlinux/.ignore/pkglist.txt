@@ -42,6 +42,10 @@ moar-git
 neofetch
 neovim
 networkmanager
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
 noto-fonts-sc
 ocrmypdf
 oh-my-zsh-git
