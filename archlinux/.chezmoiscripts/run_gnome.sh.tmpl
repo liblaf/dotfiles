@@ -1,0 +1,29 @@
+#!/usr/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+extensions=(
+  apps-menu@gnome-shell-extensions.gcampax.github.com
+  # auto-move-windows@gnome-shell-extensions.gcampax.github.com
+  drive-menu@gnome-shell-extensions.gcampax.github.com
+  # launch-new-instance@gnome-shell-extensions.gcampax.github.com
+  # native-window-placement@gnome-shell-extensions.gcampax.github.com
+  places-menu@gnome-shell-extensions.gcampax.github.com
+  # screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com
+  # user-theme@gnome-shell-extensions.gcampax.github.com
+  # window-list@gnome-shell-extensions.gcampax.github.com
+  # windowsNavigator@gnome-shell-extensions.gcampax.github.com
+  # workspace-indicator@gnome-shell-extensions.gcampax.github.com
+
+  appindicatorsupport@rgcjonas.gmail.com
+  dash-to-dock@micxgx.gmail.com
+  paperwm@hedning:matrix.org
+  system-monitor-next@paradoxxx.zero.gmail.com
+)
+
+for ext in "${extensions[@]}"; do
+  run gnome-extensions enable "${ext}"
+done

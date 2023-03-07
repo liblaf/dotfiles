@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+set +o errexit
+run yay --sync --refresh --needed --noconfirm - < "{{ .chezmoi.sourceDir }}/.ignore/pkglist.txt"
+
+exit 0

@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+pkgs=(
+  @bitwarden/cli
+  commitizen
+  serve
+  vercel
+)
+
+run pnpm install --global "${pkgs[@]}"

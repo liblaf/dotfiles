@@ -1,0 +1,33 @@
+[".local/share/fonts/FiraCode"]
+type = "archive"
+url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
+
+[".oh-my-zsh"]
+stripComponents = 1
+type = "archive"
+url = "https://github.com/ohmyzsh/ohmyzsh/archive/refs/heads/master.zip"
+
+[".oh-my-zsh/custom/plugins/conda-zsh-completion"]
+stripComponents = 1
+type = "archive"
+url = "https://github.com/conda-incubator/conda-zsh-completion/archive/refs/heads/master.zip"
+
+[".oh-my-zsh/custom/plugins/wakatime"]
+stripComponents = 1
+type = "archive"
+url = "https://github.com/sobolevn/wakatime-zsh-plugin/archive/refs/heads/master.zip"
+
+[".oh-my-zsh/custom/plugins/zsh-autocomplete"]
+stripComponents = 1
+type = "archive"
+url = "https://github.com/marlonrichert/zsh-autocomplete/archive/refs/heads/main.zip"
+
+[".oh-my-zsh/custom/plugins/zsh-bitwarden"]
+stripComponents = 1
+type = "archive"
+url = "https://github.com/Game4Move78/zsh-bitwarden/archive/refs/heads/master.zip"
+
+[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+stripComponents = 1
+type = "archive"
+url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/heads/master.zip"
