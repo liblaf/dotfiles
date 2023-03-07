@@ -5,6 +5,8 @@ set -o pipefail
 
 {{ template "init.sh" }}
 
+run sudo install --mode="u=rw,go=r" --no-target-directory "{{ .chezmoi.sourceDir }}/.ignore/mirrorlist" "/etc/pacman.d/mirrorlist"
+
 set +o errexit
 run yay --sync --refresh --needed --noconfirm - < "{{ .chezmoi.sourceDir }}/.ignore/pkglist.txt"
 

@@ -47,6 +47,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 noto-fonts-sc
+obs-studio
 ocrmypdf
 oh-my-zsh-git
 os-prober
@@ -61,6 +62,7 @@ scc
 shfmt
 shim-signed
 starship
+telegram-desktop
 tesseract-data-chi_sim
 tesseract-data-eng
 texlive-lang
@@ -70,9 +72,13 @@ tldr
 tlp
 tmux
 ttf-firacode-nerd
+typora
 vcpkg-git
 vhs
 visual-studio-code-bin
+vlc
+wemeet-bin
 yay
+zotero-bin
 zoxide
 zsh
