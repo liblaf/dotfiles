@@ -1,4 +1,4 @@
-q7-zip-full
+7-zip-full
 bat
 bear
 bottom
@@ -60,6 +60,7 @@ starship
 tesseract-data-chi_sim
 tesseract-data-eng
 texlive-lang
+texlive-latexindent-meta
 texlive-most
 tldr
 tlp
