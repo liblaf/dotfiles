@@ -41,3 +41,5 @@ fi
 source "${ZSH}/oh-my-zsh.sh"
 
 export GPG_TTY="$(tty)"
+
+[ -f "${HOME}/.local/opt/conda/etc/profile.d/conda.sh" ] && source "${HOME}/.local/opt/conda/etc/profile.d/conda.sh"
