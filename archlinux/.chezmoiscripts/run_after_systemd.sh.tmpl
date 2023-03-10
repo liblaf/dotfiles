@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+run sudo systemctl enable --now tlp.service
+run sudo systemctl enable --now warp-svc.service
+run systemctl --user enable --now warp-taskbar

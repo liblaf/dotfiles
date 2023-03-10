@@ -5,11 +5,13 @@ set -o pipefail
 
 {{ template "init.sh" }}
 
-pkgs=(
+packages=(
   @bitwarden/cli
   commitizen
   serve
   vercel
 )
 
-run pnpm install --global "${pkgs[@]}"
+for pkg in "${packages[@]}"; do
+  run pnpm install --global "${pkg}@latest"
+done

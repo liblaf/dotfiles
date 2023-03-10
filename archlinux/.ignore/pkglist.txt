@@ -4,6 +4,7 @@ bear
 bottom
 chezmoi
 clang
+cloudflare-warp-bin
 clutter
 cmake
 dog
@@ -46,10 +47,8 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
-noto-fonts-sc
 obs-studio
 ocrmypdf
-oh-my-zsh-git
 os-prober
 pnpm
 prettier
@@ -61,6 +60,7 @@ sbsigntools
 scc
 shfmt
 shim-signed
+sof-firmware
 starship
 telegram-desktop
 tesseract-data-chi_sim
@@ -71,7 +71,6 @@ texlive-most
 tldr
 tlp
 tmux
-ttf-firacode-nerd
 typora
 vcpkg-git
 vhs

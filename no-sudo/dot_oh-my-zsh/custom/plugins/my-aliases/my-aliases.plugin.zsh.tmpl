@@ -1,0 +1,22 @@
+#!/usr/bin/zsh
+
+{{ template "init.sh" }}
+
+if [[ ${TERM} == "xterm-kitty" ]]; then
+  alias ssh="kitty +kitten ssh"
+fi
+
+if exists lsd; then
+  alias ls="lsd"
+  alias tree="lsd --tree"
+fi
+
+if exists nvim; then
+  export EDITOR="nvim"
+fi
+
+if exists yay; then
+  function y() {
+    run yay --devel --sync --sysupgrade --refresh "${@}"
+  }
+fi

@@ -18,3 +18,5 @@ pkgs=(
 for pkg in "${pkgs[@]}"; do
   run pipx install --force "${pkg}"
 done
+
+run pipx upgrade-all

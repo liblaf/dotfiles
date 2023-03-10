@@ -35,16 +35,6 @@ fi
 
 source "${ZSH}/oh-my-zsh.sh"
 
-[ -f "/opt/miniconda3/etc/profile.d/conda.sh" ] && source "/opt/miniconda3/etc/profile.d/conda.sh"
-
-# pnpm
-export PNPM_HOME="/home/liblaf/.local/share/pnpm"
-case ":${PATH}:" in
-  *":${PNPM_HOME}:"*) ;;
-  *) export PATH="${PNPM_HOME}:${PATH}" ;;
-esac
-# pnpm end
-
 case ":${PATH}:" in
   *":${HOME}/.local/bin:"*) ;;
   *) export PATH="${HOME}/.local/bin:${PATH}" ;;
