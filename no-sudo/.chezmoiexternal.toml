@@ -3,13 +3,18 @@ executable = true
 type = "file"
 url = "https://github.com/twpayne/chezmoi/releases/latest/download/chezmoi-linux-amd64"
 
-[".local/opt/starship"]
-type = "archive"
-url = "https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz"
+[".local/bin/pkg"]
+executable = true
+type = "file"
+url = "https://github.com/liblaf/utils.go/releases/latest/download/pkg-linux-amd64"
 
 [".local/chezmoi/oh-my-zsh"]
 type = "git-repo"
 url = "https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git"
+
+[".local/opt/starship"]
+type = "archive"
+url = "https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz"
 
 [".oh-my-zsh/custom/plugins/conda-zsh-completion"]
 type = "git-repo"
