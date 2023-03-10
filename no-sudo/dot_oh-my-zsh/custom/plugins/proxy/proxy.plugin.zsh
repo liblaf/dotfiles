@@ -169,7 +169,9 @@ function warp() {
 }
 
 function nowarp() {
-  warp-cli disconnect
+  if command -v warp-cli > /dev/null; then
+    warp-cli disconnect
+  fi
 }
 
 function myip() {
