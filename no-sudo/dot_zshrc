@@ -18,7 +18,7 @@ plugins=(
   perms
   tmux
   universalarchive
-  zoxide
+  # zoxide
 
   conda-zsh-completion
   # wakatime
