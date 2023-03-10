@@ -5,7 +5,6 @@ bottom
 chezmoi
 clang
 cloudflare-warp-bin
-clutter
 cmake
 dog
 duf
@@ -23,13 +22,11 @@ gnome-shell-extension-dash-to-dock
 gnome-shell-extension-paperwm-git
 gnome-shell-extension-system-monitor-next-git
 gnome-shell-extensions
-gnome-system-monitor
 gnome-themes-extra
 go
 gping
 grub
 gum
-httpie
 hyperfine
 ibus-libpinyin
 kitty

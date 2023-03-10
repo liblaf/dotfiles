@@ -2,6 +2,11 @@
 type = "git-repo"
 url = "https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git"
 
+[".local/chezmoi/upgit/upgit"]
+executable = true
+type = "file"
+url = "https://github.com/pluveto/upgit/releases/latest/download/upgit_linux_amd64"
+
 [".local/share/fonts/08_NotoSansCJKsc"]
 exact = true
 type = "archive"
