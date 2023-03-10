@@ -12,6 +12,9 @@ packages=(
   vercel
 )
 
+set +o errexit
 for pkg in "${packages[@]}"; do
   run pnpm install --global "${pkg}@latest"
 done
+
+exit 0

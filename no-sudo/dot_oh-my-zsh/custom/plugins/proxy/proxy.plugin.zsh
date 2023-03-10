@@ -28,14 +28,14 @@ function __check_ip() {
   echo "========================================"
   echo "Check what your IP is"
   echo "----------------------------------------"
-  ipv4="$(https --body https://api-ipv4.ip.sb/ip 2> /dev/null)"
+  ipv4="$(curl -s -k -H 'user-agent: zsh-proxy' https://api-ipv4.ip.sb/ip 2> /dev/null)"
   if [[ $ipv4 != "" ]]; then
     echo "IPv4: $ipv4"
   else
     echo "IPv4: -"
   fi
   echo "----------------------------------------"
-  ipv6="$(https --body https://api-ipv6.ip.sb/ip 2> /dev/null)"
+  ipv6="$(curl -s -k -H 'user-agent: zsh-proxy' https://api-ipv6.ip.sb/ip 2> /dev/null)"
   if [[ $ipv6 != "" ]]; then
     echo "IPv6: $ipv6"
   else
@@ -43,7 +43,7 @@ function __check_ip() {
   fi
   echo "----------------------------------------"
   echo "Info: "
-  https --body https://api.ip.sb/geoip 2> /dev/null
+  curl -s -k -H 'user-agent: zsh-proxy' https://api.ip.sb/geoip 2> /dev/null | python -m json.tool
   echo "========================================"
 }
 

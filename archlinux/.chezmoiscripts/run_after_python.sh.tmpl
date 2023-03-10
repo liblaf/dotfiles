@@ -12,11 +12,16 @@ pkgs=(
   poetry
   pre-commit
   pygments
+  thu-learn-downloader
   toml-sort
+  wydyf
 )
 
+set +o errexit
 for pkg in "${pkgs[@]}"; do
   run pipx install --force "${pkg}"
 done
 
 run pipx upgrade-all
+
+exit 0

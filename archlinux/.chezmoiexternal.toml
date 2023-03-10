@@ -1,20 +1,24 @@
-[".local/chezmoi/oh-my-zsh"]
+[".local/chezmoi/ohmyzsh"]
 type = "git-repo"
 url = "https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git"
 
 [".local/share/fonts/08_NotoSansCJKsc"]
+exact = true
 type = "archive"
 url = "https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/08_NotoSansCJKsc.zip"
 
 [".local/share/fonts/09_NotoSerifCJKsc"]
+exact = true
 type = "archive"
 url = "https://github.com/notofonts/noto-cjk/releases/download/Serif2.001/09_NotoSerifCJKsc.zip"
 
 [".local/share/fonts/13_NotoSansMonoCJKsc"]
+exact = true
 type = "archive"
 url = "https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/13_NotoSansMonoCJKsc.zip"
 
 [".local/share/fonts/FiraCode"]
+exact = true
 type = "archive"
 url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
 
@@ -37,3 +41,7 @@ url = "https://github.com/Game4Move78/zsh-bitwarden.git"
 [".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
 type = "git-repo"
 url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+
+["Desktop/thu-learn/config.yaml"]
+type = "file"
+url = "https://github.com/liblaf/thu-learn-downloader/raw/main/config.yaml"

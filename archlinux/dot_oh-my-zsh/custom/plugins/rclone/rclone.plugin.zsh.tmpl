@@ -1,8 +1,6 @@
 #!/usr/bin/zsh
 
-function exists() {
-  command -v "${@}" > /dev/null 2>&1
-}
+{{ template "init.sh" }}
 
 if exists rclone; then
 
@@ -19,5 +17,3 @@ if exists rclone; then
   }
 
 fi
-
-unset -f exists

@@ -1,4 +1,4 @@
-export ZSH="${HOME}/.local/chezmoi/oh-my-zsh"
+export ZSH="${HOME}/.local/chezmoi/ohmyzsh"
 export ZSH_THEME="starship"
 export ZSH_CUSTOM="${HOME}/.oh-my-zsh/custom"
 
