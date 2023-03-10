@@ -132,7 +132,7 @@ function __disable_proxy_system() {
   dconf reset /system/proxy/mode
 }
 
-__all_targes=(apt git pnpm shell system)
+__all_targes=(git shell)
 
 function __auto_proxy() {
   if [[ $(dconf read /system/proxy/mode) == "'manual'" ]]; then
