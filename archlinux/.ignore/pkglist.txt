@@ -15,6 +15,7 @@ fzf
 gdu
 git
 git-delta
+git-extras
 github-cli
 glow
 gnome-shell-extension-appindicator
