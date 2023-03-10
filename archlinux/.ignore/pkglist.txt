@@ -29,6 +29,7 @@ grub
 gum
 hyperfine
 ibus-libpinyin
+imagemagick
 kitty
 lazygit
 lf
