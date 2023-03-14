@@ -7,6 +7,13 @@ if [[ ${TERM} == "xterm-kitty" ]]; then
   alias icat="kitten icat --engine magick"
 fi
 
+if exists lf; then
+  LFCD="/etc/profile.d/lfcd.sh"
+  if [[ -f ${LFCD} ]]; then
+    source "${LFCD}"
+  fi
+fi
+
 if exists lsd; then
   alias ls="lsd"
   alias tree="lsd --tree"
