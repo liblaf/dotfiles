@@ -1,3 +1,11 @@
+[".config/lf/colors"]
+type = "file"
+url = "https://github.com/gokcehan/lf/raw/master/etc/colors.example"
+
+[".config/lf/icons"]
+type = "file"
+url = "https://github.com/gokcehan/lf/raw/master/etc/icons.example"
+
 [".local/chezmoi/ohmyzsh"]
 type = "git-repo"
 url = "https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git"

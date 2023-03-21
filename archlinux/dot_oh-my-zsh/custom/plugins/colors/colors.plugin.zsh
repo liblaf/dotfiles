@@ -18,9 +18,3 @@ export LESS_TERMCAP_se="${reset_color}"
 # underlining
 export LESS_TERMCAP_us="${fg_bold[green]}"
 export LESS_TERMCAP_ue="${reset_color}"
-
-if command -v moar > /dev/null; then
-  export PAGER="moar"
-  export BAT_PAGER="moar --no-linenumbers"
-  alias L="| moar"
-fi

@@ -4,7 +4,11 @@
 
 if [[ ${TERM} == "xterm-kitty" ]]; then
   alias ssh="kitty +kitten ssh"
-  alias icat="kitten icat --engine magick"
+  if exists magick; then
+    alias icat="kitten icat --engine magick"
+  else
+    alias icat="kitten icat"
+  fi
 fi
 
 if exists lf; then
@@ -21,6 +25,12 @@ fi
 
 if exists nvim; then
   export EDITOR="nvim"
+  if exists nvimpager; then
+    export PAGER="nvimpager"
+    if exists bat; then
+      export BAT_PAGER="less"
+    fi
+  fi
 fi
 
 if exists yay; then

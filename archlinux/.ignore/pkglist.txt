@@ -38,7 +38,6 @@ lsd
 man-db
 microsoft-edge-stable-bin
 miniconda3
-moar-git
 neofetch
 neovim
 networkmanager
@@ -46,6 +45,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+nvimpager
 obs-studio
 ocrmypdf
 os-prober
@@ -71,7 +71,7 @@ tldr
 tlp
 tmux
 typora
-vcpkg-git
+vcpkg
 vhs
 visual-studio-code-bin
 vlc

@@ -1,4 +1,6 @@
 map <delete> delete
 
-set previewer ~/.config/lf/lf_kitty_preview
-set cleaner ~/.config/lf/lf_kitty_clean
+set icons
+
+# set previewer ~/.config/lf/lf_kitty_preview
+# set cleaner ~/.config/lf/lf_kitty_clean
