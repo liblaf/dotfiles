@@ -33,14 +33,13 @@ imagemagick
 kitty
 lazygit
 lf
-libgtop
 lsd
 man-db
+meshlab
 microsoft-edge-stable-bin
 miniconda3
 neofetch
 neovim
-networkmanager
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -62,8 +61,6 @@ shim-signed
 sof-firmware
 starship
 telegram-desktop
-tesseract-data-chi_sim
-tesseract-data-eng
 texlive-lang
 texlive-latexindent-meta
 texlive-most
