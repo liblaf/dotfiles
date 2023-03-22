@@ -6,6 +6,16 @@ url = "https://github.com/gokcehan/lf/raw/master/etc/colors.example"
 type = "file"
 url = "https://github.com/gokcehan/lf/raw/master/etc/icons.example"
 
+[".local/bin/pkg"]
+executable = true
+type = "file"
+url = "https://github.com/liblaf/utils.go/releases/latest/download/pkg-linux-amd64"
+
+[".local/bin/utils"]
+executable = true
+type = "file"
+url = "https://github.com/liblaf/utils.go/releases/latest/download/utils-linux-amd64"
+
 [".local/chezmoi/ohmyzsh"]
 type = "git-repo"
 url = "https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git"

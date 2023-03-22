@@ -4,6 +4,7 @@ bear
 bottom
 chezmoi
 clang
+clash-for-windows-bin
 cloudflare-warp-bin
 cmake
 dog
@@ -35,7 +36,6 @@ lazygit
 lf
 lsd
 man-db
-meshlab
 microsoft-edge-stable-bin
 miniconda3
 neofetch
@@ -46,7 +46,6 @@ noto-fonts-emoji
 noto-fonts-extra
 nvimpager
 obs-studio
-ocrmypdf
 os-prober
 pnpm
 prettier

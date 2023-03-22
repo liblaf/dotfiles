@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function exists() {
   command -v "${@}" > /dev/null 2>&1
 }

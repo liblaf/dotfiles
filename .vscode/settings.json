@@ -1,6 +1,11 @@
 {
   "files.associations": {
+    ".chezmoiignore": "ignore",
     "*.sh.tmpl": "shellscript",
-    "*.zsh.tmpl": "shellscript"
+    "*.zsh.tmpl": "shellscript",
+    "dot_czrc": "json",
+    "dot_gitconfig": "properties",
+    "dot_npmrc": "properties",
+    "dot_zshrc.tmpl": "shellscript"
   }
 }

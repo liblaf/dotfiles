@@ -5,6 +5,8 @@ set -o pipefail
 
 {{ template "init.sh" }}
 
+{{ template "load-pnpm.sh" }}
+
 packages=(
   @bitwarden/cli
   commitizen
@@ -14,7 +16,7 @@ packages=(
 
 set +o errexit
 for pkg in "${packages[@]}"; do
-  run pnpm install --global "${pkg}@latest"
+  run pnpm add --global "${pkg}@latest"
 done
 
 exit 0

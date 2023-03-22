@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+run chsh --shell /usr/bin/zsh

@@ -5,6 +5,8 @@ set -o pipefail
 
 {{ template "init.sh" }}
 
+{{ template "load-local-bin.sh" }}
+
 pkgs=(
   black
   httpie

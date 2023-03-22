@@ -1,17 +1,8 @@
 [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ] && source "/opt/miniconda3/etc/profile.d/conda.sh"
 
-# pnpm
-export PNPM_HOME="/home/liblaf/.local/share/pnpm"
-case ":${PATH}:" in
-  *":${PNPM_HOME}:"*) ;;
-  *) export PATH="${PNPM_HOME}:${PATH}" ;;
-esac
-# pnpm end
+{{ template "load-pnpm.sh" }}
 
-case ":${PATH}:" in
-  *":${HOME}/.local/bin:"*) ;;
-  *) export PATH="${HOME}/.local/bin:${PATH}" ;;
-esac
+{{ template "load-local-bin.sh" }}
 
 export ZSH="${HOME}/.local/chezmoi/ohmyzsh"
 export ZSH_THEME="starship"
