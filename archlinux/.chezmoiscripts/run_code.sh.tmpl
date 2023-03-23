@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-set -o errexit
+# set -o errexit
 set -o nounset
 set -o pipefail
 
@@ -25,10 +25,10 @@ extensions=(
   shd101wyy.markdown-preview-enhanced
   streetsidesoftware.code-spell-checker
   tamasfe.even-better-toml
-  WakaTime.vscode-wakatime
+  # WakaTime.vscode-wakatime
   yzhang.markdown-all-in-one
 )
 
 for ext in "${extensions[@]}"; do
-  run code --install-extension "${ext}" --force
+  run-safe code --install-extension "${ext}" --force
 done

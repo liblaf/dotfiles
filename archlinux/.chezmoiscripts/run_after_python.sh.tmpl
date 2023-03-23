@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-set -o errexit
+# set -o errexit
 set -o nounset
 set -o pipefail
 
@@ -20,11 +20,8 @@ pkgs=(
   wydyf
 )
 
-set +o errexit
 for pkg in "${pkgs[@]}"; do
-  run pipx install --force "${pkg}"
+  run-safe pipx install --force "${pkg}"
 done
 
-run pipx upgrade-all
-
-exit 0
+run-safe pipx upgrade-all

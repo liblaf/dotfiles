@@ -1,13 +1,10 @@
 #!/usr/bin/bash
-set -o errexit
+# set -o errexit
 set -o nounset
 set -o pipefail
 
 {{ template "init.sh" }}
 
-run sudo install --mode="u=rw,go=r" --no-target-directory "{{ .chezmoi.sourceDir }}/.ignore/mirrorlist" "/etc/pacman.d/mirrorlist"
+run-safe sudo install --mode="u=rw,go=r" --no-target-directory "{{ .chezmoi.sourceDir }}/.ignore/mirrorlist" "/etc/pacman.d/mirrorlist"
 
-set +o errexit
-run yay --devel --sync --sysupgrade --refresh --needed - < "{{ .chezmoi.sourceDir }}/.ignore/pkglist.txt"
-
-exit 0
+run-safe yay --devel --nouseask --sync --sysupgrade --refresh --needed --noconfirm - < "{{ .chezmoi.sourceDir }}/.ignore/pkglist.txt"

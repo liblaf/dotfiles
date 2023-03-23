@@ -23,18 +23,18 @@ if exists lsd; then
   alias tree="lsd --tree"
 fi
 
+if exists moar; then
+  alias L="| moar"
+  export PAGER="moar"
+  export BAT_PAGER="moar --no-linenumbers"
+fi
+
 if exists nvim; then
   export EDITOR="nvim"
-  if exists nvimpager; then
-    export PAGER="nvimpager"
-    if exists bat; then
-      export BAT_PAGER="less"
-    fi
-  fi
 fi
 
 if exists yay; then
   function y() {
-    run yay --devel --sync --sysupgrade --refresh "${@}"
+    run yay --devel --nouseask --sync --sysupgrade --refresh --noconfirm "${@}"
   }
 fi

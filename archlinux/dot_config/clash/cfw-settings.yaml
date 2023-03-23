@@ -1,0 +1,26 @@
+connShowProcess: true
+hideAfterStartup: true
+hideTrayIcon: false
+proxyOrder: 1
+randomControllerPort: true
+runTimeFormat: "hh : mm : ss"
+showNewVersionIcon: true
+showTrayProxyDelayIndicator: true
+systemTheme: true
+trayOrders:
+  - - icon
+  - - status
+    - traffic
+    - text
+profileParsersText: |-
+  parsers:
+    - reg: https?:\/\/.+
+      yaml:
+        append-proxy-groups:
+          - url: http://www.gstatic.com/generate_204
+            interval: 300
+            name: auto
+            type: url-test
+        commands:
+          - proxy-groups.auto.proxies=[]proxyNames
+          - proxy-groups.0.proxies.0+auto

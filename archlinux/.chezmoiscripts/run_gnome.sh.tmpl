@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-set -o errexit
+# set -o errexit
 set -o nounset
 set -o pipefail
 
@@ -25,5 +25,5 @@ extensions=(
 )
 
 for ext in "${extensions[@]}"; do
-  run gnome-extensions enable "${ext}"
+  run-safe gnome-extensions enable "${ext}"
 done

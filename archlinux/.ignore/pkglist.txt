@@ -38,13 +38,13 @@ lsd
 man-db
 microsoft-edge-stable-bin
 miniconda3
+moar-git
 neofetch
 neovim
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
-nvimpager
 obs-studio
 os-prober
 pnpm

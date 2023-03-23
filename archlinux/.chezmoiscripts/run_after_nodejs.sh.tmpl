@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-set -o errexit
+# set -o errexit
 set -o nounset
 set -o pipefail
 
@@ -14,9 +14,6 @@ packages=(
   vercel
 )
 
-set +o errexit
 for pkg in "${packages[@]}"; do
-  run pnpm add --global "${pkg}@latest"
+  run-safe pnpm add --global "${pkg}@latest"
 done
-
-exit 0
