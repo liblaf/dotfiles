@@ -8,6 +8,7 @@ clash-for-windows-bin
 cloudflare-warp-bin
 cmake
 dog
+doxygen
 duf
 efibootmgr
 evince
@@ -34,6 +35,7 @@ imagemagick
 kitty
 lazygit
 lf
+llvm
 lsd
 man-db
 microsoft-edge-stable-bin

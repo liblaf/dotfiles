@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+# set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+if [[ ${SHELL} != /usr/bin/zsh ]]; then
+  run-safe chsh --shell /usr/bin/zsh
+fi
+
+if ! groups | grep vcpkg; then
+  run-safe sudo gpasswd --add "${USER}" vcpkg
+fi

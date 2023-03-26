@@ -11,6 +11,13 @@ if [[ ${TERM} == "xterm-kitty" ]]; then
   fi
 fi
 
+if exists code && exists zoxide; then
+  function ci() {
+    local filepath="$(zoxide query --interactive "${@}")"
+    code "${filepath}"
+  }
+fi
+
 if exists lf; then
   LFCD="/etc/profile.d/lfcd.sh"
   if [[ -f ${LFCD} ]]; then
