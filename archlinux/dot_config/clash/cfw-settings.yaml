@@ -12,15 +12,8 @@ trayOrders:
   - - status
     - traffic
     - text
+
 profileParsersText: |-
   parsers:
-    - reg: https?:\/\/.+
-      yaml:
-        append-proxy-groups:
-          - url: http://www.gstatic.com/generate_204
-            interval: 300
-            name: auto
-            type: url-test
-        commands:
-          - proxy-groups.auto.proxies=[]proxyNames
-          - proxy-groups.0.proxies.0+auto
+    - reg: sub.nysubs.xyz
+      file: /home/liblaf/.config/clash/parser.js
