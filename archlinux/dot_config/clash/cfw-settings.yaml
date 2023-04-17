@@ -3,6 +3,7 @@ hideAfterStartup: true
 hideTrayIcon: false
 proxyOrder: 1
 randomControllerPort: true
+randomMixedPort: true
 runTimeFormat: "hh : mm : ss"
 showNewVersionIcon: true
 showTrayProxyDelayIndicator: true

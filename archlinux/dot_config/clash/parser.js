@@ -123,11 +123,11 @@ rules:
 `;
 
 const get_country_code = async (name) => {
-  const i = name.indexOf("|");
+  const i = name.lastIndexOf(" ");
   if (i < 0) {
     return null;
   }
-  return name.slice(0, i - 1);
+  return name.slice(0, i);
 };
 
 const group_proxies = async (names) => {
@@ -147,7 +147,7 @@ const group_proxies = async (names) => {
 module.exports.parse = async (
   raw,
   { axios, yaml, notify, console },
-  { name, url, interval, selected }
+  { name, url, interval, selected },
 ) => {
   const obj = yaml.parse(raw);
 
@@ -160,8 +160,6 @@ module.exports.parse = async (
   };
 
   const groups = await group_proxies(proxy_names);
-
-  console.log(proxy_names[1].slice(0, proxy_names[1].indexOf("|")));
 
   obj["proxy-groups"] = [
     {
@@ -178,14 +176,14 @@ module.exports.parse = async (
       name: "Select Country",
       type: "select",
       proxies: Object.keys(groups).map(
-        (country_code) => `${country_code} Auto`
+        (country_code) => `${country_code} Auto`,
       ),
     },
     {
       ...url_test,
       name: "Auto",
       proxies: Object.keys(groups).map(
-        (country_code) => `${country_code} Auto`
+        (country_code) => `${country_code} Auto`,
       ),
     },
     ...Object.keys(groups).map((country_code) => {

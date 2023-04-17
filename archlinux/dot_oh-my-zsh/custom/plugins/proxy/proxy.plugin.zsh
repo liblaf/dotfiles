@@ -1,177 +1,110 @@
 #!/usr/bin/zsh
-# Reference: https://github.com/SukkaW/zsh-proxy
 
-function __dconf_read_proxy() {
-  local t="${1}"
-  local host="$(dconf read /system/proxy/${t}/host)"
-  if [[ -z ${host} ]]; then
-    host="127.0.0.1"
-  else
-    host="${host:1:-1}"
-  fi
-  local port="$(dconf read /system/proxy/${t}/port)"
-  if [[ -z ${port} ]]; then
-    port="7890"
-  fi
-  echo -n "${host}:${port}"
+function __get_proxy() {
+  __mixed_port=$(yq '."mixed-port"' ${HOME}/.config/clash/config.yaml 2> /dev/null)
+  __ftp_proxy=http://127.0.0.1:${__mixed_port}
+  __http_proxy=http://127.0.0.1:${__mixed_port}
+  __https_proxy=http://127.0.0.1:${__mixed_port}
+  __socks_proxy=socks://127.0.0.1:${__mixed_port}
 }
 
-function __read_proxy() {
-  __all_proxy="socks://$(__dconf_read_proxy socks)/"
-  __ftp_proxy="http://$(__dconf_read_proxy ftp)/"
-  __http_proxy="http://$(__dconf_read_proxy http)/"
-  __https_proxy="http://$(__dconf_read_proxy https)/"
-  __no_proxy="localhost,127.0.0.0/8,::1"
+function __test_proxy() {
+  curl --proxy ${__http_proxy} http://www.gstatic.com/generate_204
 }
 
 function __check_ip() {
   echo "========================================"
-  echo "Check what your IP is"
+  local ipv4=$(https --body https://api-ipv4.ip.sb/ip 2> /dev/null)
+  echo "IPv4: ${ipv4:-"-"}"
   echo "----------------------------------------"
-  ipv4="$(https --body https://api-ipv4.ip.sb/ip 2> /dev/null)"
-  if [[ $ipv4 != "" ]]; then
-    echo "IPv4: $ipv4"
-  else
-    echo "IPv4: -"
-  fi
+  local ipv6=$(https --body https://api-ipv6.ip.sb/ip 2> /dev/null)
+  echo "IPv6: ${ipv6:-"-"}"
   echo "----------------------------------------"
-  ipv6="$(https --body https://api-ipv6.ip.sb/ip 2> /dev/null)"
-  if [[ $ipv6 != "" ]]; then
-    echo "IPv6: $ipv6"
-  else
-    echo "IPv6: -"
-  fi
-  echo "----------------------------------------"
-  echo "Info: "
   https --body https://api.ip.sb/geoip 2> /dev/null
   echo "========================================"
 }
 
-function __enable_proxy_apt() {
-  if [ -d /etc/apt/apt.conf.d ]; then
-    sudo touch /etc/apt/apt.conf.d/proxy.conf
-    echo -e "Acquire::http::Proxy \"${__http_proxy}\";" | sudo tee -a /etc/apt/apt.conf.d/proxy.conf > /dev/null
-    echo -e "Acquire::https::Proxy \"${__https_proxy}\";" | sudo tee -a /etc/apt/apt.conf.d/proxy.conf > /dev/null
-    return 0
-  else
-    return 1
-  fi
-}
-
-function __disable_proxy_apt() {
-  if [ -d /etc/apt/apt.conf.d ]; then
-    sudo rm -rf /etc/apt/apt.conf.d/proxy.conf
-  fi
-}
-
-function __enable_proxy_git() {
-  git config --global http.proxy "${__http_proxy}"
-  git config --global https.proxy "${__https_proxy}"
-  return 0
-}
-
-function __disable_proxy_git() {
-  git config --global --unset http.proxy
-  git config --global --unset https.proxy
-}
-
-function __enable_proxy_pnpm() {
-  if command -v pnpm > /dev/null; then
-    pnpm config --global set proxy "${__http_proxy}" > /dev/null 2>&1
-    pnpm config --global set https-proxy "${__https_proxy}" > /dev/null 2>&1
-    return 0
-  else
-    return 1
-  fi
-}
-
-function __disable_proxy_pnpm() {
-  if command -v pnpm > /dev/null; then
-    pnpm config --global delete proxy > /dev/null 2>&1
-    pnpm config --global delete https-proxy > /dev/null 2>&1
-  fi
-}
-
 function __enable_proxy_shell() {
-  __read_proxy
-
-  export ALL_PROXY="${__all_proxy}"
-  export FTP_PROXY="${__ftp_proxy}"
-  export HTTP_PROXY="${__http_proxy}"
-  export HTTPS_PROXY="${__https_proxy}"
-  export NO_PROXY="${__no_proxy}"
-
-  export all_proxy="${__all_proxy}"
-  export ftp_proxy="${__ftp_proxy}"
-  export http_proxy="${__http_proxy}"
-  export https_proxy="${__https_proxy}"
-  export no_proxy="${__no_proxy}"
-
-  return 0
+  export all_proxy=${__socks_proxy}
+  export ALL_PROXY=${all_proxy}
+  export ftp_proxy=${__ftp_proxy}
+  export FTP_PROXY=${ftp_proxy}
+  export http_proxy=${__http_proxy}
+  export HTTP_PROXY=${http_proxy}
+  export https_proxy=${__https_proxy}
+  export HTTPS_PROXY=${https_proxy}
+  export no_proxy=localhost,127.0.0.0/8,::1
+  export NO_PROXY=${no_proxy}
 }
 
 function __disable_proxy_shell() {
-  unset ALL_PROXY
-  unset FTP_PROXY
-  unset HTTP_PROXY
-  unset HTTPS_PROXY
-  unset NO_PROXY
-
   unset all_proxy
+  unset ALL_PROXY
   unset ftp_proxy
+  unset FTP_PROXY
   unset http_proxy
+  unset HTTP_PROXY
   unset https_proxy
+  unset HTTPS_PROXY
   unset no_proxy
+  unset NO_PROXY
 }
 
 function __enable_proxy_system() {
-  dconf write /system/proxy/mode "'manual'"
+  gsettings set org.gnome.system.proxy mode manual
+  gsettings set org.gnome.system.proxy.ftp host 127.0.0.1
+  gsettings set org.gnome.system.proxy.ftp port ${__mixed_port}
+  gsettings set org.gnome.system.proxy.http host 127.0.0.1
+  gsettings set org.gnome.system.proxy.http port ${__mixed_port}
+  gsettings set org.gnome.system.proxy.https host 127.0.0.1
+  gsettings set org.gnome.system.proxy.https port ${__mixed_port}
+  gsettings set org.gnome.system.proxy.socks host 127.0.0.1
+  gsettings set org.gnome.system.proxy.socks port ${__mixed_port}
 }
 
 function __disable_proxy_system() {
-  dconf reset /system/proxy/mode
+  gsettings reset org.gnome.system.proxy mode
 }
 
-__all_targes=(apt git pnpm shell system)
+__proxy_targets=(
+  shell
+  system
+)
 
 function __auto_proxy() {
-  if [[ $(dconf read /system/proxy/mode) == "'manual'" ]]; then
-    __enable_proxy_shell
+  __get_proxy
+  if __test_proxy; then
+    for target in ${__proxy_targets[@]}; do
+      __enable_proxy_${target}
+    done
+  else
+    for target in ${__proxy_targets[@]}; do
+      __disable_proxy_${target}
+    done
   fi
 }
 
 function proxy() {
+  __get_proxy
   echo "========================================"
-  echo -n "Resetting proxy... "
-  noproxy > /dev/null
-  nowarp > /dev/null
-  echo "Done!"
-  echo "----------------------------------------"
   echo "Enable proxy for:"
-  for t in "${__all_targes[@]}"; do
-    if __enable_proxy_${t}; then
-      echo "- ${t}"
+  for target in ${__proxy_targets[@]}; do
+    if __enable_proxy_${target}; then
+      echo "- ${target}"
     fi
   done
-  echo "Done!"
   __check_ip
 }
 
 function noproxy() {
-  for t in "${__all_targes[@]}"; do
-    __disable_proxy_${t}
+  echo "========================================"
+  echo "Disable proxy for:"
+  for target in ${__proxy_targets[@]}; do
+    if __disable_proxy_${target}; then
+      echo "- ${target}"
+    fi
   done
-}
-
-function warp() {
-  noproxy > /dev/null
-  warp-cli connect
-}
-
-function nowarp() {
-  if command -v warp-cli > /dev/null; then
-    warp-cli disconnect
-  fi
+  __check_ip
 }
 
 function myip() {
