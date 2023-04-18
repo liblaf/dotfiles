@@ -123,11 +123,11 @@ rules:
 `;
 
 const get_country_code = async (name) => {
-  const i = name.lastIndexOf(" ");
+  const i = name.search(/\d/);
   if (i < 0) {
     return null;
   }
-  return name.slice(0, i);
+  return name.slice(0, i).trim();
 };
 
 const group_proxies = async (names) => {
