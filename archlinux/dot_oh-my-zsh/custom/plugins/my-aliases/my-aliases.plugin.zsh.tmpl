@@ -14,7 +14,9 @@ fi
 if exists code && exists zoxide; then
   function ci() {
     local filepath="$(zoxide query --interactive "${@}")"
-    code "${filepath}"
+    if [[ -e ${filepath} ]]; then
+      code "${filepath}"
+    fi
   }
 fi
 
