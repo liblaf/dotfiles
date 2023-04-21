@@ -1,0 +1,3 @@
+[submodule "archlinux/.ignore/grub2-themes"]
+path = archlinux/.ignore/grub2-themes
+url = https://github.com/vinceliuice/grub2-themes.git
