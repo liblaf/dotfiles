@@ -7,4 +7,4 @@ set -o pipefail
 
 run-safe sudo install --mode="u=rw,go=r" --no-target-directory "{{ .chezmoi.sourceDir }}/.ignore/mirrorlist" "/etc/pacman.d/mirrorlist"
 
-run-safe yay --devel --nouseask --sync --sysupgrade --refresh --needed --noconfirm - < "{{ .chezmoi.sourceDir }}/.ignore/pkglist.txt"
+sed --expression="/^#/d" "{{ .chezmoi.sourceDir }}/.ignore/pkglist.txt" | run-safe yay --devel --nouseask --sync --sysupgrade --refresh --needed --noconfirm -
