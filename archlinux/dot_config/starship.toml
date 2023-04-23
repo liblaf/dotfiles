@@ -83,12 +83,12 @@ symbol = "\ue61e"                                                              #
 version_format = "${raw}"
 
 [character]
-error_symbol = "[\uf105](bold red)"                 #  nf-fa-angle_right
-success_symbol = "[\uf105](bold green)"             #  nf-fa-angle_right
-vimcmd_replace_one_symbol = "[\uf104](bold purple)" #  nf-fa-angle_left
-vimcmd_replace_symbol = "[\uf104](bold purple)"     #  nf-fa-angle_left
-vimcmd_symbol = "[\uf104](bold green)"              #  nf-fa-angle_left
-vimcmd_visual_symbol = "[\uf104](bold yellow)"      #  nf-fa-angle_left
+error_symbol = "[>](bold red)"
+success_symbol = "[>](bold green)"
+vimcmd_replace_one_symbol = "[<](bold purple)"
+vimcmd_replace_symbol = "[<](bold purple)"
+vimcmd_symbol = "[<](bold green)"
+vimcmd_visual_symbol = "[<](bold yellow)"
 
 [cmake]
 format = '\[[${symbol}( ${version})](${style})\]'
@@ -105,6 +105,7 @@ symbol = "\uf10c"                                   #  nf-fa-circle_o
 [custom.bitwarden]
 description = "Bitwarden"
 format = '\[[${symbol} Bitwarden](${style})\]'
+style = "bold blue"
 symbol = "\uf132"                              #  nf-fa-shield
 when = 'test -n "${BW_SESSION}"'
 
@@ -112,12 +113,14 @@ when = 'test -n "${BW_SESSION}"'
 command = "echo ${https_proxy} | sed -e 's@^.*://@@' -e 's@/$@@g'"
 description = "Proxy"
 format = '\[[${symbol} ${output}](${style})\]'
+style = "bold blue"
 symbol = "\uf0ac"                                                  #  nf-fa-globe
 when = 'test -n "${https_proxy}"'
 
 [custom.warp]
 description = "Cloudflare WARP"
 format = '\[[${symbol} WARP](${style})\]'
+style = "bold yellow"
 symbol = "\uf0c2"                         #  nf-fa-cloud
 when = "warp-cli status | grep Connected"
 
@@ -134,16 +137,16 @@ symbol = "\U000f062c"                          # 󰘬 nf-md-source_branch
 
 [git_metrics]
 disabled = false
-format = '\[[+${added}](${added_style})[-${deleted}](${deleted_style})\]'
+format = '(\[([+${added}](${added_style}))([-${deleted}](${deleted_style}))\])'
 
 [git_status]
-ahead = "\U000f005d"                                      # 󰁝 nf-md-arrow_up
-behind = "\U000f0045"                                     # 󰁅 nf-md-arrow_down
+ahead = "\uf176"                                          #  nf-fa-long_arrow_up
+behind = "\uf175"                                         #  nf-fa-long_arrow_down
 conflicted = "="
-deleted = "\uf00d"                                        #  nf-fa-remove
-diverged = "\U000f0e79"                                   # 󰹹 nf-md-arrow_up_down
-format = '([\[${all_status}${ahead_behind}\]](${style}))'
-renamed = "\ueae0"                                        #  nf-cod-diff_renamed
+deleted = "\uf00d "                                       #  nf-fa-remove
+diverged = "\uf07d"                                       #  nf-fa-arrows_v
+format = '(\[[${all_status}${ahead_behind}](${style})\])'
+renamed = "\uf101 "                                       #  nf-fa-angle_double_right
 
 [golang]
 format = '\[[${symbol}( ${version})](${style})\]'
