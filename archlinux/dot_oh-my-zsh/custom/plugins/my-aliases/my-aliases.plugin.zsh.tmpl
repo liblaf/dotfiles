@@ -42,6 +42,20 @@ if has nvim; then
   export EDITOR="nvim"
 fi
 
+if has tmux; then
+  executables=(
+    blender
+    cfw
+    microsoft-edge-stable
+    typora
+  )
+  for exe in "${executables[@]}"; do
+    if has "${exe}"; then
+      alias "${exe}"="tmux new-session -d ${exe}"
+    fi
+  done
+fi
+
 if has yay; then
   function y() {
     run yay --devel --nouseask --sync --sysupgrade --refresh --noconfirm "${@}"

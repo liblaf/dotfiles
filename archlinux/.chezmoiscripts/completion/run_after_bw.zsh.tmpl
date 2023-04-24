@@ -1,0 +1,13 @@
+#!/usr/bin/zsh
+# set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+{{ template "load-pnpm.sh" }}
+
+if has bw; then
+  bw completion --shell zsh > /tmp/_bw
+  install -D --mode="u=rw,go=r" --no-target-directory /tmp/_bw ${HOME}/.zfunc/_bw
+  rm --force /tmp/_bw
+fi
