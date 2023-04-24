@@ -7,4 +7,10 @@ set -o pipefail
 
 run-safe sudo install --mode="u=rw,go=r" --no-target-directory "{{ .chezmoi.sourceDir }}/.ignore/mirrorlist" "/etc/pacman.d/mirrorlist"
 
-sed --expression="/^#/d" "{{ .chezmoi.sourceDir }}/.ignore/pkglist.txt" | run-safe yay --devel --nouseask --sync --sysupgrade --refresh --needed --noconfirm -
+sed --expression="/^#/d" "{{ .chezmoi.sourceDir }}/.ignore/pkglist.txt" |
+  run-safe yay --devel --nouseask --sync --sysupgrade --refresh --needed --noconfirm -
+
+sed --expression="/^#/d" "{{ .chezmoi.sourceDir }}/.ignore/group-list.txt" |
+  yay --sync --groups - |
+  awk '{print $2}' |
+  run-safe yay --devel --nouseask --sync --sysupgrade --refresh --needed --noconfirm -

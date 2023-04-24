@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 
-function exists() {
+function has() {
   command -v "${@}" > /dev/null 2>&1
 }
 
@@ -9,11 +9,11 @@ function ntp() {
   sudo systemctl restart systemd-timesyncd
 }
 
-if exists wslact; then
+if has wslact; then
   function time-sync() {
     # https://wslutiliti.es/wslu/man/wslact.html
     sudo wslact time-sync
   }
 fi
 
-unset -f exists
+unset -f has

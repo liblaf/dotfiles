@@ -6,16 +6,16 @@ if [[ ${TERM} == "xterm-kitty" ]]; then
   alias ssh="kitty +kitten ssh"
 fi
 
-if exists lsd; then
+if has lsd; then
   alias ls="lsd"
   alias tree="lsd --tree"
 fi
 
-if exists nvim; then
+if has nvim; then
   export EDITOR="nvim"
 fi
 
-if exists yay; then
+if has yay; then
   function y() {
     run yay --devel --sync --sysupgrade --refresh "${@}"
   }

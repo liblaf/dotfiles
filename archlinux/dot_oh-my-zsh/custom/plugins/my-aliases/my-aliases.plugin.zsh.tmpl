@@ -4,14 +4,14 @@
 
 if [[ ${TERM} == "xterm-kitty" ]]; then
   alias ssh="kitty +kitten ssh"
-  if exists magick; then
+  if has magick; then
     alias icat="kitten icat --engine magick"
   else
     alias icat="kitten icat"
   fi
 fi
 
-if exists code && exists zoxide; then
+if has code && has zoxide; then
   function ci() {
     local filepath="$(zoxide query --interactive "${@}")"
     if [[ -e ${filepath} ]]; then
@@ -20,29 +20,29 @@ if exists code && exists zoxide; then
   }
 fi
 
-if exists lf; then
+if has lf; then
   LFCD="/etc/profile.d/lfcd.sh"
   if [[ -f ${LFCD} ]]; then
     source "${LFCD}"
   fi
 fi
 
-if exists lsd; then
+if has lsd; then
   alias ls="lsd"
   alias tree="lsd --tree"
 fi
 
-if exists moar; then
+if has moar; then
   alias L="| moar"
   export PAGER="moar"
   export BAT_PAGER="moar --no-linenumbers"
 fi
 
-if exists nvim; then
+if has nvim; then
   export EDITOR="nvim"
 fi
 
-if exists yay; then
+if has yay; then
   function y() {
     run yay --devel --nouseask --sync --sysupgrade --refresh --noconfirm "${@}"
   }

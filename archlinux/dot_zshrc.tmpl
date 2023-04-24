@@ -1,8 +1,7 @@
-[ -f "/opt/miniconda3/etc/profile.d/conda.sh" ] && source "/opt/miniconda3/etc/profile.d/conda.sh"
-
-{{ template "load-pnpm.sh" }}
-
+{{ template "load-conda.sh" }}
+{{ template "load-direnv.sh" }}
 {{ template "load-local-bin.sh" }}
+{{ template "load-pnpm.sh" }}
 
 export ZSH="${HOME}/.local/chezmoi/ohmyzsh"
 export ZSH_THEME="starship"
@@ -22,6 +21,7 @@ plugins=(
   zoxide
 
   conda-zsh-completion
+  pnpm-shell-completion
   # wakatime
   zsh-autocomplete
   zsh-bitwarden

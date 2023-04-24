@@ -2,7 +2,7 @@
 
 {{ template "init.sh" }}
 
-if exists rclone; then
+if has rclone; then
 
   function op() {
     local remote="onedrive-personal:"

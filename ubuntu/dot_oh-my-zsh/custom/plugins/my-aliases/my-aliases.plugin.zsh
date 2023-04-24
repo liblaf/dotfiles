@@ -1,21 +1,21 @@
 #!/usr/bin/zsh
 
-function exists() {
+function has() {
   command -v "${@}" > /dev/null 2>&1
 }
 
 alias c="clear"
 alias u="utils"
 
-if exists colored; then
+if has colored; then
   alias less="colored less"
 fi
 
-if exists exa; then
+if has exa; then
   alias ls="exa --icons --git"
-  if ! exists tree; then
+  if ! has tree; then
     alias tree="exa --tree --icons"
   fi
 fi
 
-unset -f exists
+unset -f has

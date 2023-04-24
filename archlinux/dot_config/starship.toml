@@ -143,10 +143,10 @@ format = '(\[([+${added}](${added_style}))([-${deleted}](${deleted_style}))\])'
 ahead = "\uf176"                                          #  nf-fa-long_arrow_up
 behind = "\uf175"                                         #  nf-fa-long_arrow_down
 conflicted = "="
-deleted = "\uf00d "                                       #  nf-fa-remove
+deleted = "\uf00d"                                        #  nf-fa-remove
 diverged = "\uf07d"                                       #  nf-fa-arrows_v
 format = '(\[[${all_status}${ahead_behind}](${style})\])'
-renamed = "\uf101 "                                       #  nf-fa-angle_double_right
+renamed = "\uf101"                                        #  nf-fa-angle_double_right
 
 [golang]
 format = '\[[${symbol}( ${version})](${style})\]'

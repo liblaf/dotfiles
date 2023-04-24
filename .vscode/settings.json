@@ -3,6 +3,7 @@
     ".chezmoiignore": "ignore",
     "*.sh.tmpl": "shellscript",
     "*.zsh.tmpl": "shellscript",
+    "direnvrc": "shellscript",
     "dot_czrc": "json",
     "dot_gitconfig": "properties",
     "dot_npmrc": "properties",

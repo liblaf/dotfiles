@@ -195,8 +195,8 @@ module.exports.parse = async (
     }),
   ];
 
-  obj["rule-providers"] = yaml.parse(rule_providers)["rule-providers"];
-  obj["rules"] = yaml.parse(rules).rules;
+  obj.assign(yaml.parse(rule_providers));
+  obj.assign(yaml.parse(rules));
 
   return yaml.stringify(obj);
 };

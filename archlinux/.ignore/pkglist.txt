@@ -1,6 +1,8 @@
+# meshlab
 7-zip-full
 bat
 bear
+blender
 bottom
 chezmoi
 clang
@@ -11,7 +13,6 @@ dog
 doxygen
 duf
 efibootmgr
-evince
 fzf
 gdu
 git
@@ -38,7 +39,6 @@ lf
 llvm
 lsd
 man-db
-# meshlab
 microsoft-edge-stable-bin
 miniconda3
 moar-git
@@ -51,6 +51,7 @@ noto-fonts-extra
 obs-studio
 os-prober
 pnpm
+pnpm-shell-completion
 prettier
 python-pipx
 rclone
@@ -63,9 +64,7 @@ shim-signed
 sof-firmware
 starship
 telegram-desktop
-texlive-lang
 texlive-latexindent-meta
-texlive-most
 tldr
 tlp
 tmux
@@ -75,6 +74,7 @@ vhs
 visual-studio-code-bin
 vlc
 wemeet-bin
+wps-office
 yay
 zotero-bin
 zoxide
