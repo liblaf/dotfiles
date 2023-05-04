@@ -7,6 +7,7 @@ sudo apt update
 sudo apt full-upgrade
 
 packages=(
+  curl
   jq
   nginx
 )
