@@ -11,6 +11,10 @@ if [[ ${TERM} == "xterm-kitty" ]]; then
   fi
 fi
 
+if has bw && has tld; then
+  alias tld='tld --password "$(bw get password id.tsinghua.edu.cn)"'
+fi
+
 if has code && has zoxide; then
   function ci() {
     local filepath="$(zoxide query --interactive "${@}")"
