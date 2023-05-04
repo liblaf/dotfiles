@@ -2,4 +2,8 @@
 
 export EDITOR="vim"
 
-alias alist="${HOME}/.local/chezmoi/alist/alist --force-bin-dir"
+function alist-admin() {
+  pushd "/opt/alist"
+  sudo ./alist admin
+  popd
+}

@@ -8,6 +8,11 @@ get_docker="$(mktemp --suffix=.sh)"
 curl -fsSL https://get.docker.com -o "${get_docker}"
 sudo sh "${get_docker}"
 
+if sudo docker ps | grep dashdot; then
+  sudo docker container stop dashdot
+  sudo docker container rm dashdot
+fi
+
 sudo docker container run \
   --env DASHDOT_ENABLE_CPU_TEMPS="true" \
   --env DASHDOT_ALWAYS_SHOW_PERCENTAGES="true" \

@@ -3,6 +3,4 @@
 set -o nounset
 set -o pipefail
 
-sudo snap refresh
-
-sudo snap install --classic certbot
+curl -fsSL "https://alist.nn.ci/v3.sh" | sudo bash -s install
