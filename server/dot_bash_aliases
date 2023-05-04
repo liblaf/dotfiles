@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+export EDITOR="vim"
+
+alias alist="${HOME}/.local/chezmoi/alist/alist --force-bin-dir"

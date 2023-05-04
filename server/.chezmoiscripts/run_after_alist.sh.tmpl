@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+# set -o errexit
+set -o nounset
+set -o pipefail
+
+sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose \
+  "{{ .chezmoi.sourceDir }}/.ignore/alist.service" \
+  "/usr/lib/systemd/system/alist.service"
+
+ALIST_DIR="{{ .chezmoi.homeDir }}/.local/chezmoi/alist"
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now alist.service
+
+tmp_json="$(mktemp --suffix=.json)"
+jq '.site_url = "https://alist.liblaf.me"' "${ALIST_DIR}/data/config.json" > "${tmp_json}"
+mv --verbose "${tmp_json}" "${ALIST_DIR}/data/config.json"
+
+sudo systemctl restart alist.service

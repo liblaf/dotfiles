@@ -1,0 +1,12 @@
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart={{ .chezmoi.homeDir }}/.local/chezmoi/alist/alist server
+Restart=on-failure
+Type=simple
+WorkingDirectory={{ .chezmoi.homeDir }}/.local/chezmoi/alist
+
+[Unit]
+After=network.target
+Description=alist

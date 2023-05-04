@@ -1,4 +1,3 @@
-# meshlab
 7-zip-full
 bat
 bear
@@ -39,6 +38,7 @@ lf
 llvm
 lsd
 man-db
+meshlab
 microsoft-edge-stable-bin
 miniconda3
 moar-git
@@ -56,6 +56,7 @@ prettier
 python-pipx
 rclone
 ripgrep
+rsync
 sbctl
 sbsigntools
 scc

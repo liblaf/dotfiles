@@ -195,8 +195,8 @@ module.exports.parse = async (
     }),
   ];
 
-  obj.assign(yaml.parse(rule_providers));
-  obj.assign(yaml.parse(rules));
+  Object.assign(obj, yaml.parse(rule_providers));
+  Object.assign(obj, yaml.parse(rules));
 
   return yaml.stringify(obj);
 };
