@@ -3,13 +3,11 @@
 set -o nounset
 set -o pipefail
 
-sudo apt update
-sudo apt full-upgrade
-
 packages=(
   curl
   jq
   nginx
 )
 
-sudo apt install "${packages[@]}"
+sudo apt update
+sudo apt install --yes "${packages[@]}"
