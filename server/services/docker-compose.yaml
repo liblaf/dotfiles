@@ -1,9 +1,14 @@
 services:
   alist:
+    container_name: alist
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
     image: xhofe/alist:latest
-    restart: always
     ports:
       - 5244:5244
+    restart: always
     volumes:
       - ./alist/data:/opt/alist/data
 
@@ -18,6 +23,7 @@ services:
 
   nginx-proxy-manager:
     image: jc21/nginx-proxy-manager:latest
+    network_mode: host
     ports:
       - 80:80
       - 443:443

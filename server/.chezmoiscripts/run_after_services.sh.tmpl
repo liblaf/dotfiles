@@ -5,11 +5,14 @@ set -o pipefail
 
 cd "{{ .chezmoi.homeDir }}/services"
 
-sudo docker compose up --detach
-
 # AList
-config_json=alist/data/config.json
-tmp_json=$(mktemp --suffix=".json")
-jq '.site_url = "https://alist.liblaf.me"' "${config_json}" > "${tmp_json}"
-sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "${tmp_json}" "${config_json}"
-rm --verbose "${tmp_json}"
+config_json="$(pwd)/alist/data/config.json"
+if [[ -f ${config_json} ]]; then
+  tmp_json=$(mktemp --suffix=".json")
+  jq '.site_url = "https://alist.liblaf.me"' "${config_json}" > "${tmp_json}"
+  sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "${tmp_json}" "${config_json}"
+  rm --verbose "${tmp_json}"
+fi
+
+sudo docker compose pull
+sudo docker compose up --detach
