@@ -1,9 +1,0 @@
-#!/usr/bin/bash
-# set -o errexit
-set -o nounset
-set -o pipefail
-
-{{ template "load-local-bin.sh" }}
-
-utils nginx add --port 3001 dash.liblaf.me
-utils nginx add --port 5244 alist.liblaf.me

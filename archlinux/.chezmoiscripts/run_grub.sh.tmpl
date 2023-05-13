@@ -5,5 +5,5 @@ set -o pipefail
 
 {{ template "init.sh" }}
 
-run-safe sudo install --mode="u=rw,go=r" --no-target-directory "{{ .chezmoi.sourceDir }}/.ignore/grub.default" "/etc/default/grub"
+run-safe sudo install --mode="u=rw,go=r" --no-target-directory --verbose "{{ .chezmoi.sourceDir }}/.ignore/grub.default" /etc/default/grub
 run-safe sudo bash "{{ .chezmoi.sourceDir }}/.ignore/grub2-themes/install.sh" --screen 4k

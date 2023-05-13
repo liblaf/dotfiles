@@ -1,0 +1,28 @@
+services:
+  alist:
+    image: xhofe/alist:latest
+    restart: always
+    ports:
+      - 5244:5244
+    volumes:
+      - ./alist/data:/opt/alist/data
+
+  dash:
+    image: mauricenino/dashdot:latest
+    ports:
+      - 3001:3001
+    privileged: true
+    restart: unless-stopped
+    volumes:
+      - /:/mnt/host:ro
+
+  nginx-proxy-manager:
+    image: jc21/nginx-proxy-manager:latest
+    ports:
+      - 80:80
+      - 443:443
+      - 81:81
+    restart: unless-stopped
+    volumes:
+      - ./nginx-proxy-manager/data:/data
+      - ./nginx-proxy-manager/letsencrypt:/etc/letsencrypt

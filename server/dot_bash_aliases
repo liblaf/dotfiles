@@ -1,9 +1,0 @@
-#!/usr/bin/bash
-
-export EDITOR="vim"
-
-function alist-admin() {
-  pushd "/opt/alist"
-  sudo ./alist admin
-  popd
-}

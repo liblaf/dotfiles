@@ -4,9 +4,7 @@ set -o nounset
 set -o pipefail
 
 packages=(
-  curl
   jq
-  nginx
 )
 
 sudo apt update
