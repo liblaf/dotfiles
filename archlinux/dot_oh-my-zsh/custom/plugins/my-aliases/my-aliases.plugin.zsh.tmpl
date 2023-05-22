@@ -36,6 +36,12 @@ if has lsd; then
   alias tree="lsd --tree"
 fi
 
+if has make && has color-make; then
+  function make() {
+    command make "${@}" 2>&1 | color-make
+  }
+fi
+
 if has moar; then
   alias L="| moar"
   export PAGER="moar"

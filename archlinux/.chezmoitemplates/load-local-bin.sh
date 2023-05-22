@@ -1,4 +1,4 @@
 case ":${PATH}:" in
   *":${HOME}/.local/bin:"*) ;;
-  *) export PATH="${HOME}/.local/bin:${PATH}" ;;
+  *) export PATH="${HOME}/.local/bin${PATH:+:${PATH}}" ;;
 esac

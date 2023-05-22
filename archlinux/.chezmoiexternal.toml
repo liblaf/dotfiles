@@ -10,6 +10,11 @@ url = "https://github.com/gokcehan/lf/raw/master/etc/colors.example"
 type = "file"
 url = "https://github.com/gokcehan/lf/raw/master/etc/icons.example"
 
+[".local/bin/color-make"]
+executable = true
+type = "file"
+url = "https://github.com/liblaf/color-make/releases/latest/download/color-make-linux-amd64"
+
 [".local/chezmoi/ohmyzsh"]
 type = "git-repo"
 url = "https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git"
