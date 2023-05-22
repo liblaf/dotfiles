@@ -9,6 +9,7 @@ clang
 clash-for-windows-bin
 cloudflare-warp-bin
 cmake
+direnv
 dog
 doxygen
 duf
@@ -42,7 +43,7 @@ man-db
 meshlab
 microsoft-edge-stable-bin
 miniconda3
-moar-git
+moar
 neofetch
 neovim
 noto-fonts
@@ -51,6 +52,7 @@ noto-fonts-emoji
 noto-fonts-extra
 obs-studio
 os-prober
+pandoc-cli
 pnpm
 pnpm-shell-completion
 prettier
