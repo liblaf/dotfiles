@@ -19,7 +19,11 @@ if has code && has zoxide; then
   function ci() {
     local filepath="$(zoxide query --interactive "${@}")"
     if [[ -e ${filepath} ]]; then
-      code "${filepath}"
+      if has direnv; then
+        direnv exec "${filepath}" code "${filepath}"
+      else
+        code "${filepath}"
+      fi
     fi
   }
 fi
@@ -37,15 +41,15 @@ if has lsd; then
 fi
 
 if has make && has color-make; then
-  function make() {
+  function makec() {
     command make "${@}" 2>&1 | color-make
   }
 fi
 
 if has moar; then
-  alias L="| moar"
-  export PAGER="moar"
-  export BAT_PAGER="moar --no-linenumbers"
+  export PAGER="moar --quit-if-one-screen"
+  alias L="| ${PAGER}"
+  export BAT_PAGER="${PAGER} --no-linenumbers"
 fi
 
 if has nvim; then
