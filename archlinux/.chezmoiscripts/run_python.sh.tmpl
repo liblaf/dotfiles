@@ -7,7 +7,7 @@ set -o pipefail
 
 {{ template "load-local-bin.sh" }}
 
-pkgs=(
+pkg_list=(
   black
   httpie
   isort
@@ -20,7 +20,7 @@ pkgs=(
   wydyf
 )
 
-for pkg in "${pkgs[@]}"; do
+for pkg in "${pkg_list[@]}"; do
   run-safe pipx install --force "${pkg}"
 done
 

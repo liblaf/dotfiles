@@ -47,7 +47,7 @@ repos:
     hooks:
       - id: prettier
   - repo: https://github.com/dnephin/pre-commit-golang
-    rev: v0.5.1
+    rev: "v0.5.1"
     hooks:
       - id: go-fmt
       # - id: go-vet
@@ -111,6 +111,9 @@ repos:
     rev: "v3.6.0-2"
     hooks:
       - id: shfmt
+        files: (envrc|.sh|.zsh|.zsh-theme|zshrc)(.tmpl)?$
+        types:
+          - file
         args:
           - --write
           - --simplify
@@ -125,7 +128,7 @@ repos:
       - id: latexindent
         args:
           - --overwriteIfDifferent
-          - --cruft=/tmp
+          - --cruft="/tmp"
           - --modifylinebreaks
           - --GCString
       # - id: latexindent-conda

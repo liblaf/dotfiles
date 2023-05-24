@@ -5,7 +5,7 @@ set -o pipefail
 
 {{ template "init.sh" }}
 
-run-safe sudo systemctl enable --now tlp.service
 run-safe sudo systemctl disable --now warp-svc.service
+run-safe sudo systemctl enable --now tlp.service
 run-safe systemctl --user disable --now warp-taskbar.service
 run-safe systemctl --user enable --now proxy.service

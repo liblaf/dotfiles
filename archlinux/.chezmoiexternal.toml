@@ -15,10 +15,6 @@ executable = true
 type = "file"
 url = "https://github.com/liblaf/color-make/releases/latest/download/color-make-linux-amd64"
 
-[".local/chezmoi/ohmyzsh"]
-type = "git-repo"
-url = "https://mirrors.tuna.tsinghua.edu.cn/git/ohmyzsh.git"
-
 [".local/chezmoi/upgit/upgit"]
 executable = true
 type = "file"
@@ -44,22 +40,32 @@ exact = true
 type = "archive"
 url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
 
+[".oh-my-zsh"]
+stripComponents = 1
+type = "archive"
+url = "https://github.com/ohmyzsh/ohmyzsh/archive/refs/heads/master.tar.gz"
+
 [".oh-my-zsh/custom/plugins/conda-zsh-completion"]
-type = "git-repo"
-url = "https://github.com/conda-incubator/conda-zsh-completion.git"
+stripComponents = 1
+type = "archive"
+url = "https://github.com/conda-incubator/conda-zsh-completion/archive/refs/heads/master.tar.gz"
 
 [".oh-my-zsh/custom/plugins/wakatime"]
-type = "git-repo"
-url = "https://github.com/sobolevn/wakatime-zsh-plugin.git"
+stripComponents = 1
+type = "archive"
+url = "https://github.com/sobolevn/wakatime-zsh-plugin/archive/refs/heads/master.tar.gz"
 
 [".oh-my-zsh/custom/plugins/zsh-autocomplete"]
-type = "git-repo"
-url = "https://github.com/marlonrichert/zsh-autocomplete.git"
+stripComponents = 1
+type = "archive"
+url = "https://github.com/marlonrichert/zsh-autocomplete/archive/refs/heads/master.tar.gz"
 
 [".oh-my-zsh/custom/plugins/zsh-bitwarden"]
-type = "git-repo"
-url = "https://github.com/Game4Move78/zsh-bitwarden.git"
+stripComponents = 1
+type = "archive"
+url = "https://github.com/Game4Move78/zsh-bitwarden/archive/refs/heads/master.tar.gz"
 
 [".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-type = "git-repo"
-url = "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+stripComponents = 1
+type = "archive"
+url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/heads/master.tar.gz"

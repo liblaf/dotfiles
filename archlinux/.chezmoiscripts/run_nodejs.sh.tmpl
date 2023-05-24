@@ -7,13 +7,13 @@ set -o pipefail
 
 {{ template "load-pnpm.sh" }}
 
-packages=(
+pkg_list=(
   @bitwarden/cli
   commitizen
   serve
   vercel
 )
 
-for pkg in "${packages[@]}"; do
+for pkg in "${pkg_list[@]}"; do
   run-safe pnpm add --global "${pkg}@latest"
 done
