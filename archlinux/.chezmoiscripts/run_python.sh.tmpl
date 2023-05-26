@@ -21,7 +21,7 @@ pkg_list=(
 )
 
 for pkg in "${pkg_list[@]}"; do
-  run-safe pipx install --force "${pkg}"
+  run-safe pipx install --force "${pkg}" &
 done
 
 run-safe pipx upgrade-all

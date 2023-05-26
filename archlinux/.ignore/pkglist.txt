@@ -9,6 +9,7 @@ clang
 clash-for-windows-bin
 cloudflare-warp-bin
 cmake
+dasel-bin
 direnv
 dog
 doxygen

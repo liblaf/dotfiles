@@ -1,3 +1,9 @@
+ci:
+  skip:
+    - go-unit-tests
+    - go-build
+    - latexindent
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: "v4.4.0"
@@ -111,9 +117,9 @@ repos:
     rev: "v3.6.0-2"
     hooks:
       - id: shfmt
-        files: (envrc|.sh|.zsh|.zsh-theme|zshrc)(.tmpl)?$
+        files: (.sh|.zsh|.zsh-theme|envrc|zshrc)(.tmpl)?$
         types:
-          - file
+          - text
         args:
           - --write
           - --simplify
@@ -126,9 +132,13 @@ repos:
     rev: "V3.21.1"
     hooks:
       - id: latexindent
+        files: .(tex|sty|cls|bib)$
+        types:
+          - text
         args:
           - --overwriteIfDifferent
-          - --cruft="/tmp"
+          - --silent
+          - --cruft=/tmp
           - --modifylinebreaks
           - --GCString
       # - id: latexindent-conda

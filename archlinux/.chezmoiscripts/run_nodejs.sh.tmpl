@@ -15,5 +15,5 @@ pkg_list=(
 )
 
 for pkg in "${pkg_list[@]}"; do
-  run-safe pnpm add --global "${pkg}@latest"
+  run-safe pnpm add --global "${pkg}@latest" &
 done
