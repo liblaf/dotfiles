@@ -5,7 +5,8 @@ set -o pipefail
 
 {{ template "init.sh" }}
 
-if [[ ${SHELL} != /usr/bin/zsh ]]; then
+USER_SHELL="$(awk --field-separator : --assign user="${USER}" '$1 == user { print $NF }' /etc/passwd)"
+if [[ ${USER_SHELL} != /usr/bin/zsh ]]; then
   run-safe chsh --shell /usr/bin/zsh
 fi
 

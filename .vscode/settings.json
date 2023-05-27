@@ -1,8 +1,8 @@
 {
   "files.associations": {
     ".chezmoiignore": "ignore",
-    "*.liblaf.me": "nginx",
     "*.sh.tmpl": "shellscript",
+    "*.toml.tmpl": "toml",
     "*.zsh.tmpl": "shellscript",
     "direnvrc": "shellscript",
     "dot_czrc": "json",

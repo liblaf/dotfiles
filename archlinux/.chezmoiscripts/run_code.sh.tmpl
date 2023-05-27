@@ -35,6 +35,14 @@ extensions=(
   yzhang.markdown-all-in-one
 )
 
-for ext in "${extensions[@]}"; do
-  run-safe code --install-extension "${ext}" --force &
-done
+if has code; then
+  echo -n "${extensions[@]}" |
+    xargs -I '{}' -d ' ' --max-args=1 --max-procs="$(nproc)" --no-run-if-empty --verbose -- code --install-extension '{}' --force
+fi
+
+if has code-insiders; then
+  echo -n "${extensions[@]}" |
+    xargs -I '{}' -d ' ' --max-args=1 --max-procs="$(nproc)" --no-run-if-empty --verbose -- code-insiders --install-extension '{}' --force
+fi
+
+true

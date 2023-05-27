@@ -11,17 +11,15 @@ pkg_list=(
   black
   httpie
   isort
-  mkdocs
   poetry
   pre-commit
   pygments
   thu-learn-downloader
   toml-sort
-  wydyf
 )
 
-for pkg in "${pkg_list[@]}"; do
-  run-safe pipx install --force "${pkg}" &
-done
+echo "${pkg_list[@]}" | xargs --max-args=1 --max-procs="$(nproc)" --no-run-if-empty --verbose pipx install --force
 
-run-safe pipx upgrade-all
+pipx upgrade-all
+
+true

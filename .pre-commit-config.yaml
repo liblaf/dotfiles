@@ -3,6 +3,7 @@ ci:
     - go-unit-tests
     - go-build
     - latexindent
+    - poetry-lock
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks

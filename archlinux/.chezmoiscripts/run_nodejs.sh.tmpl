@@ -14,6 +14,9 @@ pkg_list=(
   vercel
 )
 
-for pkg in "${pkg_list[@]}"; do
-  run-safe pnpm add --global "${pkg}@latest" &
-done
+pkg_list=(${pkg_list[@]/%/"@latest"})
+
+echo "${pkg_list[@]}" |
+  xargs --max-args=1 --max-procs=1 --no-run-if-empty --verbose pnpm add --global
+
+true
