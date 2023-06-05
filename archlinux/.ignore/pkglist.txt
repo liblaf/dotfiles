@@ -16,6 +16,7 @@ doxygen
 duf
 efibootmgr
 fzf
+gdb
 gdu
 git
 git-delta
@@ -38,6 +39,7 @@ imagemagick
 kitty
 lazygit
 lf
+lldb
 llvm
 lsd
 man-db

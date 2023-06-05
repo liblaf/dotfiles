@@ -14,3 +14,5 @@ sed --expression="s/#.*$//g" "{{ .chezmoi.sourceDir }}/.ignore/group-list.txt" |
   yay --sync --groups - |
   awk '{ print $2 }' |
   run-safe yay --devel --nouseask --sync --sysupgrade --refresh --needed --noconfirm -
+
+true
