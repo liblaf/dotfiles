@@ -18,7 +18,7 @@ pkg_list=(
   toml-sort
 )
 
-echo "${pkg_list[@]}" | xargs --max-args=1 --max-procs="$(nproc)" --no-run-if-empty --verbose pipx install --force
+echo "${pkg_list[@]}" | xargs --max-args=1 --max-procs="$(nproc)" --no-run-if-empty --verbose -- pipx install --force
 
 pipx upgrade-all
 

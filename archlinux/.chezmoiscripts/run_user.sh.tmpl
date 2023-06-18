@@ -10,10 +10,12 @@ if [[ ${USER_SHELL} != /usr/bin/zsh ]]; then
   run-safe chsh --shell /usr/bin/zsh
 fi
 
-if ! groups | grep docker > /dev/null; then
-  run-safe sudo gpasswd --add "${USER}" docker
-fi
+function group_add() {
+  local group="${1}"
+  if ! groups | grep "${group}" > /dev/null; then
+    run-safe sudo gpasswd --add "${USER}" "${group}"
+  fi
+}
 
-if ! groups | grep vcpkg > /dev/null; then
-  run-safe sudo gpasswd --add "${USER}" vcpkg
-fi
+group_add docker
+group_add vcpkg

@@ -17,6 +17,6 @@ pkg_list=(
 pkg_list=(${pkg_list[@]/%/"@latest"})
 
 echo "${pkg_list[@]}" |
-  xargs --max-args=1 --max-procs=1 --no-run-if-empty --verbose pnpm add --global
+  xargs --max-args=1 --max-procs=1 --no-run-if-empty --verbose -- pnpm add --global
 
 true

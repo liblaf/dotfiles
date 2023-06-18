@@ -70,6 +70,12 @@ if has tmux; then
   done
 fi
 
+if has xdg-open; then
+  function open() {
+    xdg-open "${@}" &> /dev/null
+  }
+fi
+
 if has yay; then
   function y() {
     run yay --devel --nouseask --sync --sysupgrade --refresh --noconfirm "${@}"

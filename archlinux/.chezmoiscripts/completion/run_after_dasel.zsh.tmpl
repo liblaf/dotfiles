@@ -6,6 +6,6 @@ set -o pipefail
 {{ template "init.sh" }}
 
 if has dasel; then
-  mkdir --parents --verbose ${HOME}/.zfunc
-  dasel completion zsh > ${HOME}/.zfunc/_dasel
+  mkdir --parents --verbose "${HOME}/.zfunc"
+  dasel completion zsh > "${HOME}/.zfunc/_dasel"
 fi

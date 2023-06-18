@@ -9,7 +9,7 @@ function __get_proxy() {
 }
 
 function __test_proxy() {
-  curl --proxy ${__http_proxy} http://www.gstatic.com/generate_204
+  curl --proxy ${__http_proxy} http://www.gstatic.com/generate_204 &> /dev/null
 }
 
 function __check_ip() {
