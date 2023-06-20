@@ -3,7 +3,7 @@ bat
 bear
 biber
 blender
-bottom
+btop
 chezmoi
 clang
 clash-for-windows-bin
