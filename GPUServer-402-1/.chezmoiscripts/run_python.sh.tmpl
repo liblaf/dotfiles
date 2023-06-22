@@ -16,7 +16,7 @@ rm --force --recursive --verbose "${tmp_dir}"
 
 {{ template "load-conda.sh" }}
 
-conda activate
+source "${install_prefix}/bin/activate" base
 python -m pip install --user pipx
 
 pkg_list=(
