@@ -1,0 +1,14 @@
+#!/bin/bash
+# set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+{{ template "load-local-bin.sh" }}
+
+tmp_dir="$(mktemp --directory)"
+install_script="${tmp_dir}/zoxide.sh"
+wget --output-document "${install_script}" https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh
+run-safe sh "${install_script}"
+rm --force --recursive --verbose "${tmp_dir}"

@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 
 function __get_proxy() {
-  __mixed_port=$(dasel --file ${HOME}/.config/clash/config.yaml "mixed-port" 2> /dev/null)
+  __mixed_port=${1:-"7890"}
   __ftp_proxy=http://127.0.0.1:${__mixed_port}
   __http_proxy=http://127.0.0.1:${__mixed_port}
   __https_proxy=http://127.0.0.1:${__mixed_port}
@@ -85,7 +85,7 @@ function __auto_proxy() {
 }
 
 function proxy() {
-  __get_proxy
+  __get_proxy "${@}"
   echo "========================================"
   echo "Enable proxy for:"
   for target in ${__proxy_targets[@]}; do

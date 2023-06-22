@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 # set -o errexit
 set -o nounset
 set -o pipefail
@@ -11,10 +11,12 @@ tmp_dir="$(mktemp --directory)"
 install_script="${tmp_dir}/conda.sh"
 install_prefix="{{ .chezmoi.homeDir }}/.local/conda"
 wget --output-document "${install_script}" https://repo.anaconda.com/miniconda/Miniconda3-py310_23.3.1-0-Linux-x86_64.sh
-run-safe bash "${install_script}" -b -f -p "${install_prefix}" -t
+run-safe bash "${install_script}" -b -f -p "${install_prefix}"
 rm --force --recursive --verbose "${tmp_dir}"
 
-"${install_prefix}/bin/activate" default
+{{ template "load-conda.sh" }}
+
+conda activate
 python -m pip install --user pipx
 
 pkg_list=(

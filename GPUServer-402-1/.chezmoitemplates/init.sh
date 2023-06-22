@@ -7,6 +7,8 @@ function run() {
     local prefix="$(gum style --background=14 --foreground=0 --padding="0 1" RUN)"
     local message="$(gum style --foreground=14 "${*}")"
     gum join --horizontal "${prefix}" " " "${message}"
+  else
+    echo "+ ${*}"
   fi
   "${@}"
   local ret=$?

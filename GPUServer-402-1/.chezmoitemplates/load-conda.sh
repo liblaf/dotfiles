@@ -1,3 +1,3 @@
-if [[ -f /opt/miniconda3/etc/profile.d/conda.sh ]]; then
-  source /opt/miniconda3/etc/profile.d/conda.sh
+if [[ -f "${HOME}/.local/conda/etc/profile.d/conda.sh" ]]; then
+  source "${HOME}/.local/conda/etc/profile.d/conda.sh"
 fi

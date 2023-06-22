@@ -1,0 +1,14 @@
+#!/bin/bash
+# set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+{{ template "load-local-bin.sh" }}
+
+tmp_dir="$(mktemp --directory)"
+install_script="${tmp_dir}/starship.sh"
+wget --output-document "${install_script}" https://starship.rs/install.sh
+run-safe sh "${install_script}" --force --bin-dir "{{ .chezmoi.homeDir }}/.local/bin"
+rm --force --recursive --verbose "${tmp_dir}"
