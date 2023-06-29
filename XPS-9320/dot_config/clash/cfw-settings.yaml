@@ -16,5 +16,5 @@ trayOrders:
 
 profileParsersText: |-
   parsers:
-    - reg: sub.nysubs.xyz
+    - reg: .*
       file: /home/liblaf/.config/clash/parser.js

@@ -1,7 +1,7 @@
 // https://docs.cfw.lbyczf.com/contents/parser.html
 // https://github.com/Loyalsoldier/clash-rules
 
-const rule_providers = `
+const RULE_PROVIDERS = `
 rule-providers:
   reject:
     type: http
@@ -59,13 +59,6 @@ rule-providers:
     path: ./ruleset/gfw.yaml
     interval: 86400
 
-  greatfire:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt"
-    path: ./ruleset/greatfire.yaml
-    interval: 86400
-
   tld-not-cn:
     type: http
     behavior: domain
@@ -102,7 +95,7 @@ rule-providers:
     interval: 86400
 `;
 
-const rules = `
+const RULES = `
 rules:
   - RULE-SET,applications,DIRECT
   - DOMAIN,clash.razord.top,DIRECT
@@ -122,23 +115,50 @@ rules:
   - MATCH,PROXY
 `;
 
-const get_country_code = async (name) => {
-  const i = name.search(/\d/);
-  if (i < 0) {
-    return null;
-  }
-  return name.slice(0, i).trim();
+const COUNTRIES = {
+  "🇦🇺 AU 澳大利亚": ["🇦🇺", "AU", "澳大利亚"],
+  "🇨🇦 CA 加拿大": ["🇨🇦", "CA", "加拿大"],
+  "🇨🇭 CH 瑞士": ["🇨🇭", "CH", "瑞士"],
+  "🇩🇪 DE 德国": ["🇩🇪", "DE", "德国"],
+  "🇪🇸 ES 西班牙": ["🇪🇸", "ES", "西班牙"],
+  "🇫🇷 FR 法国": ["🇫🇷", "FR", "法国"],
+  "🇬🇧 UK 英国": ["🇬🇧", "UK", "英国"],
+  "🇭🇰 HK 香港": ["🇭🇰", "HK", "香港"],
+  "🇮🇪 IE 爱尔兰": ["🇮🇪", "IE", "爱尔兰"],
+  "🇮🇳 IN 印度": ["🇮🇳", "IN", "印度"],
+  "🇯🇵 JP 日本": ["🇯🇵", "JP", "日本"],
+  "🇰🇷 KR 韩国": ["🇰🇷", "KR", "韩国"],
+  "🇳🇱 NL 荷兰": ["🇳🇱", "NL", "荷兰"],
+  "🇳🇴 NO 挪威": ["🇳🇴", "NO", "挪威"],
+  "🇷🇺 RU 俄罗斯": ["🇷🇺", "RU", "俄罗斯"],
+  "🇷🇺 SG 新加坡": ["🇷🇺", "SG", "新加坡"],
+  "🇸🇪 SE 瑞典": ["🇸🇪", "SE", "瑞典"],
+  "🇹🇷 TR 土耳其": ["🇹🇷", "TR", "土耳其"],
+  "🇹🇼 TW 台湾": ["🇹🇼", "TW", "台湾"],
+  "🇺🇦 UA 乌克兰": ["🇺🇦", "UA", "乌克兰"],
+  "🇺🇸 US 美国": ["🇺🇸", "US", "美国"],
 };
 
-const group_proxies = async (names) => {
-  const groups = {};
-  for (const name of names) {
-    const code = await get_country_code(name);
-    if (code) {
-      if (!groups[code]) {
-        groups[code] = [];
+const get_country_code = async (proxy_name) => {
+  for (const country in COUNTRIES) {
+    for (const pattern of COUNTRIES[country]) {
+      if (proxy_name.includes(pattern)) {
+        return country;
       }
-      groups[code].push(name);
+    }
+  }
+  return "Other";
+};
+
+const group_proxies = async (proxy_names) => {
+  const groups = {};
+  for (const proxy_name of proxy_names) {
+    const country = await get_country_code(proxy_name);
+    if (!country) continue;
+    if (country in groups) {
+      groups[country].push(proxy_name);
+    } else {
+      groups[country] = [proxy_name];
     }
   }
   return groups;
@@ -146,8 +166,8 @@ const group_proxies = async (names) => {
 
 module.exports.parse = async (
   raw,
-  { axios, yaml, notify, console },
-  { name, url, interval, selected },
+  { axios, yaml, notify, console, homeDir },
+  { name, url, interval, selected, mode },
 ) => {
   const obj = yaml.parse(raw);
 
@@ -165,38 +185,34 @@ module.exports.parse = async (
     {
       name: "PROXY",
       type: "select",
-      proxies: ["Select Country", "Auto", "Select", "DIRECT"],
+      proxies: ["Select Group", "Auto", "Select Proxy", "DIRECT"],
     },
     {
-      name: "Select",
+      name: "Select Group",
+      type: "select",
+      proxies: Object.keys(groups),
+    },
+    {
+      name: "Select Proxy",
       type: "select",
       proxies: proxy_names,
     },
     {
-      name: "Select Country",
-      type: "select",
-      proxies: Object.keys(groups).map(
-        (country_code) => `${country_code} Auto`,
-      ),
-    },
-    {
       ...url_test,
       name: "Auto",
-      proxies: Object.keys(groups).map(
-        (country_code) => `${country_code} Auto`,
-      ),
+      proxies: Object.keys(groups),
     },
-    ...Object.keys(groups).map((country_code) => {
+    ...Object.keys(groups).map((group_name) => {
       return {
         ...url_test,
-        name: `${country_code} Auto`,
-        proxies: groups[country_code],
+        name: group_name,
+        proxies: groups[group_name],
       };
     }),
   ];
 
-  Object.assign(obj, yaml.parse(rule_providers));
-  Object.assign(obj, yaml.parse(rules));
+  Object.assign(obj, yaml.parse(RULE_PROVIDERS));
+  Object.assign(obj, yaml.parse(RULES));
 
   return yaml.stringify(obj);
 };
