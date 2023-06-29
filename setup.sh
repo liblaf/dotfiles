@@ -11,3 +11,5 @@ BIN="${HOME}/.local/bin"
 
 bash -c "$(curl -fsLS get.chezmoi.io)" -- -b "${BIN}"
 "${BIN}/chezmoi" init liblaf --apply
+
+echo None > .chezmoiignore
