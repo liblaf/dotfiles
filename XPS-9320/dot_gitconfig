@@ -14,6 +14,7 @@ helper = !gh auth git-credential
 side-by-side = true
 
 [http]
+# https://stackoverflow.com/questions/6842687/the-remote-end-hung-up-unexpectedly-while-git-cloning
 postBuffer = 104857600
 
 [init]

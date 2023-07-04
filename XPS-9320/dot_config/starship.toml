@@ -163,10 +163,6 @@ version_format = "${raw}"
 format = '[${symbol}( ${number})](${style}) '
 symbol = "+"
 
-[localip]
-disabled = false
-format = "<- [${localipv4}](${style}) "
-
 [memory_usage]
 disabled = false
 format = '\[[${symbol} ${ram}](${style})\]'

@@ -1,5 +1,9 @@
 function layout_conda() {
-  local activate=/opt/miniconda3/bin/activate
+  if [[ -f /opt/miniconda3/bin/activate ]]; then
+    local activate=/opt/miniconda3/bin/activate
+  elif [[ -f "${HOME}/.local/opt/conda/bin/activate" ]]; then
+    local activate="${HOME}/.local/opt/conda/bin/activate"
+  fi
   if [[ -n ${1} ]]; then
     local env_name="${1}"
   else

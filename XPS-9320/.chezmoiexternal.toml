@@ -15,11 +15,6 @@ executable = true
 type = "file"
 url = "https://github.com/liblaf/color-make/releases/latest/download/color-make-linux-amd64"
 
-[".local/chezmoi/upgit/upgit"]
-executable = true
-type = "file"
-url = "https://github.com/pluveto/upgit/releases/latest/download/upgit_linux_amd64"
-
 [".local/share/fonts/08_NotoSansCJKsc"]
 exact = true
 type = "archive"

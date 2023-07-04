@@ -1,1 +1,3 @@
-eval "$(direnv hook zsh)"
+if has direnv; then
+  eval "$(direnv hook zsh)"
+fi

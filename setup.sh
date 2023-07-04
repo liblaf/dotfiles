@@ -11,7 +11,7 @@ source "${nodename}/.chezmoitemplates/init.sh"
 BIN="${HOME}/.local/bin"
 
 install_script="$(mktemp --suffix=.sh)"
-trap "rm --force --verbose \"${install_script}\"" EXIT
+trap "rm --verbose ${install_script}" EXIT
 wget --output-document="${install_script}" https://get.chezmoi.io
 bash "${install_script}" -b "${BIN}"
 "${BIN}/chezmoi" init liblaf --apply

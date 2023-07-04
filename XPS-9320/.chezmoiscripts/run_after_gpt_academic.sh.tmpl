@@ -8,5 +8,5 @@ set -o pipefail
 file_list=($(ls --almost-all "{{ .chezmoi.sourceDir }}/.ignore/gpt_academic"))
 
 for file in "${file_list[@]}"; do
-  install --mode="u=rw,go=r" --no-target-directory --verbose "{{ .chezmoi.sourceDir }}/.ignore/gpt_academic/${file}" "{{ .chezmoi.homeDir }}/Desktop/github/other/gpt_academic/${file}"
+  install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{ .chezmoi.sourceDir }}/.ignore/gpt_academic/${file}" "{{ .chezmoi.homeDir }}/Desktop/github/other/gpt_academic/${file}"
 done

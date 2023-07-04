@@ -45,4 +45,4 @@ if has code-insiders; then
     xargs -I '{}' -d ' ' --max-args=1 --max-procs="$(nproc)" --no-run-if-empty --verbose -- code-insiders --install-extension '{}' --force
 fi
 
-true
+exit 0

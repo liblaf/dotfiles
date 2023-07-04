@@ -1,8 +1,9 @@
 map <delete> delete
 
+# https://github.com/gokcehan/lf/wiki/Colors-and-Icons
 set icons
 
-# Integrations > zoxide
+# https://github.com/gokcehan/lf/wiki/Integrations#zoxide
 cmd z %{{
 	result="$(zoxide query --exclude $PWD $@)"
 	lf -remote "send $id cd $result"
@@ -13,7 +14,7 @@ cmd zi ${{
 	lf -remote "send $id cd $result"
 }}
 
-# Integrations > Git
+# https://github.com/gokcehan/lf/wiki/Integrations#git
 cmd git_branch ${{
     git branch | fzf | xargs git checkout
     pwd_shell=$(pwd)
@@ -38,5 +39,6 @@ cmd on-cd &{{
     lf -remote "send $id set promptfmt \"$fmt\""
 }}
 
+# https://github.com/gokcehan/lf/wiki/Previews#with-kitty-and-pistol
 set previewer ~/.config/lf/lf_kitty_preview
 set cleaner ~/.config/lf/lf_kitty_clean

@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://github.com/gokcehan/lf/wiki/Previews#with-kitty-and-pistol
 
 file=${1}
 w=${2}

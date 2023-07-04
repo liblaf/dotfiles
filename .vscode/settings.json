@@ -3,6 +3,7 @@
     ".chezmoiignore": "ignore",
     "*.sh.tmpl": "shellscript",
     "*.toml.tmpl": "toml",
+    "*.yaml.tmpl": "yaml",
     "*.zsh.tmpl": "shellscript",
     "direnvrc": "shellscript",
     "dot_czrc": "json",

@@ -7,8 +7,6 @@ set -o pipefail
 {{ template "load-pnpm.sh" }}
 
 if has bw; then
-  temp=$(mktemp)
-  bw completion --shell zsh > "${temp}"
-  install -D --mode="u=rw,go=r" --no-target-directory --verbose "${temp}" "${HOME}/.zfunc/_bw"
-  rm --force --verbose "${temp}"
+  mkdir --parents --verbose "${HOME}/.zfunc"
+  bw completion --shell zsh > "${HOME}/.zfunc/_bw"
 fi
