@@ -84,7 +84,7 @@ repos:
           - --profile
           - black
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: "3.4.0"
+    rev: "3.5.2"
     hooks:
       - id: commitizen
       # - id: commitizen-branch
@@ -132,7 +132,7 @@ repos:
           - --space-redirects
       # - id: shfmt-docker
   - repo: https://github.com/cmhughes/latexindent.pl
-    rev: "V3.22"
+    rev: "V3.22.1"
     hooks:
       - id: latexindent
         files: .(tex|sty|cls|bib)$

@@ -7,5 +7,6 @@ set -o pipefail
 {{ template "load-local-bin.sh" }}
 
 if has tld; then
-  run-safe tld --install-completion
+  mkdir --parents --verbose "{{ .chezmoi.homeDir }}/.zfunc"
+  tld --show-completion > "{{ .chezmoi.homeDir }}/.zfunc/_tld"
 fi

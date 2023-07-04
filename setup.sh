@@ -8,10 +8,13 @@ nodename="$(uname --nodename)"
 echo "${nodename}" > .chezmoiroot
 source "${nodename}/.chezmoitemplates/init.sh"
 
-BIN="${HOME}/.local/bin"
+if ! has chezmoi; then
+  bin="${HOME}/.local/bin"
+  install_script="$(mktemp --suffix=.sh)"
+  trap "rm --verbose ${install_script}" EXIT
+  wget --output-document="${install_script}" https://get.chezmoi.io
+  bash "${install_script}" -b "${bin}"
+  alias chezmoi="${bin}/chezmoi"
+fi
 
-install_script="$(mktemp --suffix=.sh)"
-trap "rm --verbose ${install_script}" EXIT
-wget --output-document="${install_script}" https://get.chezmoi.io
-bash "${install_script}" -b "${BIN}"
-"${BIN}/chezmoi" init liblaf --apply
+chezmoi init liblaf --apply
