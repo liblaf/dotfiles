@@ -23,4 +23,4 @@ defaultBranch = main
 [user]
 email = i@liblaf.me
 name = liblaf
-signingkey = 084447C16F3B7601
+signingKey = 084447C16F3B7601
