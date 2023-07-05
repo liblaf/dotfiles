@@ -18,6 +18,7 @@ efibootmgr
 fzf
 gdb
 gdu
+geekbench
 git
 git-delta
 git-extras
@@ -36,6 +37,7 @@ gum
 hyperfine
 ibus-libpinyin
 imagemagick
+intel-compute-runtime
 kitty
 lazygit
 lf
