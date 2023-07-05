@@ -1,7 +1,15 @@
 #!/usr/bin/zsh
 
 function __get_proxy() {
-  __mixed_port=$(dasel --file ${HOME}/.config/clash/config.yaml "mixed-port" 2> /dev/null)
+  if [[ -f ${HOME}/.config/clash/config.yaml ]]; then
+    if command -v dasel &> /dev/null; then
+      __mixed_port=$(dasel --file=${HOME}/.config/clash/config.yaml "mixed-port" 2> /dev/null)
+    else
+      __mixed_port=$(grep "mixed-port" ${HOME}/.config/clash/config.yaml | awk '{ print $2 }' 2> /dev/null)
+    fi
+  else
+    __mixed_port=57890
+  fi
   __ftp_proxy=http://127.0.0.1:${__mixed_port}
   __http_proxy=http://127.0.0.1:${__mixed_port}
   __https_proxy=http://127.0.0.1:${__mixed_port}
@@ -112,3 +120,20 @@ function myip() {
 }
 
 __auto_proxy
+
+function ssh-proxy() {
+  __get_proxy
+  mkdir --parents /run/user/1000/ssh
+  ssh -f -M -N -o ExitOnForwardFailure=yes -R 57890:127.0.0.1:${__mixed_port} -S "/run/user/1000/ssh/${1}" "${@}"
+}
+
+function ssh-noproxy() {
+  ssh -O exit -S "/run/user/1000/ssh/${1}" "${@}"
+}
+
+function ssh-proxy-list() {
+  l /run/user/1000/ssh
+}
+
+compdef ssh-proxy=ssh
+compdef ssh-noproxy=ssh
