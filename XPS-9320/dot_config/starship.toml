@@ -77,9 +77,22 @@ threshold = 100
 
 [c]
 commands = [["clang", "--version"], ["gcc", "--version"], ["cc", "--version"]]
+detect_extensions = [
+  "C",
+  "H",
+  "c",
+  "c++",
+  "cc",
+  "cpp",
+  "cxx",
+  "h",
+  "h++",
+  "hpp",
+  "hxx",
+]
 detect_files = ["CMakeCache.txt", "CMakeLists.txt"]
 format = '\[[${symbol}( (${name}-)${version})](${style})\]'
-symbol = "\ue61e"                                                              #  nf-custom-c
+symbol = "\ue61e" #  nf-custom-c
 version_format = "${raw}"
 
 [character]
