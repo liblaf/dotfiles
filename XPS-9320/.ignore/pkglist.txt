@@ -33,7 +33,6 @@ gnome-themes-extra
 go
 gping
 grub
-gum
 hyperfine
 ibus-libpinyin
 imagemagick
