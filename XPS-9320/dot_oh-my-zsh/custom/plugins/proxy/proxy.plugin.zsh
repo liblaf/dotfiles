@@ -17,18 +17,18 @@ function __get_proxy() {
 }
 
 function __test_proxy() {
-  curl --max-time 1 --proxy ${__http_proxy} http://www.gstatic.com/generate_204 &> /dev/null
+  curl --max-time 2 --proxy ${__http_proxy} http://www.gstatic.com/generate_204 &> /dev/null
 }
 
 function __check_ip() {
   echo "========================================"
-  local ipv4=$(https --body --timeout=1 https://api-ipv4.ip.sb/ip 2> /dev/null)
+  local ipv4=$(https --body --timeout=2 https://api-ipv4.ip.sb/ip 2> /dev/null)
   echo "IPv4: ${ipv4:-"-"}"
   echo "----------------------------------------"
-  local ipv6=$(https --body --timeout=1 https://api-ipv6.ip.sb/ip 2> /dev/null)
+  local ipv6=$(https --body --timeout=2 https://api-ipv6.ip.sb/ip 2> /dev/null)
   echo "IPv6: ${ipv6:-"-"}"
   echo "----------------------------------------"
-  https --body --timeout=1 https://api.ip.sb/geoip 2> /dev/null
+  https --body --timeout=2 https://api.ip.sb/geoip 2> /dev/null
   echo "========================================"
 }
 
