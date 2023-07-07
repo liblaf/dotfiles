@@ -38,6 +38,7 @@ hyperfine
 ibus-libpinyin
 imagemagick
 intel-compute-runtime
+jq
 kitty
 lazygit
 lf
@@ -45,7 +46,7 @@ lldb
 llvm
 lsd
 man-db
-meshlab
+meshlab-appimage
 microsoft-edge-stable-bin
 miniconda3
 moar

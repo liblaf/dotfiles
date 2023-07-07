@@ -2,6 +2,6 @@
 path = template
 url = https://github.com/liblaf/template.git
 
-[submodule "XPS-9320/.ignore/grub2-themes"]
-path = XPS-9320/.ignore/grub2-themes
+[submodule "xps-9320/.ignore/grub2-themes"]
+path = xps-9320/.ignore/grub2-themes
 url = https://github.com/vinceliuice/grub2-themes.git

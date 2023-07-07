@@ -3,6 +3,8 @@
 set -o nounset
 set -o pipefail
 
+mkdir --parents --verbose "{{ .chezmoi.homeDir }}/.local/share/pnpm"
+
 {{ template "init.sh" }}
 {{ template "load-pnpm.sh" }}
 

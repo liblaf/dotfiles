@@ -60,6 +60,10 @@ stripComponents = 1
 type = "archive"
 url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/heads/master.tar.gz"
 
+["Desktop/github/liblaf/ilatex"]
+type = "git-repo"
+url = "https://github.com/liblaf/ilatex.git"
+
 ["Desktop/github/other/gpt_academic"]
 type = "git-repo"
 url = "https://github.com/binary-husky/gpt_academic.git"

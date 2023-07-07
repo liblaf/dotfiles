@@ -8,5 +8,5 @@ set -o pipefail
 
 if has tld; then
   mkdir --parents --verbose "{{ .chezmoi.homeDir }}/.zfunc"
-  tld --show-completion > "{{ .chezmoi.homeDir }}/.zfunc/_tld"
+  tld --show-completion zsh > "{{ .chezmoi.homeDir }}/.zfunc/_tld"
 fi
