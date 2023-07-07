@@ -9,12 +9,15 @@ set -o pipefail
 pkg_list=(
   @bitwarden/cli
   commitizen
+  prettier
   serve
   speedscope
   vercel
 )
 
 pkg_list=(${pkg_list[@]/%/"@latest"})
+
+pnpm env use --global latest
 
 echo "${pkg_list[@]}" |
   xargs --max-args=1 --max-procs=1 --no-run-if-empty --verbose -- pnpm add --global

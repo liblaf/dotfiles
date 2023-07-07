@@ -1,4 +1,5 @@
 7-zip-full
+archlinuxcn-keyring
 bat
 bear
 biber
@@ -59,7 +60,6 @@ os-prober
 pandoc-cli
 pnpm
 pnpm-shell-completion
-prettier
 python-pipx
 rclone
 ripgrep
