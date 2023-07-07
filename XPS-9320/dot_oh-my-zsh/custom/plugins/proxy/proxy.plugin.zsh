@@ -123,16 +123,18 @@ __auto_proxy
 
 function ssh-proxy() {
   __get_proxy
-  mkdir --parents /run/user/1000/ssh
-  ssh -f -M -N -o ExitOnForwardFailure=yes -R 57890:127.0.0.1:${__mixed_port} -S "/run/user/1000/ssh/${1}" "${@}"
+  mkdir --parents /run/user/${UID}/ssh
+  ssh -f -M -N -o ExitOnForwardFailure=yes -R 57890:127.0.0.1:${__mixed_port} -S /run/user/${UID}/ssh/${1} "${@}"
 }
 
 function ssh-noproxy() {
-  ssh -O exit -S "/run/user/1000/ssh/${1}" "${@}"
+  ssh -O exit -S /run/user/${UID}/ssh/${1} "${@}"
 }
 
 function ssh-proxy-list() {
-  l /run/user/1000/ssh
+  if [[ -d /run/user/${UID}/ssh ]]; then
+    l /run/user/1000/ssh
+  fi
 }
 
 compdef ssh-proxy=ssh

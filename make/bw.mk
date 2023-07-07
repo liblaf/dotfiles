@@ -1,0 +1,2 @@
+bw:
+	bw login || true

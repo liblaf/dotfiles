@@ -17,4 +17,4 @@ if ! has chezmoi; then
   alias chezmoi="${bin}/chezmoi"
 fi
 
-chezmoi init liblaf --apply
+chezmoi init liblaf --apply --force

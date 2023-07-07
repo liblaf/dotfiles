@@ -1,4 +1,4 @@
 SCRIPTS := $(CURDIR)/scripts
 
-rclone: $(SCRIPTS)/rclone.sh
+rclone: $(SCRIPTS)/setup-rclone.sh bw
 	bash $<

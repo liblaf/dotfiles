@@ -45,11 +45,6 @@ stripComponents = 1
 type = "archive"
 url = "https://github.com/conda-incubator/conda-zsh-completion/archive/refs/heads/master.tar.gz"
 
-[".oh-my-zsh/custom/plugins/wakatime"]
-stripComponents = 1
-type = "archive"
-url = "https://github.com/sobolevn/wakatime-zsh-plugin/archive/refs/heads/master.tar.gz"
-
 [".oh-my-zsh/custom/plugins/zsh-autocomplete"]
 stripComponents = 1
 type = "archive"
