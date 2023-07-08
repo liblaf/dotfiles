@@ -1,6 +1,8 @@
 #!/usr/bin/zsh
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
+{{ template "init.sh" }}
+
 autoload -U colors && colors
 
 # Requires colors autoload.
@@ -22,3 +24,8 @@ export LESS_TERMCAP_us="${fg_bold[green]}"
 export LESS_TERMCAP_ue="${reset_color}"
 
 export GROFF_NO_SGR=1
+
+# https://wiki.archlinux.org/title/Color_output_in_console#ip
+if has ip; then
+  alias ip="ip -color=auto"
+fi
