@@ -1,6 +1,8 @@
 #!/usr/bin/zsh
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/colored-man-pages/colored-man-pages.plugin.zsh
 
+autoload -U colors && colors
+
 # Requires colors autoload.
 # See termcap(5).
 
@@ -18,3 +20,5 @@ export LESS_TERMCAP_se="${reset_color}"
 # underlining
 export LESS_TERMCAP_us="${fg_bold[green]}"
 export LESS_TERMCAP_ue="${reset_color}"
+
+export GROFF_NO_SGR=1

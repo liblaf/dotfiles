@@ -16,6 +16,7 @@ dog
 doxygen
 duf
 efibootmgr
+fuse2
 fzf
 gdb
 gdu
