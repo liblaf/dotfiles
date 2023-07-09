@@ -1,0 +1,2 @@
+# https://mirrors.tuna.tsinghua.edu.cn/help/archlinux/
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch

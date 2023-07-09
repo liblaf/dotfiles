@@ -1,0 +1,224 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+[battery]
+charging_symbol = "\U000f0084"                  # 󰂄 nf-md-battery_charging
+disabled = true
+discharging_symbol = "\U000f0083"               # 󰂃 nf-md-battery_alert
+empty_symbol = "\U000f008e"                     # 󰂎 nf-md-battery_outline
+format = "[${symbol} ${percentage}](${style}) "
+full_symbol = "\U000f0079"                      # 󰁹 nf-md-battery
+unknown_symbol = "\U000f0091"                   # 󰂑 nf-md-battery_unknown
+
+[[battery.display]]
+charging_symbol = "\U000f0084"    # 󰂄 nf-md-battery_charging
+discharging_symbol = "\U000f0083" # 󰂃 nf-md-battery_alert
+style = "bold red"
+threshold = 9
+
+[[battery.display]]
+charging_symbol = "\U000f089c"    # 󰢜 nf-md-battery_charging_10
+discharging_symbol = "\U000f007a" # 󰁺 nf-md-battery_10
+style = "bold red"
+threshold = 19
+
+[[battery.display]]
+charging_symbol = "\U000f0086"    # 󰂆 nf-md-battery_charging_20
+discharging_symbol = "\U000f007b" # 󰁻 nf-md-battery_20
+style = "bold red"
+threshold = 29
+
+[[battery.display]]
+charging_symbol = "\U000f0087"    # 󰂇 nf-md-battery_charging_30
+discharging_symbol = "\U000f007c" # 󰁼 nf-md-battery_30
+style = "bold green"
+threshold = 39
+
+[[battery.display]]
+charging_symbol = "\U000f0088"    # 󰂈 nf-md-battery_charging_40
+discharging_symbol = "\U000f007d" # 󰁽 nf-md-battery_40
+style = "bold green"
+threshold = 49
+
+[[battery.display]]
+charging_symbol = "\U000f089d"    # 󰢝 nf-md-battery_charging_50
+discharging_symbol = "\U000f007e" # 󰁾 nf-md-battery_50
+style = "bold green"
+threshold = 59
+
+[[battery.display]]
+charging_symbol = "\U000f0089"    # 󰂉 nf-md-battery_charging_60
+discharging_symbol = "\U000f007f" # 󰁿 nf-md-battery_60
+style = "bold green"
+threshold = 69
+
+[[battery.display]]
+charging_symbol = "\U000f089e"    # 󰂉 nf-md-battery_charging_70
+discharging_symbol = "\U000f0080" # 󰂀 nf-md-battery_70
+style = "bold green"
+threshold = 79
+
+[[battery.display]]
+charging_symbol = "\U000f008a"    # 󰂊 nf-md-battery_charging_80
+discharging_symbol = "\U000f0081" # 󰂁 nf-md-battery_80
+style = "bold green"
+threshold = 89
+
+[[battery.display]]
+charging_symbol = "\U000f008b"    # 󰂋 nf-md-battery_charging_90
+discharging_symbol = "\U000f0082" # 󰂂 nf-md-battery_90
+style = "bold green"
+threshold = 99
+
+[[battery.display]]
+charging_symbol = "\U000f0085"    # 󰂅 nf-md-battery_charging_100
+discharging_symbol = "\U000f0079" # 󰁹 nf-md-battery
+style = "bold green"
+threshold = 100
+
+[c]
+commands = [["clang", "--version"], ["gcc", "--version"], ["cc", "--version"]]
+detect_extensions = [
+  "C",
+  "H",
+  "c",
+  "c++",
+  "cc",
+  "cpp",
+  "cxx",
+  "h",
+  "h++",
+  "hpp",
+  "hxx",
+]
+detect_files = ["CMakeCache.txt", "CMakeLists.txt"]
+format = '\[[${symbol}( (${name}-)${version})](${style})\]'
+symbol = "\ue61e" #  nf-custom-c
+version_format = "${raw}"
+
+[character]
+error_symbol = "[>](bold red)"
+success_symbol = "[>](bold green)"
+vimcmd_replace_one_symbol = "[<](bold purple)"
+vimcmd_replace_symbol = "[<](bold purple)"
+vimcmd_symbol = "[<](bold green)"
+vimcmd_visual_symbol = "[<](bold yellow)"
+
+[cmake]
+format = '\[[${symbol}( ${version})](${style})\]'
+symbol = "\U000f0536"                             # 󰔶 nf-md-triangle
+version_format = "${raw}"
+
+[cmd_duration]
+format = "\\[[\U000f13ab ${duration}](${style})\\]" # 󱎫 nf-md-timer
+
+[conda]
+format = '\[[${symbol} ${environment}](${style})\]'
+symbol = "\uf10c"                                   #  nf-fa-circle_o
+
+[custom.bitwarden]
+description = "Bitwarden"
+format = '\[[${symbol} Bitwarden](${style})\]'
+symbol = "\uf132"                              #  nf-fa-shield
+when = 'test -n "${BW_SESSION}"'
+
+[custom.proxy]
+command = "echo ${https_proxy} | sed -e 's@^.*://@@' -e 's@/$@@g'"
+description = "Proxy"
+format = '\[[${symbol} ${output}](${style})\]'
+symbol = "\uf0ac"                                                  #  nf-fa-globe
+when = 'test -n "${https_proxy}"'
+
+[custom.warp]
+description = "Cloudflare WARP"
+format = '\[[${symbol} WARP](${style})\]'
+symbol = "\uf0c2"                         #  nf-fa-cloud
+when = "warp-cli status | grep Connected"
+
+[directory]
+read_only = " \uf023" #  nf-fa-lock
+
+[docker_context]
+format = '\[[${symbol} ${context}](${style})\]'
+symbol = "\U000f0868"                           # 󰡨 nf-md-docker
+
+[git_branch]
+format = '\[[${symbol} ${branch}](${style})\]'
+symbol = "\U000f062c"                          # 󰘬 nf-md-source_branch
+
+[git_metrics]
+disabled = false
+format = '(\[([+${added}](${added_style}))([-${deleted}](${deleted_style}))\])'
+
+[git_status]
+ahead = "\uf176"                                          #  nf-fa-long_arrow_up
+behind = "\uf175"                                         #  nf-fa-long_arrow_down
+conflicted = "="
+deleted = "\uf00d"                                        #  nf-fa-remove
+diverged = "\uf07d"                                       #  nf-fa-arrows_v
+format = '(\[[${all_status}${ahead_behind}](${style})\])'
+renamed = "\uf101"                                        #  nf-fa-angle_double_right
+
+[golang]
+format = '\[[${symbol}( ${version})](${style})\]'
+symbol = "\U000f07d3"                             # 󰟓 nf-md-language_go
+version_format = "${raw}"
+
+[hostname]
+format = "@[${ssh_symbol}${hostname}](${style}) "
+ssh_symbol = ""
+
+[java]
+format = '\[[${symbol}( ${version})](${style})\]'
+symbol = "\ue738"                                 #  nf-dev-java
+version_format = "${raw}"
+
+[jobs]
+format = '[${symbol}( ${number})](${style}) '
+symbol = "+"
+
+[memory_usage]
+disabled = false
+format = '\[[${symbol} ${ram}](${style})\]'
+symbol = "\U000f035b"                       # 󰍛 nf-md-memory
+threshold = 0
+
+[nodejs]
+format = '\[[${symbol}( ${version})](${style})\]'
+symbol = "\U000f0399"                             # 󰎙 nf-md-nodejs
+version_format = "${raw}"
+
+[package]
+format = '\[[${symbol} ${version}](${style})\]'
+symbol = "\ueb29"                               #  nf-cod-package
+version_format = "${raw}"
+
+[python]
+format = '\[[${symbol} ${pyenv_prefix}(${version})(\(${virtualenv}\))](${style})\]'
+symbol = "\ue73c"                                                                   #  nf-dev-python
+version_format = "${raw}"
+
+[rust]
+format = '\[[${symbol}( ${version})](${style})\]'
+symbol = "\ue7a8"                                 #  nf-dev-rust
+version_format = "${raw}"
+
+[status]
+disabled = false
+format = "[${symbol}${status}](${style}) "
+map_symbol = true
+not_executable_symbol = "\uf05e "                                                                                  #  nf-fa-ban
+not_found_symbol = "\uf002 "                                                                                       #  nf-fa-search
+pipestatus = true
+pipestatus_format = '\[${pipestatus}\] => [${symbol}(${common_meaning} )(${signal_name} )(${maybe_int} )]($style)'
+pipestatus_segment_format = '[${symbol}${status}](${style})'
+sigint_symbol = "\ue00a "                                                                                          #  nf-pom-external_interruption
+signal_symbol = "\U000f060a "                                                                                      # 󰘊 nf-md-signal_variant
+symbol = "\uf00d "                                                                                                 #  nf-fa-close
+
+[sudo]
+disabled = false
+format = '\[[${symbol} sudo](${style})\]'
+symbol = "\U000f0004"                     # 󰀄 nf-md-account
+
+[username]
+format = "[${user}](${style})"

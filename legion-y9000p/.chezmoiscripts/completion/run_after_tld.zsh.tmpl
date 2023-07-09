@@ -1,0 +1,12 @@
+#!/usr/bin/zsh
+# set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+{{ template "load-local-bin.sh" }}
+
+if has tld; then
+  mkdir --parents --verbose "{{ .chezmoi.homeDir }}/.zfunc"
+  tld --show-completion zsh > "{{ .chezmoi.homeDir }}/.zfunc/_tld"
+fi

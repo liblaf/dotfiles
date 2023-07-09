@@ -1,0 +1,21 @@
+#!/bin/bash
+# set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+sudo install --mode="u=rw,go=r" --no-target-directory --verbose "{{ .chezmoi.sourceDir }}/.ignore/mirrorlist" /etc/pacman.d/mirrorlist
+sudo install --mode="u=rw,go=r" --no-target-directory --verbose "{{ .chezmoi.sourceDir }}/.ignore/pacman.conf" /etc/pacman.conf
+
+run-safe sudo pacman --sync --sysupgrade --refresh --needed --noconfirm archlinuxcn-keyring yay
+
+sed --expression="s/#.*$//g" "{{ .chezmoi.sourceDir }}/.ignore/pkglist.txt" |
+  run-safe yay --devel --nouseask --sync --sysupgrade --refresh --needed --noconfirm -
+
+sed --expression="s/#.*$//g" "{{ .chezmoi.sourceDir }}/.ignore/group-list.txt" |
+  yay --sync --groups - |
+  awk '{ print $2 }' |
+  run-safe yay --devel --nouseask --sync --sysupgrade --refresh --needed --noconfirm -
+
+exit 0

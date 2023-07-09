@@ -1,0 +1,17 @@
+#!/bin/bash
+# set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+run-safe dconf load / < "{{ .chezmoi.sourceDir }}/.ignore/dconf.conf"
+
+run-safe gsettings set org.gnome.desktop.session idle-delay 900
+run-safe gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"
+run-safe gsettings set org.gnome.mutter.keybindings toggle-tiled-left '[]'
+run-safe gsettings set org.gnome.mutter.keybindings toggle-tiled-right '[]'
+run-safe gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 900
+run-safe gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing
+run-safe gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 900
+run-safe gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type suspend

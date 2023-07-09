@@ -1,0 +1,23 @@
+#!/bin/bash
+# set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+USER_SHELL="$(awk --field-separator=":" --assign user="{{ .chezmoi.username }}" '$1 == user { print $NF }' /etc/passwd)"
+if [[ ${USER_SHELL} != /usr/bin/zsh ]]; then
+  run-safe chsh --shell /usr/bin/zsh
+fi
+
+function group-add() {
+  local group="${1}"
+  if ! groups | grep "${group}" > /dev/null; then
+    if grep "${group}" /etc/group > /dev/null; then
+      run-safe sudo gpasswd --add "{{ .chezmoi.username }}" "${group}"
+    fi
+  fi
+}
+
+group-add docker
+group-add vcpkg
