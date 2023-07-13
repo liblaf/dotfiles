@@ -15,6 +15,11 @@ executable = true
 type = "file"
 url = "https://github.com/liblaf/color-make/releases/latest/download/color-make-linux-amd64"
 
+[".local/chezmoi/grub2-themes"]
+stripComponents = 1
+type = "archive"
+url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar.gz"
+
 [".local/share/fonts/08_NotoSansCJKsc"]
 exact = true
 type = "archive"
