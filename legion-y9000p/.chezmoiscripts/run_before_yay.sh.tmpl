@@ -7,7 +7,7 @@ set -o pipefail
 
 sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{ .chezmoi.sourceDir }}/.ignore/mirrorlist" /etc/pacman.d/mirrorlist
 sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{ .chezmoi.sourceDir }}/.ignore/pacman.conf" /etc/pacman.conf
-sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{ .chezmoi.sourceDir }}/.ignore/nvidia.hoook" /etc/pacman.d/hooks/nvidia.hook
+sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{ .chezmoi.sourceDir }}/.ignore/nvidia.hook" /etc/pacman.d/hooks/nvidia.hook
 
 run-safe sudo pacman --sync --sysupgrade --refresh --needed --noconfirm archlinuxcn-keyring yay
 
