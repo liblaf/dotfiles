@@ -71,8 +71,8 @@ scc
 shfmt
 starship
 telegram-desktop
+texlive-doc
 texlive-latexindent-meta
-texlive-most-doc
 tldr
 tlp
 tmux
