@@ -15,7 +15,6 @@ direnv
 dog
 doxygen
 duf
-efibootmgr
 fuse2
 fzf
 gdb
@@ -66,11 +65,8 @@ python-pipx
 rclone
 ripgrep
 rsync
-sbctl
-sbsigntools
 scc
 shfmt
-shim-signed
 sof-firmware
 starship
 telegram-desktop
