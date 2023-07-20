@@ -74,6 +74,7 @@ shim-signed
 sof-firmware
 starship
 telegram-desktop
+texlive-doc
 texlive-latexindent-meta
 tldr
 tlp

@@ -1,0 +1,3 @@
+if ! typeset -f __texdoc; then
+  eval "$(texdoc --print-completion zsh)" && __texdoc
+fi

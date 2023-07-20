@@ -46,6 +46,10 @@ if has make && has color-make; then
   }
 fi
 
+if has microsoft-edge-stable; then
+  alias edge="microsoft-edge-stable"
+fi
+
 if has moar; then
   export PAGER="moar --quit-if-one-screen"
   alias L="${PAGER}"
