@@ -11,3 +11,6 @@ ExecStartPre=-/usr/bin/auth-thu -D login
 ExecStart=/usr/bin/auth-thu -D online
 Restart=always
 RestartSec=5
+
+[Install]
+WantedBy=default.target
