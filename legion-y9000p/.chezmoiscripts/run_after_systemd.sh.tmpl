@@ -10,7 +10,10 @@ sudo install --mode="u=rw,go=r" --no-target-directory --verbose \
   /etc/systemd/timesyncd.conf
 
 run-safe sudo systemctl disable --now warp-svc.service
+run-safe sudo systemctl enable --now cronie.service
+run-safe sudo systemctl enable --now sshd.service
 run-safe sudo systemctl enable --now tlp.service
+run-safe sudo systemctl enable --now ufw.service
 run-safe systemctl --user disable --now warp-taskbar.service
 run-safe systemctl --user enable --now goauthing.service
 run-safe systemctl --user enable --now goauthing6.service

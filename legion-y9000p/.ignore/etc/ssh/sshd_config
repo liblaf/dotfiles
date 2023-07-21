@@ -1,0 +1,6 @@
+# https://wiki.archlinux.org/title/OpenSSH#Server_usage
+
+Port 60022
+PasswordAuthentication no
+AuthenticationMethods publickey
+PermitRootLogin no

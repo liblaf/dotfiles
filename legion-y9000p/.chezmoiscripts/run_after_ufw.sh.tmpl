@@ -1,0 +1,11 @@
+#!/bin/bash
+# set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+run-safe sudo systemctl enable --now ufw.service
+run-safe sudo ufw default deny
+run-safe sudo ufw limit SSH
+run-safe sudo ufw enable
