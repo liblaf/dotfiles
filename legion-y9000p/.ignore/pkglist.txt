@@ -1,5 +1,6 @@
 7-zip-full
 archlinuxcn-keyring
+auth-thu-bin
 bat
 bear
 biber
