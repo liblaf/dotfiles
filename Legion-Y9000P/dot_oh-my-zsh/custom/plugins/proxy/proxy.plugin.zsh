@@ -3,7 +3,7 @@
 function __get_proxy() {
   if [[ -f ${HOME}/.config/clash/config.yaml ]]; then
     if command -v dasel &> /dev/null; then
-      __mixed_port=$(dasel --file=${HOME}/.config/clash/config.yaml "mixed-port" 2> /dev/null)
+      __mixed_port=$(dasel --file="${HOME}/.config/clash/config.yaml" "mixed-port" 2> /dev/null)
     else
       __mixed_port=$(grep "mixed-port" ${HOME}/.config/clash/config.yaml | awk '{ print $2 }' 2> /dev/null)
     fi
@@ -17,18 +17,18 @@ function __get_proxy() {
 }
 
 function __test_proxy() {
-  curl --max-time 2 --proxy ${__http_proxy} http://www.gstatic.com/generate_204 &> /dev/null
+  curl --proxy ${__http_proxy} ip.sb &> /dev/null
 }
 
 function __check_ip() {
   echo "========================================"
-  local ipv4=$(https --body --timeout=2 https://api-ipv4.ip.sb/ip 2> /dev/null)
+  local ipv4=$(curl -4 ip.sb 2> /dev/null)
   echo "IPv4: ${ipv4:-"-"}"
   echo "----------------------------------------"
-  local ipv6=$(https --body --timeout=2 https://api-ipv6.ip.sb/ip 2> /dev/null)
+  local ipv6=$(curl -6 ip.sb 2> /dev/null)
   echo "IPv6: ${ipv6:-"-"}"
   echo "----------------------------------------"
-  https --body --timeout=2 https://api.ip.sb/geoip 2> /dev/null
+  https --body https://api.ip.sb/geoip 2> /dev/null
   echo "========================================"
 }
 
