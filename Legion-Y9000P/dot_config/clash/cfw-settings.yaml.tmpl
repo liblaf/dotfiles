@@ -1,6 +1,11 @@
 connShowProcess: true
 hideAfterStartup: true
 hideTrayIcon: false
+latencyUrl: https://ip.sb
+profileParsersText: |-
+  parsers:
+    - reg: .*
+      file: {{ .chezmoi.homeDir }}/.config/clash/parser.js
 proxyOrder: 1
 randomControllerPort: true
 randomMixedPort: true
@@ -13,8 +18,3 @@ trayOrders:
   - - status
     - traffic
     - text
-
-profileParsersText: |-
-  parsers:
-    - reg: .*
-      file: {{ .chezmoi.homeDir }}/.config/clash/parser.js

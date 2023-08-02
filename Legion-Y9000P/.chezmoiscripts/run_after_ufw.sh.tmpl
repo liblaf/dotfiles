@@ -6,6 +6,6 @@ set -o pipefail
 {{ template "init.sh" }}
 
 run-safe sudo systemctl enable --now ufw.service
-run-safe sudo ufw default deny
+run-safe sudo ufw default allow
 run-safe sudo ufw limit {{ .sshPort }}/tcp
 run-safe sudo ufw enable
