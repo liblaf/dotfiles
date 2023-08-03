@@ -12,6 +12,7 @@ clash-for-windows-bin
 cloudflare-warp-bin
 cmake
 cronie
+cuda
 dasel-bin
 direnv
 dog

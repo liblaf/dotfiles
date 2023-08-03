@@ -6,11 +6,15 @@ set -o pipefail
 {{ template "init.sh" }}
 
 sudo install --mode="u=rw,go=r" --no-target-directory --verbose \
+  "{{ .chezmoi.sourceDir }}/.ignore/etc/systemd/journald.conf" \
+  /etc/systemd/journald.conf
+sudo install --mode="u=rw,go=r" --no-target-directory --verbose \
   "{{ .chezmoi.sourceDir }}/.ignore/etc/systemd/timesyncd.conf" \
   /etc/systemd/timesyncd.conf
 
 run-safe sudo systemctl disable --now warp-svc.service
 run-safe sudo systemctl enable --now cronie.service
+run-safe sudo systemctl enable --now nvidia-powerd.service
 run-safe sudo systemctl enable --now sshd.service
 run-safe sudo systemctl enable --now tlp.service
 run-safe sudo systemctl enable --now ufw.service
