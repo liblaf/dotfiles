@@ -17,7 +17,7 @@ function __get_proxy() {
 }
 
 function __test_proxy() {
-  curl --proxy ${__http_proxy} ip.sb &> /dev/null
+  curl --proxy ${__http_proxy} cp.cloudflare.com &> /dev/null
 }
 
 function __check_ip() {
@@ -126,16 +126,15 @@ function ssh-proxy() {
   mkdir --parents /run/user/${UID}/ssh
   ssh -f -M -N -o ExitOnForwardFailure=yes -R 57890:127.0.0.1:${__mixed_port} -S /run/user/${UID}/ssh/${1} "${@}"
 }
+compdef ssh-proxy=ssh
 
 function ssh-noproxy() {
   ssh -O exit -S /run/user/${UID}/ssh/${1} "${@}"
 }
+compdef ssh-noproxy=ssh
 
 function ssh-proxy-list() {
   if [[ -d /run/user/${UID}/ssh ]]; then
     l /run/user/1000/ssh
   fi
 }
-
-compdef ssh-proxy=ssh
-compdef ssh-noproxy=ssh

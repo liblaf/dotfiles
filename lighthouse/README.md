@@ -13,7 +13,7 @@
 
 ```shell
 mkdir --parents --verbose ${HOME}/.local/share
-git clone https://github.com/liblaf/dotfiles.git ${HOME}/.local/share/chezmoi
+git clone --recurse-submodules https://github.com/liblaf/dotfiles.git ${HOME}/.local/share/chezmoi
 cd ${HOME}/.local/share/chezmoi
 bash setup.sh
 ```

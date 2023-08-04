@@ -1,0 +1,20 @@
+function ci() {
+  local filepath="$(zoxide query --interactive "${@}")"
+  if [[ -e ${filepath} ]]; then
+    if has direnv; then
+      direnv exec "${filepath}" code "${filepath}"
+    else
+      code "${filepath}"
+    fi
+  fi
+}
+
+function cir() {
+  local remote="${1}"
+  # local filepath="$(ssh -t "${remote}" "zoxide query --interactive")"
+  local filepath="$(zoxide query --interactive "${@:2}")"
+  if [[ -e ${filepath} ]]; then
+    code --folder-uri="vscode-remote://ssh-remote+${remote}${filepath}"
+  fi
+}
+compdef cir=ssh

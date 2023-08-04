@@ -1,9 +1,0 @@
-#!/bin/bash
-# set -o errexit
-set -o nounset
-set -o pipefail
-
-# https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
-get_docker=$(mktemp --suffix=.sh)
-wget --output-document="${get_docker}" https://get.docker.com
-sudo sh "${get_docker}"
