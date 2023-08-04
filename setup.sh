@@ -2,6 +2,7 @@
 set -o errexit
 set -o nounset
 set -o pipefail
+shopt -s expand_aliases
 
 cd "$(realpath --canonicalize-missing "${0}/..")"
 nodename="$(uname --nodename)"
