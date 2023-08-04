@@ -26,7 +26,7 @@ services:
     ports:
       - 80:80
       - 443:443
-      - 81:81
+      - 60081:81
     restart: unless-stopped
     volumes:
       - ./nginx-proxy-manager/data:/data

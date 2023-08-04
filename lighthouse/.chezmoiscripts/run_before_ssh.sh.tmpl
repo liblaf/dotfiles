@@ -4,7 +4,7 @@ set -o nounset
 set -o pipefail
 
 sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose \
-  "{{ .chezmoi.sourceDir }}/.ignore/port.conf" \
+  "{{ .chezmoi.sourceDir }}/.ignore/etc/ssh/sshd_config.d/port.conf" \
   /etc/ssh/sshd_config.d/port.conf
 
 sudo systemctl restart sshd.service

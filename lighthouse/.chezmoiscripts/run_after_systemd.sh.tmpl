@@ -1,0 +1,10 @@
+#!/bin/bash
+# set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ template "init.sh" }}
+
+sudo install --mode="u=rw,go=r" --no-target-directory --verbose \
+  "{{ .chezmoi.sourceDir }}/.ignore/etc/systemd/journald.conf" \
+  /etc/systemd/journald.conf
