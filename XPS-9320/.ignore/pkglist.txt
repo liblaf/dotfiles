@@ -12,6 +12,8 @@ cloudflare-warp-bin
 cmake
 dasel-bin
 direnv
+docker
+docker-compose
 dog
 doxygen
 duf

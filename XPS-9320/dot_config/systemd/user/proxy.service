@@ -5,4 +5,5 @@ WantedBy=default.target
 ExecStart=zsh %h/.oh-my-zsh/custom/plugins/proxy/proxy.plugin.zsh
 
 [Unit]
+After=goauthing.service
 Description=Auto Proxy

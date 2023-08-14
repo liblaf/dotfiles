@@ -17,7 +17,7 @@ function __get_proxy() {
 }
 
 function __test_proxy() {
-  curl --proxy ${__http_proxy} cp.cloudflare.com &> /dev/null
+  curl --fail --proxy ${__http_proxy} cp.cloudflare.com &> /dev/null
 }
 
 function __check_ip() {

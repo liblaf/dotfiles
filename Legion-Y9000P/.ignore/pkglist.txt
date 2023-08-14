@@ -10,11 +10,14 @@ chezmoi
 clang
 clash-for-windows-bin
 cloudflare-warp-bin
+cloudflared
 cmake
 cronie
 cuda
 dasel-bin
 direnv
+docker
+docker-compose
 dog
 doxygen
 duf

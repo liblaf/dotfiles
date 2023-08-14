@@ -216,7 +216,7 @@ signal_symbol = "\U000f060a "                                                   
 symbol = "\uf00d "                                                                                                 #  nf-fa-close
 
 [sudo]
-disabled = false
+disabled = true
 format = '\[[${symbol} sudo](${style})\]'
 symbol = "\U000f0004"                     # 󰀄 nf-md-account
 
