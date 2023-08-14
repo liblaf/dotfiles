@@ -4,7 +4,7 @@ function has() {
 
 function run() {
   (
-    export PS4=$'\x1b[1;96m>>> '
+    export PS4=$'\x1b[1;92;100m>>> '
     set -o xtrace
     "${@}"
   )
