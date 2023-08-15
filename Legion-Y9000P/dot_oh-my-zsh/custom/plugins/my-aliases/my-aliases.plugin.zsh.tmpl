@@ -51,6 +51,11 @@ if has pre-commit; then
   alias pre="pre-commit run --all-files"
 fi
 
+if has sudo; then
+  # https://wiki.archlinux.org/title/Sudo#Passing_aliases
+  alias sudo="sudo "
+fi
+
 if has tmux; then
   executables=(
     blender
