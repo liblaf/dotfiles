@@ -13,6 +13,9 @@ helper = !gh auth git-credential
 [delta]
 side-by-side = true
 
+[fetch]
+parallel = 0
+
 [http]
 # https://stackoverflow.com/questions/6842687/the-remote-end-hung-up-unexpectedly-while-git-cloning
 postBuffer = 104857600
@@ -20,6 +23,9 @@ postBuffer = 104857600
 [init]
 defaultBranch = main
 templateDir = ~/.local/share/git-core/templates
+
+[submodule]
+fetchJobs = 0
 
 [user]
 email = i@liblaf.me

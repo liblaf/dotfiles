@@ -1,3 +1,5 @@
+alias rsync="rsync --archive -P"
+
 function pull() {
   local remote=${1}
   local toplevel=$(git rev-parse --show-toplevel)
