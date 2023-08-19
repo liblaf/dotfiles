@@ -11,7 +11,7 @@ function check() {
 if check business; then
   echo -e "\x1b[1;92mOnedrive Business Already Configured\x1b[0m"
 else
-  if [[ -z ${BW_SESSION:-""} ]]; then
+  if [[ -z ${BW_SESSION-} ]]; then
     echo -e "\x1b[1;91mBitwarden Locked\x1b[0m"
     exit 1
   else
@@ -25,7 +25,7 @@ fi
 if check personal; then
   echo -e "\x1b[1;92mOnedrive Personal Already Configured\x1b[0m"
 else
-  if [[ -z ${BW_SESSION:-""} ]]; then
+  if [[ -z ${BW_SESSION-} ]]; then
     echo -e "\x1b[1;91mBitwarden Locked\x1b[0m"
     exit 1
   else

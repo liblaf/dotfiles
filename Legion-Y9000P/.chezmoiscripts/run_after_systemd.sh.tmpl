@@ -18,6 +18,9 @@ run-safe sudo systemctl enable --now nvidia-powerd.service
 run-safe sudo systemctl enable --now sshd.service
 run-safe sudo systemctl enable --now tlp.service
 run-safe sudo systemctl enable --now ufw.service
+run-safe sudo systemctl enable nvidia-hibernate.service
+run-safe sudo systemctl enable nvidia-resume.service
+run-safe sudo systemctl enable nvidia-suspend.service
 run-safe systemctl --user disable --now warp-taskbar.service
 run-safe systemctl --user enable --now glances.service
 run-safe systemctl --user enable --now goauthing.service

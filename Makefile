@@ -1,3 +1,3 @@
-all: gh rclone
+all: bw gh rclone
 
 include make/*.mk

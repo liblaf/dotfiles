@@ -1,0 +1,9 @@
+{
+  "control": [{ "VTOY_LINUX_REMOUNT": "1" }],
+  "injection": [
+    {
+      "image": "/archlinux-x86_64.iso",
+      "archive": "/live_injection.tar.gz"
+    }
+  ]
+}

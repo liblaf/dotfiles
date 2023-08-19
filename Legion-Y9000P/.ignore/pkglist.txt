@@ -47,6 +47,8 @@ jq
 kitty
 lazygit
 lf
+libva-nvidia-driver
+libva-utils
 lldb
 llvm
 lsd
@@ -55,7 +57,6 @@ meshlab-appimage
 microsoft-edge-stable-bin
 miniconda3
 moar
-mutter-x11-scaling
 neofetch
 neovim
 noto-fonts
@@ -78,13 +79,13 @@ shfmt
 starship
 telegram-desktop
 texlive-doc
-texlive-latexindent-meta
 tldr
 tlp
 tmux
 typora
 ufw
 vcpkg
+vdpauinfo
 ventoy-bin
 vhs
 visual-studio-code-bin
