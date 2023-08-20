@@ -27,6 +27,10 @@ clean:
 
 ventoy: verify $(VENTOY_FILE_LIST)
 
+ventoy-force:
+	sudo ventoy -I $(DEVICE)
+	systemctl --user restart gvfs-udisks2-volume-monitor.service
+
 ventoy-install:
 	sudo ventoy -i -u $(DEVICE)
 
@@ -64,7 +68,7 @@ $(MOUNTPOINT)/tcping.exe:
 $(MOUNTPOINT)/ubuntu-$(UBUNTU_VERSION)-desktop-amd64.iso:
 	wget --output-document=$@ https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/$(UBUNTU_VERSION)/$(@F)
 
-$(MOUNTPOINT)/ventoy/ventoy.json: $(CURDIR)/ventoy/ventoy.json
+$(MOUNTPOINT)/ventoy/ventoy.json: $(CURDIR)/ventoy.json
 	install -D --mode="u=rw,go=r" --no-target-directory --verbose $< $@
 
 ##################
@@ -86,12 +90,8 @@ $(MOUNTPOINT)/live_injection.tar.gz: $(LIVE_INJECTION)/live_injection.tar.gz
 $(SYSROOT)/etc/wpa_supplicant:
 	@ mkdir --parents --verbose $@
 
-TSINGHUA_SECURE_USERNAME != bw get username 802.1X
-TSINGHUA_SECURE_PASSWORD != bw get password 802.1X
-$(SYSROOT)/etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf: $(CURDIR)/ventoy/sysroot/etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf | $(SYSROOT)/etc/wpa_supplicant
-	sed --expression="s/\"username\"/\"$(TSINGHUA_SECURE_USERNAME)\"/" \
-	  --expression="s/\"password\"/\"$(TSINGHUA_SECURE_PASSWORD)\"/" \
-	  $< > $@
+$(SYSROOT)/etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf: $(CURDIR)/sysroot/etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf.tmpl | $(SYSROOT)/etc/wpa_supplicant
+	chezmoi execute-template < $< > $@
 
 $(TMP)/live-injection-$(LIVE_INJECTION_VERSION).tar.gz:
 	wget --output-document=$@ https://github.com/ventoy/LiveInjection/releases/latest/download/$(@F)
