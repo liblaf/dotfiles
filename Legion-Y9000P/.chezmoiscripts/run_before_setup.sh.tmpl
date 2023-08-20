@@ -5,8 +5,8 @@ set -o pipefail
 
 {{ template "init.sh" }}
 
-find "{{ .chezmoi.sourceDir }}/.ignore/etc" -type f -exec \
-  sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose {} "/etc/{}" \;
+find "{{ .chezmoi.sourceDir }}/.ignore/etc" -type f -printf "%P\n" |
+  xargs -I {} sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{ .chezmoi.sourceDir }}/.ignore/etc/{}" "/etc/{}"
 
 run-safe sudo pacman --sync --sysupgrade --refresh --needed --noconfirm archlinuxcn-keyring yay
 
