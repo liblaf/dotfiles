@@ -170,7 +170,7 @@ const group_proxies = async (proxy_names) => {
 module.exports.parse = async (
   raw,
   { axios, yaml, notify, console, homeDir },
-  { name, url, interval, selected, mode }
+  { name, url, interval, selected, mode },
 ) => {
   const obj = yaml.parse(raw);
 

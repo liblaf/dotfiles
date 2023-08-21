@@ -7,8 +7,8 @@ set -o pipefail
 {{ template "load-local-bin.sh" }}
 
 pkg_list=(
-  black
   "glances[all]"
+  black
   httpie
   isort
   nvitop
@@ -17,10 +17,11 @@ pkg_list=(
   pygments
   thu-learn-downloader
   toml-sort
+  utils-cli
 )
 
 echo "${pkg_list[@]}" |
-  xargs --max-args=1 --max-procs="$(nproc)" --no-run-if-empty --verbose -- pipx install --force
+  xargs --max-args=1 --max-procs=0 --no-run-if-empty --verbose -- pipx install --force
 
 pipx upgrade-all
 

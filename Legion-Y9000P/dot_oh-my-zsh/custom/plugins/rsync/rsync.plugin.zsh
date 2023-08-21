@@ -1,25 +1,39 @@
-alias rsync="rsync --archive -P"
+#!/usr/bin/zsh
 
-function pull() {
+alias rsync="rsync --info=PROGRESS2 --archive --delete --force --partial --compress"
+
+function rsync-pull() {
+  local remote=${1}
+  rsync ${remote}:$(pwd) $(pwd)
+}
+compdef rsync-pull=ssh
+
+function rsync-push() {
+  local remote=${1}
+  rsync $(pwd) ${remote}:$(pwd)
+}
+compdef rsync-push=ssh
+
+function rsync-git-pull() {
   local remote=${1}
   local toplevel=$(git rev-parse --show-toplevel)
   if [[ -d ${toplevel} ]]; then
     echo "${remote} -> '${toplevel}'"
-    rsync --info=PROGRESS2 --archive --delete --force --partial --compress --filter="dir-merge,- .gitignore" ${remote}:${toplevel}/ ${toplevel}
+    rsync --filter="dir-merge,- .gitignore" ${remote}:${toplevel}/ ${toplevel}
   else
-    echo "not a git repository: '${toplevel}'"
+    return 1
   fi
 }
-compdef pull=ssh
+compdef rsync-git-pull=ssh
 
-function push() {
+function rsync-git-push() {
   local remote=${1}
   local toplevel=$(git rev-parse --show-toplevel)
   if [[ -d ${toplevel} ]]; then
     echo "'${toplevel}' -> ${remote}"
-    rsync --info=PROGRESS2 --archive --delete --force --partial --compress --filter="dir-merge,- .gitignore" ${toplevel}/ ${remote}:${toplevel}
+    rsync --filter="dir-merge,- .gitignore" ${toplevel}/ ${remote}:${toplevel}
   else
-    echo "not a git repository: '${toplevel}'"
+    return 1
   fi
 }
-compdef push=ssh
+compdef rsync-git-push=ssh

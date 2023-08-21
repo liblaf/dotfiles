@@ -4,7 +4,7 @@ hideTrayIcon: false
 latencyUrl: http://cp.cloudflare.com
 profileParsersText: |-
   parsers:
-    - reg: .*
+    - reg: ^(?!.*liblaf.me).*$
       file: {{ .chezmoi.homeDir }}/.config/clash/parser.js
 proxyOrder: 1
 randomControllerPort: true
