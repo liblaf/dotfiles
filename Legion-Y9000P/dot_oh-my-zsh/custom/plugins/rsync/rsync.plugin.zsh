@@ -4,13 +4,13 @@ alias rsync="rsync --info=PROGRESS2 --archive --delete --force --partial --compr
 
 function rsync-pull() {
   local remote=${1}
-  rsync ${remote}:$(pwd) $(pwd)
+  rsync ${remote}:$(pwd)/ $(pwd)
 }
 compdef rsync-pull=ssh
 
 function rsync-push() {
   local remote=${1}
-  rsync $(pwd) ${remote}:$(pwd)
+  rsync $(pwd)/ ${remote}:$(pwd)
 }
 compdef rsync-push=ssh
 
