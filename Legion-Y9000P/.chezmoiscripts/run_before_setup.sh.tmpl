@@ -8,15 +8,15 @@ set -o pipefail
 find "{{ .chezmoi.sourceDir }}/.ignore/etc" -type f -printf "%P\n" |
   xargs -I {} sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{ .chezmoi.sourceDir }}/.ignore/etc/{}" "/etc/{}"
 
-sed --expression="s/#.*$//g" "{{ .chezmoi.sourceDir }}/.ignore/pkg/pacman.txt" |
+sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/.ignore/pkg/pacman.txt" |
   run-safe sudo pacman --sync --refresh --needed --noconfirm -
 
-sed --expression="s/#.*$//g" "{{ .chezmoi.sourceDir }}/.ignore/pkg/group.txt" |
+sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/.ignore/pkg/group.txt" |
   yay --sync --groups - |
   awk '{ print $2 }' |
   run-safe yay --devel --nouseask --sync --refresh --needed --noconfirm -
 
-sed --expression="s/#.*$//g" "{{ .chezmoi.sourceDir }}/.ignore/pkg/aur.txt" |
+sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/.ignore/pkg/aur.txt" |
   run-safe yay --aur --devel --nouseask --sync --refresh --needed --noconfirm -
 
 exit 0

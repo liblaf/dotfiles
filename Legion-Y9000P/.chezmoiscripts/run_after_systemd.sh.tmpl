@@ -22,6 +22,7 @@ run-safe sudo systemctl enable nvidia-hibernate.service
 run-safe sudo systemctl enable nvidia-resume.service
 run-safe sudo systemctl enable nvidia-suspend.service
 run-safe systemctl --user disable --now warp-taskbar.service
+run-safe systemctl --user enable --now clash.service
 run-safe systemctl --user enable --now glances.service
 run-safe systemctl --user enable --now goauthing.service
 run-safe systemctl --user enable --now proxy.service

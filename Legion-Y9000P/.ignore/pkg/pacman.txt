@@ -49,10 +49,13 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 nvidia
+nvidia-vaapi-driver-git
 obs-studio
 opencl-nvidia
 os-prober
 pandoc-cli
+perl-file-homedir # for latexindent
+perl-yaml-tiny # for latexindent
 pnpm
 python-pipx
 rclone

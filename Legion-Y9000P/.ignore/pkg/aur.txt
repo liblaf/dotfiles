@@ -1,6 +1,6 @@
 7-zip-full
 auth-thu-bin
-clash-for-windows-bin
+clash-premium-bin
 cloudflare-warp-bin
 dasel-bin
 geekbench
@@ -8,7 +8,6 @@ git-extras
 gnome-shell-extension-dash-to-dock
 gnome-shell-extension-paperwm-git
 gnome-shell-extension-system-monitor-next-git
-# libva-nvidia-driver
 meshlab-appimage
 microsoft-edge-stable-bin
 miniconda3
@@ -21,4 +20,5 @@ ventoy-bin
 visual-studio-code-bin
 wemeet-bin
 wps-office
+yacd
 zotero-bin
