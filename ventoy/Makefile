@@ -77,6 +77,8 @@ $(MOUNTPOINT)/ventoy/ventoy.json: $(CURDIR)/ventoy.json
 
 SYSROOT              := $(LIVE_INJECTION)/sysroot
 LIVE_INJECTION_FILES += $(SYSROOT)/etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf
+LIVE_INJECTION_FILES += $(SYSROOT)/root/.auth-thu
+LIVE_INJECTION_FILES += $(SYSROOT)/usr/bin/auth-thu
 
 $(LIVE_INJECTION)/live_injection.tar.gz: $(LIVE_INJECTION)/pack.sh $(LIVE_INJECTION_FILES)
 	cd $(<D) && bash $<
@@ -87,11 +89,17 @@ $(LIVE_INJECTION)/pack.sh: $(TMP)/live-injection-$(LIVE_INJECTION_VERSION).tar.g
 $(MOUNTPOINT)/live_injection.tar.gz: $(LIVE_INJECTION)/live_injection.tar.gz
 	install -D --mode="u=rw,go=r" --no-target-directory --verbose $< $@
 
-$(SYSROOT)/etc/wpa_supplicant:
-	@ mkdir --parents --verbose $@
-
-$(SYSROOT)/etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf: $(CURDIR)/sysroot/etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf.tmpl | $(SYSROOT)/etc/wpa_supplicant
+$(SYSROOT)/etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf: $(CURDIR)/sysroot/etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf.tmpl
+	@ mkdir --parents --verbose $(@D)
 	chezmoi execute-template < $< > $@
+
+$(SYSROOT)/root/.auth-thu: $(dir $(CURDIR))/Legion-Y9000P/dot_auth-thu.tmpl
+	@ mkdir --parents --verbose $(@D)
+	chezmoi execute-template < $< > $@
+
+$(SYSROOT)/usr/bin/auth-thu:
+	@ mkdir --parents --verbose $(@D)
+	wget --output-document=$@ https://github.com/z4yx/GoAuthing/releases/latest/download/auth-thu.linux.x86_64
 
 $(TMP)/live-injection-$(LIVE_INJECTION_VERSION).tar.gz:
 	wget --output-document=$@ https://github.com/ventoy/LiveInjection/releases/latest/download/$(@F)
