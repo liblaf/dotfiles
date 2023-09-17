@@ -1,0 +1,10 @@
+#!/bin/bash
+set -o nounset
+set -o pipefail
+
+{{ include "other/scripts/init.sh" }}
+
+run sudo ufw --force reset
+run sudo ufw default deny
+run sudo ufw allow 32768:65535/tcp
+run sudo ufw enable

@@ -1,0 +1,3 @@
+Defaults env_keep += "all_proxy ftp_proxy http_proxy https_proxy no_proxy"
+Defaults env_keep += "ALL_PROXY FTP_PROXY HTTP_PROXY HTTPS_PROXY NO_PROXY"
+Defaults env_keep += "BAT_PAGER EDITOR PAGER"

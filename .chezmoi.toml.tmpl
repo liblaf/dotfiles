@@ -1,0 +1,9 @@
+{{- $web := eq .chezmoi.fqdnHostname "10500" -}}
+
+sourceDir = "{{ .chezmoi.sourceDir }}/{{ .chezmoi.osRelease.id }}"
+
+[data]
+alist = {{ $web }}
+
+[data.ssh]
+port = 60022

@@ -1,8 +1,0 @@
-#!/bin/bash
-set -o errexit
-set -o nounset
-set -o pipefail
-
-{{ template "init.sh" }}
-
-run ln --force --relative --symbolic "${HOME}/.local/opt/upgit/upgit" "${HOME}/.local/bin/upgit"

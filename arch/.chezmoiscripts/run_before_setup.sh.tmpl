@@ -1,0 +1,35 @@
+#!/bin/bash
+set -o nounset
+set -o pipefail
+
+{{ include "other/scripts/init.sh" }}
+
+root_files=($(find "{{ .chezmoi.sourceDir }}/other/root" -type f -printf "%P\n"))
+for file in "${root_files[@]}"; do
+  if [[ $file =~ etc/sudoers.d/.* ]]; then
+    continue
+  fi
+  source="{{ .chezmoi.sourceDir }}/other/root/$file"
+  target="/$file"
+  if [[ $source =~ .+.tmpl ]]; then
+    tmpfile=$(mktemp)
+    trap "rm --force $tmpfile" EXIT
+    chezmoi execute-template $source > $tmpfile
+    source=$tmpfile
+    target=${target%.tmpl}
+  fi
+  sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose $source $target
+done
+
+run sudo pacman --sync --refresh --needed --noconfirm archlinuxcn-keyring
+
+sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/pacman.txt" |
+  run sudo pacman --sync --refresh --needed --noconfirm -
+
+sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/group.txt" |
+  yay --sync --groups - |
+  awk '{ print $2 }' |
+  run yay --devel --nouseask --sync --refresh --needed --noconfirm -
+
+sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/aur.txt" |
+  run yay --aur --devel --nouseask --sync --refresh --needed --noconfirm -

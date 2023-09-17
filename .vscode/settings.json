@@ -1,5 +1,4 @@
 {
-  "cSpell.words": ["chezmoi"],
   "files.associations": {
     ".chezmoiignore": "ignore",
     "*.sh.tmpl": "shellscript",

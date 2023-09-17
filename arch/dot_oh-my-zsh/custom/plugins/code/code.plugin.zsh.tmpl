@@ -1,0 +1,27 @@
+function ci() {
+  local _path=$(zoxide query --interactive "$@")
+  if [[ -e $_path ]]; then
+    if has direnv; then
+      direnv exec $_path code $_path
+    else
+      code $_path
+    fi
+  fi
+}
+
+function cr() {
+  local remote=$1
+  local _path=${2:-$(pwd)}
+  code --folder-uri="vscode-remote://ssh-remote+$remote$_path"
+}
+compdef cr=ssh
+
+function cri() {
+  local remote=$1
+  # local _path=$(ssh -t "$remote" "zoxide query --interactive")
+  local _path=$(zoxide query --interactive "${@:2}")
+  if [[ -e $_path ]]; then
+    code --folder-uri="vscode-remote://ssh-remote+$remote$_path"
+  fi
+}
+compdef cri=ssh

@@ -1,0 +1,30 @@
+#!/bin/bash
+set -o nounset
+set -o pipefail
+
+{{ include "other/scripts/init.sh" }}
+{{ include "other/scripts/load-local-bin.sh" }}
+
+pkg_list=(
+  black
+  color-make
+  glances
+  httpie
+  isort
+  nvitop
+  poetry
+  pre-commit
+  pygments
+  thu-learn-downloader
+  toml-sort
+  utils-cli
+)
+
+pkg_list_installed=($(pipx list --short | awk '{ print $1 }'))
+for pkg in "${pkg_list[@]}"; do
+  if [[ ! " ${pkg_list_installed[@]} " =~ " $pkg " ]]; then
+    pipx install --force "$pkg[all]"
+  fi
+done
+
+pipx upgrade-all --force

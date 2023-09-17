@@ -1,9 +1,0 @@
-#!/bin/bash
-set -o errexit
-set -o nounset
-set -o pipefail
-
-{{ template "init.sh" }}
-
-# https://wiki.ubuntu.com/Apport
-run gsettings set com.ubuntu.update-notifier show-apport-crashes false
