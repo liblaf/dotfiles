@@ -65,6 +65,11 @@ stripComponents = 1
 type = "archive"
 url = "https://github.com/Game4Move78/zsh-bitwarden/archive/refs/heads/master.tar.gz"
 
+[".oh-my-zsh/custom/plugins/zsh-completions"]
+stripComponents = 1
+type = "archive"
+url = "https://github.com/zsh-users/zsh-completions/archive/refs/heads/master.tar.gz"
+
 [".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
 stripComponents = 1
 type = "archive"

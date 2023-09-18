@@ -31,6 +31,7 @@ plugins=(
   zsh-syntax-highlighting
 
   bitwarden
+  clash
   code
   colors
   completions
@@ -41,6 +42,8 @@ plugins=(
   proxy
   rsync
 )
+
+fpath+="${ZSH_CUSTOM:-"${ZSH:-"$HOME/.oh-my-zsh"}/custom"}/plugins/zsh-completions/src"
 
 ZSH_CACHE_DIR="$HOME/.cache/zsh"
 mkdir --parents $ZSH_CACHE_DIR

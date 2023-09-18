@@ -11,6 +11,20 @@ fi
 
 if has bat; then
   alias cat="bat"
+  unalias help
+  function help() {
+    local output=$("$@" --help 2> /dev/null)
+    if [[ -z $output ]]; then
+      output=$("$@" -h 2> /dev/null)
+    fi
+    if [[ -z $output ]]; then
+      output=$("$@" help 2> /dev/null)
+    fi
+    if [[ -z $output ]]; then
+      return 1
+    fi
+    echo $output | bat --language=help
+  }
 fi
 
 if has bw; then
@@ -18,7 +32,7 @@ if has bw; then
     alias tld='tld --password=$(bw get password id.tsinghua.edu.cn)'
   fi
   if has ddns; then
-    alias ddns='ddns --token=$(bw get notes CLOUDFLARE_TOKEN_DNS) --zone=$(CLOUDFLARE_ZONE)'
+    alias ddns='ddns --token=$(bw get notes CLOUDFLARE_TOKEN_DNS) --zone=$(bw get notes CLOUDFLARE_ZONE)'
   fi
 fi
 

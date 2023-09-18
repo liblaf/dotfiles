@@ -13,8 +13,8 @@ for file in "${root_files[@]}"; do
   target="/$file"
   if [[ $source =~ .+.tmpl ]]; then
     tmpfile=$(mktemp)
-    trap "rm --force $tmpfile" EXIT
-    chezmoi execute-template $source > $tmpfile
+    trap "rm --force --verbose $tmpfile" EXIT
+    chezmoi execute-template < $source > $tmpfile
     source=$tmpfile
     target=${target%.tmpl}
   fi

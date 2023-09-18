@@ -1,9 +1,9 @@
 #!/usr/bin/zsh
 
 function _get_proxy() {
-  if [[ -f "$HOME/.config/clash/config.yaml" ]]; then
-    if command -v dasel &> /dev/null; then
-      _mixed_port=$(dasel --file="$HOME/.config/clash/config.yaml" "mixed-port" 2> /dev/null)
+  if [[ -r "$HOME/.config/clash/config.yaml" ]]; then
+    if has dasel &> /dev/null; then
+      _mixed_port=$(dasel select --file="$HOME/.config/clash/config.yaml" --selector=".mixed-port" 2> /dev/null)
     else
       _mixed_port=$(grep "mixed-port" "$HOME/.config/clash/config.yaml" | awk '{ print $2 }' 2> /dev/null)
     fi
@@ -82,11 +82,11 @@ _proxy_targets=(
 function _auto_proxy() {
   _get_proxy
   if _test_proxy; then
-    for target in ${_proxy_targets[@]}; do
+    for target in "${_proxy_targets[@]}"; do
       _enable_proxy_$target
     done
   else
-    for target in ${_proxy_targets[@]}; do
+    for target in "${_proxy_targets[@]}"; do
       _disable_proxy_$target
     done
   fi
@@ -96,7 +96,7 @@ function proxy() {
   _get_proxy
   echo "========================================"
   echo "Enable proxy for:"
-  for target in ${_proxy_targets[@]}; do
+  for target in "${_proxy_targets[@]}"; do
     if _enable_proxy_$target; then
       echo "- $target"
     fi
@@ -107,7 +107,7 @@ function proxy() {
 function noproxy() {
   echo "========================================"
   echo "Disable proxy for:"
-  for target in ${_proxy_targets[@]}; do
+  for target in "${_proxy_targets[@]}"; do
     if _disable_proxy_$target; then
       echo "- $target"
     fi

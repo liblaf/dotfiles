@@ -13,7 +13,7 @@ pkg_list=(
   speedscope
   vercel
 )
-pkg_list=(${pkg_list[@]/%/"@latest"})
+pkg_list=("${pkg_list[@]/%/"@latest"}")
 
 pnpm env use --global latest
 pnpm add --global ${pkg_list[@]}
