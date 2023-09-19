@@ -1,1 +1,3 @@
+{{ if .nvidia.install -}}
 options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp
+{{- end }}

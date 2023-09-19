@@ -23,7 +23,8 @@ done
 
 run sudo pacman --sync --refresh --needed --noconfirm archlinuxcn-keyring
 
-sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/pacman.txt" |
+"{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/pacman.txt.tmpl" |
+  sed --expression="s/\s*#.*$//g" |
   run sudo pacman --sync --refresh --needed --noconfirm -
 
 sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/group.txt" |

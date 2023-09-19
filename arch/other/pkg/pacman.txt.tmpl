@@ -10,7 +10,6 @@ clang
 cloudflared
 cmake
 cronie
-cuda
 direnv
 docker
 docker-compose
@@ -51,20 +50,18 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
-nvidia
-nvidia-vaapi-driver-git
 obs-studio
-opencl-nvidia
 os-prober
 pandoc-cli
-perl-file-homedir # for latexindent
-perl-yaml-tiny # for latexindent
+perl-file-homedir {{- /* for latexindent */}}
+perl-yaml-tiny {{- /* for latexindent */}}
 pnpm
 python-pipx
 rclone
 ripgrep
 rsync
 shfmt
+sof-firmware
 starship
 telegram-desktop
 texlive-doc
@@ -72,9 +69,16 @@ tldr
 tlp
 tmux
 ufw
-vdpauinfo
 vhs
 vlc
 yay
 zoxide
 zsh
+
+{{ if .nvidia.install -}}
+cuda
+nvidia
+nvidia-vaapi-driver-git
+opencl-nvidia
+vdpauinfo
+{{- end }}
