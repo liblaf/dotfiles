@@ -19,7 +19,6 @@ doxygen
 duf
 fuse2
 fzf
-netdata
 gdb
 gdu
 git
@@ -35,6 +34,7 @@ grub
 hyperfine
 ibus-libpinyin
 imagemagick
+intel-compute-runtime
 jq
 kitty
 lazygit
@@ -46,6 +46,7 @@ lsd
 man-db
 neofetch
 neovim
+netdata
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji

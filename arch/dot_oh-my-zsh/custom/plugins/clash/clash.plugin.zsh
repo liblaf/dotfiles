@@ -16,11 +16,12 @@ function clash-dashboard() {
 function clash-update() {
   (
     set -o errexit
-    local config="$HOME/.local/clash/config.yaml"
+    local config="$HOME/.config/clash/config.yaml"
     local temp=$(mktemp --suffix=.yaml)
     trap "rm --force --verbose $temp" EXIT
     https --output=$temp --download subs.liblaf.me/api/clash subs==$(bw get notes CLASH_SUBSCRIPTION)
     dasel put --file="$temp" --selector=".secret" --value=$(bw get notes CLASH_SECRET)
-    command cp --archive --backup --force --verbose $temp $config
+    install --backup -D --no-target-directory --verbose $temp $config
+    systemctl --user restart clash.service
   )
 }

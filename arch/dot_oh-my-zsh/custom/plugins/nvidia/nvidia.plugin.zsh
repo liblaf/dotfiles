@@ -1,5 +1,5 @@
 #!/usr/bin/zsh
 
-if pacman --query nvidia-vaapi-driver &> /dev/null; then
+if lspci | grep NVIDIA &> /dev/null; then
   export LIBVA_DRIVER_NAME=nvidia
 fi
