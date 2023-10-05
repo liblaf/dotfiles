@@ -1,6 +1,7 @@
 7-zip-full
 alist-bin
 auth-thu-bin
+chatall-bin
 clash-premium-bin
 cloudflare-warp-bin
 dasel-bin

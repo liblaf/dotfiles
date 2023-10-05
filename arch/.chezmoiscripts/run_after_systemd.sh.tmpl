@@ -8,6 +8,7 @@ sudo systemctl daemon-reload
 systemctl --user daemon-reload
 
 run sudo systemctl disable --now warp-svc.service
+run sudo systemctl enable --now "qbittorrent-nox@$USER.service"
 run sudo systemctl enable --now cronie.service
 run sudo systemctl enable --now docker.service
 run sudo systemctl enable --now netdata.service

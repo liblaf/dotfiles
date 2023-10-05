@@ -1,13 +1,13 @@
-{{- $web := eq .chezmoi.hostname "10500" -}}
+{{- $web := eq .chezmoi.hostname "i7-10700" -}}
 
-sourceDir = "{{ .chezmoi.sourceDir }}/{{ .chezmoi.osRelease.id }}"
+sourceDir = "{{.chezmoi.sourceDir}}/{{.chezmoi.osRelease.id}}"
 
 [data]
-alist = {{ $web }}
+alist = {{$web}}
 
 [data.nvidia]
-install = {{ default "false" (env "NVIDIA_INSTALL") }}
-mobile = {{ default "false" (env "NVIDIA_MOBILE") }}
+install = {{default "false" (env "NVIDIA_INSTALL")}}
+mobile = {{default "false" (env "NVIDIA_MOBILE")}}
 
 [data.ssh]
 port = 60022
