@@ -1,9 +1,10 @@
-{{- $web := eq .chezmoi.hostname "i7-10700" -}}
+{{- $server := eq .chezmoi.hostname "i7-10700" -}}
 
 sourceDir = "{{.chezmoi.sourceDir}}/{{.chezmoi.osRelease.id}}"
 
 [data]
-alist = {{$web}}
+alist = {{$server}}
+jellyfin = {{$server}}
 
 [data.nvidia]
 install = {{default "false" (env "NVIDIA_INSTALL")}}

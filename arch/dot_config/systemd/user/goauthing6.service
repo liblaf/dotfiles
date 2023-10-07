@@ -1,0 +1,15 @@
+# https://github.com/z4yx/GoAuthing/blob/master/docs/goauthing6@.service
+
+[Unit]
+Description=Authenticating utility for auth.tsinghua.edu.cn
+StartLimitIntervalSec=0
+
+[Service]
+ExecStartPre=-auth-thu -D deauth -6
+ExecStartPre=-auth-thu -D auth -6
+ExecStart=auth-thu -D online -6
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

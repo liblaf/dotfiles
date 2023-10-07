@@ -4,10 +4,6 @@ set -o pipefail
 
 {{ include "other/scripts/init.sh" }}
 
-sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose \
-  "{{ .chezmoi.sourceDir }}/other/root/etc/default/grub" \
-  /etc/default/grub
-
 cd "$HOME/.local/chezmoi/grub2-themes"
 grep --regexp='\\0033\\0143' --invert-match install.sh |
   sudo bash -s - --screen 4k

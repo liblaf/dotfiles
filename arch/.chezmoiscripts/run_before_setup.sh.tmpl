@@ -21,6 +21,7 @@ for file in "${root_files[@]}"; do
   sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose $source $target
 done
 
+run sudo pacman --sync --sysupgrade --refresh --noconfirm
 run sudo pacman --sync --refresh --needed --noconfirm archlinuxcn-keyring
 
 "{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/pacman.txt.tmpl" |

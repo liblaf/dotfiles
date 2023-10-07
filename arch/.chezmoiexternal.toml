@@ -15,30 +15,16 @@ executable = true
 type = "file"
 url = "https://github.com/liblaf/ddns/releases/latest/download/ddns-linux-amd64"
 
+[".local/bin/reserves-lib-tsinghua-downloader"]
+executable = true
+path = "downloader"
+type = "archive-file"
+url = "https://github.com/libthu/reserves-lib-tsinghua-downloader/releases/latest/download/downloader-ubuntu-latest-py3.9.zip"
+
 [".local/chezmoi/grub2-themes"]
 stripComponents = 1
 type = "archive"
 url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar.gz"
-
-[".local/share/fonts/08_NotoSansCJKsc"]
-exact = true
-type = "archive"
-url = "https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/08_NotoSansCJKsc.zip"
-
-[".local/share/fonts/09_NotoSerifCJKsc"]
-exact = true
-type = "archive"
-url = "https://github.com/notofonts/noto-cjk/releases/download/Serif2.001/09_NotoSerifCJKsc.zip"
-
-[".local/share/fonts/13_NotoSansMonoCJKsc"]
-exact = true
-type = "archive"
-url = "https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/13_NotoSansMonoCJKsc.zip"
-
-[".local/share/fonts/FiraCode"]
-exact = true
-type = "archive"
-url = "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
 
 [".oh-my-zsh"]
 stripComponents = 1

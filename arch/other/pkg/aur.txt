@@ -1,3 +1,4 @@
+3dslicer-bin
 7-zip-full
 alist-bin
 auth-thu-bin
@@ -13,10 +14,10 @@ gnome-shell-extension-system-monitor-next-git
 meshlab-appimage
 microsoft-edge-stable-bin
 miniconda3
-moar
+moar-bin
 netdata-go-plugins
 pnpm-shell-completion
-scc
+scc-bin
 typora
 vcpkg
 ventoy-bin

@@ -1,0 +1,12 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ include "other/scripts/init.sh" }}
+
+if ! {{ .jellyfin }}; then
+  exit 0
+fi
+
+sudo systemctl enable --now jellyfin.service
