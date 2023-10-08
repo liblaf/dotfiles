@@ -16,6 +16,7 @@ microsoft-edge-stable-bin
 miniconda3
 moar-bin
 netdata-go-plugins
+noto-fonts-sc
 pnpm-shell-completion
 scc-bin
 typora

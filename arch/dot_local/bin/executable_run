@@ -1,0 +1,18 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+run-pretty "$@"
+
+if "$@"; then
+  exit 0
+else
+  ret=$?
+  if [[ -t 1 ]]; then
+    echo "$(tput setaf 1)Exit with status $ret$(tput setaf sgr0)"
+  else
+    echo "Exit with status $ret"
+  fi
+  exit $ret
+fi

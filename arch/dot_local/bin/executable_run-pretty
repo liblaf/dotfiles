@@ -1,0 +1,31 @@
+#!/usr/bin/python
+
+import shlex
+import shutil
+import sys
+
+import rich
+from rich.text import Text
+
+args: list[Text] = [Text(">>>", style="bold green on grey19")]
+
+for arg in sys.argv[1:]:
+    if shutil.which(arg):
+        args.append(Text(shlex.quote(arg), style="bold green on grey19"))
+    elif arg.startswith("-"):
+        if "=" in arg:
+            key, equal, value = arg.partition("=")
+            text = (
+                Text(shlex.quote(key), style="bold blue on grey19")
+                + Text(shlex.quote(equal), style="bold default on grey19")
+                + Text(shlex.quote(value), style="bold magenta on grey19")
+            )
+        else:
+            text = Text(shlex.quote(arg), style="bold blue on grey19")
+        args.append(text)
+    elif shlex.quote(arg) != arg:
+        args.append(Text(shlex.quote(arg), style="bold yellow on grey19"))
+    else:
+        args.append(Text(shlex.quote(arg), style="bold default on grey19"))
+
+rich.print(Text(" ", style="on grey19").join(args))
