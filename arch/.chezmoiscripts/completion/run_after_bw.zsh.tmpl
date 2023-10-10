@@ -2,8 +2,8 @@
 set -o nounset
 set -o pipefail
 
-{{ include "other/scripts/init.sh" }}
-{{ include "other/scripts/load-pnpm.sh" }}
+{{include "other/scripts/init.sh"}}
+{{include "other/scripts/load-pnpm.sh"}}
 
 if has bw; then
   mkdir --parents --verbose "$HOME/.zfunc"

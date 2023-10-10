@@ -2,7 +2,7 @@
 set -o nounset
 set -o pipefail
 
-{{ include "other/scripts/init.sh" }}
+{{include "other/scripts/init.sh"}}
 
 if has dasel; then
   mkdir --parents --verbose "$HOME/.zfunc"

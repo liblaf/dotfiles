@@ -1,5 +1,3 @@
-#!/usr/bin/zsh
-
 if [[ $TERM == "xterm-kitty" ]]; then
   alias ssh="kitty +kitten ssh"
   if has magick; then

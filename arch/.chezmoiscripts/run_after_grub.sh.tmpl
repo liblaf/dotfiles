@@ -2,7 +2,7 @@
 set -o nounset
 set -o pipefail
 
-{{ include "other/scripts/init.sh" }}
+{{include "other/scripts/init.sh"}}
 
 cd "$HOME/.local/chezmoi/grub2-themes"
 grep --regexp='\\0033\\0143' --invert-match install.sh |

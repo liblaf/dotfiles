@@ -2,10 +2,10 @@
 set -o nounset
 set -o pipefail
 
-{{ include "other/scripts/init.sh" }}
+{{include "other/scripts/init.sh"}}
 
 sudo install -D --mode="ug=r,o=" --no-target-directory --verbose \
-  "{{ .chezmoi.sourceDir }}/other/root/etc/sudoers.d/10_env_keep" \
+  "{{.chezmoi.sourceDir}}/other/root/etc/sudoers.d/10_env_keep" \
   /etc/sudoers.d/10_env_keep
 echo "$USER ALL=(ALL) NOPASSWD: ALL" | run sudo tee "/etc/sudoers.d/00_$USER" > /dev/null
 

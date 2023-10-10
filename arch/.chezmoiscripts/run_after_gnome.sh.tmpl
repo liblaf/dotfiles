@@ -2,9 +2,9 @@
 set -o nounset
 set -o pipefail
 
-{{ include "other/scripts/init.sh" }}
+{{include "other/scripts/init.sh"}}
 
-run dconf load / < "{{ .chezmoi.sourceDir }}/other/dconf.conf"
+run dconf load / < "{{.chezmoi.sourceDir}}/other/dconf.conf"
 
 run gsettings set org.gnome.desktop.session idle-delay 900
 run gsettings set org.gnome.mutter experimental-features "['kms-modifiers']"

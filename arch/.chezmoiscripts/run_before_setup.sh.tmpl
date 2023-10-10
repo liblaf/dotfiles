@@ -2,14 +2,14 @@
 set -o nounset
 set -o pipefail
 
-{{ include "other/scripts/init.sh" }}
+{{include "other/scripts/init.sh"}}
 
-root_files=($(find "{{ .chezmoi.sourceDir }}/other/root" -type f -printf "%P\n"))
+root_files=($(find "{{.chezmoi.sourceDir}}/other/root" -type f -printf "%P\n"))
 for file in "${root_files[@]}"; do
   if [[ $file =~ etc/sudoers.d/.* ]]; then
     continue
   fi
-  source="{{ .chezmoi.sourceDir }}/other/root/$file"
+  source="{{.chezmoi.sourceDir}}/other/root/$file"
   target="/$file"
   if [[ $source =~ .+.tmpl ]]; then
     tmpfile=$(mktemp)
@@ -24,14 +24,14 @@ done
 run sudo pacman --sync --sysupgrade --refresh --noconfirm
 run sudo pacman --sync --refresh --needed --noconfirm archlinuxcn-keyring
 
-"{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/pacman.txt.tmpl" |
+"{{.chezmoi.executable}}" execute-template < "{{.chezmoi.sourceDir}}/other/pkg/pacman.txt.tmpl" |
   sed --expression="s/\s*#.*$//g" |
   run sudo pacman --sync --refresh --needed --noconfirm -
 
-sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/group.txt" |
+sed --expression="s/\s*#.*$//g" "{{.chezmoi.sourceDir}}/other/pkg/group.txt" |
   yay --sync --groups - |
   awk '{ print $2 }' |
   run yay --devel --nouseask --sync --refresh --needed --noconfirm -
 
-sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/aur.txt" |
+sed --expression="s/\s*#.*$//g" "{{.chezmoi.sourceDir}}/other/pkg/aur.txt" |
   run yay --aur --devel --nouseask --sync --refresh --needed --noconfirm -

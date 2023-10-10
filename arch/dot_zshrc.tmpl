@@ -1,10 +1,10 @@
 zstyle ":omz:update" mode disabled
 
-{{ include "other/scripts/init.sh" }}
-{{ include "other/scripts/load-conda.sh" }}
-{{ include "other/scripts/load-direnv.sh" }}
-{{ include "other/scripts/load-local-bin.sh" }}
-{{ include "other/scripts/load-pnpm.sh" }}
+{{include "other/scripts/init.sh"}}
+{{include "other/scripts/load-conda.sh"}}
+{{include "other/scripts/load-direnv.sh"}}
+{{include "other/scripts/load-local-bin.sh"}}
+{{include "other/scripts/load-pnpm.sh"}}
 
 export GPG_TTY=$(tty)
 export ZSH="$HOME/.oh-my-zsh"
@@ -36,6 +36,7 @@ plugins=(
   colors
   completions
   keyring
+  mirrors
   my-aliases
   nvidia
   play

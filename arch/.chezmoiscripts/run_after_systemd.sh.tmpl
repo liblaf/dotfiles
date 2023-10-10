@@ -2,7 +2,7 @@
 set -o nounset
 set -o pipefail
 
-{{ include "other/scripts/init.sh" }}
+{{include "other/scripts/init.sh"}}
 
 sudo systemctl daemon-reload
 systemctl --user daemon-reload
@@ -22,11 +22,11 @@ run systemctl --user enable --now goauthing.service
 run systemctl --user enable --now goauthing6.service
 run systemctl --user enable --now proxy.service
 
-{{ if .nvidia.install -}}
+{{if .nvidia.install -}}
 run sudo systemctl enable nvidia-hibernate.service
 run sudo systemctl enable nvidia-resume.service
 run sudo systemctl enable nvidia-suspend.service
-{{ if .nvidia.mobile -}}
+{{if .nvidia.mobile -}}
 run sudo systemctl enable --now nvidia-powerd.service
-{{- end }}
-{{- end }}
+{{- end}}
+{{- end}}

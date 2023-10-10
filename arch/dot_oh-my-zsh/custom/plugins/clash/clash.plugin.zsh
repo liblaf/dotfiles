@@ -1,5 +1,3 @@
-#!/usr/bin/zsh
-
 function clash-dashboard() {
   if [[ -n ${1-} ]]; then
     local hostname="https://clash-$1.liblaf.me"

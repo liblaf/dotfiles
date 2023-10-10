@@ -1,5 +1,3 @@
-#!/usr/bin/zsh
-
 # https://stackoverflow.com/a/76049791
 function keyring-unlock() {
   echo -n "[keyring] password for $USER: "

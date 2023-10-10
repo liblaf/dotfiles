@@ -1,5 +1,3 @@
-#!/usr/bin/zsh
-
 if [[ -r "$HOME/.ssh/config" ]]; then
   zstyle -s ':completion:*:hosts' hosts _hosts
   _hosts+=($(cat "$HOME/.ssh/config" | sed --quiet --expression="s/Host[=\t ]//p"))

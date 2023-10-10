@@ -1,5 +1,3 @@
-#!/usr/bin/zsh
-
 alias rsync="rsync --info=PROGRESS2 --archive --delete --force --partial --compress"
 
 function rsync-pull() {

@@ -1,5 +1,3 @@
-#!/usr/bin/zsh
-
 function _get_proxy() {
   if [[ -r "$HOME/.config/clash/config.yaml" ]]; then
     if has dasel &> /dev/null; then
