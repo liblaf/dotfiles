@@ -26,9 +26,6 @@ if has bat; then
 fi
 
 if has bw; then
-  if has tld; then
-    alias tld='tld --password=$(bw get password id.tsinghua.edu.cn)'
-  fi
   if has ddns; then
     alias ddns='ddns --token=$(bw get notes CLOUDFLARE_TOKEN_DNS) --zone=$(bw get notes CLOUDFLARE_ZONE)'
   fi
