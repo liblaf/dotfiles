@@ -32,6 +32,7 @@ if has bw; then
 fi
 
 if has lf; then
+  alias lf="PAGER=bat lf"
   if [[ -f /etc/profile.d/lfcd.sh ]]; then
     source /etc/profile.d/lfcd.sh
   fi
@@ -49,12 +50,6 @@ fi
 
 if has microsoft-edge-stable; then
   alias edge="microsoft-edge-stable"
-fi
-
-if has moar; then
-  export BAT_PAGER="moar --no-linenumbers --quit-if-one-screen"
-  export PAGER="moar --quit-if-one-screen"
-  export SYSTEMD_PAGERSECURE=1
 fi
 
 if has nvim; then

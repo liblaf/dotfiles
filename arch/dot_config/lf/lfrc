@@ -5,27 +5,16 @@ set icons
 
 # https://github.com/gokcehan/lf/wiki/Integrations#zoxide
 cmd z %{{
-	result="$(zoxide query --exclude $PWD $@)"
-	lf -remote "send $id cd $result"
+	result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
+	lf -remote "send $id cd \"$result\""
 }}
 
 cmd zi ${{
-	result="$(zoxide query -i)"
-	lf -remote "send $id cd $result"
+	result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+	lf -remote "send $id cd \"$result\""
 }}
 
 # https://github.com/gokcehan/lf/wiki/Integrations#git
-cmd git_branch ${{
-    git branch | fzf | xargs git checkout
-    pwd_shell=$(pwd)
-    lf -remote "send $id updir"
-    lf -remote "send $id cd \"$pwd_shell\""
-}}
-map gb :git_branch
-map gp ${{clear; git pull --rebase || true; echo "press ENTER"; read ENTER}}
-map gs ${{clear; git status; echo "press ENTER"; read ENTER}}
-map gl ${{clear; git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit}}
-
 cmd on-cd &{{
     # display git repository status in your prompt
     source /usr/share/git/completion/git-prompt.sh

@@ -20,7 +20,6 @@ run systemctl --user enable --now clash.service
 run systemctl --user enable --now glances.service
 run systemctl --user enable --now goauthing.service
 run systemctl --user enable --now goauthing6.service
-run systemctl --user enable --now proxy.service
 
 {{if .nvidia.install -}}
 run sudo systemctl enable nvidia-hibernate.service

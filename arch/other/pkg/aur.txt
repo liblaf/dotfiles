@@ -14,7 +14,6 @@ gnome-shell-extension-system-monitor-next-git
 meshlab-appimage
 microsoft-edge-stable-bin
 miniconda3
-moar-bin
 netdata-go-plugins
 noto-fonts-sc
 pnpm-shell-completion
@@ -24,5 +23,4 @@ vcpkg
 ventoy-bin
 visual-studio-code-bin
 wemeet-bin
-wps-office
 zotero-bin
