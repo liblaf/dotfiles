@@ -25,12 +25,6 @@ if has bat; then
   }
 fi
 
-if has bw; then
-  if has ddns; then
-    alias ddns='ddns --token=$(bw get notes CLOUDFLARE_TOKEN_DNS) --zone=$(bw get notes CLOUDFLARE_ZONE)'
-  fi
-fi
-
 if has lf; then
   alias lf="PAGER=bat lf"
   if [[ -f /etc/profile.d/lfcd.sh ]]; then

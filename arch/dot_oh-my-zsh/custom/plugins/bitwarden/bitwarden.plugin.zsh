@@ -6,10 +6,6 @@ function bw-unlock() {
       return 1
     fi
   fi
-  mkdir --parents --verbose "$HOME/.cache/env"
-  echo "export BW_SESSION=\"$BW_SESSION\"" > "$HOME/.cache/env/bw.envrc"
+  mkdir --parents --verbose "$HOME/.config/environment.d"
+  echo "export BW_SESSION=\"$BW_SESSION\"" > "$HOME/.config/environment.d/bitwarden.conf"
 }
-
-if [[ -r "$HOME/.cache/env/bw.envrc" ]]; then
-  source "$HOME/.cache/env/bw.envrc"
-fi
