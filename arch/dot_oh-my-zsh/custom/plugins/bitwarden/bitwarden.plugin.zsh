@@ -7,5 +7,5 @@ function bw-unlock() {
     fi
   fi
   mkdir --parents --verbose "$HOME/.config/environment.d"
-  echo "export BW_SESSION=\"$BW_SESSION\"" > "$HOME/.config/environment.d/bitwarden.conf"
+  echo "BW_SESSION=\"$BW_SESSION\"" > "$HOME/.config/environment.d/bitwarden.conf"
 }
