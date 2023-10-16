@@ -2,36 +2,41 @@
 set -o nounset
 set -o pipefail
 
-{{include "other/scripts/init.sh"}}
+{{ include "other/scripts/init.sh" }}
 
-root_files=($(find "{{.chezmoi.sourceDir}}/other/root" -type f -printf "%P\n"))
+root_files=($(find "{{ .chezmoi.sourceDir }}/other/root" -type f -printf "%P\n"))
 for file in "${root_files[@]}"; do
-  if [[ $file =~ etc/sudoers.d/.* ]]; then
-    continue
-  fi
-  source="{{.chezmoi.sourceDir}}/other/root/$file"
+  source="{{ .chezmoi.sourceDir }}/other/root/$file"
   target="/$file"
   if [[ $source =~ .+.tmpl ]]; then
-    tmpfile=$(mktemp)
-    trap "rm --force --verbose $tmpfile" EXIT
+    mkdir --parents --verbose /tmp/chezmoi
+    tmpfile=$(mktemp --tmpdir="/tmp/chezmoi")
+    trap "rm --force --recursive --verbose /tmp/chezmoi" EXIT
     chezmoi execute-template < $source > $tmpfile
     source=$tmpfile
     target=${target%.tmpl}
   fi
-  sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose $source $target
+  case $target in
+    /etc/sudoers.d/*)
+      sudo install -D --mode="ug=r,o=" --no-target-directory --verbose $source $target
+      ;;
+    *)
+      sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose $source $target
+      ;;
+  esac
 done
 
 run sudo pacman --sync --sysupgrade --refresh --noconfirm
 run sudo pacman --sync --refresh --needed --noconfirm archlinuxcn-keyring
 
-"{{.chezmoi.executable}}" execute-template < "{{.chezmoi.sourceDir}}/other/pkg/pacman.txt.tmpl" |
+"{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/pacman.txt.tmpl" |
   sed --expression="s/\s*#.*$//g" |
   run sudo pacman --sync --refresh --needed --noconfirm -
 
-sed --expression="s/\s*#.*$//g" "{{.chezmoi.sourceDir}}/other/pkg/group.txt" |
+sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/group.txt" |
   yay --sync --groups - |
   awk '{ print $2 }' |
   run yay --devel --nouseask --sync --refresh --needed --noconfirm -
 
-sed --expression="s/\s*#.*$//g" "{{.chezmoi.sourceDir}}/other/pkg/aur.txt" |
+sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/aur.txt" |
   run yay --aur --devel --nouseask --sync --refresh --needed --noconfirm -

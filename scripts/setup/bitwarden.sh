@@ -24,3 +24,6 @@ if ! bw unlock --check; then
   export BW_SESSION=$(bw unlock --raw)
   bw unlock --check
 fi
+
+mkdir --parents --verbose "$HOME/.config/environment.d"
+echo "BW_SESSION=\"$BW_SESSION\"" > "$HOME/.config/environment.d/bitwarden.conf"

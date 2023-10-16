@@ -4,12 +4,7 @@ set -o pipefail
 
 {{include "other/scripts/init.sh"}}
 
-sudo install -D --mode="ug=r,o=" --no-target-directory --verbose \
-  "{{.chezmoi.sourceDir}}/other/root/etc/sudoers.d/10_env_keep" \
-  /etc/sudoers.d/10_env_keep
-echo "$USER ALL=(ALL) NOPASSWD: ALL" | run sudo tee "/etc/sudoers.d/00_$USER" > /dev/null
-
-USER_SHELL=$(awk --field-separator=":" --assign user="$USER" '$1 == user { print $NF }' /etc/passwd)
+USER_SHELL=$(getent passwd $USER | awk --field-separator=":" '{ print $NF }')
 if [[ $USER_SHELL != /usr/bin/zsh ]]; then
   run chsh --shell /usr/bin/zsh
 fi
@@ -25,3 +20,5 @@ function group-add() {
 
 group-add docker
 group-add vcpkg
+
+loginctl enable-linger $USER

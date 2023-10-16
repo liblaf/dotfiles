@@ -1,2 +1,4 @@
-* * * * * ~/.local/bin/ddns
-*/5 * * * * ~/.local/bin/flush-ipv6
+PATH="{{ .chezmoi.homeDir }}/.local/bin:/usr/local/bin:/usr/bin"
+
+* * * * * ddns update --token="{{ (bitwarden "item" "CLOUDFLARE_TOKEN").notes }}" --zone="{{ (bitwarden "item" "CLOUDFLARE_ZONE").notes }}"
+* * * * * flush-ipv6
