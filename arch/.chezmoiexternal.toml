@@ -26,6 +26,10 @@ stripComponents = 1
 type = "archive"
 url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar.gz"
 
+[".local/chezmoi/install.fish"]
+type = "file"
+url = "https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install"
+
 [".oh-my-zsh"]
 stripComponents = 1
 type = "archive"

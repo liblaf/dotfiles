@@ -118,6 +118,7 @@ symbol = "\uf10c"                             #  nf-fa-circle_o
 [custom.bitwarden]
 description = "Bitwarden"
 format = '\[[$symbol Bitwarden]($style)\]'
+shell = "sh"
 symbol = "\uf132"                          #  nf-fa-shield
 when = 'test -n "$BW_SESSION"'
 
@@ -125,12 +126,14 @@ when = 'test -n "$BW_SESSION"'
 command = "echo $https_proxy | sed -e 's@^.*://@@' -e 's@/$@@g'"
 description = "Proxy"
 format = '\[[$symbol $output]($style)\]'
+shell = "sh"
 symbol = "\uf0ac"                                                #  nf-fa-globe
 when = 'test -n "$https_proxy"'
 
 [custom.warp]
 description = "Cloudflare WARP"
 format = '\[[$symbol WARP]($style)\]'
+shell = "sh"
 symbol = "\uf0c2"                         #  nf-fa-cloud
 when = "warp-cli status | grep Connected"
 

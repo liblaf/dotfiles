@@ -2,18 +2,13 @@
 set -o nounset
 set -o pipefail
 
-{{include "other/scripts/init.sh"}}
-{{include "other/scripts/load-pnpm.sh"}}
+{{ include "other/scripts/init.sh" }}
+{{ include "other/scripts/load-pnpm.sh" }}
 
 pkg_list=(
-  aicommits
-  commitizen
-  prettier
-  serve
   speedscope
-  vercel
 )
 pkg_list=("${pkg_list[@]/%/"@latest"}")
 
-pnpm env use --global latest
+pnpm env use --global lts
 pnpm add --global ${pkg_list[@]}

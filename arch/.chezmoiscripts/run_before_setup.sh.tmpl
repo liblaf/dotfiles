@@ -12,7 +12,7 @@ for file in "${root_files[@]}"; do
     mkdir --parents --verbose /tmp/chezmoi
     tmpfile=$(mktemp --tmpdir="/tmp/chezmoi")
     trap "rm --force --recursive --verbose /tmp/chezmoi" EXIT
-    chezmoi execute-template < $source > $tmpfile
+    "{{ .chezmoi.executable }}" execute-template < $source > $tmpfile
     source=$tmpfile
     target=${target%.tmpl}
   fi

@@ -2,8 +2,9 @@
 set -o nounset
 set -o pipefail
 
-{{include "other/scripts/init.sh"}}
+{{ include "other/scripts/init.sh" }}
 
+sudo chmod --verbose "u=rw,g=r,o=" /etc/ufw/*.rules
 run sudo ufw --force reset
 run sudo find /etc/ufw -regextype grep -regex ".*.[[:digit:]]\{8\}_[[:digit:]]\{6\}" -delete
 run sudo ufw default deny

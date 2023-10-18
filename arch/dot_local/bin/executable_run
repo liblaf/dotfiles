@@ -9,10 +9,10 @@ if "$@"; then
   exit 0
 else
   ret=$?
-  if [[ -t 1 ]]; then
-    echo "$(tput setaf 1)Exit with status $ret$(tput setaf sgr0)"
+  if [[ -t 2 ]]; then
+    echo "$(tput setaf 1)Exit with status $ret$(tput setaf sgr0)" >&2
   else
-    echo "Exit with status $ret"
+    echo "Exit with status $ret" >&2
   fi
   exit $ret
 fi

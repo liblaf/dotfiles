@@ -17,7 +17,7 @@ docker-compose
 dog
 doxygen
 duf
-fuse2
+fish
 fzf
 gdb
 gdu
@@ -25,6 +25,7 @@ gimp
 git
 git-delta
 github-cli
+glances
 glow
 gnome-shell-extension-appindicator
 gnome-shell-extensions
@@ -32,21 +33,24 @@ gnome-themes-extra
 go
 gping
 grub
+httpie
 hyperfine
 ibus-libpinyin
 imagemagick
-intel-compute-runtime
+intel-compute-runtime # OpenCL
 jellyfin-server
 jellyfin-web
 jq
 kitty
 lazygit
 lf
-libva-utils
+libva-utils # VA-API
 lldb
 llvm
 lsd
 man-db
+man-pages
+miniserve
 neofetch
 neovim
 netdata
@@ -57,36 +61,43 @@ noto-fonts-extra
 obs-studio
 os-prober
 pandoc-cli
-perl-file-homedir {{- /* for latexindent */}}
-perl-yaml-tiny {{- /* for latexindent */}}
+perl-file-homedir # latexindent
+perl-yaml-tiny # latexindent
 pnpm
+pre-commit
+prettier
+python-black
+python-bottle # glances
+python-isort
 python-pipx
-python-rich
+python-poetry
+python-pygments
+python-rich # ~/.local/bin/run
 qbittorrent-nox
 rclone
 ripgrep
 rsync
 rustup
 shfmt
-sof-firmware
+sof-firmware # Sound system
 starship
 telegram-desktop
 texlive-doc
 tldr
 tlp
 tmux
+trash-cli
 ttf-firacode-nerd
 ufw
 vhs
 vlc
 yay
 zoxide
-zsh
 
-{{if .nvidia.install -}}
+{{ if .nvidia.install -}}
 cuda
+libva-vdpau-driver
 nvidia
-nvidia-vaapi-driver-git
 opencl-nvidia
 vdpauinfo
-{{- end}}
+{{- end }}

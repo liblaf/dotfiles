@@ -99,6 +99,8 @@ repos:
         files: (.sh|.zsh|.zsh-theme|envrc|zshrc)(.tmpl)?$
         types:
           - text
+        exclude_types:
+          - fish
         args:
           - --write
           - --simplify

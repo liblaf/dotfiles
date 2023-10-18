@@ -1,5 +1,4 @@
 #!/usr/bin/python
-
 import shlex
 import shutil
 import sys
@@ -28,4 +27,4 @@ for arg in sys.argv[1:]:
     else:
         args.append(Text(shlex.quote(arg), style="bold default on grey19"))
 
-rich.print(Text(" ", style="on grey19").join(args))
+rich.print(Text(" ", style="on grey19").join(args), file=sys.stderr)

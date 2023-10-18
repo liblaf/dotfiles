@@ -1,0 +1,4 @@
+package insist
+package makeme
+package zoxide
+theme default

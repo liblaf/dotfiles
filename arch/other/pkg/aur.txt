@@ -1,5 +1,6 @@
 3dslicer-bin
 7-zip-full
+aicommits
 alist-bin
 auth-thu-bin
 chatall-bin
@@ -15,12 +16,15 @@ meshlab-appimage
 microsoft-edge-stable-bin
 miniconda3
 netdata-go-plugins
+nodejs-commitizen
 noto-fonts-sc
+nvitop
 pnpm-shell-completion
 scc-bin
 typora
 vcpkg
 ventoy-bin
+vercel
 visual-studio-code-bin
 wemeet-bin
 zotero-bin
