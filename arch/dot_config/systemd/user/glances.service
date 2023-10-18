@@ -1,12 +1,12 @@
 # https://gitlab.archlinux.org/archlinux/packaging/packages/glances/-/blob/main/glances.service
 
-[Install]
-WantedBy=default.target
+[Unit]
+Description=Glances Server
 
 [Service]
-ExecStart=%h/.local/bin/glances --webserver
+ExecStart=glances --webserver
 Restart=always
 RestartSec=5
 
-[Unit]
-Description=Glances Server
+[Install]
+WantedBy=default.target

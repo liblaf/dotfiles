@@ -1,30 +1,36 @@
-map <delete> delete
-
 # https://github.com/gokcehan/lf/wiki/Colors-and-Icons
 set icons
 
 # https://github.com/gokcehan/lf/wiki/Integrations#zoxide
 cmd z %{{
-	result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
-	lf -remote "send $id cd \"$result\""
+    result="$(zoxide query --exclude $PWD $@ | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
 }}
 
 cmd zi ${{
-	result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
-	lf -remote "send $id cd \"$result\""
+    result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
 }}
 
-# https://github.com/gokcehan/lf/wiki/Integrations#git
+# https://github.com/gokcehan/lf/wiki/Integrations#trash-cli
+cmd trash %trash-put $fx
+
+# https://github.com/gokcehan/lf/wiki/Integrations#ripgrep
+cmd fzf_search ${{
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+    res="$(
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+    )"
+    [ -n "$res" ] && lf -remote "send $id select \"$res\""
+}}
+map gs :fzf_search
+
+# https://github.com/gokcehan/lf/wiki/Integrations#starship
 cmd on-cd &{{
-    # display git repository status in your prompt
-    source /usr/share/git/completion/git-prompt.sh
-    GIT_PS1_SHOWDIRTYSTATE=auto
-    GIT_PS1_SHOWSTASHSTATE=auto
-    GIT_PS1_SHOWUNTRACKEDFILES=auto
-    GIT_PS1_SHOWUPSTREAM=auto
-    GIT_PS1_COMPRESSSPARSESTATE=auto
-    git=$(__git_ps1 " [GIT BRANCH:> %s]") || true
-    fmt="\033[32;1m%u@%h\033[0m:\033[34;1m%w\033[0m\033[33;1m$git\033[0m"
+    fmt="$(starship prompt | sed --quiet "2p")"
     lf -remote "send $id set promptfmt \"$fmt\""
 }}
 
