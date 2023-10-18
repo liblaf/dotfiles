@@ -18,7 +18,6 @@ miniconda3
 netdata-go-plugins
 nodejs-commitizen
 noto-fonts-sc
-nvitop
 pnpm-shell-completion
 scc-bin
 typora
@@ -28,3 +27,7 @@ vercel
 visual-studio-code-bin
 wemeet-bin
 zotero-bin
+
+{{ if .nvidia.install -}}
+nvitop
+{{- end }}

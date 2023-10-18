@@ -38,5 +38,6 @@ sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/group.txt" |
   awk '{ print $2 }' |
   run yay --devel --nouseask --sync --refresh --needed --noconfirm -
 
-sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/aur.txt" |
+"{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/aur.txt.tmpl" |
+  sed --expression="s/\s*#.*$//g" |
   run yay --aur --devel --nouseask --sync --refresh --needed --noconfirm -

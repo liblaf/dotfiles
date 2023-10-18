@@ -30,6 +30,10 @@ url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar
 type = "file"
 url = "https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install"
 
+[".local/chezmoi/night.xpi"]
+type = "file"
+url = "https://github.com/tefkah/zotero-night/releases/latest/download/night.xpi"
+
 [".oh-my-zsh"]
 stripComponents = 1
 type = "archive"

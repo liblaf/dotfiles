@@ -1,0 +1,22 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+{{ include "other/scripts/init.sh" }}
+
+prefix=${1:-"$HOME/github"}
+repos=($(
+  gh repo list --json="nameWithOwner" --limit=1000 --no-archived |
+    dasel select --read="json" --selector="all().nameWithOwner" |
+    xargs --max-args=1 --no-run-if-empty echo
+))
+
+for repo in "${repos[@]}"; do
+  if [[ -d "$prefix/$repo/.git" ]]; then
+    echo "destination path '$prefix/$repo' already exists and is not an empty directory."
+    continue
+  fi
+  mkdir --parents --verbose $(dirname "$prefix/$repo")
+  run gh repo clone $repo "$prefix/$repo" -- --recurse-submodules --remote-submodules
+done
