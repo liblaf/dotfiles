@@ -1,5 +1,5 @@
 PATH="{{ .chezmoi.homeDir }}/.local/bin:/usr/local/bin:/usr/bin"
 
 @daily trash-empty 30
-* * * * * ddns update --token="{{ (bitwarden "item" "CLOUDFLARE_TOKEN").notes }}" --zone="{{ (bitwarden "item" "CLOUDFLARE_ZONE").notes }}"
+* * * * * ddns-cli update --token="{{ (bitwarden "item" "CLOUDFLARE_TOKEN").notes }}" --zone="{{ (bitwarden "item" "CLOUDFLARE_ZONE").notes }}"
 * * * * * flush-ipv6

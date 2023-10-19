@@ -10,10 +10,10 @@ url = "https://github.com/gokcehan/lf/raw/master/etc/colors.example"
 type = "file"
 url = "https://github.com/gokcehan/lf/raw/master/etc/icons.example"
 
-[".local/bin/ddns"]
+[".local/bin/ddns-cli"]
 executable = true
 type = "file"
-url = "https://github.com/liblaf/ddns/releases/latest/download/ddns-x86_64-unknown-linux-gnu"
+url = "https://github.com/liblaf/ddns-cli/releases/latest/download/ddns-cli-x86_64-unknown-linux-gnu"
 
 [".local/bin/reserves-lib-tsinghua-downloader"]
 executable = true

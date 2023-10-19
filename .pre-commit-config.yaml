@@ -1,5 +1,8 @@
 ci:
   skip:
+    - cargo-check
+    - clippy
+    - fmt
     - go-build-mod
     - go-build-repo-mod
     - go-mod-tidy
