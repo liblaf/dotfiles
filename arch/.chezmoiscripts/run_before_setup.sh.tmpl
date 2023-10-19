@@ -30,14 +30,14 @@ run sudo pacman --sync --sysupgrade --refresh --noconfirm
 run sudo pacman --sync --refresh --needed --noconfirm archlinuxcn-keyring
 
 "{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/pacman.txt.tmpl" |
-  sed --expression="s/\s*#.*$//g" |
+  sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
   run sudo pacman --sync --refresh --needed --noconfirm -
 
-sed --expression="s/\s*#.*$//g" "{{ .chezmoi.sourceDir }}/other/pkg/group.txt" |
+sed --expression="s/\s*#.*$//g" --expression="/^$/d" "{{ .chezmoi.sourceDir }}/other/pkg/group.txt" |
   yay --sync --groups - |
   awk '{ print $2 }' |
   run yay --devel --nouseask --sync --refresh --needed --noconfirm -
 
 "{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/aur.txt.tmpl" |
-  sed --expression="s/\s*#.*$//g" |
+  sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
   run yay --aur --devel --nouseask --sync --refresh --needed --noconfirm -

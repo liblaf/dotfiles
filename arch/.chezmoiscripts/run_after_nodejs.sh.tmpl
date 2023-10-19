@@ -12,3 +12,4 @@ pkg_list=("${pkg_list[@]/%/"@latest"}")
 
 pnpm env use --global lts
 pnpm add --global ${pkg_list[@]}
+pnpm install-completion fish

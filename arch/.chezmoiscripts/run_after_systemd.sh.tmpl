@@ -8,6 +8,8 @@ sudo systemctl daemon-reload
 systemctl --user daemon-reload
 
 run sudo systemctl disable --now warp-svc.service
+run sudo systemctl enable --now "goauthing@$USER.service"
+run sudo systemctl enable --now "goauthing6@$USER.service"
 run sudo systemctl enable --now "qbittorrent-nox@$USER.service"
 run sudo systemctl enable --now cronie.service
 run sudo systemctl enable --now docker.service
@@ -18,8 +20,6 @@ run sudo systemctl enable --now ufw.service
 run systemctl --user disable --now warp-taskbar.service
 run systemctl --user enable --now clash.service
 run systemctl --user enable --now glances.service
-run systemctl --user enable --now goauthing.service
-run systemctl --user enable --now goauthing6.service
 
 {{if .nvidia.install -}}
 run sudo systemctl enable nvidia-hibernate.service
