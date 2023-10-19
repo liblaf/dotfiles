@@ -1,2 +1,4 @@
+{{ if .nvidia.install -}}
 # https://wiki.archlinux.org/title/Hardware_video_acceleration#Configuring_VA-API
 LIBVA_DRIVER_NAME=nvidia
+{{- end }}

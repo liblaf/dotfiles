@@ -2,15 +2,16 @@
 set -o nounset
 set -o pipefail
 
-{{include "other/scripts/init.sh"}}
+{{ include "other/scripts/init.sh" }}
 
 run sudo systemctl enable --now cronie.service
 
-"{{ .chezmoi.executable }}" execute-template < "{{.chezmoi.sourceDir}}/other/crontab.tmpl" |
+"{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/crontab.tmpl" |
   crontab -
 
 if has bat; then
-  crontab -l | bat --language=crontab --file-name=Crontab --paging=never
+  crontab -l |
+    bat --language=crontab --file-name=Crontab --paging=never
 else
   run crontab -l
 fi

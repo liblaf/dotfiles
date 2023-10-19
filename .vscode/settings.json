@@ -1,6 +1,7 @@
 {
   "files.associations": {
     ".chezmoiignore": "ignore",
+    "*.fish.tmpl": "fish",
     "*.sh.tmpl": "shellscript",
     "*.toml.tmpl": "toml",
     "*.yaml.tmpl": "yaml",
@@ -8,7 +9,6 @@
     "direnvrc": "shellscript",
     "dot_czrc": "json",
     "dot_gitconfig": "properties",
-    "dot_npmrc": "properties",
-    "dot_zshrc.tmpl": "shellscript"
+    "dot_npmrc": "properties"
   }
 }
