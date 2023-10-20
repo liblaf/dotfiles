@@ -1,13 +1,13 @@
-function h --argument-names cmd
-    set --function output "$($cmd --help 2>&1)"
+function h
+    set --function output "$($argv --help 2>&1)"
     if test -z "$output"
-        set --function output "$($cmd -h 2>&1)"
+        set --function output "$($argv -h 2>&1)"
     end
     if test -z "$output"
-        set --function output "$($cmd help 2>&1)"
+        set --function output "$($argv help 2>&1)"
     end
     if test -z "$output"
         return 1
     end
-    echo "$output" | bat --language=help --file-name="$cmd"
+    echo "$output" | bat --language=help --file-name="$argv"
 end

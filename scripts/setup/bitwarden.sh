@@ -30,5 +30,4 @@ temp=$(mktemp)
 trap "rm --force --verbose $temp" EXIT
 echo "BW_SESSION=\"$BW_SESSION\"" > $temp
 install --backup -D --mode="u=rw,go=r" --no-target-directory --verbose \
-  $temp \
-  "$HOME/.config/environment.d/bitwarden.conf"
+  $temp "$HOME/.config/environment.d/bitwarden.conf"

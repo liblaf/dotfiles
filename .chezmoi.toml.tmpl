@@ -1,14 +1,14 @@
-{{- $server := eq .chezmoi.hostname "i7-10700" -}}
+{{- $server := eq .chezmoi.hostname "10700" -}}
 
-sourceDir = "{{.chezmoi.sourceDir}}/{{.chezmoi.osRelease.id}}"
+sourceDir = "{{ .chezmoi.sourceDir }}/{{ .chezmoi.osRelease.id }}"
 
 [data]
-alist = {{$server}}
-jellyfin = {{$server}}
+alist = {{ $server }}
+jellyfin = {{ $server }}
 
 [data.nvidia]
-install = {{default "false" (env "NVIDIA_INSTALL")}}
-mobile = {{default "false" (env "NVIDIA_MOBILE")}}
+install = {{ default "false" (env "NVIDIA_INSTALL") }}
+mobile = {{ default "false" (env "NVIDIA_MOBILE") }}
 
 [data.ssh]
 port = 60022

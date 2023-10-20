@@ -10,6 +10,11 @@ url = "https://github.com/gokcehan/lf/raw/master/etc/colors.example"
 type = "file"
 url = "https://github.com/gokcehan/lf/raw/master/etc/icons.example"
 
+[".local/bin/clash-cli"]
+executable = true
+type = "file"
+url = "https://github.com/liblaf/clash-cli/releases/latest/download/clash-cli-x86_64-unknown-linux-gnu"
+
 [".local/bin/ddns-cli"]
 executable = true
 type = "file"
@@ -33,38 +38,3 @@ url = "https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install"
 [".local/chezmoi/night.xpi"]
 type = "file"
 url = "https://github.com/tefkah/zotero-night/releases/latest/download/night.xpi"
-
-[".oh-my-zsh"]
-stripComponents = 1
-type = "archive"
-url = "https://github.com/ohmyzsh/ohmyzsh/archive/refs/heads/master.tar.gz"
-
-[".oh-my-zsh/custom/plugins/conda-zsh-completion"]
-stripComponents = 1
-type = "archive"
-url = "https://github.com/conda-incubator/conda-zsh-completion/archive/refs/heads/master.tar.gz"
-
-[".oh-my-zsh/custom/plugins/zsh-autocomplete"]
-stripComponents = 1
-type = "archive"
-url = "https://github.com/marlonrichert/zsh-autocomplete/archive/refs/heads/master.tar.gz"
-
-[".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-stripComponents = 1
-type = "archive"
-url = "https://github.com/zsh-users/zsh-autosuggestions/archive/refs/heads/master.tar.gz"
-
-[".oh-my-zsh/custom/plugins/zsh-bitwarden"]
-stripComponents = 1
-type = "archive"
-url = "https://github.com/Game4Move78/zsh-bitwarden/archive/refs/heads/master.tar.gz"
-
-[".oh-my-zsh/custom/plugins/zsh-completions"]
-stripComponents = 1
-type = "archive"
-url = "https://github.com/zsh-users/zsh-completions/archive/refs/heads/master.tar.gz"
-
-[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-stripComponents = 1
-type = "archive"
-url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/heads/master.tar.gz"

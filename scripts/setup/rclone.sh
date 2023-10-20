@@ -9,29 +9,21 @@ function check() {
 }
 
 if check business; then
-  echo -e "\x1b[1;92mOnedrive Business already configured\x1b[0m"
+  echo "$(tput bold)$(tput setaf 10)Onedrive Business already configured$(tput sgr0)"
 else
-  if [[ -z ${BW_SESSION-} ]]; then
-    echo -e "\x1b[1;91mBitwarden Locked\x1b[0m"
-    exit 1
-  else
-    client_id=$(bw get username "Rclone Business")
-    client_secret=$(bw get password "Rclone Business")
-    notify-send --transient "Config Onedrive Business ..."
-    rclone config create business onedrive client_id=$client_id client_secret=$client_secret
-  fi
+  bw unlock --check
+  client_id=$(bw get username "Rclone Business")
+  client_secret=$(bw get password "Rclone Business")
+  notify-send --transient "Config Onedrive Business ..."
+  rclone config create business onedrive client_id=$client_id client_secret=$client_secret
 fi
 
 if check personal; then
-  echo -e "\x1b[1;92mOnedrive Personal already configured\x1b[0m"
+  echo "$(tput bold)$(tput setaf 10)Onedrive Personal already configured$(tput sgr0)"
 else
-  if [[ -z ${BW_SESSION-} ]]; then
-    echo -e "\x1b[1;91mBitwarden Locked\x1b[0m"
-    exit 1
-  else
-    client_id=$(bw get username "Rclone Personal")
-    client_secret=$(bw get password "Rclone Personal")
-    notify-send --transient "Config Onedrive Personal ..."
-    rclone config create personal onedrive client_id=$client_id client_secret=$client_secret
-  fi
+  bw unlock --check
+  client_id=$(bw get username "Rclone Personal")
+  client_secret=$(bw get password "Rclone Personal")
+  notify-send --transient "Config Onedrive Personal ..."
+  rclone config create personal onedrive client_id=$client_id client_secret=$client_secret
 fi
