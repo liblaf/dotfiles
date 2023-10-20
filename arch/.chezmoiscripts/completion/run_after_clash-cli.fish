@@ -2,4 +2,4 @@
 
 set --local completions "$HOME/.local/share/fish/vendor_completions.d"
 mkdir --parents --verbose $completions
-ddns-cli complete --shell fish >"$completions/ddns-cli.fish"
+clash-cli completions fish >"$completions/clash-cli.fish"
