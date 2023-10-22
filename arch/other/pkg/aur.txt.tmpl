@@ -1,7 +1,6 @@
 3dslicer-bin
 7-zip-full
 aicommits
-alist-bin
 auth-thu-bin
 chatall-bin
 clash-premium-bin
@@ -28,6 +27,10 @@ vercel
 visual-studio-code-bin
 wemeet-bin
 zotero-bin
+
+{{ if .alist -}}
+alist-bin
+{{- end }}
 
 {{ if .nvidia.install -}}
 nvidia-container-toolkit

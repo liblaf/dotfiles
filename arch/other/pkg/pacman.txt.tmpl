@@ -38,8 +38,6 @@ hyperfine
 ibus-libpinyin
 imagemagick
 intel-compute-runtime # OpenCL
-jellyfin-server
-jellyfin-web
 jq
 kitty
 lazygit
@@ -93,6 +91,11 @@ vhs
 vlc
 yay
 zoxide
+
+{{ if .jellyfin -}}
+jellyfin-server
+jellyfin-web
+{{- end }}
 
 {{ if .nvidia.install -}}
 cuda

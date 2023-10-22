@@ -10,3 +10,4 @@ run sudo find /etc/ufw -regextype grep -regex ".*.[[:digit:]]\{8\}_[[:digit:]]\{
 run sudo ufw default deny
 run sudo ufw allow 32768:65535/tcp
 yes | run sudo ufw enable
+exit 0
