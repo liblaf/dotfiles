@@ -1,0 +1,20 @@
+# conda.conf
+set --global --export CRYPTOGRAPHY_OPENSSL_NO_LEGACY 1
+
+# editor.conf
+set --global --export EDITOR nvim
+
+# kitty.conf
+set --global --export GLFW_IM_MODULE ibus
+
+# path.conf
+fish_add_path --path "$HOME/.local/bin"
+
+# hardware_video_acceleration.conf
+{{ if .nvidia.install -}}
+set --global --export LIBVA_DRIVER_NAME vdpau
+set --global --export VDPAU_DRIVER nvidia
+{{- else if .intel -}}
+set --global --export LIBVA_DRIVER_NAME iHD
+set --global --export VDPAU_DRIVER va_gl
+{{- end }}

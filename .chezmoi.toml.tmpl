@@ -4,6 +4,7 @@ sourceDir = "{{ .chezmoi.sourceDir }}/{{ .chezmoi.osRelease.id }}"
 
 [data]
 alist = {{ $server }}
+intel = {{ default "false" (env "INTEL") }}
 jellyfin = {{ $server }}
 
 [data.nvidia]

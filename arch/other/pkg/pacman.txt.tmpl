@@ -37,7 +37,6 @@ httpie
 hyperfine
 ibus-libpinyin
 imagemagick
-intel-compute-runtime # OpenCL
 jq
 kitty
 lazygit
@@ -87,6 +86,7 @@ tmux
 trash-cli
 ttf-firacode-nerd
 ufw
+vdpauinfo # VDPAU
 vhs
 vlc
 yay
@@ -99,8 +99,11 @@ jellyfin-web
 
 {{ if .nvidia.install -}}
 cuda
-libva-vdpau-driver
+libva-vdpau-driver # VA-API
 nvidia
-opencl-nvidia
-vdpauinfo
+opencl-nvidia # OpenCL
+{{- else if .intel -}}
+intel-compute-runtime # OpenCL
+intel-media-driver # VA-API
+libvdpau-va-gl # VDPAU
 {{- end }}
