@@ -1,0 +1,11 @@
+#!/bin/bash
+set -o nounset
+set -o pipefail
+
+{{ include "other/scripts/init.sh" }}
+
+xdg-mime default org.gnome.eog.desktop image/gif
+xdg-mime default org.gnome.eog.desktop image/jpeg
+xdg-mime default org.gnome.eog.desktop image/jpg
+xdg-mime default org.gnome.eog.desktop image/png
+xdg-mime default org.gnome.Evince.desktop application/pdf

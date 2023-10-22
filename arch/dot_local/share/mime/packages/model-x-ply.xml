@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://wiki.archlinux.org/title/XDG_MIME_Applications -->
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="model/x-ply">
+    <comment> PLY file </comment>
+    <icon name="model-x-ply" />
+    <glob-deleteall />
+    <glob pattern="*.ply" />
+  </mime-type>
+</mime-info>
