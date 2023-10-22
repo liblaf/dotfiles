@@ -12,4 +12,4 @@ if [[ "$(file -Lb --mime-type "$file")" =~ ^image ]]; then
   exit 1
 fi
 
-bat --force-colorization "$file"
+bat --wrap="auto" --terminal-width="$w" --force-colorization --paging="never" "$file"
