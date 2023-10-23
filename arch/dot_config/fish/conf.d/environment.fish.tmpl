@@ -1,8 +1,6 @@
 # bitwarden.conf
 if test -f "$HOME/.config/environment.d/bitwarden.conf"
-    set --global --export BW_SESSION (
-        sed --regexp-extended "s/BW_SESSION=(.+)/\1/" "$HOME/.config/environment.d/bitwarden.conf"
-    )
+    export (envsubst < "$HOME/.config/environment.d/bitwarden.conf")
 end
 
 # conda.conf
@@ -24,4 +22,4 @@ set --global --export VDPAU_DRIVER va_gl
 set --global --export GLFW_IM_MODULE ibus
 
 # path.conf
-fish_add_path --path "$HOME/.local/bin"
+fish_add_path --global --move "$HOME/.local/bin"

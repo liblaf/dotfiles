@@ -1,3 +1,11 @@
+[".config/fish/functions/fisher.fish"]
+type = "file"
+url = "https://github.com/jorgebucaran/fisher/raw/main/functions/fisher.fish"
+
+[".config/fish/pkg/zoxide/init.fish"]
+type = "file"
+url = "https://github.com/ajeetdsouza/zoxide/raw/main/init.fish"
+
 [".config/latexindent/latexindent.yaml"]
 type = "file"
 url = "https://github.com/liblaf/ilatex/raw/main/.latexindent.yaml"
@@ -30,10 +38,6 @@ url = "https://github.com/libthu/reserves-lib-tsinghua-downloader/releases/lates
 stripComponents = 1
 type = "archive"
 url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar.gz"
-
-[".local/chezmoi/install.fish"]
-type = "file"
-url = "https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install"
 
 [".local/chezmoi/night.xpi"]
 type = "file"
