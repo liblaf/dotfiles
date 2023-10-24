@@ -1,25 +1,6 @@
-# bitwarden.conf
-if test -f "$HOME/.config/environment.d/bitwarden.conf"
-    export (envsubst < "$HOME/.config/environment.d/bitwarden.conf")
+for config in $HOME/.config/environment.d/*.conf
+    export (
+        envsubst < $config |
+            sed --expression="s/\s*#.*//" --expression='/^\s*$/d' --regexp-extended
+    )
 end
-
-# conda.conf
-set --global --export CRYPTOGRAPHY_OPENSSL_NO_LEGACY 1
-
-# editor.conf
-set --global --export EDITOR nvim
-
-# hardware_video_acceleration.conf
-{{ if .nvidia.install -}}
-set --global --export LIBVA_DRIVER_NAME vdpau
-set --global --export VDPAU_DRIVER nvidia
-{{- else if .intel -}}
-set --global --export LIBVA_DRIVER_NAME iHD
-set --global --export VDPAU_DRIVER va_gl
-{{- end }}
-
-# kitty.conf
-set --global --export GLFW_IM_MODULE ibus
-
-# path.conf
-fish_add_path --global --move "$HOME/.local/bin"
