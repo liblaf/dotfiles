@@ -13,8 +13,11 @@ for arg in sys.argv[1:]:
         args.append(Text(shlex.quote(arg), style="bold green on grey19"))
     elif arg.startswith("-"):
         if "=" in arg:
+            key: str
+            equal: str
+            value: str
             key, equal, value = arg.partition("=")
-            text = (
+            text: Text = (
                 Text(shlex.quote(key), style="bold blue on grey19")
                 + Text(shlex.quote(equal), style="bold default on grey19")
                 + Text(shlex.quote(value), style="bold magenta on grey19")

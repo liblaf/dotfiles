@@ -1,0 +1,37 @@
+#!/usr/bin/python
+import re
+import subprocess
+import sys
+from re import Match, Pattern
+from subprocess import CompletedProcess
+from typing import cast
+
+process: CompletedProcess = subprocess.run(
+    args=["git", "log", "--max-count=1", "--pretty=format:%B"],
+    capture_output=True,
+    check=True,
+    text=True,
+)
+stdout: str = process.stdout
+message: list[str] = stdout.splitlines()
+pattern: Pattern = re.compile(
+    pattern=r"(?P<type>\w+)(?P<scope>\(.+\))?(?P<breaking>!)?: (?P<subject>.+)"
+)
+match: Match[str] = cast(Match[str], pattern.fullmatch(string=message[0]))
+subject: str = match.group("subject")
+subject = subject[0].lower() + subject[1:]
+message[0] = (
+    match.group("type")
+    + (match.group("scope") or "")
+    + (match.group("breaking") or "")
+    + ": "
+    + subject
+)
+subprocess.run(
+    args=["git", "commit", "--file=-", "--amend"],
+    stdout=sys.stdout,
+    stderr=sys.stderr,
+    check=True,
+    input="\n".join(message),
+    text=True,
+)
