@@ -10,7 +10,7 @@ if "$@"; then
 else
   status_=$?
   if [[ -t 2 ]]; then
-    echo "$(tput bold)$(tput setaf 10)Exit with status $status_$(tput sgr0)" >&2
+    echo "$(tput bold)$(tput setaf 9)Exit with status $status_$(tput sgr0)" >&2
   else
     echo "Exit with status $status_" >&2
   fi

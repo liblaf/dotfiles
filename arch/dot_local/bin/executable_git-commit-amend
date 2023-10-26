@@ -2,7 +2,7 @@
 import re
 import subprocess
 import sys
-from re import Match, Pattern
+from re import Match
 from subprocess import CompletedProcess
 from typing import cast
 
@@ -20,21 +20,26 @@ process: CompletedProcess = subprocess.run(
 )
 stdout: str = process.stdout
 message: list[str] = stdout.splitlines()
-pattern: Pattern = re.compile(
-    pattern=r"(?P<type>\w+)(?P<scope>\(.+\))?(?P<breaking>!)?: (?P<subject>.+)"
+match: Match[str] = cast(
+    Match[str],
+    re.fullmatch(
+        pattern=r"(?P<type>\w+)(?P<scope>\(.+\))?(?P<breaking>!)?: (?P<subject>.+)",
+        string=message[0],
+    ),
 )
-match: Match[str] = cast(Match[str], pattern.fullmatch(string=message[0]))
 type_: str = match.group("type").lower()
 scope: str = (match.group("scope") or "").lower()
 breaking: str = match.group("breaking") or ""
 subject: str = match.group("subject")
 subject = subject[0].lower() + subject[1:]
-message[0] = type_ + scope + breaking + ": " + subject
-subprocess.run(
-    args=["git", "commit", "--file=-", "--amend"],
-    stdout=sys.stdout,
-    stderr=sys.stderr,
-    check=True,
-    input="\n".join(message),
-    text=True,
-)
+new_title_line: str = type_ + scope + breaking + ": " + subject
+if message[0] != new_title_line:
+    message[0] = new_title_line
+    subprocess.run(
+        args=["git", "commit", "--file=-", "--amend"],
+        stdout=sys.stdout,
+        stderr=sys.stderr,
+        check=True,
+        input="\n".join(message),
+        text=True,
+    )
