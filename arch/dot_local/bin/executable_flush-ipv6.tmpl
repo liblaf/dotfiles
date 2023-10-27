@@ -11,10 +11,17 @@ if run ping -6 -c 4 -s 1024 $dest; then
   exit 0
 fi
 
-dev=$(ip route show to default | grep --extended-regexp --only-matching "dev [[:alnum:]]+" | sed "s/dev //")
+dev=$(
+  ip route show to default |
+    grep --extended-regexp --only-matching "dev [[:alnum:]]+" | sed "s/dev //"
+)
 run sudo ip -6 address flush dev $dev
 run sudo rm --force --verbose /var/lib/dhclient/dhclient6.leases
 
 sleep 5
 
 run sudo dhclient -6 -v $dev
+
+sleep 5
+
+run sudo systemctl restart "qbittorrent-nox@$USER.service"
