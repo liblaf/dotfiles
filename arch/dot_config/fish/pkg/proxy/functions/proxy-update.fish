@@ -1,5 +1,5 @@
 function proxy-update
-    set --function clash_config="$HOME/.config/clash/config.yaml"
+    set --function clash_config "$HOME/.config/clash/config.yaml"
     if test -f $clash_config
         set --function _proxy_port (dasel select --file=$clash_config --selector=".mixed-port")
     else
