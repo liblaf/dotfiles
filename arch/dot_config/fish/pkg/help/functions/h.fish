@@ -1,13 +1,14 @@
 function h
     set --function output "$($argv --help 2>&1)"
-    if test -z "$output"
+    if test $status -ne 0
         set --function output "$($argv -h 2>&1)"
     end
-    if test -z "$output"
+    if test $status -ne 0
         set --function output "$($argv help 2>&1)"
     end
-    if test -z "$output"
-        return 1
+    set --function status_ $status
+    if test $status_ -ne 0
+        return $status_
     end
     echo "$output" | bat --language=help --file-name="$argv"
 end
