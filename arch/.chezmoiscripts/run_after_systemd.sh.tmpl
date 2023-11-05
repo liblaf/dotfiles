@@ -17,8 +17,8 @@ run sudo systemctl enable --now netdata.service
 run sudo systemctl enable --now sshd.service
 run sudo systemctl enable --now tlp.service
 run sudo systemctl enable --now ufw.service
+run sudo systemctl enable --now v2raya.service
 run systemctl --user disable --now warp-taskbar.service
-run systemctl --user enable --now clash.service
 run systemctl --user enable --now glances.service
 
 {{ if .nvidia.install -}}
