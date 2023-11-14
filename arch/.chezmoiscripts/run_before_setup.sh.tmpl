@@ -12,7 +12,7 @@ for file in "${root_files[@]}"; do
     mkdir --parents --verbose /tmp/chezmoi
     tmpfile=$(mktemp --tmpdir="/tmp/chezmoi")
     trap "rm --force --recursive --verbose /tmp/chezmoi" EXIT
-    "{{ .chezmoi.executable }}" execute-template < $source > $tmpfile
+    "{{ .chezmoi.executable }}" execute-template <$source >$tmpfile
     source=$tmpfile
     target=${target%.tmpl}
   fi
@@ -29,7 +29,7 @@ done
 run sudo pacman --sync --sysupgrade --refresh --noconfirm
 run sudo pacman --sync --refresh --needed --noconfirm archlinuxcn-keyring
 
-"{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/pacman.txt.tmpl" |
+"{{ .chezmoi.executable }}" execute-template <"{{ .chezmoi.sourceDir }}/other/pkg/pacman.txt.tmpl" |
   sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
   run sudo pacman --sync --refresh --needed --noconfirm -
 
@@ -38,6 +38,6 @@ sed --expression="s/\s*#.*$//g" --expression="/^$/d" "{{ .chezmoi.sourceDir }}/o
   awk '{ print $2 }' |
   run yay --devel --nouseask --sync --refresh --needed --noconfirm -
 
-"{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/aur.txt.tmpl" |
+"{{ .chezmoi.executable }}" execute-template <"{{ .chezmoi.sourceDir }}/other/pkg/aur.txt.tmpl" |
   sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
   run yay --aur --devel --nouseask --sync --refresh --needed --noconfirm -

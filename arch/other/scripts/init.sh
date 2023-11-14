@@ -1,9 +1,9 @@
 function has() {
-  type "$@" &> /dev/null
+  type "$@" &>/dev/null
 }
 
 function run() {
-  if command run true &> /dev/null; then
+  if command run true &>/dev/null; then
     command run "$@"
   else
     (

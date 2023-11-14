@@ -5,7 +5,7 @@ set -o pipefail
 
 function check() {
   rclone config dump |
-    dasel --read=json "$1.token" &> /dev/null
+    dasel --read=json "$1.token" &>/dev/null
 }
 
 if check business; then

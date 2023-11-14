@@ -29,6 +29,11 @@ path = "downloader"
 type = "archive-file"
 url = "https://github.com/libthu/reserves-lib-tsinghua-downloader/releases/latest/download/downloader-ubuntu-latest-py3.9.zip"
 
+[".local/bin/sing-box-cli"]
+executable = true
+type = "file"
+url = "https://github.com/liblaf/sing-box-cli/releases/latest/download/sing-box-cli-x86_64-unknown-linux-gnu"
+
 [".local/chezmoi/grub2-themes"]
 stripComponents = 1
 type = "archive"

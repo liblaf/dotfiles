@@ -9,7 +9,7 @@ function layout_conda() {
   else
     local env=$(basename $PWD)
   fi
-  if ! cat $HOME/.conda/environments.txt | grep $env &> /dev/null; then
+  if ! cat $HOME/.conda/environments.txt | grep $env &>/dev/null; then
     run conda create --name=$env --yes "python${PYTHON_VERSION:+"=$PYTHON_VERSION"}"
   fi
   source $activate $env
