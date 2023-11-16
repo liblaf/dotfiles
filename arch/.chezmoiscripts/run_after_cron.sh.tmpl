@@ -4,8 +4,6 @@ set -o pipefail
 
 {{ include "other/scripts/init.sh" }}
 
-run sudo systemctl enable --now cronie.service
-
 "{{ .chezmoi.executable }}" execute-template <"{{ .chezmoi.sourceDir }}/other/crontab.tmpl" |
   crontab -
 
@@ -15,3 +13,5 @@ if has bat; then
 else
   run crontab -l
 fi
+
+run sudo systemctl enable --now cronie.service

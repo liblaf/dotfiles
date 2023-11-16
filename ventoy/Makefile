@@ -46,7 +46,7 @@ $(MOUNTPOINT)/b2sums.txt:
 	wget --output-document=$@ https://mirrors.tuna.tsinghua.edu.cn/archlinux/iso/latest/$(@F)
 
 $(MOUNTPOINT)/clash-linux-amd64-v3-$(CLASH_PREMIUM_VERSION): $(TMP)/clash-linux-amd64-v3-$(CLASH_PREMIUM_VERSION).gz
-	gunzip --stdout --keep --verbose $< > $@
+	gunzip --stdout --keep --verbose $< >$@
 	@ chmod --verbose u=rwx,go=rx $@
 
 $(MOUNTPOINT)/clash/config.yaml: $(HOME)/.config/clash/config.yaml
@@ -82,7 +82,7 @@ $(MOUNTPOINT)/live_injection.tar.gz: $(LIVE_INJECTION)/live_injection.tar.gz
 
 $(SYSROOT)/etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf: sysroot/etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf.tmpl
 	@ mkdir --parents --verbose $(@D)
-	chezmoi execute-template < $< > $@
+	chezmoi execute-template <$< >$@
 
 $(TMP)/live-injection-$(LIVE_INJECTION_VERSION).tar.gz:
 	wget --output-document=$@ https://github.com/ventoy/LiveInjection/releases/latest/download/$(@F)
