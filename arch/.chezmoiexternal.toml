@@ -18,6 +18,11 @@ url = "https://github.com/gokcehan/lf/raw/master/etc/colors.example"
 type = "file"
 url = "https://github.com/gokcehan/lf/raw/master/etc/icons.example"
 
+[".local/bin/ai-commit-cli"]
+executable = true
+type = "file"
+url = "https://github.com/liblaf/ai-commit-cli/releases/latest/download/ai-commit-cli-x86_64-unknown-linux-gnu"
+
 [".local/bin/ddns-cli"]
 executable = true
 type = "file"
