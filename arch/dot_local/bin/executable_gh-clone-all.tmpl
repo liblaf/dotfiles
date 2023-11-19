@@ -14,9 +14,9 @@ repos=($(
 
 for repo in "${repos[@]}"; do
   if [[ -d "$prefix/$repo/.git" ]]; then
-    echo "destination path '$prefix/$repo' already exists and is not an empty directory."
-    continue
+    run git -C $prefix/$repo pull
+  else
+    mkdir --parents --verbose $(dirname "$prefix/$repo")
+    run gh repo clone $repo "$prefix/$repo" -- --recurse-submodules --remote-submodules
   fi
-  mkdir --parents --verbose $(dirname "$prefix/$repo")
-  run gh repo clone $repo "$prefix/$repo" -- --recurse-submodules --remote-submodules
 done
