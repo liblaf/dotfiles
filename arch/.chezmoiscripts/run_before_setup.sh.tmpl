@@ -8,6 +8,12 @@ root_files=($(find "{{ .chezmoi.sourceDir }}/other/root" -type f -printf "%P\n")
 for file in "${root_files[@]}"; do
   source="{{ .chezmoi.sourceDir }}/other/root/$file"
   target="/$file"
+  if [[ $(basename $target) =~ executable_.+ ]]; then
+    executable=true
+    target="$(dirname $target)/$(basename $target | sed --expression="s/executable_//g")"
+  else
+    executable=false
+  fi
   if [[ $source =~ .+.tmpl ]]; then
     mkdir --parents --verbose /tmp/chezmoi
     tmpfile=$(mktemp --tmpdir="/tmp/chezmoi")
@@ -21,7 +27,11 @@ for file in "${root_files[@]}"; do
       sudo install -D --mode="ug=r,o=" --no-target-directory --verbose $source $target
       ;;
     *)
-      sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose $source $target
+      if [[ $executable == true ]]; then
+        sudo install -D --mode="u=rwx,go=rx" --no-target-directory --verbose $source $target
+      else
+        sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose $source $target
+      fi
       ;;
   esac
 done

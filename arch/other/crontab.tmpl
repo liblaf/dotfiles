@@ -1,4 +1,3 @@
 PATH="{{ .chezmoi.homeDir }}/.local/bin:/usr/local/bin:/usr/bin"
 
-@daily run-cron 5m trash-empty 30
 * * * * * run-cron 5m ddns-cli update --token="{{ (bitwarden "item" "CLOUDFLARE_TOKEN").notes }}" --zone="{{ (bitwarden "item" "CLOUDFLARE_ZONE").notes }}"
