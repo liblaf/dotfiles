@@ -1,0 +1,4 @@
+@bitwarden/cli
+prettier
+pnpm
+commitizen
