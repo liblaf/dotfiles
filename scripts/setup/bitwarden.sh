@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function has() {
-  type "$@" &>/dev/null
+  type "$@" &> /dev/null
 }
 
 if ! has bw; then
@@ -28,6 +28,6 @@ fi
 mkdir --parents --verbose "$HOME/.config/environment.d"
 temp=$(mktemp)
 trap "rm --force --verbose $temp" EXIT
-echo "BW_SESSION=$BW_SESSION" >$temp
+echo "BW_SESSION=$BW_SESSION" > $temp
 install --backup -D --mode="u=rw,go=r" --no-target-directory --verbose \
   $temp "$HOME/.config/environment.d/bitwarden.conf"

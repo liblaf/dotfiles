@@ -1,25 +1,18 @@
 function layout_conda() {
-  if [[ -f "$HOME/.local/opt/conda/bin/activate" ]]; then
-    local activate="$HOME/.local/opt/conda/bin/activate"
-  elif [[ -f /opt/miniconda3/bin/activate ]]; then
-    local activate=/opt/miniconda3/bin/activate
-  fi
+  local activate=/opt/miniconda3/bin/activate
   if [[ -n $1 ]]; then
     local env=$1
   else
-    local env=$(basename $PWD)
+    local env=$(basename "$PWD")
   fi
-  if ! cat $HOME/.conda/environments.txt | grep $env &>/dev/null; then
-    run conda create --name=$env --yes "python${PYTHON_VERSION:+"=$PYTHON_VERSION"}"
-  fi
-  source $activate $env
+  source "$activate" "$env"
 }
 
 function layout_micromamba() {
   if [[ -n $1 ]]; then
     local env=$1
   else
-    local env=$(basename $PWD)
+    local env=$(basename "$PWD")
   fi
-  source <(micromamba shell activate $env)
+  source <(micromamba shell activate "$env")
 }

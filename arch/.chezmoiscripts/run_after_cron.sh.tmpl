@@ -4,7 +4,7 @@ set -o pipefail
 
 {{ include "other/scripts/init.sh" }}
 
-"{{ .chezmoi.executable }}" execute-template <"{{ .chezmoi.sourceDir }}/other/crontab.tmpl" |
+"{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/crontab.tmpl" |
   crontab -
 
 if has bat; then

@@ -6,8 +6,8 @@ set -o pipefail
 
 function group-add() {
   local group=$1
-  if ! groups | grep $group >/dev/null; then
-    if grep $group /etc/group >/dev/null; then
+  if ! groups | grep $group > /dev/null; then
+    if grep $group /etc/group > /dev/null; then
       run sudo gpasswd --add $USER $group
     fi
   fi
