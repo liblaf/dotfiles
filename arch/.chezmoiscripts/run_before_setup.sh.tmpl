@@ -46,8 +46,8 @@ run sudo pacman --sync --refresh --needed --noconfirm archlinuxcn-keyring
 sed --expression="s/\s*#.*$//g" --expression="/^$/d" "{{ .chezmoi.sourceDir }}/other/pkg/group.txt" |
   yay --sync --groups - |
   awk '{ print $2 }' |
-  run yay --devel --nouseask --sync --refresh --needed --noconfirm -
+  run yay --devel --useask=false --sync --refresh --needed --noconfirm -
 
 "{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/aur.txt.tmpl" |
   sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
-  run yay --aur --devel --nouseask --sync --refresh --needed --noconfirm -
+  run yay --aur --devel --useask=false --sync --refresh --needed --noconfirm -
