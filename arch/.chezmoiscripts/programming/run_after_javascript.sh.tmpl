@@ -6,7 +6,6 @@ set -o pipefail
 {{ include "other/scripts/load-pnpm.sh" }}
 
 pkg_list=(
-  opencommit
   speedscope
 )
 pkg_list=("${pkg_list[@]/%/"@latest"}")
