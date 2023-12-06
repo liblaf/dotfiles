@@ -21,13 +21,14 @@ fi
 bw sync
 
 if ! bw unlock --check; then
-  export BW_SESSION=$(bw unlock --raw)
+  BW_SESSION=$(bw unlock --raw)
+  export BW_SESSION
   bw unlock --check
 fi
 
 mkdir --parents --verbose "$HOME/.config/environment.d"
 temp=$(mktemp)
-trap "rm --force --verbose $temp" EXIT
-echo "BW_SESSION=$BW_SESSION" > $temp
+trap 'rm --force --verbose $temp' EXIT
+echo "BW_SESSION=$BW_SESSION" > "$temp"
 install --backup -D --mode="u=rw,go=r" --no-target-directory --verbose \
-  $temp "$HOME/.config/environment.d/bitwarden.conf"
+  "$temp" "$HOME/.config/environment.d/bitwarden.conf"

@@ -50,7 +50,6 @@ words:
   - mschapv
   - nginxplus
   - nginxvts
-  - nouseask
   - nvarner
   - nvitop
   - nvme
@@ -84,6 +83,7 @@ words:
   - vuetorrent
   - wemeet
   - yzhang
+  - zettlr
   - zotero
   - zoxide
 ignorePaths:

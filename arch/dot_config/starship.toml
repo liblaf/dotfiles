@@ -130,13 +130,6 @@ shell = "sh"
 symbol = "\uf0ac"                                                #  nf-fa-globe
 when = 'test -n "$https_proxy"'
 
-[custom.warp]
-description = "Cloudflare WARP"
-format = '\[[$symbol WARP]($style)\]'
-shell = "sh"
-symbol = "\uf0c2"                         #  nf-fa-cloud
-when = "warp-cli status | grep Connected"
-
 [directory]
 read_only = " \uf023" #  nf-fa-lock
 

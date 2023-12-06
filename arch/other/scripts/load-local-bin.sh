@@ -1,3 +1,5 @@
+#shellcheck disable=SC2148
+
 mkdir --parents --verbose "$HOME/.local/bin"
 case ":$PATH:" in
   *":$HOME/.local/bin:"*) ;;

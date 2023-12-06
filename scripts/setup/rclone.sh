@@ -15,7 +15,7 @@ else
   client_id=$(bw get username "Rclone Business")
   client_secret=$(bw get password "Rclone Business")
   notify-send --transient "Config Onedrive Business ..."
-  rclone config create business onedrive client_id=$client_id client_secret=$client_secret
+  rclone config create business onedrive client_id="$client_id" client_secret="$client_secret"
 fi
 
 if check personal; then
@@ -25,5 +25,5 @@ else
   client_id=$(bw get username "Rclone Personal")
   client_secret=$(bw get password "Rclone Personal")
   notify-send --transient "Config Onedrive Personal ..."
-  rclone config create personal onedrive client_id=$client_id client_secret=$client_secret
+  rclone config create personal onedrive client_id="$client_id" client_secret="$client_secret"
 fi

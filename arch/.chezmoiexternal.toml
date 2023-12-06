@@ -23,21 +23,21 @@ executable = true
 type = "file"
 url = "https://github.com/liblaf/ai-commit-cli/releases/latest/download/ai-commit-cli-x86_64-unknown-linux-gnu"
 
-[".local/bin/ddns-cli"]
+[".local/bin/ddns"]
 executable = true
 type = "file"
-url = "https://github.com/liblaf/ddns-cli/releases/latest/download/ddns-cli-x86_64-unknown-linux-gnu"
+url = "https://github.com/liblaf/claps/releases/download/dev/ddns-x86_64-unknown-linux-gnu"
+
+[".local/bin/gfw"]
+executable = true
+type = "file"
+url = "https://github.com/liblaf/claps/releases/download/dev/gfw-x86_64-unknown-linux-gnu"
 
 [".local/bin/reserves-lib-tsinghua-downloader"]
 executable = true
 path = "downloader"
 type = "archive-file"
 url = "https://github.com/libthu/reserves-lib-tsinghua-downloader/releases/latest/download/downloader-ubuntu-latest-py3.9.zip"
-
-[".local/bin/sing-box-cli"]
-executable = true
-type = "file"
-url = "https://github.com/liblaf/sing-box-cli/releases/latest/download/sing-box-cli-x86_64-unknown-linux-gnu"
 
 [".local/chezmoi/grub2-themes"]
 stripComponents = 1
