@@ -1,18 +1,19 @@
 #!/bin/bash
+set -o errexit
 set -o nounset
 set -o pipefail
 
-{{ include "other/scripts/init.sh" }}
-{{ include "other/scripts/load-pnpm.sh" }}
+# {{include ".ignore/scripts/load-pnpm.sh"}}
 
 pkg_list=(
   commitizen
+  cspell
   speedscope
 )
-pkg_list=("${pkg_list[@]/%/"@latest"}")
 
 pnpm env use --global lts
-pnpm add --global ${pkg_list[@]}
+pnpm add --global "${pkg_list[@]}"
+pnpm update --global
 
 mkdir --parents --verbose "$HOME/.config/fish/completions"
 wget --output-document="-" https://github.com/pnpm/tabtab/raw/main/lib/scripts/fish.sh |

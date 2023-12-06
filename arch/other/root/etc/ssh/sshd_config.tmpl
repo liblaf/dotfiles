@@ -1,9 +1,0 @@
-# https://man.archlinux.org/man/sshd_config.5
-# https://wiki.archlinux.org/title/OpenSSH#Server_usage
-
-Port {{ .ssh.port }}
-PasswordAuthentication no
-AuthenticationMethods publickey
-PermitRootLogin no
-UsePAM yes
-X11Forwarding yes

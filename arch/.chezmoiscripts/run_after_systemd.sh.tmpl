@@ -1,27 +1,25 @@
 #!/bin/bash
+set -o errexit
 set -o nounset
 set -o pipefail
 
-{{ include "other/scripts/init.sh" }}
+sudo systemctl enable --now "goauthing@$USER.service"
+sudo systemctl enable --now "goauthing6@$USER.service"
+sudo systemctl enable --now "qbittorrent-nox@$USER.service"
+sudo systemctl enable --now docker.service
+sudo systemctl enable --now netdata.service
+sudo systemctl enable --now sing-box.service
+sudo systemctl enable --now sshd.service
+sudo systemctl enable --now ufw.service
+sudo systemctl enable --now warp-svc.service
+systemctl --user enable --now glances.service
+systemctl --user enable --now warp-taskbar.service
 
-run sudo systemctl enable --now "goauthing@$USER.service"
-run sudo systemctl enable --now "goauthing6@$USER.service"
-run sudo systemctl enable --now "qbittorrent-nox@$USER.service"
-run sudo systemctl enable --now cronie.service
-run sudo systemctl enable --now docker.service
-run sudo systemctl enable --now netdata.service
-run sudo systemctl enable --now sing-box.service
-run sudo systemctl enable --now sshd.service
-run sudo systemctl enable --now ufw.service
-run sudo systemctl enable --now warp-svc.service
-run systemctl --user enable --now glances.service
-run systemctl --user enable --now warp-taskbar.service
-
-{{ if .nvidia.install -}}
-run sudo systemctl enable nvidia-hibernate.service
-run sudo systemctl enable nvidia-resume.service
-run sudo systemctl enable nvidia-suspend.service
-{{ if .nvidia.mobile -}}
-run sudo systemctl enable --now nvidia-powerd.service
-{{- end }}
-{{- end }}
+# {{if .nvidia.install}}
+sudo systemctl enable nvidia-hibernate.service
+sudo systemctl enable nvidia-resume.service
+sudo systemctl enable nvidia-suspend.service
+# {{if .nvidia.mobile}}
+sudo systemctl enable --now nvidia-powerd.service
+# {{end}}
+# {{end}}

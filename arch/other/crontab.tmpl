@@ -1,3 +1,0 @@
-PATH="{{ .chezmoi.homeDir }}/.local/bin:/usr/local/bin:/usr/bin"
-
-* * * * * run-cron 5m ddns-cli update --token="{{ (bitwarden "item" "CLOUDFLARE_TOKEN").notes }}" --zone="{{ (bitwarden "item" "CLOUDFLARE_ZONE").notes }}"

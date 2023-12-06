@@ -1,14 +1,13 @@
 #!/bin/bash
+# shellcheck disable=SC2317
 set -o errexit
 set -o nounset
 set -o pipefail
 
-{{ include "other/scripts/init.sh" }}
-
-if ! {{ .alist }}; then
-  exit 0
-fi
+# {{if not .alist}}
+exit 0
+# {{end}}
 
 sudo systemctl stop alist.service
 sudo dasel put --file="/var/lib/alist/config.json" --selector=".site_url" --value="https://alist.liblaf.me"
-run sudo systemctl enable --now alist.service
+sudo systemctl enable --now alist.service

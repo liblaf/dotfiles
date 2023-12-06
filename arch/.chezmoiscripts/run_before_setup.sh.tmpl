@@ -1,53 +1,45 @@
 #!/bin/bash
+set -o errexit
 set -o nounset
 set -o pipefail
 
-{{ include "other/scripts/init.sh" }}
-
-root_files=($(find "{{ .chezmoi.sourceDir }}/other/root" -type f -printf "%P\n"))
+mapfile -t root_files < <(find "{{.chezmoi.sourceDir}}/.ignore/root" -type f -printf "%P\n")
 for file in "${root_files[@]}"; do
-  source="{{ .chezmoi.sourceDir }}/other/root/$file"
+  source="{{.chezmoi.sourceDir}}/.ignore/root/$file"
   target="/$file"
-  if [[ $(basename $target) =~ executable_.+ ]]; then
-    executable=true
-    target="$(dirname $target)/$(basename $target | sed --expression="s/executable_//g")"
-  else
-    executable=false
-  fi
-  if [[ $source =~ .+.tmpl ]]; then
+  if [[ $source =~ .+\.tmpl ]]; then
     mkdir --parents --verbose /tmp/chezmoi
     tmpfile=$(mktemp --tmpdir="/tmp/chezmoi")
     trap "rm --force --recursive --verbose /tmp/chezmoi" EXIT
-    "{{ .chezmoi.executable }}" execute-template < $source > $tmpfile
+    # shellcheck disable=SC2288
+    "{{.chezmoi.executable}}" execute-template < "$source" > "$tmpfile"
     source=$tmpfile
     target=${target%.tmpl}
   fi
-  case $target in
+  case "$target" in
     /etc/sudoers.d/*)
-      sudo install -D --mode="ug=r,o=" --no-target-directory --verbose $source $target
+      sudo install -D --mode="ug=r,o=" --no-target-directory --verbose "$source" "$target"
       ;;
     *)
-      if [[ $executable == true ]]; then
-        sudo install -D --mode="u=rwx,go=rx" --no-target-directory --verbose $source $target
-      else
-        sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose $source $target
-      fi
+      sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$source" "$target"
       ;;
   esac
 done
 
-run sudo pacman --sync --sysupgrade --refresh --noconfirm
-run sudo pacman --sync --refresh --needed --noconfirm archlinuxcn-keyring
+sudo pacman --sync --sysupgrade --refresh --noconfirm
+sudo pacman --sync --needed --noconfirm archlinuxcn-keyring
 
-"{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/pacman.txt.tmpl" |
+# shellcheck disable=SC2288
+"{{.chezmoi.executable}}" execute-template < "{{.chezmoi.sourceDir}}/.ignore/pkg/pacman.txt.tmpl" |
   sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
-  run sudo pacman --sync --refresh --needed --noconfirm -
+  sudo pacman --sync --needed --noconfirm -
 
-sed --expression="s/\s*#.*$//g" --expression="/^$/d" "{{ .chezmoi.sourceDir }}/other/pkg/group.txt" |
-  yay --sync --groups - |
+sed --expression="s/\s*#.*$//g" --expression="/^$/d" "{{.chezmoi.sourceDir}}/.ignore/pkg/group.txt" |
+  sudo pacman --sync --groups - |
   awk '{ print $2 }' |
-  run yay --devel --useask=false --sync --refresh --needed --noconfirm -
+  sudo pacman --sync --needed --noconfirm -
 
-"{{ .chezmoi.executable }}" execute-template < "{{ .chezmoi.sourceDir }}/other/pkg/aur.txt.tmpl" |
+# shellcheck disable=SC2288
+"{{.chezmoi.executable}}" execute-template < "{{.chezmoi.sourceDir}}/.ignore/pkg/aur.txt.tmpl" |
   sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
-  run yay --aur --devel --useask=false --sync --refresh --needed --noconfirm -
+  yay --aur --devel --useask=false --sync --needed --noconfirm -

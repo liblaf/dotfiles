@@ -1,0 +1,10 @@
+all_proxy=socks://127.0.0.1:{{.proxy.port}}/
+ALL_PROXY=socks://127.0.0.1:{{.proxy.port}}/
+ftp_proxy=http://127.0.0.1:{{.proxy.port}}/
+FTP_PROXY=http://127.0.0.1:{{.proxy.port}}/
+http_proxy=http://127.0.0.1:{{.proxy.port}}/
+HTTP_PROXY=http://127.0.0.1:{{.proxy.port}}/
+https_proxy=http://127.0.0.1:{{.proxy.port}}/
+HTTPS_PROXY=http://127.0.0.1:{{.proxy.port}}/
+no_proxy=localhost,127.0.0.0/8,::1
+NO_PROXY=localhost,127.0.0.0/8,::1
