@@ -27,6 +27,6 @@ defaultBranch = main
 fetchJobs = 0
 
 [user]
-email = i@liblaf.me
+email = 30631553+liblaf@users.noreply.github.com
 name = liblaf
-signingKey = 084447C16F3B7601
+signingKey = 728BD0F79703A097

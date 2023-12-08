@@ -4,6 +4,7 @@ set -o nounset
 set -o pipefail
 
 pkgs=(
+  ai-commit-cli
   conda-lock
   thu-learn-downloader
   toml-sort
