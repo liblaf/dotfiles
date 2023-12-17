@@ -3,6 +3,7 @@ gpgSign = true
 
 [core]
 pager = delta
+quotePath = false
 
 [credential "https://gist.github.com"]
 helper = !gh auth git-credential
