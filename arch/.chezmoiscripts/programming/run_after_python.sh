@@ -4,9 +4,9 @@ set -o nounset
 set -o pipefail
 
 pkgs=(
-  ai-commit-cli
   conda-lock
-  thu-learn-downloader
+  git+https://github.com/liblaf/ai-commit-cli
+  git+https://github.com/liblaf/thu-learn-downloader
   toml-sort
   utils-cli
 )
