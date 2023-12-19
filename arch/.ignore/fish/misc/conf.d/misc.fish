@@ -1,6 +1,5 @@
 if status is-interactive
     alias lf 'PAGER="bat --paging=always" command lf'
-    alias pre "pre-commit run --all-files"
     alias y "run yay --devel --useask=false --sync --sysupgrade --refresh --noconfirm"
 
     if test "$TERM" = xterm-kitty

@@ -14,7 +14,7 @@ pkgs=(
 mapfile -t pkg_installed < <(pipx list --short | awk '{ print $1 }')
 for pkg in "${pkgs[@]}"; do
   if [[ ! ${pkg_installed[*]} =~ $pkg ]]; then
-    pipx install --force "$pkg"
+    pipx install --force --pip-args="--force-reinstall" "$pkg"
   fi
 done
 pipx upgrade-all --force

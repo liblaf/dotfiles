@@ -87,6 +87,7 @@ words:
 ignorePaths:
   - "*-lock.*"
   - "*.lock"
+  - cspell.config.yaml
 dictionaries:
   - bash
   - cpp
