@@ -28,6 +28,11 @@ executable = true
 type = "file"
 url = "https://github.com/liblaf/claps/releases/download/dev/gfw-x86_64-unknown-linux-gnu"
 
+[".local/bin/pm"]
+executable = true
+type = "file"
+url = "https://github.com/liblaf/claps/releases/download/dev/pm-x86_64-unknown-linux-gnu"
+
 [".local/bin/reserves-lib-tsinghua-downloader"]
 executable = true
 path = "downloader"
