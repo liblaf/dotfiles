@@ -4,5 +4,6 @@ image/gif = org.gnome.eog.desktop
 image/jpeg = org.gnome.eog.desktop
 image/jpg = org.gnome.eog.desktop
 image/png = org.gnome.eog.desktop
+inode/directory = org.gnome.Nautilus.desktop
 model/obj = meshlab.desktop
 model/x-ply = meshlab.desktop
