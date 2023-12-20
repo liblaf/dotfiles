@@ -57,6 +57,7 @@ words:
   - pgbouncer
   - pihole
   - powerd
+  - pueue
   - qbittorrent
   - rclone
   - recursor

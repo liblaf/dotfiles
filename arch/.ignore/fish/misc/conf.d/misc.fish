@@ -1,4 +1,5 @@
 if status is-interactive
+    alias hx helix
     alias lf 'PAGER="bat --paging=always" command lf'
     alias y "run yay --devel --useask=false --sync --sysupgrade --refresh --noconfirm"
 

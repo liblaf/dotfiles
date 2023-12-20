@@ -24,6 +24,9 @@ postBuffer = 104857600
 [init]
 defaultBranch = main
 
+[push]
+autoSetupRemote = true
+
 [submodule]
 fetchJobs = 0
 
