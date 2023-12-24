@@ -15,6 +15,7 @@ extensions=(
   esbenp.prettier-vscode
   foxundermoon.shell-format
   GitHub.copilot
+  GitHub.vscode-github-actions
   golang.go
   Gruntfuggly.todo-tree
   iliazeus.vscode-ansi
@@ -35,7 +36,9 @@ extensions=(
   shd101wyy.markdown-preview-enhanced
   streetsidesoftware.code-spell-checker
   tamasfe.even-better-toml
+  task.vscode-task
   timonwong.shellcheck
+  unifiedjs.vscode-mdx
   usernamehw.errorlens
   VisualStudioExptTeam.vscodeintellicode
   yzhang.markdown-all-in-one
