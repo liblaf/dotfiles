@@ -3,6 +3,10 @@ if status is-interactive
     alias lf 'PAGER="bat --paging=always" command lf'
     alias y "run yay --devel --useask=false --sync --sysupgrade --refresh --noconfirm"
 
+    if type --query go-task
+        alias task go-task
+    end
+
     if test "$TERM" = xterm-kitty
         alias ssh "kitty +kitten ssh"
         if type --query magick
