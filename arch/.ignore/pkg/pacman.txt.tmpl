@@ -9,13 +9,14 @@ chezmoi
 clang
 cloudflared
 cmake
-cronie
 direnv
 docker
 docker-compose
 doxygen
 duf
 exfat-utils
+fd
+ffmpegthumbnailer # yazi
 fish
 fzf
 gdb
@@ -41,7 +42,6 @@ imagemagick
 jq
 kitty
 lazygit
-lf
 libva-utils # VA-API
 lldb
 llvm
@@ -63,6 +63,7 @@ pandoc-cli
 perl-file-homedir # latexindent
 perl-yaml-tiny # latexindent
 pnpm
+poppler # yazi
 power-profiles-daemon
 pre-commit
 prettier
@@ -89,6 +90,7 @@ tokei
 trash-cli
 ttf-firacode-nerd
 ufw
+unarchiver # yazi
 vdpauinfo # VDPAU
 vhs
 vlc
@@ -99,18 +101,18 @@ yq
 zettlr
 zoxide
 
-{{if .jellyfin -}}
+{{if .service.jellyfin}}
 jellyfin-server
 jellyfin-web
-{{- end}}
+{{end}}
 
-{{if .nvidia.install -}}
+{{if .nvidia.install}}
 cuda
 libva-vdpau-driver # VA-API
 nvidia
 opencl-nvidia # OpenCL
-{{- else if .intel -}}
+{{else if .intel}}
 intel-compute-runtime # OpenCL
 intel-media-driver # VA-API
 libvdpau-va-gl # VDPAU
-{{- end}}
+{{end}}

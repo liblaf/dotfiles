@@ -8,13 +8,10 @@ set -o pipefail
 pkg_list=(
   commitizen
   cspell
+  prettier
   speedscope
 )
 
 pnpm env use --global lts
 pnpm add --global "${pkg_list[@]}"
 pnpm update --global
-
-mkdir --parents --verbose "$HOME/.config/fish/completions"
-wget --output-document="-" https://github.com/pnpm/tabtab/raw/main/lib/scripts/fish.sh |
-  sed --expression="s/{pkgname}/pnpm/g" --expression="s/{completer}/pnpm/g" > "$HOME/.config/fish/completions/pnpm.fish"

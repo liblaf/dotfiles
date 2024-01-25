@@ -43,3 +43,5 @@ sed --expression="s/\s*#.*$//g" --expression="/^$/d" "{{.chezmoi.sourceDir}}/.ig
 "{{.chezmoi.executable}}" execute-template < "{{.chezmoi.sourceDir}}/.ignore/pkg/aur.txt.tmpl" |
   sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
   yay --aur --devel --useask=false --sync --needed --noconfirm -
+
+sudo systemctl daemon-reload

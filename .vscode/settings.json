@@ -2,6 +2,7 @@
   "files.associations": {
     "*.fish.tmpl": "fish",
     "*.sh.tmpl": "shellscript",
-    "*.toml.tmpl": "toml"
+    "*.toml.tmpl": "toml",
+    "*.yaml.tmpl": "yaml"
   }
 }

@@ -1,18 +1,22 @@
-{{- $server := eq .chezmoi.hostname "10700" -}}
+{{$server := or (eq .chezmoi.hostname "10700") (eq .chezmoi.hostname "13900HX")}}
 
 sourceDir = "{{.chezmoi.homeDir}}/.local/share/chezmoi/{{.chezmoi.osRelease.id}}"
 
 [data]
-alist = {{$server}}
 intel = {{default "false" (env "INTEL")}}
-jellyfin = {{$server}}
 
 [data.nvidia]
-install = {{default "false" (env "NVIDIA_INSTALL")}}
+install = {{default "false" (env "NVIDIA")}}
 mobile = {{default "false" (env "NVIDIA_MOBILE")}}
 
 [data.proxy]
 port = 2080
+
+[data.service]
+alist = {{$server}}
+gpt_academic = {{$server}}
+jellyfin = {{$server}}
+Stirling_PDF = {{$server}}
 
 [data.ssh]
 port = 60022

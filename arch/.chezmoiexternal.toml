@@ -1,49 +1,56 @@
 [".config/fish/functions/fisher.fish"]
+refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/jorgebucaran/fisher/raw/main/functions/fisher.fish"
 
 [".config/fish/pkg/zoxide/init.fish"]
+refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/ajeetdsouza/zoxide/raw/main/init.fish"
 
 [".config/latexindent/latexindent.yaml"]
+refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/ilatex/raw/main/.latexindent.yaml"
 
-[".config/lf/colors"]
-type = "file"
-url = "https://github.com/gokcehan/lf/raw/master/etc/colors.example"
-
-[".config/lf/icons"]
-type = "file"
-url = "https://github.com/gokcehan/lf/raw/master/etc/icons.example"
-
 [".local/bin/ddns"]
 executable = true
+refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/claps/releases/download/dev/ddns-x86_64-unknown-linux-gnu"
 
 [".local/bin/gfw"]
 executable = true
+refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/claps/releases/download/dev/gfw-x86_64-unknown-linux-gnu"
 
 [".local/bin/pm"]
 executable = true
+refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/claps/releases/download/dev/pm-x86_64-unknown-linux-gnu"
 
 [".local/bin/reserves-lib-tsinghua-downloader"]
 executable = true
 path = "downloader"
+refreshPeriod = "168h"
 type = "archive-file"
 url = "https://github.com/libthu/reserves-lib-tsinghua-downloader/releases/latest/download/downloader-ubuntu-latest-py3.9.zip"
 
 [".local/chezmoi/grub2-themes"]
+refreshPeriod = "168h"
 stripComponents = 1
 type = "archive"
 url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar.gz"
 
 [".local/chezmoi/night.xpi"]
+refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/tefkah/zotero-night/releases/latest/download/night.xpi"
+
+[".local/share/fonts/Win11"]
+refreshPeriod = "168h"
+stripComponents = 1
+type = "archive"
+url = "https://github.com/liblaf/win-fonts/releases/download/Win11/Win11-Chinese_Simplified.zip"

@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+
+version: "3"
+
+services:
+  # {{if .service.gpt_academic}}
+  gpt_academic:
+    container_name: gpt_academic
+    image: ghcr.io/binary-husky/gpt_academic_with_all_capacity:master
+    environment:
+      API_KEY: '{{(bitwarden "item" "OPENAI_API_KEY").notes}}'
+      USE_PROXY: "True"
+      proxies: |
+        {
+          "http": "http://sing-box:2080",
+          "https": "http://sing-box:2080",
+        }
+      LLM_MODEL: gpt-3.5-turbo-1106
+      DEFAULT_WORKER_NUM: 10
+      WEB_PORT: 12303
+    ports:
+      - 12303:12303
+    command: bash -c "python -u main.py"
+  # {{end}}
+
+  # {{if .service.gpt_academic}}
+  sing-box:
+    image: ghcr.io/sagernet/sing-box
+    container_name: sing-box
+    restart: always
+    volumes:
+      - ./sing-box:/etc/sing-box/
+    command: -D /var/lib/sing-box -C /etc/sing-box/ run
+  # {{end}}
+
+  # {{if .service.Stirling_PDF}}
+  Stirling-PDF:
+    container_name: Stirling-PDF
+    image: frooodle/s-pdf:latest
+    ports:
+      - 58080:8080
+    volumes:
+      - /usr/share/tessdata:/usr/share/tesseract-ocr/5/tessdata
+    environment:
+      DOCKER_ENABLE_SECURITY: false
+  # {{end}}

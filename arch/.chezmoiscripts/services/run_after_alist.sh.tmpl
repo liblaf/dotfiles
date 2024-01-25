@@ -4,10 +4,11 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{if not .alist}}
+# {{if not .service.alist}}
 exit 0
 # {{end}}
 
+sudo systemctl restart alist.service
 sudo systemctl stop alist.service
 sudo dasel put --file="/var/lib/alist/config.json" --selector=".site_url" --value="https://alist.liblaf.me"
 sudo systemctl enable --now alist.service

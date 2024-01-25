@@ -15,7 +15,7 @@ extensions=(
   esbenp.prettier-vscode
   foxundermoon.shell-format
   GitHub.copilot
-  GitHub.vscode-github-actions
+  github.vscode-github-actions
   golang.go
   Gruntfuggly.todo-tree
   iliazeus.vscode-ansi

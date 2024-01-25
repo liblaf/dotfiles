@@ -1,0 +1,8 @@
+#!/bin/bash
+# shellcheck disable=SC2317
+set -o errexit
+set -o nounset
+set -o pipefail
+
+sudo systemctl enable --now netdata.service
+sudo netdata-claim.sh -token='{{(bitwarden "item" "NETDATA_CLAIM_TOKEN").notes}}' -rooms="073749ae-e276-4b78-a7de-98ec39147ff2" || true

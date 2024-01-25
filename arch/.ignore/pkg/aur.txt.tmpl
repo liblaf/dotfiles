@@ -24,11 +24,11 @@ visual-studio-code-bin
 wemeet-bin
 zotero-bin
 
-{{if .alist -}}
+{{if .service.alist}}
 alist-bin
 {{- end}}
 
-{{if .nvidia.install -}}
+{{if .nvidia.install}}
 nvidia-container-toolkit
 nvitop
-{{- end}}
+{{end}}
