@@ -16,6 +16,7 @@ custom_channels:
   deepmodeling: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
   menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
   msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
+  nvidia: https://mirrors.cernet.edu.cn/anaconda-extra/cloud/
   pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
   pytorch3d: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
