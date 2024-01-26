@@ -1,0 +1,17 @@
+'$schema' = 'https://yazi-rs.github.io/schemas/yazi.json'
+
+[manager]
+linemode = 'size'
+show_hidden = false
+show_symlink = true
+sort_by = 'natural'
+sort_dir_first = true
+sort_reverse = false
+sort_sensitive = false
+
+[opener]
+
+[[opener.open]]
+desc = 'Open'
+exec = 'xdg-open "$@" &> /dev/null'
+for = 'linux'
