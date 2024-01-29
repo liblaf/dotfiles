@@ -13,6 +13,12 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/ilatex/raw/main/.latexindent.yaml"
 
+[".local/bin/alist-cli"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/claps/releases/download/dev/alist-cli-x86_64-unknown-linux-gnu"
+
 [".local/bin/ddns"]
 executable = true
 refreshPeriod = "168h"
