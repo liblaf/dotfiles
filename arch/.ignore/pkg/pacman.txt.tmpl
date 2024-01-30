@@ -1,4 +1,5 @@
 archlinuxcn-keyring
+autorandr
 bat
 bear
 biber
@@ -100,6 +101,11 @@ zoxide
 {{if .service.jellyfin}}
 jellyfin-server
 jellyfin-web
+{{end}}
+
+{{if .service.Stirling_PDF}}
+tesseract-data-chi_sim
+tesseract-data-eng
 {{end}}
 
 {{if .nvidia.install}}
