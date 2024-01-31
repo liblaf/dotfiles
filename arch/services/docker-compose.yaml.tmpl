@@ -25,6 +25,9 @@ services:
     ports:
       - 12303:12303
     command: bash -c "python -u main.py"
+    depends_on:
+      - sing-box
+    restart: unless-stopped
   # {{end}}
 
   # {{if .service.gpt_academic}}
@@ -47,4 +50,5 @@ services:
       - /usr/share/tessdata:/usr/share/tesseract-ocr/5/tessdata
     environment:
       DOCKER_ENABLE_SECURITY: false
+    restart: unless-stopped
   # {{end}}
