@@ -7,6 +7,7 @@ pkgs=(
   conda-lock
   git+https://github.com/liblaf/ai-commit-cli
   git+https://github.com/liblaf/thu-learn-downloader
+  poetry
   toml-sort
   utils-cli
 )
@@ -17,4 +18,5 @@ for pkg in "${pkgs[@]}"; do
     pipx install --force "$pkg"
   fi
 done
+pipx inject poetry poetry-plugin-pypi-mirror
 pipx upgrade-all --force
