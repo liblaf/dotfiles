@@ -1,0 +1,35 @@
+version: "3"
+
+vars:
+  SING_BOX_VERSION:
+    sh: gh release --repo="SagerNet/sing-box" view --jq ".name" --json "name"
+
+tasks:
+  default:
+    deps:
+      - binary
+      - config
+
+  binary:
+    cmds:
+      - wget --output-document="sing-box.tar.gz" "https://github.com/SagerNet/sing-box/releases/download/v{{.SING_BOX_VERSION}}/sing-box-{{.SING_BOX_VERSION}}-linux-amd64.tar.gz"
+      - tar --extract --file "sing-box.tar.gz"
+      - install -D --no-target-directory --verbose "sing-box-{{.SING_BOX_VERSION}}-linux-amd64/sing-box" "sing-box/sing-box"
+    generates:
+      - sing-box/sing-box
+    requires:
+      vars:
+        - DEST_DIR
+    dir: /{{.DEST_DIR}}
+
+  config:
+    cmds:
+      - install -D --mode="u=rw,go=r" --no-target-directory --verbose "/etc/sing-box/config.json" "sing-box/config.json"
+    sources:
+      - /etc/sing-box/config.json
+    generates:
+      - sing-box/config.json
+    requires:
+      vars:
+        - DEST_DIR
+    dir: /{{.DEST_DIR}}

@@ -1,0 +1,30 @@
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{.ROOT_DIR}}/ventoy.json" "ventoy/ventoy.json"
+    sources:
+      - "{{.ROOT_DIR}}/ventoy.json"
+    generates:
+      - ventoy/ventoy.json
+    requires:
+      vars:
+        - DEST_DIR
+    dir: /{{.DEST_DIR}}
+
+  install:
+    cmds:
+      - sudo ventoy -I "{{.DEVICE}}"
+      - systemctl --user restart gvfs-udisks2-volume-monitor.service
+    requires:
+      vars:
+        - DEVICE
+
+  update:
+    cmds:
+      - sudo ventoy -u "{{.DEVICE}}"
+      - systemctl --user restart gvfs-udisks2-volume-monitor.service
+    requires:
+      vars:
+        - DEVICE

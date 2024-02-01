@@ -1,0 +1,28 @@
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - wget --output-document="ubuntu-23.10.1-desktop-amd64.iso" "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/mantic/ubuntu-23.10.1-desktop-amd64.iso"
+    deps:
+      - sha256sums
+    sources:
+      - SHA256SUMS
+    generates:
+      - ubuntu-23.10.1-desktop-amd64.iso
+    status:
+      - sha256sum --check --ignore-missing "SHA256SUMS"
+    requires:
+      vars:
+        - DEST_DIR
+    dir: /{{.DEST_DIR}}
+
+  sha256sums:
+    cmds:
+      - wget --output-document="SHA256SUMS" "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/mantic/SHA256SUMS"
+    generates:
+      - SHA256SUMS
+    requires:
+      vars:
+        - DEST_DIR
+    dir: /{{.DEST_DIR}}

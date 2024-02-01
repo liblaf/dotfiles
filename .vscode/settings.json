@@ -5,5 +5,8 @@
     "*.sh.tmpl": "shellscript",
     "*.toml.tmpl": "toml",
     "*.yaml.tmpl": "yaml"
+  },
+  "yaml.schemas": {
+    "https://taskfile.dev/schema.json": "task/*.yaml"
   }
 }
