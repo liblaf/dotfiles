@@ -16,7 +16,7 @@ extensions=(
   foxundermoon.shell-format
   GitHub.copilot
   github.vscode-github-actions
-  golang.go
+  # golang.go
   Gruntfuggly.todo-tree
   iliazeus.vscode-ansi
   James-Yu.latex-workshop
@@ -28,7 +28,7 @@ extensions=(
   ms-vscode.cmake-tools
   ms-vscode.cpptools
   ms-vscode.makefile-tools
-  nvarner.typst-lsp
+  # nvarner.typst-lsp
   oderwat.indent-rainbow
   pflannery.vscode-versionlens
   PKief.material-icon-theme
@@ -45,9 +45,9 @@ extensions=(
 )
 
 mapfile -t extensions_installed < <(code --list-extensions)
-
 for extension in "${extensions[@]}"; do
   if [[ ! ${extensions_installed[*]} =~ $extension ]]; then
     code --install-extension "$extension" --force
   fi
 done
+code --update-extensions

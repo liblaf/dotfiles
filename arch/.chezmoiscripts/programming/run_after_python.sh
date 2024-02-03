@@ -19,4 +19,4 @@ for pkg in "${pkgs[@]}"; do
   fi
 done
 pipx inject poetry poetry-plugin-pypi-mirror
-pipx upgrade-all --force
+pipx upgrade-all --include-injected --force
