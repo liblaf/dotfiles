@@ -44,9 +44,9 @@ extensions=(
   yzhang.markdown-all-in-one
 )
 
-mapfile -t extensions_installed < <(code --list-extensions)
+mapfile -t installed < <(code --list-extensions)
 for extension in "${extensions[@]}"; do
-  if [[ ! ${extensions_installed[*]} =~ $extension ]]; then
+  if [[ ! ${installed[*]} =~ ${extension,,} ]]; then
     code --install-extension "$extension" --force
   fi
 done

@@ -6,6 +6,7 @@
     "*.toml.tmpl": "toml",
     "*.yaml.tmpl": "yaml"
   },
+  "python.analysis.typeCheckingMode": "strict",
   "yaml.schemas": {
     "https://taskfile.dev/schema.json": "task/*.yaml"
   }

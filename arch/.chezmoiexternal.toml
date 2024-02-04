@@ -13,11 +13,11 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/ilatex/raw/main/.latexindent.yaml"
 
-[".local/bin/alist-cli"]
+[".local/bin/bws"]
 executable = true
 refreshPeriod = "168h"
 type = "file"
-url = "https://github.com/liblaf/claps/releases/download/dev/alist-cli-x86_64-unknown-linux-gnu"
+url = "https://github.com/liblaf/claps/releases/download/dev/bws-x86_64-unknown-linux-gnu"
 
 [".local/bin/ddns"]
 executable = true
@@ -31,11 +31,11 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/claps/releases/download/dev/gfw-x86_64-unknown-linux-gnu"
 
-[".local/bin/pm"]
+[".local/bin/pic"]
 executable = true
 refreshPeriod = "168h"
 type = "file"
-url = "https://github.com/liblaf/claps/releases/download/dev/pm-x86_64-unknown-linux-gnu"
+url = "https://github.com/liblaf/claps/releases/download/dev/pic-x86_64-unknown-linux-gnu"
 
 [".local/bin/reserves-lib-tsinghua-downloader"]
 executable = true
