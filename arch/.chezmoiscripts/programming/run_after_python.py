@@ -49,12 +49,7 @@ async def main() -> None:
     pkgs_new: set[str] = {pkg for pkg in PKGS if pkg not in package_or_urls}
     pkgs_dev: set[str] = {pkg for pkg in PKGS if "/" in pkg}
     proc = await asyncio.create_subprocess_exec(
-        "pipx",
-        "install",
-        "--force",
-        "--pip-args=--force-reinstall",
-        *(pkgs_new | pkgs_dev),
-        stdin=subprocess.DEVNULL,
+        "pipx", "install", "--force", *(pkgs_new | pkgs_dev), stdin=subprocess.DEVNULL
     )
     returncode: int = await proc.wait()
     assert returncode == 0
@@ -62,7 +57,6 @@ async def main() -> None:
         proc = await asyncio.create_subprocess_exec(
             "poetry",
             "inject",
-            "--pip-args=--force-reinstall",
             "--force",
             "poetry",
             "poetry-plugin-pypi-mirror",
