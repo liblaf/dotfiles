@@ -19,11 +19,11 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/claps/releases/download/dev/bws-x86_64-unknown-linux-gnu"
 
-[".local/bin/ddns"]
+[".local/bin/cf"]
 executable = true
 refreshPeriod = "168h"
 type = "file"
-url = "https://github.com/liblaf/claps/releases/download/dev/ddns-x86_64-unknown-linux-gnu"
+url = "https://github.com/liblaf/claps/releases/download/dev/cf-x86_64-unknown-linux-gnu"
 
 [".local/bin/gfw"]
 executable = true

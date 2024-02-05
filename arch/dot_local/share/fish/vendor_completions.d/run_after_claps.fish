@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 
-set --local bins alist-cli ddns gfw pm
+set --local bins bws cf gfw pic
 
 for bin in $bins
     $bin complete fish >"$bin.fish"
