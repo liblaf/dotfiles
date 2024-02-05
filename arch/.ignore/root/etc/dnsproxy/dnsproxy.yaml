@@ -1,0 +1,40 @@
+listen-ports:
+  - 60053
+
+http3: true
+
+upstream:
+  # TUNA
+  - https://101.6.6.6/dns-query
+  # Cloudflare
+  - https://[2606:4700:4700::1001]/dns-query
+  - https://[2606:4700:4700::1111]/dns-query
+  - https://1.0.0.1/dns-query
+  - https://1.1.1.1/dns-query
+  - https://cloudflare-dns.com/dns-query
+  # Google
+  - https://dns.google/dns-query
+  - https://dns.google/resolve
+  # DNS.SB
+  - https://185.222.222.222/dns-query
+  - https://45.11.45.11/dns-query
+  - https://doh.dns.sb/dns-query
+  - https://doh.sb/dns-query
+
+bootstrap:
+  # TUNA
+  - https://101.6.6.6/dns-query
+  # Cloudflare
+  - https://[2606:4700:4700::1001]/dns-query
+  - https://[2606:4700:4700::1111]/dns-query
+  - https://1.0.0.1/dns-query
+  - https://1.1.1.1/dns-query
+  # Google
+  - https://185.222.222.222/dns-query
+  - https://45.11.45.11/dns-query
+
+cache: true
+
+all-servers: true
+
+ipv6-disabled: false
