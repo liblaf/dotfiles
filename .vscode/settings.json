@@ -1,13 +1,13 @@
 {
   "files.associations": {
+    "*.conf.tmpl": "properties",
     "*.fish.tmpl": "fish",
-    "*.json.tmpl": "json",
     "*.sh.tmpl": "shellscript",
     "*.toml.tmpl": "toml",
     "*.yaml.tmpl": "yaml"
   },
   "python.analysis.typeCheckingMode": "strict",
   "yaml.schemas": {
-    "https://taskfile.dev/schema.json": "task/*.yaml"
+    "https://taskfile.dev/schema.json": "taskfiles/*.yaml"
   }
 }

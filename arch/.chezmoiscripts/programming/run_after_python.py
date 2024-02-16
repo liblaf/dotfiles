@@ -10,7 +10,6 @@ PKGS: list[str] = [
     "https://github.com/liblaf/ai-commit-cli/releases/download/dev/ai_commit_cli.tar.gz",
     "https://github.com/liblaf/claps/releases/download/dev/claps.tar.gz",
     "poetry",
-    "toml-sort",
 ]
 
 
