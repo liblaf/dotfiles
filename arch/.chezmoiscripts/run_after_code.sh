@@ -10,7 +10,7 @@ extensions=(
   charliermarsh.ruff
   chouzz.vscode-better-align
   christian-kohler.path-intellisense
-  DavidAnson.vscode-markdownlint
+  # DavidAnson.vscode-markdownlint
   eamodio.gitlens
   esbenp.prettier-vscode
   foxundermoon.shell-format
