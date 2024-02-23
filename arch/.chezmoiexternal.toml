@@ -1,17 +1,17 @@
+[".config/fish/conf.d/zoxide.fish"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/init.fish"
+
 [".config/fish/functions/fisher.fish"]
 refreshPeriod = "168h"
 type = "file"
-url = "https://github.com/jorgebucaran/fisher/raw/main/functions/fisher.fish"
-
-[".config/fish/pkg/zoxide/init.fish"]
-refreshPeriod = "168h"
-type = "file"
-url = "https://github.com/ajeetdsouza/zoxide/raw/main/init.fish"
+url = "https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish"
 
 [".config/latexindent/latexindent.yaml"]
 refreshPeriod = "168h"
 type = "file"
-url = "https://github.com/liblaf/ilatex/raw/main/.latexindent.yaml"
+url = "https://raw.githubusercontent.com/liblaf/ilatex/main/.latexindent.yaml"
 
 [".local/bin/bws"]
 executable = true
@@ -30,6 +30,12 @@ executable = true
 refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/claps/releases/download/dev/gfw-x86_64-unknown-linux-gnu"
+
+[".local/bin/pch"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/pre-commit-hooks/releases/download/dev/pch-x86_64-unknown-linux-gnu"
 
 [".local/bin/pic"]
 executable = true
@@ -50,7 +56,7 @@ stripComponents = 1
 type = "archive"
 url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar.gz"
 
-[".local/chezmoi/night.xpi"]
+[".local/chezmoi/zotero/night.xpi"]
 refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/tefkah/zotero-night/releases/latest/download/night.xpi"

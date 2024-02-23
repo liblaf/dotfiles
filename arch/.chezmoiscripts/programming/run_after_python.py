@@ -9,7 +9,6 @@ PKGS: list[str] = [
     "git+https://github.com/liblaf/thu-learn-downloader.git",
     "https://github.com/liblaf/ai-commit-cli/releases/download/dev/ai_commit_cli.tar.gz",
     "https://github.com/liblaf/claps/releases/download/dev/claps.tar.gz",
-    "https://github.com/liblaf/pre-commit-hooks/releases/download/dev/pre_commit_hooks.tar.gz",
     "poetry",
     "toml-sort",
 ]
@@ -60,6 +59,7 @@ async def main() -> None:
             "inject",
             "--force",
             "poetry",
+            "poetry-plugin-export",
             "poetry-plugin-pypi-mirror",
             stdin=subprocess.DEVNULL,
         )

@@ -3,9 +3,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-mapfile -t root_files < <(find "{{.chezmoi.sourceDir}}/.ignore/root" -type f -printf "%P\n")
+mapfile -t root_files < <(find "{{.chezmoi.sourceDir}}/.external/root" -type f -printf "%P\n")
 for file in "${root_files[@]}"; do
-  source="{{.chezmoi.sourceDir}}/.ignore/root/$file"
+  source="{{.chezmoi.sourceDir}}/.external/root/$file"
   target="/$file"
   if [[ $source =~ .+\.tmpl ]]; then
     mkdir --parents --verbose /tmp/chezmoi
@@ -30,17 +30,17 @@ sudo pacman --sync --sysupgrade --refresh --noconfirm
 sudo pacman --sync --needed --noconfirm archlinuxcn-keyring
 
 # shellcheck disable=SC2288
-"{{.chezmoi.executable}}" execute-template < "{{.chezmoi.sourceDir}}/.ignore/pkg/pacman.txt.tmpl" |
+"{{.chezmoi.executable}}" execute-template < "{{.chezmoi.sourceDir}}/.external/pkg/pacman.txt.tmpl" |
   sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
   sudo pacman --sync --needed --noconfirm -
 
-sed --expression="s/\s*#.*$//g" --expression="/^$/d" "{{.chezmoi.sourceDir}}/.ignore/pkg/group.txt" |
+sed --expression="s/\s*#.*$//g" --expression="/^$/d" "{{.chezmoi.sourceDir}}/.external/pkg/group.txt" |
   sudo pacman --sync --groups - |
   awk '{ print $2 }' |
   sudo pacman --sync --needed --noconfirm -
 
 # shellcheck disable=SC2288
-"{{.chezmoi.executable}}" execute-template < "{{.chezmoi.sourceDir}}/.ignore/pkg/aur.txt.tmpl" |
+"{{.chezmoi.executable}}" execute-template < "{{.chezmoi.sourceDir}}/.external/pkg/aur.txt.tmpl" |
   sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
   yay --aur --devel --useask=false --sync --needed --noconfirm -
 
