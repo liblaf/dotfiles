@@ -1,10 +1,10 @@
-'$schema' = 'https://yazi-rs.github.io/schemas/yazi.json'
+"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [manager]
-linemode = 'size'
+linemode = "size"
 show_hidden = false
 show_symlink = true
-sort_by = 'natural'
+sort_by = "natural"
 sort_dir_first = true
 sort_reverse = false
 sort_sensitive = false
@@ -12,6 +12,6 @@ sort_sensitive = false
 [opener]
 
 [[opener.open]]
-desc = 'Open'
+desc = "Open"
 exec = 'xdg-open "$@" &> /dev/null'
-for = 'linux'
+for = "linux"

@@ -4,19 +4,20 @@ set -o nounset
 set -o pipefail
 
 extensions=(
+  # DavidAnson.vscode-markdownlint
+  # golang.go
+  # nvarner.typst-lsp
   1YiB.rust-bundle
   aaron-bond.better-comments
   bmalehorn.vscode-fish
   charliermarsh.ruff
   chouzz.vscode-better-align
   christian-kohler.path-intellisense
-  # DavidAnson.vscode-markdownlint
   eamodio.gitlens
   esbenp.prettier-vscode
   foxundermoon.shell-format
   GitHub.copilot
   github.vscode-github-actions
-  # golang.go
   Gruntfuggly.todo-tree
   iliazeus.vscode-ansi
   James-Yu.latex-workshop
@@ -28,13 +29,13 @@ extensions=(
   ms-vscode.cmake-tools
   ms-vscode.cpptools
   ms-vscode.makefile-tools
-  # nvarner.typst-lsp
   oderwat.indent-rainbow
   pflannery.vscode-versionlens
   PKief.material-icon-theme
   redhat.vscode-yaml
   shd101wyy.markdown-preview-enhanced
   streetsidesoftware.code-spell-checker
+  sumneko.lua
   tamasfe.even-better-toml
   task.vscode-task
   timonwong.shellcheck

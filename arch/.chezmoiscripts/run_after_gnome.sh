@@ -39,7 +39,7 @@ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type not
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 900
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type suspend
 gsettings set org.gnome.shell disable-user-extensions false
-gsettings set org.gnome.shell favorite-apps '["microsoft-edge.desktop", "org.gnome.Nautilus.desktop", "kitty.desktop", "code.desktop"]'
+gsettings set org.gnome.shell favorite-apps '["microsoft-edge.desktop", "org.gnome.Nautilus.desktop", "org.wezfurlong.wezterm.desktop", "code.desktop"]'
 gsettings set org.gnome.shell.extensions.dash-to-dock disable-overview-on-startup true
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'LEFT'
 gsettings set org.gnome.shell.extensions.dash-to-dock isolate-locations false
@@ -48,7 +48,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DYNAMIC'
 gsettings set org.gnome.shell.extensions.vitals fixed-widths false
-gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__temperature_max__"]'
+gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__network-tx_max__", "__temperature_max__"]'
 
 extensions=(
   apps-menu@gnome-shell-extensions.gcampax.github.com
@@ -56,9 +56,9 @@ extensions=(
   places-menu@gnome-shell-extensions.gcampax.github.com
   screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com
 
+  # paperwm@paperwm.github.com
   appindicatorsupport@rgcjonas.gmail.com
   dash-to-dock@micxgx.gmail.com
-  # paperwm@paperwm.github.com
   Vitals@CoreCoding.com
 )
 

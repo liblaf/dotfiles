@@ -45,3 +45,4 @@ sed --expression="s/\s*#.*$//g" --expression="/^$/d" "{{.chezmoi.sourceDir}}/.ex
   yay --aur --devel --useask=false --sync --needed --noconfirm -
 
 sudo systemctl daemon-reload
+systemctl --user daemon-reload

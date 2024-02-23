@@ -1,6 +1,5 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-
 [c]
 commands = [["clang", "--version"], ["gcc", "--version"], ["cc", "--version"]]
 detect_extensions = [
