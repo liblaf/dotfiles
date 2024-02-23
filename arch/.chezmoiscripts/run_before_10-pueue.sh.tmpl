@@ -4,6 +4,5 @@ set -o nounset
 set -o pipefail
 
 systemctl --user enable --now pueued.service
-pueue clean --group "chezmoi" || true
-pueue group remove "chezmoi" || true
+pueue reset
 pueue group add "chezmoi" --parallel 8 || true

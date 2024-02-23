@@ -55,7 +55,7 @@ async def main() -> None:
     assert returncode == 0
     if "poetry" in pkgs_new:
         proc = await asyncio.create_subprocess_exec(
-            "poetry",
+            "pipx",
             "inject",
             "--force",
             "poetry",
