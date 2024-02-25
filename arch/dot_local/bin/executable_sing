@@ -10,5 +10,5 @@ prettier --write "$tmp"
 sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" /etc/sing-box/config.json
 sudo systemctl restart sing-box.service
 
-mkdir --parents --verbose "$HOME/services/sing-box"
-dasel put --file="$tmp" --out="$HOME/services/sing-box/config.json" --selector="inbounds.[0].listen" --value="0.0.0.0"
+dasel put --file="$tmp" --selector="inbounds.[0].listen" --value="0.0.0.0"
+sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" "$HOME/services/sing-box/config.json"

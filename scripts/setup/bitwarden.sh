@@ -7,7 +7,7 @@ function has() {
 if ! has bw; then
   echo "Bitwarden is not installed"
   if has pacman; then
-    sudo pacman --sync --sysupgrade --refresh --needed --noconfirm bitwarden-cli
+    sudo pacman --sync --refresh --needed --noconfirm bitwarden-cli
   else
     exit 1
   fi
@@ -27,8 +27,8 @@ if ! bw unlock --check; then
 fi
 
 mkdir --parents --verbose "$HOME/.config/environment.d"
-temp=$(mktemp)
-trap 'rm --force --verbose $temp' EXIT
-echo "BW_SESSION=$BW_SESSION" > "$temp"
+bw_session_file=$(mktemp)
+trap 'rm --force --verbose $bw_session_file' EXIT
+echo "BW_SESSION=$BW_SESSION" > "$bw_session_file"
 install --backup -D --mode="u=rw,go=r" --no-target-directory --verbose \
-  "$temp" "$HOME/.config/environment.d/bitwarden.conf"
+  "$bw_session_file" "$HOME/.config/environment.d/bitwarden.conf"
