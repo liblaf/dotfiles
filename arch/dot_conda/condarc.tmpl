@@ -1,0 +1,27 @@
+# https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
+
+channels:
+  - defaults
+
+show_channel_urls: true
+
+default_channels:
+  - "{{.mirrors.anaconda}}/pkgs/main"
+  - "{{.mirrors.anaconda}}/pkgs/r"
+  - "{{.mirrors.anaconda}}/pkgs/msys2"
+
+custom_channels:
+  bioconda: "{{.mirrors.anaconda}}/cloud"
+  conda-forge: "{{.mirrors.anaconda}}/cloud"
+  deepmodeling: "{{.mirrors.anaconda}}/cloud"
+  menpo: "{{.mirrors.anaconda}}/cloud"
+  msys2: "{{.mirrors.anaconda}}/cloud"
+  nvidia: "{{.mirrors.anaconda_extra}}/cloud"
+  pytorch-lts: "{{.mirrors.anaconda}}/cloud"
+  pytorch: "{{.mirrors.anaconda}}/cloud"
+  pytorch3d: "{{.mirrors.anaconda}}/cloud"
+  simpleitk: "{{.mirrors.anaconda}}/cloud"
+
+# https://starship.rs/config/#conda
+
+changeps1: false

@@ -1,9 +1,0 @@
-# https://pnpm.io/npmrc
-
-# Registry & Authentication Settings
-# https://doc.nju.edu.cn/books/35f4a/page/npm
-# registry = https://registry.npmmirror.com/
-registry = https://repo.nju.edu.cn/repository/npm/
-
-# Node.js Settings
-node-mirror:release = https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/

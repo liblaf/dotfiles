@@ -111,12 +111,12 @@ tesseract-data-chi_sim
 tesseract-data-eng
 {{end}}
 
-{{if .nvidia.install}}
+{{if .hardware.nvidia}}
 cuda
 libva-vdpau-driver # VA-API
 nvidia
 opencl-nvidia # OpenCL
-{{else if .intel}}
+{{else if .hardware.intel}}
 intel-compute-runtime # OpenCL
 intel-media-driver # VA-API
 libvdpau-va-gl # VDPAU

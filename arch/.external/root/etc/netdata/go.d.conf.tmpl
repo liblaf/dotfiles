@@ -53,7 +53,7 @@ modules:
   #  nginxvts: yes
   #  ntpd: yes
   #  nvme: yes
-  nvidia_smi: {{if .nvidia.install -}} yes {{- else -}} no {{- end}}
+  nvidia_smi: {{if .hardware.nvidia}}yes{{else}}no{{end}}
 #  openvpn: no
 #  openvpn_status_log: yes
 #  ping: yes

@@ -19,7 +19,7 @@ systemctl --user enable --now rclone-business.service
 systemctl --user enable --now rclone-personal.service
 systemctl --user enable --now warp-taskbar.service
 
-# {{if .nvidia.install}}
+# {{if .hardware.nvidia}}
 sudo systemctl enable nvidia-hibernate.service
 sudo systemctl enable nvidia-resume.service
 sudo systemctl enable nvidia-suspend.service

@@ -45,7 +45,7 @@ extensions=(
   yzhang.markdown-all-in-one
 )
 
-mapfile -t installed < <(code --list-extensions)
+readarray -t installed < <(code --list-extensions)
 for extension in "${extensions[@]}"; do
   if [[ ! ${installed[*]} =~ ${extension,,} ]]; then
     code --install-extension "$extension" --force

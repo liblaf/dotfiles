@@ -6,14 +6,14 @@ services:
   # {{if .service.gpt_academic}}
   gpt_academic:
     container_name: gpt_academic
-    image: ghcr.nju.edu.cn/binary-husky/gpt_academic_with_latex:master
+    image: "{{.mirrors.docker_ghcr}}/binary-husky/gpt_academic_with_latex:master"
     environment:
       API_KEY: '{{(bitwarden "item" "OPENAI_API_KEY").notes}}'
       USE_PROXY: "True"
       proxies: '{"http": "http://sing-box:2080", "https": "http://sing-box:2080"}'
       DEFAULT_WORKER_NUM: 10
       WEB_PORT: 12303
-      LLM_MODEL: gpt-3.5-turbo-1106
+      LLM_MODEL: gpt-3.5-turbo-0125
       ADD_WAIFU: "True"
       AUTHENTICATION: |
         [
@@ -32,7 +32,7 @@ services:
 
   # {{if .service.gpt_academic}}
   sing-box:
-    image: ghcr.nju.edu.cn/sagernet/sing-box
+    image: "{{.mirrors.docker_ghcr}}/sagernet/sing-box"
     container_name: sing-box
     restart: always
     volumes:

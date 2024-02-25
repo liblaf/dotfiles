@@ -1,22 +1,35 @@
-{{$server := or (eq .chezmoi.hostname "10700") (eq .chezmoi.hostname "13900HX")}}
+# {{$server := or (eq .chezmoi.hostname "10700") (eq .chezmoi.hostname "13900HX")}}
 
 sourceDir = "{{.chezmoi.homeDir}}/.local/share/chezmoi/{{.chezmoi.osRelease.id}}"
 
-[data]
+[data.hardware]
 intel = {{default "false" (env "INTEL")}}
+nvidia = {{default "false" (env "NVIDIA")}}
+
+[data.mirrors]
+anaconda = "https://mirrors.tuna.tsinghua.edu.cn/anaconda"
+anaconda_extra = "https://mirrors.cernet.edu.cn/anaconda-extra"
+archlinux = "https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch"
+archlinuxcn = "https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch"
+crates_io_index = "sparse+https://mirrors.tuna.tsinghua.edu.cn/crates.io-index"
+docker_ghcr = "ghcr.nju.edu.cn"
+docker_hub = "https://docker.nju.edu.cn"
+nodejs_release = "https://mirrors.tuna.tsinghua.edu.cn/nodejs-release"
+npm = "https://repo.nju.edu.cn/repository/npm"
+pypi = "https://pypi.tuna.tsinghua.edu.cn/simple"
+rustup = "https://mirrors.tuna.tsinghua.edu.cn/rustup"
 
 [data.nvidia]
-install = {{default "false" (env "NVIDIA")}}
 mobile = {{default "false" (env "NVIDIA_MOBILE")}}
 
 [data.proxy]
 port = 2080
 
 [data.service]
+Stirling_PDF = {{$server}}
 alist = {{$server}}
 gpt_academic = {{$server}}
 jellyfin = {{$server}}
-Stirling_PDF = {{$server}}
 
 [data.ssh]
 port = 60022

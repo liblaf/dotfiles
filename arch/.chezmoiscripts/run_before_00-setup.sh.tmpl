@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-mapfile -t root_files < <(find "{{.chezmoi.sourceDir}}/.external/root" -type f -printf "%P\n")
+readarray -t root_files < <(find "{{.chezmoi.sourceDir}}/.external/root" -type f -printf "%P\n")
 for file in "${root_files[@]}"; do
   source="{{.chezmoi.sourceDir}}/.external/root/$file"
   target="/$file"
