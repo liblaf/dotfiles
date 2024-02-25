@@ -12,6 +12,10 @@ repos:
         args:
           - --fix
       - id: ruff-format
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.15.0
+    hooks:
+      - id: commitizen
   - repo: https://github.com/koalaman/shellcheck-precommit
     rev: v0.9.0
     hooks:
@@ -49,10 +53,6 @@ repos:
       - id: fix-byte-order-marker
       - id: mixed-line-ending
       - id: trailing-whitespace
-  - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.28.0
-    hooks:
-      - id: check-dependabot
   - repo: https://github.com/scop/pre-commit-shfmt
     rev: v3.8.0-1
     hooks:
