@@ -61,6 +61,16 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/tefkah/zotero-night/releases/latest/download/night.xpi"
 
+[".local/chezmoi/zotero/zotero-pdf-translate.xpi"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/windingwind/zotero-pdf-translate/releases/latest/download/zotero-pdf-translate.xpi"
+
+[".local/chezmoi/zotero/zotero-reference.xpi"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/MuiseDestiny/zotero-reference/releases/latest/download/zotero-reference.xpi"
+
 [".local/share/fonts/Win11"]
 refreshPeriod = "168h"
 stripComponents = 1

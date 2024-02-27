@@ -54,6 +54,7 @@
     "groh",
     "gruntfuggly",
     "gsettings",
+    "gtkrc",
     "gvfs",
     "hdfs",
     "ibus",
@@ -131,7 +132,6 @@
     "tela",
     "tengine",
     "tesseract",
-    "tldr",
     "tlsv",
     "tmpdir",
     "tmpl",
@@ -161,7 +161,6 @@
     "wlan",
     "yazi",
     "yzhang",
-    "zettlr",
     "zotero",
     "zoxide"
   ],
