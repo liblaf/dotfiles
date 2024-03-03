@@ -1,0 +1,11 @@
+[Install]
+WantedBy = default.target
+
+[Service]
+ExecStartPre = mkdir --parents --verbose %h/OneDrive
+ExecStart    = rclone mount business:/ %h/OneDrive --vfs-cache-mode full
+Restart      = always
+RestartSec   = 5
+
+[Unit]
+Description = Rclone Mount OneDrive Business

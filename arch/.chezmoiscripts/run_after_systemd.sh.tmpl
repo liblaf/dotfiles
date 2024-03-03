@@ -10,13 +10,11 @@ sudo systemctl enable --now docker.service
 sudo systemctl enable --now logrotate.timer
 sudo systemctl enable --now netdata.service
 sudo systemctl enable --now sing-box.service
-sudo systemctl enable --now smartdns.service
 sudo systemctl enable --now sshd.service
 sudo systemctl enable --now warp-svc.service
 systemctl --user enable --now glances.service
 systemctl --user enable --now pueued.service
-systemctl --user enable --now rclone-business.service
-systemctl --user enable --now rclone-personal.service
+systemctl --user enable --now rclone-onedrive.service
 systemctl --user enable --now warp-taskbar.service
 
 # {{if .hardware.nvidia}}
