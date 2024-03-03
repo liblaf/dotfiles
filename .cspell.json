@@ -10,6 +10,7 @@
     "bioconda",
     "bmalehorn",
     "btop",
+    "calt",
     "ccmp",
     "changeps",
     "chouzz",
@@ -26,6 +27,7 @@
     "devel",
     "dhcpd",
     "direnv",
+    "dlig",
     "dnsdist",
     "dnsmasq",
     "dslicer",
@@ -41,6 +43,7 @@
     "firacode",
     "fluentd",
     "frooodle",
+    "fwupd",
     "gcampax",
     "gcan",
     "getent",
@@ -56,6 +59,7 @@
     "gsettings",
     "gtkrc",
     "gvfs",
+    "harfbuzz",
     "hdfs",
     "ibus",
     "icat",
@@ -164,6 +168,6 @@
     "zotero",
     "zoxide"
   ],
-  "ignorePaths": [".cspell.json", "*-lock.*", "*.lock"],
+  "ignorePaths": ["*-lock.*", "*.lock", ".cspell.json"],
   "allowCompoundWords": true
 }
