@@ -24,10 +24,12 @@
     "cpptools",
     "cuda",
     "dasel",
+    "ddns",
     "devel",
     "dhcpd",
     "direnv",
     "dlig",
+    "dnsconf",
     "dnsdist",
     "dnsmasq",
     "dslicer",
@@ -168,6 +170,6 @@
     "zotero",
     "zoxide"
   ],
-  "ignorePaths": ["*-lock.*", "*.lock", ".cspell.json"],
+  "ignorePaths": ["**/*-lock.*", "**/*.lock", "**/.cspell.json"],
   "allowCompoundWords": true
 }

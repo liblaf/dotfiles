@@ -1,0 +1,36 @@
+dnsconf:
+  - ipv4:
+      enable: true
+      gettype: url
+      # https://github.com/jeessy2/ddns-go/blob/52ef2b7fbf854df52a2996d926b869524a003326/web/writing.html#L732
+      url: https://myip.ipip.net, https://ddns.oray.com/checkip, https://ip.3322.net, https://4.ipw.cn
+      domains:
+        - "{{.chezmoi.hostname}}.ddns.liblaf.me"
+    ipv6:
+      enable: true
+      gettype: url
+      # https://github.com/jeessy2/ddns-go/blob/52ef2b7fbf854df52a2996d926b869524a003326/web/writing.html#L742
+      url: https://speed.neu6.edu.cn/getIP.php, https://v6.ident.me, https://6.ipw.cn
+      domains:
+        - "{{.chezmoi.hostname}}.ddns.liblaf.me"
+    dns:
+      name: cloudflare
+      secret: '{{(bitwarden "item" "Cloudflare").notes}}'
+    ttl: 60
+webhook:
+  webhookurl: '{{(bitwarden "item" "DDNS_WEBHOOK_URL").notes}}'
+  webhookrequestbody: |-
+    {
+      "ipv4": {
+        "result": "#{ipv4Result}",
+        "addr": "#{ipv4Addr}",
+        "domains": "#{ipv4Domains}"
+      },
+      "ipv6": {
+        "result": "#{ipv6Result}",
+        "addr": "#{ipv6Addr}",
+        "domains": "#{ipv6Domains}"
+      }
+    }
+notallowwanaccess: true
+lang: en
