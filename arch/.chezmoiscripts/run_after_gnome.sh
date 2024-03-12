@@ -16,6 +16,7 @@ gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface document-font-name 'Noto Sans 11'
 gsettings set org.gnome.desktop.interface font-name 'Noto Sans 11'
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+gsettings set org.gnome.desktop.interface locate-pointer true
 gsettings set org.gnome.desktop.interface monospace-font-name 'Noto Sans Mono 10'
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
