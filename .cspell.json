@@ -35,6 +35,7 @@
     "dslicer",
     "eamodio",
     "elif",
+    "emptydirs",
     "envsubst",
     "esac",
     "esbenp",
@@ -174,6 +175,6 @@
     "zotero",
     "zoxide"
   ],
-  "ignorePaths": [".cspell.json", "*-lock.*", "*.lock"],
+  "ignorePaths": ["**/*-lock.*", "**/*.lock", "**/.cspell.json"],
   "allowCompoundWords": true
 }

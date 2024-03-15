@@ -25,6 +25,7 @@ for file in "${root_files[@]}"; do
       ;;
   esac
 done
+install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{.chezmoi.sourceDir}}/dot_config/pacman/makepkg.conf" "$HOME/.config/pacman/makepkg.conf"
 
 sudo pacman --sync --sysupgrade --refresh --noconfirm
 sudo pacman --sync --needed --noconfirm archlinuxcn-keyring
