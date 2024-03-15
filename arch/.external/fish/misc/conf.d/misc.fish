@@ -4,4 +4,13 @@ if status is-interactive
     if type --query go-task
         alias task go-task
     end
+    set apps typora wezterm
+    for app in $apps
+        if type --query $app
+            echo "function $app --wraps $app
+    command $app \$argv < /dev/null &> /dev/null &
+    disown
+end" | source
+        end
+    end
 end
