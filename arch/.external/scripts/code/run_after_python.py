@@ -52,7 +52,7 @@ async def main() -> None:
         "pipx", "install", "--force", *(pkgs_new | pkgs_dev), stdin=subprocess.DEVNULL
     )
     returncode: int = await proc.wait()
-    assert returncode == 0
+    # assert returncode == 0
     if "poetry" in pkgs_new:
         proc = await asyncio.create_subprocess_exec(
             "pipx",

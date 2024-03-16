@@ -10,10 +10,10 @@ services:
     environment:
       API_KEY: '{{(bitwarden "item" "OPENAI_API_KEY").notes}}'
       USE_PROXY: "True"
-      proxies: '{"http": "http://sing-box:2080", "https": "http://sing-box:2080"}'
+      proxies: '{"http": "http://172.17.0.1:64393", "https": "http://172.17.0.1:64393"}'
       DEFAULT_WORKER_NUM: 10
-      WEB_PORT: 12303
-      LLM_MODEL: gpt-3.5-turbo
+      WEB_PORT: 52139
+      LLM_MODEL: gpt-3.5-turbo-0125
       ADD_WAIFU: "True"
       AUTHENTICATION: |
         [
@@ -23,21 +23,11 @@ services:
           )
         ]
     ports:
-      - 12303:12303
+      - 52139:52139
     command: bash -c "python -u main.py"
     depends_on:
       - sing-box
     restart: unless-stopped
-  # {{end}}
-
-  # {{if .service.gpt_academic}}
-  sing-box:
-    image: "{{.mirrors.docker_ghcr}}/sagernet/sing-box"
-    container_name: sing-box
-    restart: always
-    volumes:
-      - ./sing-box:/etc/sing-box/
-    command: -D /var/lib/sing-box -C /etc/sing-box/ run
   # {{end}}
 
   # {{if .service.Stirling_PDF}}
@@ -45,7 +35,7 @@ services:
     container_name: Stirling-PDF
     image: frooodle/s-pdf:latest
     ports:
-      - 58080:8080
+      - 42600:8080
     volumes:
       - /usr/share/tessdata:/usr/share/tesseract-ocr/5/tessdata
     environment:
