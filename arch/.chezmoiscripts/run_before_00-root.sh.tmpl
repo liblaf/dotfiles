@@ -26,24 +26,3 @@ for file in "${root_files[@]}"; do
   esac
 done
 install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{.chezmoi.sourceDir}}/dot_config/pacman/makepkg.conf" "$HOME/.config/pacman/makepkg.conf"
-
-sudo pacman --sync --sysupgrade --refresh --noconfirm
-sudo pacman --sync --needed --noconfirm archlinuxcn-keyring
-
-# shellcheck disable=SC2288
-"{{.chezmoi.executable}}" execute-template < "{{.chezmoi.sourceDir}}/.external/pkg/pacman.txt.tmpl" |
-  sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
-  sudo pacman --sync --needed --noconfirm -
-
-sed --expression="s/\s*#.*$//g" --expression="/^$/d" "{{.chezmoi.sourceDir}}/.external/pkg/group.txt" |
-  sudo pacman --sync --groups - |
-  awk '{ print $2 }' |
-  sudo pacman --sync --needed --noconfirm -
-
-# shellcheck disable=SC2288
-"{{.chezmoi.executable}}" execute-template < "{{.chezmoi.sourceDir}}/.external/pkg/aur.txt.tmpl" |
-  sed --expression="s/\s*#.*$//g" --expression="/^$/d" |
-  yay --aur --devel --useask=false --sync --needed --noconfirm -
-
-sudo systemctl daemon-reload
-systemctl --user daemon-reload
