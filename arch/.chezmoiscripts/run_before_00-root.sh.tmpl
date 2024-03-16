@@ -17,12 +17,8 @@ for file in "${root_files[@]}"; do
     target=${target%.tmpl}
   fi
   case "$target" in
-    /etc/sudoers.d/*)
-      sudo install -D --mode="ug=r,o=" --no-target-directory --verbose "$source" "$target"
-      ;;
-    *)
-      sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$source" "$target"
-      ;;
+    /etc/sudoers.d/*) sudo install -D --mode="ug=r,o=" --no-target-directory --verbose "$source" "$target" ;;
+    *) sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$source" "$target" ;;
   esac
 done
 install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{.chezmoi.sourceDir}}/dot_config/pacman/makepkg.conf" "$HOME/.config/pacman/makepkg.conf"
