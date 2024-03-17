@@ -90,6 +90,7 @@
     "mschapv",
     "msdos",
     "msys",
+    "multicd",
     "mypy",
     "nginxplus",
     "nginxvts",
@@ -175,6 +176,6 @@
     "zotero",
     "zoxide"
   ],
-  "ignorePaths": ["**/*-lock.*", "**/*.lock", "**/.cspell.json"],
+  "ignorePaths": [".cspell.json", "*-lock.*", "*.lock"],
   "allowCompoundWords": true
 }

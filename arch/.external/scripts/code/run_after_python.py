@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-import asyncio
 import json
-from asyncio import subprocess
+import subprocess
 from typing import Any, TypedDict
 
 PKGS: list[str] = [
@@ -31,46 +30,41 @@ class Data(TypedDict):
     venvs: dict[str, VEnv]
 
 
-async def main() -> None:
-    proc: subprocess.Process = await asyncio.create_subprocess_exec(
-        "pipx",
-        "list",
-        "--json",
-        stdin=subprocess.DEVNULL,
+def main() -> None:
+    proc: subprocess.CompletedProcess[str] = subprocess.run(
+        ["pipx", "list", "--json"],
         stdout=subprocess.PIPE,
         stderr=subprocess.DEVNULL,
+        check=True,
+        text=True,
     )
-    assert proc.stdout
-    installed: Data = json.loads(await proc.stdout.read())
+    installed: Data = json.loads(proc.stdout)
     package_or_urls: list[str] = [
         venv["metadata"]["main_package"]["package_or_url"]
         for venv in installed["venvs"].values()
     ]
     pkgs_new: set[str] = {pkg for pkg in PKGS if pkg not in package_or_urls}
     pkgs_dev: set[str] = {pkg for pkg in PKGS if "/" in pkg}
-    proc = await asyncio.create_subprocess_exec(
-        "pipx", "install", "--force", *(pkgs_new | pkgs_dev), stdin=subprocess.DEVNULL
+    proc = subprocess.run(
+        ["pipx", "install", "--force", *(pkgs_new | pkgs_dev)], check=True, text=True
     )
-    returncode: int = await proc.wait()
-    # assert returncode == 0
     if "poetry" in pkgs_new:
-        proc = await asyncio.create_subprocess_exec(
-            "pipx",
-            "inject",
-            "--force",
-            "poetry",
-            "poetry-plugin-export",
-            "poetry-plugin-pypi-mirror",
-            stdin=subprocess.DEVNULL,
+        proc = subprocess.run(
+            [
+                "pipx",
+                "inject",
+                "--force",
+                "poetry",
+                "poetry-plugin-export",
+                "poetry-plugin-pypi-mirror",
+            ],
+            check=True,
+            text=True,
         )
-        returncode = await proc.wait()
-        assert returncode == 0
-    proc = await asyncio.create_subprocess_exec(
-        "pipx", "upgrade-all", "--include-injected", "--force", stdin=subprocess.DEVNULL
+    proc = subprocess.run(
+        ["pipx", "upgrade-all", "--include-injected", "--force"], check=True, text=True
     )
-    returncode: int = await proc.wait()
-    assert returncode == 0
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    main()

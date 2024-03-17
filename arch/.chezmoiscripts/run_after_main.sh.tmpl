@@ -3,30 +3,23 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+pueue reset --force
+
 readarray -t scripts < <(find "{{.chezmoi.sourceDir}}/.external/scripts" -type f -name "run_after_*")
 tmpdir=$(mktemp --directory)
 trap 'rm --force --recursive "$tmpdir"' EXIT
 for script in "${scripts[@]}"; do
   if [[ $script =~ .*\.tmpl$ ]]; then
-    target=$(basename --suffix=".tmpl" "$script")
+    target=$tmpdir/$(basename --suffix=".tmpl" "$script")
     chezmoi execute-template < "$script" > "$target"
   else
     target=$script
   fi
   case $target in
-    *.fish) fish "$target" & ;;
-    *.py) python "$target" & ;;
-    *.sh) bash "$target" & ;;
+    *.fish) pueue add --group "chezmoi" "fish \"$target\" < /dev/null" ;;
+    *.py) pueue add --group "chezmoi" python "$target" ;;
+    *.sh) pueue add --group "chezmoi" bash "$target" ;;
   esac
 done
 
-while true; do
-  wait -n || {
-    code=$?
-    if ((code == 127)); then
-      break
-    fi
-    jobs -p | xargs --no-run-if-empty kill
-    exit $code
-  }
-done
+pueue wait --group "chezmoi"

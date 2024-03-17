@@ -3,22 +3,28 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-readarray -t root_files < <(find "{{.chezmoi.sourceDir}}/.external/root" -type f -printf "%P\n")
+root="{{.chezmoi.sourceDir}}/.external/root"
+readarray -t root_files < <(find "$root" -type f -printf "%P\n")
+tmpdir=$(mktemp --directory)
+trap 'rm --force --recursive "$tmpdir"' EXIT
 for file in "${root_files[@]}"; do
-  source="{{.chezmoi.sourceDir}}/.external/root/$file"
-  target="/$file"
+  source=$root/$file
+  target=/$file
   if [[ $source =~ .+\.tmpl ]]; then
-    mkdir --parents --verbose /tmp/chezmoi
-    tmpfile=$(mktemp --tmpdir="/tmp/chezmoi")
-    trap "rm --force --recursive --verbose /tmp/chezmoi" EXIT
+    tmpfile=$tmpdir/$(basename --suffix=".tmpl" "$file")
     # shellcheck disable=SC2288
     "{{.chezmoi.executable}}" execute-template < "$source" > "$tmpfile"
     source=$tmpfile
     target=${target%.tmpl}
   fi
   case "$target" in
-    /etc/sudoers.d/*) sudo install -D --mode="ug=r,o=" --no-target-directory --verbose "$source" "$target" ;;
-    *) sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$source" "$target" ;;
+    /etc/sudoers.d/*) mode="ug=r,o=" ;;
+    *) mode="u=rw,go=r" ;;
   esac
+  sudo install -D --mode="$mode" --no-target-directory --verbose "$source" "$target"
 done
-install -D --mode="u=rw,go=r" --no-target-directory --verbose "{{.chezmoi.sourceDir}}/dot_config/pacman/makepkg.conf" "$HOME/.config/pacman/makepkg.conf"
+
+makepkg_conf=$HOME/.config/pacman/makepkg.conf
+mkdir --parents "$(dirname "$makepkg_conf")"
+# shellcheck disable=SC2094,SC2288
+"{{.chezmoi.executable}}" cat "$makepkg_conf" > "$makepkg_conf"

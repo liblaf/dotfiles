@@ -1,10 +1,10 @@
+# https://fishshell.com/docs/current/interactive.html#abbreviations
+function multicd
+    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+end
+abbr --add dotdot --regex '^\.\.+$' --function multicd
+
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/directories.zsh
-
-alias ... 'cd ../..'
-alias .... 'cd ../../..'
-alias ..... 'cd ../../../..'
-alias ...... 'cd ../../../../..'
-
 alias md 'mkdir -p'
 alias rd rmdir
 

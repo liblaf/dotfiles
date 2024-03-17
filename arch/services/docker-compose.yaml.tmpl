@@ -11,7 +11,7 @@ services:
       API_KEY: '{{(bitwarden "item" "OPENAI_API_KEY").notes}}'
       USE_PROXY: "True"
       proxies: '{"http": "http://172.17.0.1:64393", "https": "http://172.17.0.1:64393"}'
-      DEFAULT_WORKER_NUM: 10
+      DEFAULT_WORKER_NUM: 16
       WEB_PORT: 52139
       LLM_MODEL: gpt-3.5-turbo-0125
       ADD_WAIFU: "True"
@@ -25,8 +25,6 @@ services:
     ports:
       - 52139:52139
     command: bash -c "python -u main.py"
-    depends_on:
-      - sing-box
     restart: unless-stopped
   # {{end}}
 
@@ -34,11 +32,29 @@ services:
   Stirling-PDF:
     container_name: Stirling-PDF
     image: frooodle/s-pdf:latest
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -f http://localhost:8080/api/v1/info/status | grep -q 'UP' && curl -fL http://localhost:8080/ | grep -qv 'Please sign in'",
+        ]
+      interval: 5s
+      timeout: 10s
+      retries: 16
     ports:
       - 42600:8080
     volumes:
       - /usr/share/tessdata:/usr/share/tesseract-ocr/5/tessdata
     environment:
-      DOCKER_ENABLE_SECURITY: false
-    restart: unless-stopped
+      DOCKER_ENABLE_SECURITY: "false"
+      SECURITY_ENABLELOGIN: "false"
+      SYSTEM_DEFAULTLOCALE: en-US
+      SYSTEM_MAXFILESIZE: "100"
+      METRICS_ENABLED: "true"
+      SYSTEM_GOOGLEVISIBILITY: "true"
+    restart: on-failure:5
   # {{end}}
