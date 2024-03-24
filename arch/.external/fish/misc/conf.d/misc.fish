@@ -1,10 +1,10 @@
 if status is-interactive
-    alias hx helix
-    alias y "run yay --devel --useask=false --sync --sysupgrade --refresh --noconfirm"
+    abbr --add hx helix
+    abbr --add y "yay --devel --useask=false --sync --sysupgrade --refresh --noconfirm"
     if type --query go-task
         alias task go-task
     end
-    set apps typora wezterm
+    set apps typora
     for app in $apps
         if type --query $app
             echo "function $app --wraps $app

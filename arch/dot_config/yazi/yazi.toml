@@ -12,6 +12,8 @@ sort_sensitive = false
 [opener]
 
 [[opener.open]]
+block = false
 desc = "Open"
-exec = 'xdg-open "$@" &> /dev/null'
 for = "linux"
+orphan = true
+run = 'xdg-open "$@" &> /dev/null'
