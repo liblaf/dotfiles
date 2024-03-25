@@ -8,8 +8,9 @@ gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin init-full-punct fals
 gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin lookup-table-page-size 10
 gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false
 gsettings set org.gnome.desktop.calendar show-weekdate true
-gsettings set org.gnome.desktop.datetime automatic-timezone false
+gsettings set org.gnome.desktop.datetime automatic-timezone true
 gsettings set org.gnome.desktop.input-sources sources '[("xkb", "us"), ("ibus", "libpinyin")]'
+gsettings set org.gnome.desktop.interface clock-format '24h'
 gsettings set org.gnome.desktop.interface clock-show-seconds true
 gsettings set org.gnome.desktop.interface clock-show-weekday true
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
@@ -33,8 +34,6 @@ gsettings set org.gnome.Evince.Default dual-page-odd-left true
 gsettings set org.gnome.Evince.Default enable-spellchecking true
 gsettings set org.gnome.Evince.Default inverted-colors true
 gsettings set org.gnome.Evince.Default sizing-mode 'automatic'
-gsettings set org.gnome.mutter.keybindings toggle-tiled-left '[]'
-gsettings set org.gnome.mutter.keybindings toggle-tiled-right '[]'
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 900
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 900
