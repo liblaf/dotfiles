@@ -49,6 +49,7 @@
     "fluentd",
     "frooodle",
     "fwupd",
+    "fwupdmgr",
     "gcampax",
     "gcan",
     "getent",
@@ -82,6 +83,7 @@
     "lighttpd",
     "lldb",
     "lusiadas",
+    "lvfs",
     "magick",
     "menpo",
     "mgmt",
@@ -91,7 +93,6 @@
     "msdos",
     "msys",
     "multicd",
-    "mypy",
     "nginxplus",
     "nginxvts",
     "noconfirm",
@@ -176,6 +177,6 @@
     "zotero",
     "zoxide"
   ],
-  "ignorePaths": [".cspell.json", "*-lock.*", "*.lock"],
+  "ignorePaths": ["**/*-lock.*", "**/*.lock", "**/.cspell.json"],
   "allowCompoundWords": true
 }
