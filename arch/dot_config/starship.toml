@@ -71,8 +71,8 @@ symbol = "󰢱"                                # nf-md-language_lua
 
 [memory_usage]
 threshold = 0
-format = '\[$symbol [$ram( | $swap)]($style)\]'
-symbol = "󰍛"                                    # nf-md-memory
+format = '\[$symbol [$ram]($style)\]'
+symbol = "󰍛"                          # nf-md-memory
 disabled = false
 
 [nodejs]
