@@ -9,6 +9,10 @@ fwupdmgr get-updates --assume-yes # list updates available for any devices on th
 fwupdmgr update --assume-yes # install updates
 ```
 
+## ibus-libpinyin
+
+import `~/.local/chezmoi/dict.txt` as user dictionary
+
 ## pacman
 
 ### Removing unused packages (orphans)[^1]

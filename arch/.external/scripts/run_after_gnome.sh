@@ -3,9 +3,11 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin dictionaries '12;15'
 gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin enable-cloud-input true
 gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin init-full-punct false
 gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin lookup-table-page-size 10
+gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin sort-candidate-option 0
 gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false
 gsettings set org.gnome.desktop.calendar show-weekdate true
 gsettings set org.gnome.desktop.datetime automatic-timezone true
