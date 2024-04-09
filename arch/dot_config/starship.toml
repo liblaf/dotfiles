@@ -1,88 +1,54 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = "https://starship.rs/config-schema.json"
 
 [c]
-commands = [["clang", "--version"], ["gcc", "--version"], ["cc", "--version"]]
+format = '\[[$symbol( ($name-)$version)]($style)\]'
+version_format = "$raw"
+symbol = "" # nf-custom-c
 detect_extensions = [
-  "C",
-  "H",
   "c",
+  "C",
   "c++",
   "cc",
   "cpp",
   "cxx",
   "h",
+  "H",
   "h++",
   "hpp",
   "hxx",
 ]
 detect_files = ["CMakeCache.txt", "CMakeLists.txt"]
-format = '\[[$symbol( ($name-)$version)]($style)\]'
-symbol = "\ue61e" #  nf-custom-c
-version_format = "$raw"
-
-[character]
-error_symbol = "[>](bold red)"
-success_symbol = "[>](bold green)"
-vimcmd_replace_one_symbol = "[<](bold purple)"
-vimcmd_replace_symbol = "[<](bold purple)"
-vimcmd_symbol = "[<](bold green)"
-vimcmd_visual_symbol = "[<](bold yellow)"
+commands = [["clang", "--version"], ["gcc", "--version"], ["cc", "--version"]]
 
 [cmake]
-format = '\[[$symbol( $version)]($style)\]'
-symbol = "\U000f0536"                       # 󰔶 nf-md-triangle
+format = '\[[$symbol($version)]($style)\]'
 version_format = "$raw"
 
 [cmd_duration]
-format = "\\[[\U000f13ab $duration]($style)\\]" # 󱎫 nf-md-timer
+format = '\[[󱎫 $duration]($style)\]' # nf-md-timer
 
 [conda]
 format = '\[[$symbol $environment]($style)\]'
-symbol = "\uf10c"                             #  nf-fa-circle_o
-
-[custom.bitwarden]
-description = "Bitwarden"
-format = '\[[$symbol Bitwarden]($style)\]'
-shell = "sh"
-symbol = "\uf132"                          #  nf-fa-shield
-when = 'test -n "$BW_SESSION"'
-
-[custom.proxy]
-command = "echo $https_proxy | sed -e 's@^.*://@@' -e 's@/$@@g'"
-description = "Proxy"
-format = '\[[$symbol $output]($style)\]'
-shell = "sh"
-symbol = "\uf0ac"                                                #  nf-fa-globe
-when = 'test -n "$https_proxy"'
+symbol = ""                                  # nf-fa-circle_o
 
 [directory]
-read_only = " \uf023" #  nf-fa-lock
-
-[docker_context]
-format = '\[[$symbol $context]($style)\]'
-symbol = "\U000f0868"                     # 󰡨 nf-md-docker
+read_only = " 󰌾" # nf-md-lock
 
 [git_branch]
 format = '\[[$symbol $branch]($style)\]'
-symbol = "\U000f062c"                    # 󰘬 nf-md-source_branch
+symbol = ""                             # nf-oct-git_branch
+
+[git_status]
+format = '(\[[$all_status$ahead_behind]($style)\])'
 
 [git_metrics]
 disabled = false
 format = '(\[([+$added]($added_style))([-$deleted]($deleted_style))\])'
 
-[git_status]
-ahead = "\uf176"                                    #  nf-fa-long_arrow_up
-behind = "\uf175"                                   #  nf-fa-long_arrow_down
-conflicted = "="
-deleted = "\uf00d"                                  #  nf-fa-remove
-diverged = "\uf07d"                                 #  nf-fa-arrows_v
-format = '(\[[$all_status$ahead_behind]($style)\])'
-renamed = "\uf101"                                  #  nf-fa-angle_double_right
-
 [golang]
 format = '\[[$symbol( $version)]($style)\]'
-symbol = "\U000f07d3"                       # 󰟓 nf-md-language_go
 version_format = "$raw"
+symbol = "󰟓"                                # nf-md-language_go
 
 [hostname]
 format = "@[$ssh_symbol$hostname]($style) "
@@ -90,56 +56,60 @@ ssh_symbol = ""
 
 [java]
 format = '\[[$symbol( $version)]($style)\]'
-symbol = "\ue738"                           #  nf-dev-java
 version_format = "$raw"
+symbol = "󰬷"                                #  nf-md-language_java
 
-[jobs]
-format = '[$symbol( $number)]($style) '
-symbol = "+"
+[lua]
+format = '\[[$symbol( $version)]($style)\]'
+version_format = "$raw"
+symbol = "󰢱"                                # nf-md-language_lua
 
 [memory_usage]
-disabled = false
-format = '\[[$symbol $ram]($style)\]'
-symbol = "\U000f035b"                 # 󰍛 nf-md-memory
 threshold = 0
+format = '\[$symbol [$ram( | $swap)]($style)\]'
+symbol = "󰍛"                                    # nf-md-memory
+disabled = false
 
 [nodejs]
 format = '\[[$symbol( $version)]($style)\]'
-symbol = "\U000f0399"                       # 󰎙 nf-md-nodejs
 version_format = "$raw"
+symbol = "󰎙"                                # nf-md-nodejs
 
 [package]
 format = '\[[$symbol $version]($style)\]'
-symbol = "\ueb29"                         #  nf-cod-package
 version_format = "$raw"
+symbol = ""                              # nf-oct-package
 
 [python]
 format = '\[[$symbol $pyenv_prefix($version)(\($virtualenv\))]($style)\]'
-symbol = "\ue73c"                                                         #  nf-dev-python
 version_format = "$raw"
+symbol = "󰌠"                                                              # nf-md-language_python
 
 [rust]
 format = '\[[$symbol( $version)]($style)\]'
-symbol = "\ue7a8"                           #  nf-dev-rust
 version_format = "$raw"
+symbol = "󱘗"                                # nf-md-language_rust
 
 [status]
-disabled = false
-format = "[$symbol$status]($style) "
 map_symbol = true
-not_executable_symbol = "\uf05e "                                                                        #  nf-fa-ban
-not_found_symbol = "\uf002 "                                                                             #  nf-fa-search
 pipestatus = true
-pipestatus_format = '\[$pipestatus\] => [$symbol($common_meaning )($signal_name )($maybe_int )]($style)'
-pipestatus_segment_format = '[$symbol$status]($style)'
-sigint_symbol = "\ue00a "                                                                                #  nf-pom-external_interruption
-signal_symbol = "\U000f060a "                                                                            # 󰘊 nf-md-signal_variant
-symbol = "\uf00d "                                                                                       #  nf-fa-close
+disabled = false
 
 [sudo]
 disabled = true
-format = '\[[$symbol sudo]($style)\]'
-symbol = "\U000f0004"                 # 󰀄 nf-md-account
 
 [username]
 format = "[$user]($style)"
+
+[custom.bitwarden]
+when = 'test -n "$BW_SESSION"'
+shell = "sh"
+symbol = "󰞀"                        # nf-md-shield_half_full
+format = '\[[$symbol bw]($style)\]'
+
+[custom.proxy]
+command = '''sed --expression 's@^.*://@@' --expression 's@/$@@g' <<< "$https_proxy"'''
+when = 'test -n "$https_proxy"'
+shell = "sh"
+symbol = "󰖟"                                                                            # nf-md-web
+format = '\[[$symbol $output]($style)\]'
