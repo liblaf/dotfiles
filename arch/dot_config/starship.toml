@@ -20,6 +20,10 @@ detect_extensions = [
 detect_files = ["CMakeCache.txt", "CMakeLists.txt"]
 commands = [["clang", "--version"], ["gcc", "--version"], ["cc", "--version"]]
 
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[](bold red)"     # nf-fa-close
+
 [cmake]
 format = '\[[$symbol($version)]($style)\]'
 version_format = "$raw"
@@ -96,12 +100,15 @@ version_format = "$raw"
 symbol = "󱘗"                                # nf-md-language_rust
 
 [status]
+symbol = ""                                           # nf-fa-close
+not_executable_symbol = " "                           # nf-fa-ban
+not_found_symbol = " "                                # nf-fa-search
+sigint_symbol = "!"
+signal_symbol = ""                                    # nf-fa-bolt
 map_symbol = true
 pipestatus = true
+pipestatus_segment_format = "[$symbol$status]($style)"
 disabled = false
-
-[sudo]
-disabled = true
 
 [username]
 format = "[$user]($style)"
@@ -109,12 +116,12 @@ format = "[$user]($style)"
 [custom.bitwarden]
 when = 'test -n "$BW_SESSION"'
 shell = "sh"
-symbol = "󰞀"                        # nf-md-shield_half_full
-format = '\[[$symbol bw]($style)\]'
+symbol = "󰞀"                            # nf-md-shield_half_full
+format = '\[[$symbol unlock]($style)\]'
 
 [custom.proxy]
-command = '''sed --expression 's@^.*://@@' --expression 's@/$@@g' <<< "$https_proxy"'''
-when = 'test -n "$https_proxy"'
+command = '''sed --expression 's@^.*://@@' --expression 's@/$@@g' <<< "$HTTPS_PROXY"'''
+when = 'test -n "$HTTPS_PROXY"'
 shell = "sh"
 symbol = "󰖟"                                                                            # nf-md-web
 format = '\[[$symbol $output]($style)\]'
