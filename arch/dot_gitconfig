@@ -2,7 +2,6 @@
 gpgSign = true
 
 [core]
-pager = delta # https://github.com/dandavison/delta
 quotePath = false
 
 [credential "https://gist.github.com"]
@@ -11,13 +10,18 @@ helper = !gh auth git-credential
 [credential "https://github.com"]
 helper = !gh auth git-credential
 
-[delta] # https://github.com/dandavison/delta
-light = false
-navigate = true
-side-by-side = true
-
 [diff]
-colorMoved = default # https://github.com/dandavison/delta
+external = difft
+tool = difftastic
+
+[difftool]
+prompt = false
+
+[difftool "difftastic"]
+cmd = difftastic "$LOCAL" "$REMOTE"
+
+[pager]
+difftool = true
 
 [fetch]
 parallel = 0
@@ -28,12 +32,6 @@ postBuffer = 104857600
 
 [init]
 defaultBranch = main
-
-[interactive]
-diffFilter = delta --color-only # https://github.com/dandavison/delta
-
-[merge]
-conflictstyle = diff3 # https://github.com/dandavison/delta
 
 [push]
 autoSetupRemote = true

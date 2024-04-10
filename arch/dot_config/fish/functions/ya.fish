@@ -1,9 +1,9 @@
-function ya
+function yy
     # https://yazi-rs.github.io/docs/quick-start#shell-wrapper
-    set tmp (mktemp -t "yazi-cwd.XXXXX")
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
     yazi $argv --cwd-file="$tmp"
     if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
         cd -- "$cwd"
     end
-    command rm -f -- "$tmp"
+    rm -f -- "$tmp"
 end
