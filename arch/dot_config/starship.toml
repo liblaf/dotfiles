@@ -3,6 +3,11 @@
 [battery]
 disabled = true
 
+[bun]
+format = '\[[$symbol ($version)]($style)\]'
+version_format = "$raw"
+symbol = "󰳮"
+
 [c]
 format = '\[[$symbol( ($name-)$version)]($style)\]'
 version_format = "$raw"
