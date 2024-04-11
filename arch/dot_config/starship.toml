@@ -123,8 +123,9 @@ symbol = "󰞀"                            # nf-md-shield_half_full
 format = '\[[$symbol unlock]($style)\]'
 
 [custom.proxy]
-command = '''sed --expression 's@^.*://@@' --expression 's@/$@@g' <<< "$HTTPS_PROXY"'''
-when = 'test -n "$HTTPS_PROXY"'
+command = "gfw now --color=always"
+when = 'test -n "$https_proxy"'
 shell = "sh"
-symbol = "󰖟"                                                                            # nf-md-web
-format = '\[[$symbol $output]($style)\]'
+symbol = "󰖟"                       # nf-md-web
+style = ""
+format = '\[[$output]($style)\]'

@@ -29,7 +29,7 @@ url = "https://github.com/liblaf/claps/releases/download/dev/cf-x86_64-unknown-l
 executable = true
 refreshPeriod = "168h"
 type = "file"
-url = "https://github.com/liblaf/claps/releases/download/dev/gfw-x86_64-unknown-linux-gnu"
+url = "https://github.com/liblaf/rust-cli/releases/download/dev/gfw-x86_64-unknown-linux-gnu"
 
 [".local/bin/pch"]
 executable = true
