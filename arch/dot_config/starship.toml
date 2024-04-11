@@ -6,7 +6,7 @@ disabled = true
 [bun]
 format = '\[[$symbol ($version)]($style)\]'
 version_format = "$raw"
-symbol = "󰳮"
+symbol = ""                                # nf-fa-face_laugh
 
 [c]
 format = '\[[$symbol( ($name-)$version)]($style)\]'
