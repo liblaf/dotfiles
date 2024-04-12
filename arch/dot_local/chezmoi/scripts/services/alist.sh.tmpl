@@ -11,4 +11,5 @@ exit 0
 sudo systemctl restart alist.service
 sudo systemctl stop alist.service
 sudo dasel put --file="/var/lib/alist/config.json" --selector=".site_url" --value="https://alist.liblaf.me"
-sudo systemctl enable --now alist.service
+# TODO: enable AList
+sudo systemctl disable --now alist.service

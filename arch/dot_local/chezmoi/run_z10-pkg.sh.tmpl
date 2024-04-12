@@ -1,0 +1,15 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+sudo pacman --sync --sysupgrade --refresh --noconfirm
+sudo pacman --sync --needed --noconfirm archlinuxcn-keyring
+sed --expression="s/\s*#.*$//g" --expression="/^$/d" "$HOME/.local/chezmoi/pkg/pacman.txt" |
+  sudo pacman --sync --needed --noconfirm -
+sed --expression="s/\s*#.*$//g" --expression="/^$/d" "$HOME/.local/chezmoi/pkg/group.txt" |
+  sudo pacman --sync --groups - |
+  awk '{ print $2 }' |
+  sudo pacman --sync --needed --noconfirm -
+sed --expression="s/\s*#.*$//g" --expression="/^$/d" "$HOME/.local/chezmoi/pkg/aur.txt" |
+  yay --aur --devel --useask=false --sync --needed --noconfirm -

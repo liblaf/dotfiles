@@ -52,7 +52,7 @@ symbol = ""                             # nf-oct-git_branch
 
 [git_status]
 format = '(\[[$all_status$ahead_behind]($style)\])'
-ahead = ""                                         # nf-fa-up_long
+ahead = ""                                         # nf-fa-arrow_up_long
 behind = ""                                        # nf-fa-down_long
 diverged = ""                                      # nf-fa-up_down
 renamed = ""                                       # nf-fa-angles_right
