@@ -33,6 +33,7 @@ extensions=(
   pflannery.vscode-versionlens
   PKief.material-icon-theme
   redhat.vscode-yaml
+  SharzyL.cjk-word-handler
   shd101wyy.markdown-preview-enhanced
   streetsidesoftware.code-spell-checker
   sumneko.lua

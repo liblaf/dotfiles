@@ -5,9 +5,9 @@ set -o pipefail
 
 tmp=$(mktemp --suffix=".json")
 trap 'rm --force "$tmp"' EXIT
-uuid=$(bw get notes API_UUID)
+uuid=$(bw get notes MY_UUID)
 listen_port=$(gsettings get org.gnome.system.proxy.https port)
-wget --output-document="$tmp" "https://api.liblaf.me/convert/sing-box/$uuid?listen_port=$listen_port"
+wget --output-document="$tmp" "https://api.liblaf.me/sub/convert/sing-box/$uuid?listen_port=$listen_port"
 prettier --write "$tmp"
 sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" /etc/sing-box/config.json
 sudo systemctl restart sing-box.service
