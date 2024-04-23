@@ -7,6 +7,7 @@ extensions=(
   # DavidAnson.vscode-markdownlint
   # golang.go
   # nvarner.typst-lsp
+  # task.vscode-task
   1YiB.rust-bundle
   aaron-bond.better-comments
   bmalehorn.vscode-fish
@@ -38,7 +39,6 @@ extensions=(
   streetsidesoftware.code-spell-checker
   sumneko.lua
   tamasfe.even-better-toml
-  task.vscode-task
   timonwong.shellcheck
   unifiedjs.vscode-mdx
   usernamehw.errorlens

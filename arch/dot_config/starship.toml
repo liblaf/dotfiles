@@ -53,8 +53,8 @@ symbol = ""                             # nf-oct-git_branch
 [git_status]
 format = '(\[[$all_status$ahead_behind]($style)\])'
 ahead = ""                                         # nf-fa-arrow_up_long
-behind = ""                                        # nf-fa-down_long
-diverged = ""                                      # nf-fa-up_down
+behind = ""                                        # nf-fa-arrow_down_long
+diverged = ""                                      # nf-fa-arrows_up_down
 renamed = ""                                       # nf-fa-angles_right
 deleted = ""                                       # nf-fa-close
 
