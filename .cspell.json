@@ -139,6 +139,7 @@
     "shfmt",
     "simpleitk",
     "snmp",
+    "srcext",
     "sumneko",
     "supervisord",
     "sysroot",
