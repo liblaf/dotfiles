@@ -4,12 +4,10 @@ import subprocess
 from typing import Any, TypedDict
 
 PKGS: list[str] = [
-    "conda-lock",
     "git+https://github.com/liblaf/thu-learn-downloader.git",
     "https://github.com/liblaf/ai-commit-cli/releases/download/dev/ai_commit_cli.tar.gz",
-    "https://github.com/liblaf/claps/releases/download/dev/claps.tar.gz",
-    "poetry",
     "toml-sort",
+    "toolong",
 ]
 
 
