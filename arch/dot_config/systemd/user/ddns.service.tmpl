@@ -1,0 +1,6 @@
+[Service]
+ExecStart = %h/.local/bin/cf dns update --telepush-token "{{(bitwarden "item" "Telepush").notes}}" --token "{{(bitwarden "item" "Cloudflare").notes}}"
+TimeoutSec = 1min
+
+[Unit]
+Description = DDNS

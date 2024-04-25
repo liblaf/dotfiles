@@ -1,0 +1,9 @@
+[Install]
+WantedBy = timers.target
+
+[Timer]
+OnStartupSec = 0
+OnUnitInactiveSec = 1min
+
+[Unit]
+Description = DDNS
