@@ -23,7 +23,7 @@ url = "https://github.com/liblaf/claps/releases/download/dev/bws-x86_64-unknown-
 executable = true
 refreshPeriod = "168h"
 type = "file"
-url = "https://github.com/liblaf/claps/releases/download/dev/cf-x86_64-unknown-linux-gnu"
+url = "https://github.com/liblaf/rust-cli/releases/download/dev/cf-x86_64-unknown-linux-gnu"
 
 [".local/bin/gfw"]
 executable = true
