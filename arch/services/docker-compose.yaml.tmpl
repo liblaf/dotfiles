@@ -6,7 +6,7 @@ services:
     container_name: gpt_academic
     image: "{{.mirrors.docker_ghcr}}/binary-husky/gpt_academic_nolocal:master"
     environment:
-      API_KEY: '{{(bitwarden "item" "OPENAI_API_KEY").notes}}'
+      API_KEY: '{{(bitwarden "item" "OpenAI").notes}}'
       USE_PROXY: "True"
       proxies: '{"http": "http://172.17.0.1:64393", "https": "http://172.17.0.1:64393"}'
       DEFAULT_WORKER_NUM: 16
