@@ -1,5 +1,6 @@
 [Service]
 ExecStart = bash %h/.local/bin/restic-backup.sh
+Restart = on-failure
 
 [Unit]
 Description = Restic Backup
