@@ -17,6 +17,7 @@ systemctl --user enable --now ddns.timer
 systemctl --user enable --now glances.service
 systemctl --user enable --now pueued.service
 systemctl --user enable --now rclone-onedrive.service
+systemctl --user enable --now restic.timer
 systemctl --user enable --now warp-taskbar.service
 
 # {{if .hardware.nvidia}}
