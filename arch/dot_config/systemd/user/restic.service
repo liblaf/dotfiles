@@ -1,0 +1,5 @@
+[Service]
+ExecStart = bash %h/.local/bin/restic-backup.sh
+
+[Unit]
+Description = Restic Backup

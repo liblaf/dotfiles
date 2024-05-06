@@ -1,0 +1,9 @@
+[Install]
+WantedBy = timers.target
+
+[Timer]
+OnStartupSec = 0
+OnUnitActiveSec = 1h
+
+[Unit]
+Description = Restic Backup

@@ -1,10 +1,12 @@
 {
   "files.associations": {
-    "*.conf.tmpl": "properties",
-    "*.fish.tmpl": "fish",
-    "*.sh.tmpl": "shellscript",
-    "*.toml.tmpl": "toml",
-    "*.yaml.tmpl": "yaml"
+    "*.conf*": "properties",
+    "*.fish*": "fish",
+    "*.service*": "properties",
+    "*.sh*": "shellscript",
+    "*.timer*": "properties",
+    "*.toml*": "toml",
+    "*.yaml*": "yaml"
   },
   "python.analysis.typeCheckingMode": "strict",
   "yaml.schemas": {

@@ -4,8 +4,8 @@
 WantedBy = default.target
 
 [Service]
-ExecStart  = glances --webserver
-Restart    = always
+ExecStart = glances --webserver
+Restart = always
 RestartSec = 5
 
 [Unit]
