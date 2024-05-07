@@ -1,3 +1,3 @@
 #!/usr/bin/fish
 
-pnpm install-completion fish
+pnpm completion fish >"pnpm.fish"
