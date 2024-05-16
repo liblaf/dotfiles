@@ -4,8 +4,8 @@ import subprocess
 from typing import Any, TypedDict
 
 PKGS: list[str] = [
+    "git+https://github.com/liblaf/ai-commit-cli.git",
     "git+https://github.com/liblaf/thu-learn-downloader.git",
-    "https://github.com/liblaf/ai-commit-cli/releases/download/dev/ai_commit_cli-0.7.0-py3-none-any.whl",
     "toml-sort",
     "toolong",
 ]
