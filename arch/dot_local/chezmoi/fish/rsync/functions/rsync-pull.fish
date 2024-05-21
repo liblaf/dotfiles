@@ -3,5 +3,5 @@ function rsync-pull --argument-names remote
         echo "Usage: $(status function) <REMOTE>"
         return 1
     end
-    rsync "$remote:$PWD/" "$PWD"
+    command rsync --info="progress2" --archive --delete --force --stats --human-readable --progress --itemize-changes "$remote:$PWD/" "$PWD"
 end
