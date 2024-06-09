@@ -9,9 +9,5 @@ pkg_list=(
   speedscope
 )
 
-export PNPM_HOME="$HOME/.local/share/pnpm"
-mkdir --parents --verbose "$PNPM_HOME"
-
-pnpm env use --global lts
-pnpm add --global "${pkg_list[@]}"
-pnpm update --global
+bun add --global "${pkg_list[@]}"
+bun update --global --latest
