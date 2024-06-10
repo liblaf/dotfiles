@@ -117,8 +117,8 @@ tesseract-data-eng
 {{end}}
 
 {{if .hardware.nvidia}}
+# libva-vdpau-driver # VA-API
 cuda
-libva-vdpau-driver # VA-API
 nvidia
 opencl-nvidia # OpenCL
 {{else if .hardware.intel}}

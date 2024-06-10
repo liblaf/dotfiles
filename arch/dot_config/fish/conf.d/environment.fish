@@ -1,3 +1,4 @@
+fish_add_path --global "$HOME/.bun/bin"
 fish_add_path --global "$HOME/.local/bin"
 for config in $HOME/.config/environment.d/*.conf
     if test ! "$config" -ef "$HOME/.config/environment.d/path.conf"

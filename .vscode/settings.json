@@ -8,8 +8,5 @@
     "*.toml*": "toml",
     "*.yaml*": "yaml"
   },
-  "python.analysis.typeCheckingMode": "strict",
-  "yaml.schemas": {
-    "https://taskfile.dev/schema.json": "taskfiles/*.yaml"
-  }
+  "python.analysis.typeCheckingMode": "standard"
 }
