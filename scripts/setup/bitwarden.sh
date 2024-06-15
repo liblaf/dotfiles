@@ -14,13 +14,16 @@ if ! has bw; then
 fi
 
 if ! bw login --check; then
-  bw login
+  unset BW_SESSION
+  BW_SESSION=$(bw login --raw)
+  export BW_SESSION
   bw login --check
 fi
 
 bw sync
 
 if ! bw unlock --check; then
+  unset BW_SESSION
   BW_SESSION=$(bw unlock --raw)
   export BW_SESSION
   bw unlock --check
