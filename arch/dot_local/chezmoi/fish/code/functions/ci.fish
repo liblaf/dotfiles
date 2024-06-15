@@ -1,6 +1,6 @@
 function ci --description="code interactive"
-    set --function path_ (zoxide query --interactive)
-    if test -e "$path_"
-        direnv exec "$path_" code "$path_"
+    set --function _path (zoxide query --interactive)
+    if test -e "$_path"
+        direnv exec "$_path" code "$_path"
     end
 end

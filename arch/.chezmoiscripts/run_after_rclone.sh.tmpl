@@ -1,0 +1,27 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+function check() {
+  rclone about "$1:"
+}
+
+if check business; then
+  echo "$(tput bold)$(tput setaf 10)Onedrive Business already configured$(tput sgr0)"
+else
+  export RCLONE_ONEDRIVE_CLIENT_ID='{{(bitwardenFields "item" "Rclone Business").client_id.value}}'
+  export RCLONE_ONEDRIVE_CLIENT_SECRET='{{(bitwardenFields "item" "Rclone Business").client_secret.value}}'
+  notify-send --transient "Config Onedrive Business ..."
+  rclone config create business onedrive
+fi
+
+if check personal; then
+  echo "$(tput bold)$(tput setaf 10)Onedrive Personal already configured$(tput sgr0)"
+else
+  export RCLONE_ONEDRIVE_CLIENT_ID='{{(bitwardenFields "item" "Rclone Personal").client_id.value}}'
+  export RCLONE_ONEDRIVE_CLIENT_SECRET='{{(bitwardenFields "item" "Rclone Personal").client_secret.value}}'
+  export RCLONE_ONEDRIVE_DRIVE_ID='{{(bitwardenFields "item" "Rclone Personal").drive_id.value}}'
+  notify-send --transient "Config Onedrive Personal ..."
+  rclone config create personal onedrive
+fi
