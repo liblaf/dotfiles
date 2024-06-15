@@ -94,6 +94,7 @@
     "pueued",
     "punct",
     "pushd",
+    "pydocstyle",
     "pyenv",
     "pygments",
     "pypi",
