@@ -14,6 +14,7 @@ ignore = [
   "D1",
   "ERA",
   "FIX",
+  "INP",
   "ISC",
   "PLR09",
   "PLR2004",
