@@ -3,11 +3,12 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+systemctl --user enable --now pueued.service
 pueue reset --force
+pueue group add "chezmoi" || true
+pueue parallel --group "chezmoi" 8
 
 readarray -t scripts < <(find "$HOME/.local/chezmoi/scripts" -type f)
-tmpdir=$(mktemp --directory)
-trap 'rm --force --recursive "$tmpdir"' EXIT
 for script in "${scripts[@]}"; do
   case $script in
     *.fish) pueue add --group "chezmoi" "fish \"$script\" < /dev/null" ;;

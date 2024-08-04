@@ -23,5 +23,5 @@ else
   export RCLONE_ONEDRIVE_CLIENT_SECRET='{{(bitwardenFields "item" "Rclone Personal").client_secret.value}}'
   export RCLONE_ONEDRIVE_DRIVE_ID='{{(bitwardenFields "item" "Rclone Personal").drive_id.value}}'
   notify-send --transient "Config Onedrive Personal ..."
-  rclone config create personal onedrive
+  rclone config create personal onedrive config_driveid="$RCLONE_ONEDRIVE_DRIVE_ID"
 fi
