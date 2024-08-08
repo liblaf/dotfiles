@@ -30,6 +30,12 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/rust-cli/releases/download/dev/cf-x86_64-unknown-linux-gnu"
 
+[".local/bin/geo"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/MetaCubeX/geo/releases/latest/download/geo-linux-amd64"
+
 [".local/bin/gfw"]
 executable = true
 refreshPeriod = "168h"
