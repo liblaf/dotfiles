@@ -3,12 +3,12 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-UUID='{{(bitwarden "item" "UUID").notes}}'
+ID='{{(bitwardenFields "item" "Telegram").chat_id.value}}'
 
 tmp=$(mktemp --suffix=".json")
 trap 'rm --force "$tmp"' EXIT
-listen_port=$(gsettings get org.gnome.system.proxy.https port)
-wget --output-document="$tmp" "https://api.liblaf.me/sub/convert/sing-box/$UUID?listen_port=$listen_port"
+port=$(gsettings get org.gnome.system.proxy.https port)
+wget --output-document="$tmp" "https://api.liblaf.me/sub/$ID/sing-box?port=$port"
 prettier --write "$tmp"
 sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" /etc/sing-box/config.json
 sudo systemctl restart sing-box.service

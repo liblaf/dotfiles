@@ -4,9 +4,11 @@ import subprocess
 from typing import Any, TypedDict
 
 PKGS: list[str] = [
+    "dvc",
     "git+https://github.com/liblaf/ai-commit-cli.git",
     "git+https://github.com/liblaf/thu-learn-downloader.git",
     "meshio[all]",
+    "py-spy",
     "toml-sort",
 ]
 

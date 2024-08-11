@@ -30,6 +30,12 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/rust-cli/releases/download/dev/cf-x86_64-unknown-linux-gnu"
 
+[".local/bin/fTetWild"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/pkg/releases/download/fTetWild/fTetWild-X64-Linux"
+
 [".local/bin/geo"]
 executable = true
 refreshPeriod = "168h"
@@ -71,21 +77,6 @@ refreshPeriod = "168h"
 stripComponents = 1
 type = "archive"
 url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar.gz"
-
-[".local/chezmoi/zotero/night.xpi"]
-refreshPeriod = "168h"
-type = "file"
-url = "https://github.com/tefkah/zotero-night/releases/latest/download/night.xpi"
-
-[".local/chezmoi/zotero/zotero-pdf-translate.xpi"]
-refreshPeriod = "168h"
-type = "file"
-url = "https://github.com/windingwind/zotero-pdf-translate/releases/latest/download/zotero-pdf-translate.xpi"
-
-[".local/chezmoi/zotero/zotero-reference.xpi"]
-refreshPeriod = "168h"
-type = "file"
-url = "https://github.com/MuiseDestiny/zotero-reference/releases/latest/download/zotero-reference.xpi"
 
 [".local/share/fonts/Win11"]
 refreshPeriod = "168h"
