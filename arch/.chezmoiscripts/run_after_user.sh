@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-user_shell=$(getent passwd "$USER" | awk --field-separator=":" '{ print $NF }')
+user_shell=$(getent passwd "$USER" | cut --delimiter ':' --fields 7)
 if [[ $user_shell != /usr/bin/fish ]]; then
   chsh --shell /usr/bin/fish
 fi
@@ -20,4 +20,5 @@ function group-add() {
 group-add docker
 group-add vcpkg
 
+# https://wiki.archlinux.org/title/Systemd/User#Automatic_start-up_of_systemd_user_instances
 loginctl enable-linger "$USER"

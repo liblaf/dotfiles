@@ -7,10 +7,6 @@ if status is-interactive
         alias icat "wezterm imgcat"
     else if test "$TERM" = xterm-kitty
         alias ssh "kitty +kitten ssh"
-        if type --query magick
-            alias icat "kitten icat --engine magick"
-        else
-            alias icat "kitten icat"
-        end
+        alias icat "kitten icat"
     end
 end

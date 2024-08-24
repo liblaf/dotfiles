@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-remote=${remote:-business:archive}
+remote=${remote:-"business:/archive"}
 source=$(realpath -- "$1")
 
 pushd -- "$source"

@@ -1,8 +1,0 @@
-{
-  "injection": [
-    {
-      "archive": "/live-injection-1.0/live_injection.tar.gz",
-      "image": "/archlinux-x86_64.iso"
-    }
-  ]
-}

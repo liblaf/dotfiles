@@ -3,6 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# https://wiki.archlinux.org/title/Fwupd#Usage
 fwupdmgr get-devices --assume-yes         # display all devices detected by fwupd
 fwupdmgr refresh --assume-yes || true     # download the latest metadata from LVFS
 fwupdmgr get-updates --assume-yes || true # list updates available for any devices on the system

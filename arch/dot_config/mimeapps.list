@@ -23,6 +23,7 @@ image/x-portable-graymap=org.gnome.Loupe.desktop
 image/x-portable-pixmap=org.gnome.Loupe.desktop
 image/x-qoi=org.gnome.Loupe.desktop
 image/x-tga=org.gnome.Loupe.desktop
+inode/directory=org.gnome.Nautilus.desktop
 text/html=microsoft-edge.desktop
 video/3gp=vlc.desktop
 video/3gpp=vlc.desktop
