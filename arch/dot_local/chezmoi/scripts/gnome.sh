@@ -50,7 +50,9 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DYNAMIC'
 gsettings set org.gnome.shell.extensions.vitals fixed-widths false
-gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__network-tx_max__", "__temperature_max__"]'
+gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__network-tx_max__", "__temperature_max__", "_gpu#1_utilization_"]'
+gsettings set org.gnome.shell.extensions.vitals include-static-gpu-info true
+gsettings set org.gnome.shell.extensions.vitals show-gpu true
 
 extensions=(
   apps-menu@gnome-shell-extensions.gcampax.github.com

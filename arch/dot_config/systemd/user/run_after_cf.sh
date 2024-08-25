@@ -3,4 +3,4 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-cf dns install
+~/.local/bin/cf dns install

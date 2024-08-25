@@ -2,7 +2,13 @@ import hashlib
 import pathlib
 from collections.abc import Sequence
 
-PUBLIC_SERVICES: list[str] = ["AList", "GPT Academic", "Jellyfin", "Stirling-PDF"]
+PUBLIC_SERVICES: list[str] = [
+    "AList",
+    "GPT Academic",
+    "Jellyfin",
+    "Stirling-PDF",
+    "WebDAV",
+]
 PRIVATE_SERVICES: list[str] = ["sing-box"]
 
 

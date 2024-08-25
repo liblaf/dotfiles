@@ -4,7 +4,7 @@ services:
   # {{if .service.gpt_academic}}
   gpt_academic:
     container_name: gpt_academic
-    image: ghcr.io/binary-husky/gpt_academic_nolocal:master
+    image: "{{.mirrors.ghcr}}/binary-husky/gpt_academic_nolocal:master"
     environment:
       API_KEY: '{{(bitwarden "item" "OpenAI").notes}}'
       USE_PROXY: "True"

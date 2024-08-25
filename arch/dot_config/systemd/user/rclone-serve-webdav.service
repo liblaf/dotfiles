@@ -1,0 +1,10 @@
+[Install]
+WantedBy = default.target
+
+[Service]
+ExecStart = rclone serve webdav "%h/SeaDrive/My Libraries/My Library/" --addr ":49668" --htpasswd "%h/.config/services/webdav/htpasswd" --vfs-cache-mode full
+Restart = always
+RestartSec = 5
+
+[Unit]
+Description = Rclone Serve WebDAV
