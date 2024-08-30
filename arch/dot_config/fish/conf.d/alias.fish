@@ -4,9 +4,7 @@ if status is-interactive
         echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
     end
     abbr --add dotdot --regex '^\.\.+$' --function multicd
-end
 
-if status is-interactive
     # https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/directories.zsh
     alias md 'mkdir -p'
     alias rd rmdir
@@ -16,9 +14,7 @@ if status is-interactive
     alias l 'ls -lah'
     alias ll 'ls -lh'
     alias la 'ls -lAh'
-end
 
-if status is-interactive
     abbr --add hx helix
     set apps typora
     for app in $apps

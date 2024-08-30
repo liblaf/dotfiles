@@ -8,7 +8,10 @@ ID='{{(bitwardenFields "item" "Telegram").chat_id.value}}'
 tmp=$(mktemp --suffix=".json")
 trap 'rm --force "$tmp"' EXIT
 port=$(gsettings get org.gnome.system.proxy.https port)
-wget --output-document="$tmp" "https://api.liblaf.me/sub/$ID/sing-box?port=$port"
+if ((port == 0)); then
+  port='{{.proxy.port}}'
+fi
+xhs --download --output "$tmp" "https://api.liblaf.me/sub/$ID/sing-box?port=$port"
 prettier --write "$tmp"
 sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" /etc/sing-box/config.json
 sudo systemctl restart sing-box.service

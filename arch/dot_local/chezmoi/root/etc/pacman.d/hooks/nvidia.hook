@@ -5,12 +5,15 @@ Operation = Install
 Operation = Upgrade
 Operation = Remove
 Type = Package
+# Uncomment the installed NVIDIA package
 Target = nvidia
+# Target = nvidia-open
+# Target = nvidia-lts
+# If running a different kernel, modify below to match
 Target = linux
-# Change the linux part above if a different kernel is used
 
 [Action]
-Description = Update NVIDIA module in initcpio
+Description = Updating NVIDIA module in initcpio
 Depends = mkinitcpio
 When = PostTransaction
 NeedsTargets

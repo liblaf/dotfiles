@@ -3,6 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# TODO: change to SeaDrive
 remote=${remote:-"business:/archive"}
 source=$(realpath -- "$1")
 
