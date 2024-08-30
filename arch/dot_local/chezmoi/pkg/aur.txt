@@ -1,0 +1,15 @@
+auth-thu-bin
+bun-bin
+clipboard-bin
+dasel-bin
+doggo-bin
+downgrade
+electron22-bin # piclist-bin
+geekbench
+jnv-bin
+kalker-bin
+noto-fonts-sc
+piclist-bin
+pipxu
+typora
+wps-office

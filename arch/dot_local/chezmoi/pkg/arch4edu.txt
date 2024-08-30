@@ -1,0 +1,6 @@
+arch4edu-keyring
+cloudflare-warp-bin
+meshlab
+microsoft-edge-stable-bin
+visual-studio-code-bin
+wemeet-bin

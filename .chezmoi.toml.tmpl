@@ -12,6 +12,7 @@ anaconda_extra = "https://mirrors.cernet.edu.cn/anaconda-extra"
 arch4edu = "https://mirrors.cernet.edu.cn/arch4edu/$arch"
 archlinux = "https://mirrors.cernet.edu.cn/archlinux/$repo/os/$arch"
 archlinuxcn = "https://mirrors.cernet.edu.cn/archlinuxcn/$arch"
+bioarchlinux = "https://mirrors.cernet.edu.cn/bioarchlinux/$arch"
 crates_io_index = "sparse+https://mirrors.cernet.edu.cn/crates.io-index/"
 ghcr = "ghcr.nju.edu.cn"
 nodejs_release = "https://mirrors.cernet.edu.cn/nodejs-release"
@@ -26,9 +27,7 @@ mobile = {{default "false" (env "NVIDIA_MOBILE")}}
 port = 64393
 
 [data.service]
-alist = {{$server}}
 gpt_academic = {{$server}}
-jellyfin = {{$server}}
 Stirling_PDF = {{$server}}
 webdav = true
 

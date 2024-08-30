@@ -1,0 +1,11 @@
+3dslicer
+archlinuxcn-keyring
+downgrade
+git-extras
+gnome-shell-extension-dash-to-dock
+micromamba
+seadrive-gui
+sing-box
+ventoy
+yay
+zotero-bin

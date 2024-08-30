@@ -1,0 +1,139 @@
+# ---------------------------------- System ---------------------------------- #
+os-prober
+
+# --------------------------------- Hardware --------------------------------- #
+exfatprogs
+fwupd
+libva-utils # VA-API
+vdpauinfo   # VDPAU
+
+# {{if .hardware.nvidia}}
+cuda
+libva-nvidia-driver
+nvidia
+nvidia-container-toolkit
+nvidia-utils  # VDPAU
+opencl-nvidia # OpenCL
+# {{else if .hardware.intel}}
+intel-compute-runtime # OpenCL
+intel-media-driver    # VA-API
+libvdpau-va-gl        # VDPAU
+# {{end}}
+
+# ---------------------------------- Service --------------------------------- #
+cloudflared
+docker
+netdata
+ufw
+
+# ------------------------------------ CLI ----------------------------------- #
+bat
+bitwarden-cli
+btop
+chezmoi
+csvlens
+difftastic
+direnv
+docker-compose
+duf
+eza
+fastfetch
+fd
+fzf
+gdu
+git
+github-cli
+glow
+gping
+helix
+httpie
+hyperfine
+imagemagick
+jless
+lnav
+miniserve
+ouch
+pandoc-cli
+pre-commit
+prettier
+pueue
+rclone
+restic
+ripgrep
+rsync
+sd
+speedtest-cli
+starship
+taplo-cli
+tokei
+trash-cli
+vhs
+wrangler
+xh
+yazi
+zoxide
+
+# ---------------------------------- Desktop --------------------------------- #
+autorandr
+blender
+gimp
+gnome-shell-extension-appindicator
+gnome-shell-extension-vitals
+gnome-shell-extensions
+gnome-themes-extra
+ibus-libpinyin
+inkscape
+kitty
+obs-studio
+obsidian
+paraview
+power-profiles-daemon
+telegram-desktop
+vlc
+
+# ----------------------------------- Fonts ---------------------------------- #
+noto-fonts
+noto-fonts-emoji
+noto-fonts-extra
+otf-monaspace-nerd
+ttf-cascadia-code-nerd
+
+# ----------------------------------- C/C++ ---------------------------------- #
+bear
+clang
+cmake
+gdb
+
+# ----------------------------------- LaTeX ---------------------------------- #
+biber
+
+# ---------------------------------- Python ---------------------------------- #
+pixi
+python-httpx
+python-socksio # python-httpx[socks]
+ruff
+rye
+uv
+
+# ----------------------------------- Rust ----------------------------------- #
+rustup
+
+# ----------------------------------- Shell ---------------------------------- #
+fish
+fisher
+shellcheck
+shfmt
+
+# ----------------------------------- Misc ----------------------------------- #
+python-pygments   # LaTeX minted
+perl-file-homedir # latexindent.pl
+perl-yaml-tiny    # latexindet.pl
+ffmpegthumbnailer # yazi
+jq                # yazi
+p7zip             # yazi
+poppler           # yazi
+
+# {{if .service.Stirling_PDF}}
+tesseract-data-chi_sim
+tesseract-data-eng
+# {{end}}

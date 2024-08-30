@@ -3,13 +3,37 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+function strip-comments() {
+  repo=$1
+  file=$2
+  if [[ -z $repo ]]; then
+    sed --expression='s/\s*#.*$//' --expression='/^$/d' "$file"
+  else
+    sed --expression='s/\s*#.*$//' --expression='/^$/d' --expression="s|^|$repo/|" "$file"
+  fi
+}
+
 sudo pacman --sync --sysupgrade --refresh --noconfirm
-sudo pacman --sync --needed --noconfirm archlinuxcn-keyring
-sed --expression="s/\s*#.*$//g" --expression="/^$/d" "$HOME/.local/chezmoi/pkg/pacman.txt" |
+
+strip-comments core "$HOME/.local/chezmoi/pkg/core.txt" |
   sudo pacman --sync --needed --noconfirm -
-sed --expression="s/\s*#.*$//g" --expression="/^$/d" "$HOME/.local/chezmoi/pkg/group.txt" |
+strip-comments extra "$HOME/.local/chezmoi/pkg/extra.txt" |
+  sudo pacman --sync --needed --noconfirm -
+strip-comments '' "$HOME/.local/chezmoi/pkg/group.txt" |
   sudo pacman --sync --groups - |
   awk '{ print $2 }' |
   sudo pacman --sync --needed --noconfirm -
-sed --expression="s/\s*#.*$//g" --expression="/^$/d" "$HOME/.local/chezmoi/pkg/aur.txt" |
+
+sudo pacman-key --lsign-key farseerfc@archlinux.org
+sudo pacman --sync --needed --noconfirm archlinuxcn/archlinuxcn-keyring
+strip-comments archlinuxcn "$HOME/.local/chezmoi/pkg/archlinuxcn.txt" |
+  sudo pacman --sync --needed --noconfirm -
+
+sudo pacman-key --recv-keys 7931B6D628C8D3BA
+sudo pacman-key --finger 7931B6D628C8D3BA
+sudo pacman-key --lsign-key 7931B6D628C8D3BA
+strip-comments arch4edu "$HOME/.local/chezmoi/pkg/arch4edu.txt" |
+  sudo pacman --sync --needed --noconfirm -
+
+strip-comments aur "$HOME/.local/chezmoi/pkg/aur.txt" |
   yay --aur --devel --useask=false --sync --needed --noconfirm -

@@ -1,0 +1,4 @@
+grub
+logrotate
+man-db
+man-pages

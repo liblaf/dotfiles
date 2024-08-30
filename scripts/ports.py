@@ -3,13 +3,13 @@ import pathlib
 from collections.abc import Sequence
 
 PUBLIC_SERVICES: list[str] = [
-    "AList",
     "GPT Academic",
-    "Jellyfin",
     "Stirling-PDF",
+]
+PRIVATE_SERVICES: list[str] = [
+    "sing-box",
     "WebDAV",
 ]
-PRIVATE_SERVICES: list[str] = ["sing-box"]
 
 
 def hashsum(s: str) -> int:
