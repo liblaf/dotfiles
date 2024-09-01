@@ -13,6 +13,14 @@ function strip-comments() {
   fi
 }
 
+# https://mirrors.tuna.tsinghua.edu.cn/help/archlinuxcn/
+sudo pacman-key --lsign-key farseerfc@archlinux.org
+sudo pacman --sync --needed --noconfirm archlinuxcn/archlinuxcn-keyring
+# https://mirrors.tuna.tsinghua.edu.cn/help/arch4edu/
+sudo pacman-key --recv-keys 7931B6D628C8D3BA
+sudo pacman-key --finger 7931B6D628C8D3BA
+sudo pacman-key --lsign-key 7931B6D628C8D3BA
+
 sudo pacman --sync --sysupgrade --refresh --noconfirm
 
 strip-comments core "$HOME/.local/chezmoi/pkg/core.txt" |
@@ -23,17 +31,9 @@ strip-comments '' "$HOME/.local/chezmoi/pkg/group.txt" |
   sudo pacman --sync --groups - |
   awk '{ print $2 }' |
   sudo pacman --sync --needed --noconfirm -
-
-sudo pacman-key --lsign-key farseerfc@archlinux.org
-sudo pacman --sync --needed --noconfirm archlinuxcn/archlinuxcn-keyring
 strip-comments archlinuxcn "$HOME/.local/chezmoi/pkg/archlinuxcn.txt" |
   sudo pacman --sync --needed --noconfirm -
-
-sudo pacman-key --recv-keys 7931B6D628C8D3BA
-sudo pacman-key --finger 7931B6D628C8D3BA
-sudo pacman-key --lsign-key 7931B6D628C8D3BA
 strip-comments arch4edu "$HOME/.local/chezmoi/pkg/arch4edu.txt" |
   sudo pacman --sync --needed --noconfirm -
-
 strip-comments aur "$HOME/.local/chezmoi/pkg/aur.txt" |
   yay --aur --devel --useask=false --sync --needed --noconfirm -

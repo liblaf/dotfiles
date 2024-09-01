@@ -11,3 +11,4 @@ sudo ufw allow from 172.16.0.0/12
 sudo ufw allow 32768:60999/tcp
 sudo ufw allow 32768:60999/udp
 sudo ufw --force enable
+sudo systemctl enable --now ufw.service
