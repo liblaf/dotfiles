@@ -8,11 +8,6 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/init.fish"
 
-[".config/fish/functions/fisher.fish"]
-refreshPeriod = "168h"
-type = "file"
-url = "https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish"
-
 [".config/latexindent/latexindent.yaml"]
 refreshPeriod = "168h"
 type = "file"
@@ -29,6 +24,12 @@ executable = true
 refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/rust-cli/releases/download/dev/cf-x86_64-unknown-linux-gnu"
+
+[".local/bin/dlc"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/pkg/releases/download/domain-list-community/dlc-linux-amd64"
 
 [".local/bin/fTetWild"]
 executable = true

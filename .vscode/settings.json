@@ -2,6 +2,7 @@
   "files.associations": {
     "*.conf*": "properties",
     "*.fish*": "fish",
+    "*.json*": "json",
     "*.service*": "properties",
     "*.sh*": "shellscript",
     "*.timer*": "properties",

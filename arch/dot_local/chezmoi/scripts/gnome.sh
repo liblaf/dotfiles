@@ -36,6 +36,7 @@ gsettings set org.gnome.Evince.Default dual-page-odd-left true
 gsettings set org.gnome.Evince.Default enable-spellchecking true
 gsettings set org.gnome.Evince.Default inverted-colors true
 gsettings set org.gnome.Evince.Default sizing-mode 'automatic'
+gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'suspend'
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 900
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 900
@@ -49,6 +50,9 @@ gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'D
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DYNAMIC'
+gsettings set org.gnome.shell.extensions.power-profile-switcher ac 'performance'
+gsettings set org.gnome.shell.extensions.power-profile-switcher bat 'balanced'
+gsettings set org.gnome.shell.extensions.power-profile-switcher threshold 25
 gsettings set org.gnome.shell.extensions.vitals fixed-widths false
 gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__network-tx_max__", "__temperature_max__", "_gpu#1_utilization_"]'
 gsettings set org.gnome.shell.extensions.vitals include-static-gpu-info true
@@ -63,6 +67,7 @@ extensions=(
   # paperwm@paperwm.github.com
   appindicatorsupport@rgcjonas.gmail.com
   dash-to-dock@micxgx.gmail.com
+  power-profile-switcher@eliapasquali.github.io
   Vitals@CoreCoding.com
 )
 

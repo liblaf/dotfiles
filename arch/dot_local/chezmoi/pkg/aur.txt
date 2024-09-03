@@ -6,10 +6,10 @@ doggo-bin
 downgrade
 electron22-bin # piclist-bin
 geekbench
+gnome-shell-extension-power-profile-switcher-git
 jnv-bin
 kalker-bin
 noto-fonts-sc
 piclist-bin
-pipxu
 typora
 wps-office

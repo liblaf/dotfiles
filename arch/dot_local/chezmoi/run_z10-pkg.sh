@@ -36,4 +36,4 @@ strip-comments archlinuxcn "$HOME/.local/chezmoi/pkg/archlinuxcn.txt" |
 strip-comments arch4edu "$HOME/.local/chezmoi/pkg/arch4edu.txt" |
   sudo pacman --sync --needed --noconfirm -
 strip-comments aur "$HOME/.local/chezmoi/pkg/aur.txt" |
-  yay --aur --devel --useask=false --sync --needed --noconfirm -
+  yay --aur --removemake --devel --useask=false --sync --needed --noconfirm -
