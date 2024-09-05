@@ -1,7 +1,7 @@
 change_ps1 = false
 
 [mirrors]
-"https://conda.anaconda.org/anaconda" = ["{{.mirrors.anaconda}}/pkgs/main"]
+# "https://conda.anaconda.org/anaconda" = ["{{.mirrors.anaconda}}/pkgs/main"]
 "https://conda.anaconda.org/conda-forge" = ["{{.mirrors.anaconda}}/cloud/conda-forge"]
 "https://conda.anaconda.org/nvidia" = ["{{.mirrors.anaconda_extra}}/cloud/nvidia"]
 "https://conda.anaconda.org/pytorch" = ["{{.mirrors.anaconda}}/cloud/pytorch"]
@@ -9,3 +9,6 @@ change_ps1 = false
 
 [pypi-config]
 index-url = "{{.mirrors.pypi}}"
+
+[repodata-config]
+disable-bzip2 = true # https://github.com/SUSTech-CRA/issues/issues/21
