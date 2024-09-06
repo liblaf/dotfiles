@@ -23,17 +23,17 @@ sudo pacman-key --lsign-key 7931B6D628C8D3BA
 
 sudo pacman --sync --sysupgrade --refresh --noconfirm
 
-strip-comments core "$HOME/.local/chezmoi/pkg/core.txt" |
+strip-comments core "$HOME/.local/chezmoi/pkg/core.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments extra "$HOME/.local/chezmoi/pkg/extra.txt" |
+strip-comments extra "$HOME/.local/chezmoi/pkg/extra.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments '' "$HOME/.local/chezmoi/pkg/group.txt" |
+strip-comments '' "$HOME/.local/chezmoi/pkg/group.list" |
   sudo pacman --sync --groups - |
   awk '{ print $2 }' |
   sudo pacman --sync --needed --noconfirm -
-strip-comments archlinuxcn "$HOME/.local/chezmoi/pkg/archlinuxcn.txt" |
+strip-comments archlinuxcn "$HOME/.local/chezmoi/pkg/archlinuxcn.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments arch4edu "$HOME/.local/chezmoi/pkg/arch4edu.txt" |
+strip-comments arch4edu "$HOME/.local/chezmoi/pkg/arch4edu.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments aur "$HOME/.local/chezmoi/pkg/aur.txt" |
+strip-comments aur "$HOME/.local/chezmoi/pkg/aur.list" |
   yay --aur --removemake --devel --useask=false --sync --needed --noconfirm -

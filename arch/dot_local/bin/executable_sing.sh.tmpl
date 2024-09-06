@@ -9,7 +9,7 @@ tmp=$(mktemp --suffix=".json")
 trap 'rm --force "$tmp"' EXIT
 port=$(gsettings get org.gnome.system.proxy.https port)
 if ((port == 0)); then
-  port='{{.proxy.port}}'
+  port='{{.port.proxy}}'
 fi
 xhs --download --output "$tmp" "https://api.liblaf.me/sub/$ID/sing-box?port=$port"
 prettier --write "$tmp"

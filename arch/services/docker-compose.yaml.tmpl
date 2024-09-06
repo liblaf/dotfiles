@@ -8,9 +8,9 @@ services:
     environment:
       API_KEY: '{{(bitwarden "item" "OpenAI").notes}}'
       USE_PROXY: "True"
-      proxies: '{"http": "http://172.17.0.1:64393", "https": "http://172.17.0.1:64393"}'
+      proxies: '{"http": "http://172.17.0.1:{{.port.proxy}}", "https": "http://172.17.0.1:{{.port.proxy}}"}'
       DEFAULT_WORKER_NUM: 16
-      WEB_PORT: 52139
+      WEB_PORT: "{{.port.gpt_academic}}"
       LLM_MODEL: gpt-3.5-turbo-0125
       ADD_WAIFU: "True"
       AUTHENTICATION: |
@@ -21,12 +21,12 @@ services:
           )
         ]
     ports:
-      - 52139:52139
+      - "{{.port.gpt_academic}}:{{.port.gpt_academic}}"
     command: bash -c "python -u main.py"
     restart: unless-stopped
   # {{end}}
 
-  # {{if .service.Stirling_PDF}}
+  # {{if .service.stirling_pdf}}
   Stirling-PDF:
     container_name: Stirling-PDF
     image: frooodle/s-pdf:latest
@@ -44,7 +44,7 @@ services:
       timeout: 10s
       retries: 16
     ports:
-      - 42600:8080
+      - "{{.port.stirling_pdf}}:8080"
     volumes:
       - /usr/share/tessdata:/usr/share/tesseract-ocr/5/tessdata
     environment:

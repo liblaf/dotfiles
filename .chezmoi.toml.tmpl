@@ -24,13 +24,14 @@ rustup = "https://mirrors.cernet.edu.cn/rustup"
 [data.nvidia]
 mobile = {{default "false" (env "NVIDIA_MOBILE")}}
 
-[data.proxy]
-port = 64393
+[data.port]
+gpt_academic = {{env "PORT_GPT_ACADEMIC"}}
+proxy = {{env "PORT_PROXY"}}
+ssh = {{env "PORT_SSH"}}
+stirling_pdf = {{env "PORT_STIRLING_PDF"}}
+webdav = {{env "PORT_WEBDAV"}}
 
 [data.service]
 gpt_academic = {{$server}}
-Stirling_PDF = {{$server}}
+stirling_pdf = {{$server}}
 webdav = true
-
-[data.ssh]
-port = 60022

@@ -6,6 +6,7 @@ set -o pipefail
 pkg_list=(
   'meshio[all]'
   dvc
+  gnome-extensions-cli
   https://github.com/liblaf/ai-commit-cli.git
   https://github.com/liblaf/thu-learn-downloader.git
   py-spy

@@ -3,6 +3,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+gext install power-profile-switcher@eliapasquali.github.io
+
 gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin dictionaries '12;15'
 gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin enable-cloud-input true
 gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin init-full-punct false
@@ -54,9 +56,14 @@ gsettings set org.gnome.shell.extensions.power-profile-switcher ac 'performance'
 gsettings set org.gnome.shell.extensions.power-profile-switcher bat 'balanced'
 gsettings set org.gnome.shell.extensions.power-profile-switcher threshold 25
 gsettings set org.gnome.shell.extensions.vitals fixed-widths false
-gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__network-tx_max__", "__temperature_max__", "_gpu#1_utilization_"]'
 gsettings set org.gnome.shell.extensions.vitals include-static-gpu-info true
 gsettings set org.gnome.shell.extensions.vitals show-gpu true
+
+# {{if .hardware.nvidia}}
+gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__network-tx_max__", "__temperature_max__", "_gpu#1_utilization_"]'
+# {{else}}
+gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__network-tx_max__", "__temperature_max__"]'
+# {{end}}
 
 extensions=(
   apps-menu@gnome-shell-extensions.gcampax.github.com
@@ -71,6 +78,4 @@ extensions=(
   Vitals@CoreCoding.com
 )
 
-for extension in "${extensions[@]}"; do
-  gnome-extensions enable "$extension"
-done
+gext enable "${extensions[@]}"

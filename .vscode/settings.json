@@ -3,6 +3,7 @@
     "*.conf*": "properties",
     "*.fish*": "fish",
     "*.json*": "json",
+    "*.list*": "properties",
     "*.service*": "properties",
     "*.sh*": "shellscript",
     "*.timer*": "properties",
