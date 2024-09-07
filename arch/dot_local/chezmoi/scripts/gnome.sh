@@ -3,6 +3,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+export PATH="${HOME}/.local/bin:${PATH}"
+uv tool install --force gnome-extensions-cli
 gext install power-profile-switcher@eliapasquali.github.io
 
 gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin dictionaries '12;15'
