@@ -3,6 +3,11 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# TODO: remove this workaround
+for name in $(env | grep --ignore-case "_proxy" | awk -F = '{ print $1 }'); do
+  unset "$name"
+done
+
 pkg_list=(
   @biomejs/biome
   commitizen

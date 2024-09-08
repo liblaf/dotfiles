@@ -11,7 +11,7 @@ port=$(gsettings get org.gnome.system.proxy.https port)
 if ((port == 0)); then
   port='{{.port.proxy}}'
 fi
-xhs --download --output "$tmp" "https://api.liblaf.me/subs/$ID/sing-box?port=$port"
+https --download --output "$tmp" --verify no "https://api.liblaf.me/sub/$ID/sing-box" in.mixed.port=="$port" preset==linux
 prettier --write "$tmp"
 sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" /etc/sing-box/config.json
 sudo systemctl restart sing-box.service
