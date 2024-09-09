@@ -8,10 +8,10 @@ pueue reset --force
 pueue group add "chezmoi" || true
 pueue parallel --group "chezmoi" 8
 
-readarray -t scripts < <(find "$HOME/.local/chezmoi/scripts" -type f)
+readarray -t scripts < <(find ~/.local/chezmoi/scripts -type f)
 for script in "${scripts[@]}"; do
-  case $script in
-    *.fish) pueue add --group "chezmoi" "fish \"$script\" < /dev/null" ;;
+  case "$script" in
+    *.fish) pueue add --group "chezmoi" "fish '$script' < /dev/null" ;;
     *.py) pueue add --group "chezmoi" python "$script" ;;
     *.sh) pueue add --group "chezmoi" bash "$script" ;;
   esac
