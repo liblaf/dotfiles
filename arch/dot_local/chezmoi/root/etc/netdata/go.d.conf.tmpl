@@ -3,4 +3,6 @@ enabled: yes
 default_run: yes
 
 modules:
-  nvidia_smi: {{if .hardware.nvidia}}yes{{else}}no{{end}}
+  # {{if .hardware.nvidia}}
+  nvidia_smi: yes
+  # {{end}}

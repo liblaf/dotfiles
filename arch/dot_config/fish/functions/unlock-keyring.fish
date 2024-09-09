@@ -1,6 +1,6 @@
 function unlock-keyring
     # https://stackoverflow.com/a/76049791
-    read --silent --function --prompt-str="[keyring] password for $USER: " password
+    read --silent --function --prompt-str="[keyring] password for $USER: " password || return $status
     echo -n "$password" |
         gnome-keyring-daemon --replace --unlock |
         sed "s/\([^=]\+\)=\(.*\)/set --global --export \1 \2/g" |

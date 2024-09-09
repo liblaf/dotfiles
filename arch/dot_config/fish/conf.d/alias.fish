@@ -16,6 +16,7 @@ if status is-interactive
     alias la 'ls -lAh'
 
     abbr --add hx helix
+
     set apps typora
     for app in $apps
         if type --query $app

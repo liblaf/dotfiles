@@ -6,6 +6,7 @@ target-version = "py311"
 docstring-code-format = true
 
 [lint]
+# TODO: select lint rules
 ignore = [
   "ANN",
   "ARG",

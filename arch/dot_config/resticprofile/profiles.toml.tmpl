@@ -1,0 +1,29 @@
+#:schema https://creativeprojects.github.io/resticprofile/jsonschema/config-1.json
+
+[global]
+initialize = true
+prevent-sleep = true
+schedule-defaults = { ignore-on-battery = true, permission = "user" }
+scheduler = "systemd"
+
+[default]
+base-dir = "{{.chezmoi.homeDir}}"
+password-file = ".config/restic/password.txt"
+repository = "SeaDrive/My Libraries/My Library/restic"
+
+[default.backup]
+check-after = true
+check-before = true
+schedule = "hourly"
+source = ["Documents/data"]
+source-relative = true
+
+[default.forget]
+schedule = "weekly"
+keep-daily = 30
+keep-hourly = 24
+keep-monthly = 6
+keep-tag = ["archive"]
+keep-weekly = 4
+keep-yearly = 3
+prune = true

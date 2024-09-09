@@ -3,6 +3,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+function on-battery() {
+  upower --dump | grep "on-battery" | grep "yes" > /dev/null
+}
+
 if on-battery; then
   exit 0
 fi

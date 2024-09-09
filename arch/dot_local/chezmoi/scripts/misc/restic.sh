@@ -3,4 +3,4 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-upower --dump | grep "on-battery" | grep "yes" > /dev/null
+resticprofile schedule

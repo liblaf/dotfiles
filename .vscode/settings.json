@@ -8,7 +8,8 @@
     "*.sh*": "shellscript",
     "*.timer*": "properties",
     "*.toml*": "toml",
-    "*.yaml*": "yaml"
+    "*.yaml*": "yaml",
+    "*condarc*": "yaml"
   },
   "python.analysis.typeCheckingMode": "standard"
 }
