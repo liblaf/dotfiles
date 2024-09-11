@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- https://wiki.archlinux.org/title/XDG_MIME_Applications -->
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
-  <mime-type type="model/x-ply">
-    <comment>Polygon File</comment>
-    <icon name="shapes" />
+  <mime-type type="model/vnd.vtu+xml">
+    <comment>VTK Unstructured Grid</comment>
+    <sub-class-of type="application/xml"/>
+    <generic-icon name="shapes"/>
     <glob-deleteall />
-    <glob pattern="*.ply" />
+    <glob pattern="*.vtu"/>
   </mime-type>
 </mime-info>

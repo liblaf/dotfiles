@@ -8,7 +8,7 @@ scheduler = "systemd"
 
 [default]
 base-dir = "{{.chezmoi.homeDir}}"
-password-file = ".config/restic/password.txt"
+password-file = "{{.chezmoi.homeDir}}/.config/restic/password.txt"
 repository = "SeaDrive/My Libraries/My Library/restic"
 
 [default.backup]
