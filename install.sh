@@ -10,5 +10,9 @@ source "$workspace/scripts/detect/nvidia.sh"
 source "$workspace/scripts/setup/bitwarden.sh"
 
 rm --force --verbose ~/.config/chezmoi/chezmoi.*
-chezmoi init liblaf
+if [[ -d ~/.local/share/chezmoi ]]; then
+  chezmoi init liblaf
+else
+  chezmoi execute-template < "$workspace/.chezmoi.toml.tmpl" > ~/.config/chezmoi/chezmoi.toml
+fi
 chezmoi apply --force "$@"

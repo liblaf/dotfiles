@@ -56,7 +56,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DYNAMIC'
 gsettings set org.gnome.shell.extensions.power-profile-switcher ac 'performance'
 gsettings set org.gnome.shell.extensions.power-profile-switcher bat 'balanced'
-gsettings set org.gnome.shell.extensions.power-profile-switcher threshold 25
+gsettings set org.gnome.shell.extensions.power-profile-switcher threshold 99
 gsettings set org.gnome.shell.extensions.vitals fixed-widths false
 gsettings set org.gnome.shell.extensions.vitals include-static-gpu-info true
 gsettings set org.gnome.shell.extensions.vitals show-gpu true
