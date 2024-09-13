@@ -40,6 +40,7 @@ gsettings set org.gnome.Evince.Default dual-page-odd-left true
 gsettings set org.gnome.Evince.Default enable-spellchecking true
 gsettings set org.gnome.Evince.Default inverted-colors true
 gsettings set org.gnome.Evince.Default sizing-mode 'automatic'
+gsettings set org.gnome.nautilus.list-view use-tree-view true
 gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'suspend'
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout 900
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing
@@ -60,6 +61,7 @@ gsettings set org.gnome.shell.extensions.power-profile-switcher threshold 99
 gsettings set org.gnome.shell.extensions.vitals fixed-widths false
 gsettings set org.gnome.shell.extensions.vitals include-static-gpu-info true
 gsettings set org.gnome.shell.extensions.vitals show-gpu true
+gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
 
 # {{if .hardware.nvidia}}
 gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__network-tx_max__", "__temperature_max__", "_gpu#1_utilization_"]'
