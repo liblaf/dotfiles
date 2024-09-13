@@ -1,7 +1,5 @@
 #!/bin/bash
-set -o errexit
-set -o nounset
-set -o pipefail
+set -o errexit -o nounset -o pipefail
 
 workspace=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 eval "$(python tools/ports.py)"
