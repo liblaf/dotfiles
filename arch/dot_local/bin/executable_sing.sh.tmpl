@@ -1,17 +1,24 @@
 #!/bin/bash
-set -o errexit
-set -o nounset
-set -o pipefail
+set -o errexit -o nounset -o pipefail
 
-ID='{{(bitwardenFields "item" "Telegram").chat_id.value}}'
+function parser_definition() {
+  setup REST help:usage -- "Usage: $0 [options]... [arguments]..." ''
+  msg -- 'Options:'
+  param ID --id init:='{{(bitwardenFields "item" "Telegram").chat_id.value}}'
+  param PORT -p --port
+  disp :usage --help
+}
+
+eval "$(getoptions parser_definition) exit 1"
 
 tmp=$(mktemp --suffix=".json")
 trap 'rm --force "$tmp"' EXIT
-port=$(gsettings get org.gnome.system.proxy.https port)
-if ((port == 0)); then
-  port='{{.port.proxy}}'
+if [[ -z $PORT ]]; then
+  PORT=$(gsettings get org.gnome.system.proxy.https port)
+elif ((PORT == 0)); then
+  PORT='{{.port.proxy}}'
 fi
-https --download --output "$tmp" --verify no "https://api.liblaf.me/sub/$ID/sing-box" in.mixed.port=="$port" preset==linux
+https --download --output "$tmp" --verify no "https://api.liblaf.me/sub/$ID/sing-box" in.mixed.port=="$PORT" preset==linux
 prettier --write "$tmp"
 sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" /etc/sing-box/config.json
 sudo systemctl restart sing-box.service

@@ -7,15 +7,15 @@ schedule-defaults = { ignore-on-battery = true, permission = "user" }
 scheduler = "systemd"
 
 [default]
-base-dir = "{{.chezmoi.homeDir}}"
+run-before = "mountpoint {{.chezmoi.homeDir}}/SeaDrive"
 password-file = "{{.chezmoi.homeDir}}/.config/restic/password.txt"
-repository = "SeaDrive/My Libraries/My Library/restic"
+repository = "{{.chezmoi.homeDir}}/SeaDrive/My Libraries/restic/{{.chezmoi.hostname}}/"
 
 [default.backup]
 check-after = true
 check-before = true
 schedule = "hourly"
-source = ["Documents/data"]
+source = ["Documents/data/"]
 source-relative = true
 
 [default.forget]

@@ -38,6 +38,12 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/MetaCubeX/geo/releases/latest/download/geo-linux-amd64"
 
+[".local/bin/getoptions"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/ko1nksm/getoptions/releases/latest/download/getoptions"
+
 [".local/bin/gfw"]
 executable = true
 refreshPeriod = "168h"
@@ -79,10 +85,3 @@ refreshPeriod = "168h"
 stripComponents = 1
 type = "archive"
 url = "https://github.com/liblaf/win-fonts/releases/download/Win11/Win11-Chinese_Simplified.zip"
-
-[".local/opt/Wrap"]
-refreshPeriod = "168h"
-type = "archive"
-stripComponents = 1
-url = "https://customer.faceform.am/customer/dl/Wrap/Linux"
-format="tar.xz"
