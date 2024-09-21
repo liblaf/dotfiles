@@ -1,7 +1,5 @@
 #!/bin/bash
-set -o errexit
-set -o nounset
-set -o pipefail
+set -o errexit -o nounset -o pipefail
 
 sudo systemctl disable --now "qbittorrent-nox@$USER.service" || true
 sudo systemctl disable --now ddns-go.service || true
@@ -14,6 +12,7 @@ sudo systemctl enable --now netdata.service
 sudo systemctl enable --now sing-box.service
 sudo systemctl enable --now sshd.service
 sudo systemctl enable --now warp-svc.service
+sudo systemctl start pkgstats.timer
 systemctl --user enable --now ddns.timer
 systemctl --user enable --now glances.service
 systemctl --user enable --now pueued.service

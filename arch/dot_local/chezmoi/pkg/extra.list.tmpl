@@ -10,8 +10,8 @@ vdpauinfo   # VDPAU
 # {{if .hardware.nvidia}}
 cuda
 libva-nvidia-driver
+nvidia
 nvidia-container-toolkit
-nvidia-open
 nvidia-utils  # VDPAU
 opencl-nvidia # OpenCL
 # {{else if .hardware.intel}}
@@ -25,6 +25,7 @@ cloudflared
 docker
 earlyoom
 netdata
+pkgstats
 ufw
 
 # ------------------------------------ CLI ----------------------------------- #
