@@ -8,7 +8,7 @@ ARCH_DIR=$1
 function checksums() {
   pushd "$ARCH_DIR"
   test -f "$ARCH_DIR/archlinux-x86_64.iso" || return 1
-  b2sum --check --ignore-missing "b2sums.txt"
+  b2sum --check --ignore-missing "b2sums.txt" || return 1
   popd
 }
 
