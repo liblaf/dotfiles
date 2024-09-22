@@ -6,7 +6,7 @@ services:
     container_name: gpt_academic
     image: "{{.mirrors.ghcr}}/binary-husky/gpt_academic_nolocal:master"
     environment:
-      API_KEY: '{{(bitwarden "item" "OpenAI").notes}}'
+      API_KEY: '{{(rbw "OpenAI").notes}}'
       USE_PROXY: "True"
       proxies: '{"http": "http://172.17.0.1:{{.port.proxy}}", "https": "http://172.17.0.1:{{.port.proxy}}"}'
       DEFAULT_WORKER_NUM: 16
@@ -16,8 +16,8 @@ services:
       AUTHENTICATION: |
         [
           (
-            '{{(bitwarden "item" "GPT Academic").login.username}}',
-            '{{(bitwarden "item" "GPT Academic").login.password}}',
+            '{{(rbw "GPT Academic").data.username}}',
+            '{{(rbw "GPT Academic").data.password}}',
           )
         ]
     ports:

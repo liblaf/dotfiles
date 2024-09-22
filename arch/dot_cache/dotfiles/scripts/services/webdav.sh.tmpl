@@ -9,7 +9,7 @@ exit 0
 # {{end}}
 
 mkdir --parents --verbose "$HOME/.config/services/webdav"
-htpasswd -c -b "$HOME/.config/services/webdav/htpasswd" '{{(bitwarden "item" "WebDAV").login.username}}' '{{(bitwarden "item" "WebDAV").login.password}}'
+htpasswd -c -b "$HOME/.config/services/webdav/htpasswd" '{{(rbw "WebDAV").data.username}}' '{{(rbw "WebDAV").data.password}}'
 
 install -D --mode="u=rw,go=r" --no-target-directory --verbose "/usr/share/applications/seadrive.desktop" "$HOME/.config/autostart/seadrive.desktop"
 systemctl --user enable --now rclone-serve-webdav.service

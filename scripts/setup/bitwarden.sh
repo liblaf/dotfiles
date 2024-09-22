@@ -4,34 +4,22 @@ function has() {
   type "$@" &> /dev/null
 }
 
-if ! has bw; then
-  echo "Bitwarden is not installed"
-  if has pacman; then
-    sudo pacman --sync --refresh --needed --noconfirm bitwarden-cli
-  else
-    exit 1
+function ensure() {
+  pkg=$1
+  exe=$2
+  if ! has "$exe"; then
+    echo "$pkg is not installed"
+    if has pacman; then
+      sudo pacman --sync --refresh --needed --noconfirm "$pkg"
+    else
+      exit 1
+    fi
   fi
-fi
+}
 
-if ! bw login --check; then
-  unset BW_SESSION
-  BW_SESSION=$(bw login --raw)
-  export BW_SESSION
-  bw login --check
-fi
+ensure "bitwarden-cli" "bw"
+ensure "rbw" "rbw"
 
-bw sync
-
-if ! bw unlock --check; then
-  unset BW_SESSION
-  BW_SESSION=$(bw unlock --raw)
-  export BW_SESSION
-  bw unlock --check
-fi
-
-mkdir --parents --verbose "$HOME/.config/environment.d"
-bw_session_file=$(mktemp)
-trap 'rm --force --verbose $bw_session_file' EXIT
-echo "BW_SESSION=$BW_SESSION" > "$bw_session_file"
-install --backup -D --mode="u=rw,go=r" --no-target-directory --verbose \
-  "$bw_session_file" "$HOME/.config/environment.d/bitwarden.conf"
+rbw config set email no-reply.liblaf@outlook.com
+rbw login
+rbw sync

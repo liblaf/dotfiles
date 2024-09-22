@@ -69,12 +69,12 @@ refreshPeriod = "168h"
 type = "archive-file"
 url = "https://github.com/libthu/reserves-lib-tsinghua-downloader/releases/latest/download/downloader-ubuntu-latest-py3.9.zip"
 
-[".local/chezmoi/dict.txt"]
+[".cache/dotfiles/dict.txt"]
 refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/broly8/libpinyin-dict/raw/master/dict.txt"
 
-[".local/chezmoi/grub2-themes"]
+[".cache/dotfiles/grub2-themes"]
 refreshPeriod = "168h"
 stripComponents = 1
 type = "archive"

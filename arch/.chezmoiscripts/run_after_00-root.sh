@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-root="$HOME/.local/chezmoi/root"
+root=$HOME/.cache/dotfiles/root/
 readarray -t root_files < <(find "$root" -type f -printf "%P\n")
 tmpdir=$(mktemp --directory)
 trap 'rm --force --recursive "$tmpdir"' EXIT

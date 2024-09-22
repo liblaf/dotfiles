@@ -1,14 +1,12 @@
 #!/bin/bash
-set -o errexit
-set -o nounset
-set -o pipefail
+set -o errexit -o nounset -o pipefail
 
 systemctl --user enable --now pueued.service
 pueue reset --force
 pueue group add "chezmoi" || true
 pueue parallel --group "chezmoi" 8
 
-readarray -t scripts < <(find ~/.local/chezmoi/scripts -type f)
+readarray -t scripts < <(find "$HOME/.cache/dotfiles/scripts" -type f)
 for script in "${scripts[@]}"; do
   case "$script" in
     *.fish) pueue add --group "chezmoi" "fish '$script' < /dev/null" ;;

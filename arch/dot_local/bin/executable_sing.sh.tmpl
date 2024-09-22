@@ -4,7 +4,7 @@ set -o errexit -o nounset -o pipefail
 function parser_definition() {
   setup REST help:usage -- "Usage: $0 [options]... [arguments]..." ''
   msg -- 'Options:'
-  param ID --id init:='{{(bitwardenFields "item" "Telegram").chat_id.value}}'
+  param ID --id init:='{{(rbwFields "Telegram").chat_id.value}}'
   param PORT -p --port
   disp :usage --help
 }

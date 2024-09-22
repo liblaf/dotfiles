@@ -1,7 +1,5 @@
 #!/bin/bash
-set -o errexit
-set -o nounset
-set -o pipefail
+set -o errexit -o nounset -o pipefail
 
 function strip-comments() {
   repo=$1
@@ -23,17 +21,18 @@ sudo pacman-key --lsign-key 7931B6D628C8D3BA
 
 sudo pacman --sync --sysupgrade --refresh --noconfirm
 
-strip-comments core "$HOME/.local/chezmoi/pkg/core.list" |
+pkg_dir=$HOME/.cache/dotfiles/pkg
+strip-comments core "$pkg_dir/core.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments extra "$HOME/.local/chezmoi/pkg/extra.list" |
+strip-comments extra "$pkg_dir/extra.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments '' "$HOME/.local/chezmoi/pkg/group.list" |
+strip-comments '' "$pkg_dir/group.list" |
   sudo pacman --sync --groups - |
   awk '{ print $2 }' |
   sudo pacman --sync --needed --noconfirm -
-strip-comments archlinuxcn "$HOME/.local/chezmoi/pkg/archlinuxcn.list" |
+strip-comments archlinuxcn "$pkg_dir/archlinuxcn.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments arch4edu "$HOME/.local/chezmoi/pkg/arch4edu.list" |
+strip-comments arch4edu "$pkg_dir/arch4edu.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments aur "$HOME/.local/chezmoi/pkg/aur.list" |
+strip-comments aur "$pkg_dir/aur.list" |
   yay --aur --removemake --devel --useask=false --sync --needed --noconfirm -

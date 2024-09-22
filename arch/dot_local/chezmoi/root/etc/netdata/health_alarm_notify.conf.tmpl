@@ -1,6 +1,0 @@
-export http_proxy="http://127.0.0.1:{{.port.proxy}}/"
-export https_proxy="http://127.0.0.1:{{.port.proxy}}/"
-
-SEND_TELEGRAM="YES"
-TELEGRAM_BOT_TOKEN='{{(bitwardenFields "item" "Telegram").BOT_TOKEN.value}}'
-DEFAULT_RECIPIENT_TELEGRAM='{{(bitwardenFields "item" "Telegram").chat_id.value}}'
