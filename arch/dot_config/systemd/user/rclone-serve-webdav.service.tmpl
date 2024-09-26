@@ -2,7 +2,7 @@
 WantedBy = default.target
 
 [Service]
-ExecStart = rclone serve webdav "%h/SeaDrive/My Libraries/My Library/" --addr ":{{.port.webdav}}" --htpasswd "%h/.config/services/webdav/htpasswd" --vfs-cache-mode full
+ExecStart = rclone serve webdav "%h/SeaDrive/My Libraries/webdav/" --addr ":{{.port.webdav}}" --htpasswd "%h/.config/services/webdav/htpasswd" --vfs-cache-mode full
 Restart = always
 RestartSec = 5
 

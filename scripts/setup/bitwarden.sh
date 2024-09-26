@@ -1,4 +1,7 @@
 #!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
 
 function has() {
   type "$@" &> /dev/null
@@ -18,8 +21,13 @@ function ensure() {
 }
 
 ensure "bitwarden-cli" "bw"
+ensure "jq" "jq"
 ensure "rbw" "rbw"
 
-rbw config set email no-reply.liblaf@outlook.com
+EMAIL=no-reply.liblaf@outlook.com
+email_now=$(rbw config show | jq --raw-output ".email")
+if [[ $email_now != "$EMAIL" ]]; then
+  rbw config set email no-reply.liblaf@outlook.com
+fi
 rbw login
 rbw sync

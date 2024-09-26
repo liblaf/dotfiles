@@ -1,27 +1,41 @@
 #!/bin/bash
-set -o errexit -o nounset -o pipefail
+# shellcheck disable=SC2317
+set -o errexit
+set -o nounset
+set -o pipefail
 
-function parser_definition() {
-  setup REST help:usage -- "Usage: $0 [options]... [arguments]..." ''
-  msg -- 'Options:'
-  param FORMAT -f --format init:=".tar.xz"
-  param HASH -h --hash init:="sha256"
-  param REMOTE -r --remote init:="$HOME/SeaDrive/My Libraries/archive"
-  disp :usage --help
+# @arg source="." <PATH>
+# @option -f --format=".tar.xz"
+# @option -h --hash="sha256"
+# @option -r --remote="~/SeaDrive/My Libraries/archive"
+# @meta version 0.0.0
+# @meta author liblaf
+# @meta require-tools ouch,rclone
+function main() {
+  argc_source=$(realpath -- "$argc_source")
+  echo "source: $argc_source"
+  # shellcheck disable=SC2154
+  echo "format: $argc_format"
+  # shellcheck disable=SC2154
+  echo "  hash: $argc_hash"
+  argc_remote=${argc_remote/#'~'/"$HOME"}
+  echo "remote: $argc_remote"
+  year=$(date +%Y)
+  date=$(date +%Y-%m-%d)
+  name=$(basename -- "$argc_source")
+  cache=$HOME/.cache/rclone-archive
+  remote=$argc_remote/$year/$date-$name
+  sumfile_local=$cache/$date-$name/${argc_hash}sums.txt
+  tar_local=$cache/$date-$name/$name$argc_format
+  tar_remote=$remote/$name$argc_format
+  mkdir --parents --verbose "$cache/$date-$name"
+  rclone hashsum "$argc_hash" "$argc_source" --output-file "$sumfile_local" --exclude "*sums.txt"
+  ouch compress "$argc_source" "$tar_local"
+  rclone hashsum "$argc_hash" "$tar_local" --output-file "$tar_local.${argc_hash}"
+  rclone copyto --progress "$sumfile_local" "$remote/$name/${argc_hash}sums.txt"
+  rclone sync --progress "$argc_source" "$remote/$name"
+  rclone copyto --progress "$tar_local.${argc_hash}" "$tar_remote.${argc_hash}"
+  rclone copyto --progress "$tar_local" "$tar_remote"
 }
 
-eval "$(getoptions parser_definition) exit 1"
-SOURCE=$(realpath -- "$1")
-
-pushd -- "$SOURCE"
-year=$(date +%Y)
-date=$(date +%Y-%m-%d)
-name=$(basename -- "$SOURCE")
-sumfile=$SOURCE/${HASH}sums.txt
-target=$REMOTE/$year/$date-$name
-archive=$target/$name$FORMAT
-rclone hashsum "$HASH" "$SOURCE" --output-file "$sumfile" --exclude "*sums.txt"
-rclone sync --progress "$SOURCE" "$target/$name"
-ouch compress "$SOURCE" "$archive"
-rclone hashsum "$HASH" "$archive" --output-file "$archive.${HASH}"
-popd
+eval "$(argc --argc-eval "$0" "$@")"
