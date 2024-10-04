@@ -1,5 +1,5 @@
 #!/bin/bash
-# shellcheck disable=SC2317
+# shellcheck disable=SC2154
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -14,9 +14,7 @@ set -o pipefail
 function main() {
   argc_source=$(realpath -- "$argc_source")
   echo "source: $argc_source"
-  # shellcheck disable=SC2154
   echo "format: $argc_format"
-  # shellcheck disable=SC2154
   echo "  hash: $argc_hash"
   argc_remote=${argc_remote/#'~'/"$HOME"}
   echo "remote: $argc_remote"

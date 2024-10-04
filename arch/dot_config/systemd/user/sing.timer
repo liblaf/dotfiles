@@ -3,7 +3,7 @@ WantedBy = timers.target
 
 [Timer]
 OnStartupSec = 0
-OnUnitActiveSec = 1h
+OnUnitActiveSec = 1d
 
 [Unit]
-Description = Restic Backup
+Description = Update sing-box Subscription

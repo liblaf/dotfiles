@@ -1,10 +1,14 @@
 #!/bin/bash
-set -o errexit -o nounset -o pipefail
+set -o errexit
+set -o nounset
+set -o pipefail
 
+sudo systemctl disable --now "goauthing@$USER.service" || true
+sudo systemctl disable --now "goauthing6@$USER.service" || true
 sudo systemctl disable --now "qbittorrent-nox@$USER.service" || true
 sudo systemctl disable --now ddns-go.service || true
-sudo systemctl enable --now "goauthing@$USER.service"
-sudo systemctl enable --now "goauthing6@$USER.service"
+sudo systemctl disable --now goauthing.service || true
+sudo systemctl disable --now goauthing6.service || true
 sudo systemctl enable --now docker.service
 sudo systemctl enable --now earlyoom.service
 sudo systemctl enable --now logrotate.timer
@@ -13,11 +17,14 @@ sudo systemctl enable --now sing-box.service
 sudo systemctl enable --now sshd.service
 sudo systemctl enable --now warp-svc.service
 sudo systemctl start pkgstats.timer
+systemctl --user disable --now restic.timer
 systemctl --user enable --now ddns.timer
 systemctl --user enable --now glances.service
+systemctl --user enable --now goauthing.service
+systemctl --user enable --now goauthing6.service
 systemctl --user enable --now pueued.service
 systemctl --user enable --now rclone-onedrive.service
-systemctl --user enable --now restic.timer
+systemctl --user enable --now sing.timer
 systemctl --user enable --now warp-taskbar.service
 
 # {{if .hardware.nvidia}}

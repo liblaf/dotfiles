@@ -1,24 +1,30 @@
 #!/bin/bash
-set -o errexit -o nounset -o pipefail
+# shellcheck disable=SC2154
+set -o errexit
+set -o nounset
+set -o pipefail
 
-function parser_definition() {
-  setup REST help:usage -- "Usage: $0 [options]... [arguments]..." ''
-  msg -- 'Options:'
-  param ID --id init:='{{(rbwFields "Telegram").chat_id.value}}'
-  param PORT -p --port
-  disp :usage --help
+# @option -c --config="/etc/sing-box/config.json"
+# @option -i --id="{{(rbwFields "Telegram").chat_id.value}}"
+# @option -p --port=`_default_port`
+# @meta version 0.0.0
+# @meta author liblaf
+# @meta require-tools https,install,mktemp,prettier,sudo,systemctl
+function main() {
+  tmp=$(mktemp --suffix=".json")
+  trap 'rm --force "$tmp"' EXIT
+  xhs --download --output "$tmp" GET "https://api.liblaf.me/sub/$argc_id/sing-box" in.mixed.port=="$argc_port" preset==linux
+  prettier --write "$tmp"
+  sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" "$argc_config"
+  sudo systemctl restart sing-box.service
 }
 
-eval "$(getoptions parser_definition) exit 1"
+function _default_port() {
+  port=$(gsettings get org.gnome.system.proxy.https port)
+  if ((port == 0)); then
+    port='{{.port.proxy}}'
+  fi
+  echo "$port"
+}
 
-tmp=$(mktemp --suffix=".json")
-trap 'rm --force "$tmp"' EXIT
-if [[ -z $PORT ]]; then
-  PORT=$(gsettings get org.gnome.system.proxy.https port)
-elif ((PORT == 0)); then
-  PORT='{{.port.proxy}}'
-fi
-https --download --output "$tmp" --verify no "https://api.liblaf.me/sub/$ID/sing-box" in.mixed.port=="$PORT" preset==linux
-prettier --write "$tmp"
-sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" /etc/sing-box/config.json
-sudo systemctl restart sing-box.service
+eval "$(argc --argc-eval "$0" "$@")"
