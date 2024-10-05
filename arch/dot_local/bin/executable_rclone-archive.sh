@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 # @arg source="." <PATH>
-# @option -f --format=".tar.xz"
+# @option -f --format=".tar.zst"
 # @option -h --hash="sha256"
 # @option -r --remote="~/SeaDrive/My Libraries/archive"
 # @meta version 0.0.0
