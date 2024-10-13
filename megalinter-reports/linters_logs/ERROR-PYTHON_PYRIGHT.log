@@ -1,0 +1,19 @@
+Results of pyright linter (version 1.1.376)
+See documentation on https://megalinter.io/8.0.0/descriptors/python_pyright/
+-----------------------------------------------
+
+❌ [ERROR] for workspace /github/workspace
+Linter raw log:
+
+added 1 package, and audited 2 packages in 4s
+
+found 0 vulnerabilities
+arch/dot_local/lib/python3.11/site-packages/sitecustomize.py
+  arch/dot_local/lib/python3.11/site-packages/sitecustomize.py:2:10 - error: Import "icecream" could not be resolved (reportMissingImports)
+arch/dot_local/lib/python3.12/site-packages/sitecustomize.py
+  arch/dot_local/lib/python3.12/site-packages/sitecustomize.py:2:10 - error: Import "icecream" could not be resolved (reportMissingImports)
+2 errors, 0 warnings, 0 informations 
+WARNING: there is a new pyright version available (v1.1.376 -> v1.1.384).
+Please install the new version or set PYRIGHT_PYTHON_FORCE_VERSION to `latest`
+
+

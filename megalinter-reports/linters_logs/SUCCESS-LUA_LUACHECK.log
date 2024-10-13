@@ -1,0 +1,5 @@
+Results of luacheck linter (version 1.2.0)
+See documentation on https://megalinter.io/8.0.0/descriptors/lua_luacheck/
+-----------------------------------------------
+
+✅ [SUCCESS] arch/dot_config/wezterm/wezterm.lua

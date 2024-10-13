@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        "charliermarsh.ruff",
+        "ms-pyright.pyright",
+        "esbenp.prettier-vscode",
+        "dwenegar.vscode-luacheck",
+        "timonwong.shellcheck",
+        "Bridgecrew.checkov",
+        "streetsidesoftware.code-spell-checker",
+        "AquaSecurityOfficial.trivy-vulnerability-scanner",
+        "foxundermoon.shell-format",
+        "MS-CST-E.vscode-devskim"
+    ]
+}

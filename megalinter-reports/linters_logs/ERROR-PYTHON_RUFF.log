@@ -1,0 +1,31 @@
+Results of ruff linter (version 0.6.1)
+See documentation on https://megalinter.io/8.0.0/descriptors/python_ruff/
+-----------------------------------------------
+
+❌ [ERROR] for workspace /github/workspace
+Linter raw log:
+arch/dot_local/lib/python3.11/site-packages/sitecustomize.py:6:5: E731 Do not assign a `lambda` expression, use a `def`
+  |
+4 |     import builtins
+5 | 
+6 |     ic = lambda *a: None if not a else (a[0] if len(a) == 1 else a)
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ E731
+7 |     setattr(builtins, "ic", ic)
+8 | else:
+  |
+  = help: Rewrite `ic` as a `def`
+
+arch/dot_local/lib/python3.12/site-packages/sitecustomize.py:6:5: E731 Do not assign a `lambda` expression, use a `def`
+  |
+4 |     import builtins
+5 | 
+6 |     ic = lambda *a: None if not a else (a[0] if len(a) == 1 else a)
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ E731
+7 |     setattr(builtins, "ic", ic)
+8 | else:
+  |
+  = help: Rewrite `ic` as a `def`
+
+Found 2 errors.
+No fixes available (2 hidden fixes can be enabled with the `--unsafe-fixes` option).
+

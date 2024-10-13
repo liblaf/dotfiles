@@ -1,0 +1,116 @@
+Results of cspell linter (version 8.14.1)
+See documentation on https://megalinter.io/8.0.0/descriptors/spell_cspell/
+-----------------------------------------------
+
+❌ [ERROR] for workspace /github/workspace
+Linter raw log:
+ 1/52 .github/auto-label.yaml 1334.92ms
+ 2/52 .github/blunderbuss.yml 30.77ms
+ 3/52 .github/megalinter/.checkov.yml 7.46ms
+ 4/52 .github/megalinter/.devskim.json 259.04ms
+ 5/52 .github/renovate.json 3.20ms
+ 6/52 .github/sync-repo-settings.yaml 1.95ms
+ 7/52 .github/workflows/megalinter.yaml 301.12ms X
+.github/workflows/megalinter.yaml:179:15    - Unknown word (stefanzweifel) -- uses: stefanzweifel/git-auto-commit-action
+	 Suggestions: []
+ 8/52 .mega-linter.yaml 404.88ms X
+.mega-linter.yaml:35:12     - Unknown word (MYPY)       -- - PYTHON_MYPY
+	 Suggestions: [MOPY, MYOPY, MACY, MANY, MAPS]
+.mega-linter.yaml:36:12     - Unknown word (PYLINT)     -- - PYTHON_PYLINT
+	 Suggestions: [PLYING, PINT, PAINT, PLANT, PLINK]
+.mega-linter.yaml:42:12     - Unknown word (DEVSKIM)    -- REPOSITORY_DEVSKIM_CONFIG_FILE: .github
+	 Suggestions: [DESK, DEVI, DKIM, DEISM, DENIM]
+.mega-linter.yaml:42:53     - Unknown word (devskim)    -- .github/megalinter/.devskim.json
+	 Suggestions: [desk, devi, dkim, deism, denim]
+.mega-linter.yaml:43:12     - Unknown word (KICS)       -- REPOSITORY_KICS_CONFIG_FILE: .github
+	 Suggestions: [KI'S, KICK, KIDS, KINS, KIPS]
+.mega-linter.yaml:43:49     - Unknown word (kics)       -- .github/megalinter/kics.config
+	 Suggestions: [ki's, kick, kids, kins, kips]
+ 9/52 .pre-commit-config.yaml 29.46ms
+10/52 .shellcheckrc 2.58ms
+11/52 .vscode/settings.json 2.62ms
+12/52 arch/.chezmoiignore 1.27ms
+13/52 arch/.chezmoiscripts/run_after_00-root.sh 52.57ms X
+arch/.chezmoiscripts/run_after_00-root.sh:8:1       - Unknown word (tmpdir)     -- tmpdir=$(mktemp --directory
+	 Suggestions: [tempdir, tapir, tempdirs, mkdir, rmdir]
+arch/.chezmoiscripts/run_after_00-root.sh:9:32      - Unknown word (tmpdir)     -- force --recursive "$tmpdir"' EXIT
+	 Suggestions: [tempdir, tapir, tempdirs, mkdir, rmdir]
+14/52 arch/.chezmoiscripts/run_after_10-pkg.sh 5.40ms
+15/52 arch/.chezmoiscripts/run_after_20-systemd.sh 7.30ms
+16/52 arch/dot_cache/dotfiles/root/etc/sudoers.d/05_proxy 1.15ms
+17/52 arch/dot_cache/dotfiles/root/etc/sudoers.d/10_env_keep 1.92ms
+18/52 arch/dot_cache/dotfiles/scripts/code/javascript.sh 2.51ms
+19/52 arch/dot_cache/dotfiles/scripts/interactive/github.sh 3.27ms
+20/52 arch/dot_cache/dotfiles/scripts/misc/fonts.sh 2.51ms
+21/52 arch/dot_cache/dotfiles/scripts/misc/fwupd.sh 3.33ms
+22/52 arch/dot_cache/dotfiles/scripts/misc/grub.sh 2.61ms
+23/52 arch/dot_cache/dotfiles/scripts/misc/restic.sh 2.47ms
+24/52 arch/dot_cache/dotfiles/scripts/misc/ufw.sh 2.72ms
+25/52 arch/dot_cache/dotfiles/scripts/misc/user.sh 3.61ms
+26/52 arch/dot_cache/dotfiles/scripts/services/cf.sh 1.63ms
+27/52 arch/dot_cache/dotfiles/scripts/services/services.sh 2.16ms
+28/52 arch/dot_config/bat/config 1.37ms
+29/52 arch/dot_config/wezterm/wezterm.lua 24.18ms
+30/52 arch/dot_czrc 2.14ms
+31/52 arch/dot_gitconfig 3.88ms
+32/52 arch/dot_local/bin/executable_rclone-archive.sh 5.27ms
+33/52 arch/dot_local/lib/python3.11/site-packages/sitecustomize.py 215.48ms
+34/52 arch/dot_local/lib/python3.12/site-packages/sitecustomize.py 5.20ms
+35/52 arch/dot_local/share/mime/packages/model-vnd.vtp+xml.xml 3.81ms
+36/52 arch/dot_local/share/mime/packages/model-vnd.vtu+xml.xml 7.09ms
+37/52 arch/dot_local/share/mime/packages/model-x-ply.xml 2.93ms
+38/52 arch/services/stirling-pdf/.gitkeep 0.81ms
+39/52 f0f87c5a-bbd2-411e-8b46-f131cbf7664d-megalinter_file_names_cspell.txt 186.68ms X
+f0f87c5a-bbd2-411e-8b46-f131cbf7664d-megalinter_file_names_cspell.txt:5:20      - Unknown word (devskim)    -- github megalinter devskim
+	 Suggestions: [desk, devi, dkim, deism, denim]
+f0f87c5a-bbd2-411e-8b46-f131cbf7664d-megalinter_file_names_cspell.txt:11:2      - Unknown word (shellcheckrc) -- shellcheckrc
+	 Suggestions: []
+f0f87c5a-bbd2-411e-8b46-f131cbf7664d-megalinter_file_names_cspell.txt:33:10     - Unknown word (czrc)         -- arch dot czrc
+	 Suggestions: [circ, csrc, crc, calc, canc]
+40/52 install.sh 6.89ms
+41/52 LICENSE 8.28ms
+42/52 README.md 74.36ms
+43/52 scripts/detect/intel.sh 2.54ms
+44/52 scripts/detect/nvidia.sh 2.25ms
+45/52 scripts/setup/bitwarden.sh 4.10ms
+46/52 tools/ports.py 4.21ms
+47/52 ubuntu/other/pkg/apt.txt 6.28ms
+48/52 ubuntu/other/pkg/bin.txt 18.41ms
+49/52 ubuntu/other/pkg/npm.txt 2.62ms
+50/52 ubuntu/other/pkg/pip.txt 1.44ms
+51/52 ventoy/Makefile 7.80ms
+52/52 ventoy/scripts/arch/download.sh 2.58ms
+CSpell: Files checked: 52, Issues found: 12 in 4 files.
+
+
+You can skip this misspellings by defining the following .cspell.json file at the root of your repository
+Of course, please correct real typos before :)
+
+{
+    "version": "0.2",
+    "language": "en",
+    "ignorePaths": [
+        "**/node_modules/**",
+        "**/vscode-extension/**",
+        "**/.git/**",
+        "**/.pnpm-lock.json",
+        ".vscode",
+        "package-lock.json",
+        "megalinter-reports"
+    ],
+    "words": [
+        "DEVSKIM",
+        "KICS",
+        "MYPY",
+        "PYLINT",
+        "czrc",
+        "devskim",
+        "kics",
+        "shellcheckrc",
+        "stefanzweifel",
+        "tmpdir"
+    ]
+}
+
+
+You can also copy-paste megalinter-reports/.cspell.json at the root of your repository
