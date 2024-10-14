@@ -7,4 +7,4 @@ if gh auth status; then
   exit 0
 fi
 
-gh auth login
+gh auth login --git-protocol https --scopes delete_repo --web
