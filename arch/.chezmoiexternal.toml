@@ -1,3 +1,14 @@
+[".cache/dotfiles/dict.txt"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/broly8/libpinyin-dict/raw/master/dict.txt"
+
+[".cache/dotfiles/grub2-themes"]
+refreshPeriod = "168h"
+stripComponents = 1
+type = "archive"
+url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar.gz"
+
 [".config/fastfetch/config.jsonc"]
 refreshPeriod = "168h"
 type = "file"
@@ -7,6 +18,11 @@ url = "https://github.com/fastfetch-cli/fastfetch/raw/dev/presets/examples/10.js
 refreshPeriod = "168h"
 type = "file"
 url = "https://raw.githubusercontent.com/liblaf/ilatex/main/.latexindent.yaml"
+
+[".config/ruff/.ruff.toml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/copier-python/raw/refs/heads/main/template/.github/linters/.ruff.toml"
 
 [".local/bin/bws"]
 executable = true
@@ -68,17 +84,6 @@ path = "downloader"
 refreshPeriod = "168h"
 type = "archive-file"
 url = "https://github.com/libthu/reserves-lib-tsinghua-downloader/releases/latest/download/downloader-ubuntu-latest-py3.9.zip"
-
-[".cache/dotfiles/dict.txt"]
-refreshPeriod = "168h"
-type = "file"
-url = "https://github.com/broly8/libpinyin-dict/raw/master/dict.txt"
-
-[".cache/dotfiles/grub2-themes"]
-refreshPeriod = "168h"
-stripComponents = 1
-type = "archive"
-url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar.gz"
 
 [".local/share/fonts/Win11"]
 refreshPeriod = "168h"
