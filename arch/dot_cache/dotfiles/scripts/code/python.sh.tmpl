@@ -20,4 +20,5 @@ pkg_list=(
 for pkg in "${pkg_list[@]}"; do
   uv tool install --force "$pkg"
 done
+uv tool install --with cookiecutter --force copier
 uv tool upgrade --all
