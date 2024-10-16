@@ -3,9 +3,12 @@ Description = Authenticating utility for auth.tsinghua.edu.cn
 StartLimitIntervalSec = 0
 
 [Service]
-ExecStartPre = -sleep 1 && auth-thu -D deauth -6
-ExecStartPre = -sleep 1 && auth-thu -D auth -6
-ExecStart = sleep 1 && auth-thu -D online -6
+ExecStartPre = sleep 1
+ExecStartPre = -auth-thu -D deauth -6
+ExecStartPre = sleep 1
+ExecStartPre = -auth-thu -D auth -6
+ExecStartPre = sleep 1
+ExecStart = auth-thu -D online -6
 Restart = always
 RestartSec = 5s
 
