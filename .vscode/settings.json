@@ -9,6 +9,7 @@
     "*.timer*": "properties",
     "*.toml*": "toml",
     "*.yaml*": "yaml",
+    "**/fontconfig/fonts.conf": "xml",
     "*condarc*": "yaml"
   },
   "python.analysis.typeCheckingMode": "standard"
