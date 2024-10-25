@@ -3,6 +3,6 @@ function unlock-keyring
     read --silent --function --prompt-str="[keyring] password for $USER: " password || return $status
     echo -n "$password" |
         gnome-keyring-daemon --replace --unlock |
-        sed "s/\([^=]\+\)=\(.*\)/set --global --export \1 \2/g" |
+        sd '(?P<key>[A-Za-z_][0-9A-Za-z_]*)=(?P<val>.*)' 'set --global --export "$key" "$val"' |
         source
 end

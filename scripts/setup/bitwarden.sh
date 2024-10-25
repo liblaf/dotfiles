@@ -24,10 +24,10 @@ ensure "bitwarden-cli" "bw"
 ensure "jq" "jq"
 ensure "rbw" "rbw"
 
-EMAIL=no-reply.liblaf@outlook.com
-email_now=$(rbw config show | jq --raw-output ".email")
-if [[ $email_now != "$EMAIL" ]]; then
-  rbw config set email no-reply.liblaf@outlook.com
+email_old=$(rbw config show | jq --raw-output ".email")
+email_new=no-reply.liblaf@outlook.com
+if [[ $email_old != "$email_new" ]]; then
+  rbw config set email "$email_new"
 fi
 rbw login
 rbw sync

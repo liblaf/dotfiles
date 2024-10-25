@@ -1,6 +1,6 @@
 [Default Applications]
 application/pdf=org.gnome.Evince.desktop
-application/xhtml+xml=microsoft-edge.desktop
+application/xhtml+xml=google-chrome.desktop
 image/avif=org.gnome.Loupe.desktop
 image/bmp=org.gnome.Loupe.desktop
 image/gif=org.gnome.Loupe.desktop
@@ -24,7 +24,7 @@ image/x-portable-pixmap=org.gnome.Loupe.desktop
 image/x-qoi=org.gnome.Loupe.desktop
 image/x-tga=org.gnome.Loupe.desktop
 inode/directory=org.gnome.Nautilus.desktop
-text/html=microsoft-edge.desktop
+text/html=google-chrome.desktop
 video/3gp=vlc.desktop
 video/3gpp=vlc.desktop
 video/3gpp2=vlc.desktop
@@ -68,5 +68,7 @@ video/x-ogm+ogg=vlc.desktop
 video/x-ogm=vlc.desktop
 video/x-theora+ogg=vlc.desktop
 video/x-theora=vlc.desktop
-x-scheme-handler/http=microsoft-edge.desktop
-x-scheme-handler/https=microsoft-edge.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
