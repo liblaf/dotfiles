@@ -3,4 +3,5 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-resticprofile schedule
+# TODO: schedule restic backups when everything is working
+resticprofile unschedule
