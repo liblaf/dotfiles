@@ -2,6 +2,9 @@ local wezterm = require "wezterm"
 local mux = wezterm.mux
 local config = wezterm.config_builder()
 
+-- TODO: upstream bug: <https://github.com/wez/wezterm/issues/5604>
+config.enable_wayland = false
+
 config.font = wezterm.font_with_fallback {
   "CaskaydiaCove Nerd Font",
   "MonaspiceNe Nerd Font",
@@ -17,6 +20,7 @@ config.font = wezterm.font_with_fallback {
 }
 
 wezterm.on('gui-startup', function(cmd)
+  -- luacheck: no unused secondaries
   local tab, pane, window = mux.spawn_window(cmd or {})
   window:gui_window():maximize()
 end)
