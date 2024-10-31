@@ -38,6 +38,7 @@ chezmoi
 csvlens
 difftastic
 direnv
+dmidecode
 docker-compose
 duf
 eza
@@ -51,11 +52,13 @@ github-cli
 glow
 gping
 helix
+htop
 httpie
 hyperfine
 imagemagick
 jless
 lnav
+lshw
 miniserve
 ouch
 pandoc-cli
@@ -120,7 +123,7 @@ biber
 pixi
 python-httpx
 python-icecream
-python-socksio # python-httpx[socks]
+python-socksio # required by python-httpx[socks]
 ruff
 rye
 uv
@@ -135,15 +138,15 @@ shellcheck
 shfmt
 
 # ----------------------------------- Misc ----------------------------------- #
-python-pygments   # LaTeX minted
-perl-file-homedir # latexindent.pl
-perl-yaml-tiny    # latexindent.pl
-ffmpegthumbnailer # yazi
-jq                # yazi
-p7zip             # yazi
-poppler           # yazi
+python-pygments   # required by LaTeX minted
+perl-file-homedir # required by latexindent.pl
+perl-yaml-tiny    # required by latexindent.pl
+ffmpegthumbnailer # required by yazi
+jq                # required by yazi
+p7zip             # required by yazi
+poppler           # required by yazi
 
 # {{if .service.stirling_pdf}}
-tesseract-data-chi_sim
-tesseract-data-eng
+tesseract-data-chi_sim # required by Stirring PDF
+tesseract-data-eng     # required by Stirring PDF
 # {{end}}

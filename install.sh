@@ -2,7 +2,7 @@
 set -o errexit -o nounset -o pipefail
 
 workspace=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
-eval "$(python tools/ports.py)"
+eval "$(python "$workspace/scripts/ports.py")"
 source "$workspace/scripts/detect/intel.sh"
 source "$workspace/scripts/detect/nvidia.sh"
 source "$workspace/scripts/setup/bitwarden.sh"
