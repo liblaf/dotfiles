@@ -2,9 +2,8 @@ local wezterm = require "wezterm"
 local mux = wezterm.mux
 local config = wezterm.config_builder()
 
--- TODO: upstream bug: <https://github.com/wez/wezterm/issues/5604>
+-- TODO: upstream issue: <https://github.com/wez/wezterm/issues/5604>
 config.enable_wayland = false
-
 config.font = wezterm.font_with_fallback {
   "CaskaydiaCove Nerd Font",
   "MonaspiceNe Nerd Font",
@@ -18,6 +17,7 @@ config.font = wezterm.font_with_fallback {
   "Noto Sans",
   "Noto Sans CJK SC",
 }
+config.hide_tab_bar_if_only_one_tab = true
 
 wezterm.on('gui-startup', function(cmd)
   -- luacheck: no unused secondaries
