@@ -5,7 +5,6 @@ set -o pipefail
 
 export PATH="${HOME}/.local/bin:${PATH}"
 uv tool install --force gnome-extensions-cli
-gext install power-profile-switcher@eliapasquali.github.io
 
 gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin dictionaries '12;15'
 gsettings set com.github.libpinyin.ibus-libpinyin.libpinyin enable-cloud-input true
@@ -56,6 +55,13 @@ gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'D
 gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts false
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
 gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DYNAMIC'
+gsettings set org.gnome.shell.extensions.display-brightness-ddcutil ddcutil-sleep-multiplier 4.0
+gsettings set org.gnome.shell.extensions.display-brightness-ddcutil decrease-brightness-shortcut '["<Super>F11"]'
+gsettings set org.gnome.shell.extensions.display-brightness-ddcutil increase-brightness-shortcut '["<Super>F12"]'
+gsettings set org.gnome.shell.extensions.display-brightness-ddcutil show-all-slider true
+gsettings set org.gnome.shell.extensions.display-brightness-ddcutil show-sliders-in-submenu true
+gsettings set org.gnome.shell.extensions.display-brightness-ddcutil show-value-label true
+gsettings set org.gnome.shell.extensions.display-brightness-ddcutil step-change-keyboard 10.0
 gsettings set org.gnome.shell.extensions.power-profile-switcher ac 'performance'
 gsettings set org.gnome.shell.extensions.power-profile-switcher bat 'balanced'
 gsettings set org.gnome.shell.extensions.power-profile-switcher threshold 99
@@ -64,6 +70,7 @@ gsettings set org.gnome.shell.extensions.vitals include-static-gpu-info true
 gsettings set org.gnome.shell.extensions.vitals position-in-panel 0
 gsettings set org.gnome.shell.extensions.vitals show-gpu true
 gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
+gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 
 # {{if .hardware.nvidia}}
 gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__network-tx_max__", "__temperature_max__", "_gpu#1_utilization_"]'
@@ -77,9 +84,9 @@ extensions=(
   places-menu@gnome-shell-extensions.gcampax.github.com
   screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com
 
-  # paperwm@paperwm.github.com
   appindicatorsupport@rgcjonas.gmail.com
   dash-to-dock@micxgx.gmail.com
+  display-brightness-ddcutil@themightydeity.github.com
   power-profile-switcher@eliapasquali.github.io
   Vitals@CoreCoding.com
 )

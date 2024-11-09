@@ -8,6 +8,7 @@ doggo-bin
 downgrade
 electron22-bin # required by piclist-bin
 geekbench
+gnome-shell-extension-display-brightness-ddcutil-git
 gnome-shell-extension-power-profile-switcher-git
 jnv-bin
 kalker-bin
