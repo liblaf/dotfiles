@@ -9,14 +9,14 @@ v4l2loopback-dkms
 libva-utils # VA-API
 vdpauinfo   # VDPAU
 
-# {{if .hardware.nvidia}}
+# {{if .hardware.nvidia.exists}}
 cuda
 libva-nvidia-driver # VA-API
 nvidia
 nvidia-container-toolkit
 nvidia-utils  # VDPAU
 opencl-nvidia # OpenCL
-# {{else if .hardware.intel}}
+# {{else if .hardware.intel.exists}}
 intel-compute-runtime # OpenCL
 intel-media-driver    # VA-API
 libvdpau-va-gl        # VDPAU

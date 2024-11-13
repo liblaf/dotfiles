@@ -1,5 +1,7 @@
 #!/bin/bash
-set -o errexit -o nounset -o pipefail
+set -o errexit
+set -o nounset
+set -o pipefail
 
 sudo systemctl daemon-reload
 systemctl --user daemon-reload

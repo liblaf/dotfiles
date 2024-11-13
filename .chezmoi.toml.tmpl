@@ -2,9 +2,12 @@
 
 sourceDir = "{{.chezmoi.homeDir}}/.local/share/chezmoi/{{.chezmoi.osRelease.id}}"
 
-[data.hardware]
-intel = {{default "false" (env "INTEL")}}
-nvidia = {{default "false" (env "NVIDIA")}}
+[data.hardware.intel]
+exists = {{default "false" (env "INTEL")}}
+
+[data.hardware.nvidia]
+exists = {{default "false" (env "NVIDIA")}}
+mobile = {{default "false" (env "NVIDIA_MOBILE")}}
 
 [data.mirrors]
 anaconda = "https://mirrors.cernet.edu.cn/anaconda"
@@ -15,14 +18,11 @@ archlinuxcn = "https://mirrors.cernet.edu.cn/archlinuxcn/$arch"
 bioarchlinux = "https://mirrors.cernet.edu.cn/bioarchlinux/$arch"
 crates_io_index = "sparse+https://mirrors.cernet.edu.cn/crates.io-index/"
 dockerhub = "https://docker.1panel.live"
-ghcr = "ghcr.io" # ghcr.nju.edu.cn is slow
+ghcr = "ghcr.io"                                                          # ghcr.nju.edu.cn is slow
 nodejs_release = "https://mirrors.cernet.edu.cn/nodejs-release"
 npm = "https://registry.npmmirror.com"
 pypi = "https://mirrors.cernet.edu.cn/pypi/web/simple"
 rustup = "https://mirrors.cernet.edu.cn/rustup"
-
-[data.nvidia]
-mobile = {{default "false" (env "NVIDIA_MOBILE")}}
 
 [data.port]
 gpt_academic = {{env "PORT_GPT_ACADEMIC"}}

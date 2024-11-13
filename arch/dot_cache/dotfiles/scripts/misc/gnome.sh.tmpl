@@ -1,4 +1,5 @@
 #!/bin/bash
+# vim: syntax=sh
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -73,7 +74,7 @@ gsettings set org.gnome.shell.extensions.vitals show-gpu true
 gsettings set org.gtk.gtk4.Settings.FileChooser sort-directories-first true
 gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 
-# {{if .hardware.nvidia}}
+# {{if .hardware.nvidia.exists}}
 gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__network-tx_max__", "__temperature_max__", "_gpu#1_utilization_"]'
 # {{else}}
 gsettings set org.gnome.shell.extensions.vitals hot-sensors '["_processor_usage_", "_memory_usage_", "__network-rx_max__", "__network-tx_max__", "__temperature_max__"]'

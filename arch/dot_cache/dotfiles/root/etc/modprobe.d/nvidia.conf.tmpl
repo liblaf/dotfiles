@@ -1,4 +1,6 @@
-# {{if .hardware.nvidia}}
+# vim: syntax=sh
+# shellcheck disable=all
+# {{if .hardware.nvidia.exists}}
 # https://wiki.archlinux.org/title/NVIDIA/Tips_and_tricks#Preserve_video_memory_after_suspend
 options nvidia NVreg_UsePageAttributeTable=1
 options nvidia NVreg_PreserveVideoMemoryAllocations=1 NVreg_TemporaryFilePath=/var/tmp

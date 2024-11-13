@@ -1,8 +1,10 @@
+# vim: syntax=sh
+# shellcheck disable=all
 # https://wiki.archlinux.org/title/Hardware_video_acceleration
-# {{if .hardware.nvidia}}
+# {{if .hardware.nvidia.exists}}
 # LIBVA_DRIVER_NAME=vdpau
 VDPAU_DRIVER=nvidia
-# {{else if .hardware.intel}}
+# {{else if .hardware.intel.exists}}
 LIBVA_DRIVER_NAME=iHD
 VDPAU_DRIVER=va_gl
 # {{end}}

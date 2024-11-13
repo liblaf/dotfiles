@@ -1,16 +1,5 @@
 {
   "files.associations": {
-    "*.conf*": "properties",
-    "*.fish*": "fish",
-    "*.json*": "json",
-    "*.list*": "properties",
-    "*.service*": "properties",
-    "*.sh*": "shellscript",
-    "*.timer*": "properties",
-    "*.toml*": "toml",
-    "*.yaml*": "yaml",
-    "**/fontconfig/fonts.conf": "xml",
-    "*condarc*": "yaml"
-  },
-  "python.analysis.typeCheckingMode": "standard"
+    "*.json.tmpl": "json"
+  }
 }

@@ -1,4 +1,5 @@
 #!/bin/bash
+# vim: syntax=sh
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -12,7 +13,7 @@ pkg_list=(
   https://github.com/liblaf/thu-learn-downloader.git
   py-spy
   toml-sort
-  # {{if .hardware.nvidia}}
+  # {{if .hardware.nvidia.exists}}
   nvitop
   # {{end}}
 )
