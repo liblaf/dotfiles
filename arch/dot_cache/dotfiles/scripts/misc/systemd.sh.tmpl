@@ -19,7 +19,6 @@ sudo systemctl enable --now logrotate.timer
 sudo systemctl enable --now netdata.service
 sudo systemctl enable --now sing-box.service
 sudo systemctl enable --now sshd.service
-sudo systemctl enable --now warp-svc.service
 sudo systemctl start pkgstats.timer
 systemctl --user enable --now ddns.timer
 systemctl --user enable --now glances.service
@@ -28,7 +27,6 @@ systemctl --user enable --now goauthing6.service
 systemctl --user enable --now pueued.service
 systemctl --user enable --now rclone-onedrive.service
 systemctl --user enable --now sing.timer
-systemctl --user enable --now warp-taskbar.service
 
 # {{if .hardware.nvidia.exists}}
 sudo systemctl enable nvidia-hibernate.service

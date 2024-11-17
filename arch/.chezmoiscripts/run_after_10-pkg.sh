@@ -11,6 +11,8 @@ function strip-comments() {
   fi
 }
 
+sudo pacman --sync --sysupgrade --refresh --noconfirm
+
 # https://mirrors.tuna.tsinghua.edu.cn/help/archlinuxcn/
 sudo pacman-key --lsign-key farseerfc@archlinux.org
 sudo pacman --sync --needed --noconfirm archlinuxcn/archlinuxcn-keyring
@@ -18,8 +20,6 @@ sudo pacman --sync --needed --noconfirm archlinuxcn/archlinuxcn-keyring
 sudo pacman-key --recv-keys 7931B6D628C8D3BA
 sudo pacman-key --finger 7931B6D628C8D3BA
 sudo pacman-key --lsign-key 7931B6D628C8D3BA
-
-sudo pacman --sync --sysupgrade --refresh --noconfirm
 
 pkg_dir="$HOME/.cache/dotfiles/pkg"
 strip-comments core "$pkg_dir/core.list" |
