@@ -8,4 +8,5 @@ function proxy-update
     gsettings set org.gnome.system.proxy.https port {{.port.proxy}}
     gsettings set org.gnome.system.proxy.socks host 127.0.0.1
     gsettings set org.gnome.system.proxy.socks port {{.port.proxy}}
+    gsettings set org.gnome.system.proxy ignore-hosts '["localhost", "127.0.0.0/8", "::1", ".npmmirror.com"]'
 end

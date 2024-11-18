@@ -3,15 +3,14 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# TODO: remove this workaround
-for name in $(env | grep --ignore-case "_proxy" | awk -F = '{ print $1 }'); do
-  unset "$name"
-done
+export no_proxy="localhost,127.0.0.0/8,::1,.npmmirror.com"
+export NO_PROXY="$no_proxy"
 
 pkg_list=(
   @biomejs/biome
   commitizen
   cspell
+  repomix
   speedscope
 )
 
