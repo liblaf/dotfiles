@@ -12,6 +12,7 @@ pkg_list=(
   cspell
   repomix
   speedscope
+  vercel
 )
 
 bun add --global "${pkg_list[@]}"

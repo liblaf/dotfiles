@@ -1,7 +1,10 @@
+# vim: syntax=ini
 # https://pnpm.io/npmrc
 
 # Registry & Authentication Settings
 registry = {{.mirrors.npm}}
 
 # Node.js Settings
-node-mirror:release = {{.mirrors.nodejs_release}}
+node-mirror:release = https://npmmirror.com/mirrors/node/
+node-mirror:rc = https://npmmirror.com/mirrors/node-rc/
+node-mirror:nightly = https://npmmirror.com/mirrors/node-nightly/
