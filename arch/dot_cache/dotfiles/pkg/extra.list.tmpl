@@ -1,3 +1,4 @@
+# vim: syntax=ini
 # ---------------------------------- System ---------------------------------- #
 bluez
 bluez-utils
@@ -6,6 +7,7 @@ fwupd
 ntfs-3g
 os-prober
 v4l2loopback-dkms
+virtualbox-host-modules-lts # VirtualBox
 
 # ------------------------ Hardware Video Acceleration ----------------------- #
 libva-utils # VA-API
@@ -13,15 +15,15 @@ vdpauinfo   # VDPAU
 
 # {{if .hardware.nvidia.exists}}
 cuda
-libva-nvidia-driver # VA-API
+libva-nvidia-driver      # VA-API
 nvidia
 nvidia-container-toolkit
-nvidia-utils  # VDPAU
-opencl-nvidia # OpenCL
+nvidia-utils             # VDPAU
+opencl-nvidia            # OpenCL
 # {{else if .hardware.intel.exists}}
-intel-compute-runtime # OpenCL
-intel-media-driver    # VA-API
-libvdpau-va-gl        # VDPAU
+intel-compute-runtime    # OpenCL
+intel-media-driver       # VA-API
+libvdpau-va-gl           # VDPAU
 # {{end}}
 
 # ---------------------------------- Service --------------------------------- #
@@ -106,6 +108,7 @@ obsidian
 paraview
 power-profiles-daemon
 telegram-desktop
+virtualbox
 vlc
 wezterm
 
@@ -129,7 +132,7 @@ biber
 pixi
 python-httpx
 python-icecream
-python-socksio # required by python-httpx[socks]
+python-socksio  # required by python-httpx[socks]
 ruff
 rye
 uv

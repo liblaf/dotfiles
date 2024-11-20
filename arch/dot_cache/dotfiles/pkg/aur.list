@@ -1,3 +1,4 @@
+# vim: syntax=ini
 argc
 auth-thu-bin
 bun-bin
@@ -6,7 +7,7 @@ clipboard-bin
 dasel-bin
 doggo-bin
 downgrade
-electron22-bin # required by piclist-bin
+electron22-bin                                       # required by piclist-bin
 geekbench
 gnome-shell-extension-display-brightness-ddcutil-git
 gnome-shell-extension-power-profile-switcher-git
