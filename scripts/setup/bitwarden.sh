@@ -30,8 +30,8 @@ fi
 if ! bw unlock --check; then
   BW_SESSION=$(bw --raw unlock)
   export BW_SESSION
+  bw unlock --check
 fi
-bw unlock --check
 echo "BW_SESSION=$BW_SESSION" > "$HOME/.config/environment.d/bitwarden.conf"
 
 if [[ ! -f "$HOME/.config/rbw/config.json" ]]; then
