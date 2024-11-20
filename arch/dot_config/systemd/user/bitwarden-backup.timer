@@ -1,0 +1,10 @@
+# vim: syntax=ini
+[Install]
+WantedBy = timers.target
+
+[Timer]
+OnStartupSec = 0
+OnUnitActiveSec = 1d
+
+[Unit]
+Description = Backup Bitwarden Vault

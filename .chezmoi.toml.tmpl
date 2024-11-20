@@ -1,3 +1,4 @@
+# {{$center := eq .chezmoi.hostname "10700"}}
 # {{$server := or (eq .chezmoi.hostname "10700") (eq .chezmoi.hostname "13900HX")}}
 
 sourceDir = "{{.chezmoi.homeDir}}/.local/share/chezmoi/{{.chezmoi.osRelease.id}}"
@@ -32,6 +33,7 @@ stirling_pdf = {{env "PORT_STIRLING_PDF"}}
 webdav = {{env "PORT_WEBDAV"}}
 
 [data.service]
+backup = {{$center}}
 gpt_academic = {{$server}}
 stirling_pdf = {{$server}}
 webdav = true

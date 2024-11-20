@@ -1,0 +1,8 @@
+# vim: syntax=ini
+[Service]
+ExecStart = bash %h/.local/bin/bitwarden-backup.sh
+Restart = on-failure
+RestartSec = 5s
+
+[Unit]
+Description = Backup Bitwarden Vault
