@@ -1,11 +1,14 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [manager]
-sort_dir_first = true
 linemode = "mtime"
 
 [opener]
+open = [
+  { run = 'xdg-open "$1" &> /dev/null', desc = "Open", for = "linux" },
+  { run = 'open "$@"', desc = "Open", for = "macos" },
+  { run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
+]
 
-[[opener.open]]
-run = 'xdg-open "$@" &> /dev/null'
-for = "linux"
+[open]
+prepend_rules = [{ mime = "model/*", use = ["open"] }]

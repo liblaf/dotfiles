@@ -4,3 +4,9 @@ for config in ~/.config/environment.d/*.conf
         sd '(?P<key>[A-Za-z_][0-9A-Za-z_]*)=(?P<val>.*)' 'set --global --export "$key" "$val"' <"$config" | source
     end
 end
+
+if test -n "$DISPLAY"
+    if type --query code
+        set --global --export EDITOR code
+    end
+end

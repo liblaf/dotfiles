@@ -1,0 +1,138 @@
+#:schema https://starship.rs/config-schema.json
+"$schema" = "https://starship.rs/config-schema.json"
+
+[battery]
+disabled = true
+
+[bun]
+format = '\[[$symbol ($version)]($style)\]'
+symbol = ""                                # nf-fa-face_laugh
+version_format = "$raw"
+
+[c]
+commands = [["clang", "--version"], ["gcc", "--version"], ["cc", "--version"]]
+detect_extensions = [
+  "C",
+  "H",
+  "c",
+  "c++",
+  "cc",
+  "cpp",
+  "cxx",
+  "h",
+  "h++",
+  "hpp",
+  "hxx",
+]
+detect_files = ["CMakeCache.txt", "CMakeLists.txt"]
+format = '\[[$symbol( ($name-)$version)]($style)\]'
+symbol = "" # nf-custom-c
+version_format = "$raw"
+
+[character]
+error_symbol = "[](bold red)"     # nf-fa-close
+success_symbol = "[>](bold green)"
+
+[cmake]
+format = '\[[$symbol($version)]($style)\]'
+version_format = "$raw"
+
+[cmd_duration]
+format = '\[[󱎫 $duration]($style)\]' # nf-md-timer
+
+[conda]
+format = '\[[$symbol $environment]($style)\]'
+symbol = ""                                  # nf-fa-circle_o
+
+[custom.bitwarden]
+format = '\[[$symbol unlock]($style)\]'
+shell = "sh"
+symbol = "󰞀"                            # nf-md-shield_half_full
+when = 'test -n "$BW_SESSION"'
+
+[custom.proxy]
+command = "gfw now --color=always"
+format = '\[[$output]($style)\]'
+shell = "sh"
+style = ""
+symbol = "󰖟"                       # nf-md-web
+when = 'test -n "$https_proxy"'
+
+[directory]
+read_only = " 󰌾" # nf-md-lock
+
+[git_branch]
+format = '\[[$symbol $branch]($style)\]'
+symbol = ""                             # nf-oct-git_branch
+
+[git_metrics]
+disabled = true
+format = '(\[([+$added]($added_style))([-$deleted]($deleted_style))\])'
+
+[git_status]
+ahead = ""                                         # nf-fa-arrow_up_long
+behind = ""                                        # nf-fa-arrow_down_long
+deleted = ""                                       # nf-fa-close
+disabled = true
+diverged = ""                                      # nf-fa-arrows_up_down
+format = '(\[[$all_status$ahead_behind]($style)\])'
+renamed = ""                                       # nf-fa-angles_right
+
+[golang]
+format = '\[[$symbol( $version)]($style)\]'
+symbol = "󰟓"                                # nf-md-language_go
+version_format = "$raw"
+
+[hostname]
+format = "@[$ssh_symbol$hostname]($style) "
+ssh_symbol = ""
+
+[java]
+format = '\[[$symbol( $version)]($style)\]'
+symbol = "󰬷"                                #  nf-md-language_java
+version_format = "$raw"
+
+[lua]
+format = '\[[$symbol( $version)]($style)\]'
+symbol = "󰢱"                                # nf-md-language_lua
+version_format = "$raw"
+
+[memory_usage]
+disabled = false
+format = '\[$symbol [$ram]($style)\]'
+symbol = "󰍛"                          # nf-md-memory
+threshold = 0
+
+[nodejs]
+format = '\[[$symbol( $version)]($style)\]'
+symbol = "󰎙"                                # nf-md-nodejs
+version_format = "$raw"
+
+[package]
+format = '\[[$symbol $version]($style)\]'
+symbol = ""                              # nf-oct-package
+version_format = "$raw"
+
+[python]
+format = '\[[$symbol $pyenv_prefix($version)(\($virtualenv\))]($style)\]'
+symbol = "󰌠"                                                              # nf-md-language_python
+version_format = "$raw"
+
+[rust]
+format = '\[[$symbol( $version)]($style)\]'
+symbol = "󱘗"                                # nf-md-language_rust
+version_format = "$raw"
+
+[status]
+disabled = false
+map_symbol = true
+not_executable_symbol = " "                           # nf-fa-ban
+not_found_symbol = " "                                # nf-fa-search
+pipestatus = true
+pipestatus_segment_format = "[$symbol$status]($style)"
+sigint_symbol = "!"
+signal_symbol = ""                                    # nf-fa-bolt
+symbol = ""                                           # nf-fa-close
+
+[username]
+format = "[$user]($style)"
