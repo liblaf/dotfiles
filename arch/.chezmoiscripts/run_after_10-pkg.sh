@@ -1,6 +1,8 @@
 #!/bin/bash
 set -o errexit -o nounset -o pipefail
 
+PKG_DIR="$HOME/.cache/dotfiles/pkg"
+
 function strip-comments() {
   repo=$1
   file=$2
@@ -20,19 +22,31 @@ sudo pacman --sync --needed --noconfirm archlinuxcn/archlinuxcn-keyring
 sudo pacman-key --recv-keys 7931B6D628C8D3BA
 sudo pacman-key --finger 7931B6D628C8D3BA
 sudo pacman-key --lsign-key 7931B6D628C8D3BA
+# https://github.com/Jguer/yay
+sudo pacman --sync --needed --noconfirm archlinuxcn/yay
 
-pkg_dir="$HOME/.cache/dotfiles/pkg"
-strip-comments core "$pkg_dir/core.list" |
+readarray -t remove_list < "$PKG_DIR/remove.list"
+pkgs_to_remove=()
+for pkg in "${remove_list[@]}"; do
+  if pacman --query --quiet "$pkg"; then
+    pkgs_to_remove+=("$pkg")
+  fi
+done
+if [[ ${#pkgs_to_remove[@]} -gt 0 ]]; then
+  sudo pacman --remove --nosave --recursive --unneeded --noconfirm "${pkgs_to_remove[@]}"
+fi
+
+strip-comments core "$PKG_DIR/core.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments extra "$pkg_dir/extra.list" |
+strip-comments extra "$PKG_DIR/extra.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments '' "$pkg_dir/group.list" |
+strip-comments "" "$PKG_DIR/group.list" |
   sudo pacman --sync --groups - |
   awk '{ print $2 }' |
   sudo pacman --sync --needed --noconfirm -
-strip-comments archlinuxcn "$pkg_dir/archlinuxcn.list" |
+strip-comments archlinuxcn "$PKG_DIR/archlinuxcn.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments arch4edu "$pkg_dir/arch4edu.list" |
+strip-comments arch4edu "$PKG_DIR/arch4edu.list" |
   sudo pacman --sync --needed --noconfirm -
-strip-comments aur "$pkg_dir/aur.list" |
-  yay --aur --removemake --devel --useask=false --sync --needed --noconfirm -
+strip-comments aur "$PKG_DIR/aur.list" |
+  yay --aur --devel --useask=false --sync --needed --noconfirm -

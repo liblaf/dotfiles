@@ -1,13 +1,18 @@
-[".cache/dotfiles/dict.txt"]
+[".cache/dotfiles/assets/dict.txt"]
 refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/broly8/libpinyin-dict/raw/master/dict.txt"
 
-[".cache/dotfiles/grub2-themes"]
+[".cache/dotfiles/assets/grub2-themes"]
 refreshPeriod = "168h"
 stripComponents = 1
 type = "archive"
 url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar.gz"
+
+[".cache/dotfiles/assets/zotero-addons.xpi"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/syt2/zotero-addons/releases/latest/download/zotero-addons.xpi"
 
 [".config/fastfetch/config.jsonc"]
 refreshPeriod = "168h"
