@@ -31,6 +31,8 @@ class Service(NamedTuple):
 
 SERVICES: list[Service] = [
     Service("GPT Academic", "GPT_ACADEMIC", public=True),
+    Service("HTTP", "HTTP", public=False),
+    Service("HTTPS", "HTTPS", public=True),
     Service("sing-box", "PROXY", public=False),
     Service("SSH", "SSH", public=True),
     Service("Stirling-PDF", "STIRLING_PDF", public=True),
