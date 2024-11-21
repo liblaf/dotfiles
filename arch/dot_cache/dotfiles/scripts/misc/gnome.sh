@@ -7,13 +7,10 @@ set -o pipefail
 export PATH="${HOME}/.local/bin:${PATH}"
 uv tool install --force gnome-extensions-cli
 
-extensions_to_install=(
-  BingWallpaper@ineffable-gmail.com
-  display-brightness-ddcutil@themightydeity.github.com
-  power-profile-switcher@eliapasquali.github.io
-  unblank@sun.wxg@gmail.com
-)
-gext install "${extensions_to_install[@]}"
+extensions_to_install=()
+if [[ ${#extensions_to_install[@]} -gt 0 ]]; then
+  gext install "${extensions_to_install[@]}"
+fi
 extensions_to_enable=(
   # pre-installed
   apps-menu@gnome-shell-extensions.gcampax.github.com
@@ -23,7 +20,11 @@ extensions_to_enable=(
 
   # system
   appindicatorsupport@rgcjonas.gmail.com
+  BingWallpaper@ineffable-gmail.com
   dash-to-dock@micxgx.gmail.com
+  display-brightness-ddcutil@themightydeity.github.com
+  power-profile-switcher@eliapasquali.github.io
+  unblank@sun.wxg@gmail.com
   Vitals@CoreCoding.com
 
   # user
