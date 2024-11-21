@@ -1,0 +1,8 @@
+#:schema https://github.com/liblaf/llm-cli/raw/refs/heads/main/docs/schema/models.json
+# vim: syntax=toml
+
+model = "deepseek-chat"
+provider = "deepseek"
+
+[providers.deepseek]
+api_key = '{{(rbwFields "DeepSeek").api_key.value}}'
