@@ -18,7 +18,7 @@ for repo in "${repos[@]}"; do
     *) target=$prefix/$repo ;;
   esac
   if [[ -d "$target/.git" ]]; then
-    echo "Updating $repo"
+    echo "Updating '$target' ..."
     git -C "$target" pull || true
   else
     mkdir --parents --verbose "$(dirname -- "$target")"
