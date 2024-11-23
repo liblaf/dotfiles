@@ -1,3 +1,3 @@
-default: arch sing-box windows
+default: arch assets sing-box windows
 
 include makefiles/*.mk
