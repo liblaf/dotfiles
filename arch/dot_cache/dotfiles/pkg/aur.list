@@ -8,6 +8,7 @@ dasel-bin
 doggo-bin
 downgrade
 electron22-bin                                       # required by piclist-bin
+freeze-bin
 geekbench
 gnome-shell-extension-bing-wallpaper
 gnome-shell-extension-display-brightness-ddcutil-git
