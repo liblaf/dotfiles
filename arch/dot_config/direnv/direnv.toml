@@ -3,5 +3,5 @@ load_dotenv = true
 strict_env = true
 
 [whitelist]
-prefix = ["~/github/liblaf"]
+prefix = ["~/github/liblaf", "~/play"]
 exact = ["~/sshfs"]
