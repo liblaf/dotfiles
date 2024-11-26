@@ -1,6 +1,6 @@
 local wezterm = require "wezterm"
-local mux = wezterm.mux
 local config = wezterm.config_builder()
+local mux = wezterm.mux
 
 -- TODO: upstream issue: <https://github.com/wez/wezterm/issues/5604>
 config.enable_wayland = false
@@ -12,10 +12,12 @@ config.font = wezterm.font_with_fallback {
   "Monaspace Neon",
   "FiraCode",
   "JetBrains Mono",
-  "Symbols Nerd Font",
+  "Noto Sans Mono",
+  "Noto Sans Mono CJK SC",
+  "Twemoji Flags",
+  "Segoe UI Emoji",
   "Noto Color Emoji",
-  "Noto Sans",
-  "Noto Sans CJK SC",
+  "Nerd Font Symbols",
 }
 config.hide_tab_bar_if_only_one_tab = true
 

@@ -91,7 +91,12 @@ stripComponents = 1
 type = "archive"
 url = "https://customer.faceform.am/customer/dl/Wrap/Linux"
 
+[".local/share/fonts/TwemojiFlags.ttf"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/fonts/releases/download/TwemojiFlags/TwemojiFlags.ttf"
+
 [".local/share/fonts/Win11"]
 refreshPeriod = "168h"
 type = "archive"
-url = "https://github.com/liblaf/win-fonts/releases/download/Win11/Win11-Chinese_Simplified.zip"
+url = "https://github.com/liblaf/fonts/releases/download/Win11/Win11-Chinese_Simplified.zip"
