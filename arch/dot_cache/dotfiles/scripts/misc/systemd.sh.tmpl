@@ -14,6 +14,7 @@ sudo systemctl disable --now goauthing6.service || true
 systemctl --user disable --now restic.timer || true
 
 sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now caddy.service
 sudo systemctl enable --now docker.service
 sudo systemctl enable --now earlyoom.service
 sudo systemctl enable --now logrotate.timer
