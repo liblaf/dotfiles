@@ -1,0 +1,38 @@
+#:schema https://github.com/liblaf/llm-cli/raw/refs/heads/main/docs/schema/config.json
+[completion]
+model = "deepseek-chat"
+
+[router]
+num_retries = 3
+
+[[router.model_list]]
+model_name = "deepseek-chat"
+litellm_params.api_key = '{{(rbwFields "DeepSeek").api_key.value}}'
+litellm_params.model = "deepseek/deepseek-chat"
+
+[[router.model_list]]
+model_name = "qwen-max"
+litellm_params.model = "openai/qwen-max"
+litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+litellm_params.api_key = '{{(rbwFields "阿里云").QWEN_API_KEY.value}}'
+
+[[router.model_list]]
+model_name = "qwen-plus"
+litellm_params.model = "openai/qwen-plus"
+litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+litellm_params.api_key = '{{(rbwFields "阿里云").QWEN_API_KEY.value}}'
+
+[[router.model_list]]
+model_name = "qwen-turbo"
+litellm_params.model = "openai/qwen-turbo"
+litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+litellm_params.api_key = '{{(rbwFields "阿里云").QWEN_API_KEY.value}}'
+
+[[router.model_list]]
+model_name = "qwen-log"
+litellm_params.model = "openai/qwen-log"
+litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+litellm_params.api_key = '{{(rbwFields "阿里云").QWEN_API_KEY.value}}'
+
+[[router.fallbacks]]
+deepseek-chat = ["qwen-max", "qwen-plus", "qwen-turbo", "qwen-log"]
