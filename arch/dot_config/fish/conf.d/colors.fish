@@ -10,11 +10,4 @@ if status is-interactive
     set --global --export LESS_TERMCAP_us (set_color --bold green) # underline
     set --global --export LESS_TERMCAP_ue (set_color normal) # end
     set --global --export GROFF_NO_SGR 1
-
-    if type --query viddy
-        function viddy --wraps="viddy"
-            set --function --export SYSTEMD_COLORS 1
-            viddy $argv
-        end
-    end
 end
