@@ -4,7 +4,7 @@ if status is-interactive
         function hwatch --wraps="hwatch"
             set --function --export FORCE_COLOR 1 # https://force-color.org
             set --function --export SYSTEMD_COLORS 1
-            hwatch $argv
+            command hwatch $argv
         end
     end
 end
