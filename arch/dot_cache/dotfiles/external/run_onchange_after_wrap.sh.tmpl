@@ -1,0 +1,8 @@
+#!/bin/bash
+set -o errexit -o nounset -o pipefail
+# {{ $filepath := joinPath .externalDir "Wrap.tar.xz" }}
+# {{ include $filepath | sha256sum }}
+
+mkdir --parents --verbose "$HOME/.local/opt/Wrap"
+# shellcheck disable=SC2016
+tar --extract --file='{{ $filepath }}' --overwrite --directory="$HOME/.local/opt/Wrap" --strip-components=1 --verbose

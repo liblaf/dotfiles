@@ -1,0 +1,5 @@
+#!/bin/bash
+set -o errexit -o nounset -o pipefail
+
+cd '{{ joinPath .externalDir "grub2-themes" }}'
+sudo ./install.sh --screen 4k

@@ -1,15 +1,25 @@
-[".cache/dotfiles/assets/dict.txt"]
+[".cache/dotfiles/external/Wrap.tar.xz"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://customer.faceform.am/customer/dl/Wrap/Linux"
+
+[".cache/dotfiles/external/dict.txt"]
 refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/broly8/libpinyin-dict/raw/master/dict.txt"
 
-[".cache/dotfiles/assets/grub2-themes"]
+[".cache/dotfiles/external/grub2-themes"]
 refreshPeriod = "168h"
 stripComponents = 1
 type = "archive"
 url = "https://github.com/vinceliuice/grub2-themes/archive/refs/heads/master.tar.gz"
 
-[".cache/dotfiles/assets/zotero-addons.xpi"]
+[".cache/dotfiles/external/win11-fonts.zip"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/fonts/releases/download/Win11/Win11-Chinese_Simplified.zip"
+
+[".cache/dotfiles/external/zotero-addons.xpi"]
 refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/syt2/zotero-addons/releases/latest/download/zotero-addons.xpi"
@@ -89,19 +99,19 @@ refreshPeriod = "168h"
 type = "archive-file"
 url = "https://github.com/libthu/reserves-lib-tsinghua-downloader/releases/latest/download/downloader-ubuntu-latest-py3.9.zip"
 
-[".local/opt/Wrap"]
-format = "tar.xz"
+[".local/share/fonts/SegoeUI"]
+format = "zip"
 refreshPeriod = "168h"
-stripComponents = 1
 type = "archive"
-url = "https://customer.faceform.am/customer/dl/Wrap/Linux"
+url = "https://aka.ms/segoeuifont"
+
+[".local/share/fonts/SegoeUIVariable"]
+format = "zip"
+refreshPeriod = "168h"
+type = "archive"
+url = "https://aka.ms/SegoeUIVariable"
 
 [".local/share/fonts/TwemojiFlags.ttf"]
 refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/fonts/releases/download/TwemojiFlags/TwemojiFlags.ttf"
-
-[".local/share/fonts/Win11"]
-refreshPeriod = "168h"
-type = "archive"
-url = "https://github.com/liblaf/fonts/releases/download/Win11/Win11-Chinese_Simplified.zip"

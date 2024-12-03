@@ -1,6 +1,6 @@
 # vim: syntax=ini
 [Service]
-ExecStart = bash %h/.local/bin/bitwarden-backup.sh
+ExecStart = %h/.local/bin/bitwarden-backup.sh
 Restart = on-failure
 RestartSec = 5s
 

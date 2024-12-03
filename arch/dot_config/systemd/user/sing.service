@@ -1,6 +1,6 @@
 # vim: syntax=ini
 [Service]
-ExecStart = bash %h/.local/bin/sing.sh
+ExecStart = %h/.local/bin/sing.sh
 Restart = on-failure
 RestartSec = 5s
 

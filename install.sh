@@ -13,4 +13,4 @@ if [[ -d ~/.local/share/chezmoi ]]; then
 else
   chezmoi execute-template < "$workspace/.chezmoi.toml.tmpl" > ~/.config/chezmoi/chezmoi.toml
 fi
-chezmoi apply --force "$@"
+chezmoi apply "$@"

@@ -8,16 +8,17 @@ function check() {
   rclone about "$1:"
 }
 
-if check business; then
-  echo "$(tput bold)$(tput setaf 10)Onedrive Business already configured$(tput sgr0)"
-else
-  export RCLONE_ONEDRIVE_CLIENT_ID='{{(rbwFields "Rclone Business").client_id.value}}'
-  export RCLONE_ONEDRIVE_CLIENT_SECRET='{{(rbwFields "Rclone Business").client_secret.value}}'
-  notify-send --transient "Config Onedrive Business ..."
-  rclone config create business onedrive
-fi
+# TODO: add OneDrive Business
+# if check business; then
+#   echo "$(tput bold)$(tput setaf 10)Onedrive Business already configured$(tput sgr0)"
+# else
+#   export RCLONE_ONEDRIVE_CLIENT_ID='{{(rbwFields "Rclone Business").client_id.value}}'
+#   export RCLONE_ONEDRIVE_CLIENT_SECRET='{{(rbwFields "Rclone Business").client_secret.value}}'
+#   notify-send --transient "Config Onedrive Business ..."
+#   rclone config create business onedrive
+# fi
 
-# TODO: Add OneDrive Personal
+# TODO: add OneDrive Personal
 # if check personal; then
 #   echo "$(tput bold)$(tput setaf 10)Onedrive Personal already configured$(tput sgr0)"
 # else

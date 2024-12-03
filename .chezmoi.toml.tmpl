@@ -1,14 +1,17 @@
-# {{$center := eq .chezmoi.hostname "10700"}}
-# {{$server := or (eq .chezmoi.hostname "10700") (eq .chezmoi.hostname "13900HX")}}
+# {{ $center := eq .chezmoi.hostname "10700" }}
+# {{ $server := or (eq .chezmoi.hostname "10700") (eq .chezmoi.hostname "13900HX") }}
 
-sourceDir = "{{.chezmoi.homeDir}}/.local/share/chezmoi/{{.chezmoi.osRelease.id}}"
+sourceDir = "{{ .chezmoi.homeDir }}/.local/share/chezmoi/{{ .chezmoi.osRelease.id }}"
+
+[data]
+externalDir = "{{ .chezmoi.homeDir }}/.cache/dotfiles/external"
 
 [data.hardware.intel]
-exists = {{default "false" (env "INTEL")}}
+exists = {{ default "false" (env "INTEL") }}
 
 [data.hardware.nvidia]
-exists = {{default "false" (env "NVIDIA")}}
-mobile = {{default "false" (env "NVIDIA_MOBILE")}}
+exists = {{ default "false" (env "NVIDIA") }}
+mobile = {{ default "false" (env "NVIDIA_MOBILE") }}
 
 [data.mirrors]
 anaconda = "https://mirrors.cernet.edu.cn/anaconda"
@@ -26,17 +29,17 @@ pypi = "https://mirrors.cernet.edu.cn/pypi/web/simple"
 rustup = "https://mirrors.cernet.edu.cn/rustup"
 
 [data.port]
-gpt_academic = {{env "PORT_GPT_ACADEMIC"}}
-http = {{env "PORT_HTTP"}}
-https = {{env "PORT_HTTPS"}}
-proxy = {{env "PORT_PROXY"}}
-ssh = {{env "PORT_SSH"}}
-stirling_pdf = {{env "PORT_STIRLING_PDF"}}
-webdav = {{env "PORT_WEBDAV"}}
+gpt_academic = {{ env "PORT_GPT_ACADEMIC" }}
+http = {{ env "PORT_HTTP" }}
+https = {{ env "PORT_HTTPS" }}
+proxy = {{ env "PORT_PROXY" }}
+ssh = {{ env "PORT_SSH" }}
+stirling_pdf = {{ env "PORT_STIRLING_PDF" }}
+webdav = {{ env "PORT_WEBDAV" }}
 
 [data.service]
-backup = {{$center}}
-center = {{$center}}
-gpt_academic = {{$server}}
-stirling_pdf = {{$server}}
+backup = {{ $center }}
+center = {{ $center }}
+gpt_academic = {{ $server }}
+stirling_pdf = {{ $server }}
 webdav = true

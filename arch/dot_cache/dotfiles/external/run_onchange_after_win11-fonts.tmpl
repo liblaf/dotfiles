@@ -1,0 +1,8 @@
+#!/bin/bash
+set -o errexit -o nounset -o pipefail
+# {{ $filepath := joinPath .externalDir "win11-fonts.zip" }}
+# {{ include $filepath | sha256sum }}
+
+mkdir --parents --verbose "$HOME/.local/share/fonts/Win11"
+# shellcheck disable=SC2016
+ouch decompress --dir "$HOME/.local/share/fonts/Win11" --yes '{{ $filepath }}'
