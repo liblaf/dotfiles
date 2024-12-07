@@ -1,7 +1,7 @@
 [".cache/dotfiles/external/Wrap.tar.xz"]
 refreshPeriod = "168h"
 type = "file"
-url = "https://customer.faceform.am/customer/dl/Wrap/Linux"
+url = "https://customer.faceform.com/customer/dl/Wrap/Linux"
 
 [".cache/dotfiles/external/dict.txt"]
 refreshPeriod = "168h"
