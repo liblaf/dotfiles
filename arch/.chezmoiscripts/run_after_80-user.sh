@@ -12,12 +12,14 @@ function group-add() {
   local group=$1
   if ! groups | grep "$group" > /dev/null; then
     if grep "$group" /etc/group > /dev/null; then
+      # https://wiki.archlinux.org/title/Users_and_groups#Group_management
       sudo gpasswd --add "$USER" "$group"
     fi
   fi
 }
 
 group-add docker
+group-add vboxusers
 group-add vcpkg
 
 # https://wiki.archlinux.org/title/Systemd/User#Automatic_start-up_of_systemd_user_instances
