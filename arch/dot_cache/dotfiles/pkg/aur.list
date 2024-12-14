@@ -7,7 +7,7 @@ clipboard-bin
 dasel-bin
 doggo-bin
 downgrade
-electron22-bin                                       # required by piclist-bin
+electron22-bin                                       # piclist-bin
 freeze-bin
 geekbench
 gnome-shell-extension-bing-wallpaper
@@ -25,8 +25,9 @@ nautilus-code
 nautilus-open-any-terminal
 noto-fonts-sc
 piclist-bin
+tsukimi-bin
 typora
-virtualbox-ext-oracle
+virtualbox-ext-oracle                                # virtualbox
 visual-studio-code-bin
 wechat-universal-bwrap
 wemeet-bin
