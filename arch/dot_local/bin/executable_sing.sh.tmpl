@@ -14,7 +14,7 @@ set -o pipefail
 function main() {
   tmp=$(mktemp --suffix=".json")
   trap 'rm --force "$tmp"' EXIT
-  xhs --download --output "$tmp" GET "https://api.liblaf.me/sub/$argc_id/sing-box" in.mixed.port=="$argc_port" preset==linux
+  xhs --download --output "$tmp" GET "https://api.liblaf.me/sub/$argc_id/sing-box" port=="$argc_port"
   prettier --write "$tmp"
   sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" "$argc_config"
   sudo systemctl restart sing-box.service

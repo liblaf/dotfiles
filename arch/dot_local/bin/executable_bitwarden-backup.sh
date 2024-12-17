@@ -10,6 +10,8 @@ set -o pipefail
 function main() {
   argc_dir=${argc_dir/#'~'/"$HOME"}
   echo "output : $argc_dir"
+  bw --nointeraction unlock --check
+  bw --nointeraction sync
   latest_file=$(
     find "$argc_dir" -name "*.json" -type f |
       sort |
