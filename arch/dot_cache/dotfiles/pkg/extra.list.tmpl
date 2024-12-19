@@ -17,7 +17,7 @@ vdpauinfo   # VDPAU
 # {{if .hardware.nvidia.exists}}
 cuda
 libva-nvidia-driver      # VA-API
-nvidia-container-toolkit
+nvidia-container-toolkit # Docker
 nvidia-lts
 nvidia-utils             # VDPAU
 opencl-nvidia            # OpenCL
@@ -137,7 +137,7 @@ pixi
 pyright
 python-httpx
 python-icecream
-python-socksio  # required by python-httpx[socks]
+python-socksio  # python-httpx[socks]
 ruff
 rye
 uv
@@ -152,15 +152,12 @@ shellcheck
 shfmt
 
 # ----------------------------------- Misc ----------------------------------- #
-python-pygments   # required by LaTeX minted
-perl-file-homedir # required by latexindent.pl
-perl-yaml-tiny    # required by latexindent.pl
-ffmpegthumbnailer # required by yazi
-jq                # required by yazi
-p7zip             # required by yazi
-poppler           # required by yazi
-
-# {{if .service.stirling_pdf}}
-tesseract-data-chi_sim # required by Stirling PDF
-tesseract-data-eng     # required by Stirling PDF
-# {{end}}
+ffmpegthumbnailer      # yazi
+jq                     # yazi
+p7zip                  # yazi
+perl-file-homedir      # latexindent.pl
+perl-yaml-tiny         # latexindent.pl
+poppler                # yazi
+python-pygments        # LaTeX minted
+tesseract-data-chi_sim # pot-translation, Stirling PDF
+tesseract-data-eng     # pot-translation, Stirling PDF

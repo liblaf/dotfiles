@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=pot
+Comment=potstartup script
+# https://github.com/pot-app/pot-desktop/issues/835#issuecomment-2503111724
+Exec=/usr/bin/env GDK_BACKEND=x11 WEBKIT_DISABLE_DMABUF_RENDERER=1 pot
+StartupNotify=false
+Terminal=false
