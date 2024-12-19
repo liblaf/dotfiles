@@ -10,6 +10,7 @@ externalDir = "{{ .chezmoi.homeDir }}/.cache/dotfiles/external"
 exists = {{ default "false" (env "INTEL") }}
 
 [data.hardware.nvidia]
+driver = '{{ default "open" (env "NVIDIA_DRIVER") }}'
 exists = {{ default "false" (env "NVIDIA") }}
 mobile = {{ default "false" (env "NVIDIA_MOBILE") }}
 
