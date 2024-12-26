@@ -1,16 +1,18 @@
 # {{ $center := eq .chezmoi.hostname "10700" }}
+# {{ $externalRelativeDir := ".cache/dotfiles/external" }}
 # {{ $server := or (eq .chezmoi.hostname "10700") (eq .chezmoi.hostname "13900HX") }}
 
 sourceDir = "{{ .chezmoi.homeDir }}/.local/share/chezmoi/{{ .chezmoi.osRelease.id }}"
 
 [data]
-externalDir = "{{ .chezmoi.homeDir }}/.cache/dotfiles/external"
+externalDir = "{{ joinPath .chezmoi.homeDir $externalRelativeDir }}"
+externalRelativeDir = "{{ $externalRelativeDir }}"
 
 [data.hardware.intel]
 exists = {{ default "false" (env "INTEL") }}
 
 [data.hardware.nvidia]
-driver = '{{ default "open" (env "NVIDIA_DRIVER") }}'
+driver = '{{ env "NVIDIA_DRIVER" }}'
 exists = {{ default "false" (env "NVIDIA") }}
 mobile = {{ default "false" (env "NVIDIA_MOBILE") }}
 
