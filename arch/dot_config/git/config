@@ -37,6 +37,9 @@ defaultBranch = main
 [push]
 autoSetupRemote = true
 
+[status]
+relativePaths = false
+
 [submodule]
 fetchJobs = 0
 
