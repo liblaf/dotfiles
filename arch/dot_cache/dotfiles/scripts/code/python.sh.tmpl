@@ -23,10 +23,11 @@ pkg_to_remove=(
 )
 
 for pkg in "${pkg_to_remove[@]}"; do
-  uv tool remove "$pkg" || true
+  uv tool uninstall "$pkg" || true
 done
 for pkg in "${pkg_list[@]}"; do
-  uv tool install --force --python 3.12 "$pkg"
+  # TODO: remove `--python 3.13` when <https://github.com/astral-sh/uv/issues/8229> is resolved
+  uv tool install --force --python 3.13 "$pkg"
 done
 uv tool install --with cookiecutter --force copier
 uv tool upgrade --all
