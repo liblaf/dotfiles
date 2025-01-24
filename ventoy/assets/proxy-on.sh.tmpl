@@ -12,7 +12,7 @@ gsettings set org.gnome.system.proxy.socks host 127.0.0.1
 gsettings set org.gnome.system.proxy.socks port "$PROXY_PORT"
 gsettings set org.gnome.system.proxy mode manual
 
-export all_proxy="socks5://127.0.0.1:$PROXY_PORT"
+export all_proxy="http://127.0.0.1:$PROXY_PORT"
 export ALL_PROXY=$all_proxy
 export ftp_proxy="http://127.0.0.1:$PROXY_PORT"
 export FTP_PROXY=$ftp_proxy

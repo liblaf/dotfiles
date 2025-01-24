@@ -1,6 +1,6 @@
 function proxy-on
     gsettings set org.gnome.system.proxy mode manual
-    set --global --export all_proxy "socks5://$(_get_proxy_host socks):$(_get_proxy_port socks)"
+    set --global --export all_proxy "http://$(_get_proxy_host socks):$(_get_proxy_port socks)"
     set --global --export ALL_PROXY $all_proxy
     set --global --export ftp_proxy "http://$(_get_proxy_host ftp):$(_get_proxy_port ftp)"
     set --global --export FTP_PROXY $ftp_proxy
