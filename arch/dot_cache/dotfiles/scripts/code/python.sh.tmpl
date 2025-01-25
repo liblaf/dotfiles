@@ -9,7 +9,7 @@ pkg_list=(
   gnome-extensions-cli
   https://github.com/liblaf/python-cli.git
   https://github.com/liblaf/thu-learn-downloader.git
-  liblaf-ai-cli
+  liblaf-lime
   py-spy
   toml-sort
   # {{if .hardware.nvidia.exists}}
@@ -20,6 +20,10 @@ pkg_list=(
 pkg_to_remove=(
   ai-commit-cli
   dvc
+  glances
+  liblaf-ai-cli
+  liblaf-llm-cli
+  readmeai
 )
 
 for pkg in "${pkg_to_remove[@]}"; do
