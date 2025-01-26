@@ -37,6 +37,7 @@ echo "BW_SESSION=$BW_SESSION" > "$HOME/.config/environment.d/bitwarden.conf"
 
 if [[ ! -f "$HOME/.config/rbw/config.json" ]]; then
   rbw config set email "no-reply.liblaf@outlook.com"
+  rbw config set lock_timeout 604800
 fi
 rbw login
 rbw sync
