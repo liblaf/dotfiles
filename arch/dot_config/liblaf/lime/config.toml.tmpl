@@ -36,3 +36,6 @@ litellm_params.api_key = '{{(rbwFields "Aliyun").QWEN_API_KEY.value}}'
 
 [[router.fallbacks]]
 deepseek-chat = ["qwen-max", "qwen-plus", "qwen-turbo", "qwen-long"]
+
+[[router.fallbacks]]
+qwen-max = ["qwen-plus", "qwen-turbo", "qwen-long"]
