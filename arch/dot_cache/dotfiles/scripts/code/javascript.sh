@@ -15,5 +15,5 @@ pkg_list=(
   vercel
 )
 
-bun add --global "${pkg_list[@]}"
-bun update --global --latest
+pnpm add --global "${pkg_list[@]}"
+pnpm update --latest --global

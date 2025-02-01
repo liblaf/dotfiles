@@ -8,21 +8,21 @@ function has() {
 }
 
 function ensure() {
-  pkg=$1
-  exe=$2
+  exe=$1
+  pkgs=("${@:2}")
   if ! has "$exe"; then
-    echo "$pkg is not installed"
+    echo "$exe is not installed"
     if has pacman; then
-      sudo pacman --sync --refresh --needed --noconfirm "$pkg"
+      sudo pacman --sync --refresh --needed --noconfirm "${pkgs[@]}"
     else
       exit 1
     fi
   fi
 }
 
-ensure "bitwarden-cli" "bw"
-ensure "jq" "jq"
-ensure "rbw" "rbw"
+ensure bw bitwarden-cli
+ensure jq
+ensure rbw
 
 if ! bw login --check; then
   bw login
