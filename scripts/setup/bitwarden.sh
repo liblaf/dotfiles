@@ -7,25 +7,15 @@ function has() {
   type "$@" &> /dev/null
 }
 
-function ensure() {
-  exe=$1
-  pkgs=("${@:2}")
-  if ! has "$exe"; then
-    echo "$exe is not installed"
-    if has pacman; then
-      sudo pacman --sync --refresh --needed --noconfirm "${pkgs[@]}"
-    else
-      exit 1
-    fi
-  fi
-}
-
-ensure bw bitwarden-cli
-ensure jq
-ensure rbw
+if has pacman; then
+  sudo pacman --sync --refresh --needed --noconfirm bitwarden-cli jq rbw
+else
+  exit 1
+fi
 
 if ! bw login --check; then
-  bw login
+  BW_SESSION=$(bw login --raw)
+  export BW_SESSION
 fi
 if ! bw unlock --check; then
   BW_SESSION=$(bw --raw unlock)
@@ -33,7 +23,7 @@ if ! bw unlock --check; then
   bw unlock --check
 fi
 mkdir --parents --verbose "$HOME/.config/environment.d"
-echo "BW_SESSION=$BW_SESSION" > "$HOME/.config/environment.d/bitwarden.conf"
+printf "BW_SESSION=%q\n" "$BW_SESSION" > "$HOME/.config/environment.d/bitwarden.conf"
 
 if [[ ! -f "$HOME/.config/rbw/config.json" ]]; then
   rbw config set email "no-reply.liblaf@outlook.com"
