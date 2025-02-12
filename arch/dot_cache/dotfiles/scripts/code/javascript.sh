@@ -10,6 +10,7 @@ pkg_list=(
   @biomejs/biome
   commitizen
   cspell
+  prettier
   repomix
   speedscope
   vercel

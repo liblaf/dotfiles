@@ -61,6 +61,7 @@ EXTENSION_PACKS: dict[str, list[str]] = {
         "tboox.xmake-vscode",
     ],
     "dotfiles": [
+        "bmalehorn.vscode-fish",
         "lkrms.inifmt",
         "nico-castell.linux-desktop-file",
         "sumneko.lua",

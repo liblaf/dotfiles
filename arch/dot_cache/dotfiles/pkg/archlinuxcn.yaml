@@ -1,0 +1,13 @@
+archlinuxcn:
+  - 3dslicer
+  - archlinuxcn-keyring
+  - downgrade
+  - git-extras
+  - gnome-shell-extension-dash-to-dock
+  - resticprofile
+  # TODO: add back when <https://github.com/archlinuxcn/repo/issues/4162> is fixed
+  # - seadrive-gui
+  - sing-box
+  - ventoy
+  - yay
+  - zotero-bin

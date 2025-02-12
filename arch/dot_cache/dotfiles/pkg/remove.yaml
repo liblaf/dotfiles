@@ -1,0 +1,13 @@
+remove:
+  - brightnessctl
+  - clash-meta
+  - cloudflare-warp-bin
+  - ddcci-driver-linux-dkms
+  - google-chrome
+  - jellyfin-server
+  - jellyfin-web
+  - mypy
+  - pipxu
+  - qbittorrent-nox
+  - qbittorrent-vuetorrent-bin
+  - superfile-bin
