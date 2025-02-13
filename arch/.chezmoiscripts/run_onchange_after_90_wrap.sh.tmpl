@@ -1,7 +1,10 @@
 #!/bin/bash
-set -o errexit -o nounset -o pipefail
+# -*- mode: sh; -*-
 # {{ $filepath := joinPath .externalDir "Wrap.tar.xz" }}
 # {{ include $filepath | sha256sum }}
+set -o errexit
+set -o nounset
+set -o pipefail
 
 mkdir --parents --verbose "$HOME/.local/opt/Wrap"
 # shellcheck disable=SC2016

@@ -22,7 +22,7 @@ sudo pacman-key --lsign-key 7931B6D628C8D3BA
 sudo pacman --sync --needed --noconfirm archlinuxcn/yay
 
 sudo pacman --sync --sysupgrade --refresh --noconfirm
-yay --yay --clean
+yay --yay --useask=false --clean
 
 readarray -t REMOVES < <(load-packages remove "$PKG_DIR/remove.yaml")
 remove=()

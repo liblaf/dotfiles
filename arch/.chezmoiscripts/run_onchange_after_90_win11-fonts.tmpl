@@ -1,7 +1,10 @@
 #!/bin/bash
-set -o errexit -o nounset -o pipefail
+# -*- mode: sh; -*-
 # {{ $filepath := joinPath .externalDir "win11-fonts.zip" }}
 # {{ include $filepath | sha256sum }}
+set -o errexit
+set -o nounset
+set -o pipefail
 
 mkdir --parents --verbose "$HOME/.local/share/fonts/Win11"
 # shellcheck disable=SC2016
