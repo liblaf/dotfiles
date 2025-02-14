@@ -11,6 +11,7 @@ sudo systemctl disable --now "qbittorrent-nox@$USER.service" || true
 sudo systemctl disable --now ddns-go.service || true
 sudo systemctl disable --now goauthing.service || true
 sudo systemctl disable --now goauthing6.service || true
+systemctl --user disable --now rclone-onedrive.service || true
 systemctl --user disable --now restic.timer || true
 
 sudo systemctl enable --now bluetooth.service
@@ -26,7 +27,6 @@ systemctl --user enable --now ddns.timer
 systemctl --user enable --now goauthing.service
 systemctl --user enable --now goauthing6.service
 systemctl --user enable --now pueued.service
-systemctl --user enable --now rclone-onedrive.service
 systemctl --user enable --now sing.timer
 
 # {{if .hardware.nvidia.exists}}

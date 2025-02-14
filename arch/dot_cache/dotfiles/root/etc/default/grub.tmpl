@@ -1,16 +1,15 @@
-# vim: syntax=sh
-# shellcheck disable=all
-# https://www.gnu.org/software/grub/manual/grub/html_node/Simple-configuration.html
+# -*- mode: dotenv; -*-
 # https://gitlab.archlinux.org/archlinux/packaging/packages/grub/-/blob/main/grub.default
+# https://www.gnu.org/software/grub/manual/grub/html_node/Simple-configuration.html
 
-GRUB_DEFAULT=saved
+GRUB_DEFAULT="saved"
 GRUB_SAVEDEFAULT=true
 GRUB_DISTRIBUTOR="Arch"
 GRUB_CMDLINE_LINUX_DEFAULT="{{if .hardware.nvidia.exists}}nvidia_drm.modeset=1{{end}}"
 GRUB_DISABLE_RECOVERY=true
-GRUB_GFXMODE=3840x2160,auto
+GRUB_GFXMODE="3840x2160,auto"
 GRUB_THEME="/usr/share/grub/themes/tela/theme.txt"
-GRUB_GFXPAYLOAD_LINUX=keep
+GRUB_GFXPAYLOAD_LINUX="keep"
 GRUB_DISABLE_OS_PROBER=false
 GRUB_DISABLE_SUBMENU=true
 GRUB_PRELOAD_MODULES="part_gpt part_msdos"

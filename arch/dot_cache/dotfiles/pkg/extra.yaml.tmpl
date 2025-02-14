@@ -1,4 +1,4 @@
-# vim: syntax=yaml
+# -*- mode: yaml; -*-
 extra:
   # System
   - bluez
@@ -8,7 +8,7 @@ extra:
   - ntfs-3g
   - os-prober
   - v4l2loopback-dkms
-  - virtualbox-host-modules-lts # virtualbox
+  - virtualbox-host-modules-arch # virtualbox
 
   # Hardware Video Acceleration
   - libva-utils # VA-API
@@ -19,9 +19,9 @@ extra:
   - libva-nvidia-driver # VA-API
   - nvidia-container-toolkit # Docker
   # {{if eq .hardware.nvidia.driver "open"}}
-  - nvidia-open-dkms
+  - nvidia-open
   # {{else if eq .hardware.nvidia.driver "proprietary"}}
-  - nvidia-lts
+  - nvidia
   # {{end}}
   - nvidia-utils # VDPAU
   - opencl-nvidia # OpenCL
