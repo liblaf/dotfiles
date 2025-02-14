@@ -8,4 +8,4 @@ set -o pipefail
 
 mkdir --parents --verbose "$HOME/.local/opt/Wrap"
 # shellcheck disable=SC2016
-tar --extract --file='{{ $filepath }}' --overwrite --directory="$HOME/.local/opt/Wrap" --strip-components=1 --verbose
+tar --extract --file='{{ $filepath }}' --overwrite --directory="$HOME/.local/opt/Wrap" --strip-components=1

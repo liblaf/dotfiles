@@ -1,4 +1,4 @@
-# vim: syntax=ini
+# -*- mode: ini; -*-
 [Unit]
 Description = Authenticating utility for auth.tsinghua.edu.cn
 StartLimitIntervalSec = 0

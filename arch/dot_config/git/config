@@ -1,4 +1,4 @@
-# vim: syntax=ini
+# -*- mode: ini; -*-
 [commit]
 gpgSign = true
 

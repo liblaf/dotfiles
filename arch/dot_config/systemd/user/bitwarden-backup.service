@@ -1,4 +1,4 @@
-# vim: syntax=ini
+# -*- mode: ini; -*-
 [Service]
 ExecStart = %h/.local/bin/bitwarden-backup.sh
 Restart = on-failure

@@ -1,4 +1,4 @@
-# vim: syntax=ini
+# -*- mode: ini; -*-
 # https://wiki.archlinux.org/title/NVIDIA#pacman_hook
 
 [Trigger]

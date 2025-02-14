@@ -1,10 +1,5 @@
 {
   "files.associations": {
-    "*.fish.tmpl": "fish",
-    "*.ini.tmpl": "ini",
-    "*.json.tmpl": "json",
-    "*.sh.tmpl": "shellscript",
-    "*.toml.tmpl": "toml",
-    "*.yaml.tmpl": "yaml"
+    "*.json.tmpl": "json"
   }
 }

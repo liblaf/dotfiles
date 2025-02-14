@@ -1,4 +1,4 @@
-# vim: syntax=ini
+# -*- mode: ini; -*-
 # https://wiki.archlinux.org/title/GDM#Setup_default_monitor_settings
 [Service]
 ExecStartPre = -/bin/cp "{{.chezmoi.homeDir}}/.config/monitors.xml" /var/lib/gdm/.config/monitors.xml

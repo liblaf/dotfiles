@@ -1,2 +1,2 @@
-# vim: syntax=ini
+# -*- mode: ini; -*-
 viewer_pdf = evince
