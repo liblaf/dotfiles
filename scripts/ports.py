@@ -1,5 +1,6 @@
 import functools
 import hashlib
+import sys
 from pathlib import Path
 from typing import NamedTuple
 
@@ -41,4 +42,5 @@ SERVICES: list[Service] = [
 
 
 for s in SERVICES:
+    print(f"Service Port > {s.name}: {s.port}", file=sys.stderr)
     print(f"export PORT_{s.env}={s.port}")

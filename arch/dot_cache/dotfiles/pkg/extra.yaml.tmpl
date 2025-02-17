@@ -14,22 +14,22 @@ extra:
   - libva-utils # VA-API
   - mpv # tsukimi
   - vdpauinfo # VDPAU
-  # {{if .hardware.nvidia.exists}}
+  # {{ if .hardware.nvidia.exists }}
+  #   {{ if eq .hardware.nvidia.driver "open" }}
+  - nvidia-open
+  #   {{ else if eq .hardware.nvidia.driver "proprietary" }}
+  - nvidia
+  #   {{ end }}
   - cuda
   - libva-nvidia-driver # VA-API
   - nvidia-container-toolkit # Docker
-  # {{if eq .hardware.nvidia.driver "open"}}
-  - nvidia-open
-  # {{else if eq .hardware.nvidia.driver "proprietary"}}
-  - nvidia
-  # {{end}}
   - nvidia-utils # VDPAU
   - opencl-nvidia # OpenCL
-  # {{else if .hardware.intel.exists}}
+  # {{ else if .hardware.intel.exists }}
   - intel-compute-runtime # OpenCL
   - intel-media-driver # VA-API
   - libvdpau-va-gl # VDPAU
-  # {{end}}
+  # {{ end }}
 
   # Service
   - cloudflared
@@ -77,6 +77,7 @@ extra:
   - markdownlint-cli
   - miniserve
   - ouch
+  - pacutils
   - pandoc-cli
   - pnpm
   - pre-commit
