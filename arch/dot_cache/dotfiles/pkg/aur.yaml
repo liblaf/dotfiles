@@ -23,6 +23,7 @@ aur:
   - nautilus-code
   - nautilus-open-any-terminal
   - noto-fonts-sc
+  - paccache-hook
   - piclist-bin
   - pot-translation
   - seadrive-daemon # TODO: switch to archlinuxcn when <https://github.com/archlinuxcn/repo/issues/4174> is fixed
@@ -34,3 +35,5 @@ aur:
   - wechat-universal-bwrap
   - wemeet-bin
   - wps-office-365
+  - yaycache
+  - yaycache-hook

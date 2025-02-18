@@ -1,6 +1,6 @@
 # -*- mode: sh; -*-
-# shellcheck disable=all
-# {{if .hardware.nvidia.exists}}
+# shellcheck disable=SC2034,SC2148
+# {{ if .hardware.nvidia.exists }}
 # https://wiki.archlinux.org/title/NVIDIA#mkinitcpio
 MODULES+=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
-# {{end}}
+# {{ end }}

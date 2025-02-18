@@ -1,0 +1,15 @@
+# -*- mode: sh; -*-
+# shellcheck disable=SC2034,SC2148
+# https://aur.archlinux.org/cgit/aur.git/tree/yaycache-hook.conf?h=yaycache-hook
+extra_args=-v
+cache_dirs=("{{ .chezmoi.homeDir }}.cache/yay/*/")
+
+installed=true
+installed_keep=2
+installed_extra_args=
+installed_move_to=
+
+uninstalled=true
+uninstalled_keep=1
+uninstalled_extra_args=
+uninstalled_move_to=
