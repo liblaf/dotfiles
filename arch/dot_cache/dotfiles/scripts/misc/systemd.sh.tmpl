@@ -22,6 +22,7 @@ sudo systemctl enable --now logrotate.timer
 sudo systemctl enable --now netdata.service
 sudo systemctl enable --now sing-box.service
 sudo systemctl enable --now sshd.service
+sudo systemctl mask systemd-networkd-wait-online.service
 sudo systemctl start pkgstats.timer
 systemctl --user enable --now ddns.timer
 systemctl --user enable --now goauthing.service
@@ -29,17 +30,17 @@ systemctl --user enable --now goauthing6.service
 systemctl --user enable --now pueued.service
 systemctl --user enable --now sing.timer
 
-# {{if .hardware.nvidia.exists}}
+# {{ if .hardware.nvidia.exists }}
 sudo systemctl enable nvidia-hibernate.service
 sudo systemctl enable nvidia-resume.service
 sudo systemctl enable nvidia-suspend.service
-# {{if .hardware.nvidia.mobile}}
+# {{ if .hardware.nvidia.mobile }}
 sudo systemctl enable --now nvidia-powerd.service
-# {{end}}
-# {{end}}
+# {{ end }}
+# {{ end }}
 
-# {{if .service.backup}}
+# {{ if .service.backup }}
 systemctl --user enable --now bitwarden-backup.timer
-# {{else}}
+# {{ else }}
 systemctl --user disable --now bitwarden-backup.timer
-# {{end}}
+# {{ end }}
