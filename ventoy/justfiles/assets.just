@@ -1,7 +1,7 @@
 import "config.just"
 
-MOUNTPOINT := env("MOUNTPOINT", "/NON-EXISTENT")
+MOUNTPOINT := env("MOUNTPOINT", "")
 INSTALL := "cp --archive --force --no-target-directory --update --verbose"
 
-assets: check-config
-    chezmoi execute-template < "assets/proxy-on.sh.tmpl" > "{{ MOUNTPOINT / "proxy-on.sh" }}"
+assets: check-mountpoint
+    chezmoi execute-template < "assets/proxy-on.sh.tmpl" > "{{ MOUNTPOINT }}/proxy-on.sh"

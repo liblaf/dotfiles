@@ -4,5 +4,5 @@ strict_env = true
 warn_timeout = "0s"
 
 [whitelist]
-prefix = ["~/github/liblaf", "~/play"]
+prefix = ["~/.local/share/chezmoi", "~/github/liblaf", "~/play"]
 exact = ["~/sshfs"]

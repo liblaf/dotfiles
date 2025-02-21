@@ -1,9 +1,9 @@
 import "config.just"
 
-DEVICE := env("DEVICE", "/NON-EXISTENT")
+DEVICE := env("DEVICE", "")
 
-ventoy-install: check-config
+ventoy-install: check-device
     sudo ventoy -I "{{ DEVICE }}"
 
-ventoy-update: check-config
+ventoy-update: check-device
     sudo ventoy -u "{{ DEVICE }}"

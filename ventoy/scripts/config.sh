@@ -5,7 +5,7 @@ set -o pipefail
 
 readarray -t device_options < <(
   lsblk --json |
-    jq --raw-output '.blockdevices[] | select(.type == "disk" and .rm) | .name'
+    yq eval '.blockdevices[] | select(.type == "disk" and .rm) | .name'
 )
 device_options=("${device_options[@]/#/"/dev/"}")
 DISK=$(gum choose "${device_options[@]}" --header "Choose DISK")
