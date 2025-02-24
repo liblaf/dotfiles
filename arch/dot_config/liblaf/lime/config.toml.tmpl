@@ -3,10 +3,9 @@
 model = "deepseek-v3"
 
 [[router.model_list]]
-model_name = "deepseek-v3"
-litellm_params.model = "openai/deepseek-v3"
-litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
-litellm_params.api_key = '{{(rbwFields "Aliyun").api_key.value}}'
+model_name = "deepseek-chat"
+litellm_params.model = "deepseek/deepseek-chat"
+litellm_params.api_key = '{{(rbwFields "DeepSeek").api_key.value}}'
 
 [[router.model_list]]
 model_name = "qwen-max"
