@@ -28,6 +28,7 @@ systemctl --user enable --now ddns.timer
 systemctl --user enable --now goauthing.service
 systemctl --user enable --now goauthing6.service
 systemctl --user enable --now pueued.service
+systemctl --user enable --now seadrive.service
 systemctl --user enable --now sing.timer
 
 # {{ if .hardware.nvidia.exists }}
@@ -42,5 +43,5 @@ sudo systemctl enable --now nvidia-powerd.service
 # {{ if .service.backup }}
 systemctl --user enable --now bitwarden-backup.timer
 # {{ else }}
-systemctl --user disable --now bitwarden-backup.timer
+systemctl --user disable --now bitwarden-backup.timer || true
 # {{ end }}

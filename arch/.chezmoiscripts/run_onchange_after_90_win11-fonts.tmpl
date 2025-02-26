@@ -6,6 +6,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-mkdir --parents --verbose "$HOME/.local/share/fonts/Win11"
+INSTALL_DIR="$HOME/.local/share/fonts/Win11"
+
+rm --force --recursive "$INSTALL_DIR"
+mkdir --parents --verbose "$INSTALL_DIR"
 # shellcheck disable=SC2016
-ouch decompress --dir "$HOME/.local/share/fonts/Win11" --yes '{{ $filepath }}'
+ouch decompress --dir "$INSTALL_DIR" --yes '{{ $filepath }}'

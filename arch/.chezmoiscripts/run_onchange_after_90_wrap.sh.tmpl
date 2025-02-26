@@ -6,6 +6,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-mkdir --parents --verbose "$HOME/.local/opt/Wrap"
+INSTALL_DIR="$HOME/.local/opt/Wrap"
+
+rm --force --recursive "$INSTALL_DIR"
+mkdir --parents --verbose "$INSTALL_DIR"
 # shellcheck disable=SC2016
-tar --extract --file='{{ $filepath }}' --overwrite --directory="$HOME/.local/opt/Wrap" --strip-components=1
+tar --extract --file='{{ $filepath }}' --overwrite --directory="$INSTALL_DIR" --strip-components=1

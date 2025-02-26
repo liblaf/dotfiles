@@ -1,4 +1,5 @@
 # -*- mode: ini; -*-
+
 [Service]
 ExecStart = %h/.local/bin/sing.sh
 Restart = on-failure
