@@ -7,41 +7,41 @@ model = "deepseek-chat"
 # litellm.RouterConfig
 [[router.model_list]]
 model_name = "deepseek-chat"
-litellm_params.api_key = '{{ (rbwFields "DeepSeek").api_key.value }}'
-litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 litellm_params.model = "deepseek/deepseek-chat"
+litellm_params.api_key = '{{ (rbwFields "DeepSeek").api_key.value }}'
 
 [[router.model_list]]
 model_name = "deepseek-v3"
-litellm_params.api_key = '{{ (rbwFields "Aliyun").api_key.value }}'
 litellm_params.model = "openai/deepseek-v3"
+litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+litellm_params.api_key = '{{ (rbwFields "Aliyun").api_key.value }}'
 
 [[router.model_list]]
 model_name = "qwen-max"
-litellm_params.api_key = '{{ (rbwFields "Aliyun").api_key.value }}'
-litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 litellm_params.model = "openai/qwen-max"
+litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+litellm_params.api_key = '{{ (rbwFields "Aliyun").api_key.value }}'
 
 [[router.model_list]]
 model_name = "qwen-plus"
-litellm_params.api_key = '{{ (rbwFields "Aliyun").api_key.value }}'
-litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 litellm_params.model = "openai/qwen-plus"
+litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+litellm_params.api_key = '{{ (rbwFields "Aliyun").api_key.value }}'
 
 [[router.model_list]]
 model_name = "qwen-turbo"
-litellm_params.api_key = '{{ (rbwFields "Aliyun").api_key.value }}'
-litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 litellm_params.model = "openai/qwen-turbo"
+litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+litellm_params.api_key = '{{ (rbwFields "Aliyun").api_key.value }}'
 
 [[router.model_list]]
 model_name = "qwen-long"
-litellm_params.api_key = '{{ (rbwFields "Aliyun").api_key.value }}'
-litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 litellm_params.model = "openai/qwen-long"
+litellm_params.base_url = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+litellm_params.api_key = '{{ (rbwFields "Aliyun").api_key.value }}'
 
 [[router.fallbacks]]
-deepseek-chat = ["qwen-long", "qwen-max", "qwen-plus", "qwen-turbo"]
+deepseek-chat = ["qwen-max", "qwen-long", "qwen-plus", "qwen-turbo"]
 
 [[router.fallbacks]]
 qwen-max = ["qwen-long", "qwen-plus", "qwen-turbo"]

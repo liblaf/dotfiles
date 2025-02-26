@@ -26,8 +26,6 @@ aur:
   - paccache-hook
   - piclist-bin
   - pot-translation
-  - seadrive-daemon # TODO: switch to archlinuxcn when <https://github.com/archlinuxcn/repo/issues/4174> is fixed
-  - seadrive-gui # TODO: switch to archlinuxcn when <https://github.com/archlinuxcn/repo/issues/4162> is fixed
   - tsukimi-bin
   - typora
   - virtualbox-ext-oracle # virtualbox
