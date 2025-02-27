@@ -1,13 +1,17 @@
 # -*- mode: ini; -*-
+# https://gitlab.archlinux.org/archlinux/packaging/packages/pacman/-/blob/main/pacman.conf
 # https://man.archlinux.org/man/pacman.conf.5
 
 [options]
 HoldPkg = glibc pacman
 Architecture = auto
+SigLevel = Required DatabaseOptional
+LocalFileSigLevel = Optional
 Color
 CheckSpace
 VerbosePkgLists
 ParallelDownloads = 8
+DownloadUser = alpm
 
 [core]
 Include = /etc/pacman.d/mirrorlist
@@ -15,14 +19,11 @@ Include = /etc/pacman.d/mirrorlist
 [extra]
 Include = /etc/pacman.d/mirrorlist
 
-[community]
-Include = /etc/pacman.d/mirrorlist
-
 [archlinuxcn]
-Server = {{.mirrors.archlinuxcn}}
+Server = {{ .mirrors.archlinuxcn }}
 
 [arch4edu]
-Server = {{.mirrors.arch4edu}}
+Server = {{ .mirrors.arch4edu }}
 
 [bioarchlinux]
-Server = {{.mirrors.bioarchlinux}}
+Server = {{ .mirrors.bioarchlinux }}
