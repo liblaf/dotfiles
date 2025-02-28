@@ -10,7 +10,7 @@ ConditionDirectoryNotEmpty = %h/net/SeaDrive/My Libraries/archive/bitwarden/auto
 Environment = "BW_BACKUP_DIR=%h/net/SeaDrive/My Libraries/archive/bitwarden/auto"
 Environment = "BW_SESSION_FILE=%d/BW_SESSION"
 # systemd.exec > CREDENTIALS
-LoadCredential = BW_SESSION:%h/.config/credstore/BW_SESSION
+LoadCredential = BW_SESSION:%E/credstore/BW_SESSION
 # systemd.service > OPTIONS
 ExecStart = %h/.local/bin/bitwarden-backup.sh
 Restart = on-failure
