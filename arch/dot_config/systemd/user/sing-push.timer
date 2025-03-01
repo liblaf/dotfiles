@@ -1,7 +1,7 @@
 # -*- mode: ini; -*-
 
 [Unit]
-Description = Update sing-box Configuration
+Description = Push sing-box Configuration
 
 [Install]
 WantedBy = timers.target

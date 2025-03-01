@@ -6,26 +6,20 @@ set -o nounset
 set -o pipefail
 
 # @option -c --config="/etc/sing-box/config.json"
-# @option -i --id="{{(rbwFields "Telegram").chat_id.value}}"
-# @option -p --port=`_default_port`
+# @option -i --id=`_default_id`
 # @meta version 0.0.0
 # @meta author liblaf
-# @meta require-tools https,install,mktemp,prettier,sudo,systemctl
+# @meta require-tools systemctl,gh
 function main() {
   tmp=$(mktemp --suffix=".json")
   trap 'rm --force "$tmp"' EXIT
-  xhs --download --output "$tmp" GET "https://api.liblaf.me/sub/$argc_id/sing-box" port=="$argc_port"
-  prettier --write "$tmp"
+  gh gist view "$argc_id" --filename "sing-box.json" > "$tmp"
   sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" "$argc_config"
   sudo systemctl restart sing-box.service
 }
 
-function _default_port() {
-  port=$(gsettings get org.gnome.system.proxy.https port)
-  if ((port == 0)); then
-    port='{{.port.proxy}}'
-  fi
-  echo "$port"
+function _default_id() {
+  gh gist list --filter "GFW" | awk '{ print $1 }'
 }
 
 eval "$(argc --argc-eval "$0" "$@")"

@@ -29,6 +29,7 @@ systemctl --user enable --now goauthing.service
 systemctl --user enable --now goauthing6.service
 systemctl --user enable --now pueued.service
 systemctl --user enable --now seadrive.service
+systemctl --user enable --now sing-push.timer
 systemctl --user enable --now sing.timer
 
 # {{ if .hardware.nvidia.exists }}

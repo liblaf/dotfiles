@@ -1,9 +1,9 @@
 # -*- mode: ini; -*-
 
+[Unit]
+Description = Update sing-box Configuration
+
 [Service]
 ExecStart = %h/.local/bin/sing.sh
 Restart = on-failure
 RestartSec = 5s
-
-[Unit]
-Description = Update sing-box Subscription
