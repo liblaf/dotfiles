@@ -8,6 +8,7 @@ export NO_PROXY="$no_proxy"
 
 pkg_list=(
   @biomejs/biome
+  @liblaf/sub-converter
   commitizen
   cspell
   prettier
@@ -16,5 +17,5 @@ pkg_list=(
   vercel
 )
 
-pnpm add --global "${pkg_list[@]}"
-pnpm update --latest --global
+bun add --global "${pkg_list[@]}"
+bun update --global --latest
