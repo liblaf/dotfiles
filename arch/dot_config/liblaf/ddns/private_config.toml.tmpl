@@ -1,0 +1,6 @@
+# -*- mode: toml; -*-
+
+telegram-bot-token = '{{ (rbwFields "Telegram").ddns_bot_token.value }}'
+telegram-chat-id = {{ (rbwFields "Telegram").chat_id.value }}
+token = '{{ (rbwFields "Cloudflare").ddns_api_token.value }}'
+zone-id = '{{ (rbwFields "Cloudflare").zone_id.value }}'
