@@ -1,35 +1,36 @@
 # -*- mode: caddyfile; -*-
 
 {
-  http_port {{.port.http}}
-  https_port {{.port.https}}
-  acme_dns cloudflare {{(rbwFields "Cloudflare").token.value}}
+  http_port {{ .port.http }}
+  https_port {{ .port.https }}
+  # All zones - Zone:Read, DNS:Edit
+  acme_dns cloudflare {{ (rbwFields "Cloudflare").CADDY_API_TOKEN.value }}
 }
 
-gpt.{{.chezmoi.hostname}}.liblaf.me {
-  reverse_proxy localhost:{{.port.gpt_academic}}
+gpt.{{ .chezmoi.hostname }}.liblaf.me {
+  reverse_proxy localhost:{{ .port.gpt_academic }}
 }
 
-pdf.{{.chezmoi.hostname}}.liblaf.me {
-  reverse_proxy localhost:{{.port.stirling_pdf}}
+pdf.{{ .chezmoi.hostname }}.liblaf.me {
+  reverse_proxy localhost:{{ .port.stirling_pdf }}
 }
 
-webdav.{{.chezmoi.hostname}}.liblaf.me {
-  reverse_proxy localhost:{{.port.webdav}}
+webdav.{{ .chezmoi.hostname }}.liblaf.me {
+  reverse_proxy localhost:{{ .port.webdav }}
 }
 
-# {{if .service.center}}
+# {{ if .service.center }}
 
 gpt.liblaf.me {
-  reverse_proxy localhost:{{.port.gpt_academic}}
+  reverse_proxy localhost:{{ .port.gpt_academic }}
 }
 
 pdf.liblaf.me {
-  reverse_proxy localhost:{{.port.stirling_pdf}}
+  reverse_proxy localhost:{{ .port.stirling_pdf }}
 }
 
 webdav.liblaf.me {
-  reverse_proxy localhost:{{.port.webdav}}
+  reverse_proxy localhost:{{ .port.webdav }}
 }
 
-# {{end}}
+# {{ end }}

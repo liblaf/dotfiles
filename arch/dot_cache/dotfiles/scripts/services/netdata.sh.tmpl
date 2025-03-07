@@ -4,6 +4,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+KICKSTART="/tmp/netdata-kickstart.sh"
 sudo systemctl enable --now netdata.service
-wget --output-document="/tmp/netdata-kickstart.sh" https://get.netdata.cloud/kickstart.sh
-bash /tmp/netdata-kickstart.sh --non-interactive --stable-channel --disable-telemetry --claim-token '{{ (rbwFields "Netdata").CLAIM_TOKEN.value }}' --claim-rooms '{{ (rbwFields "Netdata").ROOM_ID.value }}'
+wget --output-document="$KICKSTART" https://get.netdata.cloud/kickstart.sh
+bash "$KICKSTART" --non-interactive --stable-channel --disable-telemetry \
+  --claim-token '{{ (rbwFields "Netdata").CLAIM_TOKEN.value }}' \
+  --claim-rooms '{{ (rbwFields "Netdata").ROOM_ID.value }}'

@@ -2,59 +2,44 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
 
 services:
-  # {{if .service.gpt_academic}}
+  # {{ if .service.gpt_academic }}
   gpt_academic:
-    container_name: gpt_academic
-    image: "{{.mirrors.ghcr}}/binary-husky/gpt_academic_nolocal:master"
-    environment:
-      USE_PROXY: "True"
-      proxies: '{"http": "http://172.17.0.1:{{.port.proxy}}", "https": "http://172.17.0.1:{{.port.proxy}}"}'
-      LLM_MODEL: deepseek-chat
-      DEFAULT_WORKER_NUM: 16
-      WEB_PORT: "{{.port.gpt_academic}}"
-      ADD_WAIFU: "True"
-      AUTHENTICATION: |-
-        [
-            ('{{(rbw "GPT Academic").data.username}}', '{{(rbw "GPT Academic").data.password}}')
-        ]
-      DEEPSEEK_API_KEY: '{{(rbwFields "DeepSeek").api_key.value}}'
-    ports:
-      - "{{.port.gpt_academic}}:{{.port.gpt_academic}}"
+    # https://github.com/binary-husky/gpt_academic/blob/master/docker-compose.yml
     command: bash -c "python -u main.py"
+    container_name: gpt_academic
+    image: "{{ .mirrors.ghcr }}/binary-husky/gpt_academic_nolocal:master"
+    ports:
+      - "{{ .port.gpt_academic }}:{{ .port.gpt_academic }}"
     restart: unless-stopped
-  # {{end}}
+    volumes:
+      - ./gpt_academic/config_private.py:/gpt/config_private.py:ro
+  # {{ end }}
 
-  # {{if .service.stirling_pdf}}
+  # {{ if .service.stirling_pdf }}
   stirling-pdf:
+    # https://github.com/Stirling-Tools/Stirling-PDF/blob/main/exampleYmlFiles/docker-compose-latest-fat-security.yml
     container_name: Stirling-PDF
-    image: frooodle/s-pdf:latest-fat
     deploy:
       resources:
         limits:
           memory: 4G
+    environment:
+      DOCKER_ENABLE_SECURITY: true
     healthcheck:
       test:
         [
           "CMD-SHELL",
-          "curl -f http://localhost:8080/api/v1/info/status | grep -q 'UP' && curl -fL http://localhost:8080/ | grep -qv 'Please sign in'",
+          "curl -f http://localhost:8080/api/v1/info/status | grep -q 'UP'"
         ]
       interval: 5s
       timeout: 10s
       retries: 16
+    image: frooodle/s-pdf:latest-fat
     ports:
-      - "{{.port.stirling_pdf}}:8080"
+      - "{{ .port.stirling_pdf }}:8080"
+    restart: on-failure:5
     volumes:
       - ./stirling-pdf/configs:/configs:rw
       - ./stirling-pdf/logs:/logs:rw
-      - /usr/share/tessdata:/usr/share/tessdata:rw
-    environment:
-      DOCKER_ENABLE_SECURITY: true
-      SECURITY_ENABLELOGIN: true
-      SECURITY_CSRFDISABLED: false
-      SECURITY_INITIALLOGIN_USERNAME: '{{(rbw "Stirling PDF").data.username}}'
-      SECURITY_INITIALLOGIN_PASSWORD: '{{(rbw "Stirling PDF").data.password}}'
-      SYSTEM_SHOWUPDATE: true
-      SYSTEM_TESSDATADIR: /usr/share/tessdata
-      UI_APPNAME: liblaf's Stirling PDF
-    restart: on-failure:5
-  # {{end}}
+      - /usr/share/tessdata:/usr/share/tessdata:ro
+  # {{ end }}
