@@ -1,4 +1,5 @@
 # -*- mode: ini; -*-
 # https://wiki.archlinux.org/title/GDM#Setup_default_monitor_settings
 [Service]
-ExecStartPre = -/bin/cp "{{.chezmoi.homeDir}}/.config/monitors.xml" /var/lib/gdm/.config/monitors.xml
+ExecStartPre = -mkdir --parents --verbose "/var/lib/gdm/.config/"
+ExecStartPre = -cp --archive --backup --force --no-preserve="ownership" --no-target-directory --verbose "{{ .chezmoi.homeDir }}/.config/monitors.xml" "/var/lib/gdm/.config/monitors.xml"
