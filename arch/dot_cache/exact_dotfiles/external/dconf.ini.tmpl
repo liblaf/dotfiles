@@ -145,15 +145,15 @@ bat='balanced'
 threshold=99
 
 [org/gnome/shell/extensions/unblank]
-time=900
+time=7200
 
 [org/gnome/shell/extensions/vitals]
 fixed-widths=false
-# {{if .hardware.nvidia.exists}}
+# {{ if .hardware.nvidia.exists }}
 hot-sensors=['_processor_usage_', '_memory_usage_', '__network-rx_max__', '__network-tx_max__', '__temperature_max__', '_gpu#1_utilization_']
-# {{else}}
+# {{ else }}
 hot-sensors=['_processor_usage_', '_memory_usage_', '__network-rx_max__', '__network-tx_max__', '__temperature_max__']
-# {{end}}
+# {{ end }}
 include-static-gpu-info=true
 position-in-panel=0
 show-gpu=true
