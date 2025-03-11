@@ -80,12 +80,14 @@ type = "archive-file"
 url = "https://github.com/libthu/reserves-lib-tsinghua-downloader/releases/latest/download/downloader-ubuntu-latest-py3.9.zip"
 
 [".local/share/fonts/SegoeUI"]
+exact = true
 format = "zip"
 refreshPeriod = "168h"
 type = "archive"
 url = "https://aka.ms/segoeuifont"
 
 [".local/share/fonts/SegoeUIVariable"]
+exact = true
 format = "zip"
 refreshPeriod = "168h"
 type = "archive"
@@ -107,6 +109,7 @@ type = "file"
 url = "https://github.com/broly8/libpinyin-dict/raw/master/dict.txt"
 
 ["{{ .externalRelativeDir }}/grub2-themes"]
+exact = true
 refreshPeriod = "168h"
 stripComponents = 1
 type = "archive"
