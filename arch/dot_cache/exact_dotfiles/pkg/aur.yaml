@@ -13,6 +13,7 @@ aur:
   - gnome-shell-extension-display-brightness-ddcutil-git
   - gnome-shell-extension-power-profile-switcher-git
   - gnome-shell-extension-unblank-git
+  - hplip-plugin
   - hwatch-bin
   - jnv-bin
   - kalker-bin

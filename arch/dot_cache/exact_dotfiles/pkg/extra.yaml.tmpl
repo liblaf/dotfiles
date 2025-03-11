@@ -3,8 +3,11 @@ extra:
   # System
   - bluez
   - bluez-utils
+  - cups # reqired by hplip: for printing support
+  - cups-pdf # PDF printer for cups
   - exfatprogs
   - fwupd
+  - hplip # Drivers for HP DeskJet, OfficeJet, Photosmart, Business Inkjet and some LaserJet
   - ntfs-3g
   - os-prober
   - v4l2loopback-dkms
@@ -100,6 +103,7 @@ extra:
   - taplo-cli
   - tokei
   - trash-cli
+  - usbutils
   - vhs
   - wrangler
   - xh
@@ -198,12 +202,13 @@ extra:
   - shfmt
 
   # Misc
-  - ffmpegthumbnailer # yazi
-  - jq # yazi
-  - p7zip # yazi
-  - perl-file-homedir # latexindent.pl
-  - perl-yaml-tiny # latexindent.pl
-  - poppler # yazi
-  - python-pygments # LaTeX minted
-  - tesseract-data-chi_sim # pot-translation, Stirling PDF
-  - tesseract-data-eng # pot-translation, Stirling PDF
+  - ffmpegthumbnailer # required by yazi
+  - jq # required by yazi
+  - p7zip # required by yazi
+  - perl-file-homedir # required by latexindent.pl
+  - perl-yaml-tiny # required by latexindent.pl
+  - poppler # required by yazi
+  - python-pygments # required by LaTeX minted
+  - python-pyqt5 # reqired by hplip: for running GUI and hp-toolbox
+  - tesseract-data-chi_sim # required by pot-translation, Stirling PDF
+  - tesseract-data-eng # required by pot-translation, Stirling PDF
