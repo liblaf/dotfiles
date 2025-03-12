@@ -1,0 +1,7 @@
+#:schema https://raw.githubusercontent.com/prefix-dev/pixi/main/schema/schema.json
+version = 1
+
+[envs.pygalmesh]
+channels = ["conda-forge"]
+dependencies = { pygalmesh = "*" }
+exposed = { pygalmesh = "pygalmesh" }

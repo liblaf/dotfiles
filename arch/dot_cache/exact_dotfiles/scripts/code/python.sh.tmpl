@@ -35,3 +35,5 @@ for pkg in "${pkg_list[@]}"; do
 done
 uv tool install --with cookiecutter --force copier
 uv tool upgrade --all
+
+pixi global sync
