@@ -1,6 +1,38 @@
+# -*- mode: ini; -*-
+
+[Added Associations]
+# wps-office-prometheus.desktop
+application/wps-office.docx=wps-office-prometheus.desktop
+application/wps-office.dotx=wps-office-prometheus.desktop
+application/wps-office.dpso=wps-office-prometheus.desktop
+application/wps-office.dpss=wps-office-prometheus.desktop
+application/wps-office.eto=wps-office-prometheus.desktop
+application/wps-office.ets=wps-office-prometheus.desktop
+application/wps-office.potx=wps-office-prometheus.desktop
+application/wps-office.wpso=wps-office-prometheus.desktop
+application/wps-office.wpss=wps-office-prometheus.desktop
+application/wps-office.xlsx=wps-office-prometheus.desktop
+application/wps-office.xltx=wps-office-prometheus.desktop
+
 [Default Applications]
-application/pdf=org.gnome.Evince.desktop
+# code.desktop
+text/plain=code.desktop
+text/x-python=code.desktop
+
+# meshlab.desktop
+model/obj=meshlab.desktop
+model/x-ply=meshlab.desktop
+
+# microsoft-edge.desktop
 application/xhtml+xml=microsoft-edge.desktop
+text/html=microsoft-edge.desktop
+x-scheme-handler/http=microsoft-edge.desktop
+x-scheme-handler/https=microsoft-edge.desktop
+
+# org.gnome.Evince.desktop
+application/pdf=org.gnome.Evince.desktop
+
+# org.gnome.Loupe.desktop
 image/avif=org.gnome.Loupe.desktop
 image/bmp=org.gnome.Loupe.desktop
 image/gif=org.gnome.Loupe.desktop
@@ -23,16 +55,19 @@ image/x-portable-graymap=org.gnome.Loupe.desktop
 image/x-portable-pixmap=org.gnome.Loupe.desktop
 image/x-qoi=org.gnome.Loupe.desktop
 image/x-tga=org.gnome.Loupe.desktop
+
+# org.gnome.Nautilus.desktop
 inode/directory=org.gnome.Nautilus.desktop
-model/obj=meshlab.desktop
+
+# org.paraview.ParaView.desktop
 model/vnd.vti+xml=org.paraview.ParaView.desktop
 model/vnd.vtp+xml=org.paraview.ParaView.desktop
 model/vnd.vtu+xml=org.paraview.ParaView.desktop
-model/x-ply=meshlab.desktop
-text/html=microsoft-edge.desktop
+
+# typora.desktop
 text/markdown=typora.desktop
-text/plain=code.desktop
-text/x-python=code.desktop
+
+# vlc.desktop
 video/3gp=vlc.desktop
 video/3gpp=vlc.desktop
 video/3gpp2=vlc.desktop
@@ -76,5 +111,29 @@ video/x-ogm+ogg=vlc.desktop
 video/x-ogm=vlc.desktop
 video/x-theora+ogg=vlc.desktop
 video/x-theora=vlc.desktop
-x-scheme-handler/http=microsoft-edge.desktop
-x-scheme-handler/https=microsoft-edge.desktop
+
+# wps-office-prometheus.desktop
+application/wps-office.doc=wps-office-prometheus.desktop
+application/wps-office.docx=wps-office-prometheus.desktop
+application/wps-office.dot=wps-office-prometheus.desktop
+application/wps-office.dotx=wps-office-prometheus.desktop
+application/wps-office.dps=wps-office-prometheus.desktop
+application/wps-office.dpso=wps-office-prometheus.desktop
+application/wps-office.dpss=wps-office-prometheus.desktop
+application/wps-office.dpt=wps-office-prometheus.desktop
+application/wps-office.et=wps-office-prometheus.desktop
+application/wps-office.eto=wps-office-prometheus.desktop
+application/wps-office.ets=wps-office-prometheus.desktop
+application/wps-office.ett=wps-office-prometheus.desktop
+application/wps-office.pot=wps-office-prometheus.desktop
+application/wps-office.potx=wps-office-prometheus.desktop
+application/wps-office.ppt=wps-office-prometheus.desktop
+application/wps-office.pptx=wps-office-prometheus.desktop
+application/wps-office.wps=wps-office-prometheus.desktop
+application/wps-office.wpso=wps-office-prometheus.desktop
+application/wps-office.wpss=wps-office-prometheus.desktop
+application/wps-office.wpt=wps-office-prometheus.desktop
+application/wps-office.xls=wps-office-prometheus.desktop
+application/wps-office.xlsx=wps-office-prometheus.desktop
+application/wps-office.xlt=wps-office-prometheus.desktop
+application/wps-office.xltx=wps-office-prometheus.desktop

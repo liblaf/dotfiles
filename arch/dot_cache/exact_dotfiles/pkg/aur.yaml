@@ -34,5 +34,6 @@ aur:
   - wechat-universal-bwrap
   - wemeet-bin
   - wps-office-365
+  - wps-office-365-fonts # wps-office-365
   - yaycache
   - yaycache-hook
