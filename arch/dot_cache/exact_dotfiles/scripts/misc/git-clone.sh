@@ -1,5 +1,7 @@
 #!/bin/bash
-set -o errexit -o nounset -o pipefail
+set -o errexit
+set -o nounset
+set -o pipefail
 
 prefix="$HOME/github"
 
@@ -12,16 +14,22 @@ readarray -t repos < <(
     --source
 )
 
-for repo in "${repos[@]}"; do
+function clone() {
+  local repo="$1"
   case "$repo" in
-    */dotfiles) target=$HOME/.local/share/chezmoi ;;
-    *) target=$prefix/$repo ;;
+    */dotfiles) target="$HOME/.local/share/chezmoi" ;;
+    *) target="$prefix/$repo" ;;
   esac
+  echo "Updating '$repo' -> '$target'..."
   if [[ -d "$target/.git" ]]; then
-    echo "Updating '$target' ..."
-    git -C "$target" pull || true
+    git -C "$target" pull --ff-only || true
   else
     mkdir --parents --verbose "$(dirname -- "$target")"
     gh repo clone "$repo" "$target" || true
   fi
-done
+}
+
+export prefix
+export -f clone
+
+parallel --bar --eta --jobs 8 --progress clone ::: "${repos[@]}"
