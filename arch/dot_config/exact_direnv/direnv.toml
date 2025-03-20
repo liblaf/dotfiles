@@ -1,8 +1,10 @@
+# ref: <https://direnv.net/man/direnv.toml.1.html>
+
 [global]
 load_dotenv = true
 strict_env = true
 warn_timeout = "0s"
 
 [whitelist]
-prefix = ["~/.local/share/chezmoi", "~/github/liblaf", "~/play"]
-exact = ["~/sshfs"]
+exact = ["~/mnt/"]
+prefix = ["~/.local/share/chezmoi/", "~/github/liblaf/", "~/playground/"]

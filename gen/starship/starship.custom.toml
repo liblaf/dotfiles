@@ -1,0 +1,92 @@
+#:schema https://starship.rs/config-schema.json
+"$schema" = "https://starship.rs/config-schema.json"
+
+[bun]
+symbol = " "           # nf-dev-bun
+version_format = "$raw"
+
+[c]
+commands = [["clang", "--version"], ["gcc", "--version"], ["cc", "--version"]]
+detect_extensions = [
+  "C",
+  "H",
+  "c",
+  "c++",
+  "cc",
+  "cxx",
+  "h",
+  "h++",
+  "hpp",
+  "hxx",
+]
+detect_files = ["xmake.lua"]
+format = '\[[$symbol(($name )$version)]($style)\]'
+version_format = "$raw"
+
+[character]
+error_symbol = "[](bold red)"     # nf-fa-close
+success_symbol = "[>](bold green)"
+
+[cmd_duration]
+format = '\[[󱎫 $duration]($style)\]' # nf-md-timer
+
+[custom.proxy]
+command = "gfw now --color=always"
+format = '\[[$output]($style)\]'
+shell = "sh"
+style = ""
+symbol = "󰖟"                       # nf-md-web
+when = 'test -n "$https_proxy"'
+
+[git_metrics]
+disabled = false
+format = '(\[([+$added]($added_style))([-$deleted]($deleted_style))\])'
+
+[git_status]
+ahead = ""                                         # nf-fa-arrow_up_long
+behind = ""                                        # nf-fa-arrow_down_long
+deleted = ""                                       # nf-fa-close
+diverged = ""                                      # nf-fa-arrows_up_down
+format = '(\[[$all_status$ahead_behind]($style)\])'
+renamed = ""                                       # nf-fa-angles_right
+
+[golang]
+version_format = "$raw"
+
+[hostname]
+format = "@[$ssh_symbol$hostname]($style) "
+ssh_symbol = ""
+
+[lua]
+version_format = "$raw"
+
+[memory_usage]
+disabled = false
+threshold = 0
+
+[nodejs]
+symbol = " "           # nf-fa-node_js
+version_format = "$raw"
+
+[package]
+version_format = "$raw"
+
+[python]
+version_format = "$raw"
+
+[rust]
+version_format = "$raw"
+
+[status]
+disabled = false
+map_symbol = true
+not_executable_symbol = " "                           # nf-fa-ban
+not_found_symbol = " "                                # nf-fa-search
+pipestatus = true
+pipestatus_segment_format = "[$symbol$status]($style)"
+sigint_symbol = "!"
+signal_symbol = ""                                    # nf-fa-bolt
+symbol = ""                                           # nf-fa-close
+
+[username]
+format = "[$user]($style)"
