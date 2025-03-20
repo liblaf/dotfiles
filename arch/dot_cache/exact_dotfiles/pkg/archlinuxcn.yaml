@@ -4,6 +4,7 @@ archlinuxcn:
   - downgrade
   - git-extras
   - gnome-shell-extension-dash-to-dock
+  - linux-wifi-hotspot
   - resticprofile
   - seadrive-daemon
   # TODO: add back when <https://github.com/archlinuxcn/repo/issues/4162> is fixed
