@@ -11,6 +11,7 @@ function load-packages() {
   yq eval ".${repo}[]" "$file"
 }
 
+sudo pacman --sync --refresh --noconfirm
 # https://help.mirrors.cernet.edu.cn/archlinuxcn/
 sudo pacman-key --lsign-key farseerfc@archlinux.org
 sudo pacman --sync --needed --noconfirm archlinuxcn/archlinuxcn-keyring

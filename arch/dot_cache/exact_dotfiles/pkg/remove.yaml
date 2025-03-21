@@ -7,6 +7,7 @@ remove:
   - jellyfin-server
   - jellyfin-web
   - mypy
+  - nvidia-open-dkms
   - pipxu
   - qbittorrent-nox
   - qbittorrent-vuetorrent-bin
