@@ -36,9 +36,9 @@ systemctl --user enable --now sing.timer
 sudo systemctl enable nvidia-hibernate.service
 sudo systemctl enable nvidia-resume.service
 sudo systemctl enable nvidia-suspend.service
-# {{ if .hardware.nvidia.mobile }}
+#   {{ if .hardware.nvidia.mobile }}
 sudo systemctl enable --now nvidia-powerd.service
-# {{ end }}
+#   {{ end }}
 # {{ end }}
 
 # {{ if .service.backup }}

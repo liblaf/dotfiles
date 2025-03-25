@@ -15,24 +15,29 @@ SERVER: set[str] = {
 }
 
 
-def get_data_file() -> Path:
-    return Path(os.getenv("DATA_FILE"))  # pyright: ignore[reportArgumentType]
+def data_file() -> Path:
+    data_file: str | None = os.getenv("DATA_FILE")
+    assert data_file is not None
+    return Path(data_file)
 
 
 def load_data() -> Any:
-    fpath: Path = get_data_file()
-    with fpath.open("r") as fp:
-        return json.load(fp)
+    fpath: Path = data_file()
+    if fpath.is_file():
+        with fpath.open("r") as fp:
+            return json.load(fp)
+    else:
+        return {}
 
 
 def save_data(data: Any) -> Any:
-    fpath: Path = get_data_file()
+    fpath: Path = data_file()
     with fpath.open("w") as fp:
         return json.dump(data, fp)
 
 
 def slugify(name: str) -> str:
-    return name.lower().replace(" ", "_")
+    return name.lower().replace(" ", "_").replace("-", "_")
 
 
 def config_service(data: Any, name: str, *, on: bool) -> Any:
