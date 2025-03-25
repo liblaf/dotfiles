@@ -16,6 +16,7 @@ if status is-interactive
     alias la 'ls -lAh'
 
     abbr --add hx helix
+    abbr --add r --command pueue -- status status="running"
 
     set apps typora
     for app in $apps

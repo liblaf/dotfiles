@@ -1,6 +1,6 @@
 #!/bin/bash
 # -*- mode: sh; -*-
-# {{ $filepath := joinPath .externalDir "Wrap.tar.xz" }}
+# {{ $filepath := joinPath .external_dir "Wrap.tar.xz" }}
 # {{ include $filepath | sha256sum }}
 set -o errexit
 set -o nounset

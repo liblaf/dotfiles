@@ -9,11 +9,40 @@ function has() {
   type "$@" &> /dev/null
 }
 
-if has pacman; then
-  sudo pacman --sync --refresh --needed --noconfirm bitwarden-cli jq rbw
-else
-  exit 1
-fi
+function ensure() {
+  exe="$1"
+  shift
+  while (($# > 0)); do
+    case "$1" in
+      --apt=*)
+        local apt="${1#*=}"
+        shift
+        ;;
+      --pacman=*)
+        local pacman="${1#*=}"
+        shift
+        ;;
+      *)
+        echo "Unknown option: $1" >&2
+        return 1
+        ;;
+    esac
+  done
+  if ! has "$exe"; then
+    if has apt; then
+      sudo apt update
+      sudo apt install -y "$apt"
+    elif has pacman; then
+      sudo pacman --sync --refresh --needed --noconfirm "$pacman"
+    else
+      echo "Error: Package manager not supported. Please install \`$exe\` manually." >&2
+      return 1
+    fi
+  fi
+}
+
+ensure bw --pacman="bitwarden-cli"
+ensure rbw --pacman="rbw"
 
 if [[ -z ${BW_SESSION-} ]]; then
   if [[ -r $BW_SESSION_FILE ]]; then
@@ -21,7 +50,6 @@ if [[ -z ${BW_SESSION-} ]]; then
     export BW_SESSION
   fi
 fi
-
 if ! bw login --check; then
   BW_SESSION=$(bw login --raw)
   export BW_SESSION

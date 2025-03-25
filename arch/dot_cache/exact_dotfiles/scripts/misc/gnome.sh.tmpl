@@ -31,4 +31,4 @@ extensions_to_enable=(
 )
 gext enable "${extensions_to_enable[@]}"
 
-dconf load / < '{{ joinPath .externalDir "dconf.ini" }}'
+dconf load / < '{{ joinPath .external_dir "dconf.ini" }}'

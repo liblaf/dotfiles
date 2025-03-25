@@ -1,0 +1,8 @@
+[port]
+gpt_academic = 52139
+http = 61626
+https = 38161
+proxy = 64393
+ssh = 34100
+stirling_pdf = 42600
+webdav = 65297

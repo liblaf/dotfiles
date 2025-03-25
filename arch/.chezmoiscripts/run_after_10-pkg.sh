@@ -23,7 +23,6 @@ sudo pacman-key --lsign-key 7931B6D628C8D3BA
 sudo pacman --sync --needed --noconfirm archlinuxcn/yay
 
 sudo pacman --sync --sysupgrade --refresh --noconfirm
-yay --yay --useask=false --clean
 
 readarray -t REMOVES < <(load-packages remove "$PKG_DIR/remove.yaml")
 remove=()
@@ -50,3 +49,5 @@ load-packages arch4edu "$PKG_DIR/arch4edu.yaml" |
   sudo pacman --sync --needed --noconfirm -
 load-packages aur "$PKG_DIR/aur.yaml" |
   yay --aur --devel --useask=false --sync --needed --noconfirm -
+
+yay --yay --useask=false --clean

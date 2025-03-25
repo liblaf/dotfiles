@@ -1,48 +1,12 @@
 # {{ $center := eq .chezmoi.hostname "10700" }}
-# {{ $externalRelativeDir := ".cache/dotfiles/external" }}
+# {{ $external_dir_relative := ".cache/dotfiles/external" }}
 # {{ $server := or (eq .chezmoi.hostname "10700") (eq .chezmoi.hostname "13900HX") }}
 
-sourceDir = "{{ .chezmoi.homeDir }}/.local/share/chezmoi/{{ .chezmoi.osRelease.id }}"
+sourceDir = "{{ joinPath .chezmoi.workingTree .chezmoi.osRelease.id }}"
 
 [data]
-externalDir = "{{ joinPath .chezmoi.homeDir $externalRelativeDir }}"
-externalRelativeDir = "{{ $externalRelativeDir }}"
+external_dir = "{{ joinPath .chezmoi.homeDir $external_dir_relative }}"
+external_dir_relative = "{{ $external_dir_relative }}"
 
-[data.hardware.intel]
-exists = {{ default "false" (env "INTEL") }}
-
-[data.hardware.nvidia]
-driver = '{{ env "NVIDIA_DRIVER" }}'
-exists = {{ default "false" (env "NVIDIA") }}
-mobile = {{ default "false" (env "NVIDIA_MOBILE") }}
-
-[data.mirrors]
-anaconda = "https://mirrors.cernet.edu.cn/anaconda"
-anaconda_extra = "https://mirrors.cernet.edu.cn/anaconda-extra"
-arch4edu = "https://mirrors.cernet.edu.cn/arch4edu/$arch"
-archlinux = "https://mirrors.cernet.edu.cn/archlinux/$repo/os/$arch"
-archlinuxcn = "https://mirrors.cernet.edu.cn/archlinuxcn/$arch"
-bioarchlinux = "https://mirrors.cernet.edu.cn/bioarchlinux/$arch"
-crates_io_index = "sparse+https://mirrors.cernet.edu.cn/crates.io-index/"
-dockerhub = "https://docker.1panel.live"
-ghcr = "ghcr.io"                                                          # ghcr.nju.edu.cn is slow
-nodejs_release = "https://mirrors.cernet.edu.cn/nodejs-release"
-npm = "https://registry.npmmirror.com"
-pypi = "https://mirrors.cernet.edu.cn/pypi/web/simple"
-rustup = "https://mirrors.cernet.edu.cn/rustup"
-
-[data.port]
-gpt_academic = {{ env "PORT_GPT_ACADEMIC" }}
-http = {{ env "PORT_HTTP" }}
-https = {{ env "PORT_HTTPS" }}
-proxy = {{ env "PORT_PROXY" }}
-ssh = {{ env "PORT_SSH" }}
-stirling_pdf = {{ env "PORT_STIRLING_PDF" }}
-webdav = {{ env "PORT_WEBDAV" }}
-
-[data.service]
-backup = {{ $center }}
-center = {{ $center }}
-gpt_academic = {{ $server }}
-stirling_pdf = {{ $server }}
-webdav = true
+[hooks.read-source-state.pre]
+script = ".local/share/chezmoi/hooks/apply-pre.sh"
