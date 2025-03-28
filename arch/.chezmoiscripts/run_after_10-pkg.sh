@@ -48,6 +48,6 @@ load-packages archlinuxcn "$PKG_DIR/archlinuxcn.yaml" |
 load-packages arch4edu "$PKG_DIR/arch4edu.yaml" |
   sudo pacman --sync --needed --noconfirm -
 load-packages aur "$PKG_DIR/aur.yaml" |
-  yay --aur --devel --useask=false --sync --needed --noconfirm -
+  (yay --aur --devel --useask=false --sync --needed --noconfirm - || true) # allow AUR to fail
 
-yay --yay --useask=false --clean
+yay --yay --useask=false --clean --nosave --recursive --unneeded --noconfirm
