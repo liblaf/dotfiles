@@ -4,3 +4,5 @@ for config in ~/.config/environment.d/*.conf
         sd '(?P<key>[A-Za-z_][0-9A-Za-z_]*)=(?P<val>.*)' 'set --global --export $key $val' <"$config" | source
     end
 end
+
+set --global --export SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"

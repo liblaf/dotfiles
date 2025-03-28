@@ -25,6 +25,7 @@ sudo systemctl enable --now sshd.service
 sudo systemctl mask systemd-networkd-wait-online.service
 sudo systemctl start pkgstats.timer
 systemctl --user enable --now ddns.timer
+systemctl --user enable --now gcr-ssh-agent.socket # ref: <https://wiki.archlinux.org/title/GNOME/Keyring#Setup_gcr>
 systemctl --user enable --now goauthing.service
 systemctl --user enable --now goauthing6.service
 systemctl --user enable --now pueued.service
