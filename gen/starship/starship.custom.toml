@@ -1,5 +1,6 @@
 #:schema https://starship.rs/config-schema.json
 "$schema" = "https://starship.rs/config-schema.json"
+command_timeout = 50
 
 [bun]
 symbol = " "           # nf-dev-bun

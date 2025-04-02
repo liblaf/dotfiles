@@ -2,6 +2,7 @@
 # DO NOT EDIT!
 #:schema https://starship.rs/config-schema.json
 "$schema" = "https://starship.rs/config-schema.json"
+command_timeout = 50
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
