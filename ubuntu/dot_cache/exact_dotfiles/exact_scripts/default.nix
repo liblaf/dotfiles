@@ -16,6 +16,7 @@ with import <nixpkgs> { };
   gnome-extensions-cli
   gum
   helix
+  hwatch
   jless
   micromamba
   miniserve

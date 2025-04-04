@@ -10,6 +10,7 @@ systemctl --user daemon-reload
 sudo systemctl enable --now caddy.service
 sudo systemctl enable --now sing-box.service
 sudo systemctl mask nvidia-persistenced.service
+systemctl --user enable --now ddns.timer
 systemctl --user enable --now goauthing.service
 systemctl --user enable --now goauthing6.service
 systemctl --user enable --now pueued.service

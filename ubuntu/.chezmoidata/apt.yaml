@@ -3,6 +3,8 @@ packages:
     # System
     - ansible
     - earlyoom
+    - efibootmgr
+    - libfuse2t64
     - nix-bin
     - nix-setup-systemd
 
@@ -56,6 +58,7 @@ packages:
     # GUI
     - blender
     - flameshot
+    - fonts-noto-cjk-extra
     - gimp
     - inkscape
     - kitty
@@ -68,6 +71,9 @@ packages:
     - gnome-shell-extensions
     - gnome-software-plugin-flatpak
     - gnome-tweaks
+    - ibus-libpinyin
+    - language-pack-gnome-zh-hans
+    - language-pack-zh-hans
 
     # Programming > C/C++
     - bear
