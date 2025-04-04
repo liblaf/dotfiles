@@ -57,7 +57,6 @@ symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 symbol = " "
 
-[custom]
 [custom.proxy]
 command = "gfw now --color=always"
 format = '\[[$output]($style)\]'

@@ -8,5 +8,5 @@ sourceDir = "{{ joinPath .chezmoi.workingTree .chezmoi.osRelease.id }}"
 external_dir = "{{ joinPath .chezmoi.homeDir $external_dir_relative }}"
 external_dir_relative = "{{ $external_dir_relative }}"
 
-[hooks.read-source-state.pre]
-script = ".local/share/chezmoi/hooks/apply-pre.sh"
+# [hooks.read-source-state.pre]
+# script = ".local/share/chezmoi/hooks/apply-pre.sh"

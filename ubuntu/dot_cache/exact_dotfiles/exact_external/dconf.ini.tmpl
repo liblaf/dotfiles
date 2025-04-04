@@ -1,0 +1,100 @@
+# -*- mode: ini; -*-
+
+[com/github/libpinyin/ibus-libpinyin/libpinyin]
+dictionaries='12;15'
+enable-cloud-input=true
+init-full-punct=false
+lookup-table-page-size=10
+sort-candidate-option=0
+
+[org/gnome/desktop/calendar]
+show-weekdate=true
+
+[org/gnome/desktop/datetime]
+automatic-timezone=true
+
+[org/gnome/desktop/input-sources]
+mru-sources=[('xkb', 'us'), ('ibus', 'libpinyin')]
+sources=[('xkb', 'us'), ('ibus', 'libpinyin')]
+
+[org/gnome/desktop/interface]
+accent-color='blue'
+clock-show-seconds=true
+clock-show-weekday=true
+color-scheme='prefer-dark'
+cursor-theme='Yaru'
+gtk-theme='Yaru-blue-dark'
+icon-theme='Yaru-blue-dark'
+locate-pointer=true
+show-battery-percentage=true
+
+[org/gnome/desktop/peripherals/touchpad]
+tap-to-click=true
+two-finger-scrolling-enabled=true
+
+[org/gnome/desktop/session]
+idle-delay=uint32 900
+
+[org/gnome/desktop/sound]
+theme-name='Yaru'
+
+[org/gnome/settings-daemon/plugins/power]
+power-button-action='suspend'
+sleep-inactive-ac-timeout=900
+sleep-inactive-ac-type='nothing'
+sleep-inactive-battery-timeout=900
+sleep-inactive-battery-type='suspend'
+
+[org/gnome/shell]
+favorite-apps=['microsoft-edge.desktop', 'org.gnome.Nautilus.desktop', 'kitty.desktop', 'code.desktop', 'com.tencent.WeChat.desktop']
+
+[org/gnome/shell/extensions/bingwallpaper]
+delete-previous=true
+download-folder='~/Pictures/BingWallpaper/'
+icon-name='bing-symbolic'
+lockscreen-blur-brightness=65
+lockscreen-blur-strength=45
+override-lockscreen-blur=true
+previous-days=8
+random-interval=300
+random-mode-enabled=true
+revert-to-current-image=true
+
+[org/gnome/shell/extensions/dash-to-dock]
+dock-fixed=false
+extend-height=false
+show-mounts=false
+show-trash=false
+
+[org/gnome/shell/extensions/display-brightness-ddcutil]
+allow-zero-brightness=true
+button-location=1
+decrease-brightness-shortcut=['<Super>F11']
+hide-system-indicator=false
+increase-brightness-shortcut=['<Super>F12']
+show-all-slider=true
+show-internal-slider=true
+show-sliders-in-submenu=true
+show-value-label=true
+step-change-keyboard=10.0
+
+[org/gnome/shell/extensions/unblank]
+time=7200
+
+[org/gnome/shell/extensions/vitals]
+fixed-widths=false
+# {{ if .hardware.nvidia.exists }}
+hot-sensors=['_processor_usage_', '_memory_usage_', '__network-rx_max__', '__network-tx_max__', '__temperature_max__', '_gpu#1_utilization_', '_gpu#1_memory_usage_']
+# {{ else }}
+hot-sensors=['_processor_usage_', '_memory_usage_', '__network-rx_max__', '__network-tx_max__', '__temperature_max__']
+# {{ end }}
+include-static-gpu-info=true
+position-in-panel=0
+show-gpu=true
+
+[org/gtk/gtk4/settings/file-chooser]
+sort-directories-first=true
+view-type='list'
+
+[org/gtk/settings/file-chooser]
+sort-directories-first=true

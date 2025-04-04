@@ -1,0 +1,8 @@
+packages:
+  npm:
+    - "@liblaf/sub-converter"
+    - cspell
+    - prettier
+    - speedscope
+    - vercel
+    - wrangler

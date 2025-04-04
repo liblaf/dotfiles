@@ -1,0 +1,19 @@
+[".config/fastfetch/config.jsonc"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/fastfetch-cli/fastfetch/raw/dev/presets/examples/10.jsonc"
+
+[".config/git-cliff/cliff.toml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/actions/raw/refs/heads/main/changelog/cliff.toml"
+
+[".config/latexindent/latexindent.yaml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://raw.githubusercontent.com/liblaf/ilatex/main/.latexindent.yaml"
+
+[".config/ruff/.ruff.toml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://raw.githubusercontent.com/liblaf/copier-python/refs/heads/main/template/.config/linters/.ruff.toml"

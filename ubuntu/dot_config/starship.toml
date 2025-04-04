@@ -57,7 +57,6 @@ symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 symbol = " "
 
-[custom]
 [custom.proxy]
 command = "gfw now --color=always"
 format = '\[[$output]($style)\]'
@@ -65,13 +64,6 @@ shell = "sh"
 style = ""
 symbol = "󰖟"                       # nf-md-web
 when = 'test -n "$https_proxy"'
-
-[custom.remote]
-command = 'basename -- "$(findmnt --noheadings --output TARGET --target "$PWD")"'
-format = '\[[$symbol($output)]($style)\]'
-shell = "sh"
-symbol = "󰡰 "
-when = true
 
 
 [daml]
@@ -117,26 +109,20 @@ symbol = " "
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
-disabled = true
 format = '\[[$symbol$branch]($style)\]'
 symbol = " "
 
 [git_commit]
-disabled = true
 tag_symbol = '  '
 
 [git_metrics]
-disabled = true
+disabled = false
 format = '(\[([+$added]($added_style))([-$deleted]($deleted_style))\])'
-
-[git_state]
-disabled = true
 
 [git_status]
 ahead = ""                                         # nf-fa-arrow_up_long
 behind = ""                                        # nf-fa-arrow_down_long
 deleted = ""                                       # nf-fa-close
-disabled = true
 diverged = ""                                      # nf-fa-arrows_up_down
 format = '(\[[$all_status$ahead_behind]($style)\])'
 renamed = ""                                       # nf-fa-angles_right

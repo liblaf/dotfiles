@@ -1,5 +1,11 @@
 {
   "files.associations": {
     "*.json.tmpl": "json"
-  }
+  },
+  "xml.fileAssociations": [
+    {
+      "pattern": "**/*fontconfig/conf.d/*.conf",
+      "systemId": "file:///usr/share/xml/fontconfig/fonts.dtd"
+    }
+  ]
 }

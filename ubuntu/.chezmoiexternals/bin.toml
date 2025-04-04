@@ -1,0 +1,66 @@
+[".local/bin/auth-thu"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://mirrors.cernet.edu.cn/github-release/z4yx/GoAuthing/LatestRelease/auth-thu.linux.x86_64"
+
+[".local/bin/bws"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/claps/releases/download/dev/bws-x86_64-unknown-linux-gnu"
+
+[".local/bin/cf"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/rust-cli/releases/download/dev/cf-x86_64-unknown-linux-gnu"
+
+[".local/bin/ddns"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/ddns/releases/download/dev/ddns-amd64-linux"
+
+[".local/bin/dlc"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/pkg/releases/download/domain-list-community/dlc-linux-amd64"
+
+[".local/bin/fTetWild"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/pkg/releases/download/fTetWild/fTetWild-X64-Linux"
+
+[".local/bin/geo"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/MetaCubeX/geo/releases/latest/download/geo-linux-amd64"
+
+[".local/bin/gfw"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/rust-cli/releases/download/dev/gfw-x86_64-unknown-linux-gnu"
+
+[".local/bin/pch"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/pre-commit-hooks/releases/download/dev/pch-x86_64-unknown-linux-gnu"
+
+[".local/bin/pic"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/claps/releases/download/dev/pic-x86_64-unknown-linux-gnu"
+
+[".local/bin/reserves-lib-tsinghua-downloader"]
+executable = true
+path = "downloader"
+refreshPeriod = "168h"
+type = "archive-file"
+url = "https://github.com/libthu/reserves-lib-tsinghua-downloader/releases/latest/download/downloader-ubuntu-latest-py3.9.zip"

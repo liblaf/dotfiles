@@ -1,0 +1,19 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# APT
+sudo apt-get update --yes
+sudo apt-get dist-upgrade --yes
+# shellcheck disable=SC1083
+sudo apt-get install --yes {{ range .packages.apt }} {{ . }} {{ end }}
+sudo apt-get autoclean --yes
+sudo apt-get autopurge --yes
+sudo ln --force --symbolic --no-target-directory --verbose "/usr/bin/batcat" "/usr/local/bin/bat"
+sudo ln --force --symbolic --no-target-directory --verbose "/usr/bin/fdfind" "/usr/local/bin/fd"
+
+# Flatpak
+# shellcheck disable=SC1083
+flatpak install flathub --assumeyes --noninteractive --or-update {{ range .packages.flatpak }} {{ . }} {{ end }}
+flatpak update --assumeyes --noninteractive

@@ -1,0 +1,11 @@
+# -*- mode: ini; -*-
+
+[Unit]
+Description = DDNS
+
+[Install]
+WantedBy = timers.target
+
+[Timer]
+OnStartupSec = 0
+OnUnitActiveSec = 1min

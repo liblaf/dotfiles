@@ -1,0 +1,31 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+sudo systemctl daemon-reload
+systemctl --user daemon-reload
+
+sudo systemctl enable --now caddy.service
+sudo systemctl enable --now sing-box.service
+sudo systemctl mask nvidia-persistenced.service
+systemctl --user enable --now goauthing.service
+systemctl --user enable --now goauthing6.service
+systemctl --user enable --now pueued.service
+systemctl --user enable --now seadrive.service
+
+# {{ if .hardware.nvidia.mobile }}
+if ! systemd-analyze verify nvidia-powerd.service; then
+  files=(
+    /usr/share/doc/nvidia-kernel-common-560/nvidia-powerd.service
+  )
+  for file in "${files[@]}"; do
+    if [[ -f $file ]]; then
+      sudo install -D --mode="u=rw,go=r" --preserve-timestamps --target-directory="/usr/local/lib/systemd/system" "$file"
+      break
+    fi
+  done
+fi
+sudo systemctl enable --now nvidia-powerd.service
+# {{ end }}

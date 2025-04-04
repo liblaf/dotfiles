@@ -1,0 +1,30 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+extensions_to_install=(
+  BingWallpaper@ineffable-gmail.com
+  display-brightness-ddcutil@themightydeity.github.com
+  unblank@sun.wxg@gmail.com
+  Vitals@CoreCoding.com
+)
+if [[ ${#extensions_to_install[@]} -gt 0 ]]; then
+  gext install "${extensions_to_install[@]}"
+fi
+extensions_to_enable=(
+  # system
+  apps-menu@gnome-shell-extensions.gcampax.github.com
+  ding@rastersoft.com
+  drive-menu@gnome-shell-extensions.gcampax.github.com
+  places-menu@gnome-shell-extensions.gcampax.github.com
+  screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com
+  tiling-assistant@ubuntu.com
+  ubuntu-dock@ubuntu.com
+
+  # user
+  "${extensions_to_install[@]}"
+)
+gext enable "${extensions_to_enable[@]}"
+
+dconf load / < '{{ joinPath .external_dir "dconf.ini" }}'

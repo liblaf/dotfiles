@@ -1,0 +1,13 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+export no_proxy="localhost,127.0.0.0/8,::1,.npmmirror.com"
+export NO_PROXY="$no_proxy"
+
+# shellcheck disable=SC1083
+bun add --global {{ range .packages.npm }} "{{ . }}" {{ end }}
+
+bun update --global --latest

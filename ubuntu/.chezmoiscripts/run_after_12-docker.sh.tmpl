@@ -1,0 +1,6 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+sh "{{ .external_dir }}/docker/install.sh" --mirror "Aliyun"

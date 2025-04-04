@@ -1,0 +1,49 @@
+# -*- mode: ini; -*-
+[commit]
+gpgSign = true
+
+[core]
+quotePath = false
+
+[credential "https://gist.github.com"]
+helper = !gh auth git-credential
+
+[credential "https://github.com"]
+helper = !gh auth git-credential
+
+[diff]
+external = difft
+tool = difftastic
+
+[difftool]
+prompt = false
+
+[difftool "difftastic"]
+cmd = difftastic "$LOCAL" "$REMOTE"
+
+[pager]
+difftool = true
+
+[fetch]
+parallel = 0
+
+[http]
+# https://stackoverflow.com/questions/6842687/the-remote-end-hung-up-unexpectedly-while-git-cloning
+postBuffer = 104857600
+
+[init]
+defaultBranch = main
+
+[push]
+autoSetupRemote = true
+
+[status]
+relativePaths = false
+
+[submodule]
+fetchJobs = 0
+
+[user]
+email = 30631553+liblaf@users.noreply.github.com
+name = liblaf
+signingKey = 1A97A8D5A7859725

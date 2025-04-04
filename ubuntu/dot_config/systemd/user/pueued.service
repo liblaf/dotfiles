@@ -1,0 +1,16 @@
+# -*- mode: ini; -*-
+# ref: <https://github.com/Nukesor/pueue/blob/main/utils/pueued.service>
+
+# This is the service file for the pueue daemon
+# To enable the daemon type `systemctl --user enable pueued.service`
+# To start the daemon type `systemctl --user start pueued.service`
+
+[Unit]
+Description = Pueue Daemon - CLI process scheduler and manager
+
+[Service]
+Restart = no
+ExecStart = pueued -vv
+
+[Install]
+WantedBy = default.target

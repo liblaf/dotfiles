@@ -1,3 +1,0 @@
-nvitop
-poetry
-thu-learn-downloader

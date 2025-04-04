@@ -1,0 +1,24 @@
+# -*- mode: ini; -*-
+
+[Unit]
+# systemd.unit > OPTIONS
+Description = Rclone Serve WebDAV
+BindsTo = seadrive.service
+After = seadrive.service
+# systemd.unit > Conditions and Asserts
+ConditionDirectoryNotEmpty = %h/mnt/SeaDrive/My Libraries/webdav
+
+[Install]
+WantedBy = default.target
+
+[Service]
+# systemd.exec > ENVIRONMENT
+Environment = "ADDR=:{{ .port.webdav }}"
+Environment = "HTPASSWD=%d/HTPASSWD"
+Environment = "REMOTE_PATH=%h/mnt/SeaDrive/My Libraries/webdav"
+# systemd.exec > CREDENTIALS
+LoadCredential = HTPASSWD:%E/services/webdav/htpasswd
+# systemd.service > OPTIONS
+ExecStart = rclone serve webdav "${REMOTE_PATH}" --addr "${ADDR}" --htpasswd "${HTPASSWD}" --vfs-cache-mode full
+Restart = always
+RestartSec = 5
