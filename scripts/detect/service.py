@@ -50,7 +50,7 @@ def main() -> None:
     hostname: str = socket.gethostname()
     data: Any = load_data()
     data["service"] = {}
-    data = config_service(data, "Backup", on=hostname in CENTRAL)
+    data = config_service(data, "Bitwarden Backup", on=hostname in CENTRAL)
     data = config_service(data, "Center", on=hostname in CENTRAL)
     data = config_service(data, "GPT Academic", on=hostname in SERVER)
     data = config_service(data, "Stirling PDF", on=hostname in SERVER)
