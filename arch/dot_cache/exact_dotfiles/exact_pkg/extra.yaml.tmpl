@@ -13,10 +13,11 @@ extra:
   - v4l2loopback-dkms
   - virtualbox-host-modules-arch # virtualbox
 
-  # Hardware Video Acceleration
+  # Graphics
   - libva-utils # VA-API
-  - mpv # tsukimi
+  - mpv # required by: tsukimi
   - vdpauinfo # VDPAU
+  - vulkan-tools # Vulkan
   # {{ if .hardware.nvidia.exists }}
   #   {{ if eq .hardware.nvidia.driver "open" }}
   - nvidia-open
