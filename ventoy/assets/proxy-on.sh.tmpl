@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROXY_PORT="{{.port.proxy}}"
+PROXY_PORT="{{ .port.proxy }}"
 
 gsettings set org.gnome.system.proxy.ftp host 127.0.0.1
 gsettings set org.gnome.system.proxy.ftp port "$PROXY_PORT"
