@@ -1,0 +1,8 @@
+{
+  "output": {
+    "filePath": "repomix-output.xml",
+    "style": "xml",
+    "compress": true,
+    "instructionFilePath": "repomix-instruction.md"
+  }
+}
