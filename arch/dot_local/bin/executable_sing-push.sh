@@ -13,8 +13,8 @@ else
   gh gist clone "$id" "$LOCAL_PATH"
 fi
 
-sing --config "$LOCAL_PATH/config.json" --generator "default" --output "$LOCAL_PATH/sing-box.json" --port "$port"
-sing --config "$LOCAL_PATH/config.json" --generator "ios" --output "$LOCAL_PATH/sing-box.ios.json" --port "$port"
+sing --config "$LOCAL_PATH/config.json" --output "$LOCAL_PATH/sing-box.json" --port "$port" --template "default"
+sing --config "$LOCAL_PATH/config.json" --output "$LOCAL_PATH/sing-box.ios.json" --port "$port" --template "ios"
 git -C "$LOCAL_PATH" add --all
 if [[ -n "$(git -C "$LOCAL_PATH" status --porcelain)" ]]; then
   git -C "$LOCAL_PATH" commit --message="" --allow-empty-message
