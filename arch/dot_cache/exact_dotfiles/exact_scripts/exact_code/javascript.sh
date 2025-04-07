@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-export no_proxy="localhost,127.0.0.0/8,::1,.npmmirror.com"
+export no_proxy="{{ .no_proxy }}"
 export NO_PROXY="$no_proxy"
 
 pkg_list=(
