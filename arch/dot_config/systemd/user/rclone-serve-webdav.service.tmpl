@@ -3,10 +3,8 @@
 [Unit]
 # systemd.unit > OPTIONS
 Description = Rclone Serve WebDAV
-BindsTo = seadrive.service
-After = seadrive.service
 # systemd.unit > Conditions and Asserts
-ConditionDirectoryNotEmpty = %h/mnt/SeaDrive/My Libraries/webdav
+AssertDirectoryNotEmpty = %h/mnt/SeaDrive/My Libraries/webdav
 
 [Install]
 WantedBy = default.target

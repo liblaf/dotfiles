@@ -1,4 +1,5 @@
 # -*- mode: yaml; -*-
+
 extra:
   # System
   - bluez
@@ -11,7 +12,7 @@ extra:
   - ntfs-3g
   - os-prober
   - v4l2loopback-dkms
-  - virtualbox-host-modules-arch # virtualbox
+  - virtualbox-host-modules-lts # required by: virtualbox
 
   # Graphics
   - libva-utils # VA-API
@@ -20,9 +21,9 @@ extra:
   - vulkan-tools # Vulkan
   # {{ if .hardware.nvidia.exists }}
   #   {{ if eq .hardware.nvidia.driver "open" }}
-  - nvidia-open
+  - nvidia-open-lts
   #   {{ else if eq .hardware.nvidia.driver "proprietary" }}
-  - nvidia
+  - nvidia-lts
   #   {{ end }}
   - cuda
   - libva-nvidia-driver # VA-API
@@ -101,7 +102,7 @@ extra:
   - sd
   - speedtest-cli
   - sshfs
-  - sshpass # ansible
+  - sshpass # required by: ansible
   - starship
   - taplo-cli
   - tldr
@@ -207,13 +208,13 @@ extra:
   - shfmt
 
   # Misc
-  - ffmpegthumbnailer # required by yazi
-  - jq # required by yazi
-  - p7zip # required by yazi
-  - perl-file-homedir # required by latexindent.pl
-  - perl-yaml-tiny # required by latexindent.pl
-  - poppler # required by yazi
-  - python-pygments # required by LaTeX minted
-  - python-pyqt5 # reqired by hplip: for running GUI and hp-toolbox
-  - tesseract-data-chi_sim # required by pot-translation, Stirling PDF
-  - tesseract-data-eng # required by pot-translation, Stirling PDF
+  - ffmpegthumbnailer # required by: yazi
+  - jq # required by: yazi
+  - p7zip # required by: yazi
+  - perl-file-homedir # required by: latexindent.pl
+  - perl-yaml-tiny # required by: latexindent.pl
+  - poppler # required by: yazi
+  - python-pygments # required by: LaTeX minted
+  - python-pyqt5 # reqired by: hplip: for running GUI and hp-toolbox
+  - tesseract-data-chi_sim # required by: pot-translation, Stirling PDF
+  - tesseract-data-eng # required by: pot-translation, Stirling PDF
