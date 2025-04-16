@@ -5,7 +5,9 @@ archlinuxcn:
   - git-extras
   - gnome-shell-extension-dash-to-dock
   - linux-wifi-hotspot
+  - micromamba
   - nautilus-open-any-terminal
+  - pot-translation
   - resticprofile
   - seadrive-daemon
   - sing-box
