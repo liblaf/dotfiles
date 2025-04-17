@@ -1,5 +1,5 @@
 # -*- mode: ini; -*-
-# https://wiki.archlinux.org/title/NVIDIA#pacman_hook
+# ref: <https://wiki.archlinux.org/title/NVIDIA#pacman_hook>
 
 [Trigger]
 Operation = Install
@@ -8,15 +8,18 @@ Operation = Remove
 Type = Package
 # You can remove package(s) that don't apply to your config, e.g. if you only use nvidia-open you can remove nvidia-lts as a Target
 Target = nvidia
-Target = nvidia-open
 Target = nvidia-lts
+Target = nvidia-open
+Target = nvidia-open-lts
 # If running a different kernel, modify below to match
-Target = linux
-Target = linux-lts
+# Target = linux
+# Target = linux-lts
 
 [Action]
 Description = Updating NVIDIA module in initcpio
 Depends = mkinitcpio
 When = PostTransaction
 NeedsTargets
-Exec = /bin/sh -c 'while read -r trg; do case $trg in linux*) exit 0; esac; done; /usr/bin/mkinitcpio -P'
+Exec = /usr/bin/mkinitcpio --allpresets
+
+# Note: The complication in the Exec line above is in order to avoid running mkinitcpio multiple times if both nvidia and linux get updated. In case this does not bother you, the Target=linux and NeedsTargets lines may be dropped, and the Exec line may be reduced to simply Exec=/usr/bin/mkinitcpio -P.
