@@ -4,6 +4,6 @@
 Description = Update sing-box Configuration
 
 [Service]
-ExecStart = sing.sh
+ExecStart = %h/.local/bin/sing.sh
 Restart = on-failure
 RestartSec = 5s

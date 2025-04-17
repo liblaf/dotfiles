@@ -4,6 +4,6 @@
 Description = Push sing-box Configuration
 
 [Service]
-ExecStart = sing-push.sh
+ExecStart = %h/.local/bin/sing-push.sh
 Restart = on-failure
 RestartSec = 5s

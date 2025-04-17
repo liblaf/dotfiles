@@ -12,6 +12,6 @@ Environment = "BW_SESSION_FILE=%d/BW_SESSION"
 # systemd.exec > CREDENTIALS
 LoadCredential = BW_SESSION:%E/credstore/BW_SESSION
 # systemd.service > OPTIONS
-ExecStart = bitwarden-backup.sh
+ExecStart = %h/.local/bin/bitwarden-backup.sh
 Restart = on-failure
 RestartSec = 5s

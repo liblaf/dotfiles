@@ -4,5 +4,5 @@
 Description = DDNS
 
 [Service]
-ExecStart = ddns update --quiet
+ExecStart = %h/.local/bin/ddns update --quiet
 TimeoutSec = 1min
