@@ -1,5 +1,5 @@
 [Desktop Entry]
-Type=Application
-Name=Wrap
-Exec=~/.local/opt/Wrap/Wrap.sh
-Terminal=false
+Type     = Application
+Name     = Wrap
+Exec     = /home/liblaf/.local/opt/Wrap/Wrap.sh
+Terminal = false

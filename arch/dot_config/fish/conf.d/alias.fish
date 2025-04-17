@@ -15,10 +15,9 @@ if status is-interactive
     alias ll 'ls -lh'
     alias la 'ls -lAh'
 
-    abbr --add hx helix
     abbr --add r --command pueue -- status status="running"
 
-    set apps typora
+    set apps meshlab paraview typora
     for app in $apps
         if type --query $app
             echo "

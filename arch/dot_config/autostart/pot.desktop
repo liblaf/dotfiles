@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type    = Application
+Version = 1.0
+Name    = pot
+Comment = potstartup script
+# I don't know why, but this is needed to make screenshot work
+Exec          = sh -c "pot < /dev/null > /dev/null"
+StartupNotify = false
+Terminal      = false

@@ -3,6 +3,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+DATA_FILE="$CHEZMOI_SOURCE_DIR/.chezmoidata/generated/nvidia.json"
+echo "{}" > "$DATA_FILE"
+
 # https://wiki.archlinux.org/title/NVIDIA#Installation
 data=$(lspci -vmm -d ::03xx)
 vendor=$(echo "$data" | awk -F '\t' '$1 == "Vendor:" { print $2 }')

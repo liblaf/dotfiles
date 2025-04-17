@@ -16,9 +16,9 @@ SERVER: set[str] = {
 
 
 def data_file() -> Path:
-    data_file: str | None = os.getenv("DATA_FILE")
+    data_file: str | None = os.getenv("CHEZMOI_SOURCE_DIR")
     assert data_file is not None
-    return Path(data_file)
+    return Path(data_file) / ".chezmoidata" / "generated" / "service.json"
 
 
 def load_data() -> Any:

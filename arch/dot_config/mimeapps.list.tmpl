@@ -1,0 +1,42 @@
+# -*- mode: ini; -*-
+
+[Added Associations]
+# wps-office-prometheus.desktop
+{{- range (get .mime "application/wps-office") }}
+{{ . }}=wps-office-prometheus.desktop {{- end }}
+
+[Default Applications]
+# com.microsoft.Edge.desktop
+application/xhtml+xml=com.microsoft.Edge.desktop
+text/html=com.microsoft.Edge.desktop
+x-scheme-handler/http=com.microsoft.Edge.desktop
+x-scheme-handler/https=com.microsoft.Edge.desktop
+
+# org.kde.karuna.desktop
+{{- range .mime.video }}
+{{ . }}=org.kde.haruna.desktop {{- end }}
+
+# org.gnome.Loupe.desktop
+{{- range .mime.image }}
+{{ . }}=org.gnome.Loupe.desktop {{- end }}
+
+# code.desktop
+text/plain=code.desktop
+text/x-python=code.desktop
+
+# meshlab.desktop
+model/obj=meshlab.desktop
+model/x-ply=meshlab.desktop
+
+# org.gnome.Evince.desktop
+application/pdf=org.gnome.Evince.desktop
+
+# org.gnome.Nautilus.desktop
+inode/directory=org.gnome.Nautilus.desktop
+
+# typora.desktop
+text/markdown=io.typora.Typora.desktop
+
+# wps-office-prometheus.desktop
+{{- range (get .mime "application/wps-office") }}
+{{ . }}=wps-office-prometheus.desktop {{- end }}
