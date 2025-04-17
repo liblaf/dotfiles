@@ -2,9 +2,12 @@
 
 [Unit]
 # systemd.unit > OPTIONS
+# if `seadrive.service` is stopped, this unit will be stopped too.
+After = seadrive.service
+BindsTo = seadrive.service
 Description = Rclone Serve WebDAV
 # systemd.unit > Conditions and Asserts
-AssertDirectoryNotEmpty = %h/mnt/SeaDrive/My Libraries/webdav
+# AssertDirectoryNotEmpty = %h/mnt/SeaDrive/My Libraries/webdav
 
 [Install]
 WantedBy = default.target

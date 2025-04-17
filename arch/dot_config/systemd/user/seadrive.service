@@ -2,6 +2,7 @@
 
 [Unit]
 Description = SeaDrive Daemon
+Wants = rclone-webdav.service
 
 [Install]
 WantedBy = default.target
