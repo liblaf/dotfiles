@@ -6,9 +6,18 @@ remove:
   - google-chrome
   - jellyfin-server
   - jellyfin-web
+  - meshlab-appimage
   - mypy
   - nvidia-open-dkms
+  - paraview
   - pipxu
+  - pot-translation
   - qbittorrent-nox
   - qbittorrent-vuetorrent-bin
   - superfile-bin
+  - tsukimi-bin
+  - typora
+  - wechat-universal-bwrap
+  - wemeet-bin
+  - wemeet-wayland-screenshare-git
+  - zotero-bin

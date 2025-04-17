@@ -5,7 +5,7 @@ aur:
   - caddy-cloudflare
   - clipboard-bin
   - doggo-bin
-  - electron22-bin # piclist-bin
+  - electron22-bin # required by: piclist-bin
   - freeze-bin
   - geekbench
   - gnome-shell-extension-bing-wallpaper
@@ -16,16 +16,12 @@ aur:
   - hwatch-bin
   - jnv-bin
   - kalker-bin
-  - meshlab-appimage
   - miniconda3
   - nautilus-code
   - noto-fonts-sc
   - paccache-hook
   - piclist-bin
-  - tsukimi-bin
-  - typora
   - virtualbox-ext-oracle # required by: virtualbox
-  - wechat-universal-bwrap
   - wps-office-365
   - wps-office-365-fonts # required by: wps-office-365
   - yaycache

@@ -1,0 +1,9 @@
+flatpak:
+  - com.pot_app.pot
+  - com.tencent.WeChat
+  - com.tencent.wemeet
+  - io.typora.Typora
+  - moe.tsuna.tsukimi
+  - net.meshlab.MeshLab
+  - org.paraview.ParaView
+  - org.zotero.Zotero

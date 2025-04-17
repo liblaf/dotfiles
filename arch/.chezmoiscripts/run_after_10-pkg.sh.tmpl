@@ -51,3 +51,7 @@ load-packages aur "$PKG_DIR/aur.yaml" |
   (yay --aur --devel --useask=false --sync --needed --noconfirm - || true) # allow AUR to fail
 
 yay --yay --useask=false --clean --nosave --recursive --unneeded --noconfirm
+
+sudo flatpak remote-modify flathub --url="{{ .mirrors.flathub }}"
+readarray -t pkg_flatpak < <(load-packages flatpak "$PKG_DIR/flatpak.yaml")
+flatpak install --assumeyes --or-update "${pkg_flatpak[@]}"

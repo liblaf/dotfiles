@@ -12,5 +12,5 @@ exit 0
 mkdir --parents --verbose "$HOME/.config/services/webdav"
 htpasswd -c -b "$HOME/.config/services/webdav/htpasswd" '{{ (rbw "WebDAV").data.username }}' '{{ (rbw "WebDAV").data.password }}'
 
-systemctl --user enable --now rclone-serve-webdav.service
+systemctl --user enable --now rclone-webdav.service
 systemctl --user enable --now seadrive.service
