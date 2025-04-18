@@ -22,11 +22,6 @@ extra:
   - vdpauinfo # VDPAU
   - vulkan-tools # Vulkan
   # {{ if .hardware.nvidia.exists }}
-  #   {{ if eq .hardware.nvidia.driver "open" }}
-  - nvidia-open-lts
-  #   {{ else if eq .hardware.nvidia.driver "proprietary" }}
-  - nvidia-lts
-  #   {{ end }}
   - cuda
   - libva-nvidia-driver # VA-API
   - nvidia-container-toolkit # Docker

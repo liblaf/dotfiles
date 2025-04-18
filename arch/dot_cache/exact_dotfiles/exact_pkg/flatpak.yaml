@@ -1,4 +1,5 @@
 flatpak:
+  - com.microsoft.Edge
   - com.tencent.WeChat
   - com.tencent.wemeet
   - io.typora.Typora

@@ -4,4 +4,4 @@ set -o nounset
 set -o pipefail
 
 cd '{{ joinPath .external_dir "grub2-themes" }}'
-sudo ./install.sh --screen 4k
+sudo ./install.sh --screen 4k --boot
