@@ -58,7 +58,7 @@ def main() -> None:
     remote: StarshipConfig = load_file(base_dir / "starship.remote.toml")
     config: StarshipConfig = merge(bracketed_segments, nerd_font_symbols, custom)
     save_config(dot_config / "starship.toml", config)
-    config = merge(config, remote)
+    config = merge(bracketed_segments, nerd_font_symbols, custom, remote)
     save_config(dot_config / "exact_starship" / "remote.toml", config)
 
 
