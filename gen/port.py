@@ -64,6 +64,7 @@ SERVICES: list[Service] = [
     Service("GPT Academic", public=True),
     Service("HTTP", public=False),
     Service("HTTPS", public=True),
+    Service("MLflow", public=True),
     Service("Proxy", public=False),
     Service("SSH", public=True),
     Service("Stirling-PDF", public=True),

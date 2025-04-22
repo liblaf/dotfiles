@@ -40,9 +40,3 @@ sudo systemctl enable nvidia-suspend.service
 sudo systemctl enable --now nvidia-powerd.service
 #   {{ end }}
 # {{ end }}
-
-# {{ if .service.bitwarden_backup }}
-systemctl --user enable --now bitwarden-backup.timer
-# {{ else }}
-systemctl --user disable --now bitwarden-backup.timer || true
-# {{ end }}

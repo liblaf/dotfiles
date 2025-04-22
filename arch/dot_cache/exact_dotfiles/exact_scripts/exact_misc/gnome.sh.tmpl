@@ -5,7 +5,7 @@ set -o nounset
 set -o pipefail
 
 export PATH="${HOME}/.local/bin:${PATH}"
-uv tool install --force --python 3.13 gnome-extensions-cli
+uv tool install --force --python "3.13" gnome-extensions-cli
 sleep 1 # wait for `gnome-extensions-cli` to be installed
 
 extensions_to_install=()
@@ -23,12 +23,17 @@ extensions_to_enable=(
   dash-to-dock@micxgx.gmail.com
   display-brightness-ddcutil@themightydeity.github.com
   power-profile-switcher@eliapasquali.github.io
-  unblank@sun.wxg@gmail.com
   Vitals@CoreCoding.com
 
   # user
   "${extensions_to_install[@]}"
 )
 gext enable "${extensions_to_enable[@]}"
+
+extensions_to_disable=(
+  # system
+  unblank@sun.wxg@gmail.com
+)
+gext disable "${extensions_to_disable[@]}"
 
 dconf load / < '{{ joinPath .external_dir "dconf.ini" }}'

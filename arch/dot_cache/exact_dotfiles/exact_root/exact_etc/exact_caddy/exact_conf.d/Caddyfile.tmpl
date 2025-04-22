@@ -4,32 +4,46 @@
   http_port {{ .port.http }}
   https_port {{ .port.https }}
   # All zones - Zone:Read, DNS:Edit
-  acme_dns cloudflare {{ (rbwFields "Cloudflare").CADDY_API_TOKEN.value }}
+  acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
 }
 
-gpt.{{ .chezmoi.hostname }}.liblaf.me {
+gpt.{{ .domain }} {
   reverse_proxy localhost:{{ .port.gpt_academic }}
 }
 
-pdf.{{ .chezmoi.hostname }}.liblaf.me {
+mlflow.{{ .domain }} {
+  reverse_proxy localhost:{{ .port.mlflow }}
+  basic_auth {
+    {{ (rbw "MLflow").data.username }} {{ output "caddy" "hash-password" "--plaintext" (rbw "MLflow").data.password | trim}}
+  }
+}
+
+pdf.{{ .domain }} {
   reverse_proxy localhost:{{ .port.stirling_pdf }}
 }
 
-webdav.{{ .chezmoi.hostname }}.liblaf.me {
+webdav.{{ .domain }} {
   reverse_proxy localhost:{{ .port.webdav }}
 }
 
 # {{ if .service.center }}
 
-gpt.liblaf.me {
+gpt.{{ .base_domain }} {
   reverse_proxy localhost:{{ .port.gpt_academic }}
 }
 
-pdf.liblaf.me {
+mlflow.{{ .base_domain }} {
+  reverse_proxy localhost:{{ .port.mlflow }}
+  basic_auth {
+    {{ (rbw "MLflow").data.username }} {{ output "caddy" "hash-password" "--plaintext" (rbw "MLflow").data.password | trim}}
+  }
+}
+
+pdf.{{ .base_domain }} {
   reverse_proxy localhost:{{ .port.stirling_pdf }}
 }
 
-webdav.liblaf.me {
+webdav.{{ .base_domain }} {
   reverse_proxy localhost:{{ .port.webdav }}
 }
 

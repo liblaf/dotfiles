@@ -53,6 +53,7 @@ def main() -> None:
     data = config_service(data, "Bitwarden Backup", on=hostname in CENTRAL)
     data = config_service(data, "Center", on=hostname in CENTRAL)
     data = config_service(data, "GPT Academic", on=hostname in SERVER)
+    data = config_service(data, "MLflow", on=True)
     data = config_service(data, "Stirling PDF", on=hostname in SERVER)
     data = config_service(data, "WebDAV", on=True)
     save_data(data)
