@@ -18,6 +18,7 @@ aur:
   - miniconda3
   - nautilus-code
   - noto-fonts-sc
+  - ov-bin
   - paccache-hook
   - piclist-bin
   - virtualbox-ext-oracle # required by: virtualbox
