@@ -1,0 +1,17 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+PKG_DIR="$HOME/.cache/dotfiles/pkg"
+
+function load-packages() {
+  repo=$1
+  file=$2
+  yq eval ".${repo}[]" "$PKG_DIR/$file"
+}
+
+sudo flatpak remote-modify flathub --url="{{ .mirrors.flathub }}"
+readarray -t pkg_flatpak < <(load-packages flatpak "flatpak.yaml")
+sudo flatpak install --assumeyes --or-update "${pkg_flatpak[@]}"
+sudo flatpak uninstall --unused --delete-data --assumeyes

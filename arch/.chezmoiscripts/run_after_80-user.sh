@@ -19,6 +19,7 @@ function group-add() {
 }
 
 group-add docker
+group-add libvirt # ref: <https://wiki.archlinux.org/title/Libvirt#Using_libvirt_group>
 group-add vboxusers
 group-add vcpkg
 

@@ -18,6 +18,7 @@ sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now caddy.service
 sudo systemctl enable --now docker.service
 sudo systemctl enable --now earlyoom.service
+sudo systemctl enable --now libvirtd.service # libvirt
 sudo systemctl enable --now logrotate.timer
 sudo systemctl enable --now netdata.service
 sudo systemctl enable --now sing-box.service
@@ -33,9 +34,10 @@ systemctl --user enable --now seadrive.service
 systemctl --user enable --now sing.timer
 
 # {{ if .hardware.nvidia.exists }}
-sudo systemctl enable nvidia-hibernate.service
-sudo systemctl enable nvidia-resume.service
-sudo systemctl enable nvidia-suspend.service
+# These services are automatically enabled by the `nvidia-utils` package.
+# sudo systemctl enable nvidia-hibernate.service
+# sudo systemctl enable nvidia-resume.service
+# sudo systemctl enable nvidia-suspend.service
 #   {{ if .hardware.nvidia.mobile }}
 sudo systemctl enable --now nvidia-powerd.service
 #   {{ end }}

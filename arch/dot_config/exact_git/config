@@ -1,8 +1,11 @@
-# -*- mode: ini; -*-
+# -*- mode: properties; -*-
+# ref: <https://git-scm.com/docs/git-config>
+
 [commit]
 gpgSign = true
 
 [core]
+pager = ov --quit-if-one-screen
 quotePath = false
 
 [credential "https://gist.github.com"]
@@ -12,27 +15,22 @@ helper = !gh auth git-credential
 helper = !gh auth git-credential
 
 [diff]
-external = difft
-tool = difftastic
-
-[difftool]
-prompt = false
-
-[difftool "difftastic"]
-cmd = difftastic "$LOCAL" "$REMOTE"
-
-[pager]
-difftool = true
+external = ~/.config/git/diff.sh
 
 [fetch]
 parallel = 0
 
 [http]
-# https://stackoverflow.com/questions/6842687/the-remote-end-hung-up-unexpectedly-while-git-cloning
+# ref: <https://stackoverflow.com/a/78845598/18410348>
 postBuffer = 104857600
 
 [init]
 defaultBranch = main
+
+[pager]
+diff = ov --quit-if-one-screen --section-delimiter ' --- \\w+$'
+log = ov --quit-if-one-screen --section-delimiter '^commit ' --section-header-num 3
+show = ov --quit-if-one-screen --header 3
 
 [push]
 autoSetupRemote = true

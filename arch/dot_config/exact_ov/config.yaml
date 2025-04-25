@@ -1,14 +1,6 @@
 # ref: <https://github.com/noborus/ov/blob/master/ov.yaml>
 # ref: <https://github.com/noborus/ov/blob/master/oviewer/config.go>
 
-# ref: <https://noborus.github.io/ov/man/index.html>
-StyleOverStrike:
-  Foreground: aqua
-  Bold: true
-StyleOverLine:
-  Foreground: red
-  Underline: true
-
 # ref: <https://github.com/noborus/ov/blob/master/ov-less.yaml>
 KeyBind:
   exit:
@@ -224,3 +216,11 @@ Mode:
     WrapMode: false
   man:
     SectionDelimiter: ^[^\s]
+
+# ref: <https://noborus.github.io/ov/man/index.html>
+StyleOverStrike:
+  Foreground: aqua
+  Bold: true
+StyleOverLine:
+  Foreground: red
+  Underline: true

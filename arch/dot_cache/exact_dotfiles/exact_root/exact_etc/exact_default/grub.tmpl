@@ -1,6 +1,6 @@
 # -*- mode: dotenv; -*-
-# https://gitlab.archlinux.org/archlinux/packaging/packages/grub/-/blob/main/grub.default
-# https://www.gnu.org/software/grub/manual/grub/html_node/Simple-configuration.html
+# ref: <https://gitlab.archlinux.org/archlinux/packaging/packages/grub/-/blob/main/grub.default>
+# ref: <https://www.gnu.org/software/grub/manual/grub/html_node/Simple-configuration.html>
 
 GRUB_DEFAULT="saved"
 GRUB_SAVEDEFAULT=true
@@ -12,10 +12,8 @@ GRUB_CMDLINE_LINUX_DEFAULT="pcie_aspm=off"
 GRUB_CMDLINE_LINUX_DEFAULT=""
 # {{ end }}
 GRUB_DISABLE_RECOVERY=true
-GRUB_GFXMODE="3840x2160,auto"
-GRUB_THEME="/boot/grub/themes/tela/theme.txt"
+GRUB_GFXMODE="auto"
 GRUB_GFXPAYLOAD_LINUX="keep"
 GRUB_DISABLE_OS_PROBER=false
-GRUB_DISABLE_SUBMENU=true
+# GRUB_DISABLE_SUBMENU=true
 GRUB_PRELOAD_MODULES="part_gpt part_msdos"
-GRUB_BACKGROUND="/boot/grub/themes/tela/background.jpg"
