@@ -1,6 +1,7 @@
 import json
 import os
 import socket
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -41,7 +42,7 @@ def slugify(name: str) -> str:
 
 
 def config_service(data: Any, name: str, *, on: bool) -> Any:
-    print(f"Service > {name}: {on}")
+    print(f"Service > {name}: {on}", file=sys.stderr)
     data["service"][slugify(name)] = on
     return data
 

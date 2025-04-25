@@ -9,7 +9,7 @@ echo "{}" > "$DATA_FILE"
 base_domain="liblaf.me"
 hostname="$(hostnamectl hostname | tr '[:upper:]' '[:lower:]')"
 domain="$hostname.$base_domain"
-echo "DDNS > Base Domain: $base_domain"
-echo "DDNS > Domain: $domain"
+echo "DDNS > Base Domain: $base_domain" >&2
+echo "DDNS > Domain: $domain" >&2
 yq --inplace ".base_domain = \"$base_domain\"" "$DATA_FILE"
 yq --inplace ".domain = \"$domain\"" "$DATA_FILE"

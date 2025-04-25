@@ -29,7 +29,7 @@ function ensure() {
   local exe="$1"
   shift
   if has "$exe"; then
-    echo "\`$exe\` is already installed."
+    echo "\`$exe\` is already installed." >&2
   else
     if has pacman; then
       sudo pacman --sync --refresh --needed --noconfirm "$pacman"

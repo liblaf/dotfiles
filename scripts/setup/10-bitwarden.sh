@@ -11,14 +11,14 @@ if [[ -z ${BW_SESSION-} ]]; then
     export BW_SESSION
   fi
 fi
-if ! bw login --check; then
+if ! bw login --check >&2; then
   BW_SESSION=$(bw login --raw)
   export BW_SESSION
 fi
-if ! bw unlock --check; then
+if ! bw unlock --check >&2; then
   BW_SESSION=$(bw --raw unlock)
   export BW_SESSION
-  bw unlock --check
+  bw unlock --check >&2
 fi
 mkdir --parents --verbose "$(dirname -- "$BW_SESSION_FILE")"
 echo "$BW_SESSION" > "$BW_SESSION_FILE"
