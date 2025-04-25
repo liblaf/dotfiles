@@ -1,8 +1,15 @@
 {
   "output": {
-    "filePath": "repomix-output.xml",
-    "style": "xml",
     "compress": true,
-    "instructionFilePath": "repomix-instruction.md"
+    "showLineNumbers": true
+  },
+  "ignore": {
+    "customPatterns": [
+      "**/.cspell.*",
+      "**/.vscode",
+      "**/*-lock.*",
+      "**/*.lock",
+      "CHANGELOG.md"
+    ]
   }
 }
