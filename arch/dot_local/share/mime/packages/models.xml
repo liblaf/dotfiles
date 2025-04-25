@@ -8,26 +8,39 @@
     <glob-deleteall />
     <glob pattern="*.ply" />
   </mime-type>
+
+  <mime-type type="model/vnd.pvd+xml">
+    <comment>ParaView Data Files</comment>
+    <sub-class-of type="application/xml" />
+    <generic-icon name="model" />
+    <glob-deleteall />
+    <glob pattern="*.pvd" />
+  </mime-type>
+
   <!-- ref: https://docs.vtk.org/en/latest/design_documents/VTKFileFormats.html -->
   <mime-type type="model/vnd.vti+xml">
-    <comment>Serial vtkImageData (structured)</comment>
+    <comment>VTK ImageData Files</comment>
     <sub-class-of type="application/xml" />
     <generic-icon name="model" />
     <glob-deleteall />
     <glob pattern="*.vti" />
+    <glob pattern="*.vti.series" />
   </mime-type>
   <mime-type type="model/vnd.vtp+xml">
-    <comment>Serial vtkPolyData (unstructured)</comment>
+    <comment>VTK PolyData Files</comment>
     <sub-class-of type="application/xml" />
     <generic-icon name="model" />
     <glob-deleteall />
     <glob pattern="*.vtp" />
+    <glob pattern="*.vtp.series" />
   </mime-type>
   <mime-type type="model/vnd.vtu+xml">
-    <comment>Serial vtkUnstructuredGrid (unstructured)</comment>
+    <comment>VTK UnstructuredGrid Files</comment>
     <sub-class-of type="application/xml" />
     <generic-icon name="model" />
     <glob-deleteall />
     <glob pattern="*.vtu" />
+    <glob pattern="*.vtu.series" />
   </mime-type>
+
 </mime-info>
