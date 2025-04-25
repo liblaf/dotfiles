@@ -8,7 +8,7 @@ sudo ufw --force reset
 sudo find /etc/ufw -regextype gnu-awk -regex ".*.[[:digit:]]{8}_[[:digit:]]{6}" -delete
 
 sudo ufw default deny
-sudo ufw default allow route
+sudo ufw default allow routed
 
 # ref: <https://en.wikipedia.org/wiki/IPv4#Private_networks>
 sudo ufw allow from 172.16.0.0/12 # allow connections from docker
