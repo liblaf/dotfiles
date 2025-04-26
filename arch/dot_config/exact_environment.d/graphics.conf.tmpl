@@ -9,5 +9,10 @@
 # VDPAU_DRIVER=va_gl
 # {{ end }}
 
+# ref: <https://gitlab.gnome.org/GNOME/totem/-/issues/616>
+GDK_GL=gles
+
+# {{ if.hardware.nvidia.exists }}
 # ref: <https://pot-app.com/docs/install.html#linux>
 WEBKIT_DISABLE_DMABUF_RENDERER=1
+# {{ end }}

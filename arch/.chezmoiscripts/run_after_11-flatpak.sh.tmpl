@@ -3,15 +3,22 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-PKG_DIR="$HOME/.cache/dotfiles/pkg"
-
-function load-packages() {
-  repo=$1
-  file=$2
-  yq eval ".${repo}[]" "$PKG_DIR/$file"
-}
+# {{ template "load-pkg.sh" }}
 
 sudo flatpak remote-modify flathub --url="{{ .mirrors.flathub }}"
-readarray -t pkg_flatpak < <(load-packages flatpak "flatpak.yaml")
-sudo flatpak install --assumeyes --or-update "${pkg_flatpak[@]}"
+
+readarray -t REMOVES < <(load-pkg "remove.flatpak" "remove.yaml")
+removes=()
+for pkg in "${REMOVES[@]}"; do
+  if flatpak info "$pkg" &> /dev/null; then
+    removes+=("$pkg")
+  fi
+done
+if ((${#removes[@]} > 0)); then
+  sudo flatpak uninstall --delete-data --assumeyes "${removes[@]}"
+fi
+
+readarray -t pkgs < <(load-pkg flatpak "flatpak.yaml")
+sudo flatpak install --assumeyes --or-update "${pkgs[@]}"
+
 sudo flatpak uninstall --unused --delete-data --assumeyes

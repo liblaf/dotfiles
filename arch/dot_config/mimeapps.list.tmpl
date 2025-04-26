@@ -6,15 +6,15 @@
 {{ . }}=wps-office-prometheus.desktop {{- end }}
 
 [Default Applications]
-# com.microsoft.Edge.desktop
-application/xhtml+xml=com.microsoft.Edge.desktop
-text/html=com.microsoft.Edge.desktop
-x-scheme-handler/http=com.microsoft.Edge.desktop
-x-scheme-handler/https=com.microsoft.Edge.desktop
+# microsoft-edge.desktop
+application/xhtml+xml=microsoft-edge.desktop
+text/html=microsoft-edge.desktop
+x-scheme-handler/http=microsoft-edge.desktop
+x-scheme-handler/https=microsoft-edge.desktop
 
-# org.kde.karuna.desktop
+# org.gnome.Totem.desktop
 {{- range .mime.video }}
-{{ . }}=org.kde.haruna.desktop {{- end }}
+{{ . }}=org.gnome.Totem.desktop {{- end }}
 
 # org.gnome.Loupe.desktop
 {{- range .mime.image }}

@@ -7,9 +7,10 @@ archlinuxcn:
   - linux-wifi-hotspot
   - micromamba
   - nautilus-open-any-terminal
-  - pot-translation # Flatpak 版本缺失托盘图标
+  - pot-translation
   - resticprofile
   - seadrive-daemon
   - sing-box
   - ventoy
   - yay
+  - zotero

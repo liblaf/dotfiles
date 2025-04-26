@@ -1,3 +1,4 @@
 arch4edu:
   - arch4edu-keyring
+  - microsoft-edge-stable-bin
   - visual-studio-code-bin

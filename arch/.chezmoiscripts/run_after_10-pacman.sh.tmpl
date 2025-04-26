@@ -3,13 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-PKG_DIR="$HOME/.cache/dotfiles/pkg"
-
-function load-packages() {
-  repo=$1
-  file=$2
-  yq eval ".${repo}[]" "$PKG_DIR/$file"
-}
+# {{ template "load-pkg.sh" }}
 
 sudo pacman --sync --refresh --noconfirm
 # ref: <https://help.mirrors.cernet.edu.cn/archlinuxcn/>
@@ -23,7 +17,7 @@ sudo pacman-key --lsign-key 7931B6D628C8D3BA
 sudo pacman --sync --needed --noconfirm yay
 sudo pacman --sync --sysupgrade --refresh --noconfirm
 
-readarray -t REMOVES < <(load-packages remove "remove.yaml")
+readarray -t REMOVES < <(load-pkg "remove.pacman" "remove.yaml")
 remove=()
 for pkg in "${REMOVES[@]}"; do
   if yay --query --quiet "$pkg" &> /dev/null; then
@@ -34,15 +28,15 @@ if ((${#remove[@]} > 0)); then
   sudo yay --remove --nosave --recursive --unneeded --noconfirm "${remove[@]}"
 fi
 
-load-packages core "core.yaml" |
+load-pkg core "core.yaml" |
   sudo pacman --sync --needed --noconfirm -
-load-packages extra "extra.yaml" |
+load-pkg extra "extra.yaml" |
   sudo pacman --sync --needed --noconfirm -
-load-packages archlinuxcn "archlinuxcn.yaml" |
+load-pkg archlinuxcn "archlinuxcn.yaml" |
   sudo pacman --sync --needed --noconfirm -
-load-packages arch4edu "arch4edu.yaml" |
+load-pkg arch4edu "arch4edu.yaml" |
   sudo pacman --sync --needed --noconfirm -
-load-packages aur "aur.yaml" |
+load-pkg aur "aur.yaml" |
   (yay --aur --devel --useask=false --sync --needed --noconfirm - || true) # allow AUR to fail
 
 yay --yay --useask=false --clean --nosave --recursive --unneeded --noconfirm

@@ -1,22 +1,28 @@
 remove:
-  - brightnessctl
-  - clash-meta
-  - cloudflare-warp-bin
-  - ddcci-driver-linux-dkms
-  - google-chrome
-  - jellyfin-server
-  - jellyfin-web
-  - meshlab-appimage
-  - mypy
-  - nvidia-open-dkms
-  - paraview
-  - pipxu
-  - qbittorrent-nox
-  - qbittorrent-vuetorrent-bin
-  - superfile-bin
-  - tsukimi-bin
-  - typora
-  - wechat-universal-bwrap
-  - wemeet-bin
-  - wemeet-wayland-screenshare-git
-  - zotero-bin
+  pacman:
+    - brightnessctl
+    - clash-meta
+    - cloudflare-warp-bin
+    - ddcci-driver-linux-dkms
+    - google-chrome
+    - haruna
+    - jellyfin-server
+    - jellyfin-web
+    - meshlab-appimage
+    - mypy
+    - pipxu
+    - qbittorrent-nox
+    - qbittorrent-vuetorrent-bin
+    - superfile-bin
+    - tsukimi-bin
+    - typora
+    - wechat-universal-bwrap
+    - wemeet-bin
+    - wemeet-wayland-screenshare-git
+    - zotero-bin
+
+  flatpak:
+    - com.microsoft.Edge
+    - net.codelogistics.webapps
+    - org.gnome.Totem
+    - org.zotero.Zotero
