@@ -1,0 +1,15 @@
+{
+  "output": {
+    "compress": true,
+    "showLineNumbers": true
+  },
+  "ignore": {
+    "customPatterns": [
+      "**/.cspell.*",
+      "**/.vscode",
+      "**/*-lock.*",
+      "**/*.lock",
+      "CHANGELOG.md"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+user_shell=$(getent passwd "$USER" | cut --delimiter ':' --fields 7)
+if [[ $user_shell != /usr/bin/fish ]]; then
+  chsh --shell /usr/bin/fish
+fi
+
+# {{ template "group-add.sh" }}
+
+group-add docker
+group-add libvirt # ref: <https://wiki.archlinux.org/title/Libvirt#Using_libvirt_group>
+group-add vboxusers
+group-add vcpkg
+
+# https://wiki.archlinux.org/title/Systemd/User#Automatic_start-up_of_systemd_user_instances
+loginctl enable-linger "$USER"

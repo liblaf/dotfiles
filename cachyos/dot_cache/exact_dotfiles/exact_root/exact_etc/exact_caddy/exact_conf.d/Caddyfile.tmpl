@@ -1,0 +1,44 @@
+# -*- mode: caddyfile; -*-
+
+{
+  http_port {{ .port.http }}
+  https_port {{ .port.https }}
+  # All zones - Zone:Read, DNS:Edit
+  acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+}
+
+gpt.{{ .domain }} {
+  reverse_proxy localhost:{{ .port.gpt_academic }}
+}
+
+mlflow.{{ .domain }} {
+  reverse_proxy localhost:{{ .port.mlflow }}
+}
+
+pdf.{{ .domain }} {
+  reverse_proxy localhost:{{ .port.stirling_pdf }}
+}
+
+webdav.{{ .domain }} {
+  reverse_proxy localhost:{{ .port.webdav }}
+}
+
+# {{ if .service.center }}
+
+gpt.{{ .base_domain }} {
+  reverse_proxy localhost:{{ .port.gpt_academic }}
+}
+
+mlflow.{{ .base_domain }} {
+  reverse_proxy localhost:{{ .port.mlflow }}
+}
+
+pdf.{{ .base_domain }} {
+  reverse_proxy localhost:{{ .port.stirling_pdf }}
+}
+
+webdav.{{ .base_domain }} {
+  reverse_proxy localhost:{{ .port.webdav }}
+}
+
+# {{ end }}

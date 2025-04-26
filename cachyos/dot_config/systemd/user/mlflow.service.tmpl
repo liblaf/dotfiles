@@ -1,0 +1,19 @@
+# -*- mode: ini; -*-
+
+[Unit]
+Description = MLflow Tracking Server
+
+[Install]
+WantedBy = default.target
+
+[Service]
+# systemd.exec > ENVIRONMENT
+Environment = "MLFLOW_BACKEND_STORE_URI=sqlite:///%h/services/mlflow/mlruns.db"
+Environment = "MLFLOW_DEFAULT_ARTIFACT_ROOT=%h/services/mlflow/mlartifacts"
+Environment = "MLFLOW_PORT={{ .port.mlflow }}"
+Environment = "MLFLOW_WORKERS=8"
+# systemd.service > OPTIONS
+ExecStartPre = mkdir --parents --verbose "%h/services/mlflow"
+ExecStart = %h/.local/bin/mlflow server
+Restart = always
+RestartSec = 5s

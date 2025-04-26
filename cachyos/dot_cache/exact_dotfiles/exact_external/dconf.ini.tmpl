@@ -1,0 +1,189 @@
+# -*- mode: ini -*-
+[com/github/libpinyin/ibus-libpinyin/libpinyin]
+dictionaries='12;15'
+enable-cloud-input=true
+init-full-punct=false
+lookup-table-page-size=10
+sort-candidate-option=0
+
+[org/gnome/desktop/a11y/applications]
+screen-keyboard-enabled=false
+
+[org/gnome/desktop/calendar]
+show-weekdate=true
+
+[org/gnome/desktop/datetime]
+automatic-timezone=true
+
+[org/gnome/desktop/input-sources]
+mru-sources=[('xkb', 'us'), ('ibus', 'libpinyin')]
+sources=[('xkb', 'us'), ('ibus', 'libpinyin')]
+
+[org/gnome/desktop/interface]
+clock-format='24h'
+clock-show-seconds=true
+clock-show-weekday=true
+color-scheme='prefer-dark'
+document-font-name='Segoe UI 11'
+font-name='Segoe UI 11'
+gtk-theme='Adwaita-dark'
+locate-pointer=true
+monospace-font-name='MonaspiceNe Nerd Font 10'
+show-battery-percentage=true
+toolkit-accessibility=false
+
+[org/gnome/desktop/peripherals/touchpad]
+tap-to-click=true
+two-finger-scrolling-enabled=true
+
+[org/gnome/desktop/privacy]
+old-files-age=uint32 30
+recent-files-max-age=30
+remove-old-temp-files=true
+remove-old-trash-files=true
+
+[org/gnome/desktop/screensaver]
+lock-delay=uint32 0
+
+[org/gnome/desktop/session]
+idle-delay=uint32 900
+
+[org/gnome/desktop/wm/keybindings]
+show-desktop=['<Super>d']
+
+[org/gnome/desktop/wm/preferences]
+action-middle-click-titlebar='none'
+button-layout='appmenu:minimize,maximize,close'
+resize-with-right-button=false
+titlebar-font='Segoe UI Bold 11'
+
+[org/gnome/evince/default]
+continuous=true
+dual-page=true
+dual-page-odd-left=true
+enable-spellchecking=true
+fullscreen=false
+inverted-colors=true
+show-sidebar=true
+sidebar-page='thumbnails'
+sizing-mode='automatic'
+
+[org/gnome/mutter]
+attach-modal-dialogs=true
+center-new-windows=false
+
+[org/gnome/nautilus/icon-view]
+default-zoom-level='medium'
+
+[org/gnome/nautilus/list-view]
+use-tree-view=true
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='list-view'
+
+[org/gnome/nautilus/window-state]
+maximized=true
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Shift><Super>s'
+command='sh -c "flameshot gui < /dev/null"'
+name='Flameshot'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Super>q'
+command='xh ":60828/selection_translate"'
+name='Pot (Selection Translation)'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
+binding='<Super>w'
+command='xh ":60828/input_translate"'
+name='Pot (Text Translation)'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
+binding='<Super>e'
+command='xh ":60828/ocr_recognize"'
+name='Pot (Text Recognition)'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4]
+binding='<Super>r'
+command='xh ":60828/ocr_translate"'
+name='Pot (Screenshot Translation)'
+
+[org/gnome/settings-daemon/plugins/power]
+power-button-action='suspend'
+sleep-inactive-ac-timeout=900
+sleep-inactive-ac-type='nothing'
+sleep-inactive-battery-timeout=900
+sleep-inactive-battery-type='suspend'
+
+[org/gnome/shell]
+disable-user-extensions=false
+favorite-apps=['microsoft-edge.desktop', 'org.gnome.Nautilus.desktop', 'org.wezfurlong.wezterm.desktop', 'code.desktop']
+
+[org/gnome/shell/extensions/bingwallpaper]
+always-export-bing-json=true
+delete-previous=true
+lockscreen-blur-brightness=65
+lockscreen-blur-strength=45
+override-lockscreen-blur=true
+previous-days=90
+random-interval=300
+random-mode-enabled=true
+revert-to-current-image=true
+
+[org/gnome/shell/extensions/dash-to-dock]
+disable-overview-on-startup=true
+dock-position='LEFT'
+isolate-locations=false
+running-indicator-style='DOTS'
+show-mounts=false
+show-trash=false
+transparency-mode='DYNAMIC'
+
+[org/gnome/shell/extensions/display-brightness-ddcutil]
+button-location=1
+ddcutil-binary-path='/usr/bin/ddcutil'
+ddcutil-queue-ms=130.0
+ddcutil-sleep-multiplier=4.0
+decrease-brightness-shortcut=['<Super>F11']
+increase-brightness-shortcut=['<Super>F12']
+position-system-menu=3.0
+show-all-slider=true
+show-sliders-in-submenu=true
+show-value-label=true
+step-change-keyboard=10.0
+
+[org/gnome/shell/extensions/power-profile-switcher]
+ac='performance'
+bat='balanced'
+threshold=99
+
+[org/gnome/shell/extensions/unblank]
+time=300
+
+[org/gnome/shell/extensions/vitals]
+fixed-widths=false
+# {{ if .hardware.nvidia.exists }}
+hot-sensors=['_processor_usage_', '_memory_usage_', '__network-rx_max__', '__network-tx_max__', '__temperature_max__', '_gpu#1_utilization_', '_gpu#1_memory_usage_']
+# {{ else }}
+hot-sensors=['_processor_usage_', '_memory_usage_', '__network-rx_max__', '__network-tx_max__', '__temperature_max__']
+# {{ end }}
+include-static-gpu-info=true
+position-in-panel=0
+show-gpu=true
+
+[org/gtk/gtk4/settings/file-chooser]
+sort-directories-first=true
+view-type='list'
+
+[org/gtk/settings/file-chooser]
+sort-directories-first=true
+
+[org/virt-manager/virt-manager]
+system-tray=true
+
+[org/virt-manager/virt-manager/new-vm]
+firmware='uefi'

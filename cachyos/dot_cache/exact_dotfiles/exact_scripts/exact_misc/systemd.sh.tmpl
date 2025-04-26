@@ -1,0 +1,44 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# deprecated
+sudo systemctl disable --now "goauthing@$USER.service" || true
+sudo systemctl disable --now "goauthing6@$USER.service" || true
+sudo systemctl disable --now "qbittorrent-nox@$USER.service" || true
+sudo systemctl disable --now ddns-go.service || true
+sudo systemctl disable --now goauthing.service || true
+sudo systemctl disable --now goauthing6.service || true
+systemctl --user disable --now rclone-onedrive.service || true
+systemctl --user disable --now restic.timer || true
+
+sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now caddy.service
+sudo systemctl enable --now docker.service
+sudo systemctl enable --now earlyoom.service
+sudo systemctl enable --now libvirtd.service # libvirt
+sudo systemctl enable --now logrotate.timer
+sudo systemctl enable --now netdata.service
+sudo systemctl enable --now sing-box.service
+sudo systemctl enable --now sshd.service
+sudo systemctl mask systemd-networkd-wait-online.service
+sudo systemctl start pkgstats.timer
+systemctl --user enable --now ddns.timer
+systemctl --user enable --now gcr-ssh-agent.socket # ref: <https://wiki.archlinux.org/title/GNOME/Keyring#Setup_gcr>
+systemctl --user enable --now goauthing.service
+systemctl --user enable --now goauthing6.service
+systemctl --user enable --now pueued.service
+systemctl --user enable --now seadrive.service
+systemctl --user enable --now sing.timer
+
+# {{ if .hardware.nvidia.exists }}
+# These services are automatically enabled by the `nvidia-utils` package.
+# sudo systemctl enable nvidia-hibernate.service
+# sudo systemctl enable nvidia-resume.service
+# sudo systemctl enable nvidia-suspend.service
+#   {{ if .hardware.nvidia.mobile }}
+sudo systemctl enable --now nvidia-powerd.service
+#   {{ end }}
+# {{ end }}

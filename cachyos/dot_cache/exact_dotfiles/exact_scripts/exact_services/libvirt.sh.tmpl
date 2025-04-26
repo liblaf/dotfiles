@@ -1,0 +1,17 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ template "group-add.sh" }}
+
+group-add "libvirt"
+
+sudo systemctl enable --now libvirtd.service
+
+POOL_NAME="ISO"
+if ! sudo virsh pool-info "$POOL_NAME" &> /dev/null; then
+  sudo virsh pool-define-as "$POOL_NAME" "dir" --target "$HOME/Downloads/ISO"
+  sudo virsh pool-autostart "$POOL_NAME"
+  sudo virsh pool-start "$POOL_NAME"
+fi
