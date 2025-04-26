@@ -1,6 +1,5 @@
 core:
   - grub
-  - linux-lts-headers # DKMS
   - logrotate
   - man-db
   - man-pages

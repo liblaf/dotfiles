@@ -22,7 +22,6 @@ aur:
   - ov-bin
   - paccache-hook
   - piclist-bin
-  - virtualbox-ext-oracle # required by: virtualbox
   - wps-office-365
   - wps-office-365-fonts # required by: wps-office-365
   - yaycache
