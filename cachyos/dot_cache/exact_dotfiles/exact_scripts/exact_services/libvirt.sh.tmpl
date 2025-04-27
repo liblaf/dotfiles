@@ -11,6 +11,7 @@ sudo systemctl enable --now libvirtd.service
 
 POOL_NAME="ISO"
 if ! sudo virsh pool-info "$POOL_NAME" &> /dev/null; then
+  mkdir --parents --verbose "$HOME/Downloads/ISO"
   sudo virsh pool-define-as "$POOL_NAME" "dir" --target "$HOME/Downloads/ISO"
   sudo virsh pool-autostart "$POOL_NAME"
   sudo virsh pool-start "$POOL_NAME"
