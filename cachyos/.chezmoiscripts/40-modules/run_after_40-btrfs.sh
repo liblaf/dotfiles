@@ -15,3 +15,5 @@ packages=(
   snapper
 )
 yay --sync --needed --noconfirm "${packages[@]}"
+
+sudo systemctl enable "btrfs-scrub@$(systemd-escape --path /).timer"
