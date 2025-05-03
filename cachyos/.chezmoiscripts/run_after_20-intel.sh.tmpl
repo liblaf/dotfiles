@@ -1,0 +1,19 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+# shellcheck disable=SC2317
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ if .hardware.nvidia.exists }}
+exit 0
+# {{ else if not .hardware.intel.exists }}
+exit 0
+# {{ end }}
+
+packages=(
+  intel-compute-runtime # OpenCL
+  intel-media-driver    # VA-API
+  libvdpau-va-gl        # VDPAU
+)
+yay --devel --useask=false --sync --needed --noconfirm "${packages[@]}"

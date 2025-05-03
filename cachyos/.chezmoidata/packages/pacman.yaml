@@ -1,0 +1,286 @@
+packages:
+  pacman:
+    # --------------------------- Printing-Support --------------------------- #
+    # ref: <https://github.com/CachyOS/cachyos-calamares/blob/cachyos-grub-qt6/src/modules/netinstall/netinstall.yaml>
+    - cups
+    - cups-filters
+    - cups-pdf
+    - foomatic-db
+    - foomatic-db-engine
+    - foomatic-db-gutenprint-ppds
+    - foomatic-db-nonfree
+    - foomatic-db-nonfree-ppds
+    - foomatic-db-ppds
+    - ghostscript
+    - gsfonts
+    - gutenprint
+    - splix
+    - system-config-printer
+
+    # -------------------- Support for HP Printer/Scanner -------------------- #
+    # ref: <https://github.com/CachyOS/cachyos-calamares/blob/cachyos-grub-qt6/src/modules/netinstall/netinstall.yaml>
+    - hplip
+    - python-pyqt5
+    - python-reportlab
+    - cups
+    - cups-filters
+    - cups-pdf
+
+    # --------------------------------- core --------------------------------- #
+    - grub
+    - logrotate
+    - man-db
+    - man-pages
+
+    # --------------------------------- Btrfs -------------------------------- #
+    - btrfs-assistant
+    - btrfs-desktop-notification
+    - cachyos-snapper-support
+    - grub-btrfs-support
+    - snap-pac
+    - snapper
+
+    # -------------------------------- System -------------------------------- #
+    - fwupd
+    - libvirt
+    - qemu-full
+
+    # ------------------------------- Graphics ------------------------------- #
+    - libva-utils # VA-API
+    - mpv # required by: tsukimi
+    - vdpauinfo # VDPAU
+    - vulkan-tools # Vulkan
+
+    # -------------------------------- Service ------------------------------- #
+    - cloudflared
+    - docker
+    - earlyoom
+    - netdata
+    - pkgstats
+    - ufw
+
+    # ---------------------------------- CLI --------------------------------- #
+    - ansible
+    - aria2
+    - bat
+    - bitwarden-cli
+    - btop
+    - chezmoi
+    - csvlens
+    - ddcutil
+    - difftastic
+    - direnv
+    - dmidecode
+    - docker-compose
+    - duf
+    - eza
+    - fastfetch
+    - fd
+    - fio
+    - fzf
+    - gdu
+    - git
+    - git-cliff
+    - github-cli
+    - glow
+    - go-yq
+    - gping
+    - gum
+    - helix
+    - htop
+    - httpie
+    - hyperfine
+    - imagemagick
+    - jless
+    - just
+    - lnav
+    - lshw
+    - markdownlint-cli
+    - miniserve
+    - nmap
+    - ouch
+    - pacman-contrib
+    - pacutils
+    - pandoc-cli
+    - parallel
+    - pnpm
+    - pre-commit
+    - prettier
+    - pueue
+    - rbw
+    - rclone
+    - restic
+    - ripgrep
+    - rsync
+    - rustscan
+    - sd
+    - speedtest-cli
+    - sshfs
+    - sshpass # required by: ansible
+    - starship
+    - taplo-cli
+    - tealdeer
+    - tokei
+    - trash-cli
+    - usbutils
+    - vhs
+    - wrangler
+    - xh
+    - yazi
+    - zoxide
+
+    # -------------------------------- Desktop ------------------------------- #
+    - autorandr
+    - blender
+    - copyq
+    - drawio-desktop
+    - flameshot
+    - gimp
+    - gnome-shell-extension-appindicator
+    - gnome-shell-extension-vitals
+    - gnome-shell-extensions
+    - gnome-themes-extra
+    - haruna
+    - ibus-libpinyin
+    - inkscape
+    - kitty
+    - obs-studio
+    - obsidian
+    - power-profiles-daemon
+    - remmina
+    - telegram-desktop
+    - virt-manager
+    - vlc
+    - wezterm
+
+    # --------------------------------- Fonts -------------------------------- #
+    - noto-fonts
+    - noto-fonts-cjk
+    - noto-fonts-emoji
+    - noto-fonts-extra
+    - otf-monaspace-nerd
+    - ttf-cascadia-code-nerd
+    - ttf-mona-sans
+
+    # --------------------------------- C/C++ -------------------------------- #
+    - bear
+    - ccache
+    - clang
+    - cmake
+    - cppcheck
+    - doxygen
+    - gdb
+    - lldb
+    - python-cpplint
+    - vcpkg
+    - xmake
+
+    # --------------------------------- LaTeX -------------------------------- #
+    - biber
+    - texlive
+    - texlive-langchinese
+    - texlive-langenglish
+
+    # ---------------------------------- Go ---------------------------------- #
+    - go
+
+    # -------------------------------- Python -------------------------------- #
+    - mkdocs
+    - mkdocs-autorefs
+    - mkdocs-material
+    - mkdocstrings
+    - pixi
+    - pyright
+    - python-build
+    - python-gitpython
+    - python-hatch
+    - python-hatch-vcs
+    - python-hatchling
+    - python-httpx
+    - python-icecream
+    - python-lazy-loader
+    - python-loguru
+    - python-numpy
+    - python-pandas
+    - python-pydantic
+    - python-pydantic-settings
+    - python-pytorch-opt-cuda
+    - python-rich
+    - python-ruamel-yaml
+    - python-scipy
+    - python-socksio # required by: python-httpx[socks]
+    - python-sympy
+    - python-tomlkit
+    - python-tqdm
+    - python-typer
+    - ruff
+    - uv
+
+    # --------------------------------- Rust --------------------------------- #
+    - rust
+    - rust-src
+
+    # --------------------------------- Shell -------------------------------- #
+    - fish
+    - fisher
+    - shellcheck
+    - shfmt
+
+    # --------------------------------- Misc --------------------------------- #
+    - ffmpegthumbnailer # required by: yazi
+    - jq # required by: yazi
+    - p7zip # required by: yazi
+    - perl-file-homedir # required by: latexindent.pl
+    - perl-yaml-tiny # required by: latexindent.pl
+    - poppler # required by: yazi
+    - python-pygments # required by: LaTeX minted
+    - tesseract-data-chi_sim # required by: pot-translation, Stirling PDF
+    - tesseract-data-eng # required by: pot-translation, Stirling PDF
+
+    # ------------------------------- arch4edu ------------------------------- #
+    - arch4edu-keyring
+    - microsoft-edge-stable-bin
+    - visual-studio-code-bin
+
+    # ------------------------------- archlinuxcn ----------------------------- #
+    - 3dslicer
+    - archlinuxcn-keyring
+    - downgrade
+    - git-extras
+    - gnome-shell-extension-dash-to-dock
+    - micromamba
+    - nautilus-open-any-terminal
+    - pot-translation
+    - resticprofile
+    - seadrive-daemon
+    - sing-box
+    - ventoy
+    - yay
+    - zotero
+
+    # ---------------------------------- AUR --------------------------------- #
+    - argc
+    - auth-thu-bin
+    - bun-bin
+    - caddy-cloudflare
+    - clipboard-bin
+    - doggo-bin
+    - electron22-bin # required by: piclist-bin
+    - freeze-bin
+    - geekbench
+    - gnome-shell-extension-bing-wallpaper
+    - gnome-shell-extension-display-brightness-ddcutil-git
+    - gnome-shell-extension-power-profile-switcher-git
+    - hwatch-bin
+    - jnv-bin
+    - kalker-bin
+    - mathematica
+    - miniconda3
+    - nautilus-code
+    - ov-bin
+    - paccache-hook
+    - piclist-bin
+    - wps-office-365
+    - wps-office-365-fonts # required by: wps-office-365
+    - yaycache
+    - yaycache-hook

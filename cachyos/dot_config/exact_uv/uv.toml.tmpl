@@ -1,5 +1,6 @@
-#:schema https://json.schemastore.org/uv.json
 # -*- mode: toml; -*-
+#:schema https://json.schemastore.org/uv.json
+
 # TODO: enable PyPI mirror when <https://github.com/astral-sh/uv/issues/6349> is ready
 # [[index]]
 # name = "cernet"
@@ -7,4 +8,4 @@
 # default = true
 
 [pip]
-index-url = "{{.mirrors.pypi}}"
+index-url = "{{ .mirrors.pypi }}"

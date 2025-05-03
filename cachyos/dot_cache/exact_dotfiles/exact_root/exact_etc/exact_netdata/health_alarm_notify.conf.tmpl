@@ -1,11 +1,11 @@
 # -*- mode: sh; -*-
 # shellcheck disable=SC2034,SC2148
 
-# https://learn.netdata.cloud/docs/alerts-&-notifications/notifications/agent-dispatched-notifications/agent-notifications-reference#proxy-configuration
+# ref: <https://learn.netdata.cloud/docs/alerts-&-notifications/notifications/agent-dispatched-notifications/agent-notifications-reference#proxy-settings>
 export http_proxy="http://127.0.0.1:{{ .port.proxy }}"
 export https_proxy="http://127.0.0.1:{{ .port.proxy }}"
 
-# https://learn.netdata.cloud/docs/alerts-&-notifications/notifications/agent-dispatched-notifications/telegram
+# ref: <https://learn.netdata.cloud/docs/alerts-&-notifications/notifications/agent-dispatched-notifications/telegram>
 SEND_TELEGRAM="YES"
 TELEGRAM_BOT_TOKEN='{{ (rbwFields "Telegram").NETDATA_BOT_TOKEN.value }}'
 DEFAULT_RECIPIENT_TELEGRAM='{{ (rbwFields "Telegram").CHAT_ID.value }}'

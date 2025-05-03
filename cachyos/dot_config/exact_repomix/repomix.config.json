@@ -1,3 +1,5 @@
+// -*- mode: jsonc; -*-
+// ref: <https://github.com/yamadashy/repomix?tab=readme-ov-file#%EF%B8%8F-configuration>
 {
   "output": {
     "compress": true,

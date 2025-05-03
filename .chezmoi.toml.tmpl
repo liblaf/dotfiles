@@ -1,6 +1,4 @@
-# {{ $center := eq .chezmoi.hostname "10700" }}
 # {{ $external_dir_relative := ".cache/dotfiles/external" }}
-# {{ $server := or (eq .chezmoi.hostname "10700") (eq .chezmoi.hostname "13900HX") }}
 
 sourceDir = "{{ joinPath .chezmoi.workingTree .chezmoi.osRelease.id }}"
 

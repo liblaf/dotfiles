@@ -1,6 +1,8 @@
 # -*- mode: toml; -*-
+# ref: <https://help.mirrors.cernet.edu.cn/crates.io-index>
+
 [source.crates-io]
 replace-with = 'mirror'
 
 [source.mirror]
-registry = "{{.mirrors.crates_io_index}}"
+registry = "{{ .mirrors.crates_io_index }}"

@@ -4,11 +4,11 @@
 change-ps1 = false
 
 [mirrors]
-# "https://conda.anaconda.org/anaconda" = ["{{.mirrors.anaconda}}/pkgs/main"]
-"https://conda.anaconda.org/conda-forge" = ["{{.mirrors.anaconda}}/cloud/conda-forge"]
-"https://conda.anaconda.org/nvidia" = ["{{.mirrors.anaconda_extra}}/cloud/nvidia"]
-"https://conda.anaconda.org/pytorch" = ["{{.mirrors.anaconda}}/cloud/pytorch"]
-"https://conda.anaconda.org/pytorch3d" = ["{{.mirrors.anaconda}}/cloud/pytorch3d"]
+# "https://conda.anaconda.org/anaconda" = ["{{ .mirrors.anaconda }}/pkgs/main"]
+"https://conda.anaconda.org/conda-forge" = ["{{ .mirrors.anaconda }}/cloud/conda-forge"]
+"https://conda.anaconda.org/nvidia" = ["{{ .mirrors.anaconda_extra }}/cloud/nvidia"]
+"https://conda.anaconda.org/pytorch" = ["{{ .mirrors.anaconda }}/cloud/pytorch"]
+"https://conda.anaconda.org/pytorch3d" = ["{{ .mirrors.anaconda }}/cloud/pytorch3d"]
 
 [pypi-config]
-index-url = "{{.mirrors.pypi}}"
+index-url = "{{ .mirrors.pypi }}"

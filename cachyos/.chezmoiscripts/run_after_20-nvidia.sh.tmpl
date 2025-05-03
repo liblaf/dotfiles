@@ -1,0 +1,28 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+# shellcheck disable=SC2317
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ if not .hardware.nvidia.exists }}
+exit 0
+# {{ end }}
+
+packages=(
+  cuda
+  libva-nvidia-driver      # VA-API
+  nvidia-container-toolkit # Docker
+  nvidia-utils             # VDPAU
+  opencl-nvidia            # OpenCL
+)
+yay --devel --useask=false --sync --needed --noconfirm "${packages[@]}"
+
+# These services are automatically enabled by the `nvidia-utils` package.
+# sudo systemctl enable nvidia-hibernate.service
+# sudo systemctl enable nvidia-resume.service
+# sudo systemctl enable nvidia-suspend.service
+
+# {{ if .hardware.nvidia.mobile }}
+sudo systemctl enable --now nvidia-powerd.service
+# {{ end }}

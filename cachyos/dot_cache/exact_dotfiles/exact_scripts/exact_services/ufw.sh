@@ -17,7 +17,7 @@ sudo ufw allow from 172.16.0.0/12 # allow connections from docker
 sudo ufw allow 32768:60999/tcp
 sudo ufw allow 32768:60999/udp
 
-# libvirt
+# fix libvirt virtual machine network connection
 # ref: <https://wszqkzqk.github.io/2024/07/19/libvirt-network-ufw/>
 sudo ufw allow in on virbr0
 sudo ufw allow out on virbr0

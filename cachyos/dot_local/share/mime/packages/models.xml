@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- ref: https://wiki.archlinux.org/title/XDG_MIME_Applications -->
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
-  <!-- https://en.wikipedia.org/wiki/PLY_(file_format) -->
+  <!-- ref: https://en.wikipedia.org/wiki/PLY_(file_format) -->
   <mime-type type="model/x-ply">
     <comment>Polygon File</comment>
     <generic-icon name="model" />

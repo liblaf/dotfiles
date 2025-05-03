@@ -1,24 +1,14 @@
 #!/bin/bash
+# -*- mode: sh; -*-
 set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{ template "load-pkg.sh" }}
-
 sudo flatpak remote-modify flathub --url="{{ .mirrors.flathub }}"
 
-readarray -t REMOVES < <(load-pkg "remove.flatpak" "remove.yaml")
-removes=()
-for pkg in "${REMOVES[@]}"; do
-  if flatpak info "$pkg" &> /dev/null; then
-    removes+=("$pkg")
-  fi
-done
-if ((${#removes[@]} > 0)); then
-  sudo flatpak uninstall --delete-data --assumeyes "${removes[@]}"
-fi
+packages=(
+  # {{- range .packages.flatpak }}
+  '{{ . }}' # {{- end }}
+)
 
-readarray -t pkgs < <(load-pkg flatpak "flatpak.yaml")
-sudo flatpak install --assumeyes --or-update "${pkgs[@]}"
-
-sudo flatpak uninstall --unused --delete-data --assumeyes
+sudo flatpak install --assumeyes --or-update "${packages[@]}"

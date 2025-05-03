@@ -1,2 +1,6 @@
+# -*- mode: sh; -*-
+# shellcheck disable=all
+# ref: <https://github.com/sharkdp/bat#configuration-file>
+
 --wrap "never"
 --pager "ov --quit-if-one-screen --view-mode bat"

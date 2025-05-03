@@ -2,7 +2,7 @@ local wezterm = require "wezterm"
 local config = wezterm.config_builder()
 local mux = wezterm.mux
 
--- https://wezfurlong.org/wezterm/config/lua/gui-events/gui-startup.html
+-- ref: <https://wezfurlong.org/wezterm/config/lua/gui-events/gui-startup.html>
 wezterm.on('gui-startup', function(cmd)
   -- luacheck: no unused secondaries
   local tab, pane, window = mux.spawn_window(cmd or {})

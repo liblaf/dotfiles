@@ -1,4 +1,5 @@
 #!/bin/bash
+# -*- mode: bash; -*-
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -10,10 +11,10 @@ fi
 
 # {{ template "group-add.sh" }}
 
-group-add docker
+group-add docker  # ref: <https://wiki.archlinux.org/title/Docker#Installation>
 group-add libvirt # ref: <https://wiki.archlinux.org/title/Libvirt#Using_libvirt_group>
 group-add vboxusers
 group-add vcpkg
 
-# https://wiki.archlinux.org/title/Systemd/User#Automatic_start-up_of_systemd_user_instances
+# ref: <https://wiki.archlinux.org/title/Systemd/User#Automatic_start-up_of_systemd_user_instances>
 loginctl enable-linger "$USER"
