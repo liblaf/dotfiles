@@ -1,0 +1,14 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+packages=(
+  docker
+  docker-compose
+)
+yay --sync --needed --noconfirm "${packages[@]}"
+
+# {{ template "group-add.sh" }}
+group-add docker # ref: <https://wiki.archlinux.org/title/Docker#Installation>

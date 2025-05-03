@@ -33,12 +33,7 @@ packages:
     - man-pages
 
     # --------------------------------- Btrfs -------------------------------- #
-    - btrfs-assistant
-    - btrfs-desktop-notification
-    - cachyos-snapper-support
-    - grub-btrfs-support
-    - snap-pac
-    - snapper
+    # see also: <cachyos/.chezmoiscripts/40-modules/run_after_40-btrfs.sh>
 
     # -------------------------------- System -------------------------------- #
     - fwupd
@@ -154,13 +149,7 @@ packages:
     - wezterm
 
     # --------------------------------- Fonts -------------------------------- #
-    - noto-fonts
-    - noto-fonts-cjk
-    - noto-fonts-emoji
-    - noto-fonts-extra
-    - otf-monaspace-nerd
-    - ttf-cascadia-code-nerd
-    - ttf-mona-sans
+    # see also: <cachyos/.chezmoiscripts/40-modules/run_after_40-fonts.sh>
 
     # --------------------------------- C/C++ -------------------------------- #
     - bear
@@ -274,7 +263,7 @@ packages:
     - hwatch-bin
     - jnv-bin
     - kalker-bin
-    - mathematica
+    # - mathematica
     - miniconda3
     - nautilus-code
     - ov-bin
