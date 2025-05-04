@@ -242,7 +242,6 @@ packages:
     - argc
     - auth-thu-bin
     - bun-bin
-    - caddy-cloudflare
     - clipboard-bin
     - doggo-bin
     - electron22-bin # required by: piclist-bin

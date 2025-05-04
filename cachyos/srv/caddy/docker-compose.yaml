@@ -1,0 +1,28 @@
+# -*- mode: yaml; -*-
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+
+name: Caddy
+
+services:
+  caddy:
+    cap_add:
+      - NET_ADMIN
+    container_name: caddy
+    env_file:
+      - ./caddy.env
+    image: caddybuilds/caddy-cloudflare:alpine
+    network_mode: host
+    volumes:
+      - type: bind
+        source: ./Caddyfile
+        target: /etc/caddy/Caddyfile
+        read_only: true
+        bind:
+          create_host_path: false
+      - caddy-config:/config
+      - caddy-data:/data
+
+volumes:
+  caddy-config:
+  caddy-data:
+    external: true

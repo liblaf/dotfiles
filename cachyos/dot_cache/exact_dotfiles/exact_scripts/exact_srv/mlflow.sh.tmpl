@@ -6,14 +6,14 @@ set -o pipefail
 
 cd "$HOME/srv/mlflow"
 
-# {{- if not .service.mlflow }}
+# TODO: switch to docker compose until <https://github.com/mlflow/mlflow/issues/14610> is fixed
 docker compose down
+
+# {{- if not .service.mlflow }}
 systemctl --user disable --now mlflow.service || true
 exit
 # {{- end }}
 
-# TODO: switch to docker compose until <https://github.com/mlflow/mlflow/issues/14610> is fixed
-docker compose down
 # docker compose up --detach --pull always
 
 # {{ template "uv-tool.sh" }}

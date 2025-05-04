@@ -4,9 +4,12 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{- if not .service.caddy }}
 sudo systemctl disable --now caddy.service || true
+
+# {{- if not .service.caddy }}
+docker compose down
 exit
 # {{- end }}
 
-sudo systemctl enable --now caddy.service
+docker volume create "caddy-data"
+docker compose up --detach --pull always
