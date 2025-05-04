@@ -13,6 +13,7 @@ sudo systemctl disable --now goauthing.service || true
 sudo systemctl disable --now goauthing6.service || true
 systemctl --user disable --now rclone-onedrive.service || true
 systemctl --user disable --now restic.timer || true
+systemctl --user disable --now seadrive.service || true
 
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now earlyoom.service
@@ -25,5 +26,5 @@ systemctl --user enable --now gcr-ssh-agent.socket # ref: <https://wiki.archlinu
 systemctl --user enable --now goauthing.service
 systemctl --user enable --now goauthing6.service
 systemctl --user enable --now pueued.service
-systemctl --user enable --now seadrive.service
+systemctl --user enable --now rclone-mount@tsinghua.service
 systemctl --user enable --now sing.timer
