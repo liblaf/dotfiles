@@ -24,6 +24,10 @@ group-add "libvirt"
 
 sudo systemctl enable --now libvirtd.service
 
+# Networking
+sudo virsh net-autostart default
+
+# Storage Pool
 POOL_NAME="ISO"
 if ! sudo virsh pool-info "$POOL_NAME" &> /dev/null; then
   mkdir --parents --verbose "$HOME/Downloads/ISO"
