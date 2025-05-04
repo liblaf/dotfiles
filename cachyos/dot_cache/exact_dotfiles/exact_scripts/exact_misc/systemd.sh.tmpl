@@ -15,14 +15,10 @@ systemctl --user disable --now rclone-onedrive.service || true
 systemctl --user disable --now restic.timer || true
 
 sudo systemctl enable --now bluetooth.service
-sudo systemctl enable --now caddy.service
 sudo systemctl enable --now earlyoom.service
-sudo systemctl enable --now libvirtd.service # libvirt
 sudo systemctl enable --now logrotate.timer
-sudo systemctl enable --now netdata.service
 sudo systemctl enable --now sing-box.service
 sudo systemctl enable --now sshd.service
-sudo systemctl mask systemd-networkd-wait-online.service
 sudo systemctl start pkgstats.timer
 systemctl --user enable --now ddns.timer
 systemctl --user enable --now gcr-ssh-agent.socket # ref: <https://wiki.archlinux.org/title/GNOME/Keyring#Setup_gcr>

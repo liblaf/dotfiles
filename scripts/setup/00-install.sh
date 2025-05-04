@@ -40,6 +40,5 @@ function ensure() {
   fi
 }
 
-ensure bw --pacman="bitwarden-cli"
 ensure rbw --pacman="rbw"
 ensure yq --pacman="go-yq"

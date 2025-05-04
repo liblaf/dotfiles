@@ -2,10 +2,14 @@
 # ref: <https://gitlab.archlinux.org/archlinux/packaging/packages/grub/-/blob/main/grub.default>
 # ref: <https://www.gnu.org/software/grub/manual/grub/html_node/Simple-configuration.html>
 
-GRUB_DEFAULT="saved"
+GRUB_DEFAULT='saved'
 GRUB_SAVEDEFAULT=false
-GRUB_DISTRIBUTOR="CachyOS"
-GRUB_CMDLINE_LINUX=""
-GRUB_CMDLINE_LINUX_DEFAULT="zswap.enabled=0"
-GRUB_GFXPAYLOAD_LINUX="keep"
-GRUB_PRELOAD_MODULES="part_gpt part_msdos"
+GRUB_DISTRIBUTOR='CachyOS'
+GRUB_CMDLINE_LINUX=''
+# {{ if eq .filesystem.fstype "zfs" }}
+GRUB_CMDLINE_LINUX_DEFAULT='zfs={{ .filesystem.source }} zswap.enabled=0'
+# {{ else }}
+GRUB_CMDLINE_LINUX_DEFAULT='zswap.enabled=0'
+# {{ end }}
+GRUB_GFXPAYLOAD_LINUX='keep'
+GRUB_PRELOAD_MODULES='part_gpt part_msdos'

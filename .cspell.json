@@ -76,6 +76,7 @@
     "fira",
     "foomatic",
     "frooodle",
+    "fstype",
     "fusermount",
     "fwupd",
     "fwupdmgr",
@@ -196,6 +197,7 @@
     "pyqt",
     "pyright",
     "qbittorrent",
+    "qgroup",
     "qwen",
     "raku",
     "rclone",
@@ -269,7 +271,8 @@
     "yaru",
     "yazi",
     "yzhang",
-    "zotero"
+    "zotero",
+    "zswap"
   ],
   "ignorePaths": [
     "**/.cspell.*",
