@@ -3,4 +3,4 @@
 # ref: <https://github.com/sharkdp/bat#configuration-file>
 
 --wrap "never"
---pager "ov --quit-if-one-screen --view-mode bat"
+--pager "ov --view-mode bat"
