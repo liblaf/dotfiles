@@ -27,7 +27,6 @@ packages:
     - cups-pdf
 
     # --------------------------------- core --------------------------------- #
-    - grub
     - logrotate
     - man-db
     - man-pages
@@ -37,8 +36,6 @@ packages:
 
     # -------------------------------- System -------------------------------- #
     - fwupd
-    - libvirt
-    - qemu-full
 
     # ------------------------------- Graphics ------------------------------- #
     - libva-utils # VA-API
@@ -48,11 +45,8 @@ packages:
 
     # -------------------------------- Service ------------------------------- #
     - cloudflared
-    - docker
     - earlyoom
-    - netdata
     - pkgstats
-    - ufw
 
     # ---------------------------------- CLI --------------------------------- #
     - ansible
@@ -66,7 +60,6 @@ packages:
     - difftastic
     - direnv
     - dmidecode
-    - docker-compose
     - duf
     - eza
     - fastfetch
@@ -144,7 +137,6 @@ packages:
     - power-profiles-daemon
     - remmina
     - telegram-desktop
-    - virt-manager
     - vlc
     - wezterm
 
