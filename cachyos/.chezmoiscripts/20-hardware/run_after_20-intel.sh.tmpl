@@ -5,11 +5,11 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{ if .hardware.nvidia.exists }}
+# {{- if .hardware.nvidia.exists }}
 exit 0
-# {{ else if not .hardware.intel.exists }}
+# {{- else if not .hardware.intel.exists }}
 exit 0
-# {{ end }}
+# {{- end }}
 
 packages=(
   intel-compute-runtime # OpenCL

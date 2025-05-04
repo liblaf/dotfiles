@@ -5,9 +5,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{ if not .hardware.nvidia.exists }}
+# {{- if not .hardware.nvidia.exists }}
 exit 0
-# {{ end }}
+# {{- end }}
 
 packages=(
   cuda
@@ -23,6 +23,6 @@ yay --devel --useask=false --sync --needed --noconfirm "${packages[@]}"
 # sudo systemctl enable nvidia-resume.service
 # sudo systemctl enable nvidia-suspend.service
 
-# {{ if .hardware.nvidia.mobile }}
+# {{- if .hardware.nvidia.mobile }}
 sudo systemctl enable --now nvidia-powerd.service
-# {{ end }}
+# {{- end }}

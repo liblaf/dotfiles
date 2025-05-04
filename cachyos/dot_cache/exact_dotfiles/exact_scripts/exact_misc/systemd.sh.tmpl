@@ -31,13 +31,3 @@ systemctl --user enable --now goauthing6.service
 systemctl --user enable --now pueued.service
 systemctl --user enable --now seadrive.service
 systemctl --user enable --now sing.timer
-
-# {{ if .hardware.nvidia.exists }}
-# These services are automatically enabled by the `nvidia-utils` package.
-# sudo systemctl enable nvidia-hibernate.service
-# sudo systemctl enable nvidia-resume.service
-# sudo systemctl enable nvidia-suspend.service
-#   {{ if .hardware.nvidia.mobile }}
-sudo systemctl enable --now nvidia-powerd.service
-#   {{ end }}
-# {{ end }}
