@@ -6,11 +6,9 @@ set -o pipefail
 GROUP="chezmoi"
 
 systemctl --user enable --now pueued.service
-sleep 3 # wait for pueued to start
 pueue reset --force
 pueue group add "$GROUP" || true
 pueue parallel --group "$GROUP" 8
-sleep 1 # wait for pueued to start
 
 readarray -t scripts < <(find "$HOME/.cache/dotfiles/scripts" -type f)
 for script in "${scripts[@]}"; do
