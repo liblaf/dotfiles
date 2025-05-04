@@ -4,9 +4,11 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+cd "$HOME/srv/mlflow"
+
 # {{- if not .service.mlflow }}
+docker compose down
 exit
 # {{- end }}
 
-cd "$HOME/srv/mlflow"
 docker compose up --detach --pull always

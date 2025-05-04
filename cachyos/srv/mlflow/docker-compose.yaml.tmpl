@@ -1,4 +1,5 @@
 # -*- mode: yaml; -*-
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
 
 name: MLflow
 
@@ -7,7 +8,7 @@ services:
     command: mlflow server
     container_name: mlflow
     environment:
-      MLFLOW_BACKEND_STORE_URI: sqlite:////data/mlruns.db
+      MLFLOW_BACKEND_STORE_URI: sqlite:///data/mlruns.db
       MLFLOW_DEFAULT_ARTIFACT_ROOT: /data/mlartifacts
       MLFLOW_HOST: "0.0.0.0"
       MLFLOW_PORT: "5000"
@@ -16,4 +17,6 @@ services:
       - "{{ .port.mlflow }}:5000"
     user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"
     volumes:
-      - .:/data
+      - type: bind
+        source: "."
+        target: /data
