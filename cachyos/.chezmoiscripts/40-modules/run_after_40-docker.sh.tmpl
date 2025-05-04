@@ -12,3 +12,5 @@ yay --sync --needed --noconfirm "${packages[@]}"
 
 # {{ template "group-add.sh" }}
 group-add docker # ref: <https://wiki.archlinux.org/title/Docker#Installation>
+
+sudo systemctl enable --now docker.service

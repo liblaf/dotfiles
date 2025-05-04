@@ -3,11 +3,15 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+packages=(
+  ufw
+)
+yay --sync --needed --noconfirm "${packages[@]}"
+
 sudo chmod --verbose "u=rw,g=r,o=" /etc/ufw/*.rules
 sudo ufw --force reset
-sudo find /etc/ufw -regextype gnu-awk -regex ".*.[[:digit:]]{8}_[[:digit:]]{6}" -delete
 
-sudo ufw default deny
+sudo ufw default deny incoming
 sudo ufw default allow routed
 
 # ref: <https://en.wikipedia.org/wiki/IPv4#Private_networks>
@@ -24,3 +28,5 @@ sudo ufw allow out on virbr0
 
 sudo ufw --force enable
 sudo systemctl enable --now ufw.service
+
+sudo find /etc/ufw -regextype gnu-awk -regex ".*.[[:digit:]]{8}_[[:digit:]]{6}" -delete

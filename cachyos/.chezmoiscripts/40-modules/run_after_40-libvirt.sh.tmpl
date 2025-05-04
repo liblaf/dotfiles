@@ -1,0 +1,33 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# ref: <https://wiki.archlinux.org/title/Libvirt#Installation>
+# ref: <https://wiki.archlinux.org/title/QEMU#Installation>
+packages=(
+  # server
+  dmidecode # for DMI system info support
+  dnsmasq   # for the default NAT/DHCP networking
+  libvirt
+  openbsd-netcat # for remote management over SSH
+  qemu-full      # hypervisor
+  # client
+  virt-manager
+)
+yay --sync --needed --noconfirm "${packages[@]}"
+
+# ref: <https://wiki.archlinux.org/title/Libvirt#Using_libvirt_group>
+# {{ template "group-add.sh" }}
+group-add "libvirt"
+
+sudo systemctl enable --now libvirtd.service
+
+POOL_NAME="ISO"
+if ! sudo virsh pool-info "$POOL_NAME" &> /dev/null; then
+  mkdir --parents --verbose "$HOME/Downloads/ISO"
+  sudo virsh pool-define-as "$POOL_NAME" "dir" --target "$HOME/Downloads/ISO"
+  sudo virsh pool-autostart "$POOL_NAME"
+  sudo virsh pool-start "$POOL_NAME"
+fi
