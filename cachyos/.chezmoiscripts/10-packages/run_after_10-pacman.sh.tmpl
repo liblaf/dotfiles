@@ -13,6 +13,7 @@ sudo pacman-key --recv-keys 7931B6D628C8D3BA
 sudo pacman-key --finger 7931B6D628C8D3BA
 sudo pacman-key --lsign-key 7931B6D628C8D3BA
 
+sudo pacman --sync --refresh --noconfirm --sysupgrade
 sudo pacman --sync --needed --noconfirm yay
 
 packages=(
