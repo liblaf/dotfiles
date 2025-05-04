@@ -8,7 +8,14 @@ cd "$HOME/srv/mlflow"
 
 # {{- if not .service.mlflow }}
 docker compose down
+systemctl --user disable --now mlflow.service || true
 exit
 # {{- end }}
 
-docker compose up --detach --pull always
+# TODO: switch to docker compose until <https://github.com/mlflow/mlflow/issues/14610> is fixed
+docker compose down
+# docker compose up --detach --pull always
+
+# {{ template "uv-tool.sh" }}
+uv-tool install --force "mlflow[auth]"
+systemctl --user enable --now mlflow.service

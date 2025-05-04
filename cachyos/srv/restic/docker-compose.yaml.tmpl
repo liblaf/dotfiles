@@ -4,13 +4,13 @@
 name: Restic REST Server
 
 services:
-  rest-server:
+  restic:
     command: >-
       serve restic
         --addr ":8080"
         --htpasswd "/data/htpasswd"
         "tsinghua:/restic"
-    container_name: restic-rest-server
+    container_name: restic
     image: rclone/rclone:latest
     ports:
       - "{{ .port.restic }}:8080"

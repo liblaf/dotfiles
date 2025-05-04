@@ -12,6 +12,7 @@ sudo systemctl disable --now ddns-go.service || true
 sudo systemctl disable --now goauthing.service || true
 sudo systemctl disable --now goauthing6.service || true
 systemctl --user disable --now rclone-onedrive.service || true
+systemctl --user disable --now rclone-serve-restic.service || true
 systemctl --user disable --now restic.timer || true
 systemctl --user disable --now seadrive.service || true
 

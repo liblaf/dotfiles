@@ -52,9 +52,10 @@ def main() -> None:
     data: Any = load_data()
     data["service"] = {}
     data = config_service(data, "Bitwarden Backup", on=hostname in CENTRAL)
+    data = config_service(data, "Caddy", on=True)
     data = config_service(data, "Center", on=hostname in CENTRAL)
     data = config_service(data, "GPT Academic", on=hostname in SERVER)
-    data = config_service(data, "MLflow", on=True)
+    data = config_service(data, "MLflow", on=hostname in SERVER)
     data = config_service(data, "Restic", on=True)
     data = config_service(data, "Stirling PDF", on=hostname in SERVER)
     data = config_service(data, "WebDAV", on=True)

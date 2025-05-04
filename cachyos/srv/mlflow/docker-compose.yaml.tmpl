@@ -5,18 +5,32 @@ name: MLflow
 
 services:
   mlflow:
-    command: mlflow server
     container_name: mlflow
+    entrypoint: mlflow server --app-name basic-auth
     environment:
+      MLFLOW_FLASK_SERVER_SECRET_KEY: asdf
+      MLFLOW_AUTH_CONFIG_PATH: /config/basic-auth.ini
       MLFLOW_BACKEND_STORE_URI: sqlite:///data/mlruns.db
       MLFLOW_DEFAULT_ARTIFACT_ROOT: /data/mlartifacts
       MLFLOW_HOST: "0.0.0.0"
       MLFLOW_PORT: "5000"
-    image: "{{ .mirrors.ghcr }}/mlflow/mlflow:latest"
+    image: mlflow/mlflow:latest
     ports:
       - "{{ .port.mlflow }}:5000"
     user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"
     volumes:
+      - type: bind
+        source: ./entrypoint.sh
+        target: /entrypoint.sh
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./basic-auth.ini
+        target: /config/basic-auth.ini
+        read_only: true
+        bind:
+          create_host_path: false
       - type: bind
         source: "."
         target: /data

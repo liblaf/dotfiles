@@ -1,11 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = [
-#     "tomlkit",
-# ]
-# ///
-
-
 import functools
 import hashlib
 import os
@@ -44,7 +36,7 @@ def local_port_range() -> tuple[int, int]:
 
 class Service(NamedTuple):
     name: str
-    public: bool
+    public: bool = False
 
     @property
     def slug(self) -> str:
@@ -61,15 +53,15 @@ class Service(NamedTuple):
 
 
 SERVICES: list[Service] = [
-    Service("GPT Academic", public=True),
-    Service("HTTP", public=False),
+    Service("GPT Academic"),
+    Service("HTTP"),
     Service("HTTPS", public=True),
-    Service("MLflow", public=False),
-    Service("Proxy", public=False),
-    Service("Restic", public=False),
+    Service("MLflow"),
+    Service("Proxy"),
+    Service("Restic"),
     Service("SSH", public=True),
-    Service("Stirling-PDF", public=True),
-    Service("WebDAV", public=False),
+    Service("Stirling-PDF"),
+    Service("WebDAV"),
 ]
 
 

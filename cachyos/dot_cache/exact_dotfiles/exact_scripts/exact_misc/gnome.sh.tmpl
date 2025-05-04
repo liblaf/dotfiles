@@ -4,9 +4,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-export PATH="${HOME}/.local/bin:${PATH}"
-uv tool install --force --python "3.13" gnome-extensions-cli
-sleep 1 # wait for `gnome-extensions-cli` to be installed
+# {{ template "uv-tool.sh" }}
+uv-tool install --force --python "3.13" gnome-extensions-cli
 
 extensions_to_install=()
 if [[ ${#extensions_to_install[@]} -gt 0 ]]; then
