@@ -1,8 +1,13 @@
 # -*- mode: ini; -*-
 
-[Default Applications]
-# TODO: add WPS
+[Added Associations]
+# wps-office-prometheus.desktop
+# {{- if hasKey .mime "application/wps-office" }}
+{{- range (get .mime "application/wps-office") }}
+{{ . }}=wps-office-prometheus.desktop {{- end }}
+# {{- end }}
 
+[Default Applications]
 # microsoft-edge.desktop
 application/xhtml+xml=microsoft-edge.desktop
 text/html=microsoft-edge.desktop
@@ -42,4 +47,8 @@ model/vnd.vtu+xml=org.paraview.ParaView.desktop
 text/markdown=io.typora.Typora.desktop
 
 # wps-office-prometheus.desktop
+# {{- if hasKey .mime "application/wps-office" }}
+{{- range (get .mime "application/wps-office") }}
+{{ . }}=wps-office-prometheus.desktop {{- end }}
 text/csv=wps-office-prometheus.desktop
+# {{- end }}
