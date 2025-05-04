@@ -193,7 +193,6 @@ packages:
     - python-pandas
     - python-pydantic
     - python-pydantic-settings
-    - python-pytorch-opt-cuda
     - python-rich
     - python-ruamel-yaml
     - python-scipy

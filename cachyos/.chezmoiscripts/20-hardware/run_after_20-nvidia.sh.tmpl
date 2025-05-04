@@ -6,7 +6,7 @@ set -o nounset
 set -o pipefail
 
 # {{- if not .hardware.nvidia.exists }}
-exit 0
+exit
 # {{- end }}
 
 packages=(
@@ -15,6 +15,7 @@ packages=(
   nvidia-container-toolkit # Docker
   nvidia-utils             # VDPAU
   opencl-nvidia            # OpenCL
+  python-pytorch-opt-cuda
 )
 yay --devel --useask=false --sync --needed --noconfirm "${packages[@]}"
 

@@ -4,7 +4,7 @@ set -o nounset
 set -o pipefail
 
 fstype="$(findmnt --noheadings --output FSTYPE /)"
-if [[ $fstype != "btrfs" ]]; then exit 0; fi
+if [[ $fstype != "btrfs" ]]; then exit; fi
 
 # ref: <https://wiki.archlinux.org/title/Snapper#Wrapping_pacman_transactions_in_snapshots>
 packages=(
