@@ -6,6 +6,7 @@ http = 61626
 https = 38161
 mlflow = 63754
 proxy = 64667
+restic = 62557
 ssh = 34100
 stirling_pdf = 42600
 webdav = 65297

@@ -260,6 +260,7 @@ packages:
     - ov-bin
     - paccache-hook
     - piclist-bin
+    - restic-browser-bin
     - wps-office-365
     - wps-office-365-fonts # required by: wps-office-365
     - yaycache

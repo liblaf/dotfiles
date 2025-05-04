@@ -1,13 +1,15 @@
 # -*- mode: toml; -*-
 #:schema https://creativeprojects.github.io/resticprofile/jsonschema/config-1.json
+# ref: <https://creativeprojects.github.io/resticprofile/reference/index.html>
 
-# {{ $user = (rbw "Restic").data.username }}
-# {{ $pass = (rbw "Restic").data.password }}
+# {{- $user := (rbw "Restic").data.username }}
+# {{- $pass := (rbw "Restic").data.password }}
 
 [global]
 initialize = true
 prevent-sleep = true
-schedule-defaults = { after-network-online = true, ignore-on-battery = true, permission = "user" }
+# after-network-online is not available for "user_logged_on" permission schedules
+schedule-defaults = { ignore-on-battery = true, permission = "user_logged_on" }
 scheduler = "systemd"
 
 [default]

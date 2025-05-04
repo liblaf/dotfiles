@@ -11,10 +11,7 @@ exit
 WORKING_DIRECTORY="${HOME}/srv/restic"
 PASSWORD_FILE="${WORKING_DIRECTORY}/htpasswd"
 
-mkdir --parents --verbose "$HOME"
-cd "$HOME"
-touch "$PASSWORD_FILE"
-chown "u=rw,go=" "$PASSWORD_FILE"
+install -D --mode="u=rw,go=" --verbose /dev/null "$PASSWORD_FILE"
 htpasswd -b "$PASSWORD_FILE" \
   '{{ (rbw "Restic").data.username }}' \
   '{{ (rbw "Restic").data.password }}'

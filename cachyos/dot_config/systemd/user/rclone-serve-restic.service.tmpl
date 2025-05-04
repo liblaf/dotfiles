@@ -9,7 +9,8 @@ WantedBy = default.target
 [Service]
 Environment = "ADDR=:{{ .port.restic }}"
 Environment = "HTPASSWD=%d/HTPASSWD"
-ExecStart = rclone serve restic --addr "${ADDR}" --htpasswd "${HTPASSWD}"
+Environment = "REMOTE_PATH=tsinghua:/restic"
 LoadCredential = HTPASSWD:%h/srv/restic/htpasswd
+ExecStart = rclone serve restic --addr "${ADDR}" --htpasswd "${HTPASSWD}" "${REMOTE_PATH}"
 Restart = always
 RestartSec = 5
