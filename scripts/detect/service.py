@@ -5,14 +5,17 @@ import sys
 from pathlib import Path
 from typing import Any
 
-CENTRAL: set[str] = {
-    "10700",
+CORE: set[str] = {
+    "13900HX",
+    "PC05",
 }
 
 
-SERVER: set[str] = {
+EXTRA: set[str] = {
     "10700",
     "13900HX",
+    "PC05",
+    "PC06",
 }
 
 
@@ -49,16 +52,25 @@ def config_service(data: Any, name: str, *, on: bool) -> Any:
 
 def main() -> None:
     hostname: str = socket.gethostname()
+    core: bool = hostname in CORE
+    extra: bool = (hostname in CORE) or (hostname in EXTRA)
     data: Any = load_data()
     data["service"] = {}
-    data = config_service(data, "Bitwarden Backup", on=hostname in CENTRAL)
-    data = config_service(data, "Caddy", on=True)
-    data = config_service(data, "Center", on=hostname in CENTRAL)
-    data = config_service(data, "GPT Academic", on=hostname in SERVER)
-    data = config_service(data, "MLflow", on=hostname in SERVER)
-    data = config_service(data, "Restic", on=True)
-    data = config_service(data, "Stirling PDF", on=hostname in SERVER)
-    data = config_service(data, "WebDAV", on=True)
+
+    # stateful services
+    data = config_service(data, "Bing Wallpaper Backup", on=False)
+    data = config_service(data, "Bitwarden Backup", on=False)
+    data = config_service(data, "MLflow", on=core)
+    data = config_service(data, "Restic", on=core)
+    data = config_service(data, "UFW Collector", on=core)
+    data = config_service(data, "WebDAV", on=core)
+
+    # stateless services
+    data = config_service(data, "Caddy", on=extra)
+    data = config_service(data, "GPT Academic", on=extra)
+    data = config_service(data, "MinerU", on=extra)
+    data = config_service(data, "Stirling PDF", on=extra)
+
     save_data(data)
 
 
