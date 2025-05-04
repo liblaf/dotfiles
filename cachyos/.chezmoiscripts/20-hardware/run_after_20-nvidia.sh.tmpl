@@ -17,7 +17,7 @@ packages=(
   opencl-nvidia            # OpenCL
   python-pytorch-opt-cuda
 )
-yay --devel --useask=false --sync --needed --noconfirm "${packages[@]}"
+yay --sync --needed --noconfirm "${packages[@]}"
 
 # These services are automatically enabled by the `nvidia-utils` package.
 # sudo systemctl enable nvidia-hibernate.service

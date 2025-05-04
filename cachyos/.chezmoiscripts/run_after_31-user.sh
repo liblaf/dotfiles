@@ -9,12 +9,5 @@ if [[ $user_shell != /usr/bin/fish ]]; then
   chsh --shell /usr/bin/fish
 fi
 
-# {{ template "group-add.sh" }}
-
-group-add docker  # ref: <https://wiki.archlinux.org/title/Docker#Installation>
-group-add libvirt # ref: <https://wiki.archlinux.org/title/Libvirt#Using_libvirt_group>
-group-add vboxusers
-group-add vcpkg
-
 # ref: <https://wiki.archlinux.org/title/Systemd/User#Automatic_start-up_of_systemd_user_instances>
 loginctl enable-linger "$USER"

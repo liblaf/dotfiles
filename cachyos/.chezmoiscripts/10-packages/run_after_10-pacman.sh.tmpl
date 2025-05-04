@@ -19,6 +19,6 @@ packages=(
   # {{- range .packages.pacman }}
   '{{ . }}' # {{- end }}
 )
-yay --devel --useask=false --sync --needed --noconfirm "${packages[@]}"
+yay --sync --needed --noconfirm "${packages[@]}"
 
-yay --yay --useask=false --clean --nosave --recursive --unneeded --noconfirm
+yay --yay --clean --nosave --recursive --unneeded --noconfirm
