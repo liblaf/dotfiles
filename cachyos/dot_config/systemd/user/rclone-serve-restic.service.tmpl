@@ -1,0 +1,15 @@
+# -*- mode: ini; -*-
+
+[Unit]
+Description = "Serve the remote for restic's REST API"
+
+[Install]
+WantedBy = default.target
+
+[Service]
+Environment = "ADDR=:{{ .port.restic }}"
+Environment = "HTPASSWD=%d/HTPASSWD"
+ExecStart = rclone serve restic --addr "${ADDR}" --htpasswd "${HTPASSWD}"
+LoadCredential = HTPASSWD:%h/srv/restic/htpasswd
+Restart = always
+RestartSec = 5

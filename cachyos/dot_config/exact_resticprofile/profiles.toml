@@ -1,0 +1,37 @@
+# -*- mode: toml; -*-
+#:schema https://creativeprojects.github.io/resticprofile/jsonschema/config-1.json
+
+# {{ $user = (rbw "Restic").data.username }}
+# {{ $pass = (rbw "Restic").data.password }}
+
+[global]
+initialize = true
+prevent-sleep = true
+schedule-defaults = { after-network-online = true, ignore-on-battery = true, permission = "user" }
+scheduler = "systemd"
+
+[default]
+base-dir = "{{ .chezmoi.homeDir }}"
+initialize = true
+compression = "max"
+password-file = "{{ .chezmoi.homeDir }}/.config/resticprofile/password.txt"
+repository = "rest:http://{{ $user }}:{{ $pass }}@127.0.0.1:{{ .port.restic }}/srv/"
+
+[default.backup]
+check-after = true
+check-before = true
+schedule = "hourly"
+source = ["srv/"]
+source-base = "{{ .chezmoi.homeDir }}"
+source-relative = true
+tag = ["schedule"]
+
+[default.forget]
+schedule = "weekly"
+keep-within-daily = "7"
+keep-within-hourly = "24"
+keep-within-monthly = "12"
+keep-within-weekly = "4"
+keep-within-yearly = "10"
+prune = true
+tag = ["schedule"]

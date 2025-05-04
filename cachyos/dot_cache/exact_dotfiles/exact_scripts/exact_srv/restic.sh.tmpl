@@ -1,0 +1,22 @@
+#!/bin/bash
+# shellcheck disable=SC2317
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ if not .service.restic }}
+exit
+# {{ end }}
+
+WORKING_DIRECTORY="${HOME}/srv/restic"
+PASSWORD_FILE="${WORKING_DIRECTORY}/htpasswd"
+
+mkdir --parents --verbose "$HOME"
+cd "$HOME"
+touch "$PASSWORD_FILE"
+chown "u=rw,go=" "$PASSWORD_FILE"
+htpasswd -b "$PASSWORD_FILE" \
+  '{{ (rbw "Restic").data.username }}' \
+  '{{ (rbw "Restic").data.password }}'
+
+systemctl --user enable --now rclone-serve-restic.service
