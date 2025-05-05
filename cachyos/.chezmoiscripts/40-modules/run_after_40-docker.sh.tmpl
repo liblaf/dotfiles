@@ -14,3 +14,6 @@ yay --sync --needed --noconfirm "${packages[@]}"
 group-add docker # ref: <https://wiki.archlinux.org/title/Docker#Installation>
 
 sudo systemctl enable --now docker.service
+
+# {{ template "docker.sh" }}
+docker system prune --all --force --volumes
