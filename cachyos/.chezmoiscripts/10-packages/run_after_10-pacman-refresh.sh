@@ -4,7 +4,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-sudo pacman --sync --refresh --noconfirm
+sudo pacman-key --init
+
 # ref: <https://help.mirrors.cernet.edu.cn/archlinuxcn/>
 sudo pacman-key --lsign-key farseerfc@archlinux.org
 sudo pacman --sync --needed --noconfirm archlinuxcn-keyring
