@@ -1,13 +1,10 @@
 #!/bin/bash
 # -*- mode: sh; -*-
-# shellcheck disable=SC2317
 set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{- if not .hardware.nvidia.exists }}
-exit
-# {{- end }}
+# {{- if .hardware.nvidia.exists }}
 
 # `nvidia-open` is broken on some systems
 # ref: <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/507>
@@ -33,3 +30,5 @@ yay --sync --needed --noconfirm "${packages[@]}"
 # {{- if .hardware.nvidia.mobile }}
 sudo systemctl enable --now nvidia-powerd.service
 # {{- end }}
+
+# {{- end }} // if .hardware.nvidia.exists

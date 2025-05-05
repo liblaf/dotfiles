@@ -36,7 +36,8 @@ if [[ $vendor == "NVIDIA Corporation" ]]; then
   fi
 else
   echo "Hardware > NVIDIA: false" >&2
-  yq --inplace ".hardware.nvidia.exists = false" "$DATA_FILE"
+  yq --inplace '.hardware.nvidia.exists = false' "$DATA_FILE"
+  yq --inplace '.hardware.nvidia.codename = null' "$DATA_FILE"
   yq --inplace '.hardware.nvidia.driver = null' "$DATA_FILE"
   yq --inplace '.hardware.nvidia.mobile = false' "$DATA_FILE"
 fi

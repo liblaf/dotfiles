@@ -1,15 +1,11 @@
 #!/bin/bash
 # -*- mode: sh; -*-
-# shellcheck disable=SC2317
 set -o errexit
 set -o nounset
 set -o pipefail
 
 # {{- if .hardware.nvidia.exists }}
-exit
-# {{- else if not .hardware.intel.exists }}
-exit
-# {{- end }}
+# {{- else if .hardware.intel.exists }}
 
 packages=(
   intel-compute-runtime # OpenCL
@@ -18,3 +14,5 @@ packages=(
   python-pytorch-opt
 )
 yay --sync --needed --noconfirm "${packages[@]}"
+
+# {{- end }} // if .hardware.intel.exists
