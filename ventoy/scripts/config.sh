@@ -5,15 +5,14 @@ set -o pipefail
 
 readarray -t device_options < <(
   lsblk --json |
-    yq eval '.blockdevices[] | select(.type == "disk" and .rm) | .name'
+    yq eval '.blockdevices[] | select(.type == "disk") | .name'
 )
 device_options=("${device_options[@]/#/"/dev/"}")
 DEVICE=$(gum choose "${device_options[@]}" --header "Choose DEVICE")
 printf "Ventoy Disk: %s\n" "$DEVICE"
 
 readarray -t mountpoint_options < <(
-  df --output="target" --type="exfat" |
-    tail --lines="+2"
+  lsblk --json | yq eval '.blockdevices[].children[].mountpoints[]'
 )
 MOUNTPOINT=$(gum choose "${mountpoint_options[@]}" --header "Choose MOUNTPOINT")
 printf "Ventoy Mountpoint: %s\n" "$MOUNTPOINT"
