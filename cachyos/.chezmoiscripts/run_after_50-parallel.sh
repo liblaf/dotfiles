@@ -7,8 +7,11 @@ GROUP="chezmoi"
 
 systemctl --user enable --now pueued.service
 pueue reset --force
+sleep 1
 pueue group add "$GROUP" || true
+sleep 1
 pueue parallel --group "$GROUP" 8
+sleep 1
 
 readarray -t scripts < <(find "$HOME/.cache/dotfiles/scripts" -type f)
 for script in "${scripts[@]}"; do
