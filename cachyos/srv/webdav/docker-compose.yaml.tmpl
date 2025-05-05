@@ -14,6 +14,7 @@ services:
     image: rclone/rclone:latest
     ports:
       - "{{ .port.webdav }}:8080"
+    pull_policy: daily
     user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"
     volumes:
       - type: bind

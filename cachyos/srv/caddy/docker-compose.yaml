@@ -12,6 +12,7 @@ services:
       - ./caddy.env
     image: caddybuilds/caddy-cloudflare:alpine
     network_mode: host
+    pull_policy: daily
     volumes:
       - type: bind
         source: ./Caddyfile
