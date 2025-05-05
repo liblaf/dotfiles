@@ -9,7 +9,7 @@ sudo systemctl disable --now caddy.service || true
 
 # {{ template "docker.sh" }}
 
-# {{- if not .service.caddy }}
+# {{- if .service.caddy }}
 
 docker volume create "caddy-data"
 docker compose up --detach
@@ -17,5 +17,6 @@ docker compose up --detach
 # {{- else }}
 
 docker compose down
+docker volume rm --force "caddy-data"
 
 # {{- end }}
