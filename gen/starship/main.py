@@ -10,6 +10,12 @@ import tomlkit
 type StarshipConfig = Mapping[str, Any]
 
 
+def source_dir() -> Path:
+    source_dir: str | None = os.getenv("CHEZMOI_SOURCE_DIR")
+    assert source_dir is not None
+    return Path(source_dir)
+
+
 def _merge_binary(a: Mapping, b: Mapping) -> dict:
     result = dict(a)
     for key, value in b.items():
@@ -51,7 +57,7 @@ def save_config(fpath: str | os.PathLike[str], config: StarshipConfig) -> None:
 
 def main() -> None:
     base_dir: Path = Path(__file__).parent
-    dot_config = Path("arch/dot_config/")
+    dot_config: Path = source_dir() / "dot_config"
     bracketed_segments: StarshipConfig = load_preset("bracketed-segments")
     nerd_font_symbols: StarshipConfig = load_preset("nerd-font-symbols")
     custom: StarshipConfig = load_file(base_dir / "starship.custom.toml")

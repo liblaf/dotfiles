@@ -53,6 +53,10 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol$environment]($style)\]'
 symbol = " "
 
+[cpp]
+format = '\[[$symbol($version(-$name))]($style)\]'
+symbol = " "
+
 [crystal]
 format = '\[[$symbol($version)]($style)\]'
 symbol = " "
@@ -75,6 +79,7 @@ symbol = " "
 
 [deno]
 format = '\[[$symbol($version)]($style)\]'
+symbol = " "
 
 [directory]
 read_only = " 󰌾"
@@ -107,6 +112,7 @@ symbol = " "
 
 [gcloud]
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+symbol = "  "
 
 [git_branch]
 format = '\[[$symbol$branch]($style)\]'
@@ -181,7 +187,7 @@ version_format = "$raw"
 
 [memory_usage]
 disabled = false
-format = '\[$symbol[$ram( | $swap)]($style)\]'
+format = '\[$symbol[$ram]($style)\]' # hide swap
 symbol = "󰍛 "
 threshold = 0
 
@@ -279,6 +285,11 @@ symbol = " "
 [pijul_channel]
 format = '\[[$symbol$channel]($style)\]'
 symbol = " "
+
+[pixi]
+disabled = true
+format = '\[[$symbol$version( $environment)]($style)\]'
+symbol = "󰏗 "
 
 [pulumi]
 format = '\[[$symbol$stack]($style)\]'

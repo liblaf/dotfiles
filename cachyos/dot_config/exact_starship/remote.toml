@@ -53,9 +53,20 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol$environment]($style)\]'
 symbol = " "
 
+[cpp]
+format = '\[[$symbol($version(-$name))]($style)\]'
+symbol = " "
+
 [crystal]
 format = '\[[$symbol($version)]($style)\]'
 symbol = " "
+
+[custom.mountpoint]
+command = 'basename -- "$(findmnt --noheadings --output TARGET --target "$PWD")"'
+format = '\[[$symbol($output)]($style)\]'
+shell = "sh"
+symbol = "󰡰 "
+when = true
 
 [custom.proxy]
 command = "gfw now --color=always"
@@ -64,13 +75,6 @@ shell = "sh"
 style = ""
 symbol = "󰖟"                       # nf-md-web
 when = 'test -n "$https_proxy"'
-
-[custom.remote]
-command = 'basename -- "$(findmnt --noheadings --output TARGET --target "$PWD")"'
-format = '\[[$symbol($output)]($style)\]'
-shell = "sh"
-symbol = "󰡰 "
-when = true
 
 
 [daml]
@@ -82,6 +86,7 @@ symbol = " "
 
 [deno]
 format = '\[[$symbol($version)]($style)\]'
+symbol = " "
 
 [directory]
 read_only = " 󰌾"
@@ -114,6 +119,7 @@ symbol = " "
 
 [gcloud]
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+symbol = "  "
 
 [git_branch]
 disabled = true
@@ -194,7 +200,7 @@ version_format = "$raw"
 
 [memory_usage]
 disabled = false
-format = '\[$symbol[$ram( | $swap)]($style)\]'
+format = '\[$symbol[$ram]($style)\]' # hide swap
 symbol = "󰍛 "
 threshold = 0
 
@@ -292,6 +298,11 @@ symbol = " "
 [pijul_channel]
 format = '\[[$symbol$channel]($style)\]'
 symbol = " "
+
+[pixi]
+disabled = true
+format = '\[[$symbol$version( $environment)]($style)\]'
+symbol = "󰏗 "
 
 [pulumi]
 format = '\[[$symbol$stack]($style)\]'
