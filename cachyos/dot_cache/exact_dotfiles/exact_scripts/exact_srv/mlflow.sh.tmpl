@@ -7,6 +7,8 @@ cd "$HOME/srv/mlflow"
 
 systemctl --user disable --now mlflow.service || true
 
+# {{ template "docker.sh" }}
+
 # {{- if .service.mlflow }}
 
 mkdir --parents --verbose "./basic-auth"

@@ -4,8 +4,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{ template "uv-tool.sh" }}
-uv-tool install --force --python "3.13" gnome-extensions-cli
+# {{ template "uv.sh" }}
+
+uv tool install --force gnome-extensions-cli
 
 extensions_to_install=()
 if [[ ${#extensions_to_install[@]} -gt 0 ]]; then

@@ -1,7 +1,4 @@
 #!/bin/bash
-set -o errexit
-set -o pipefail
-set -o nounset
 
 function group-add() {
   local group="${1:-"$GROUP"}"

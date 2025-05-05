@@ -5,6 +5,8 @@ set -o pipefail
 
 cd "$HOME/srv/webdav"
 
+# {{ template "docker.sh" }}
+
 # {{- if .service.webdav }}
 
 install -D --mode="u=rw,go=" --verbose /dev/null ./htpasswd

@@ -5,6 +5,8 @@ set -o pipefail
 
 cd "$HOME/srv/restic"
 
+# {{ template "docker.sh" }}
+
 # {{- if .service.restic }}
 
 install -D --mode="u=rw,go=" --verbose /dev/null ./htpasswd

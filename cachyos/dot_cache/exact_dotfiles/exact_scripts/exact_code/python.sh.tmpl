@@ -25,15 +25,16 @@ pkg_to_remove=(
   readmeai
 )
 
-# {{ template "uv-tool.sh" }}
+# {{ template "uv.sh" }}
+
 for pkg in "${pkg_to_remove[@]}"; do
-  uv-tool uninstall "$pkg" || true
+  uv tool uninstall "$pkg" || true
 done
 for pkg in "${pkg_list[@]}"; do
   # TODO: remove `--python "3.12"` until <https://github.com/astral-sh/uv/issues/8229> is fixed
-  uv-tool install --force --python "3.12" "$pkg"
+  uv tool install --force --python "3.12" "$pkg"
 done
-uv-tool install --with cookiecutter --force copier
-uv-tool upgrade --all
+uv tool install --with cookiecutter --force copier
+uv tool upgrade --all
 
 pixi global sync
