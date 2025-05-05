@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-if systemd-detect-virt; then
+if systemd-detect-virt --quiet; then
   screen="1080p"
 else
   screen="4k"

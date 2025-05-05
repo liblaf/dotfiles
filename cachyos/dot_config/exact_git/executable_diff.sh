@@ -30,14 +30,19 @@ FAINT=$'\e[2m'
 BOLD_BRIGHT_YELLOW=$'\e[1;93m'
 
 echo "${BOLD_BRIGHT_YELLOW}${path}${RESET}${FAINT} --- Generated${RESET}"
+
 if [[ $path != "$new_file" ]]; then
   echo "${FAINT}Renamed from ${path} to ${new_file}${RESET}"
 fi
+
 if [[ $old_mode != "$new_mode" ]]; then
   echo "File permissions changed from ${old_mode} to ${new_mode}."
 fi
+
 if [[ $old_hex != "$new_hex" ]]; then
   echo "Generated contents changed."
 else
   echo "No changes."
 fi
+
+echo

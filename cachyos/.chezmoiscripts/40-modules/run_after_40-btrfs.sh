@@ -11,6 +11,7 @@ packages=(
   btrfs-assistant
   btrfs-desktop-notification
   cachyos-snapper-support
+  compsize
   grub-btrfs
   grub-btrfs-support
   snap-pac

@@ -1,5 +1,7 @@
 packages:
   pacman:
+    # TODO: add complete package list from <https://github.com/CachyOS/cachyos-calamares/blob/cachyos-grub-qt6/src/modules/netinstall/netinstall.yaml>
+
     # --------------------------- Printing-Support --------------------------- #
     # ref: <https://github.com/CachyOS/cachyos-calamares/blob/cachyos-grub-qt6/src/modules/netinstall/netinstall.yaml>
     - cups
@@ -34,9 +36,6 @@ packages:
     # --------------------------------- Btrfs -------------------------------- #
     # see also: <cachyos/.chezmoiscripts/40-modules/run_after_40-btrfs.sh>
 
-    # -------------------------------- System -------------------------------- #
-    - fwupd
-
     # ------------------------------- Graphics ------------------------------- #
     - libva-utils # VA-API
     - mpv # required by: tsukimi
@@ -52,7 +51,6 @@ packages:
     - ansible
     - aria2
     - bat
-    - bitwarden-cli
     - btop
     - chezmoi
     - csvlens
@@ -136,9 +134,11 @@ packages:
     - obsidian
     - power-profiles-daemon
     - remmina
+    - seahorse
     - telegram-desktop
     - vlc
     - wezterm
+    - wl-clipboard
 
     # --------------------------------- Fonts -------------------------------- #
     # see also: <cachyos/.chezmoiscripts/40-modules/run_after_40-fonts.sh>
@@ -242,6 +242,7 @@ packages:
     - argc
     - auth-thu-bin
     - bun-bin
+    - chsrc-bin
     - clipboard-bin
     - doggo-bin
     - electron22-bin # required by: piclist-bin

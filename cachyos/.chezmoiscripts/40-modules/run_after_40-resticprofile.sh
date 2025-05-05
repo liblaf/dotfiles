@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-if systemd-detect-virt; then exit; fi
+if systemd-detect-virt --quiet; then exit; fi
 
 # TODO: setup resticprofile on all machines
 

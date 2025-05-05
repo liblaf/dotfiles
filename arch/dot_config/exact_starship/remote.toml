@@ -61,6 +61,13 @@ symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 symbol = " "
 
+[custom.mountpoint]
+command = 'basename -- "$(findmnt --noheadings --output TARGET --target "$PWD")"'
+format = '\[[$symbol($output)]($style)\]'
+shell = "sh"
+symbol = "󰡰 "
+when = true
+
 [custom.proxy]
 command = "gfw now --color=always"
 format = '\[[$output]($style)\]'
@@ -68,13 +75,6 @@ shell = "sh"
 style = ""
 symbol = "󰖟"                       # nf-md-web
 when = 'test -n "$https_proxy"'
-
-[custom.remote]
-command = 'basename -- "$(findmnt --noheadings --output TARGET --target "$PWD")"'
-format = '\[[$symbol($output)]($style)\]'
-shell = "sh"
-symbol = "󰡰 "
-when = true
 
 
 [daml]
@@ -200,7 +200,7 @@ version_format = "$raw"
 
 [memory_usage]
 disabled = false
-format = '\[$symbol[$ram( | $swap)]($style)\]'
+format = '\[$symbol[$ram]($style)\]' # hide swap
 symbol = "󰍛 "
 threshold = 0
 
@@ -300,6 +300,7 @@ format = '\[[$symbol$channel]($style)\]'
 symbol = " "
 
 [pixi]
+disabled = true
 format = '\[[$symbol$version( $environment)]($style)\]'
 symbol = "󰏗 "
 

@@ -55,15 +55,16 @@ renamed = ""                                       # nf-fa-angles_right
 version_format = "$raw"
 
 [hostname]
-format = "@[$ssh_symbol$hostname]($style) "
 ssh_symbol = ""
+format = "@[$ssh_symbol$hostname]($style) "
 
 [lua]
 version_format = "$raw"
 
 [memory_usage]
-disabled = false
 threshold = 0
+format = '\[$symbol[$ram]($style)\]' # hide swap
+disabled = false
 
 [nodejs]
 symbol = " "           # nf-fa-node_js
@@ -71,6 +72,10 @@ version_format = "$raw"
 
 [package]
 version_format = "$raw"
+
+[pixi]
+# TODO: enable pixi until I find a pretty way to show it
+disabled = true
 
 [python]
 version_format = "$raw"
