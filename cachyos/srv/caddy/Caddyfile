@@ -30,6 +30,14 @@ pdf.{$BASE_DOMAIN} {
 	reverse_proxy localhost:{$STIRLING_PDF_PORT}
 }
 
+restic.{$BASE_DOMAIN} {
+	reverse_proxy localhost:{$RESTIC_PORT}
+}
+
+{$HOSTNAME}.restic.{$BASE_DOMAIN} {
+	reverse_proxy localhost:{$RESTIC_PORT}
+}
+
 webdav.{$BASE_DOMAIN} {
 	reverse_proxy localhost:{$WEBDAV_PORT}
 }

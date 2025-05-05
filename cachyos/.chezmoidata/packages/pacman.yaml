@@ -43,6 +43,7 @@ packages:
     - vulkan-tools # Vulkan
 
     # -------------------------------- Service ------------------------------- #
+    - caddy
     - cloudflared
     - earlyoom
     - pkgstats
