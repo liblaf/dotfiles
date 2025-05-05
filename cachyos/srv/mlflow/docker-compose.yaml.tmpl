@@ -9,9 +9,9 @@ services:
     command: mlflow server --app-name basic-auth
     container_name: mlflow
     environment:
+      MLFLOW_ARTIFACTS_DESTINATION: /data/mlartifacts
       MLFLOW_AUTH_CONFIG_PATH: /config/basic-auth.ini
       MLFLOW_BACKEND_STORE_URI: sqlite:///data/mlruns/mlruns.db
-      MLFLOW_DEFAULT_ARTIFACT_ROOT: /data/mlartifacts
       MLFLOW_FLASK_SERVER_SECRET_KEY: '{{ output "openssl" "rand" "-base64" "32" | trim }}'
       MLFLOW_HOST: "0.0.0.0"
       MLFLOW_PORT: "5000"
