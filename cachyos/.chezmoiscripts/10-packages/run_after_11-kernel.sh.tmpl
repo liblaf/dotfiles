@@ -1,0 +1,11 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+packages=(
+  linux-cachyos-lts-lto
+  linux-cachyos-lts-lto-headers
+)
+yay --sync --needed --noconfirm "${packages[@]}"

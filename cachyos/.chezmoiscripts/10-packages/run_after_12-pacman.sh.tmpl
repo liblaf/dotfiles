@@ -1,0 +1,13 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+packages=(
+  # {{- range .packages.pacman }}
+  '{{ . }}' # {{- end }}
+)
+yay --sync --needed --noconfirm "${packages[@]}"
+
+yay --yay --clean --nosave --recursive --unneeded --noconfirm

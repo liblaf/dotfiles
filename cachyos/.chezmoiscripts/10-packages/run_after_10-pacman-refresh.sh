@@ -15,11 +15,3 @@ sudo pacman-key --lsign-key 7931B6D628C8D3BA
 
 sudo pacman --sync --refresh --noconfirm --sysupgrade
 sudo pacman --sync --needed --noconfirm yay
-
-packages=(
-  # {{- range .packages.pacman }}
-  '{{ . }}' # {{- end }}
-)
-yay --sync --needed --noconfirm "${packages[@]}"
-
-yay --yay --clean --nosave --recursive --unneeded --noconfirm
