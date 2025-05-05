@@ -1,19 +1,21 @@
 #!/bin/bash
-# shellcheck disable=SC2317
 set -o errexit
 set -o nounset
 set -o pipefail
 
 cd "$HOME/srv/restic"
 
-# {{- if not .service.restic }}
-docker compose down
-exit
-# {{- end }}
+# {{- if .service.restic }}
 
 install -D --mode="u=rw,go=" --verbose /dev/null ./htpasswd
 htpasswd -b "./htpasswd" \
   '{{ (rbw "Restic").data.username }}' \
   '{{ (rbw "Restic").data.password }}'
 
-docker compose up --detach --pull always
+docker compose up --detach
+
+# {{- else }}
+
+docker compose down
+
+# {{- end }}

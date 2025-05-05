@@ -3,7 +3,7 @@
 
 [mlflow]
 default_permission = READ
-database_uri = sqlite:///{{ .chezmoi.homeDir }}/srv/mlflow/basic-auth.db
+database_uri = sqlite:///data/basic-auth/basic-auth.db
 admin_username = {{ (rbw "MLflow").data.username }}
 admin_password = {{ (rbw "MLflow").data.password }}
 authorization_function = mlflow.server.auth:authenticate_request_basic_auth

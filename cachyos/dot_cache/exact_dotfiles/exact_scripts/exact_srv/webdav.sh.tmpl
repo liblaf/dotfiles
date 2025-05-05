@@ -1,15 +1,11 @@
 #!/bin/bash
-# shellcheck disable=SC2317
 set -o errexit
 set -o nounset
 set -o pipefail
 
 cd "$HOME/srv/webdav"
 
-# {{- if not .service.webdav }}
-docker compose down
-exit
-# {{- end }}
+# {{- if .service.webdav }}
 
 install -D --mode="u=rw,go=" --verbose /dev/null ./htpasswd
 htpasswd -b "./htpasswd" \
@@ -17,3 +13,9 @@ htpasswd -b "./htpasswd" \
   '{{ (rbw "WebDAV").data.password }}'
 
 docker compose up --detach --pull always
+
+# {{- else }}
+
+docker compose down
+
+# {{- end }}

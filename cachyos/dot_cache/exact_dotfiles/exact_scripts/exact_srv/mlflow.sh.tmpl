@@ -1,21 +1,21 @@
 #!/bin/bash
-# shellcheck disable=SC2317
 set -o errexit
 set -o nounset
 set -o pipefail
 
 cd "$HOME/srv/mlflow"
 
-# TODO: switch to docker compose until <https://github.com/mlflow/mlflow/issues/14610> is fixed
+systemctl --user disable --now mlflow.service || true
+
+# {{- if .service.mlflow }}
+
+mkdir --parents --verbose "./basic-auth"
+mkdir --parents --verbose "./mlartifacts"
+mkdir --parents --verbose "./mlruns"
+docker compose up --detach
+
+# {{- else }}
+
 docker compose down
 
-# {{- if not .service.mlflow }}
-systemctl --user disable --now mlflow.service || true
-exit
 # {{- end }}
-
-# docker compose up --detach --pull always
-
-# {{ template "uv-tool.sh" }}
-uv-tool install --force "mlflow[auth]"
-systemctl --user enable --now mlflow.service

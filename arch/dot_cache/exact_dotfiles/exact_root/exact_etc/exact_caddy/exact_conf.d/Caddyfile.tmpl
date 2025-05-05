@@ -7,44 +7,40 @@
   acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
 }
 
-gpt.{{ .domain }} {
+gpt.{{ .ddns.domain }} {
   reverse_proxy localhost:{{ .port.gpt_academic }}
 }
 
-mlflow.{{ .domain }} {
+mlflow.{{ .ddns.domain }} {
   reverse_proxy localhost:{{ .port.mlflow }}
   basic_auth {
     {{ (rbw "MLflow").data.username }} {{ output "caddy" "hash-password" "--plaintext" (rbw "MLflow").data.password | trim}}
   }
 }
 
-pdf.{{ .domain }} {
+pdf.{{ .ddns.domain }} {
   reverse_proxy localhost:{{ .port.stirling_pdf }}
 }
 
-webdav.{{ .domain }} {
+webdav.{{ .ddns.domain }} {
   reverse_proxy localhost:{{ .port.webdav }}
 }
 
-# {{ if .service.center }}
-
-gpt.{{ .base_domain }} {
+gpt.{{ .ddns.base_domain }} {
   reverse_proxy localhost:{{ .port.gpt_academic }}
 }
 
-mlflow.{{ .base_domain }} {
+mlflow.{{ .ddns.base_domain }} {
   reverse_proxy localhost:{{ .port.mlflow }}
   basic_auth {
     {{ (rbw "MLflow").data.username }} {{ output "caddy" "hash-password" "--plaintext" (rbw "MLflow").data.password | trim}}
   }
 }
 
-pdf.{{ .base_domain }} {
+pdf.{{ .ddns.base_domain }} {
   reverse_proxy localhost:{{ .port.stirling_pdf }}
 }
 
-webdav.{{ .base_domain }} {
+webdav.{{ .ddns.base_domain }} {
   reverse_proxy localhost:{{ .port.webdav }}
 }
-
-# {{ end }}
