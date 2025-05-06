@@ -3,7 +3,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-packages=(
+# {{- template "yay.sh" -}}
+install=(
   noto-fonts
   noto-fonts-cjk
   noto-fonts-emoji
@@ -12,6 +13,6 @@ packages=(
   ttf-cascadia-code-nerd
   ttf-mona-sans
 )
-yay --sync --needed --noconfirm "${packages[@]}"
+yay-install "${install[@]}"
 
 fc-cache --force --verbose

@@ -4,11 +4,12 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-packages=(
+# {{- template "yay.sh" -}}
+install=(
   docker
   docker-compose
 )
-yay --sync --needed --noconfirm "${packages[@]}"
+yay-install "${install[@]}"
 
 # {{ template "group-add.sh" }}
 group-add docker # ref: <https://wiki.archlinux.org/title/Docker#Installation>

@@ -3,10 +3,11 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-packages=(
+# {{- template "yay.sh" -}}
+install=(
   ufw
 )
-yay --sync --needed --noconfirm "${packages[@]}"
+yay-install "${install[@]}"
 
 sudo chmod --verbose "u=rw,g=r,o=" /etc/ufw/*.rules
 sudo ufw --force reset

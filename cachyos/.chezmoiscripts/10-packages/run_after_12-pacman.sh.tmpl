@@ -4,10 +4,14 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-packages=(
+# {{- template "yay.sh" -}}
+
+install=(
   # {{- range .packages.pacman }}
   '{{ . }}' # {{- end }}
 )
-yay --sync --needed --noconfirm "${packages[@]}"
+# shellcheck disable=SC2207
+install+=($(yay --sync --groups --quiet texlive))
+yay-install "${install[@]}"
 
-yay --yay --clean --nosave --recursive --unneeded --noconfirm
+yay --yay --clean --noconfirm --nosave --recursive --unneeded

@@ -4,23 +4,25 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# {{- template "yay.sh" -}}
+
 # {{- if .hardware.nvidia.exists }}
 
-# `nvidia-open` is broken on some systems
-# ref: <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/507>
-# {{- if eq .hardware.nvidia.codename "AD107M" }}
-yay --sync --needed --noconfirm linux-cachyos-lts-lto-nvidia
-# {{- end }}
-
-packages=(
+install=(
   cuda
   libva-nvidia-driver      # VA-API
   nvidia-container-toolkit # Docker
   nvidia-utils             # VDPAU
   opencl-nvidia            # OpenCL
   python-pytorch-opt-cuda
+
+  # `nvidia-open` is broken on some systems
+  # ref: <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/507>
+  # {{- if eq .hardware.nvidia.codename "AD107M" }}
+  linux-cachyos-lts-lto-nvidia
+  # {{- end }}
 )
-yay --sync --needed --noconfirm "${packages[@]}"
+yay-install "${install[@]}"
 
 # These services are automatically enabled by the `nvidia-utils` package.
 # sudo systemctl enable nvidia-hibernate.service

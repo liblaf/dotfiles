@@ -6,6 +6,7 @@ set -o pipefail
 
 if systemd-detect-virt --quiet; then exit; fi
 
+# {{- template "yay.sh" -}}
 # ref: <https://wiki.archlinux.org/title/Libvirt#Installation>
 # ref: <https://wiki.archlinux.org/title/QEMU#Installation>
 packages=(
@@ -18,7 +19,7 @@ packages=(
   # client
   virt-manager
 )
-yay --sync --needed --noconfirm "${packages[@]}"
+yay-install "${packages[@]}"
 
 # ref: <https://wiki.archlinux.org/title/Libvirt#Using_libvirt_group>
 # {{ template "group-add.sh" }}

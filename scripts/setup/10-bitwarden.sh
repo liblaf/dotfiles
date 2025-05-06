@@ -8,4 +8,3 @@ if [[ ! -f "$HOME/.config/rbw/config.json" ]]; then
   rbw config set lock_timeout 604800
 fi
 rbw login
-rbw sync

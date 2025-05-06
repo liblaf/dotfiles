@@ -6,8 +6,9 @@ set -o pipefail
 fstype="$(findmnt --noheadings --output FSTYPE /)"
 if [[ $fstype != "btrfs" ]]; then exit; fi
 
+# {{- template "yay.sh" -}}
 # ref: <https://wiki.archlinux.org/title/Snapper#Wrapping_pacman_transactions_in_snapshots>
-packages=(
+install=(
   btrfs-assistant
   btrfs-desktop-notification
   cachyos-snapper-support
@@ -15,10 +16,13 @@ packages=(
   grub-btrfs
   grub-btrfs-support
   snap-pac
-  snap-pac-grub
   snapper
 )
-yay --sync --needed --noconfirm "${packages[@]}"
+yay-install "${install[@]}"
+remove=(
+  snap-pac-grub # `grub-btrfs-support` does the same job
+)
+yay-remove "${remove[@]}"
 
 # ref: <https://wiki.archlinux.org/title/Btrfs#Start_with_a_service_or_timer>
 sudo systemctl enable --now "btrfs-scrub@$(systemd-escape --path /).timer"

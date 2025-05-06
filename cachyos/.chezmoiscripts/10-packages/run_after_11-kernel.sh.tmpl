@@ -4,8 +4,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-packages=(
+# {{- template "yay.sh" -}}
+
+install=(
   linux-cachyos-lts-lto
   linux-cachyos-lts-lto-headers
 )
-yay --sync --needed --noconfirm "${packages[@]}"
+yay-install "${install[@]}"

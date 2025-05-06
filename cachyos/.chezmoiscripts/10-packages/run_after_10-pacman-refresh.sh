@@ -8,11 +8,13 @@ sudo pacman-key --init
 
 # ref: <https://help.mirrors.cernet.edu.cn/archlinuxcn/>
 sudo pacman-key --lsign-key farseerfc@archlinux.org
-sudo pacman --sync --needed --noconfirm archlinuxcn-keyring
 # ref: <https://help.mirrors.cernet.edu.cn/arch4edu/>
 sudo pacman-key --recv-keys 7931B6D628C8D3BA
 sudo pacman-key --finger 7931B6D628C8D3BA
 sudo pacman-key --lsign-key 7931B6D628C8D3BA
 
-sudo pacman --sync --refresh --noconfirm --sysupgrade
-sudo pacman --sync --needed --noconfirm yay
+packages=(
+  archlinuxcn-keyring
+  yay
+)
+sudo pacman --sync --noconfirm --needed --sysupgrade --refresh "${packages[@]}"

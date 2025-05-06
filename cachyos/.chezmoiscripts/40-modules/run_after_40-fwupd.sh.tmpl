@@ -3,9 +3,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# {{- template "yay.sh" -}}
 packages=(
   fwupd
 )
-yay --sync --needed --noconfirm "${packages[@]}"
+yay-install "${packages[@]}"
 
 sudo systemctl enable --now fwupd-refresh.timer

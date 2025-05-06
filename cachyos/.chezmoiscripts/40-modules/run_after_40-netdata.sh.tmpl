@@ -6,10 +6,11 @@ set -o pipefail
 
 if systemd-detect-virt --quiet; then exit; fi
 
-packages=(
+# {{- template "yay.sh" -}}
+install=(
   netdata
 )
-yay --sync --needed --noconfirm "${packages[@]}"
+yay-install "${install[@]}"
 
 sudo systemctl enable --now netdata.service
 
