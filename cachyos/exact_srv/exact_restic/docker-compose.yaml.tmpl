@@ -5,11 +5,7 @@ name: Restic REST Server
 
 services:
   restic:
-    command: >-
-      serve restic
-        --addr ":8080"
-        --htpasswd "/data/htpasswd"
-        "tsinghua:/restic"
+    command: serve restic "tsinghua:/restic/{{ .chezmoi.hostname }}" --addr ":8080"
     container_name: restic
     image: rclone/rclone:latest
     ports:
@@ -17,12 +13,6 @@ services:
     pull_policy: daily
     user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"
     volumes:
-      - type: bind
-        source: ./htpasswd
-        target: /data/htpasswd
-        read_only: true
-        bind:
-          create_host_path: false
       - type: bind
         source: "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf"
         target: /config/rclone/rclone.conf

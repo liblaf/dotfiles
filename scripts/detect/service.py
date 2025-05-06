@@ -61,7 +61,6 @@ def main() -> None:
     data = config_service(data, "Bing Wallpaper Backup", on=False)
     data = config_service(data, "Bitwarden Backup", on=False)
     data = config_service(data, "MLflow", on=core)
-    data = config_service(data, "Restic", on=core)
     data = config_service(data, "UFW Collector", on=core)
     data = config_service(data, "WebDAV", on=core)
 
@@ -70,6 +69,9 @@ def main() -> None:
     data = config_service(data, "GPT Academic", on=extra)
     data = config_service(data, "MinerU", on=extra)
     data = config_service(data, "Stirling PDF", on=extra)
+
+    # always on
+    data = config_service(data, "Restic", on=True)
 
     save_data(data)
 

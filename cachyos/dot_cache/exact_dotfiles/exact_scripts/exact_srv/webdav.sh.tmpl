@@ -9,12 +9,7 @@ cd "$HOME/srv/webdav"
 
 # {{- if .service.webdav }}
 
-install -D --mode="u=rw,go=" --verbose /dev/null ./htpasswd
-htpasswd -b "./htpasswd" \
-  '{{ (rbw "WebDAV").data.username }}' \
-  '{{ (rbw "WebDAV").data.password }}'
-
-docker compose up --detach --pull always
+docker compose up --detach
 
 # {{- else }}
 

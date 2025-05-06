@@ -5,11 +5,7 @@ name: WebDAV
 
 services:
   webdav:
-    command: >-
-      serve webdav tsinghua:/webdav
-        --addr ":8080"
-        --htpasswd "/data/htpasswd"
-        --vfs-cache-mode full
+    command: serve webdav tsinghua:/webdav --addr ":8080"
     container_name: webdav
     image: rclone/rclone:latest
     ports:
@@ -17,12 +13,6 @@ services:
     pull_policy: daily
     user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"
     volumes:
-      - type: bind
-        source: ./htpasswd
-        target: /data/htpasswd
-        read_only: true
-        bind:
-          create_host_path: false
       - type: bind
         source: "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf"
         target: /config/rclone/rclone.conf

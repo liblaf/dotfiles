@@ -9,11 +9,6 @@ cd "$HOME/srv/restic"
 
 # {{- if .service.restic }}
 
-install -D --mode="u=rw,go=" --verbose /dev/null ./htpasswd
-htpasswd -b "./htpasswd" \
-  '{{ (rbw "Restic").data.username }}' \
-  '{{ (rbw "Restic").data.password }}'
-
 docker compose up --detach
 
 # {{- else }}

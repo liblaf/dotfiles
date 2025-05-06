@@ -2,9 +2,6 @@
 #:schema https://creativeprojects.github.io/resticprofile/jsonschema/config-1.json
 # ref: <https://creativeprojects.github.io/resticprofile/reference/index.html>
 
-# {{- $user := (rbw "Restic").data.username }}
-# {{- $pass := (rbw "Restic").data.password }}
-
 [global]
 initialize = true
 prevent-sleep = true
@@ -17,7 +14,11 @@ base-dir = "{{ .chezmoi.homeDir }}"
 initialize = true
 compression = "max"
 password-file = "{{ .chezmoi.homeDir }}/.config/resticprofile/password.txt"
-repository = "rest:http://{{ $user }}:{{ $pass }}@127.0.0.1:{{ .port.restic }}/srv/"
+repository = "rest:http://127.0.0.1:{{ .port.restic }}/srv/"
+
+[default.env]
+RESTIC_REST_USERNAME = '{{ (rbw "Restic").data.username }}'
+RESTIC_REST_PASSWORD = '{{ (rbw "Restic").data.password }}'
 
 [default.backup]
 check-after = true

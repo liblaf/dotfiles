@@ -9,7 +9,7 @@ services:
       - NET_ADMIN
     container_name: caddy
     env_file:
-      - ./caddy.env
+      - ./vars.env
     image: caddybuilds/caddy-cloudflare:alpine
     network_mode: host
     pull_policy: daily

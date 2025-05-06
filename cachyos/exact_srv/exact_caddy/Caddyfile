@@ -10,15 +10,7 @@ gpt.{$BASE_DOMAIN} {
 	reverse_proxy localhost:{$GPT_ACADEMIC_PORT}
 }
 
-{$HOSTNAME}.gpt.{$BASE_DOMAIN} {
-	reverse_proxy localhost:{$GPT_ACADEMIC_PORT}
-}
-
 mlflow.{$BASE_DOMAIN} {
-	reverse_proxy localhost:{$MLFLOW_PORT}
-}
-
-{$HOSTNAME}.mlflow.{$BASE_DOMAIN} {
 	reverse_proxy localhost:{$MLFLOW_PORT}
 }
 
@@ -26,22 +18,16 @@ pdf.{$BASE_DOMAIN} {
 	reverse_proxy localhost:{$STIRLING_PDF_PORT}
 }
 
-{$HOSTNAME}.pdf.{$BASE_DOMAIN} {
-	reverse_proxy localhost:{$STIRLING_PDF_PORT}
-}
-
 restic.{$BASE_DOMAIN} {
-	reverse_proxy localhost:{$RESTIC_PORT}
-}
-
-{$HOSTNAME}.restic.{$BASE_DOMAIN} {
+	basic_auth {
+		{$RESTIC_USERNAME} {$RESTIC_HASHED_PASSWORD}
+	}
 	reverse_proxy localhost:{$RESTIC_PORT}
 }
 
 webdav.{$BASE_DOMAIN} {
-	reverse_proxy localhost:{$WEBDAV_PORT}
-}
-
-{$HOSTNAME}.webdav.{$BASE_DOMAIN} {
+	basic_auth {
+		{$WEBDAV_USERNAME} {$WEBDAV_HASHED_PASSWORD}
+	}
 	reverse_proxy localhost:{$WEBDAV_PORT}
 }
