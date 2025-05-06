@@ -57,14 +57,15 @@ def main() -> None:
     data: Any = load_data()
     data["service"] = {}
 
-    # stateful services
+    # stateful
     data = config_service(data, "Bing Wallpaper Backup", on=False)
     data = config_service(data, "Bitwarden Backup", on=False)
+    data = config_service(data, "DVC", on=core)
     data = config_service(data, "MLflow", on=core)
     data = config_service(data, "UFW Collector", on=core)
     data = config_service(data, "WebDAV", on=core)
 
-    # stateless services
+    # stateless
     data = config_service(data, "Caddy", on=extra)
     data = config_service(data, "GPT Academic", on=extra)
     data = config_service(data, "MinerU", on=extra)

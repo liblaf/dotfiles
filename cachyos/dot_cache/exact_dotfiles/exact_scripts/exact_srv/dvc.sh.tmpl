@@ -1,0 +1,18 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+cd "$HOME/srv/dvc"
+
+# {{ template "docker.sh" }}
+
+# {{- if .service.dvc }}
+
+docker compose up --detach
+
+# {{- else }}
+
+docker compose down
+
+# {{- end }}

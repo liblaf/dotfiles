@@ -1,15 +1,15 @@
 # -*- mode: yaml; -*-
 # yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
 
-name: Restic
+name: DVC
 
 services:
-  restic:
-    command: serve restic "tsinghua:/restic/{{ .chezmoi.hostname }}" --addr ":8080"
-    container_name: restic
+  dvc:
+    command: serve webdav tsinghua:/dvc --addr ":8080"
+    container_name: dvc
     image: rclone/rclone:latest
     ports:
-      - "{{ .port.restic }}:8080"
+      - "{{ .port.dvc }}:8080"
     pull_policy: daily
     user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"
     volumes:

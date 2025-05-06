@@ -53,6 +53,7 @@ class Service(NamedTuple):
 
 
 SERVICES: list[Service] = [
+    Service("DVC"),
     Service("GPT Academic"),
     Service("HTTP"),
     Service("HTTPS", public=True),

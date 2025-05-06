@@ -6,6 +6,13 @@
 	acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
 }
 
+dvc.{$BASE_DOMAIN} {
+	basic_auth {
+		{$DVC_USERNAME} {$DVC_HASHED_PASSWORD}
+	}
+	reverse_proxy localhost:{$DVC_PORT}
+}
+
 gpt.{$BASE_DOMAIN} {
 	reverse_proxy localhost:{$GPT_ACADEMIC_PORT}
 }
@@ -16,13 +23,6 @@ mlflow.{$BASE_DOMAIN} {
 
 pdf.{$BASE_DOMAIN} {
 	reverse_proxy localhost:{$STIRLING_PDF_PORT}
-}
-
-restic.{$BASE_DOMAIN} {
-	basic_auth {
-		{$RESTIC_USERNAME} {$RESTIC_HASHED_PASSWORD}
-	}
-	reverse_proxy localhost:{$RESTIC_PORT}
 }
 
 webdav.{$BASE_DOMAIN} {
