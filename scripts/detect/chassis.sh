@@ -7,7 +7,7 @@ DATA_FILE="$CHEZMOI_SOURCE_DIR/.chezmoidata/generated/ddns.json"
 echo "{}" > "$DATA_FILE"
 
 chassis="$(hostnamectl chassis)"
-virt="$(systemd-detect-virt)"
+virt="$(systemd-detect-virt || true)"
 
 echo "Chassis: $chassis" >&2
 echo "Virtualized: $virt" >&2
