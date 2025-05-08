@@ -103,7 +103,6 @@ packages:
     - sd
     - speedtest-cli
     - sshfs
-    - sshpass # required by: ansible
     - starship
     - taplo-cli
     - tealdeer
@@ -208,10 +207,13 @@ packages:
     - shfmt
 
     # ----------------------------- Optional Deps ---------------------------- #
-    # Optional Deps > texlive-binextra > latexindent
+    # Optional Deps < ansible-core < ansible
+    - python-passlib
+    - sshpass
+    # Optional Deps < latexindent < texlive-binextra
     - perl-yaml-tiny
     - perl-file-homedir
-    # Optional Deps > yazi
+    # Optional Deps < yazi
     - jq
     - 7zip
     - ffmpeg
@@ -222,9 +224,9 @@ packages:
     - zoxide
     - imagemagick
     - chafa
-    # Optional Deps > texlive > minted
+    # Optional Deps < minted < texlive
     - python-pygments
-    # Optional Deps > pot-translation, Stirling PDF
+    # Optional Deps < pot-translation, Stirling PDF
     - tesseract-data-chi_sim
     - tesseract-data-eng
 
