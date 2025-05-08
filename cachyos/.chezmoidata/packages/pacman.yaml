@@ -47,6 +47,8 @@ packages:
     - cloudflared
     - earlyoom
     - pkgstats
+    - tailscale
+    - wireguard-tools
 
     # ---------------------------------- CLI --------------------------------- #
     - ansible
