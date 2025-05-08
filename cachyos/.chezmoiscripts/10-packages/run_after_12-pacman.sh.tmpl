@@ -6,6 +6,14 @@ set -o pipefail
 
 # {{- template "yay.sh" -}}
 
+# remove `lib32-*` packages
+installed="$(yay --query --explicit --quiet)"
+if echo "$installed" | grep --quiet '^lib32-'; then
+  echo "$installed" |
+    grep '^lib32-' |
+    yay --remove --noconfirm --nosave --recursive -
+fi
+
 install=(
   # {{- range .packages.pacman }}
   '{{ . }}' # {{- end }}
