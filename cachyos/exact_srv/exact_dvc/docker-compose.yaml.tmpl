@@ -5,7 +5,7 @@ name: DVC
 
 services:
   dvc:
-    command: serve webdav tsinghua:/dvc --addr ":8080"
+    command: serve webdav /data --addr ":8080"
     container_name: dvc
     image: rclone/rclone:latest
     ports:
@@ -17,5 +17,10 @@ services:
         source: "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf"
         target: /config/rclone/rclone.conf
         read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./data
+        target: /data
         bind:
           create_host_path: false

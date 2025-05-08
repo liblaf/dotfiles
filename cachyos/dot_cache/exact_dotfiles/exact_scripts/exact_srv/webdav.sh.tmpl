@@ -9,7 +9,7 @@ cd "$HOME/srv/webdav"
 
 # {{- if .service.webdav }}
 
-docker compose up --detach
+docker compose up --remove-orphans --wait
 
 # {{- else }}
 

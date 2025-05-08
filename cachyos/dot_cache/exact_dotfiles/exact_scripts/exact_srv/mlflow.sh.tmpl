@@ -14,7 +14,7 @@ systemctl --user disable --now mlflow.service || true
 mkdir --parents --verbose "./basic-auth"
 mkdir --parents --verbose "./mlartifacts"
 mkdir --parents --verbose "./mlruns"
-docker compose up --detach
+docker compose up --remove-orphans --wait
 
 # {{- else }}
 

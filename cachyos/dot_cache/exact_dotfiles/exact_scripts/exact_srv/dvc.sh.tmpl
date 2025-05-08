@@ -9,7 +9,8 @@ cd "$HOME/srv/dvc"
 
 # {{- if .service.dvc }}
 
-docker compose up --detach
+mkdir --parents --verbose "./data"
+docker compose up --remove-orphans --wait
 
 # {{- else }}
 

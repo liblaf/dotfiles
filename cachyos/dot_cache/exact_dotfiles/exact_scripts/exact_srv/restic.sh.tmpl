@@ -9,7 +9,7 @@ cd "$HOME/srv/restic"
 
 # {{- if .service.restic }}
 
-docker compose up --detach
+docker compose up --remove-orphans --wait
 
 # {{- else }}
 

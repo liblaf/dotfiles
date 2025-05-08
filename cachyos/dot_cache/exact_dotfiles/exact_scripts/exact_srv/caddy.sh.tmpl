@@ -12,7 +12,7 @@ sudo systemctl disable --now caddy.service || true
 # {{- if .service.caddy }}
 
 docker volume create "caddy-data"
-docker compose up --detach
+docker compose up --remove-orphans --wait
 
 # {{- else }}
 

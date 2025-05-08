@@ -3,16 +3,12 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# Bun will stuck if proxy is on
-export no_proxy="{{ .no_proxy }}"
-export NO_PROXY="$no_proxy"
-
 pkg_list=(
   @biomejs/biome
+  @bitwarden/cli
   @liblaf/sub-converter
   commitizen
   cspell
-  prettier
   repomix
   speedscope
   vercel
