@@ -208,7 +208,9 @@ packages:
     - shellcheck
     - shfmt
 
-    # ----------------------------- Optional Deps ---------------------------- #
+    # --------------------------------- Deps --------------------------------- #
+    # Deps < Wrap
+    - libcrypt-compat
     # Optional Deps < ansible-core < ansible
     - python-passlib
     - sshpass

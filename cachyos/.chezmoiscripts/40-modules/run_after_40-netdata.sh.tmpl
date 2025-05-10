@@ -1,5 +1,6 @@
 #!/bin/bash
 # -*- mode: sh; -*-
+# shellcheck disable=SC2317
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -11,6 +12,10 @@ install=(
   netdata
 )
 yay-install "${install[@]}"
+
+# TODO: Netdata is using a lot of CPU, so we need to disable it for now
+sudo systemctl disable --now netdata.service
+exit
 
 sudo systemctl enable --now netdata.service
 
