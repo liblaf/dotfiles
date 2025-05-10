@@ -20,6 +20,7 @@ services:
     ports:
       - "{{ .port.mlflow }}:5000"
     pull_policy: daily
+    restart: unless-stopped
     user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"
     volumes:
       - type: bind
