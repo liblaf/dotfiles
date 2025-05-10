@@ -14,8 +14,9 @@ yay-install "${install[@]}"
 
 sudo systemctl enable --now netdata.service
 
-KICKSTART="/tmp/netdata-kickstart.sh"
-wget --output-document="$KICKSTART" "https://get.netdata.cloud/kickstart.sh"
-bash "$KICKSTART" --non-interactive --stable-channel --disable-telemetry \
+sudo "{{ .external_dir }}/netdata-kickstart.sh" \
+  --non-interactive --stable-channel --disable-telemetry \
   --claim-token '{{ (rbwFields "Netdata").CLAIM_TOKEN.value }}' \
-  --claim-rooms '{{ (rbwFields "Netdata").ROOM_ID.value }}'
+  --claim-rooms '{{ (rbwFields "Netdata").ROOM_ID.value }}' \
+  --claim-url "https://app.netdata.cloud" \
+  --claim-only
