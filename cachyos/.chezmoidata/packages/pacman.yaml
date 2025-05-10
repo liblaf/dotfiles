@@ -210,7 +210,7 @@ packages:
 
     # --------------------------------- Deps --------------------------------- #
     # Deps < Wrap
-    - libcrypt-compat
+    - libxcrypt-compat
     # Optional Deps < ansible-core < ansible
     - python-passlib
     - sshpass
