@@ -13,10 +13,6 @@ install=(
 )
 yay-install "${install[@]}"
 
-# TODO: Netdata is using a lot of CPU, so we need to disable it for now
-sudo systemctl disable --now netdata.service
-exit
-
 sudo systemctl enable --now netdata.service
 
 sudo "{{ .external_dir }}/netdata-kickstart.sh" \
