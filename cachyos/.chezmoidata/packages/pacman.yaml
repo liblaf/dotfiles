@@ -242,6 +242,7 @@ packages:
     # ------------------------------- archlinuxcn ----------------------------- #
     - 3dslicer
     - archlinuxcn-keyring
+    - clash-meta
     - downgrade
     - git-extras
     - gnome-shell-extension-dash-to-dock
