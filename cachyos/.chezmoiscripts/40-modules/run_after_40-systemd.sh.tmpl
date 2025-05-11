@@ -11,12 +11,16 @@ sudo systemctl disable --now "qbittorrent-nox@$USER.service" || true
 sudo systemctl disable --now ddns-go.service || true
 sudo systemctl disable --now goauthing.service || true
 sudo systemctl disable --now goauthing6.service || true
+sudo systemctl disable --now sing-box.service || true
 systemctl --user disable --now rclone-onedrive.service || true
 systemctl --user disable --now rclone-serve-restic.service || true
 systemctl --user disable --now restic.timer || true
 systemctl --user disable --now seadrive.service || true
+systemctl --user disable --now sing-push.service || true
+systemctl --user disable --now sing.timer || true
 
 sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now clash-meta.service
 sudo systemctl enable --now earlyoom.service
 sudo systemctl enable --now logrotate.timer
 sudo systemctl enable --now sing-box.service
@@ -26,6 +30,12 @@ systemctl --user enable --now ddns.timer
 systemctl --user enable --now gcr-ssh-agent.socket # ref: <https://wiki.archlinux.org/title/GNOME/Keyring#Setup_gcr>
 systemctl --user enable --now goauthing.service
 systemctl --user enable --now goauthing6.service
+systemctl --user enable --now mihomo-pull.timer
 systemctl --user enable --now pueued.service
 systemctl --user enable --now rclone-mount@tsinghua.service
-systemctl --user enable --now sing.timer
+
+# {{- if .service.mihomo }}
+systemctl --user enable --now mihomo-push.timer
+# {{- else }}
+systemctl --user disable --now mihomo-push.timer || true
+# {{- end }}

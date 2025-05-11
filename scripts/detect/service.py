@@ -61,6 +61,7 @@ def main() -> None:
     data = config_service(data, "Bing Wallpaper Backup", on=False)
     data = config_service(data, "Bitwarden Backup", on=False)
     data = config_service(data, "DVC", on=core)
+    data = config_service(data, "Mihomo", on=core)
     data = config_service(data, "MLflow", on=core)
     data = config_service(data, "UFW Collector", on=core)
     data = config_service(data, "WebDAV", on=core)

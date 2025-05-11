@@ -20,4 +20,4 @@ sudo "{{ .external_dir }}/netdata-kickstart.sh" \
   --claim-token '{{ (rbwFields "Netdata").CLAIM_TOKEN.value }}' \
   --claim-rooms '{{ (rbwFields "Netdata").ROOM_ID.value }}' \
   --claim-url "https://app.netdata.cloud" \
-  --claim-only
+  --claim-only || true
