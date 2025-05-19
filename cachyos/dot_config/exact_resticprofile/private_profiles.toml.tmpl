@@ -11,6 +11,7 @@ scheduler = "systemd"
 
 [default]
 base-dir = "{{ .chezmoi.homeDir }}"
+force-inactive-lock = true
 initialize = true
 compression = "max"
 password-file = "{{ .chezmoi.homeDir }}/.config/resticprofile/password.txt"

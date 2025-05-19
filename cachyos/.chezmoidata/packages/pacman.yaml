@@ -135,6 +135,7 @@ packages:
     - obs-studio
     - obsidian
     - power-profiles-daemon
+    - qalculate-gtk
     - remmina
     - seahorse
     - telegram-desktop

@@ -1,5 +1,6 @@
 packages:
   flatpak:
+    - com.github.tchx84.Flatseal
     - com.tencent.WeChat
     - com.tencent.wemeet
     - io.typora.Typora

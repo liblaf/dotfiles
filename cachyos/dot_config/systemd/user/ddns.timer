@@ -7,5 +7,4 @@ Description = DDNS
 WantedBy = timers.target
 
 [Timer]
-OnStartupSec = 0
-OnUnitActiveSec = 1min
+OnCalendar = minutely

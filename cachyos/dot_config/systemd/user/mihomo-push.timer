@@ -7,5 +7,4 @@ Description = Push Mihomo Configuration
 WantedBy = timers.target
 
 [Timer]
-OnStartupSec = 0
-OnUnitActiveSec = 1d
+OnCalendar = daily
