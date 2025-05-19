@@ -1,6 +1,12 @@
 # -*- mode: properties; -*-
 # ref: <https://git-scm.com/docs/git-config>
 
+[alias]
+# ref: <https://difftastic.wilfred.me.uk/git.html>
+dft = -c diff.external="~/.config/git/diff.sh" diff
+dl = -c diff.external="~/.config/git/diff.sh" log --ext-diff
+ds = -c diff.external="~/.config/git/diff.sh" show --ext-diff
+
 [commit]
 gpgSign = true
 
@@ -14,8 +20,8 @@ helper = !gh auth git-credential
 [credential "https://github.com"]
 helper = !gh auth git-credential
 
-[diff]
-external = ~/.config/git/diff.sh
+# [diff]
+# external = ~/.config/git/diff.sh
 
 [fetch]
 parallel = 0

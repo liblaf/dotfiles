@@ -8,3 +8,6 @@ external_dir_relative = "{{ $external_dir_relative }}"
 
 [hooks.apply.pre]
 script = ".local/share/chezmoi/hooks/apply-pre.sh"
+
+[hooks.update.pre]
+script = ".local/share/chezmoi/hooks/apply-pre.sh"
