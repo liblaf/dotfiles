@@ -37,6 +37,7 @@
     "chsh",
     "chsrc",
     "clangd",
+    "clearml",
     "cmdline",
     "commitizen",
     "copyto",
