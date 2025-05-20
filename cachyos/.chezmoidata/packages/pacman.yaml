@@ -253,11 +253,10 @@ packages:
     - resticprofile
     - seadrive-daemon
     - sing-box
-    - ventoy
     - yay
     - zotero
 
-    # ---------------------------------- AUR --------------------------------- #
+    # ----------------------------- AUR / CachyOS ---------------------------- #
     - argc
     - auth-thu-bin
     - bun-bin
@@ -273,13 +272,13 @@ packages:
     - hwatch-bin
     - jnv-bin
     - kalker-bin
-    # - mathematica
     - miniconda3
     - nautilus-code
     - ov-bin
     - paccache-hook
     - piclist-bin
     - restic-browser-bin
+    - ventoy-bin
     - wps-office-365
     - wps-office-365-fonts # required by: wps-office-365
     - yaycache
