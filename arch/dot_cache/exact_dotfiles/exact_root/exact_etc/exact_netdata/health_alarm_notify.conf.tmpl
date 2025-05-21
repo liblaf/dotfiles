@@ -2,8 +2,8 @@
 # shellcheck disable=SC2034,SC2148
 
 # https://learn.netdata.cloud/docs/alerts-&-notifications/notifications/agent-dispatched-notifications/agent-notifications-reference#proxy-configuration
-export http_proxy="http://127.0.0.1:{{ .port.proxy }}"
-export https_proxy="http://127.0.0.1:{{ .port.proxy }}"
+export http_proxy="http://127.0.0.1:{{ .ports.proxy }}"
+export https_proxy="http://127.0.0.1:{{ .ports.proxy }}"
 
 # https://learn.netdata.cloud/docs/alerts-&-notifications/notifications/agent-dispatched-notifications/telegram
 SEND_TELEGRAM="YES"

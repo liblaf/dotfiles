@@ -15,7 +15,7 @@ force-inactive-lock = true
 initialize = true
 compression = "max"
 password-file = "{{ .chezmoi.homeDir }}/.config/resticprofile/password.txt"
-repository = "rest:http://127.0.0.1:{{ .port.restic }}/srv/"
+repository = "rest:http://127.0.0.1:{{ .ports.restic }}/srv/"
 
 [default.env]
 RESTIC_REST_USERNAME = '{{ (rbw "Restic").data.username }}'

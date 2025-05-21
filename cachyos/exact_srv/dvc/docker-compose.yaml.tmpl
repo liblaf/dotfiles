@@ -9,7 +9,7 @@ services:
     container_name: dvc
     image: rclone/rclone:latest
     ports:
-      - "{{ .port.dvc }}:8080"
+      - "{{ .ports.dvc }}:8080"
     pull_policy: daily
     restart: unless-stopped
     user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"

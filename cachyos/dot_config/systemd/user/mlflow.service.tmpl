@@ -9,7 +9,7 @@ Environment = "MLFLOW_BACKEND_STORE_URI=sqlite:///%h/srv/mlflow/mlruns.db"
 Environment = "MLFLOW_DEFAULT_ARTIFACT_ROOT=%h/srv/mlflow/mlartifacts"
 Environment = 'MLFLOW_FLASK_SERVER_SECRET_KEY={{ output "openssl" "rand" "-base64" "32" }}'
 Environment = "MLFLOW_HOST=0.0.0.0"
-Environment = "MLFLOW_PORT={{ .port.mlflow }}"
+Environment = "MLFLOW_PORT={{ .ports.mlflow }}"
 ExecStartPre = mkdir --parents --verbose "%h/mnt/%I"
 ExecStart = %h/.local/bin/mlflow server --app-name basic-auth
 Restart = always

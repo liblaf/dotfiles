@@ -18,7 +18,7 @@ services:
     # TODO: switch to official image until <https://github.com/mlflow/mlflow/issues/14610> is fixed
     # image: mlflow/mlflow:latest
     ports:
-      - "{{ .port.mlflow }}:5000"
+      - "{{ .ports.mlflow }}:5000"
     pull_policy: daily
     restart: unless-stopped
     user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"

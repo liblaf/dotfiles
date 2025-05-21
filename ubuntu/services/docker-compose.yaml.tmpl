@@ -9,7 +9,7 @@ services:
     container_name: gpt_academic
     image: "{{ .mirrors.ghcr }}/binary-husky/gpt_academic_nolocal:master"
     ports:
-      - "{{ .port.gpt_academic }}:{{ .port.gpt_academic }}"
+      - "{{ .ports.gpt_academic }}:{{ .ports.gpt_academic }}"
     restart: unless-stopped
     volumes:
       - ./gpt_academic/config_private.py:/gpt/config_private.py:ro
@@ -36,7 +36,7 @@ services:
       retries: 16
     image: frooodle/s-pdf:latest-fat
     ports:
-      - "{{ .port.stirling_pdf }}:8080"
+      - "{{ .ports.stirling_pdf }}:8080"
     restart: on-failure:5
     volumes:
       - ./stirling-pdf/configs:/configs:rw

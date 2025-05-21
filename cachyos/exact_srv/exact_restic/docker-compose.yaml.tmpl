@@ -9,7 +9,7 @@ services:
     container_name: restic
     image: rclone/rclone:latest
     ports:
-      - "{{ .port.restic }}:8080"
+      - "{{ .ports.restic }}:8080"
     pull_policy: daily
     restart: unless-stopped
     user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"

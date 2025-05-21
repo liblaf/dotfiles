@@ -14,7 +14,7 @@ WantedBy = default.target
 
 [Service]
 # systemd.exec > ENVIRONMENT
-Environment = "ADDR=:{{ .port.webdav }}"
+Environment = "ADDR=:{{ .ports.webdav }}"
 Environment = "HTPASSWD=%d/HTPASSWD"
 Environment = "REMOTE_PATH=%h/mnt/SeaDrive/My Libraries/webdav"
 # systemd.exec > CREDENTIALS
