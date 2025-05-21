@@ -1,0 +1,30 @@
+# -*- mode: toml; -*-
+#:schema https://mise.jdx.dev/schema/mise.json
+
+[settings]
+default_config_filename = ".config/mise/config.toml"
+experimental = true
+go_download_mirror = "{{ .mirrors.golang }}"
+
+[settings.node]
+mirror_url = "{{ .mirrors.nodejs_release }}"
+
+[settings.npm]
+bun = true
+
+[settings.pipx]
+registry_url = "{{ .mirrors.pypi }}/{}/json"
+uvx = true
+
+[settings.python]
+uv_venv_auto = true
+uv_venv_create_args = ["--system-site-packages"]
+
+[settings.sops]
+age_key_file = '{{ joinPath .chezmoi.homeDir ".config/sops/age/keys.txt" }}'
+age_recipients = "{{ .chezmoi.config.age.recipient }}"
+
+[settings.status]
+missing_tools = "always"
+show_env = true
+show_tools = true

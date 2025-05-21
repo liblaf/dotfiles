@@ -143,6 +143,12 @@ packages:
     - wezterm
     - wl-clipboard
 
+    # ------------------------------- Dev Tools ------------------------------ #
+    - age # required by: mise, sops
+    - mise
+    - sops # required by: mise
+    - usage # required by: mise
+
     # --------------------------------- Fonts -------------------------------- #
     # see also: <cachyos/.chezmoiscripts/40-modules/run_after_40-fonts.sh>
 
