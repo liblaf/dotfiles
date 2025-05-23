@@ -6,12 +6,11 @@ from collections.abc import Iterable
 import rich
 
 EXTENSION_PACKS: dict[str, list[str]] = {
-    "share": [
+    "shared": [
         "aaron-bond.better-comments",
         "chouzz.vscode-better-align",
         "chrislajoie.vscode-modelines",
         "christian-kohler.path-intellisense",
-        "eamodio.gitlens",
         "esbenp.prettier-vscode",
         "fill-labs.dependi",
         "foxundermoon.shell-format",
@@ -49,7 +48,6 @@ EXTENSION_PACKS: dict[str, list[str]] = {
         "usernamehw.errorlens",
         "visualstudioexptteam.intellicode-api-usage-examples",
         "visualstudioexptteam.vscodeintellicode",
-        "vitaliymaz.vscode-svg-previewer",
         "wholroyd.jinja",
         "yzhang.markdown-all-in-one",
     ],
@@ -74,7 +72,6 @@ EXTENSION_PACKS: dict[str, list[str]] = {
     ],
     "python": [
         "charliermarsh.ruff",
-        "czhang03.unicode-math-input",
         "donjayamanne.python-environment-manager",
         "kevinrose.vsc-python-indent",
         "marimo-team.vscode-marimo",
@@ -92,7 +89,6 @@ EXTENSION_PACKS: dict[str, list[str]] = {
     "rust": [
         "dustypomerleau.rust-syntax",
         "rust-lang.rust-analyzer",
-        # "1yib.rust-bundle",
     ],
     "typescript": [
         "biomejs.biome",
@@ -100,14 +96,14 @@ EXTENSION_PACKS: dict[str, list[str]] = {
 }
 
 PROFILES: dict[str, list[str]] = {
-    "Default": ["share", "python"],
-    "C/C++": ["share", "c/c++"],
-    "Dotfiles": ["share", "dotfiles", "python"],
-    "Go": ["share", "go"],
-    "LaTeX": ["share", "latex"],
-    "Python": ["share", "python"],
-    "Rust": ["share", "rust"],
-    "Web": ["share", "typescript"],
+    "Default": ["shared", "python"],
+    "C/C++": ["shared", "c/c++"],
+    "Dotfiles": ["shared", "dotfiles", "python"],
+    "Go": ["shared", "go"],
+    "LaTeX": ["shared", "latex"],
+    "Python": ["shared", "python"],
+    "Rust": ["shared", "rust"],
+    "Web": ["shared", "typescript"],
 }
 
 
