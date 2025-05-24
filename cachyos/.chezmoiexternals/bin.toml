@@ -10,6 +10,12 @@ refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/rust-cli/releases/download/dev/cf-x86_64-unknown-linux-gnu"
 
+[".local/bin/cherries-init.sh"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://raw.githubusercontent.com/liblaf/cherries/refs/heads/main/scripts/cherries-init.sh"
+
 [".local/bin/ddns"]
 executable = true
 refreshPeriod = "168h"
