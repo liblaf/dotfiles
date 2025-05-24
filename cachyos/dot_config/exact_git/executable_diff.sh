@@ -13,7 +13,7 @@ new_file="$5"
 new_hex="$6"
 new_mode="$7"
 
-if [[ $path == *.lock || $path == "go.sum" ]]; then
+if [[ $path == *.lock || $path == "go.sum" || $path == ".cspell.json" ]]; then
   generated=true
 elif head --lines="5" "$new_file" | grep --quiet "@generated"; then
   generated=true
