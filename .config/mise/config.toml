@@ -1,6 +1,6 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 
-[[env]]
+[env]
 _.source = ".config/mise/scripts/env.sh"
 
 [tasks.gen]
