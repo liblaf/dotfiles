@@ -7,9 +7,6 @@ set -o pipefail
 pkg_list=(
   "dvc[webdav]"
   "meshio[all]"
-  "mlflow[auth]"
-  aider-chat
-  clearml
   https://github.com/liblaf/python-cli.git
   https://github.com/liblaf/thu-learn-downloader.git
   liblaf-lime
@@ -20,6 +17,8 @@ pkg_list=(
 
 pkg_to_remove=(
   ai-commit-cli
+  aider-chat
+  clearml
   glances
   liblaf-ai-cli
   liblaf-llm-cli
