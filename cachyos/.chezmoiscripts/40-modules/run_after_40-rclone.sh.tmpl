@@ -9,6 +9,12 @@ rclone config create dvc webdav \
   user='{{ (rbw "DVC").data.username }}' \
   pass='{{ (rbw "DVC").data.password }}'
 
+rclone config create GJM-AList webdav \
+  url='{{ (index (rbw "GJMs AList").data.uris 0).uri }}/dav/' \
+  vendor='other' \
+  user='{{ (rbw "GJMs AList").data.username }}' \
+  pass='{{ (rbw "GJMs AList").data.password }}'
+
 rclone config create tsinghua seafile \
   url='https://cloud.tsinghua.edu.cn' \
   user='{{ (rbw "清华大学云盘").data.username }}' \
