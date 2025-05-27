@@ -32,10 +32,12 @@ tag = ["schedule"]
 
 [default.forget]
 schedule = "weekly"
-keep-within-daily = "7"
-keep-within-hourly = "24"
-keep-within-monthly = "12"
-keep-within-weekly = "4"
-keep-within-yearly = "10"
+keep-within-daily = "7d"
+keep-within-hourly = "1d"
+keep-within-monthly = "12m"
+keep-within-weekly = "1m"
+keep-within-yearly = "10y"
 prune = true
+repack-small = true
+repack-uncompressed = true
 tag = ["schedule"]
