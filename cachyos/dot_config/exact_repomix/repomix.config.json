@@ -1,17 +1,13 @@
 // -*- mode: jsonc; -*-
-// ref: <https://github.com/yamadashy/repomix?tab=readme-ov-file#%EF%B8%8F-configuration>
+// ref: <https://repomix.com/guide/configuration>
 {
-  "output": {
-    "compress": true,
-    "showLineNumbers": true
-  },
   "ignore": {
     "customPatterns": [
-      "**/.cspell.*",
+      "**/.cspell.json",
       "**/.vscode",
       "**/*-lock.*",
       "**/*.lock",
-      "CHANGELOG.md"
+      "**/CHANGELOG.md"
     ]
   }
 }
