@@ -15,7 +15,13 @@ if status is-interactive
     alias ll 'ls -lh'
     alias la 'ls -lAh'
 
-    abbr --add r --command pueue -- status status="running"
+    if type --query pueue
+        abbr --add r --command pueue -- status status="running"
+    end
+
+    if type --query lime
+        abbr --add c -- lime commit
+    end
 
     set apps meshlab paraview typora
     for app in $apps
