@@ -94,7 +94,6 @@ packages:
     - parallel
     - pnpm
     - pre-commit
-    - prettier
     - pueue
     - rbw
     - rclone
@@ -112,7 +111,6 @@ packages:
     - trash-cli
     - usbutils
     - vhs
-    - wrangler
     - xh
     - yazi
     - zoxide
@@ -173,6 +171,11 @@ packages:
 
     # ---------------------------------- Go ---------------------------------- #
     - go
+
+    # ------------------------ JavaScript / TypeScript ----------------------- #
+    - biome
+    - prettier
+    - wrangler
 
     # -------------------------------- Python -------------------------------- #
     - mkdocs

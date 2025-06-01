@@ -20,7 +20,7 @@ if status is-interactive
     end
 
     if type --query lime
-        abbr --add c -- lime commit
+        abbr --add lc -- lime commit
     end
 
     set apps meshlab paraview typora
