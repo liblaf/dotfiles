@@ -1,31 +1,35 @@
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+# ref: <https://yazi-rs.github.io/docs/configuration/yazi>
 
-[manager]
+[mgr]
 linemode = "mtime"
 
-[opener]
-code = [{ run = 'code "$@"', orphan = true, desc = "code", for = "unix" }]
-extract = [{ run = 'ouch decompress "$@"', desc = "Extract", for = "unix" }]
-open = [
-  { run = 'xdg-open "$1" &> /dev/null', desc = "Open", for = "linux" },
-  { run = 'open "$@"', desc = "Open", for = "macos" },
-  { run = 'start "" "%1"', orphan = true, desc = "Open", for = "windows" },
-]
-view = [
-  { run = '${VIEWER:-bat} "$@"', desc = "$VIEWER", block = true, for = "unix" },
-]
+[[opener.code]]
+run = 'code "$@"'
+orphan = true
+desc = "code"
+for = "unix"
 
-[open]
-prepend_rules = [
-  { mime = "model/*", use = [
-    "open",
-    "reveal",
-  ] },
-  { mime = "text/*", use = [
-    "edit",
-    "code",
-    "open",
-    "reveal",
-    "view",
-  ] },
-]
+[[opener.extract]]
+run = 'ouch decompress "$@"'
+desc = "Extract"
+for = "unix"
+
+[[opener.open]]
+run = 'xdg-open "$@" &> /dev/null'
+orphan = true
+desc = "Open"
+for = "linux"
+
+[[opener.view]]
+run = '${VIEWER:-bat} "$@"'
+block = true
+desc = "$VIEWER"
+for = "unix"
+
+[[open.prepend_rules]]
+mime = "model/*"
+use = ["open", "reveal"]
+
+[[open.prepend_rules]]
+mime = "text/*"
+use = ["code", "edit", "open", "reveal", "view"]
