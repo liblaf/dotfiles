@@ -55,6 +55,7 @@ EXTENSION_PACKS: dict[str, list[str]] = {
         "llvm-vs-code-extensions.vscode-clangd",
         "ms-vscode.cmake-tools",
         "ms-vscode.cpptools",
+        "sumneko.lua",  # for xmake.lua
         "tboox.xmake-vscode",
     ],
     "dotfiles": [
@@ -74,7 +75,6 @@ EXTENSION_PACKS: dict[str, list[str]] = {
         "charliermarsh.ruff",
         "donjayamanne.python-environment-manager",
         "kevinrose.vsc-python-indent",
-        "marimo-team.vscode-marimo",
         "ms-python.debugpy",
         "ms-python.python",
         "ms-python.vscode-pylance",
@@ -85,6 +85,8 @@ EXTENSION_PACKS: dict[str, list[str]] = {
         "ms-toolsai.vscode-jupyter-cell-tags",
         "ms-toolsai.vscode-jupyter-slideshow",
         "njpwerner.autodocstring",
+        # "marimo-team.vscode-marimo",
+        # TODO: add marimo when it works well
     ],
     "rust": [
         "dustypomerleau.rust-syntax",
@@ -97,7 +99,7 @@ EXTENSION_PACKS: dict[str, list[str]] = {
 
 PROFILES: dict[str, list[str]] = {
     "Default": ["shared", "python"],
-    "C/C++": ["shared", "c/c++"],
+    "C/C++": ["shared", "c/c++", "python"],
     "Dotfiles": ["shared", "dotfiles", "python"],
     "Go": ["shared", "go"],
     "LaTeX": ["shared", "latex"],
