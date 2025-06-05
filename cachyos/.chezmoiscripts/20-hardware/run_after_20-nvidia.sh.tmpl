@@ -16,11 +16,11 @@ install=(
   opencl-nvidia            # OpenCL
   python-pytorch-opt-cuda
 
-  # `nvidia-open` now works fine on `AD107M`
-  # // ref: <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/507>
-  # // {{- if eq .hardware.nvidia.codename "AD107M" }}
-  # // linux-cachyos-lts-lto-nvidia
-  # // {{- end }}
+  # // `nvidia-open` now works fine on `AD107M`
+  # ref: <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/507>
+  # {{- if eq .hardware.nvidia.codename "AD107M" }}
+  linux-cachyos-lts-lto-nvidia
+  # {{- end }}
 )
 yay-install "${install[@]}"
 

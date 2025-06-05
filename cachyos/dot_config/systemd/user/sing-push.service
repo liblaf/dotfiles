@@ -1,9 +1,0 @@
-# -*- mode: ini; -*-
-
-[Unit]
-Description = Push sing-box Configuration
-
-[Service]
-ExecStart = %h/.local/bin/sing-push.sh
-Restart = on-failure
-RestartSec = 5s
