@@ -23,7 +23,7 @@ function put() {
 mkdir --parents --verbose "$WORKING_DIRECTORY"
 get "profile.yaml" > "$WORKING_DIRECTORY/profile.yaml"
 
-wget --output-document="$WORKING_DIRECTORY/mihomo.template.yaml" \
+xhs --output "$WORKING_DIRECTORY/mihomo.template.yaml" --download GET \
   "https://github.com/liblaf/sub-converter/raw/refs/heads/main/templates/mihomo/default.yaml"
 sub-converter mihomo \
   --output "$WORKING_DIRECTORY/mihomo.yaml" \
