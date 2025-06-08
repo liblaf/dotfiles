@@ -23,6 +23,7 @@ x-scheme-handler/https=microsoft-edge.desktop
 {{ . }}=org.gnome.Loupe.desktop {{- end }}
 
 # code.desktop
+application/json=code.desktop
 text/plain=code.desktop
 text/x-python=code.desktop
 
@@ -30,9 +31,6 @@ text/x-python=code.desktop
 model/obj=net.meshlab.MeshLab.desktop
 model/stl=net.meshlab.MeshLab.desktop
 model/x-ply=net.meshlab.MeshLab.desktop
-
-# org.gnome.Evince.desktop
-application/pdf=org.gnome.Evince.desktop
 
 # org.gnome.Nautilus.desktop
 inode/directory=org.gnome.Nautilus.desktop
@@ -47,6 +45,7 @@ model/vnd.vtu+xml=org.paraview.ParaView.desktop
 text/markdown=io.typora.Typora.desktop
 
 # wps-office-prometheus.desktop
+application/pdf=wps-office-prometheus.desktop
 # {{- if hasKey .mime "application/wps-office" }}
 {{- range (get .mime "application/wps-office") }}
 {{ . }}=wps-office-prometheus.desktop {{- end }}

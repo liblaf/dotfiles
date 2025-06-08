@@ -22,7 +22,7 @@ packages=(
 yay-install "${packages[@]}"
 
 # ref: <https://wiki.archlinux.org/title/Libvirt#Using_libvirt_group>
-# {{ template "group-add.sh" }}
+# {{- template "group-add.sh" }}
 group-add "libvirt"
 
 sudo systemctl enable --now libvirtd.service
@@ -31,10 +31,22 @@ sudo systemctl enable --now libvirtd.service
 sudo virsh net-autostart default
 
 # Storage Pool
-POOL_NAME="ISO"
-if ! sudo virsh pool-info "$POOL_NAME" &> /dev/null; then
-  mkdir --parents --verbose "$HOME/Downloads/ISO"
-  sudo virsh pool-define-as "$POOL_NAME" "dir" --target "$HOME/Downloads/ISO"
-  sudo virsh pool-autostart "$POOL_NAME"
-  sudo virsh pool-start "$POOL_NAME"
-fi
+function pool-define() {
+  local pool="$1"
+  local target="$2"
+  local target_old
+  target_old="$(sudo virsh pool-dumpxml "$pool" 2> /dev/null |
+    yq eval ".pool.target.path" --input-format "xml")" || true
+  if [[ $target_old != "$target" ]]; then
+    if [[ $target_old != "null" ]]; then
+      sudo virsh pool-destroy "$pool"
+      sudo virsh pool-undefine "$pool"
+    fi
+    mkdir --parents --verbose "$target"
+    sudo virsh pool-define-as "$pool" "dir" --target "$target"
+    sudo virsh pool-autostart "$pool"
+    sudo virsh pool-start "$pool"
+  fi
+}
+pool-define "default" "$HOME/libvirt/images"
+pool-define "ISO" "$HOME/Downloads/ISO"
