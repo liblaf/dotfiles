@@ -1,0 +1,13 @@
+# -*- mode: ini; -*-
+# ref: <https://man.archlinux.org/man/alpm-hooks.5>
+
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = *nvidia*
+
+[Action]
+Description = Flatpak Update
+When = PostTransaction
+Exec = /usr/local/share/libalpm/scripts/99-nvidia-flatpak.sh
