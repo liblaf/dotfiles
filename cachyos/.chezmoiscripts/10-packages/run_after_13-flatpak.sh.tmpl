@@ -11,4 +11,5 @@ install=(
   '{{ . }}' # {{- end }}
 )
 
+sudo flatpak update --assumeyes
 sudo flatpak install --assumeyes --or-update "${install[@]}"

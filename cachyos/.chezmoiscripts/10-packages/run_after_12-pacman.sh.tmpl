@@ -14,6 +14,8 @@ if echo "$installed" | grep --quiet '^lib32-'; then
     yay --remove --noconfirm --nosave --recursive -
 fi
 
+yay --sync --noconfirm --sysupgrade --refresh
+
 install=(
   # {{- range .packages.pacman }}
   '{{ . }}' # {{- end }}
