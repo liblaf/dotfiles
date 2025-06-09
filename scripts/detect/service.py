@@ -64,6 +64,7 @@ def main() -> None:
     data = config_service(data, "Mihomo", on=core)
     data = config_service(data, "MLflow", on=core)
     data = config_service(data, "UFW Collector", on=core)
+    data = config_service(data, "UFW GeoMap", on=core)
     data = config_service(data, "WebDAV", on=core)
 
     # stateless

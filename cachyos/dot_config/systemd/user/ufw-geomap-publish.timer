@@ -1,0 +1,11 @@
+# -*- mode: ini; -*-
+
+[Unit]
+Description = Publish UFW GeoMap to GitHub Pages
+
+[Install]
+WantedBy = timers.target
+
+[Timer]
+OnCalendar = daily
+Persistent = true

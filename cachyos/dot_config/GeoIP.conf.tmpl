@@ -1,0 +1,15 @@
+# -*- mode: ini; -*-
+# GeoIP.conf file for `geoipupdate` program, for versions >= 3.1.1.
+# Used to update GeoIP databases from https://www.maxmind.com.
+# For more information about this config file, visit the docs at
+# https://dev.maxmind.com/geoip/updating-databases.
+
+# `AccountID` is from your MaxMind account.
+AccountID {{ (rbwFields "MaxMind").ACCOUNT_ID.value }}
+
+# Replace YOUR_LICENSE_KEY_HERE with an active license key associated
+# with your MaxMind account.
+LicenseKey {{ (rbwFields "MaxMind").LICENSE_KEY.value }}
+
+# `EditionIDs` is from your MaxMind account.
+EditionIDs GeoLite2-ASN GeoLite2-City GeoLite2-Country

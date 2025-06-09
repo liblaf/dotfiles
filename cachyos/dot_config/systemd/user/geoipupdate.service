@@ -1,0 +1,7 @@
+# -*- mode: ini; -*-
+
+[Unit]
+Description = Updating GeoIP and GeoLite Databases
+
+[Service]
+ExecStart = geoipupdate --config-file "%E/GeoIP.conf" --database-directory "%D/geoip/"

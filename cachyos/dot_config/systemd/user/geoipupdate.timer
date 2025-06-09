@@ -1,0 +1,11 @@
+# -*- mode: ini; -*-
+
+[Unit]
+Description = Updating GeoIP and GeoLite Databases
+
+[Install]
+WantedBy = timers.target
+
+[Timer]
+OnCalendar = daily
+Persistent = true

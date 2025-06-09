@@ -25,7 +25,7 @@ pkg_to_remove=(
   readmeai
 )
 
-# {{ template "uv.sh" }}
+# {{- template "uv.sh" }}
 
 for pkg in "${pkg_to_remove[@]}"; do
   uv tool uninstall "$pkg" || true

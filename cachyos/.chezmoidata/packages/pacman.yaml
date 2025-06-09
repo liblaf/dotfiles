@@ -68,6 +68,7 @@ packages:
     - fio
     - fzf
     - gdu
+    - geoipupdate
     - git
     - git-cliff
     - github-cli
