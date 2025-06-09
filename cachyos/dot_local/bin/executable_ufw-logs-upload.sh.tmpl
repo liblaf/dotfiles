@@ -15,6 +15,9 @@ local_log_file="$local_log_dir/$log_filename"
 
 mkdir --parents --verbose "$local_log_dir"
 journalctl --boot="all" --identifier="kernel" --grep="^\[UFW BLOCK\]" --output="json" > "$local_log_file"
-ssh "$usage_remote" -- "mkdir --parents --verbose \"\$HOME/$log_dir_relative\""
-rsync --info="PROGRESS2" --archive --partial --compress --stats --human-readable \
-  "$local_log_file" "$usage_remote:$log_dir_relative/$log_filename"
+
+if [[ $usage_remote != "$hostname" ]]; then
+  ssh "$usage_remote" -- "mkdir --parents --verbose \"\$HOME/$log_dir_relative\""
+  rsync --info="PROGRESS2" --archive --partial --compress --stats --human-readable \
+    "$local_log_file" "$usage_remote:$log_dir_relative/$log_filename"
+fi
