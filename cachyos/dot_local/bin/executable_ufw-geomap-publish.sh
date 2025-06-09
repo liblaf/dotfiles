@@ -13,8 +13,13 @@ XDG_STATE_HOME="${XDG_STATE_HOME:-"$HOME/.local/state"}"
 state_dir="$XDG_STATE_HOME/liblaf/kiwi/ufw-geomap"
 dist_dir="$state_dir/dist"
 
-mapfile -t log_files < <(find "$state_dir/log" -name "*.log.jsonl" || true)
-kiwi ufw-geomap --output-html="$dist_dir/index.html" "${log_files[@]}"
+mapfile -t log_files < <(
+  find "$state_dir/log" -name "*.log.jsonl" || true
+)
+if [[ -f "$state_dir/archive.csv" ]]; then
+  log_files+=("$state_dir/archive.csv")
+fi
+kiwi ufw-geomap --output-csv="$state_dir/archive.csv" --output-html="$dist_dir/index.html" "${log_files[@]}"
 
 CACHE_DIR="$(mktemp --directory)"
 export CACHE_DIR # ref: <https://github.com/tschaub/gh-pages/issues/354#issuecomment-879929437>
