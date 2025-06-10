@@ -1,6 +1,7 @@
 #!/bin/bash
 
 function yay-install() {
+  local install
   readarray -t install < <(
     comm -13 --check-order \
       <(yay --query --quiet | sort --dictionary-order --unique) \
@@ -11,6 +12,7 @@ function yay-install() {
 }
 
 function yay-remove() {
+  local remove
   readarray -t remove < <(
     comm -12 --check-order \
       <(yay --query --quiet | sort --dictionary-order --unique) \
