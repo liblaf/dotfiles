@@ -1,12 +1,10 @@
-import functools
-import operator
 import subprocess as sp
 from collections.abc import Iterable
 
 import rich
 
-EXTENSION_PACKS: dict[str, list[str]] = {
-    "shared": [
+EXTENSION_PACKS: dict[str, set[str]] = {
+    "shared": {
         "aaron-bond.better-comments",
         "chouzz.vscode-better-align",
         "chrislajoie.vscode-modelines",
@@ -16,25 +14,20 @@ EXTENSION_PACKS: dict[str, list[str]] = {
         "foxundermoon.shell-format",
         "github.copilot-chat",
         "github.copilot",
+        "GitHub.remotehub",
         "github.vscode-github-actions",
         "github.vscode-pull-request-github",
         "gruntfuggly.todo-tree",
+        "hverlin.mise-vscode",
         "iliazeus.vscode-ansi",
         "kisstkondoros.vscode-gutter-preview",
         "mechatroner.rainbow-csv",
         "mikestead.dotenv",
-        "ms-azuretools.vscode-docker",
-        "ms-vscode-remote.remote-containers",
         "ms-vscode-remote.remote-ssh-edit",
         "ms-vscode-remote.remote-ssh",
-        "ms-vscode-remote.remote-wsl",
-        "ms-vscode-remote.vscode-remote-extensionpack",
         "ms-vscode.makefile-tools",
         "ms-vscode.remote-explorer",
-        "ms-vscode.remote-server",
-        "nefrob.vscode-just-syntax",
         "oderwat.indent-rainbow",
-        "pflannery.vscode-versionlens",
         "pkief.material-icon-theme",
         "redhat.vscode-xml",
         "redhat.vscode-yaml",
@@ -47,31 +40,43 @@ EXTENSION_PACKS: dict[str, list[str]] = {
         "unifiedjs.vscode-mdx",
         "usernamehw.errorlens",
         "visualstudioexptteam.intellicode-api-usage-examples",
+        "VisualStudioExptTeam.vscodeintellicode-completions",
         "visualstudioexptteam.vscodeintellicode",
-        "wholroyd.jinja",
         "yzhang.markdown-all-in-one",
-    ],
-    "c/c++": [
+        # dependencies
+        "ms-vscode.azure-repos",  # required by: ms-vscode.remote-repositories
+        "ms-vscode.remote-repositories",  # required by: GitHub.remotehub
+        # shared python extensions
+        "charliermarsh.ruff",
+        "donjayamanne.python-environment-manager",
+        "kevinrose.vsc-python-indent",
+        "ms-python.debugpy",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        # "marimo-team.vscode-marimo",
+        # TODO: add marimo when it works well
+    },
+    "c/c++": {
         "llvm-vs-code-extensions.vscode-clangd",
         "ms-vscode.cmake-tools",
         "ms-vscode.cpptools",
         "sumneko.lua",  # for xmake.lua
         "tboox.xmake-vscode",
-    ],
-    "dotfiles": [
+    },
+    "dotfiles": {
         "bmalehorn.vscode-fish",
         "lkrms.inifmt",
         "nico-castell.linux-desktop-file",
         "sumneko.lua",
-    ],
-    "go": [
+    },
+    "go": {
         "golang.go",
-    ],
-    "latex": [
+    },
+    "latex": {
         "james-yu.latex-workshop",
         "sharzyl.cjk-word-handler",
-    ],
-    "python": [
+    },
+    "python": {
         "charliermarsh.ruff",
         "donjayamanne.python-environment-manager",
         "kevinrose.vsc-python-indent",
@@ -87,20 +92,21 @@ EXTENSION_PACKS: dict[str, list[str]] = {
         "njpwerner.autodocstring",
         # "marimo-team.vscode-marimo",
         # TODO: add marimo when it works well
-    ],
-    "rust": [
+    },
+    "rust": {
         "dustypomerleau.rust-syntax",
         "rust-lang.rust-analyzer",
-    ],
-    "typescript": [
+    },
+    "typescript": {
         "biomejs.biome",
-    ],
+    },
 }
 
+
 PROFILES: dict[str, list[str]] = {
-    "Default": ["shared", "python"],
-    "C/C++": ["shared", "c/c++", "python"],
-    "Dotfiles": ["shared", "dotfiles", "python"],
+    "Default": ["shared"],
+    "C/C++": ["shared", "c/c++"],
+    "Dotfiles": ["shared", "dotfiles"],
     "Go": ["shared", "go"],
     "LaTeX": ["shared", "latex"],
     "Python": ["shared", "python"],
@@ -140,16 +146,16 @@ def uninstall_extensions(extensions: Iterable[str], profile: str = "Default") ->
 def sync_extensions(extensions: Iterable[str], profile: str = "Default") -> None:
     source: set[str] = list_extensions(profile)
     target: set[str] = set(extensions)
+    source = {ext.lower() for ext in source}
+    target = {ext.lower() for ext in target}
     uninstall_extensions(source - target, profile)
     install_extensions(target - source, profile)
 
 
 def main() -> None:
     for profile, packs in PROFILES.items():
-        rich.print(f"[bold cyan]Profile: {profile}[/]")
-        extensions: list[str] = functools.reduce(
-            operator.iadd, (EXTENSION_PACKS[pack] for pack in packs), []
-        )
+        rich.print(f"[bold cyan]VS Code Profile: {profile}[/]")
+        extensions: set[str] = set().union(*(EXTENSION_PACKS[pack] for pack in packs))
         sync_extensions(extensions, profile)
 
 

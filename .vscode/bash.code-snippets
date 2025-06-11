@@ -19,7 +19,6 @@
   // ref: <http://redsymbol.net/articles/unofficial-bash-strict-mode/>
   // ref: <https://google.github.io/styleguide/shellguide.html>
   "shebang": {
-    "scope": "shellscript",
     "prefix": "#!",
     "body": [
       "#!/bin/bash",
@@ -27,6 +26,6 @@
       "set -o nounset",
       "set -o pipefail"
     ],
-    "description": "Bash shebang with safe options"
+    "description": "Use Bash Strict Mode"
   }
 }
