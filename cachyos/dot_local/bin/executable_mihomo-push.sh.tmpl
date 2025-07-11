@@ -4,6 +4,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+IPAPIIS_KEY='{{ (rbwFields "ipapi.is").API_KEY.value }}'
 NAMESPACE_ID='{{ (rbwFields "API").NAMESPACE_ID.value }}'
 PORT="{{ .ports.proxy }}"
 WORKING_DIRECTORY="$HOME/mihomo"
@@ -24,8 +25,9 @@ mkdir --parents --verbose "$WORKING_DIRECTORY"
 get "profile.yaml" > "$WORKING_DIRECTORY/profile.yaml"
 
 xhs --output "$WORKING_DIRECTORY/mihomo.template.yaml" --download GET \
-  "https://github.com/liblaf/sub-converter/raw/refs/heads/main/templates/mihomo/default.yaml"
-sub-converter mihomo \
+  "https://github.com/liblaf/sub-store/raw/refs/heads/main/templates/mihomo/default.yaml"
+sub-store mihomo \
+  --key "$IPAPIIS_KEY" \
   --output "$WORKING_DIRECTORY/mihomo.yaml" \
   --port "$PORT" \
   --profile "$WORKING_DIRECTORY/profile.yaml" \
