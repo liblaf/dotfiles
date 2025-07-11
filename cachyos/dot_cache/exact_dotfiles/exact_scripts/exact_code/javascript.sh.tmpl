@@ -3,16 +3,4 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-pkg_list=(
-  @biomejs/biome
-  @bitwarden/cli
-  @liblaf/sub-store
-  commitizen
-  cspell
-  repomix
-  speedscope
-  vercel
-)
-
-bun add --global "${pkg_list[@]}"
 bun update --global --latest

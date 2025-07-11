@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@biomejs/biome": "latest",
+    "@bitwarden/cli": "latest",
+    "@liblaf/sub-store": "latest",
+    "commitizen": "latest",
+    "cspell": "latest",
+    "gh-pages": "latest",
+    "prettier": "latest",
+    "repomix": "latest",
+    "speedscope": "latest"
+  }
+}
