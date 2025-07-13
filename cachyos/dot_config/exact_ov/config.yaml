@@ -16,10 +16,10 @@ KeyBind:
     - "alt+shift+F8"
   suspend:
     - "ctrl+z"
-  edit:
-    - "v"
-  status_line:
-    - "ctrl+F10"
+  # edit:
+  #   - "v"
+  # status_line:
+  #   - "ctrl+F10"
   sync:
     - "r"
     - "ctrl+l"
