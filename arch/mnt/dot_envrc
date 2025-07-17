@@ -1,6 +1,0 @@
-#!/bin/bash
-# -*- mode: bash; -*-
-
-if [[ -f "$HOME/.config/starship/remote.toml" ]]; then
-  export STARSHIP_CONFIG="$HOME/.config/starship/remote.toml"
-fi

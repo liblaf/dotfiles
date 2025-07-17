@@ -1,7 +1,0 @@
-flatpak:
-  - com.tencent.WeChat
-  - com.tencent.wemeet
-  - io.typora.Typora
-  - moe.tsuna.tsukimi
-  - net.meshlab.MeshLab # `aur/meshlab-appimage` does not support dark mode
-  - org.paraview.ParaView # `extra/paraview` does not support dark mode

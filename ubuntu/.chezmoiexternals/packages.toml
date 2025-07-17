@@ -1,9 +1,0 @@
-["{{ .external_dir_relative }}/docker/install.sh"]
-refreshPeriod = "168h"
-type = "file"
-url = "https://get.docker.com/"
-
-["{{ .external_dir_relative }}/netdata/kickstart.sh"]
-refreshPeriod = "168h"
-type = "file"
-url = "https://get.netdata.cloud/kickstart.sh"

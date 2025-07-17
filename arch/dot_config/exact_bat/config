@@ -1,2 +1,0 @@
---wrap "never"
---pager "ov --quit-if-one-screen --view-mode bat"

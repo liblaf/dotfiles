@@ -1,9 +1,0 @@
-# -*- mode: ini; -*-
-# ref: <https://github.com/mlflow/mlflow/blob/master/mlflow/server/auth/basic_auth.ini>
-
-[mlflow]
-default_permission = READ
-database_uri = sqlite:///data/basic-auth/basic-auth.db
-admin_username = {{ (rbw "MLflow").data.username }}
-admin_password = {{ (rbw "MLflow").data.password }}
-authorization_function = mlflow.server.auth:authenticate_request_basic_auth

@@ -1,9 +1,0 @@
-# -*- mode: ini; -*-
-
-[Unit]
-Description = Push Mihomo Configuration
-
-[Service]
-ExecStart = %h/.local/bin/mihomo-push.sh
-Restart = on-failure
-RestartSec = 5s

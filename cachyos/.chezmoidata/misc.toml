@@ -1,3 +1,0 @@
-central_server = "PC05"
-# TODO: add `fe80::/64` after <https://github.com/encode/httpx/issues/3221> is resolved
-no_proxy = "localhost,127.0.0.0/8,::1,10.0.0.0/8"

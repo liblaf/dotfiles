@@ -1,5 +1,0 @@
-packages:
-  pypi:
-    - https://github.com/liblaf/python-cli.git
-    - https://github.com/liblaf/thu-learn-downloader.git
-    - liblaf-lime

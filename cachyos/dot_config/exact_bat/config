@@ -1,6 +1,0 @@
-# -*- mode: sh; -*-
-# shellcheck disable=all
-# ref: <https://github.com/sharkdp/bat#configuration-file>
-
---wrap "never"
---pager "ov --view-mode bat"

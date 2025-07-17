@@ -1,6 +1,0 @@
-{
-  "files.associations": {
-    "*.json.tmpl": "json"
-  },
-  "xml.catalogs": [".vscode/catalog.xml"]
-}

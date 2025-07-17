@@ -1,9 +1,0 @@
-# -*- mode: toml; -*-
-# ref: <https://doc.rust-lang.org/cargo/reference/config.html>
-# ref: <https://help.mirrors.cernet.edu.cn/crates.io-index>
-
-[source.crates-io]
-replace-with = 'mirror'
-
-[source.mirror]
-registry = "{{ .mirrors.crates_io_index }}"

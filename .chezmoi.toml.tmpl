@@ -1,20 +1,6 @@
-# ref: <https://www.chezmoi.io/reference/configuration-file/>
-
-# {{- $external_dir_relative := ".cache/dotfiles/external" }}
-
 encryption = "age"
-sourceDir = "{{ joinPath .chezmoi.workingTree .chezmoi.osRelease.id }}"
-
-[data]
-external_dir = "{{ joinPath .chezmoi.homeDir $external_dir_relative }}"
-external_dir_relative = "{{ $external_dir_relative }}"
+sourceDir = "{{ .chezmoi.workingTree }}/home"
 
 [age]
-identity = '{{ joinPath .chezmoi.homeDir ".config/sops/age/keys.txt" }}'
-recipient = "age1vfkz4l6vetgmmfpug6d9s0tp4k3es5mhj7znx3u86kge8zwgd9tszsndeh" # cspell: disable-line
-
-[hooks.apply.pre]
-script = ".local/share/chezmoi/hooks/apply-pre.sh"
-
-[hooks.update.pre]
-script = ".local/share/chezmoi/hooks/apply-pre.sh"
+identity = '{{ joinPath .chezmoi.homeDir ".config" "sops" "age" "keys.txt" }}'
+recipient = "age1vfkz4l6vetgmmfpug6d9s0tp4k3es5mhj7znx3u86kge8zwgd9tszsndeh"  # cspell: disable-line
