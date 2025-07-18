@@ -1,0 +1,11 @@
+# -*- mode: yaml; -*-
+# ref: <https://copier.readthedocs.io/en/stable/settings/>
+
+defaults:
+  author_email: "{{ .user.email }}"
+  author_name: "{{ .user.name }}"
+  github_user: "{{ .user.name }}"
+
+trust:
+  - ~/github/liblaf/
+  - gh:liblaf/

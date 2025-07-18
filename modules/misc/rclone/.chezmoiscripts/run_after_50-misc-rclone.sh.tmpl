@@ -1,0 +1,17 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+rclone config create dvc webdav \
+  url='{{ (index (rbw "DVC").data.uris 0).uri }}' \
+  vendor='rclone' \
+  user='{{ (rbw "DVC").data.username }}' \
+  pass='{{ (rbw "DVC").data.password }}'
+
+rclone config create GJM-AList webdav \
+  url='{{ (index (rbw "GJMs AList").data.uris 0).uri }}/dav/' \
+  vendor='other' \
+  user='{{ (rbw "GJMs AList").data.username }}' \
+  pass='{{ (rbw "GJMs AList").data.password }}'

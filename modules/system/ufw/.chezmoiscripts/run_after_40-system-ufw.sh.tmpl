@@ -23,3 +23,5 @@ sudo ufw allow out on virbr0
 
 sudo ufw --force enable
 sudo systemctl enable --now ufw.service
+
+sudo find /etc/ufw -regextype gnu-awk -regex ".*.[[:digit:]]{8}_[[:digit:]]{6}" -delete

@@ -1,0 +1,9 @@
+pacman:
+  # server
+  - dmidecode # for DMI system info support
+  - dnsmasq # for the default NAT/DHCP networking
+  - libvirt
+  - openbsd-netcat # for remote management over SSH
+  - qemu-full # hypervisor
+  # client
+  - virt-manager

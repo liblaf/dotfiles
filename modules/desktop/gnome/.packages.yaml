@@ -1,0 +1,14 @@
+pacman:
+  - gnome-shell-extension-appindicator
+  - gnome-shell-extension-bing-wallpaper
+  - gnome-shell-extension-dash-to-dock
+  - gnome-shell-extension-display-brightness-ddcutil-git
+  - gnome-shell-extension-power-profile-switcher-git
+  - gnome-shell-extension-vitals
+  - gnome-shell-extensions
+  - gnome-themes-extra
+  - ibus-libpinyin
+  - nautilus-code
+  - nautilus-open-any-terminal
+  - power-profiles-daemon
+  - seahorse

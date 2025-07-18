@@ -1,14 +1,26 @@
-inherits:
-  - linux.yaml
-
 modules:
+  - applications/wrap
+  - core/home
+  - core/mirrors
+  - core/root
+  - desktop/common
+  - desktop/gnome
   - devtools/git
+  - devtools/direnv
+  - devtools/pueue
   - fs/btrfs
+  - hardware/intel
+  - hardware/nvidia
   - langs/formats
   - langs/python
   - langs/rust
   - langs/shell
   - langs/typescript
+  - misc/ddns
+  - misc/mihomo
+  - misc/rclone
+  - misc/restic
+  - misc/tsinghua
   - os/cachyos
   - pacman/flatpak
   - pacman/pacman
@@ -16,7 +28,10 @@ modules:
   - system/fonts
   - system/fwupd
   - system/grub
+  - system/libvirt
   - system/mime
-  - system/netdata
+  - system/ssh
   - system/ufw
   - terminal/common
+  - terminal/fish
+  # - system/netdata

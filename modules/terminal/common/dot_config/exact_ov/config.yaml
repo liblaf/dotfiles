@@ -1,6 +1,8 @@
 # ref: <https://github.com/noborus/ov/blob/master/ov.yaml>
 # ref: <https://github.com/noborus/ov/blob/master/oviewer/config.go>
 
+# TODO: merge from `/usr/share/doc/ov/ov-less.yaml`
+# TODO: merge from `/usr/share/doc/ov/ov.yaml`
 # ref: <https://github.com/noborus/ov/blob/master/ov-less.yaml>
 KeyBind:
   exit:
