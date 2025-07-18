@@ -1,4 +1,0 @@
-pacman:
-  - pixi
-  - python-uv
-  - uv

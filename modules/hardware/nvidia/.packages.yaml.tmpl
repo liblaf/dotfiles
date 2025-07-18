@@ -6,7 +6,6 @@ pacman:
   - libva-nvidia-driver # VA-API
   - nvidia-container-toolkit # Docker
   - nvidia-utils # VDPAU
-  - python-pytorch-opt-cuda
 
   #   {{- if eq .hardware.nvidia.codename "AD107M" }}
   # ref: <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/507>
