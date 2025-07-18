@@ -2,10 +2,11 @@ inherits:
   - linux.yaml
 
 modules:
+  - devtools/git
   - langs/python
+  - langs/rust
   - langs/shell
+  - langs/typescript
   - pacman/flatpak
   - pacman/pacman
   - terminal/common
-  - toolchains/bun
-  - toolchains/cargo

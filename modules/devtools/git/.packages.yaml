@@ -1,0 +1,10 @@
+pacman:
+  - difftastic
+  - git
+  - git-cliff
+  - github-cli
+
+npm:
+  - gh-pages
+  - repomix
+  - release-please

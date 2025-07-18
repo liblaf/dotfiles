@@ -28,11 +28,13 @@ fi
 
 yay --sync --noconfirm --sysupgrade --refresh
 
+# {{ if .packages.pacman }}
 install=(
-  # {{ "\n" }} {{ .packages.pacman | join "\n" }}
+  # {{ "\n" }} {{ .packages.pacman | uniq | join "\n" }}
 )
 # shellcheck disable=SC2207
 install+=($(yay --sync --groups --quiet texlive))
 yay-install "${install[@]}"
+# {{ end }}
 
 yay --yay --clean --noconfirm --nosave --recursive --unneeded
