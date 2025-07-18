@@ -37,7 +37,6 @@ pacman:
   - miniserve
   - nmap
   - ouch
-  - pacman-contrib
   - pacutils
   - pandoc-cli
   - parallel
@@ -65,4 +64,7 @@ pacman:
   - zoxide
 
 npm:
+  - "@bitwarden/cli"
+  - gh-pages
+  - prettier
   - repomix

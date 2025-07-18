@@ -1,3 +1,5 @@
 pacman:
   - archlinuxcn-keyring
+  - pacman-contrib
+  - pacutils
   - yay
