@@ -47,22 +47,23 @@ function gen-data() {
 
 function merge-packages() {
   mkdir --parents --verbose "$SOURCE_DIR/.chezmoidata/"
-  echo > "$SOURCE_DIR/.chezmoidata/packages.yaml"
+  packages_file="$SOURCE_DIR/.chezmoidata/packages.yaml"
+  yq eval '{}' --null-input > "$packages_file"
   for module in "${MODULES[@]}"; do
-    local packages_file
+    local module_packages_file
     if [[ -f "$module/.packages.yaml" ]]; then
-      packages_file="$module/.packages.yaml"
+      module_packages_file="$module/.packages.yaml"
     elif [[ -f "$module/.packages.yaml.tmpl" ]]; then
-      packages_file="$TMP_DIR/$(basename -- "$module")-packages.yaml"
+      module_packages_file="$TMP_DIR/$(basename -- "$module")-packages.yaml"
       chezmoi execute-template "$module/.packages.yaml.tmpl" \
-        --source "$SOURCE_DIR/" --file > "$packages_file"
+        --source "$SOURCE_DIR/" --file > "$module_packages_file"
     fi
-    if [[ -f ${packages_file-} ]]; then
-      yq eval ". *+ load(\"$packages_file\") | ... comments=\"\" | { \"packages\": . }" \
-        "$SOURCE_DIR/.chezmoidata/packages.yaml" \
-        --inplace
+    if [[ -f ${module_packages_file-} ]]; then
+      yq eval ". *+ load(\"$module_packages_file\") | ... comments=\"\"" \
+        "$packages_file" --inplace
     fi
   done
+  yq eval '{ "packages": . }' "$packages_file" --inplace
 }
 
 function main() {

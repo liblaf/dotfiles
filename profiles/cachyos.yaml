@@ -3,3 +3,7 @@ inherits:
 
 modules:
   - packages/pacman
+  - toolchains/bun
+  - toolchains/cargo
+  - toolchains/pixi
+  - toolchains/uv

@@ -1,0 +1,11 @@
+#!/bin/bash
+# -*- mode: sh -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ if .hardware.nvidia.mobile }}
+sudo systemctl enable --now nvidia-powerd.service
+# {{ else }}
+sudo systemctl disable --now nvidia-powerd.service
+# {{ end }}
