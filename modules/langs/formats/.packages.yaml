@@ -1,0 +1,9 @@
+pacman:
+  - dasel-bin
+  - go-yq
+  - jaq
+  - jless
+  - jnv-bin
+  - jq
+  - prettier
+  - tombi

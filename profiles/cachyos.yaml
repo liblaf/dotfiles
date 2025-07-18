@@ -3,6 +3,7 @@ inherits:
 
 modules:
   - devtools/git
+  - langs/formats
   - langs/python
   - langs/rust
   - langs/shell
