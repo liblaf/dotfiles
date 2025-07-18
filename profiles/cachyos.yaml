@@ -2,9 +2,10 @@ inherits:
   - linux.yaml
 
 modules:
+  - langs/python
+  - langs/shell
   - pacman/flatpak
   - pacman/pacman
+  - terminal/common
   - toolchains/bun
   - toolchains/cargo
-  - toolchains/pixi
-  - toolchains/uv
