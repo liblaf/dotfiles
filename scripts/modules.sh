@@ -28,6 +28,9 @@ function merge-modules() {
     --exclude=".packages.yaml" \
     --exclude=".packages.yaml.tmpl" \
     -- "${MODULES[@]/%/"/"}" "$SOURCE_DIR/"
+  mkdir --parents --verbose "$SOURCE_DIR/dot_cache/dotfiles/root"
+  rsync --info="PROGRESS2" --archive --delete --force \
+    "$SOURCE_DIR/.root/" "$SOURCE_DIR/dot_cache/dotfiles/root"
 }
 
 function gen-data() {

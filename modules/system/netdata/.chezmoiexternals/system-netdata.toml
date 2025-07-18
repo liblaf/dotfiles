@@ -1,0 +1,5 @@
+['{{ joinPath .externalDirRelative "netdata-kickstart.sh" }}']
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://get.netdata.cloud/kickstart.sh"

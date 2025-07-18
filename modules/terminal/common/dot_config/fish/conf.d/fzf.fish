@@ -1,3 +1,6 @@
-if status is-interactive
-    fzf_key_bindings
+if not status is-interactive
+    or not type --query fzf
+    return
 end
+
+fzf_key_bindings

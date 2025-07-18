@@ -1,7 +1,10 @@
-if status is-interactive
-    # ref: <https://github.com/andreafrancia/trash-cli#but-sometimes-i-forget-to-use-trash-put-really-cant-i>
-    function rm
-        echo "This is not the command you are looking for."
-        false
-    end
+if not status is-interactive
+    or not type --query trash
+    return
+end
+
+# ref: <https://github.com/andreafrancia/trash-cli#but-sometimes-i-forget-to-use-trash-put-really-cant-i>
+function rm
+    echo "This is not the command you are looking for."
+    false
 end

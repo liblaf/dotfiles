@@ -3,11 +3,20 @@ inherits:
 
 modules:
   - devtools/git
+  - fs/btrfs
   - langs/formats
   - langs/python
   - langs/rust
   - langs/shell
   - langs/typescript
+  - os/cachyos
   - pacman/flatpak
   - pacman/pacman
+  - system/docker
+  - system/fonts
+  - system/fwupd
+  - system/grub
+  - system/mime
+  - system/netdata
+  - system/ufw
   - terminal/common
