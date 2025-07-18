@@ -2,7 +2,8 @@ inherits:
   - linux.yaml
 
 modules:
-  - packages/pacman
+  - pacman/flatpak
+  - pacman/pacman
   - toolchains/bun
   - toolchains/cargo
   - toolchains/pixi

@@ -1,0 +1,16 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+sudo flatpak remote-modify flathub --url="{{ .mirrors.flathub }}"
+
+install=(
+  # {{ "\n" }} {{ .packages.flatpak | join "\n" }}
+)
+
+sudo flatpak update --assumeyes
+if ((${#install[@]} > 0)); then
+  sudo flatpak install --assumeyes --or-update "${install[@]}"
+fi

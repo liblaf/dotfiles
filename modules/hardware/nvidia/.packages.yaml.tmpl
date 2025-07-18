@@ -14,3 +14,8 @@ pacman:
   #   {{- end }}
 
   # {{- end }}
+
+pypi:
+  # {{- if .hardware.nvidia.exists }}
+  - nvitop
+  # {{- end }}

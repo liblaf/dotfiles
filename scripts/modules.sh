@@ -48,7 +48,7 @@ function gen-data() {
 function merge-packages() {
   mkdir --parents --verbose "$SOURCE_DIR/.chezmoidata/"
   packages_file="$SOURCE_DIR/.chezmoidata/packages.yaml"
-  yq eval '{}' --null-input > "$packages_file"
+  cp "$WORKING_TREE/assets/packages.yaml" "$packages_file"
   for module in "${MODULES[@]}"; do
     local module_packages_file
     if [[ -f "$module/.packages.yaml" ]]; then
