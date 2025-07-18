@@ -1,0 +1,22 @@
+#!/bin/bash
+# -*- mode: sh -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ $rootSourceDir := joinPath .chezmoi.workingTree "root" }}
+
+# shellcheck disable=SC2016
+rsync --info='PROGRESS2' --archive --delete --force \
+  '{{ joinPath .chezmoi.sourceDir ".root" }}/' '{{ $rootSourceDir }}'
+# shellcheck disable=SC2016
+rsync --info='PROGRESS2' --archive --delete --force \
+  '{{ joinPath .chezmoi.sourceDir ".chezmoidata" }}' '{{ $rootSourceDir }}'
+
+sudo '{{ .chezmoi.executable }}' apply \
+  --cache '{{ .chezmoi.cacheDir }}' \
+  --config '{{ .chezmoi.configFile }}' \
+  --destination '/' \
+  --persistent-state '{{ osDir .chezmoi.configFile | joinPath "chezmoistate.boltdb" }}' \
+  --source '{{ $rootSourceDir }}' \
+  --working-tree '{{ .chezmoi.workingTree }}'

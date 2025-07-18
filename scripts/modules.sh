@@ -23,6 +23,7 @@ function load-modules() {
 }
 
 function merge-modules() {
+  mkdir --parents --verbose "$SOURCE_DIR"
   rsync --info="PROGRESS2" --archive --delete --force \
     --exclude=".packages.yaml" \
     --exclude=".packages.yaml.tmpl" \
@@ -35,8 +36,7 @@ function gen-data() {
     for file in home/.scripts/data/*.sh; do
       bash "$file"
     done |
-      paste --delimiters="#" --serial |
-      sed 's/#/ | /g'
+      paste --delimiters="|" --serial
   )
   mkdir --parents --verbose "$SOURCE_DIR/.chezmoidata/"
   echo ">>> Generated Data >>>"
@@ -54,10 +54,13 @@ function merge-packages() {
       packages_file="$module/.packages.yaml"
     elif [[ -f "$module/.packages.yaml.tmpl" ]]; then
       packages_file="$TMP_DIR/$(basename -- "$module")-packages.yaml"
-      chezmoi execute-template --source "$SOURCE_DIR/" "$module/.packages.yaml.tmpl" --file > "$packages_file"
+      chezmoi execute-template "$module/.packages.yaml.tmpl" \
+        --source "$SOURCE_DIR/" --file > "$packages_file"
     fi
-    if [[ -f $packages_file ]]; then
-      yq eval --expression ". *+ load(\"$packages_file\")" --inplace "$SOURCE_DIR/.chezmoidata/packages.yaml"
+    if [[ -f ${packages_file-} ]]; then
+      yq eval ". *+ load(\"$packages_file\") | ... comments=\"\" | { \"packages\": . }" \
+        "$SOURCE_DIR/.chezmoidata/packages.yaml" \
+        --inplace
     fi
   done
 }
@@ -65,7 +68,7 @@ function merge-packages() {
 function main() {
   load-modules "$1"
   merge-modules
-  cp "$WORKING_TREE/.chezmoi.toml.tmpl" "$SOURCE_DIR/.chezmoi.toml"
+  cp "$WORKING_TREE/.chezmoi.toml.tmpl" "$SOURCE_DIR/.chezmoi.toml.tmpl"
 
   mkdir --parents --verbose "$TMP_DIR"
   trap 'rm --force --recursive -- "$TMP_DIR"' EXIT

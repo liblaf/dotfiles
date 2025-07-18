@@ -1,2 +1,5 @@
 inherits:
   - linux.yaml
+
+modules:
+  - packages/pacman
