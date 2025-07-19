@@ -1,0 +1,37 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+IPAPIIS_KEY='{{ (rbwFields "ipapi.is").API_KEY.value }}'
+NAMESPACE_ID='{{ (rbwFields "API").NAMESPACE_ID.value }}'
+PORT="{{ .ports.proxy }}"
+WORKING_DIRECTORY="$HOME/mihomo"
+
+function get() {
+  local key="$1"
+  wrangler kv key get "$key" --namespace-id "$NAMESPACE_ID" --remote |
+    sed "1 { /Proxy environment variables detected. We'll use your proxy for fetch requests./d }"
+}
+
+function put() {
+  local key="$1"
+  local path="$2"
+  wrangler kv key put "$key" --namespace-id "$NAMESPACE_ID" --path "$path" --remote
+}
+
+mkdir --parents --verbose "$WORKING_DIRECTORY"
+get "profile.yaml" > "$WORKING_DIRECTORY/profile.yaml"
+
+xhs --output "$WORKING_DIRECTORY/mihomo.template.yaml" --download GET \
+  "https://github.com/liblaf/sub-store/raw/refs/heads/main/templates/mihomo/default.yaml"
+sub-store mihomo \
+  --key "$IPAPIIS_KEY" \
+  --output "$WORKING_DIRECTORY/mihomo.yaml" \
+  --port "$PORT" \
+  --profile "$WORKING_DIRECTORY/profile.yaml" \
+  --template "$WORKING_DIRECTORY/mihomo.template.yaml"
+clash-meta -f "$WORKING_DIRECTORY/mihomo.yaml" -t
+
+put "mihomo.yaml" "$WORKING_DIRECTORY/mihomo.yaml"

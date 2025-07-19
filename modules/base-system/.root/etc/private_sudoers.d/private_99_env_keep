@@ -1,0 +1,5 @@
+# -*- mode: ini; -*-
+Defaults env_keep += "EDITOR PAGER"
+
+# ref: <https://wiki.archlinux.org/title/Proxy_server#Keep_proxy_through_sudo>
+Defaults env_keep += "*_proxy *_PROXY"

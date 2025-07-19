@@ -1,0 +1,8 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+sudo systemctl enable --now clash-meta.service
+systemctl --user enable --now mihomo-pull.timer

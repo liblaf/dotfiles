@@ -1,0 +1,4 @@
+# -*- mode: properties; -*-
+# ref: <https://github.com/koalaman/shellcheck/wiki/Directive#shellcheckrc-file>
+
+external-sources=true

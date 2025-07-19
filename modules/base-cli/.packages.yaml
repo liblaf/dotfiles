@@ -1,0 +1,13 @@
+pacman:
+  - bat
+  - btop
+  - duf
+  - eza
+  - fastfetch
+  - fd
+  - fzf
+  - gdu
+  - htop
+  - ripgrep
+  - sd
+  - zoxide

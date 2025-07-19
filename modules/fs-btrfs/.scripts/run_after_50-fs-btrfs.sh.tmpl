@@ -1,0 +1,18 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ if eq .fs.fstype "btrfs" }}
+
+# ref: <https://wiki.archlinux.org/title/Btrfs#Start_with_a_service_or_timer>
+sudo systemctl enable --now "btrfs-scrub@$(systemd-escape --path /).timer"
+
+# setup snapper
+sudo systemctl enable --now snapper-backup.timer
+sudo systemctl enable --now snapper-boot.timer
+sudo systemctl enable --now snapper-cleanup.timer
+sudo systemctl enable --now snapper-timeline.timer
+
+# {{ end }}

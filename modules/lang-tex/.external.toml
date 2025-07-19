@@ -1,0 +1,4 @@
+[".config/latexindent/latexindent.yaml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://raw.githubusercontent.com/liblaf/ilatex/main/.latexindent.yaml"

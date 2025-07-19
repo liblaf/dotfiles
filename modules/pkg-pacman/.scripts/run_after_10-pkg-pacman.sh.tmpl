@@ -1,0 +1,44 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+exit
+
+# {{ template "yay.sh" }}
+
+sudo pacman-key --init
+
+# ref: <https://help.mirrors.cernet.edu.cn/archlinuxcn/>
+sudo pacman-key --lsign-key farseerfc@archlinux.org
+# ref: <https://help.mirrors.cernet.edu.cn/arch4edu/>
+sudo pacman-key --recv-keys 7931B6D628C8D3BA
+sudo pacman-key --finger 7931B6D628C8D3BA
+sudo pacman-key --lsign-key 7931B6D628C8D3BA
+
+packages=(
+  archlinuxcn-keyring
+  yay
+)
+sudo pacman --sync --noconfirm --needed --sysupgrade --refresh "${packages[@]}"
+
+# remove `lib32-*` packages
+installed="$(yay --query --explicit --quiet)"
+if echo "$installed" | grep --quiet '^lib32-'; then
+  echo "$installed" |
+    grep '^lib32-' |
+    yay --remove --noconfirm --nosave --recursive -
+fi
+
+yay --sync --noconfirm --sysupgrade --refresh
+
+install=(
+  # {{- range .packages.pacman }}
+  '{{ . }}' # {{- end }}
+)
+# shellcheck disable=SC2207
+install+=($(yay --sync --groups --quiet texlive))
+yay-install "${install[@]}"
+
+yay --yay --clean --noconfirm --nosave --recursive --unneeded

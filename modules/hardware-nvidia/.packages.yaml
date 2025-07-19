@@ -1,0 +1,13 @@
+pacman:
+  # {{ if .hardware.nvidia.exists }}
+  - cuda
+  - libva-nvidia-driver # VA-API
+  - nvidia-container-toolkit # Docker
+  - nvidia-utils # VDPAU
+  - opencl-nvidia # OpenCL
+
+  #   {{ if eq .hardware.nvidia.codename "AD107M" }}
+  #   ref: <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/507>
+  - linux-cachyos-lts-lto-nvidia
+  #   {{ end }}
+  # {{ end }}

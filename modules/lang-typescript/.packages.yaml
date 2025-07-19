@@ -1,0 +1,5 @@
+pacman:
+  - biome
+  - bun
+  - npm
+  - prettier

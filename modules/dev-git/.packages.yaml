@@ -1,0 +1,3 @@
+pacman:
+  - git
+  - git-cliff

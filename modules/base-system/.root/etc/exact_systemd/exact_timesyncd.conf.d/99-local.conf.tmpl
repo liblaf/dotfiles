@@ -1,0 +1,11 @@
+# -*- mode: ini; -*-
+
+# Use 'systemd-analyze cat-config systemd/timesyncd.conf' to display the full config.
+#
+# See timesyncd.conf(5) for details.
+
+[Time]
+# ref: <https://tuna.moe/help/ntp/>
+# ref: <https://wiki.archlinux.org/title/Systemd-timesyncd>
+NTP = {{ .mirrors.ntp }} 0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org
+FallbackNTP = 0.pool.ntp.org 1.pool.ntp.org 0.fr.pool.ntp.org

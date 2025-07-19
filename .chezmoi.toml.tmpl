@@ -22,6 +22,7 @@ signingKey = "31D2E2AE960E5F8C"
 
 [data.ports]
 proxy = 64667
+ssh = 34100
 
 [hooks.read-source-state.pre]
 script = '{{ joinPath .chezmoi.workingTree "hooks" "read-source-state.pre.sh" }}'

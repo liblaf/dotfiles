@@ -1,0 +1,7 @@
+pacman:
+  # {{ if .hardware.nvidia.exists }}
+  # {{ else if .hardware.intel.exists }}
+  - intel-compute-runtime # OpenCL
+  - intel-media-driver # VA-API
+  - libvdpau-va-gl # VDPAU
+  # {{ end }}

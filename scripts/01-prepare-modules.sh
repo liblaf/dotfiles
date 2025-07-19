@@ -34,16 +34,14 @@ function prepare-modules() {
   for module in "${modules[@]}"; do
     local source=$MODULES_DIR/$module
     local target=$MODULES_STOW/$module
-
     mkdir --parents "$target"
     rsync --info="PROGRESS2" --archive --delete --exclude='.*' "$source/" "$target/"
-
     _cp_special_dir "$source" "$target" ".root" "dot_cache/dotfiles/root"
     _cp_special_dir "$source" "$target" ".scripts" ".chezmoiscripts"
+    _cp_special_dir "$source" "$target" ".templates" ".chezmoitemplates"
     _cp_special_files "$source" "$target" ".data" ".chezmoidata"
     _cp_special_files "$source" "$target" ".external" ".chezmoiexternals"
-    _cp_special_files "$source" "$target" ".packages" "dot_cache/dotfiles/packages"
-
+    _cp_special_files "$source" "$target" ".packages" ".packages"
   done
 }
 

@@ -1,0 +1,7 @@
+# -*- mode: ini; -*-
+
+[Unit]
+Description = Upload UFW Logs to Central Server
+
+[Service]
+ExecStart = %h/.local/bin/ufw-logs-upload.sh

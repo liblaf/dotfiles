@@ -1,0 +1,8 @@
+pacman:
+  - noto-fonts
+  - noto-fonts-cjk
+  - noto-fonts-emoji
+  - noto-fonts-extra
+  - otf-monaspace-nerd
+  - ttf-cascadia-code-nerd
+  - ttf-mona-sans

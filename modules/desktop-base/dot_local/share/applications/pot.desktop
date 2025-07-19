@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories = Utility;
+Comment    = Pot App
+# ? QUESTION: I don't know why, but this is needed to make screenshot work.
+Exec     = sh -c "pot < /dev/null > /dev/null"
+Icon     = pot
+Name     = pot
+Terminal = false
+Type     = Application

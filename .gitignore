@@ -1,4 +1,4 @@
-*.tmp
 /home.link/
 /home/
 /modules.stow/
+/tmp/

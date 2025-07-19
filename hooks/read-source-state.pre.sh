@@ -3,16 +3,19 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-OUTPUT="$CHEZMOI_SOURCE_DIR/.chezmoidata/generated.yaml"
-if [[ -f $OUTPUT ]]; then exit; fi
+SCRIPTS_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
+source "$SCRIPTS_DIR/data.sh"
+source "$SCRIPTS_DIR/lib.sh"
+source "$SCRIPTS_DIR/packages.sh"
 
-function gen-data() {
-  echo "a.b = c"
-}
+if [[ $CHEZMOI_COMMAND == "execute-template" ]]; then exit; fi
+
+TMPDIR="$CHEZMOI_WORKING_TREE/tmp"
+# if [[ -f $OUTPUT ]]; then exit; fi
 
 function main() {
-  gen-data |
-    yq eval --input-format "props" --output-format "yaml" > "$OUTPUT"
+  gen-data
+  gen-packages
 }
 
 main

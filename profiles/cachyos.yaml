@@ -1,5 +1,31 @@
 modules:
-  - cli-common
+  - app-zotero
+  - base-cli
+  - base-system
+  - base-user
   - core
+  - desktop-gnome
+  - dev-git
+  - fs-btrfs
+  - hardware-intel
+  - hardware-nvidia
+  - lang-python
+  - lang-tex
+  - lang-typescript
   - mirrors
+  - os-cachyos
+  - pkg-flatpak
   - pkg-pacman
+  - system-docker
+  - system-fonts
+  - system-fwupd
+  - system-grub
+  - system-mime
+  - system-netdata
+  - system-ssh
+  - system-ufw
+  - user-ddns
+  - user-mihomo
+  - user-pueue
+  - user-rclone
+  - user-tsinghua
