@@ -63,3 +63,12 @@ pacman:
   - zoxide
   - imagemagick
   - resvg
+
+npm:
+  - "@bitwarden/cli"
+  - cspell
+  - repomix
+
+pypi:
+  - dvc[webdav]
+  - liblaf-lime

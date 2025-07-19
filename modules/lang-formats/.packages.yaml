@@ -3,3 +3,7 @@ pacman:
   - prettier
   - tombi
   - pandoc-cli
+
+pypi:
+  - toml-cli
+  - toml-sort

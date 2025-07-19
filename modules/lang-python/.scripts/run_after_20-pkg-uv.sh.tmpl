@@ -4,4 +4,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# TODO: install PyPI packages
+uv tool upgrade --all
+
+# {{ range $pkg := .packages.pypi }}
+# shellcheck disable=SC2016
+uv tool install '{{ $pkg }}'
+# {{ end }}

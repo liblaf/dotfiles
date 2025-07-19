@@ -4,3 +4,6 @@ pacman:
   - npm
   - prettier
   - wrangler
+
+npm:
+  - "@biomejs/biome"
