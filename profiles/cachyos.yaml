@@ -1,25 +1,38 @@
 modules:
+  - app-wrap
   - app-zotero
-  - base-cli
+  - base-mirrors
   - base-system
   - base-user
+  - cli-base
+  - cli-starship
   - core
+  - desktop-base
   - desktop-gnome
+  - desktop-kitty
+  - dev-direnv
   - dev-git
+  - dev-mise
   - fs-btrfs
   - hardware-intel
   - hardware-nvidia
+  - lang-cpp
+  - lang-formats
+  - lang-go
   - lang-python
+  - lang-rust
+  - lang-shell
   - lang-tex
   - lang-typescript
-  - mirrors
   - os-cachyos
   - pkg-flatpak
   - pkg-pacman
+  - shell-fish
   - system-docker
   - system-fonts
   - system-fwupd
   - system-grub
+  - system-libvirt
   - system-mime
   - system-netdata
   - system-ssh
@@ -28,4 +41,5 @@ modules:
   - user-mihomo
   - user-pueue
   - user-rclone
+  - user-restic
   - user-tsinghua

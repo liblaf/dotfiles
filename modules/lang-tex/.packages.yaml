@@ -1,1 +1,10 @@
-pacman: []
+pacman:
+  - biber
+  # - texlive # texlive is a group
+  - texlive-langchinese
+  - texlive-langenglish
+
+  - perl-yaml-tiny # < latexindent < texlive-binextra
+  - perl-file-homedir # < latexindent < texlive-binextra
+
+  - python-pygments # < minted < texlive

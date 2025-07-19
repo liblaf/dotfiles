@@ -1,0 +1,9 @@
+pacman:
+  - caddy
+  - earlyoom
+  - logrotate
+  - tailscale
+  - wireguard-tools
+  - ventoy-bin
+  - usbutils
+  - lshw

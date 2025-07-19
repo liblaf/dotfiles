@@ -1,0 +1,5 @@
+pacman:
+  - markdownlint-cli
+  - prettier
+  - tombi
+  - pandoc-cli

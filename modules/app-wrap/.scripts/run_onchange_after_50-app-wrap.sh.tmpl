@@ -1,0 +1,14 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+# {{ $filepath := joinPath .dirs.external "Wrap.tar.xz" }}
+# {{ include $filepath | sha256sum }}
+set -o errexit
+set -o nounset
+set -o pipefail
+
+INSTALL_DIR="$HOME/.local/opt/Wrap"
+
+rm --force --recursive "$INSTALL_DIR"
+mkdir --parents --verbose "$INSTALL_DIR"
+# shellcheck disable=SC2016
+tar --extract --file='{{ $filepath }}' --overwrite --directory="$INSTALL_DIR" --strip-components=1

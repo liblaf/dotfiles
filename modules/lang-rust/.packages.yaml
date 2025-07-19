@@ -1,0 +1,3 @@
+pacman:
+  - rust
+  - rust-src

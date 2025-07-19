@@ -1,5 +1,6 @@
 pacman:
   - biome
-  - bun
+  - bun-bin
   - npm
   - prettier
+  - wrangler

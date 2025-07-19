@@ -1,0 +1,37 @@
+pacman:
+  - libva-utils # VA-API
+  - mpv
+  - vdpauinfo # VDPAU
+  - vulkan-tools # Vulkan
+
+  - 3dslicer
+  - blender
+  - drawio-desktop
+  - flameshot
+  - gimp
+  - haruna
+  - inkscape
+  - kitty
+  - microsoft-edge-stable-bin
+  - obs-studio
+  - obsidian
+  - qalculate-gtk
+  - remmina
+  - telegram-desktop
+  - visual-studio-code-bin
+  - vlc
+  - wps-office-365
+  - wps-office-365-fonts
+
+  - pot-translation
+  - tesseract-data-chi_sim # < pot-translation, Stirling PDF
+  - tesseract-data-eng # < pot-translation, Stirling PDF
+
+flatpak:
+  - com.github.tchx84.Flatseal
+  - com.tencent.WeChat
+  - com.tencent.wemeet
+  - io.typora.Typora
+  - moe.tsuna.tsukimi
+  - net.meshlab.MeshLab # `aur/meshlab-appimage` does not support dark mode
+  - org.paraview.ParaView # `extra/paraview` does not support dark mode

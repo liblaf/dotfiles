@@ -1,0 +1,65 @@
+pacman:
+  - aria2
+  - bat
+  - btop
+  - chezmoi
+  - csvlens
+  - difftastic
+  - doggo-bin
+  - duf
+  - eza
+  - fastfetch
+  - fd
+  - fio
+  - freeze-bin
+  - fzf
+  - gdu
+  - geekbench
+  - glow
+  - go-yq
+  - gping
+  - gum
+  - helix
+  - htop
+  - httpie
+  - hwatch-bin
+  - hyperfine
+  - imagemagick
+  - jless
+  - jnv-bin
+  - just
+  - lnav
+  - miniserve
+  - nmap
+  - ouch
+  - ov-bin
+  - parallel
+  - rbw
+  - ripgrep
+  - rsync
+  - sd
+  - speedtest-cli
+  - tealdeer
+  - tokei
+  - trash-cli
+  - vhs
+  - xh
+  - yazi
+  - zoxide
+
+  - ansible
+  - python-passlib # < ansible-core < ansible
+  - sshpass # < ansible-core < ansible
+
+  - yazi
+  # ref: <https://yazi-rs.github.io/docs/installation#arch>
+  - ffmpeg
+  - 7zip
+  - jq
+  - poppler
+  - fd
+  - ripgrep
+  - fzf
+  - zoxide
+  - imagemagick
+  - resvg

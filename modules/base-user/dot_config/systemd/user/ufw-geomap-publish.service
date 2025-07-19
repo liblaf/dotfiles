@@ -1,7 +1,0 @@
-# -*- mode: ini; -*-
-
-[Unit]
-Description = Publish UFW GeoMap to GitHub Pages
-
-[Service]
-ExecStart = %h/.local/bin/ufw-geomap-publish.sh

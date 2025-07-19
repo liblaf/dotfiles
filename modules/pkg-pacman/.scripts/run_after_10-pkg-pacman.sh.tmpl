@@ -4,8 +4,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-exit
-
 # {{ template "yay.sh" }}
 
 sudo pacman-key --init
@@ -33,12 +31,13 @@ fi
 
 yay --sync --noconfirm --sysupgrade --refresh
 
+# {{ if .packages.pacman }}
 install=(
-  # {{- range .packages.pacman }}
-  '{{ . }}' # {{- end }}
+  # {{ "\n" }} {{ join "\n" .packages.pacman }}
 )
 # shellcheck disable=SC2207
 install+=($(yay --sync --groups --quiet texlive))
 yay-install "${install[@]}"
+# {{ end }}
 
 yay --yay --clean --noconfirm --nosave --recursive --unneeded
