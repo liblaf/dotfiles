@@ -1,0 +1,22 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+OUTPUT='{{ .dirs.packages }}/packages.yaml'
+
+cat <<- EOF > "$OUTPUT"
+flatpak: []
+npm: []
+pacman: []
+pypi: []
+EOF
+
+# ref: <https://www.shellcheck.net/wiki/SC2044>
+while IFS= read -r -d '' file; do
+  echo "$file"
+  yq eval ". *+ load(\"$file\")" "$OUTPUT" --inplace
+done < <(find "{{ .dirs.packages }}" -type f -print0)
+
+yq "$OUTPUT"

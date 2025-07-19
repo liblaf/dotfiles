@@ -1,9 +1,0 @@
-pacman:
-  - archlinuxcn-keyring
-  - paccache-hook
-  - pacman-contrib
-  - pacutils
-  - pkgstats
-  - yay
-  - yaycache
-  - yaycache-hook

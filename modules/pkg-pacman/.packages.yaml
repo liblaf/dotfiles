@@ -1,0 +1,6 @@
+pacman:
+  - arch4edu-keyring
+  - archlinuxcn-keyring
+  - pacman-contrib
+  - pacutils
+  - yay

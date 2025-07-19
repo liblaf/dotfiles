@@ -1,5 +1,0 @@
-modules:
-  - core/mirrors
-  - core/root
-  - hardware/intel
-  - hardware/nvidia

@@ -1,6 +1,0 @@
-{{/* -*- mode: plaintext; -*- */}}
-{{- $deps := dict -}}
-{{- range .packages.npm -}}
-  {{- $deps := set $deps . "latest" -}}
-{{- end -}}
-{{- dict "dependencies" $deps | toPrettyJson -}}

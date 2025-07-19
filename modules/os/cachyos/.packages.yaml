@@ -1,3 +1,0 @@
-pacman:
-  - linux-cachyos-lts-lto
-  - linux-cachyos-lts-lto-headers

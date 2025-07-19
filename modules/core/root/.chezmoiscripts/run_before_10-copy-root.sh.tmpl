@@ -1,8 +1,0 @@
-#!/bin/bash
-# -*- mode: sh -*-
-set -o errexit
-set -o nounset
-set -o pipefail
-
-SOURCE_DIR="$HOME/.cache/dotfiles/root"
-sudo rsync --info="PROGRESS2" --archive --no-owner --itemize-changes "$SOURCE_DIR/" /

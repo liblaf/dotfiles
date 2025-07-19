@@ -1,3 +1,0 @@
-pacman:
-  - shellcheck
-  - shfmt

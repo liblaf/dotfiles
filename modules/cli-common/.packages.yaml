@@ -1,0 +1,15 @@
+pacman:
+  - bat
+  - btop
+  - duf
+  - eza
+  - fd
+  - fzf
+  - gdu
+  - htop
+  - ripgrep
+  - sd
+  - zoxide
+
+pypi:
+  - nvitop

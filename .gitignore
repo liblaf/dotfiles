@@ -1,2 +1,4 @@
+*.tmp
+/home.link/
 /home/
-/root/
+/modules.stow/

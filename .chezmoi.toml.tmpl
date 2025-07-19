@@ -1,14 +1,19 @@
 encryption = "age"
-sourceDir = "{{ .chezmoi.workingTree }}/home"
+sourceDir = '{{ joinPath .chezmoi.workingTree "home" }}'
 
 [age]
 identity = '{{ joinPath .chezmoi.homeDir ".config" "sops" "age" "keys.txt" }}'
 recipient = "age1vfkz4l6vetgmmfpug6d9s0tp4k3es5mhj7znx3u86kge8zwgd9tszsndeh"  # cspell: disable-line
 
-[data]
-# {{ $externalDirRelative := joinPath ".cache" "dotfiles" "external" }}
-externalDir = "{{ joinPath .chezmoi.homeDir $externalDirRelative }}"
-externalDirRelative = "{{ $externalDirRelative }}"
+[data.dirs]
+# {{ $cacheDirRelative := joinPath ".cache" "dotfiles" }}
+# {{ $cacheDir := joinPath .chezmoi.homeDir $cacheDirRelative }}
+external = '{{ joinPath $cacheDir "external" }}'
+packages = '{{ joinPath $cacheDir "packages" }}'
+root = '{{ joinPath $cacheDir "root" }}'
+
+[data.dirs.relative]
+external = '{{ joinPath $cacheDirRelative "external" }}'
 
 [data.user]
 email = "30631553+liblaf@users.noreply.github.com"
@@ -17,3 +22,6 @@ signingKey = "31D2E2AE960E5F8C"
 
 [data.ports]
 proxy = 64667
+
+[hooks.read-source-state.pre]
+script = '{{ joinPath .chezmoi.workingTree "hooks" "read-source-state.pre.sh" }}'
