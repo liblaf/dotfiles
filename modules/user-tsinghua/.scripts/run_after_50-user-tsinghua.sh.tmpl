@@ -7,6 +7,7 @@ set -o pipefail
 systemctl --user enable --now goauthing.service
 systemctl --user enable --now goauthing6.service
 
+# ref: <https://thu.services/services/#token>
 rclone config create tsinghua seafile \
   url='https://cloud.tsinghua.edu.cn' \
   user='{{ (rbw "清华大学云盘").data.username }}' \

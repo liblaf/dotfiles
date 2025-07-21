@@ -3,18 +3,22 @@
 [shell]
 change-ps1 = false
 
-[mirrors]
-# "https://conda.anaconda.org/anaconda" = ["{{ .mirrors.anaconda }}/pkgs/main"]
-"https://conda.anaconda.org/conda-forge" = [
-  "{{ .mirrors.anaconda }}/cloud/conda-forge",
-]
-"https://conda.anaconda.org/nvidia" = [
-  "{{ .mirrors.anaconda_extra }}/cloud/nvidia",
-]
-"https://conda.anaconda.org/pytorch" = ["{{ .mirrors.anaconda }}/cloud/pytorch"]
-"https://conda.anaconda.org/pytorch3d" = [
-  "{{ .mirrors.anaconda }}/cloud/pytorch3d",
-]
+[mirrors]  # ref: <https://pixi.sh/latest/reference/pixi_configuration/#mirror-configuration>
+# {{ $mirror := .mirrors.anaconda }}
+# {{ range $channel := .anaconda.channels }}
+"https://conda.anaconda.org/{{ $channel }}" = [
+  "{{ $mirror }}/cloud/{{ $channel }}",
+]  # {{ end }}
+#
+# {{ $mirror := .mirrors.anaconda_extra }}
+# {{ range $channel := .anaconda_extra.channels }}
+"https://conda.anaconda.org/{{ $channel }}" = [
+  "{{ $mirror }}/cloud/{{ $channel }}",
+]  # {{ end }}
+#
+# ref: <https://pixi.sh/latest/reference/pixi_configuration/#mirrors-for-pypi-resolving-and-pypi-package-downloading>
+"https://pypi.org/simple" = ["{{ .mirrors.pypi }}/web/simple"]
+"https://files.pythonhosted.org/packages" = ["{{ .mirrors.pypi }}/web/packages"]
 
 [pypi-config]
 index-url = "{{ .mirrors.pypi }}/web/simple"

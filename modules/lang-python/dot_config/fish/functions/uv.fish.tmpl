@@ -1,0 +1,10 @@
+function uv --wrap="uv"
+    set --local MIRROR_PYPI '{{ .mirrors.pypi }}'
+    set --local GIT_ROOT (git rev-parse --show-toplevel 2> /dev/null || pwd)
+    set --local UV_LOCK "$GIT_ROOT/uv.lock"
+    command uv $argv
+    if test -f "$UV_LOCK"
+        sd 'https://[\.\w/]+/simple' 'https://pypi.org/simple' "$UV_LOCK"
+        sd 'https://[\.\w/]+/packages' 'https://files.pythonhosted.org/packages' "$UV_LOCK"
+    end
+end

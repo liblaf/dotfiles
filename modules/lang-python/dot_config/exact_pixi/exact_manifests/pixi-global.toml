@@ -1,6 +1,0 @@
-version = 1
-
-[envs.pygalmesh]
-channels = ["conda-forge"]
-dependencies = { pygalmesh = "*" }
-exposed = { pygalmesh = "pygalmesh" }

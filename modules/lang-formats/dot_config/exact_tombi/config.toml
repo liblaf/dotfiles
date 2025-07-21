@@ -1,0 +1,11 @@
+#:schema https://www.schemastore.org/tombi.json
+
+[files]
+include = [
+  "**/*.toml",
+  "**/*.toml.jinja",
+  "**/*.toml.tmpl",
+]
+
+[schema]
+strict = false
