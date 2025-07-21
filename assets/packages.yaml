@@ -1,4 +1,5 @@
 flatpak: []
 npm: []
 pacman: []
+pacmanGroups: []
 pypi: []

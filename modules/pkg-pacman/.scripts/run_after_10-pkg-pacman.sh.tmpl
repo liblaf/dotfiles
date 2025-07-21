@@ -15,12 +15,6 @@ sudo pacman-key --recv-keys 7931B6D628C8D3BA
 sudo pacman-key --finger 7931B6D628C8D3BA
 sudo pacman-key --lsign-key 7931B6D628C8D3BA
 
-packages=(
-  archlinuxcn-keyring
-  yay
-)
-sudo pacman --sync --noconfirm --needed --sysupgrade --refresh "${packages[@]}"
-
 # remove `lib32-*` packages
 installed="$(yay --query --explicit --quiet)"
 if echo "$installed" | grep --quiet '^lib32-'; then
@@ -31,13 +25,18 @@ fi
 
 yay --sync --noconfirm --sysupgrade --refresh
 
-# {{ if .packages.pacman }}
-install=(
+packages=(archlinuxcn-keyring yay)
+sudo pacman --sync --noconfirm --needed --sysupgrade --refresh "${packages[@]}"
+
+# {{ if or .packages.pacman .packages.pacmanGroups }}
+packages=(
   # {{ "\n" }} {{ join "\n" .packages.pacman }}
 )
-# shellcheck disable=SC2207
-install+=($(yay --sync --groups --quiet texlive))
-yay-install "${install[@]}"
+groups=(
+  # {{ "\n" }} {{ join "\n" .packages.pacmanGroups }}
+)
+readarray -O "${#packages[@]}" -t packages < <(yay --sync --groups --quiet "${groups[@]}")
+yay-install "${packages[@]}"
 # {{ end }}
 
 yay --yay --clean --noconfirm --nosave --recursive --unneeded
