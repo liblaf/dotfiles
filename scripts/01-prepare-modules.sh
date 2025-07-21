@@ -11,7 +11,7 @@ function _cp_special_dir() {
   local target_dir=$4
   if [[ -d "$source/$source_dir" ]]; then
     mkdir --parents "$target/$target_dir"
-    rsync --info="PROGRESS2" --archive --delete "$source/$source_dir/" "$target/$target_dir/"
+    rsync --archive --delete "$source/$source_dir/" "$target/$target_dir/"
   fi
 }
 
@@ -25,17 +25,18 @@ function _cp_special_files() {
     basename=$(basename -- "$file")
     local suffix=${basename#"$source_name"}
     mkdir --parents "$target/$target_name"
-    cp --archive "$file" "$target/$target_name/$module$suffix"
+    rsync --archive "$file" "$target/$target_name/$module$suffix"
   done
 }
 
 function prepare-modules() {
   local modules=("$@")
   for module in "${modules[@]}"; do
-    local source=$MODULES_DIR/$module
-    local target=$MODULES_STOW/$module
+    echo ">>> Preparing module: $module"
+    local source="$MODULES_DIR/$module"
+    local target="$MODULES_STOW/$module"
     mkdir --parents "$target"
-    rsync --info="PROGRESS2" --archive --delete --exclude='.*' "$source/" "$target/"
+    rsync --archive --delete --exclude='.*' "$source/" "$target/"
     _cp_special_dir "$source" "$target" ".root" "dot_cache/exact_dotfiles/exact_root"
     _cp_special_dir "$source" "$target" ".scripts" ".chezmoiscripts"
     _cp_special_dir "$source" "$target" ".templates" ".chezmoitemplates"

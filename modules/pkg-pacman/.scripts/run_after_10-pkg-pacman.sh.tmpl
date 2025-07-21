@@ -18,15 +18,14 @@ sudo pacman-key --lsign-key 7931B6D628C8D3BA
 # remove `lib32-*` packages
 installed="$(yay --query --explicit --quiet)"
 if echo "$installed" | grep --quiet '^lib32-'; then
-  echo "$installed" |
-    grep '^lib32-' |
-    yay --remove --noconfirm --nosave --recursive -
+  readarray -t packages < <(echo "$installed" | grep '^lib32-')
+  yay-remove "${packages[@]}"
 fi
 
 yay --sync --noconfirm --sysupgrade --refresh
 
 packages=(archlinuxcn-keyring yay)
-sudo pacman --sync --noconfirm --needed --sysupgrade --refresh "${packages[@]}"
+yay-install "${packages[@]}"
 
 # {{ if or .packages.pacman .packages.pacmanGroups }}
 packages=(

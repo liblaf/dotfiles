@@ -4,7 +4,8 @@ function pixi --wrap="pixi"
     set --local PIXI_LOCK "$GIT_ROOT/pixi.lock"
     command pixi $argv
     if test -f "$PIXI_LOCK"
-        sd 'https://[\.\w/]+/simple' 'https://pypi.org/simple' "$PIXI_LOCK"
-        sd 'https://[\.\w/]+/packages' 'https://files.pythonhosted.org/packages' "$PIXI_LOCK"
+        # ref: <https://github.com/astral-sh/uv/issues/6349#issuecomment-3076752818>
+        sd 'https://(\S+)/simple' 'https://pypi.org/simple' "$PIXI_LOCK"
+        sd 'https://(\S+)/packages' 'https://files.pythonhosted.org/packages' "$PIXI_LOCK"
     end
 end

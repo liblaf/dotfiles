@@ -3,7 +3,6 @@ pacman:
   - bat
   - btop
   - chezmoi
-  - csvlens
   - difftastic
   - doggo-bin
   - duf
@@ -15,8 +14,6 @@ pacman:
   - fzf
   - gdu
   - geekbench
-  - glow
-  - go-yq
   - gping
   - gum
   - helix
@@ -25,8 +22,6 @@ pacman:
   - hwatch-bin
   - hyperfine
   - imagemagick
-  - jless
-  - jnv-bin
   - just
   - lnav
   - miniserve

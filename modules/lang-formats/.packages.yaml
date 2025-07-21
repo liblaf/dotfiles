@@ -1,8 +1,14 @@
 pacman:
+  - csvlens
+  - dasel-bin
+  - glow
+  - go-yq
+  - jless
+  - jnv
   - markdownlint-cli
+  - pandoc-cli
   - prettier
   - tombi
-  - pandoc-cli
 
 pypi:
   - toml-cli

@@ -4,7 +4,8 @@ function uv --wrap="uv"
     set --local UV_LOCK "$GIT_ROOT/uv.lock"
     command uv $argv
     if test -f "$UV_LOCK"
-        sd 'https://[\.\w/]+/simple' 'https://pypi.org/simple' "$UV_LOCK"
-        sd 'https://[\.\w/]+/packages' 'https://files.pythonhosted.org/packages' "$UV_LOCK"
+        # ref: <https://github.com/astral-sh/uv/issues/6349#issuecomment-3076752818>
+        sd 'https://(\S+)/simple' 'https://pypi.org/simple' "$UV_LOCK"
+        sd 'https://(\S+)/packages' 'https://files.pythonhosted.org/packages' "$UV_LOCK"
     end
 end

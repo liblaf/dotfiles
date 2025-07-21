@@ -35,6 +35,7 @@
     "cuda",
     "cytoolz",
     "daml",
+    "dasel",
     "dconf",
     "ddcutil",
     "ddns",

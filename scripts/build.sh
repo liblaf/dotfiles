@@ -15,11 +15,10 @@ source "$SCRIPTS_DIR/01-prepare-modules.sh"
 
 function build() {
   readarray -t MODULES < <(load-profile "$1")
-  echo "${MODULES[@]}"
   prepare-modules "${MODULES[@]}"
   mkdir --parents "$CHEZMOI_SOURCE_DIR.link"
   stow --dir="$MODULES_STOW" --target="$CHEZMOI_SOURCE_DIR.link" "${MODULES[@]}"
-  rsync --archive --copy-links --delete "$CHEZMOI_SOURCE_DIR.link/" "$CHEZMOI_SOURCE_DIR/"
+  rsync --info="PROGRESS2" --archive --copy-links --delete "$CHEZMOI_SOURCE_DIR.link/" "$CHEZMOI_SOURCE_DIR/"
   cp --archive "$WORKING_TREE/.chezmoi.toml.tmpl" "$CHEZMOI_SOURCE_DIR/.chezmoi.toml.tmpl"
 }
 
