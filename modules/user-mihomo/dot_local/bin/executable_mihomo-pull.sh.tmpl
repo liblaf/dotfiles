@@ -1,17 +1,20 @@
 #!/bin/bash
 # -*- mode: sh; -*-
+# @option -u --uuid='{{ (rbwFields "API").UUID.value }}'
 set -o errexit
 set -o nounset
 set -o pipefail
 
-UUID='{{ (rbwFields "API").UUID.value }}'
+function main() {
+  local uuid="${argc_uuid:?}"
+  tmpfile="$(mktemp --suffix=".yaml")"
+  trap 'rm --force "$tmpfile"' EXIT
+  xhs --output "$tmpfile" --download GET \
+    'https://api.liblaf.me/subscribe/mihomo.yaml' id=="$uuid"
+  clash-meta -f "$tmpfile" -t # test configuration
+  sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmpfile" '/etc/clash-meta/config.yaml'
+  sudo systemctl enable --now clash-meta.service
+  sudo systemctl restart clash-meta.service
+}
 
-tmp="$(mktemp --suffix=".yaml")"
-trap 'rm --force "$tmp"' EXIT
-
-xhs --output "$tmp" --download GET "https://api.liblaf.me/subscribe/mihomo.yaml" id=="$UUID"
-clash-meta -f "$tmp" -t
-
-sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmp" "/etc/clash-meta/config.yaml"
-sudo systemctl enable --now clash-meta.service
-sudo systemctl restart clash-meta.service
+eval "$(argc --argc-eval "$0" "$@")"
