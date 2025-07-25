@@ -12,3 +12,15 @@ rm --force --recursive "$INSTALL_DIR"
 mkdir --parents --verbose "$INSTALL_DIR"
 # shellcheck disable=SC2016
 tar --extract --file='{{ $filepath }}' --overwrite --directory="$INSTALL_DIR" --strip-components=1
+
+ICO_FILE='{{ joinPath .dirs.external "Wrap.ico" }}'
+# ref: <http://www.graphicsmagick.org/GraphicsMagick.html#details-format>
+# %h    height
+# %s    scene number
+gm identify -format '%s %h\n' "$ICO_FILE" | while read -r scene height; do
+  if [[ -z $scene || -z $height ]]; then break; fi
+  png_file="$(mktemp --suffix='.png')"
+  gm convert "${ICO_FILE}[${scene}]" "$png_file"
+  xdg-icon-resource install --size "$height" "$png_file" 'Faceform-Wrap'
+  rm --force "$png_file"
+done

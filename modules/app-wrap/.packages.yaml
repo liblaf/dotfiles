@@ -1,2 +1,3 @@
 pacman:
+  - graphicsmagick # < Wrap (prepare Icon)
   - libxcrypt-compat # < Wrap

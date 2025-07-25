@@ -1,6 +1,11 @@
 {
   "files.associations": {
-    "*.json.tmpl": "json"
+    "*.json.tmpl": "json",
+    "symlink_*": "plaintext",
+    "symlink_*.tmpl": "gotmpl"
+  },
+  "shellcheck.ignorePatterns": {
+    "**/symlink_*": true
   },
   "xml.catalogs": [".vscode/catalog.xml"]
 }

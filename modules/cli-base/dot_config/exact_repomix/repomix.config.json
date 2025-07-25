@@ -1,6 +1,8 @@
 // -*- mode: jsonc; -*-
 // ref: <https://repomix.com/guide/configuration>
+
 {
+  "$schema": "https://repomix.com/schemas/latest/schema.json",
   "ignore": {
     "customPatterns": [
       "**/.cspell.json",
