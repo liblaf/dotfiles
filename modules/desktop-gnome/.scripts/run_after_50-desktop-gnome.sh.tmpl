@@ -6,4 +6,19 @@ set -o pipefail
 
 # TODO: enable GNOME extensions
 
+extensions=(
+  # pre-installed
+  drive-menu@gnome-shell-extensions.gcampax.github.com
+  screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com
+
+  # system
+  appindicatorsupport@rgcjonas.gmail.com
+  BingWallpaper@ineffable-gmail.com
+  dash-to-dock@micxgx.gmail.com
+  display-brightness-ddcutil@themightydeity.github.com
+  power-profile-switcher@eliapasquali.github.io
+  Vitals@CoreCoding.com
+)
+gext enable "${extensions[@]}"
+
 dconf load / < '{{ joinPath .dirs.external "dconf.ini" }}'

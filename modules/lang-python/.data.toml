@@ -1,3 +1,6 @@
+# ref: <https://help.mirrors.cernet.edu.cn/anaconda/>
+# ref: <https://help.mirrors.cernet.edu.cn/anaconda-extra/>
+
 [anaconda]
 channels = [
   "atztogo",

@@ -9,7 +9,7 @@ set -o pipefail
 # ref: <https://wiki.archlinux.org/title/Btrfs#Start_with_a_service_or_timer>
 sudo systemctl enable --now "btrfs-scrub@$(systemd-escape --path /).timer"
 
-# setup snapper
+# snapper
 sudo systemctl enable --now snapper-backup.timer
 sudo systemctl enable --now snapper-boot.timer
 sudo systemctl enable --now snapper-cleanup.timer

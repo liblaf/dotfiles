@@ -1,5 +1,5 @@
 pacman:
-  - age # optional for: mise, sops
+  - age # < mise, sops
   - mise
-  - sops # optional for: mise
-  - usage # optional for: mise
+  - sops # < mise
+  - usage # < mise

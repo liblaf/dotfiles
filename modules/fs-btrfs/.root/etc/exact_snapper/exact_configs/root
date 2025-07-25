@@ -1,6 +1,5 @@
 # -*- mode: dotenv; -*-
 # ref: <https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-snapper-support/snapper-template-root-cachyos>
-# see also: <cachyos/.chezmoiscripts/40-modules/run_after_40-btrfs.sh>
 
 # subvolume to snapshot
 SUBVOLUME="/"
