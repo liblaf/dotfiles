@@ -9,9 +9,9 @@ if systemd-detect-virt --quiet; then exit; fi
 
 sudo systemctl enable --now netdata.service
 
-sudo "{{ .dirs.external }}/netdata-kickstart.sh" \
+sudo '{{ .dirs.external }}/netdata-kickstart.sh' \
   --non-interactive --stable-channel --disable-telemetry \
   --claim-token '{{ (rbwFields "Netdata").CLAIM_TOKEN.value }}' \
   --claim-rooms '{{ (rbwFields "Netdata").ROOM_ID.value }}' \
-  --claim-url "https://app.netdata.cloud" \
+  --claim-url 'https://app.netdata.cloud' \
   --claim-only || true
