@@ -12,7 +12,7 @@ function gen-packages() {
         file="$TMPDIR/packages.module.yaml"
         ;;
     esac
-    yq eval ". *+ load(\"$file\")" "$output" --inplace
+    yq eval ". *+ (load(\"$file\") | (.. | select(. == null)) |= [])" "$output" --inplace
   done
   yq eval '{ "packages": . }' "$output" --inplace
   mkdir --parents "$CHEZMOI_SOURCE_DIR/.chezmoidata"
