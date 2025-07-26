@@ -1,0 +1,21 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+cd "$HOME/srv/caddy"
+
+# {{ template "docker.sh" }}
+
+# {{ if .services.caddy }}
+
+docker volume create 'caddy-data'
+docker compose up --remove-orphans --wait
+
+# {{ else }}
+
+docker compose down
+docker volume rm --force 'caddy-data'
+
+# {{ end }}

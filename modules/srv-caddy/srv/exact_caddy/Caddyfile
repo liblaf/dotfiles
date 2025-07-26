@@ -1,0 +1,21 @@
+# -*- mode: caddyfile; -*-
+{
+	http_port {$HTTP_PORT}
+	https_port {$HTTPS_PORT}
+	# All zones - Zone:Read, DNS:Edit
+	acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+}
+
+dvc.{$BASE_DOMAIN} {
+	basic_auth {
+		{$DVC_USERNAME} {$DVC_HASHED_PASSWORD}
+	}
+	reverse_proxy localhost:{$DVC_PORT}
+}
+
+webdav.{$BASE_DOMAIN} {
+	basic_auth {
+		{$WEBDAV_USERNAME} {$WEBDAV_HASHED_PASSWORD}
+	}
+	reverse_proxy localhost:{$WEBDAV_PORT}
+}

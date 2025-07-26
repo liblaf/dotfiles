@@ -1,0 +1,17 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+cd "$HOME/srv/webdav"
+
+# {{ if .services.webdav }}
+
+docker compose up --remove-orphans --wait
+
+# {{ else }}
+
+docker compose down
+
+# {{ end }}

@@ -5,6 +5,9 @@ sourceDir = '{{ joinPath .chezmoi.workingTree "home" }}'
 identity = '{{ joinPath .chezmoi.homeDir ".config" "sops" "age" "keys.txt" }}'
 recipient = "age1vfkz4l6vetgmmfpug6d9s0tp4k3es5mhj7znx3u86kge8zwgd9tszsndeh"  # cspell: disable-line
 
+[data]
+baseDomain = "liblaf.me"
+
 [data.dirs]
 # {{ $cacheDirRelative := joinPath ".cache" "dotfiles" }}
 # {{ $cacheDir := joinPath .chezmoi.homeDir $cacheDirRelative }}
@@ -15,15 +18,24 @@ root = '{{ joinPath $cacheDir "root" }}'
 [data.dirs.relative]
 external = '{{ joinPath $cacheDirRelative "external" }}'
 
+[data.ports]
+dvc = 63602
+http = 61626
+https = 38161
+proxy = 64667
+restic = 62557
+ssh = 34100
+webdav = 65297
+
+[data.services]
+caddy = true
+dvc = true
+webdav = true
+
 [data.user]
 email = "30631553+liblaf@users.noreply.github.com"
 name = "liblaf"
 signingKey = "31D2E2AE960E5F8C"
-
-[data.ports]
-proxy = 64667
-restic = 62557
-ssh = 34100
 
 [hooks.read-source-state.pre]
 script = '{{ joinPath .chezmoi.workingTree "hooks" "read-source-state.pre.sh" }}'

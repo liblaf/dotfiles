@@ -29,6 +29,9 @@ modules:
   - pkg-flatpak
   - pkg-pacman
   - shell-fish
+  - srv-caddy
+  - srv-dvc
+  - srv-webdav
   - system-docker
   - system-fonts
   - system-fwupd
