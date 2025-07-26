@@ -1,8 +1,5 @@
 # ref: <https://yazi-rs.github.io/docs/configuration/yazi>
 
-[mgr]
-linemode = "mtime"
-
 [[opener.code]]
 run = 'code "$@"'
 orphan = true
@@ -33,3 +30,13 @@ use = ["open", "reveal"]
 [[open.prepend_rules]]
 mime = "text/*"
 use = ["code", "edit", "open", "reveal", "view"]
+
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*"
+run = "git"
+
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*/"
+run = "git"

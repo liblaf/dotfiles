@@ -6,3 +6,4 @@ set --append plugins \
     ~/.config/fish/plugins/*
 
 fisher install $plugins
+fisher update

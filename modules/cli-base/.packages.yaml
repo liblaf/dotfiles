@@ -9,12 +9,14 @@ pacman:
   - eza
   - fastfetch
   - fd
+  - ffmpeg
   - fio
   - freeze-bin
   - fzf
   - gdu
   - geekbench
   - gping
+  - graphicsmagick
   - gum
   - helix
   - htop
@@ -39,25 +41,11 @@ pacman:
   - trash-cli
   - vhs
   - xh
-  - yazi
   - zoxide
 
   - ansible
   - python-passlib # < ansible-core < ansible
   - sshpass # < ansible-core < ansible
-
-  - yazi
-  # ref: <https://yazi-rs.github.io/docs/installation#arch>
-  - ffmpeg
-  - 7zip
-  - jq
-  - poppler
-  - fd
-  - ripgrep
-  - fzf
-  - zoxide
-  - imagemagick
-  - resvg
 
 npm:
   - "@bitwarden/cli"

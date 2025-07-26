@@ -6,6 +6,7 @@ modules:
   - base-user
   - cli-base
   - cli-starship
+  - cli-yazi
   - core
   - desktop-base
   - desktop-gnome
