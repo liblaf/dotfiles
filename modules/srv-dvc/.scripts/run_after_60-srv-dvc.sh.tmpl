@@ -4,6 +4,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# {{ template "docker.sh" }}
+
 cd "$HOME/srv/dvc"
 
 # {{ if .services.dvc }}

@@ -4,9 +4,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-cd "$HOME/srv/caddy"
-
 # {{ template "docker.sh" }}
+
+cd "$HOME/srv/caddy"
 
 # {{ if .services.caddy }}
 

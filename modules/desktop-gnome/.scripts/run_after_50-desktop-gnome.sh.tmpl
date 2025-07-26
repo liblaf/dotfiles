@@ -4,7 +4,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# TODO: enable GNOME extensions
+# shellcheck disable=SC2076
+if [[ ! ":$PATH:" =~ ":$HOME/.local/bin:" ]]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
 
 extensions=(
   # pre-installed
