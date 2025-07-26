@@ -9,8 +9,8 @@ recipient = "age1vfkz4l6vetgmmfpug6d9s0tp4k3es5mhj7znx3u86kge8zwgd9tszsndeh"  # 
 baseDomain = "liblaf.me"
 
 [data.dirs]
-# {{ $cacheDirRelative := joinPath ".cache" "dotfiles" }}
-# {{ $cacheDir := joinPath .chezmoi.homeDir $cacheDirRelative }}
+# {{- $cacheDirRelative := joinPath ".cache" "dotfiles" -}}
+# {{- $cacheDir := joinPath .chezmoi.homeDir $cacheDirRelative }}
 external = '{{ joinPath $cacheDir "external" }}'
 packages = '{{ joinPath $cacheDir "packages" }}'
 root = '{{ joinPath $cacheDir "root" }}'
@@ -28,9 +28,12 @@ ssh = 34100
 webdav = 65297
 
 [data.services]
-caddy = true
-dvc = true
-webdav = true
+# {{- $services := dict -}}
+# {{- $central := eq .chezmoi.hostname "PC05" -}}
+# {{- $services := setValueAtPath "caddy" $central $services -}}
+# {{- $services := setValueAtPath "dvc" $central $services -}}
+# {{- $services := setValueAtPath "webdav" $central $services -}}
+# {{- "\n" -}} {{- $services | toToml }}
 
 [data.user]
 email = "30631553+liblaf@users.noreply.github.com"

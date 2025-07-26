@@ -1,2 +1,0 @@
-- [ ] fish shell
-- [ ] services
