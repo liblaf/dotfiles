@@ -1,0 +1,57 @@
+pacman:
+  - aria2
+  - bat
+  - btop
+  - chezmoi
+  - difftastic
+  - doggo-bin
+  - duf
+  - eza
+  - fastfetch
+  - fd
+  - ffmpeg
+  - fio
+  - freeze-bin
+  - fzf
+  - gdu
+  - geekbench
+  - gping
+  - graphicsmagick
+  - gum
+  - helix
+  - htop
+  - httpie
+  - hwatch-bin
+  - hyperfine
+  - imagemagick
+  - just
+  - lnav
+  - miniserve
+  - nmap
+  - ouch
+  - ov-bin
+  - parallel
+  - rbw
+  - ripgrep
+  - rsync
+  - sd
+  - speedtest-cli
+  - tealdeer
+  - tokei
+  - trash-cli
+  - vhs
+  - xh
+  - zoxide
+
+  - ansible
+  - python-passlib # < ansible-core < ansible
+  - sshpass # < ansible-core < ansible
+
+npm:
+  - "@bitwarden/cli"
+  - cspell
+  - repomix
+
+pypi:
+  - dvc[webdav]
+  - liblaf-lime

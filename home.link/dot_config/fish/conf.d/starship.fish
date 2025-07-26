@@ -1,0 +1,1 @@
+../../../../modules.stow/cli-starship/dot_config/fish/conf.d/starship.fish

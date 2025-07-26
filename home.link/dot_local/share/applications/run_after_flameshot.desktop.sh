@@ -1,0 +1,1 @@
+../../../../modules.stow/desktop-base/dot_local/share/applications/run_after_flameshot.desktop.sh

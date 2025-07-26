@@ -1,0 +1,12 @@
+[completion]
+model = "deepseek-chat"
+
+[[router.model_list]]
+model_name = "deepseek-chat"
+litellm_params.model = "deepseek/deepseek-chat"
+litellm_params.api_key = '{{ (rbwFields "DeepSeek").LIBLAF_LIME_API_KEY.value }}'
+
+[[router.model_list]]
+model_name = "deepseek-reasoner"
+litellm_params.model = "deepseek/deepseek-reasoner"
+litellm_params.api_key = '{{ (rbwFields "DeepSeek").LIBLAF_LIME_API_KEY.value }}'

@@ -1,0 +1,11 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+rclone config create GJM-AList webdav \
+  url='{{ (index (rbw "GJMs AList").data.uris 0).uri }}/dav/' \
+  vendor='other' \
+  user='{{ (rbw "GJMs AList").data.username }}' \
+  pass='{{ (rbw "GJMs AList").data.password }}'

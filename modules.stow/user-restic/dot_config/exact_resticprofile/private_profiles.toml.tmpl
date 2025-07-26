@@ -1,0 +1,44 @@
+# -*- mode: toml; -*-
+#:schema https://creativeprojects.github.io/resticprofile/jsonschema/config-1.json
+# ref: <https://creativeprojects.github.io/resticprofile/reference/index.html>
+
+[global]
+initialize = true
+prevent-sleep = true
+# after-network-online is not available for "user_logged_on" permission schedules
+schedule-defaults = { ignore-on-battery = true, permission = "user_logged_on" }
+scheduler = "systemd"
+
+[default]
+base-dir = "{{ .chezmoi.homeDir }}"
+force-inactive-lock = true
+initialize = true
+compression = "max"
+password-file = "{{ .chezmoi.homeDir }}/.config/resticprofile/password.txt"
+repository = "rest:http://127.0.0.1:{{ .ports.restic }}/srv/"
+retry-lock = "5m"
+
+[default.env]
+RESTIC_REST_USERNAME = '{{ (rbw "Restic").data.username }}'
+RESTIC_REST_PASSWORD = '{{ (rbw "Restic").data.password }}'
+
+[default.backup]
+check-after = true
+check-before = true
+schedule = "hourly"
+source = ["srv/"]
+source-base = "{{ .chezmoi.homeDir }}"
+source-relative = true
+tag = ["schedule"]
+
+[default.forget]
+schedule = "weekly"
+keep-within-daily = "7d"
+keep-within-hourly = "1d"
+keep-within-monthly = "12m"
+keep-within-weekly = "1m"
+keep-within-yearly = "10y"
+prune = true
+repack-small = true
+repack-uncompressed = true
+tag = ["schedule"]

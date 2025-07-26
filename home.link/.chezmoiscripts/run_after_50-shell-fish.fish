@@ -1,0 +1,1 @@
+../../modules.stow/shell-fish/.chezmoiscripts/run_after_50-shell-fish.fish

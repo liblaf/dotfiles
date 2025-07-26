@@ -1,0 +1,9 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ if .packages.npm }}
+bun update --latest --global --no-save
+# {{ end }}

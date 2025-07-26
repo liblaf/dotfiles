@@ -1,0 +1,5 @@
+pacman:
+  - clash-meta
+
+npm:
+  - "@liblaf/sub-store"
