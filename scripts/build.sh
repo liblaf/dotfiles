@@ -14,7 +14,7 @@ source "$SCRIPTS_DIR/00-load-profile.sh"
 source "$SCRIPTS_DIR/01-prepare-modules.sh"
 
 function build() {
-  readarray -t MODULES < <(load-profile "$1")
+  readarray -t MODULES < <(load-profile "${1:-"profiles/cachyos.yaml"}")
   prepare-modules "${MODULES[@]}"
   mkdir --parents "$CHEZMOI_SOURCE_DIR.link"
   stow --dir="$MODULES_STOW" --target="$CHEZMOI_SOURCE_DIR.link" "${MODULES[@]}"
