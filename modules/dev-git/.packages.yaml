@@ -6,3 +6,8 @@ pacman:
 
 npm:
   - gh-pages
+  - repomix
+
+pypi:
+  - copier
+  - dvc[webdav]
