@@ -1,2 +1,4 @@
 pacman:
-  - netdata
+  # ref: <https://discuss.cachyos.org/t/netdata-from-cachyos-extra-v3-incompatible-with-netdata-cloud-due-to-versioning/12365>
+  # `netdata` from `cachyos-extra-v3` is broken
+  - extra/netdata
