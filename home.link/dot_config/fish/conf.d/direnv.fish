@@ -1,0 +1,1 @@
+../../../../modules.stow/dev-direnv/dot_config/fish/conf.d/direnv.fish

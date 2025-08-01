@@ -1,0 +1,7 @@
+#:schema https://mise.jdx.dev/schema/mise.json
+
+[env]
+CHEZMOI_SOURCE_DIR = '{{ [config_root, "home"] | join_path }}'
+MODULES_DIR = '{{ [config_root, "modules"] | join_path }}'
+MODULES_STOW = '{{ [config_root, "modules.stow"] | join_path }}'
+WORKING_TREE = "{{ config_root }}"

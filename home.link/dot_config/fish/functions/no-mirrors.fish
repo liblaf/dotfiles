@@ -1,0 +1,1 @@
+../../../../modules.stow/shell-fish/dot_config/fish/functions/no-mirrors.fish

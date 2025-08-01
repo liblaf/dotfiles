@@ -1,0 +1,1 @@
+../../../../modules.stow/shell-fish/dot_config/fish/conf.d/alias.fish

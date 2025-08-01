@@ -1,0 +1,1 @@
+../../modules.stow/system-fwupd/.chezmoiscripts/run_after_50-system-fwupd.sh

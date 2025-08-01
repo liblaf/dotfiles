@@ -1,0 +1,1 @@
+../../../../../modules.stow/hardware-nvidia/dot_cache/exact_dotfiles/exact_root/etc/mkinitcpio.conf.d

@@ -1,0 +1,1 @@
+../../../../modules.stow/dev-mise/dot_config/fish/conf.d/mise.fish

@@ -1,0 +1,9 @@
+pacman:
+  - biome
+  - bun-bin
+  - npm
+  - prettier
+  - wrangler
+
+npm:
+  - "@biomejs/biome"

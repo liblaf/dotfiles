@@ -1,0 +1,1 @@
+../../../../modules.stow/cli-base/dot_config/fish/conf.d/zoxide.fish

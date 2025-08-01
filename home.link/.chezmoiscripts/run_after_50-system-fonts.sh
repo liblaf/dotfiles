@@ -1,0 +1,1 @@
+../../modules.stow/system-fonts/.chezmoiscripts/run_after_50-system-fonts.sh

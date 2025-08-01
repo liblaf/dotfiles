@@ -1,0 +1,1 @@
+../../modules.stow/pkg-pacman/.chezmoiscripts/run_after_50-pkg-pacman.sh

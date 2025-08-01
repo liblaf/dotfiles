@@ -1,0 +1,10 @@
+{
+  "proxies": {
+    "http-proxy": "http://127.0.0.1:{{ .ports.proxy }}",
+    "https-proxy": "http://127.0.0.1:{{ .ports.proxy }}",
+    "no-proxy": "localhost,127.0.0.0/8,::1"
+  },
+  "registry-mirrors": [
+    "{{ .mirrors.dockerhub }}"
+  ]
+}
