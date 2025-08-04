@@ -1,0 +1,1 @@
+../../modules.stow/dev-git/.chezmoiscripts/run_after_60-dev-git.sh
