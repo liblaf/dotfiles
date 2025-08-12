@@ -3,6 +3,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+if [[ -n ${__CONFIG_SH-} ]]; then return; fi
+export __CONFIG_SH=1
+
 function prompt-device() {
   if [[ -n ${DEVICE-} ]]; then
     return
