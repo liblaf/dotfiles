@@ -1,3 +1,4 @@
 pacman:
-  - rust
-  - rust-src
+  - cross
+  - rustup
+  - sccache
