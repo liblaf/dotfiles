@@ -4,3 +4,4 @@ set -o nounset
 set -o pipefail
 
 sudo systemctl enable --now fwupd-refresh.timer
+fwupdmgr update --assume-yes

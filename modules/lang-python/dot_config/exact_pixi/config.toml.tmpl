@@ -17,8 +17,8 @@ change-ps1 = false
 ]  # {{ end }}
 #
 # ref: <https://pixi.sh/latest/reference/pixi_configuration/#mirrors-for-pypi-resolving-and-pypi-package-downloading>
-"https://pypi.org/simple" = ["{{ .mirrors.pypi }}/web/simple"]
-"https://files.pythonhosted.org/packages" = ["{{ .mirrors.pypi }}/web/packages"]
+"https://pypi.org/simple" = ["{{ .mirrors.pypi }}/simple"]
+"https://files.pythonhosted.org/packages" = ["{{ .mirrors.pypi }}/packages"]
 
 [pypi-config]
-index-url = "{{ .mirrors.pypi }}/web/simple"
+index-url = "{{ .mirrors.pypi }}/simple"
