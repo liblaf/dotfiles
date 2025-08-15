@@ -14,10 +14,8 @@ jobs:
         uses: actions/checkout@v5
       - name: Setup mise
         uses: jdx/mise-action@v2
-      - name: Install Tools
-        uses: liblaf/actions/install@main
-        with:
-          apt: stow
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
       - name: Build
         run: mise run build 'profiles/${{ matrix.profile }}.yaml'
       - name: Remove .gitignore
@@ -26,7 +24,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: "."
-          branch: ${{ matrix.profile }}
+          branch: dist/${{ matrix.profile }}
           single-commit: true
     strategy:
       matrix:
