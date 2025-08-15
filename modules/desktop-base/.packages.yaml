@@ -1,5 +1,6 @@
 pacman:
   - journalctl-desktop-notification
+  - xdg-terminal-exec
 
   - libva-utils # VA-API
   - mpv
