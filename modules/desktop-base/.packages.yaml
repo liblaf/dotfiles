@@ -1,4 +1,6 @@
 pacman:
+  - journalctl-desktop-notification
+
   - libva-utils # VA-API
   - mpv
   - vdpauinfo # VDPAU

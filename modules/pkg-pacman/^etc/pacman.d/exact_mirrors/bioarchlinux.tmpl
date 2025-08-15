@@ -1,2 +1,10 @@
 # -*- mode: ini; -*-
-Server = {{ .mirrors.bioarchlinux }}/$arch
+# ref: <https://github.com/BioArchLinux/mirror/blob/main/mirrorlist.bio>
+
+## CERNET
+Server = https://mirrors.cernet.edu.cn/bioarchlinux/$arch
+Server = https://mirror.nju.edu.cn/bioarchlinux/$arch
+Server = https://mirror.iscas.ac.cn/BioArchLinux/$arch
+
+## Official Website
+Server = https://repo.bioarchlinux.org/$arch

@@ -35,8 +35,8 @@ modules:
   - system-docker
   - system-fonts
   - system-fwupd
-  - system-grub
   - system-libvirt
+  - system-limine
   - system-mime
   - system-netdata
   - system-ssh
