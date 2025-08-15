@@ -1,9 +1,4 @@
-encryption = "age"
 sourceDir = '{{ joinPath .chezmoi.workingTree "home" }}'
-
-[age]
-identity = '{{ joinPath .chezmoi.homeDir ".config" "sops" "age" "keys.txt" }}'
-recipient = "age1vfkz4l6vetgmmfpug6d9s0tp4k3es5mhj7znx3u86kge8zwgd9tszsndeh"  # cspell: disable-line
 
 [data]
 baseDomain = "liblaf.me"

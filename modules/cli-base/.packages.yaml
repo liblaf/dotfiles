@@ -53,7 +53,9 @@ pacman:
 
 npm:
   - "@bitwarden/cli"
+  - "@liblaf/cspell-init"
   - cspell
+  - mega-linter-runner@beta
 
 pypi:
   - liblaf-lime

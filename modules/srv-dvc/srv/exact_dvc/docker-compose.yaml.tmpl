@@ -5,17 +5,22 @@ name: DVC
 
 services:
   dvc:
-    command: serve webdav /data --addr ":8080"
+    command: serve sftp /data --addr ":2022"
     container_name: dvc
     image: rclone/rclone:latest
     ports:
-      - "{{ .ports.dvc }}:8080"
+      - "{{ .ports.dvc }}:2022"
     pull_policy: daily
     restart: unless-stopped
-    user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"
     volumes:
       - type: bind
         source: ./data
         target: /data
+        bind:
+          create_host_path: false
+      - type: bind
+        source: "{{ .chezmoi.homeDir }}/.ssh/authorized_keys"
+        target: /root/.ssh/authorized_keys
+        read_only: true
         bind:
           create_host_path: false

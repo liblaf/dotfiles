@@ -10,4 +10,4 @@ npm:
 
 pypi:
   - copier
-  - dvc[webdav]
+  - dvc[all]
