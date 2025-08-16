@@ -1,4 +1,7 @@
 #!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
 
 function data-chassis() {
   local chassis virt
@@ -65,12 +68,7 @@ function gen-data() {
       --input-format props \
       --output-format yaml \
       > "$CHEZMOI_SOURCE_DIR/.chezmoidata/generated.yaml"
-  # yq "$CHEZMOI_SOURCE_DIR/.chezmoidata/generated.yaml"
+  yq "$CHEZMOI_SOURCE_DIR/.chezmoidata/generated.yaml"
 }
 
-if [[ $0 == "${BASH_SOURCE[0]}" ]]; then
-  set -o errexit
-  set -o nounset
-  set -o pipefail
-  gen-data "$@"
-fi
+gen-data "$@"
