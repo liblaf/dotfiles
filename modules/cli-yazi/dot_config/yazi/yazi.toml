@@ -43,3 +43,12 @@ run = "git"
 id = "git"
 name = "*/"
 run = "git"
+
+# ref: <https://yazi-rs.github.io/docs/tips/#folder-previewer>
+[[plugin.prepend_preloaders]]
+name = "**/mnt/**"
+run = "noop"
+
+[[plugin.prepend_previewers]]
+name = "**/mnt/**"
+run = "noop"

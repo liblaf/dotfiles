@@ -1,0 +1,40 @@
+#:schema https://raw.githubusercontent.com/starship/starship/refs/heads/master/.github/config-schema.json
+
+command_timeout = 100
+
+[bun]
+version_format = "${raw}"
+
+[cmd_duration]
+format = '\[[󱎫 $duration]($style)\]'  # nf-md-timer
+
+[directory]
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "  # nf-md-file_document
+"Downloads" = " "  # nf-fa-download
+"Music" = " "  # nf-fa-music
+"Pictures" = " "  # nf-fa-photo
+"Videos" = " "  # nf-fa-video
+"apple" = "🍎"
+"github" = " "  # nf-fa-github
+"grapes" = "🍇"
+"lime" = "🍋‍🟩"
+"melon" = "🍈"
+"tangerine" = "🍊"
+
+[golang]
+version_format = "${raw}"
+
+[package]
+version_format = "${raw}"
+
+[pixi]
+disabled = true
+
+[python]
+version_format = "${raw}"
+
+[rust]
+version_format = "${raw}"
