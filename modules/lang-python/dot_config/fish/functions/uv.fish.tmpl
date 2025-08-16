@@ -1,11 +1,5 @@
-function uv --wrap="uv"
-    set --local MIRROR_PYPI '{{ .mirrors.pypi }}'
-    set --local GIT_ROOT (git rev-parse --show-toplevel 2> /dev/null || pwd)
-    set --local UV_LOCK "$GIT_ROOT/uv.lock"
-    command uv $argv
-    if test -f "$UV_LOCK"
-        # ref: <https://github.com/astral-sh/uv/issues/6349#issuecomment-3076752818>
-        sd 'https://(\S+)/packages\b' 'https://files.pythonhosted.org/packages' "$UV_LOCK"
-        sd 'https://(\S+)/simple\b' 'https://pypi.org/simple' "$UV_LOCK"
-    end
+if type --query 'uv-wrapper.sh'
+    alias uv='uv-wrapper.sh'
+else
+    alias uv='command uv'
 end
