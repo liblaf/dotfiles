@@ -30,5 +30,3 @@ groups=(
 readarray -O "${#packages[@]}" -t packages < <(yay --sync --groups --quiet "${groups[@]}")
 yay-install "${packages[@]}"
 # {{ end }}
-
-yay --yay --clean --noconfirm --nosave --recursive --unneeded
