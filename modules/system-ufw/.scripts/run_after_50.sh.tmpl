@@ -7,21 +7,24 @@ set -o pipefail
 sudo ufw --force reset
 
 sudo ufw default deny incoming
+sudo ufw default allow outgoing
 sudo ufw default allow routed
 
 # ref: <https://en.wikipedia.org/wiki/IPv4#Private_networks>
 sudo ufw allow from 172.16.0.0/12 # allow connections from docker
-
-# allow connections to `sysctl net.ipv4.ip_local_port_range`
-sudo ufw allow 32768:60999/tcp
-sudo ufw allow 32768:60999/udp
 
 # fix libvirt virtual machine network connection
 # ref: <https://wszqkzqk.github.io/2024/07/19/libvirt-network-ufw/>
 sudo ufw allow in on virbr0
 sudo ufw allow out on virbr0
 
+# services
+sudo ufw allow '{{ .ports.dvc }}'
+sudo ufw allow '{{ .ports.https }}'
+sudo ufw allow '{{ .ports.ssh }}'
+
 sudo ufw --force enable
+sudo ufw status verbose
 sudo systemctl enable --now ufw.service
 
 sudo find /etc/ufw -regextype gnu-awk -regex ".*.[[:digit:]]{8}_[[:digit:]]{6}" -delete

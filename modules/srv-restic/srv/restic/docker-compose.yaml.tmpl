@@ -1,26 +1,21 @@
 # -*- mode: yaml; -*-
 # yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
 
-name: DVC
+name: Restic
 
 services:
-  dvc:
-    command: serve sftp /data --addr ':2022'
-    container_name: dvc
+  restic:
+    command: serve restic tsinghua:/restic --addr ':8080'
+    container_name: restic
     image: rclone/rclone:latest
     ports:
-      - "{{ .ports.dvc }}:2022"
+      - "{{ .ports.restic }}:8080"
     pull_policy: weekly
     restart: unless-stopped
     volumes:
       - type: bind
-        source: ./data
-        target: /data
-        bind:
-          create_host_path: false
-      - type: bind
-        source: "{{ .chezmoi.homeDir }}/.ssh/authorized_keys"
-        target: /root/.ssh/authorized_keys
+        source: "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf"
+        target: /config/rclone/rclone.conf
         read_only: true
         bind:
           create_host_path: false

@@ -5,14 +5,13 @@ name: WebDAV
 
 services:
   webdav:
-    command: serve webdav tsinghua:/webdav --addr ":8080"
+    command: serve webdav tsinghua:/webdav --addr ':8080'
     container_name: webdav
     image: rclone/rclone:latest
     ports:
       - "{{ .ports.webdav }}:8080"
-    pull_policy: daily
+    pull_policy: weekly
     restart: unless-stopped
-    user: "{{ .chezmoi.uid }}:{{ .chezmoi.gid }}"
     volumes:
       - type: bind
         source: "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf"

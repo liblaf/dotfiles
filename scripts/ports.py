@@ -24,19 +24,20 @@ class Service(NamedTuple):
 
     @property
     def port(self) -> int:
-        hashsum: int = int(hashlib.blake2b(self.name.encode()).hexdigest()[:4], base=16)
+        digest: bytes = hashlib.blake2b(self.name.encode()).digest()
+        num: int = int.from_bytes(digest, byteorder="big")
         low: int
         high: int
         low, high = local_port_range()
         available_ports: range = range(low, high) if self.public else range(high, 65536)
-        return available_ports[hashsum % len(available_ports)]
+        return available_ports[num % len(available_ports)]
 
 
 SERVICES: list[Service] = [
     # Service("GPT Academic"),
     # Service("MLflow"),
     # Service("Stirling-PDF"),
-    Service("DVC"),
+    Service("DVC", public=True),
     Service("HTTP"),
     Service("HTTPS", public=True),
     Service("Proxy"),

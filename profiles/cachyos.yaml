@@ -31,6 +31,7 @@ modules:
   - shell-fish
   - srv-caddy
   - srv-dvc
+  - srv-restic
   - srv-webdav
   - system-docker
   - system-fonts

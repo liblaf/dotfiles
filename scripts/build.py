@@ -29,6 +29,11 @@ class ProfileConfig(pydantic.BaseModel):
 class Module:
     path: Path
 
+    def __attrs_post_init__(self) -> None:
+        if not self.path.is_dir():
+            msg: str = f"Module path '{self.path}' is not a directory"
+            raise ValueError(msg)
+
     @property
     def name(self) -> str:
         return self.path.name
