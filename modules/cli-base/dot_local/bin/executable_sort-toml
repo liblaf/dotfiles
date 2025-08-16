@@ -1,0 +1,17 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+function has() {
+  type "$@" &> /dev/null
+}
+
+if has toml-sort; then
+  toml-sort --in-place --all "$@"
+  sed --expression='s/# :schema /#:schema /g' --in-place "$@"
+fi
+if has tombi; then
+  tombi format "$@"
+fi

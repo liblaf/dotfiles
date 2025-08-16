@@ -1,0 +1,11 @@
+# -*- mode: toml; -*-
+#:schema https://json.schemastore.org/uv.json
+# ref: <https://docs.astral.sh/uv/reference/settings/>
+
+[[index]]
+name = "mirror"
+url = "{{ .mirrors.pypi }}/simple"
+default = true
+
+[pip]
+index-url = "{{ .mirrors.pypi }}/simple"
