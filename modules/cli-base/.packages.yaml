@@ -37,6 +37,7 @@ pacman:
 
   # ------------------------------- Networking ------------------------------- #
   - aria2
+  - bandwhich
   - doggo-bin
   - gping
   - httpie
