@@ -1,8 +1,9 @@
 #!/bin/bash
 # -*- mode: sh; -*-
-# @option    --ipapi_is_key='{{ (rbwFields "ipapi.is").API_KEY.value }}'
+# @option    --ipapi-is-key='{{ (rbwFields "ipapi.is").API_KEY.value }}'
 # @option    --namespace-id='{{ (rbwFields "API").NAMESPACE_ID.value }}'
 # @option -p --port='{{ .ports.proxy }}'
+# @option -u --uuid='{{ (rbwFields "API").UUID_ALL.value }}'
 # @option -w --working-dir='{{ joinPath .chezmoi.homeDir "mihomo" }}'
 # @meta require-tool clash-meta
 # @meta require-tool sub-store
@@ -11,25 +12,28 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+UUID_ALL='{{ (rbwFields "API").UUID_ALL.value }}'
+UUID_SHARED='{{ (rbwFields "API").UUID_SHARED.value }}'
+
 function get() {
   local key="$1"
-  wrangler kv key get "$key" --namespace-id "$namespace_id" --remote |
+  wrangler kv key get "$key" --namespace-id "$NAMESPACE_ID" --remote |
     sed "1 { /Proxy environment variables detected. We'll use your proxy for fetch requests./d }"
 }
 
 function put() {
   local key="$1"
   local path="$2"
-  wrangler kv key put "$key" --namespace-id "$namespace_id" --path "$path" --remote
+  wrangler kv key put "$key" --namespace-id "$NAMESPACE_ID" --path "$path" --remote
 }
 
-function main() {
+function build() {
+  local uuid="$1"
   local ipapi_is_key="${argc_ipapi_is_key:?}"
-  local namespace_id="${argc_namespace_id:?}"
   local port="${argc_port:?}"
-  local working_dir="${argc_working_dir:?}"
+  local working_dir="${argc_working_dir:?}/$uuid"
   mkdir --parents --verbose "$working_dir"
-  get 'profile.yaml' > "$working_dir/profile.yaml"
+  get "$uuid/profile.yaml" > "$working_dir/profile.yaml"
   xhs --output "$working_dir/mihomo.template.yaml" --download GET \
     'https://raw.githubusercontent.com/liblaf/sub-store/refs/heads/main/templates/mihomo/default.yaml'
   sub-store mihomo \
@@ -39,7 +43,13 @@ function main() {
     --profile "$working_dir/profile.yaml" \
     --template "$working_dir/mihomo.template.yaml"
   clash-meta -f "$working_dir/mihomo.yaml" -t # test configuration
-  put 'mihomo.yaml' "$working_dir/mihomo.yaml"
+  put "$uuid/mihomo.yaml" "$working_dir/mihomo.yaml"
+}
+
+function main() {
+  export NAMESPACE_ID="${argc_namespace_id:?}"
+  build "$UUID_ALL"
+  build "$UUID_SHARED"
 }
 
 eval "$(argc --argc-eval "$0" "$@")"

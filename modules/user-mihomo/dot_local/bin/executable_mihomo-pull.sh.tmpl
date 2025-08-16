@@ -1,18 +1,20 @@
 #!/bin/bash
 # -*- mode: sh; -*-
-# @option -u --uuid='{{ (rbwFields "API").UUID.value }}'
+# @option -u --uuid='{{ (rbwFields "API").UUID_ALL.value }}'
+# @meta require-tool clash-meta
 set -o errexit
 set -o nounset
 set -o pipefail
 
 function main() {
+  # TODO: migrate to `mihomo` when <https://github.com/archlinuxcn/repo/issues/4384> is resolved
   local uuid="${argc_uuid:?}"
-  tmpfile="$(mktemp --suffix=".yaml")"
+  tmpfile="$(mktemp --suffix='.yaml')"
   trap 'rm --force "$tmpfile"' EXIT
   xhs --output "$tmpfile" --download GET \
     'https://api.liblaf.me/subscribe/mihomo.yaml' id=="$uuid"
   clash-meta -f "$tmpfile" -t # test configuration
-  sudo install -D --mode="u=rw,go=r" --no-target-directory --verbose "$tmpfile" '/etc/clash-meta/config.yaml'
+  sudo install -D --mode='u=rw,go=r' --no-target-directory --verbose "$tmpfile" '/etc/clash-meta/config.yaml'
   sudo systemctl enable --now clash-meta.service
   sudo systemctl restart clash-meta.service
 }
