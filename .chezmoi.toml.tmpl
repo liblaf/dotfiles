@@ -23,6 +23,7 @@ external = '{{ joinPath $cacheDirRelative "external" }}'
 # {{- $central := eq .chezmoi.hostname "PC05" -}}
 # {{- $services := setValueAtPath "caddy" $central $services -}}
 # {{- $services := setValueAtPath "dvc" $central $services -}}
+# {{- $services := setValueAtPath "mihomo" $central $services -}}
 # {{- $services := setValueAtPath "webdav" $central $services -}}
 # {{- "\n" -}} {{- $services | toToml }}
 
