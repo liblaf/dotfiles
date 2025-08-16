@@ -38,3 +38,6 @@ signingKey = "31D2E2AE960E5F8C"
 
 [hooks.read-source-state.pre]
 script = '{{ joinPath .chezmoi.workingTree "hooks" "read-source-state.pre.sh" }}'
+
+[interpreters.fish]
+command = "fish"

@@ -1,3 +1,4 @@
+#:schema https://yazi-rs.github.io/schemas/yazi.json
 # ref: <https://yazi-rs.github.io/docs/configuration/yazi>
 
 [[opener.code]]
@@ -31,11 +32,13 @@ use = ["open", "reveal"]
 mime = "text/*"
 use = ["code", "edit", "open", "reveal", "view"]
 
+# ref: <https://github.com/yazi-rs/plugins/tree/main/git.yazi>
 [[plugin.prepend_fetchers]]
 id = "git"
 name = "*"
 run = "git"
 
+# ref: <https://github.com/yazi-rs/plugins/tree/main/git.yazi>
 [[plugin.prepend_fetchers]]
 id = "git"
 name = "*/"

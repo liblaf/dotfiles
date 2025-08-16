@@ -4,7 +4,6 @@ set -o nounset
 set -o pipefail
 
 PLUGINS=(
-  Rolv-Apneseth/starship
   yazi-rs/plugins:chmod
   yazi-rs/plugins:full-border
   yazi-rs/plugins:git
@@ -21,7 +20,6 @@ for plugin in "${PLUGINS[@]}"; do
   fi
 done
 
-ya pkg install
 ya pkg upgrade
 if ((${#TO_INSTALL[@]} > 0)); then
   ya pkg add "${TO_INSTALL[@]}"

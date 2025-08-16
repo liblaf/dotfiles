@@ -1,6 +1,0 @@
-{{- /* -*- mode: gotmpl; -*- */ -}}
-{{- $deps := dict -}}
-{{- range $pkg := .packages.npm -}}
-  {{- $deps := set $deps $pkg "latest" -}}
-{{- end -}}
-{{- dict "dependencies" $deps | toPrettyJson -}}

@@ -1,8 +1,10 @@
 -- ref: <https://github.com/sxyazi/yazi/blob/shipped/yazi-plugin/preset/components/status.lua>
 
+-- ref: <https://github.com/yazi-rs/plugins/tree/main/full-border.yazi>
 require("full-border"):setup()
+
+-- ref: <https://github.com/yazi-rs/plugins/tree/main/git.yazi>
 require("git"):setup()
-require("starship"):setup()
 
 Status:children_add(
   function()

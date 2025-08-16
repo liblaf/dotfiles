@@ -1,3 +1,5 @@
+#:schema https://liblaf.github.io/lime/schemas/config.json
+
 model = "deepseek-reasoner"
 
 [[router.model_list]]
@@ -9,3 +11,14 @@ litellm_params.api_key = '{{ (rbwFields "DeepSeek").LIBLAF_LIME_API_KEY.value }}
 model_name = "deepseek-chat"
 litellm_params.model = "deepseek/deepseek-chat"
 litellm_params.api_key = '{{ (rbwFields "DeepSeek").LIBLAF_LIME_API_KEY.value }}'
+
+[[router.model_list]]
+model_name = "qwen3-coder-plus"
+litellm_params.model = "dashscope/qwen3-coder-plus"
+litellm_params.api_key = '{{ (rbwFields "Aliyun").LIBLAF_LIME_API_KEY.value }}'
+
+[[router.context_window_fallbacks]]
+deepseek-chat = ["qwen3-coder-plus"]
+
+[[router.context_window_fallbacks]]
+deepseek-reasoner = ["qwen3-coder-plus"]

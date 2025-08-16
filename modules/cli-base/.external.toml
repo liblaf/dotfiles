@@ -10,3 +10,8 @@ executable = true
 refreshPeriod = "168h"
 type = "file"
 url = "https://github.com/liblaf/tangerine/releases/latest/download/tangerine-x86_64-unknown-linux-gnu"
+
+[".local/share/fish/vendor_completions.d/tangerine.fish"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://raw.githubusercontent.com/liblaf/tangerine/refs/heads/main/completions/fish/tangerine.fish"

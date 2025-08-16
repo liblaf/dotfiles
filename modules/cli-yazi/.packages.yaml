@@ -1,5 +1,6 @@
 pacman:
   - yazi
+
   # ref: <https://yazi-rs.github.io/docs/installation#arch>
   - ffmpeg
   - 7zip
