@@ -3,6 +3,8 @@ pacman:
   - noto-fonts-cjk
   - noto-fonts-emoji
   - noto-fonts-extra
+  - otf-latinmodern-math
   - otf-monaspace-nerd
   - ttf-cascadia-code-nerd
   - ttf-mona-sans
+  - ttf-twemoji
