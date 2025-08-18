@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
       - name: Setup mise
-        uses: jdx/mise-action@v2
+        uses: jdx/mise-action@v3
       - name: Setup uv
         uses: astral-sh/setup-uv@v6
       - name: Build
