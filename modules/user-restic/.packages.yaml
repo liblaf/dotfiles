@@ -1,3 +1,4 @@
 pacman:
   - restic
+  - restic-browser-bin
   - resticprofile

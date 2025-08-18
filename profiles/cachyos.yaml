@@ -25,7 +25,6 @@ modules:
   - lang-shell
   - lang-tex
   - lang-typescript
-  - os-cachyos
   - pkg-flatpak
   - pkg-pacman
   - shell-fish

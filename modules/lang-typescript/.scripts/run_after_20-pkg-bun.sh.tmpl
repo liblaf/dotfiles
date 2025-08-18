@@ -6,9 +6,9 @@ set -o pipefail
 
 # {{ if .packages.npm }}
 
-bun update --latest --global
+bun update --latest --global || true
 
-INSTALLED="$(bun pm ls --global)"
+INSTALLED="$(bun pm ls --global || true)"
 TO_INSTALL=()
 
 # {{ range $spec := .packages.npm }}

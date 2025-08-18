@@ -31,7 +31,7 @@ class Module:
 
     def __attrs_post_init__(self) -> None:
         if not self.path.is_dir():
-            msg: str = f"Module path '{self.path}' is not a directory"
+            msg: str = f"Module '{self.path}' is not a directory"
             raise ValueError(msg)
 
     @property

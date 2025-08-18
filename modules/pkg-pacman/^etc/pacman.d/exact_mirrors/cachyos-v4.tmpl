@@ -1,14 +1,2 @@
-# -*- mode: ini; -*-
-# ref: <https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-mirrorlist/cachyos-mirrorlist>
-
-## CERNET
-Server = https://mirrors.cernet.edu.cn/cachyos/repo/$arch_v4/$repo
-Server = https://mirrors.ustc.edu.cn/cachyos/repo/$arch_v4/$repo
-Server = https://mirror.nju.edu.cn/cachyos/repo/$arch_v4/$repo
-
-## CDN77 (World Wide Datacenters)
-Server = https://cdn77.cachyos.org/repo/$arch_v4/$repo
-## Tebi CDN (Germany, USA, SG)
-Server = https://cdn-1.cachyos.org/$arch_v4/$repo
-## Cloudflare R2
-Server = https://cdn.cachyos.org/repo/$arch_v4/$repo
+{{/* -*- mode: gotmpl; -*- */}}
+{{ includeTemplate "cachyos-mirrorlist" | replace "$arch" "$arch_v4" }}
