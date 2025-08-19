@@ -4,8 +4,8 @@
 ## CERNET
 # mirrors.cernet.edu.cn will redirect to NJU, but USTC is much faster
 Server = https://mirrors.ustc.edu.cn/cachyos/repo/$arch/$repo
-Server = https://mirror.nju.edu.cn/cachyos/repo/$arch/$repo
 Server = https://mirrors.cernet.edu.cn/cachyos/repo/$arch/$repo
+Server = https://mirror.nju.edu.cn/cachyos/repo/$arch/$repo
 
 ## CDN77 (World Wide Datacenters)
 Server = https://cdn77.cachyos.org/repo/$arch/$repo

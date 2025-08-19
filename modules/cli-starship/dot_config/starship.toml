@@ -82,7 +82,7 @@ symbol = "  "
 
 [git_branch]
 format = "\\[[$symbol$branch]($style)\\]"
-symbol = " "
+symbol = " "
 
 [git_status]
 format = "(\\[[$all_status$ahead_behind]($style)\\])"
@@ -94,7 +94,7 @@ renamed = ""
 
 [golang]
 format = "\\[[$symbol($version)]($style)\\]"
-symbol = " "
+symbol = "󰟓 "
 version_format = "${raw}"
 
 [gradle]
@@ -157,7 +157,8 @@ symbol = " "
 
 [nodejs]
 format = "\\[[$symbol($version)]($style)\\]"
-symbol = " "
+symbol = " "
+version_format = "${raw}"
 
 [ocaml]
 format = "\\[[$symbol($version)(\\($switch_indicator$switch_name\\))]($style)\\]"
@@ -249,7 +250,7 @@ format = "\\[[$symbol($version)]($style)\\]"
 
 [python]
 format = "\\[[${symbol}${pyenv_prefix}(${version})(\\($virtualenv\\))]($style)\\]"
-symbol = " "
+symbol = " "
 version_format = "${raw}"
 
 [raku]
@@ -288,7 +289,7 @@ format = "\\[[$symbol$workspace]($style)\\]"
 format = "\\[[$time]($style)\\]"
 
 [username]
-format = "\\[[$user]($style)\\]"
+format = "[$user]($style)"
 
 [vagrant]
 format = "\\[[$symbol($version)]($style)\\]"
@@ -308,13 +309,14 @@ symbol = " "
 
 [directory]
 read_only = " 󰌾"
-truncation_symbol = "…/"
+truncation_symbol = "󰇘/"
 
 [git_commit]
 tag_symbol = "  "
 
 [hostname]
-ssh_symbol = " "
+ssh_symbol = ""
+format = "@[$ssh_symbol$hostname]($style) "
 
 [rlang]
 symbol = "󰟔 "
