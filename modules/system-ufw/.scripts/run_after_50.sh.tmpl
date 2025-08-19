@@ -10,18 +10,19 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw default allow routed
 
+# allow connections from docker
 # ref: <https://en.wikipedia.org/wiki/IPv4#Private_networks>
-sudo ufw allow from 172.16.0.0/12 # allow connections from docker
+sudo ufw allow from 172.16.0.0/12 comment 'Docker'
 
 # fix libvirt virtual machine network connection
 # ref: <https://wszqkzqk.github.io/2024/07/19/libvirt-network-ufw/>
-sudo ufw allow in on virbr0
-sudo ufw allow out on virbr0
+sudo ufw allow in on virbr0 comment 'Libvirt'
+sudo ufw allow out on virbr0 comment 'Libvirt'
 
-# services
-sudo ufw allow '{{ .ports.dvc }}'
-sudo ufw allow '{{ .ports.https }}'
-sudo ufw allow '{{ .ports.ssh }}'
+# applications
+sudo ufw allow DVC
+sudo ufw allow HTTPS
+sudo ufw allow SSHD
 
 sudo ufw --force enable
 sudo ufw status verbose
