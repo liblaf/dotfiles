@@ -14,13 +14,9 @@ base-dir = "{{ .chezmoi.homeDir }}"
 force-inactive-lock = true
 initialize = true
 compression = "max"
-password-file = "{{ .chezmoi.homeDir }}/.config/resticprofile/password.txt"
+password-file = "{{ .chezmoi.homeDir }}/.config/restic/password.txt"
 repository = "rest:http://127.0.0.1:{{ .ports.restic }}/{{ .chezmoi.hostname }}/"
 retry-lock = "5m"
-
-[default.env]
-RESTIC_REST_USERNAME = '{{ (rbw "Restic").data.username }}'
-RESTIC_REST_PASSWORD = '{{ (rbw "Restic").data.password }}'
 
 [default.backup]
 check-after = true

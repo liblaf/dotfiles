@@ -1,0 +1,23 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+# @arg files+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+function has() {
+  type "$@" &> /dev/null
+}
+
+function main() {
+  if has toml-sort; then
+    toml-sort --in-place --all -- "${argc_files[@]:?}"
+    sed --expression='s/# :schema /#:schema /g' --in-place -- "${argc_files[@]:?}"
+  fi
+  if has tombi; then
+    tombi format -- "${argc_files[@]:?}"
+    tombi lint -- "${argc_files[@]:?}"
+  fi
+}
+
+eval "$(argc --argc-eval "$0" "$@")"
