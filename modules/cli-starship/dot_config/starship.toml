@@ -85,7 +85,12 @@ format = "\\[[$symbol$branch]($style)\\]"
 symbol = " "
 
 [git_status]
-format = "([\\[$all_status$ahead_behind\\]]($style))"
+format = "(\\[[$all_status$ahead_behind]($style)\\])"
+ahead = ""
+behind = ""
+deleted = ""
+diverged = ""
+renamed = ""
 
 [golang]
 format = "\\[[$symbol($version)]($style)\\]"
@@ -313,3 +318,7 @@ ssh_symbol = " "
 
 [rlang]
 symbol = "󰟔 "
+
+[character]
+error_symbol = "[](bold red)"
+success_symbol = "[>](bold green)"

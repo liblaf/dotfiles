@@ -5,11 +5,23 @@ command_timeout = 100
 [bun]
 version_format = "${raw}"
 
+[character]
+error_symbol = "[](bold red)"  # nf-fa-close
+success_symbol = "[>](bold green)"
+
 [cmd_duration]
 format = '\[[󱎫 $duration]($style)\]'  # nf-md-timer
 
 [directory]
 truncation_symbol = "…/"
+
+[git_status]
+ahead = ""  # nf-fa-arrow_up_long
+behind = ""  # nf-fa-arrow_down_long
+deleted = ""  # nf-fa-close
+diverged = ""  # nf-fa-arrows_up_down
+format = '(\[[$all_status$ahead_behind]($style)\])'
+renamed = ""  # nf-fa-angles_right
 
 [golang]
 version_format = "${raw}"
