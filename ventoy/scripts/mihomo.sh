@@ -17,6 +17,8 @@ function prepare-mihomo() {
   cp --archive "$(type -P clash-meta)" "$mihomo_dir/clash-meta"
   chezmoi execute-template "$VENTOY_DIR/assets/proxy-on.sh.tmpl" --file \
     --output "$mihomo_dir/proxy-on.sh"
+  chezmoi execute-template "$VENTOY_DIR/assets/proxy-on.fish.tmpl" --file \
+    --output "$mihomo_dir/proxy-on.fish"
 }
 
 if [[ ${BASH_SOURCE[0]} == "$0" ]]; then
