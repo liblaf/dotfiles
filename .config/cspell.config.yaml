@@ -132,6 +132,7 @@ words:
   - noheadings
   - nopasswd
   - noto
+  - ntsc
   - numba
   - numpy
   - omnia
@@ -156,6 +157,7 @@ words:
   - pygments
   - pypi
   - pyright
+  - pyvenv
   - pyvista
   - pyviz
   - qalculate

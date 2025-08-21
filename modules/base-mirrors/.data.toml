@@ -1,13 +1,12 @@
 [mirrors]
 anaconda = "https://mirrors.cernet.edu.cn/anaconda"
 anaconda_extra = "https://mirrors.cernet.edu.cn/anaconda-extra"
-crates_io_index = "https://mirrors.tuna.tsinghua.edu.cn/crates.io-index"
+crates_io_index = "https://mirrors.cernet.edu.cn/crates.io-index"
 flathub = "https://mirrors.cernet.edu.cn/flathub"
 ghcr = "ghcr.nju.edu.cn"
 go = "https://mirrors.aliyun.com/goproxy"  # chsrc measure go
 golang = "https://mirrors.cernet.edu.cn/golang"
 nodejs_release = "https://mirrors.cernet.edu.cn/nodejs-release"
 npm = "https://registry.npmmirror.com"  # chsrc measure npm
-ntp = "ntp.tuna.tsinghua.edu.cn"
 pypi = "https://mirrors.cernet.edu.cn/pypi/web"
 rustup = "https://mirrors.cernet.edu.cn/rustup"
