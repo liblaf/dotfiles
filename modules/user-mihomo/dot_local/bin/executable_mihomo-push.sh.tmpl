@@ -29,7 +29,6 @@ function put() {
 
 function build() {
   local uuid="$1"
-  local ipapi_is_key="${argc_ipapi_is_key:?}"
   local port="${argc_port:?}"
   local working_dir="${argc_working_dir:?}/$uuid"
   mkdir --parents --verbose "$working_dir"
@@ -37,11 +36,10 @@ function build() {
   xhs --output "$working_dir/mihomo.template.yaml" --download GET \
     'https://raw.githubusercontent.com/liblaf/sub-store/refs/heads/main/templates/mihomo/default.yaml'
   sub-store mihomo \
-    --key "$ipapi_is_key" \
     --output "$working_dir/mihomo.yaml" \
-    --port "$port" \
     --profile "$working_dir/profile.yaml" \
     --template "$working_dir/mihomo.template.yaml"
+  yq eval ".mixed-port = $port" "$working_dir/mihomo.yaml" --inplace
   clash-meta -f "$working_dir/mihomo.yaml" -t # test configuration
   put "$uuid/mihomo.yaml" "$working_dir/mihomo.yaml"
 }
