@@ -6,7 +6,7 @@ pacman:
   - jless
   - jnv
   - markdownlint-cli
-  - pandoc-cli
+  - pandoc-bin
   - prettier
   - tombi
 
