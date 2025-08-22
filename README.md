@@ -39,6 +39,14 @@ $ chezmoi init liblaf
 $ mise run apply
 ```
 
+### Manual Setup
+
+1. Launch the `CachyOS Kernel Manager` application and choose the desired kernels.
+2. Install appropriate NVIDIA drivers.
+3. Setup Microsoft Edge
+4. `gh auth login`
+5. `wrangler login`
+
 <div align="right" markdown>
 
 [![](https://img.shields.io/badge/-BACK_TO_TOP-black?style=flat-square)](#readme-top)
