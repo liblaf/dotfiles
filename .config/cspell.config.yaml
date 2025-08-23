@@ -139,6 +139,7 @@ words:
   - numpy
   - omnia
   - opencl
+  - otrust
   - pacutils
   - peterjc
   - pijul

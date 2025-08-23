@@ -27,6 +27,8 @@ modules:
   - lang-typescript
   - pkg-flatpak
   - pkg-pacman
+  - secrets-gpg
+  - secrets-ssh
   - shell-fish
   - srv-caddy
   - srv-dvc

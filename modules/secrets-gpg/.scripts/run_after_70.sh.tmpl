@@ -1,0 +1,9 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+rbw get --clipboard 'GPG'
+echo '{{ (rbw "GPG").notes }}' | gpg --import
+gpg --import-ownertrust < '{{ joinPath .chezmoi.workingTree "assets" "otrust.txt" }}'
+gpg --clear-sign < /dev/null # save passphrase in password manager
