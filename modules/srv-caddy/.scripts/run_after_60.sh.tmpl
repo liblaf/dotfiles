@@ -10,12 +10,10 @@ cd "$HOME/srv/caddy"
 
 # {{ if .services.caddy }}
 
-docker volume create 'caddy-data'
 docker compose up --remove-orphans --wait
 
 # {{ else }}
 
 docker compose down
-docker volume rm --force 'caddy-data'
 
 # {{ end }}
