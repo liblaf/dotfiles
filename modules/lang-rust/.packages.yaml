@@ -1,0 +1,4 @@
+pacman:
+  - cross
+  - rustup
+  - sccache

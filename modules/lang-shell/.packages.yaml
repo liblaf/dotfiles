@@ -1,0 +1,4 @@
+pacman:
+  - argc
+  - shellcheck-static
+  - shfmt
