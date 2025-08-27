@@ -25,7 +25,7 @@ class Service(NamedTuple):
     @property
     def port(self) -> int:
         digest: bytes = hashlib.blake2b(self.name.encode()).digest()
-        num: int = int.from_bytes(digest, byteorder="big")
+        num: int = int.from_bytes(digest)
         low: int
         high: int
         low, high = local_port_range()
@@ -40,7 +40,9 @@ SERVICES: list[Service] = [
     Service("DVC", public=True),
     Service("HTTP"),
     Service("HTTPS", public=True),
+    Service("OpenList"),
     Service("Proxy"),
+    Service("qBittorrent"),
     Service("Restic"),
     Service("SSH", public=True),
     Service("WebDAV"),
