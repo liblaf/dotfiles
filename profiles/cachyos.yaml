@@ -1,16 +1,16 @@
 modules:
+  - app/kitty
   - app/wrap
   - app/zotero
   - base/mirrors
   - base/system
   - base/user
   - cli/base
+  - cli/fish
   - cli/starship
   - cli/yazi
-  - core
   - desktop/base
   - desktop/gnome
-  - desktop/kitty
   - dev/direnv
   - dev/git
   - dev/github
@@ -19,6 +19,8 @@ modules:
   - fs/btrfs
   - hardware/intel
   - hardware/nvidia
+  - keys/gpg
+  - keys/ssh
   - lang/cpp
   - lang/formats
   - lang/go
@@ -29,9 +31,6 @@ modules:
   - lang/typescript
   - pkg/flatpak
   - pkg/pacman
-  - secrets/gpg
-  - secrets/ssh
-  - shell/fish
   - srv/caddy
   - srv/dvc
   - srv/restic

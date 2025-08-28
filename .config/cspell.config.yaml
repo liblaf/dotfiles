@@ -27,6 +27,7 @@ words:
   - bingwallpaper
   - bioconda
   - biomejs
+  - bmalehorn
   - btop
   - btrfs
   - cachy
@@ -39,10 +40,14 @@ words:
   - cernet
   - changeps
   - chex
+  - chouzz
+  - chrislajoie
   - chsrc
+  - clangd
   - cmdline
   - copyto
   - cppcheck
+  - cpptools
   - csvlens
   - cuda
   - cytoolz
@@ -52,6 +57,7 @@ words:
   - ddcutil
   - ddns
   - deauth
+  - dependi
   - devel
   - dglteam
   - difft
@@ -59,13 +65,16 @@ words:
   - direnv
   - dmabuf
   - dnsmasq
+  - dnut
   - dotenv
   - dslicer
+  - dustypomerleau
   - earlyoom
   - einops
   - emptydirs
   - emscripten
   - etils
+  - expt
   - fastai
   - freeipmi
   - fstype
@@ -89,6 +98,7 @@ words:
   - graphicsmagick
   - groff
   - groh
+  - gruntfuggly
   - gsettings
   - guix
   - haruna
@@ -100,9 +110,12 @@ words:
   - illumos
   - imgcat
   - inplace
+  - intellicode
   - ipapi
   - jless
   - journalctl
+  - kisstkondoros
+  - kohler
   - lessutfchardef
   - libalpm
   - liblaf
@@ -118,6 +131,8 @@ words:
   - lsign
   - lusiadas
   - mabox
+  - matthewpi
+  - mechatroner
   - menpo
   - mihomo
   - mkconfig
@@ -129,6 +144,8 @@ words:
   - multicd
   - networkx
   - newgrp
+  - nico
+  - njpwerner
   - nmap
   - noconfirm
   - nofile
@@ -147,6 +164,7 @@ words:
   - pipx
   - pixi
   - pkgs
+  - pkief
   - platformdirs
   - plotly
   - poppler
@@ -159,6 +177,7 @@ words:
   - pydicom
   - pyenv
   - pygments
+  - pylance
   - pypi
   - pyright
   - pyvenv
@@ -182,6 +201,7 @@ words:
   - sccache
   - scipy
   - segoe
+  - sharzyl
   - shfmt
   - simpleitk
   - socksio
@@ -191,8 +211,10 @@ words:
   - srcext
   - sshfs
   - stunkymonkey
+  - sumneko
   - sympy
   - sysupgrade
+  - tboox
   - tchx
   - tebi
   - tesseract
@@ -201,6 +223,7 @@ words:
   - tokei
   - tombi
   - tomlkit
+  - toolsai
   - tqdm
   - trimesh
   - tsukimi
@@ -209,8 +232,10 @@ words:
   - twemoji
   - uefi
   - ungrabbed
+  - unifiedjs
   - ursky
   - usbutils
+  - usernamehw
   - vcpkg
   - vdpau
   - vdpauinfo
@@ -219,12 +244,15 @@ words:
   - virsh
   - virt
   - virtualenv
+  - visualstudioexptteam
   - vlang
+  - vscodeintellicode
   - webdav
   - wemeet
   - wezterm
   - xcursor
   - xmake
   - yazi
+  - yzhang
   - zotero
   - zswap
