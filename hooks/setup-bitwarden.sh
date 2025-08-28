@@ -3,5 +3,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-rbw config set email 'veto-dimly-corsage@duck.com'
+email_new='veto-dimly-corsage@duck.com'
+email_old="$(rbw config show | yq '.email')" || true
+if [[ $email_old != "$email_new" ]]; then
+  rbw config set email 'veto-dimly-corsage@duck.com'
+fi
 rbw login

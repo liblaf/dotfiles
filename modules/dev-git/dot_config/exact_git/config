@@ -20,6 +20,9 @@ helper = !gh auth git-credential
 [credential "https://github.com"]
 helper = !gh auth git-credential
 
+[credential "https://gitlab.com"]
+helper = !glab auth git-credential
+
 # [diff]
 # external = ~/.config/git/diff.sh
 

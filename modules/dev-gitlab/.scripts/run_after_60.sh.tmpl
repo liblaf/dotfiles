@@ -12,6 +12,7 @@ glab auth login \
   --hostname gitlab.com \
   --token '{{ (rbwFields "GitLab").GITLAB_CLI_TOKEN.value }}' \
   --use-keyring
+glab config --global set 'git_protocol' 'https'
 
 function glab-clone() {
   local prefix="$HOME/gitlab"
@@ -27,7 +28,7 @@ function glab-clone() {
 export -f glab-clone
 
 readarray -t repos < <(
-  glab repo list --mine --output json --per-page 1000 \
+  glab repo list --mine --output json --per-page 1000 |
     yq '.[] | select(.marked_for_deletion_on | not).path_with_namespace'
 )
 parallel --bar --eta --jobs 8 --progress glab-clone ::: "${repos[@]}"
