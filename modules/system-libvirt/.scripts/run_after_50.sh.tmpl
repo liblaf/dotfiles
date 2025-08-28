@@ -20,8 +20,10 @@ function pool-define() {
   local pool="$1"
   local target="$2"
   local target_old
-  target_old="$(sudo virsh pool-dumpxml "$pool" 2> /dev/null |
-    yq eval ".pool.target.path" --input-format "xml")" || true
+  target_old="$(
+    sudo virsh pool-dumpxml "$pool" 2> /dev/null |
+      yq eval ".pool.target.path" --input-format "xml"
+  )" || true
   if [[ $target_old != "$target" ]]; then
     if [[ $target_old != "null" ]]; then
       sudo virsh pool-destroy "$pool"

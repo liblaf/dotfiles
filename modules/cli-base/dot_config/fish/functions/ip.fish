@@ -3,4 +3,4 @@ if not status is-interactive
     return
 end
 
-alias ip "ip -color=auto"
+alias ip 'ip -color=auto'

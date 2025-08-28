@@ -1,11 +1,15 @@
 # -*- mode: ini -*-
 
 [com/github/libpinyin/ibus-libpinyin/libpinyin]
-dictionaries='12;15'
+dictionaries='12;15'                            # Science; Technology
 enable-cloud-input=true
 init-full-punct=false
 lookup-table-page-size=10
-sort-candidate-option=0
+sort-candidate-option=0                         # Sort candidates by: Frequency
+
+[com/github/stunkymonkey/nautilus-open-any-terminal]
+new-tab=true
+terminal='kitty'
 
 [org/gnome/desktop/a11y/applications]
 screen-keyboard-enabled=false
@@ -17,7 +21,6 @@ show-weekdate=true
 automatic-timezone=true
 
 [org/gnome/desktop/input-sources]
-mru-sources=[('xkb', 'us'), ('ibus', 'libpinyin')]
 sources=[('xkb', 'us'), ('ibus', 'libpinyin')]
 
 [org/gnome/desktop/interface]
@@ -56,7 +59,7 @@ show-desktop=['<Super>d']
 action-middle-click-titlebar='none'
 button-layout='appmenu:minimize,maximize,close'
 resize-with-right-button=false
-titlebar-font='Segoe UI Bold 11'
+titlebar-font='Noto Sans Bold 11'
 
 [org/gnome/evince/default]
 continuous=true
@@ -152,15 +155,12 @@ increase-brightness-shortcut=['<Super>F12']
 show-all-slider=true
 show-sliders-in-submenu=true
 show-value-label=true
-step-change-keyboard=10.0
+step-change-keyboard=5.0
 
 [org/gnome/shell/extensions/power-profile-switcher]
 ac='performance'
 bat='balanced'
 threshold=99
-
-[org/gnome/shell/extensions/unblank]
-time=300
 
 [org/gnome/shell/extensions/vitals]
 fixed-widths=false

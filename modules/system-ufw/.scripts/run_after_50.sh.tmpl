@@ -20,9 +20,9 @@ sudo ufw allow in on virbr0 comment 'Libvirt'
 sudo ufw allow out on virbr0 comment 'Libvirt'
 
 # applications
-sudo ufw allow DVC
-sudo ufw allow HTTPS
-sudo ufw allow SSHD
+sudo ufw allow to any port '{{ .ports.dvc }}' comment 'DVC'
+sudo ufw allow to any port '{{ .ports.https }}' comment 'HTTPS'
+sudo ufw allow to any port '{{ .ports.ssh }}' comment 'SSHD'
 
 sudo ufw --force enable
 sudo ufw status verbose

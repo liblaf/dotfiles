@@ -2,10 +2,9 @@
 # ref: <https://man.archlinux.org/man/sshd_config.5>
 # ref: <https://wiki.archlinux.org/title/OpenSSH#Server_usage>
 
-AcceptEnv *TERM*
+AcceptEnv COLORTERM TERM TERMINFO
 AuthenticationMethods publickey
 PasswordAuthentication no
 PermitRootLogin no
 Port {{ .ports.ssh }}
 UsePAM yes
-X11Forwarding yes

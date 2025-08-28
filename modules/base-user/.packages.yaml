@@ -1,2 +1,5 @@
 pacman:
   - caddy
+
+pypi:
+  - comet-ml

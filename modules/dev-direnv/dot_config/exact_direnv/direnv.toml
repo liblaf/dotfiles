@@ -6,5 +6,9 @@ strict_env = true
 warn_timeout = "0s"
 
 [whitelist]
-exact = ["~/mnt/"]
-prefix = ["~/.local/share/chezmoi/", "~/github/liblaf/", "~/playground/"]
+prefix = [
+  "~/.local/share/chezmoi/",
+  "~/github/liblaf/",
+  "~/gitlab/liblaf/",
+  "~/playground/",
+]

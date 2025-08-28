@@ -1,5 +1,5 @@
 # -*- mode: ini; -*-
-# ref: <https://gitlab.freedesktop.org/Vladimir-csp/xdg-terminal-exec/-/blob/master/xdg-terminals.list?ref_type=heads>
+# ref: <https://gitlab.freedesktop.org/Vladimir-csp/xdg-terminal-exec/-/blob/master/xdg-terminals.list>
 
-kitty.desktop
-org.gnome.Terminal.desktop
+/execarg_default:kitty.desktop:--
+/execarg_default:org.gnome.Terminal.desktop:--

@@ -2,6 +2,7 @@ pacman:
   - biome
   - bun-bin
   - npm
+  - pnpm
   - prettier
   - wrangler
 

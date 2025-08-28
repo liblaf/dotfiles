@@ -13,4 +13,4 @@ end
 # set --global --export LESS_TERMCAP_ue (set_color normal) # end
 set --global --export GROFF_NO_SGR 1
 
-set --global --export MANPAGER "ov --view-mode man"
+set --global --export MANPAGER 'ov --view-mode man'

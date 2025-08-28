@@ -56,7 +56,7 @@ npm:
   - "@bitwarden/cli"
   - "@liblaf/cspell-init"
   - cspell
-  - mega-linter-runner@beta
+  - mega-linter-runner
 
 pypi:
   - liblaf-lime

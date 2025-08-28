@@ -10,25 +10,31 @@ schedule-defaults = { ignore-on-battery = true, permission = "user_logged_on" }
 scheduler = "systemd"
 
 [default]
+# Flags used by resticprofile only:
 base-dir = "{{ .chezmoi.homeDir }}"
 force-inactive-lock = true
 initialize = true
+# Flags passed to the restic command line:
 compression = "max"
 password-file = "{{ .chezmoi.homeDir }}/.config/restic/password.txt"
-repository = "rest:http://127.0.0.1:{{ .ports.restic }}/{{ .chezmoi.hostname }}/"
+repository = "rclone:tsinghua:restic/{{ .chezmoi.hostname }}/"
 retry-lock = "5m"
 
 [default.backup]
+# Flags used by resticprofile only:
 check-after = true
 check-before = true
 schedule = "hourly"
 source = ["srv/dvc"]
 source-base = "{{ .chezmoi.homeDir }}"
 source-relative = true
+# Flags passed to the restic command line:
 tag = ["schedule"]
 
 [default.forget]
+# Flags used by resticprofile only:
 schedule = "weekly"
+# Flags passed to the restic command line:
 keep-within-daily = "7d"
 keep-within-hourly = "1d"
 keep-within-monthly = "12m"
