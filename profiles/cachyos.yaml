@@ -13,6 +13,8 @@ modules:
   - desktop-kitty
   - dev-direnv
   - dev-git
+  - dev-github
+  - dev-gitlab
   - dev-mise
   - fs-btrfs
   - hardware-intel

@@ -78,6 +78,7 @@ words:
   - getent
   - gext
   - gfxpayload
+  - glab
   - gles
   - gloga
   - gmxxx
@@ -189,6 +190,7 @@ words:
   - spack
   - srcext
   - sshfs
+  - stunkymonkey
   - sympy
   - sysupgrade
   - tchx
@@ -205,9 +207,7 @@ words:
   - tsuna
   - tuxxx
   - twemoji
-  - typer
   - uefi
-  - unblank
   - ungrabbed
   - ursky
   - usbutils

@@ -2,10 +2,8 @@ pacman:
   - git
   - git-cliff
   - git-extras
-  - github-cli
 
 npm:
-  - gh-pages
   - repomix
 
 pypi:
