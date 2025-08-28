@@ -27,16 +27,13 @@ class ProfileConfig(pydantic.BaseModel):
 
 @attrs.define
 class Module:
+    name: str
     path: Path
 
     def __attrs_post_init__(self) -> None:
         if not self.path.is_dir():
             msg: str = f"Module '{self.path}' is not a directory"
             raise ValueError(msg)
-
-    @property
-    def name(self) -> str:
-        return self.path.name
 
     def copy_to(self, target_dir: Path) -> None:
         for dirpath, _, filenames in self.path.walk():
@@ -84,7 +81,8 @@ class Profile:
             msgspec.yaml.decode(file.read_bytes())
         )
         modules: list[Module] = [
-            Module(path=modules_dir / module) for module in config.modules
+            Module(name=module.replace("/", "-"), path=modules_dir / module)
+            for module in config.modules
         ]
         return cls(modules=modules)
 

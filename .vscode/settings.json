@@ -4,6 +4,10 @@
     "symlink_*": "plaintext",
     "symlink_*.tmpl": "gotmpl"
   },
+  "files.exclude": {
+    "**/.ruff_cache": true,
+    "**/.venv": true
+  },
   "shellcheck.ignorePatterns": {
     "**/symlink_*": true
   },

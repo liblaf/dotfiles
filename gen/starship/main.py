@@ -55,7 +55,7 @@ def save_config(file: Path, config: StarshipConfig) -> None:
 
 
 def main() -> None:
-    config_dir: Path = Path("modules/cli-starship/dot_config")
+    config_dir: Path = Path("modules/cli/starship/dot_config")
     bracketed_segments: StarshipConfig = load_preset("bracketed-segments")
     nerd_font_symbols: StarshipConfig = load_preset("nerd-font-symbols")
     custom: StarshipConfig = load_config("custom")
