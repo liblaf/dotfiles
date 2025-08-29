@@ -25,6 +25,18 @@ services:
         bind:
           create_host_path: false
       - type: bind
+        source: ./fonts/fallback
+        target: /data/fonts
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./fonts/system
+        target: /usr/local/share/fonts
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
         source: "{{ .chezmoi.homeDir }}/srv/qbittorrent/downloads"
         target: /data/qbittorrent
         read_only: true
