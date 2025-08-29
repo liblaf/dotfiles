@@ -109,6 +109,7 @@ words:
   - icat
   - illumos
   - imgcat
+  - inifmt
   - inplace
   - intellicode
   - ipapi
@@ -125,6 +126,7 @@ words:
   - libxcrypt
   - limine
   - litellm
+  - lkrms
   - lldb
   - lnav
   - lshw
@@ -138,6 +140,7 @@ words:
   - mkconfig
   - mkdocs
   - mkdocstrings
+  - mkhl
   - mkinitcpio
   - msdos
   - msys
@@ -232,7 +235,6 @@ words:
   - twemoji
   - uefi
   - ungrabbed
-  - unifiedjs
   - ursky
   - usbutils
   - usernamehw
