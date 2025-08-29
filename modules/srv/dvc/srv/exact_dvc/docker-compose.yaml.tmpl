@@ -1,6 +1,8 @@
 # -*- mode: yaml; -*-
 # yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
 
+# ? Setting user other than root will cause permission issues.
+
 name: DVC
 
 services:
@@ -12,7 +14,6 @@ services:
       - "{{ .ports.dvc }}:2022"
     pull_policy: weekly
     restart: unless-stopped
-    user: "{{ .services.uid }}:{{ .services.gid }}"
     volumes:
       - type: bind
         source: ./data
