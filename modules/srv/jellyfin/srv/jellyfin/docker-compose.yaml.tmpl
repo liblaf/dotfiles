@@ -1,27 +1,29 @@
 # -*- mode: yaml; -*-
 # yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
 
-name: DVC
-
 services:
-  dvc:
-    command: serve sftp /data --addr ':2022'
-    container_name: dvc
-    image: rclone/rclone:latest
+  jellyfin:
+    container_name: jellyfin
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
+      PGID: "{{ .services.gid }}"
+      PUID: "{{ .services.uid }}"
+    image: lscr.io/linuxserver/jellyfin:latest
     ports:
-      - "{{ .ports.dvc }}:2022"
+      - "{{ .ports.jellyfin }}:8096"
     pull_policy: weekly
     restart: unless-stopped
+    runtime: nvidia
     user: "{{ .services.uid }}:{{ .services.gid }}"
     volumes:
       - type: bind
-        source: ./data
-        target: /data
+        source: ./config
+        target: /config
         bind:
           create_host_path: false
       - type: bind
-        source: "{{ .chezmoi.homeDir }}/.ssh/authorized_keys"
-        target: /root/.ssh/authorized_keys
+        source: "{{ .chezmoi.homeDir }}/srv/qbittorrent/downloads"
+        target: /data/qbittorrent
         read_only: true
         bind:
           create_host_path: false

@@ -14,4 +14,9 @@ services:
     restart: unless-stopped
     user: "{{ .services.uid }}:{{ .services.gid }}"
     volumes:
-      - "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf:/config/rclone/rclone.conf:ro"
+      - type: bind
+        source: "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf"
+        target: /.config/rclone/rclone.conf
+        read_only: true
+        bind:
+          create_host_path: false

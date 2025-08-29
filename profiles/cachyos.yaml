@@ -31,9 +31,11 @@ modules:
   - lang/typescript
   - pkg/flatpak
   - pkg/pacman
+  - srv/base
   - srv/caddy
   - srv/dvc
-  - srv/restic
+  - srv/jellyfin
+  - srv/qbittorrent
   - srv/webdav
   - system/docker
   - system/fonts

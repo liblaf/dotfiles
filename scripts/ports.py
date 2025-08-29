@@ -44,7 +44,7 @@ SERVICES: list[Service] = [
     Service("OpenList"),
     Service("Proxy"),
     Service("qBittorrent WebUI"),
-    Service("qBittorrent"),
+    Service("qBittorrent", public=True),
     Service("Restic"),
     Service("SSH", public=True),
     Service("WebDAV"),

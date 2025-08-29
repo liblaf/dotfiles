@@ -19,5 +19,13 @@ services:
     restart: unless-stopped
     user: "{{ .services.uid }}:{{ .services.gid }}"
     volumes:
-      - ./config:/config
-      - ./downloads:/downloads
+      - type: bind
+        source: ./config
+        target: /config
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./downloads
+        target: /downloads
+        bind:
+          create_host_path: false
