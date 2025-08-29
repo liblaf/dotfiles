@@ -1,0 +1,24 @@
+# -*- mode: toml; -*-
+
+[shell]
+change-ps1 = false
+
+[mirrors]  # ref: <https://pixi.sh/latest/reference/pixi_configuration/#mirror-configuration>
+# {{ $mirror := .mirrors.anaconda }}
+# {{ range $channel := .anaconda.channels }}
+"https://conda.anaconda.org/{{ $channel }}" = [
+  "{{ $mirror }}/cloud/{{ $channel }}",
+]  # {{ end }}
+#
+# {{ $mirror := .mirrors.anaconda_extra }}
+# {{ range $channel := .anaconda_extra.channels }}
+"https://conda.anaconda.org/{{ $channel }}" = [
+  "{{ $mirror }}/cloud/{{ $channel }}",
+]  # {{ end }}
+#
+# ref: <https://pixi.sh/latest/reference/pixi_configuration/#mirrors-for-pypi-resolving-and-pypi-package-downloading>
+"https://pypi.org/simple" = ["{{ .mirrors.pypi }}/simple"]
+"https://files.pythonhosted.org/packages" = ["{{ .mirrors.pypi }}/packages"]
+
+[pypi-config]
+index-url = "{{ .mirrors.pypi }}/simple"

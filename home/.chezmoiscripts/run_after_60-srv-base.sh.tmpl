@@ -1,0 +1,19 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ template "group-add.sh" }}
+
+if ! id --user 'srv'; then
+  sudo useradd \
+    --comment 'services user' \
+    --gid '{{ .services.gid }}' \
+    --system \
+    --shell /usr/bin/nologin \
+    --uid '{{ .services.uid }}' \
+    'srv'
+fi
+
+group-add 'srv'

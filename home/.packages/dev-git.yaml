@@ -1,0 +1,11 @@
+pacman:
+  - git
+  - git-cliff
+  - git-extras
+
+npm:
+  - repomix
+
+pypi:
+  - copier
+  - dvc[all]
