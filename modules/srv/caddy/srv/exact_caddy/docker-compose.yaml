@@ -10,7 +10,7 @@ services:
     env_file:
       - ./vars.env
     image: caddybuilds/caddy-cloudflare:alpine
-    network_mode: host
+    network_mode: host # for IPv6
     pull_policy: weekly
     restart: unless-stopped
     volumes:
