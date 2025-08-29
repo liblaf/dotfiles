@@ -10,7 +10,7 @@ cd "$HOME/srv/caddy"
 
 # {{ if .services.caddy }}
 
-docker compose up --remove-orphans --wait
+docker compose up --detach --remove-orphans
 
 # {{ else }}
 

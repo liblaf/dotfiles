@@ -13,6 +13,14 @@ dvc.{$BASE_DOMAIN} {
 	reverse_proxy localhost:{$DVC_PORT}
 }
 
+jellyfin.{$BASE_DOMAIN} {
+	reverse_proxy localhost:{$JELLYFIN_PORT}
+}
+
+qbt.{$BASE_DOMAIN} {
+	reverse_proxy localhost:{$QBITTORRENT_PORT}
+}
+
 webdav.{$BASE_DOMAIN} {
 	basic_auth {
 		{$WEBDAV_USERNAME} {$WEBDAV_HASHED_PASSWORD}

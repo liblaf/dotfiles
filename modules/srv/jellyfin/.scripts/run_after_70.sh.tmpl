@@ -10,8 +10,8 @@ cd "$HOME/srv/jellyfin"
 
 # {{ if .services.jellyfin }}
 
-mkdir --parents --verbose 'config'
-sudo chown --verbose '{{ .services.uid }}:{{ .services.gid }}' 'config'
+mkdir --parents --verbose "$PWD/config"
+sudo chown --verbose '{{ .services.uid }}:{{ .services.gid }}' "$PWD/config"
 docker compose up --detach --remove-orphans
 
 # {{ else }}

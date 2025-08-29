@@ -10,11 +10,11 @@ cd "$HOME/srv/qbittorrent"
 
 # {{ if .services.qbittorrent }}
 
-mkdir --parents --verbose 'config'
-mkdir --parents --verbose 'downloads'
-sudo chown --verbose '{{ .services.uid }}:{{ .services.gid }}' 'config'
-sudo chown --verbose '{{ .services.uid }}:{{ .services.gid }}' 'downloads'
-docker compose up --remove-orphans --wait
+mkdir --parents --verbose "$PWD/config"
+mkdir --parents --verbose "$PWD/downloads"
+sudo chown --verbose '{{ .services.uid }}:{{ .services.gid }}' "$PWD/config"
+sudo chown --verbose '{{ .services.uid }}:{{ .services.gid }}' "$PWD/downloads"
+docker compose up --detach --remove-orphans
 
 # {{ else }}
 

@@ -10,9 +10,9 @@ cd "$HOME/srv/dvc"
 
 # {{ if .services.dvc }}
 
-mkdir --parents --verbose 'data'
-sudo chown --verbose '{{ .services.uid }}:{{ .services.gid }}' 'data'
-docker compose up --remove-orphans --wait
+mkdir --parents --verbose "$PWD/data"
+sudo chown --verbose '{{ .services.uid }}:{{ .services.gid }}' "$PWD/data"
+docker compose up --detach --remove-orphans
 
 # {{ else }}
 
