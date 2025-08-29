@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
 
 name: Caddy
 
@@ -14,12 +14,7 @@ services:
     pull_policy: weekly
     restart: unless-stopped
     volumes:
-      - type: bind
-        source: ./Caddyfile
-        target: /etc/caddy/Caddyfile
-        read_only: true
-        bind:
-          create_host_path: false
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy-config:/config
       - caddy-data:/data
 

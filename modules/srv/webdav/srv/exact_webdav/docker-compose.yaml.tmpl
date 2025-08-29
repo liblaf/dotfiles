@@ -1,5 +1,5 @@
 # -*- mode: yaml; -*-
-# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
 
 name: WebDAV
 
@@ -12,10 +12,6 @@ services:
       - "{{ .ports.webdav }}:8080"
     pull_policy: weekly
     restart: unless-stopped
+    user: "{{ .services.uid }}:{{ .services.gid }}"
     volumes:
-      - type: bind
-        source: "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf"
-        target: /config/rclone/rclone.conf
-        read_only: true
-        bind:
-          create_host_path: false
+      - "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf:/config/rclone/rclone.conf:ro"

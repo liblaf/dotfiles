@@ -4,4 +4,4 @@ set -o nounset
 set -o pipefail
 
 uv run 'scripts/build.py' "$@"
-cp --archive --target-directory='home/' --verbose '.chezmoi.toml.tmpl'
+cp --archive --target-directory='home' --verbose '.chezmoi.toml.tmpl'

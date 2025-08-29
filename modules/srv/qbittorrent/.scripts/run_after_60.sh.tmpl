@@ -1,0 +1,23 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ template "docker.sh" }}
+
+cd "$HOME/srv/qbittorrent"
+
+# {{ if .services.qbittorrent }}
+
+mkdir --parents --verbose 'config'
+mkdir --parents --verbose 'downloads'
+sudo chown --verbose '{{ .services.uid }}:{{ .services.gid }}' 'config'
+sudo chown --verbose '{{ .services.uid }}:{{ .services.gid }}' 'downloads'
+docker compose up --remove-orphans --wait
+
+# {{ else }}
+
+docker compose down
+
+# {{ end }}

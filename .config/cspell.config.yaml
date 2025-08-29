@@ -129,6 +129,7 @@ words:
   - lkrms
   - lldb
   - lnav
+  - lscr
   - lshw
   - lsign
   - lusiadas
@@ -163,6 +164,7 @@ words:
   - otrust
   - pacutils
   - peterjc
+  - pgid
   - pijul
   - pipx
   - pixi
@@ -174,6 +176,7 @@ words:
   - powerd
   - pueue
   - pueued
+  - puid
   - pulumi
   - punct
   - pydantic
@@ -187,6 +190,7 @@ words:
   - pyvista
   - pyviz
   - qalculate
+  - qbittorrent
   - qgroup
   - qiime
   - qwen
@@ -250,6 +254,7 @@ words:
   - vlang
   - vscodeintellicode
   - webdav
+  - webui
   - wemeet
   - wezterm
   - xcursor

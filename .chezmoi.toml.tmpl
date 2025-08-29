@@ -1,3 +1,5 @@
+# -*- mode: toml; -*-
+
 sourceDir = '{{ joinPath .chezmoi.workingTree "home" }}'
 
 [data]
@@ -19,11 +21,15 @@ external = '{{ joinPath $cacheDirRelative "external" }}'
 # {{- "\n" -}} {{- $ports | toToml }}
 
 [data.services]
+uid = 947
+gid = 947
 # {{- $services := dict -}}
 # {{- $central := eq .chezmoi.hostname "PC05" -}}
 # {{- $services := setValueAtPath "caddy" $central $services -}}
 # {{- $services := setValueAtPath "dvc" $central $services -}}
+# {{- $services := setValueAtPath "jellyfin" $central $services -}}
 # {{- $services := setValueAtPath "mihomo" $central $services -}}
+# {{- $services := setValueAtPath "qbittorrent" $central $services -}}
 # {{- $services := setValueAtPath "webdav" $central $services -}}
 # {{- "\n" -}} {{- $services | toToml }}
 

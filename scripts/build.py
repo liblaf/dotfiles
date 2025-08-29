@@ -95,8 +95,8 @@ class Profile:
 @cappa.command
 @attrs.define
 class App:
-    modules_dir: Annotated[Path, Arg(long=True, default=Path("modules"))]
     profile: Annotated[Path, Arg(default=Path("profiles/cachyos.yaml"))]
+    modules_dir: Annotated[Path, Arg(long=True, default=Path("modules"))]
     target_dir: Annotated[Path, Arg(long=True, default=Path("home"))]
 
     def __call__(self) -> None:
