@@ -1,6 +1,9 @@
 # -*- mode: yaml; -*-
 # yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
 
+# ref: <https://docs.linuxserver.io/general/understanding-puid-and-pgid/>
+# TODO: Images from LinuxServer.io are not yet compatible with `--user` flag.
+
 services:
   jellyfin:
     container_name: jellyfin
@@ -8,13 +11,13 @@ services:
       NVIDIA_VISIBLE_DEVICES: all
       PGID: "{{ .services.gid }}"
       PUID: "{{ .services.uid }}"
+      UMASK: "002"
     image: lscr.io/linuxserver/jellyfin:latest
     ports:
       - "{{ .ports.jellyfin }}:8096"
     pull_policy: weekly
     restart: unless-stopped
     runtime: nvidia
-    user: "{{ .services.uid }}:{{ .services.gid }}"
     volumes:
       - type: bind
         source: ./config
