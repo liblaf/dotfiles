@@ -11,13 +11,13 @@ services:
       DOCKER_MODS: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest
       PGID: "{{ .services.gid }}"
       PUID: "{{ .services.uid }}"
+      UMASK: "002"
       TORRENTING_PORT: "{{ .ports.qbittorrent }}"
       WEBUI_PORT: "{{ .ports.qbittorrent_webui }}"
     image: lscr.io/linuxserver/qbittorrent:latest
     network_mode: host # IPv6
     pull_policy: weekly
     restart: unless-stopped
-    user: "{{ .services.uid }}:{{ .services.gid }}"
     volumes:
       - type: bind
         source: ./config
