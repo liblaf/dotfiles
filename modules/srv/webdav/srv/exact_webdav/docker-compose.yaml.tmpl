@@ -17,7 +17,7 @@ services:
     volumes:
       - type: bind
         source: "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf"
-        target: /.config/rclone/rclone.conf
+        target: /root/.config/rclone/rclone.conf
         read_only: true
         bind:
           create_host_path: false
