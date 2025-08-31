@@ -5,7 +5,7 @@
 # @option -p --port='{{ .ports.proxy }}'
 # @option -u --uuid='{{ (rbwFields "API").UUID_ALL.value }}'
 # @option -w --working-dir='{{ joinPath .chezmoi.homeDir "mihomo" }}'
-# @meta require-tool clash-meta
+# @meta require-tool mihomo
 # @meta require-tool sub-store
 # @meta require-tool wrangler
 set -o errexit
@@ -40,7 +40,7 @@ function build() {
     --profile "$working_dir/profile.yaml" \
     --template "$working_dir/mihomo.template.yaml"
   yq eval ".mixed-port = $port" "$working_dir/mihomo.yaml" --inplace
-  clash-meta -f "$working_dir/mihomo.yaml" -t # test configuration
+  mihomo -f "$working_dir/mihomo.yaml" -t # test configuration
   put "$uuid/mihomo.yaml" "$working_dir/mihomo.yaml"
 }
 

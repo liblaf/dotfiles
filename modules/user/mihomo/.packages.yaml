@@ -1,5 +1,5 @@
 pacman:
-  - clash-meta
+  - mihomo
 
 npm:
   - "@liblaf/sub-store"
