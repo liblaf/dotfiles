@@ -6,7 +6,6 @@ import rich
 EXTENSION_PACKS: dict[str, set[str]] = {
     "shared": {
         "aaron-bond.better-comments",
-        "biomejs.biome",
         "chouzz.vscode-better-align",
         "chrislajoie.vscode-modelines",
         "christian-kohler.path-intellisense",
@@ -107,6 +106,16 @@ PROFILES: dict[str, list[str]] = {
     "Default": ["shared"],
     "C/C++": ["shared", "c/c++"],
     "Dotfiles": ["shared", "dotfiles"],
+    "Full": [
+        "shared",
+        "c/c++",
+        "dotfiles",
+        "go",
+        "latex",
+        "python",
+        "rust",
+        "typescript",
+    ],
     "Go": ["shared", "go"],
     "LaTeX": ["shared", "latex"],
     "Python": ["shared", "python"],
