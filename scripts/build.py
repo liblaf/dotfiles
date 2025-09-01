@@ -20,6 +20,8 @@ import pydantic
 from cappa import Arg
 from loguru import logger
 
+IGNORE: set[str] = {"README.md"}
+
 
 class ProfileConfig(pydantic.BaseModel):
     modules: list[str]
@@ -38,6 +40,8 @@ class Module:
     def copy_to(self, target_dir: Path) -> None:
         for dirpath, _, filenames in self.path.walk():
             for filename in filenames:
+                if filename in IGNORE:
+                    continue
                 file: Path = dirpath / filename
                 target: Path = target_dir / self.target_file(file)
                 if target.exists():
