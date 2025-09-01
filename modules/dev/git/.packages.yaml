@@ -2,6 +2,7 @@ pacman:
   - git
   - git-cliff
   - git-extras
+  - pre-commit
 
 npm:
   - repomix

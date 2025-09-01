@@ -6,6 +6,7 @@ import rich
 EXTENSION_PACKS: dict[str, set[str]] = {
     "shared": {
         "aaron-bond.better-comments",
+        "biomejs.biome",
         "chouzz.vscode-better-align",
         "chrislajoie.vscode-modelines",
         "christian-kohler.path-intellisense",
@@ -154,7 +155,7 @@ def sync_extensions(extensions: Iterable[str], profile: str = "Default") -> None
 def main() -> None:
     for profile, packs in PROFILES.items():
         rich.print(f"[bold cyan]VS Code Profile: {profile}[/]")
-        extensions: set[str] = set().union(*(EXTENSION_PACKS[pack] for pack in packs))
+        extensions: set[str] = set.union(*(EXTENSION_PACKS[pack] for pack in packs))
         sync_extensions(extensions, profile)
 
 

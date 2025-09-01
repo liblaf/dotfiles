@@ -35,6 +35,7 @@ postBuffer = 104857600
 
 [init]
 defaultBranch = main
+templateDir = ~/.config/git/templates
 
 [pager]
 diff = ov --quit-if-one-screen --section-delimiter ' --- \\w+$'

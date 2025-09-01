@@ -1,15 +1,15 @@
 {
-  "files.associations": {
-    "*.json.tmpl": "json",
-    "symlink_*": "plaintext",
-    "symlink_*.tmpl": "gotmpl"
-  },
-  "files.exclude": {
-    "**/.ruff_cache": true,
-    "**/.venv": true
-  },
-  "shellcheck.ignorePatterns": {
-    "**/symlink_*": true
-  },
-  "xml.catalogs": [".vscode/catalog.xml"]
+	"files.associations": {
+		"*.json.tmpl": "json",
+		"symlink_*": "plaintext",
+		"symlink_*.tmpl": "gotmpl"
+	},
+	"files.exclude": {
+		"**/.ruff_cache": true,
+		"**/.venv": true
+	},
+	"shellcheck.ignorePatterns": {
+		"**/symlink_*": true
+	},
+	"xml.catalogs": [".vscode/catalog.xml"]
 }
