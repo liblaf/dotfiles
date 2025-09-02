@@ -35,8 +35,8 @@ TODO: DESCRIPTION
 To install `dotfiles`, run the following command:
 
 ```bash
-$ chezmoi init liblaf
-$ mise run apply
+chezmoi init liblaf
+mise run apply
 ```
 
 ### Manual Setup
@@ -62,9 +62,9 @@ You can use Github Codespaces for online development:
 Or clone it for local development:
 
 ```bash
-$ gh repo clone liblaf/dotfiles
-$ cd dotfiles
-$ mise run build
+gh repo clone liblaf/dotfiles
+cd dotfiles
+mise run build
 ```
 
 <div align="right" markdown>
