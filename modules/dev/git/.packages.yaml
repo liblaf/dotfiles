@@ -1,4 +1,5 @@
 pacman:
+  - ghorg
   - git
   - git-cliff
   - git-extras

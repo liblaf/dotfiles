@@ -160,6 +160,7 @@ words:
   - ntsc
   - numba
   - numpy
+  - nvenc
   - omnia
   - opencl
   - otrust
