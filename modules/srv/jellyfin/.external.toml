@@ -1,0 +1,17 @@
+["srv/jellyfin/fonts/fallback/NotoSansCJKjp-Medium.woff2"]
+path = "NotoSansCJKjp-hinted-standard/NotoSansCJKjp-Medium.woff2"
+refreshPeriod = "168h"
+type = "archive-file"
+url = "https://raw.githubusercontent.com/CodePlayer/webfont-noto/refs/heads/master/release/NotoSansCJKjp-hinted-standard.zip"
+
+["srv/jellyfin/fonts/fallback/NotoSansCJKsc-Medium.woff2"]
+path = "NotoSansCJKsc-hinted-standard/NotoSansCJKsc-Medium.woff2"
+refreshPeriod = "168h"
+type = "archive-file"
+url = "https://raw.githubusercontent.com/CodePlayer/webfont-noto/refs/heads/master/release/NotoSansCJKsc-hinted-standard.zip"
+
+["srv/jellyfin/fonts/system/NotoSansCJK.ttc"]
+path = "NotoSansCJK.ttc"
+refreshPeriod = "168h"
+type = "archive-file"
+url = "https://mirrors.tuna.tsinghua.edu.cn/github-release/googlefonts/noto-cjk/Noto%20Sans%20CJK%20Version%202.004%20%28OTF%2C%20OTC%2C%20Super%20OTC%2C%20Subset%20OTF%2C%20Variable%20OTF_TTF%29/00_NotoSansCJK.ttc.zip"

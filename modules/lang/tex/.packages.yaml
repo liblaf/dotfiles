@@ -1,0 +1,12 @@
+pacman:
+  - biber
+  - texlive-langchinese
+  - texlive-langenglish
+
+  - perl-yaml-tiny # < latexindent < texlive-binextra < group - texlive
+  - perl-file-homedir # < latexindent < texlive-binextra < group - texlive
+
+  - python-pygments # < minted < texlive
+
+pacmanGroups:
+  - texlive

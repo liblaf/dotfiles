@@ -1,0 +1,12 @@
+# -*- mode: ini; -*-
+
+# Use 'systemd-analyze cat-config systemd/timesyncd.conf' to display the full config.
+#
+# See timesyncd.conf(5) for details.
+
+[Time]
+# ref: <https://dns.icoa.cn/ntp/>
+# ref: <https://tuna.moe/help/ntp/>
+# ref: <https://wiki.archlinux.org/title/Systemd-timesyncd>
+NTP = ntp.tuna.tsinghua.edu.cn ntp.ntsc.ac.cn cn.ntp.org.cn
+FallbackNTP = pool.ntp.org time.cloudflare.com time.windows.com
