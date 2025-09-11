@@ -60,3 +60,4 @@ npm:
 
 pypi:
   - liblaf-lime
+  - liblaf-tangerine
