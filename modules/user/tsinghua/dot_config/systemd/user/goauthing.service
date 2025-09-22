@@ -9,11 +9,11 @@ WantedBy = default.target
 
 [Service]
 ExecStartPre = sleep 1
-ExecStartPre = -auth-thu --daemonize auth
-ExecStartPre = sleep 1
 ExecStartPre = -auth-thu --daemonize deauth
 ExecStartPre = sleep 1
-ExecStart = auth-thu --daemonize online
+ExecStartPre = -auth-thu --daemonize auth
+ExecStartPre = sleep 1
+ExecStart = auth-thu online
 Restart = always
 RestartSec = 5s
 UnsetEnvironment = all_proxy http_proxy https_proxy
