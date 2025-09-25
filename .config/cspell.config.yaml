@@ -65,6 +65,7 @@ words:
   - direnv
   - dmabuf
   - dnsmasq
+  - dnssec
   - dnut
   - dotenv
   - dslicer
@@ -87,6 +88,7 @@ words:
   - getent
   - gext
   - gfxpayload
+  - ghorg
   - glab
   - gles
   - gloga
@@ -110,9 +112,7 @@ words:
   - illumos
   - imgcat
   - inifmt
-  - inplace
   - intellicode
-  - ipapi
   - jless
   - journalctl
   - kisstkondoros
@@ -263,6 +263,7 @@ words:
   - xcursor
   - xmake
   - yazi
+  - yuto
   - yzhang
   - zotero
   - zswap
