@@ -7,22 +7,25 @@ name: DVC
 
 services:
   dvc:
-    command: serve sftp /data --addr ':2022'
+    command: >-
+      serve sftp 'tsinghua:dvc' --addr ':2022'
+      --authorized-keys '/config/authorized_keys'
     container_name: dvc
     image: rclone/rclone:latest
     ports:
-      - "{{ .ports.dvc }}:2022"
+      - "{{ .services.dvc.port }}:2022"
     pull_policy: weekly
     restart: unless-stopped
     volumes:
       - type: bind
-        source: ./data
-        target: /data
+        source: "{{ .chezmoi.homeDir }}/.config/rclone"
+        target: /config/rclone
+        read_only: true
         bind:
           create_host_path: false
       - type: bind
         source: "{{ .chezmoi.homeDir }}/.ssh/authorized_keys"
-        target: /root/.ssh/authorized_keys
+        target: /config/authorized_keys
         read_only: true
         bind:
           create_host_path: false

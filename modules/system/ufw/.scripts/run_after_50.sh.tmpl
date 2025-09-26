@@ -21,10 +21,10 @@ sudo ufw allow in on virbr0 comment 'Libvirt'
 sudo ufw allow out on virbr0 comment 'Libvirt'
 
 # applications
-sudo ufw allow to any port '{{ .ports.dvc }}' comment 'DVC'
-sudo ufw allow to any port '{{ .ports.https }}' comment 'HTTPS'
-sudo ufw allow to any port '{{ .ports.qbittorrent }}' comment 'qBittorrent'
-sudo ufw allow to any port '{{ .ports.ssh }}' comment 'SSH'
+sudo ufw allow to any port '{{ .services.dvc.port }}' comment 'DVC'
+sudo ufw allow to any port '{{ .services.https.port }}' comment 'HTTPS'
+sudo ufw allow to any port '{{ .services.qbittorrent.port }}' comment 'qBittorrent'
+sudo ufw allow to any port '{{ .services.ssh.port }}' comment 'SSH'
 
 sudo ufw --force enable
 sudo ufw status verbose

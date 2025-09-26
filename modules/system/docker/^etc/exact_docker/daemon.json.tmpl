@@ -1,7 +1,7 @@
 {
   "proxies": {
-    "http-proxy": "http://127.0.0.1:{{ .ports.proxy }}",
-    "https-proxy": "http://127.0.0.1:{{ .ports.proxy }}",
+    "http-proxy": "http://127.0.0.1:{{ .services.proxy.port }}",
+    "https-proxy": "http://127.0.0.1:{{ .services.proxy.port }}",
     "no-proxy": "localhost,127.0.0.0/8,::1"
   },
   "registry-mirrors": [

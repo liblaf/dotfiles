@@ -9,11 +9,11 @@ services:
     container_name: qbittorrent
     environment:
       DOCKER_MODS: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest
-      PGID: "{{ .services.gid }}"
-      PUID: "{{ .services.uid }}"
+      PGID: "{{ .services.qbittorrent.uid }}"
+      PUID: "{{ .services.gid }}"
       UMASK: "002"
-      TORRENTING_PORT: "{{ .ports.qbittorrent }}"
-      WEBUI_PORT: "{{ .ports.qbittorrent_webui }}"
+      TORRENTING_PORT: "{{ .services.qbittorrent.port }}"
+      WEBUI_PORT: "{{ .services.qbittorrent_webui.port }}"
     image: lscr.io/linuxserver/qbittorrent:latest
     network_mode: host # IPv6
     pull_policy: weekly

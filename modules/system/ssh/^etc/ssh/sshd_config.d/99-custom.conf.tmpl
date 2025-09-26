@@ -6,5 +6,5 @@ AcceptEnv COLORTERM TERM TERMINFO
 AuthenticationMethods publickey
 PasswordAuthentication no
 PermitRootLogin no
-Port {{ .ports.ssh }}
+Port {{ .services.ssh.port }}
 UsePAM yes

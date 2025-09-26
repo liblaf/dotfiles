@@ -35,7 +35,6 @@ modules:
   - srv/dvc
   - srv/jellyfin
   - srv/qbittorrent
-  - srv/webdav
   - system/docker
   - system/fonts
   - system/fwupd

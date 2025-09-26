@@ -8,7 +8,7 @@ set -o pipefail
 
 cd "$HOME/srv/caddy"
 
-# {{ if .services.caddy }}
+# {{ if .services.caddy.enable }}
 
 docker compose up --detach --remove-orphans
 

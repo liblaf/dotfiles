@@ -1,13 +1,13 @@
 # -*- mode: fish; -*-
 function proxy-update
     gsettings set org.gnome.system.proxy.ftp host 127.0.0.1
-    gsettings set org.gnome.system.proxy.ftp port {{ .ports.proxy }}
+    gsettings set org.gnome.system.proxy.ftp port {{ .services.proxy.port }}
     gsettings set org.gnome.system.proxy.http host 127.0.0.1
-    gsettings set org.gnome.system.proxy.http port {{ .ports.proxy }}
+    gsettings set org.gnome.system.proxy.http port {{ .services.proxy.port }}
     gsettings set org.gnome.system.proxy.https host 127.0.0.1
-    gsettings set org.gnome.system.proxy.https port {{ .ports.proxy }}
+    gsettings set org.gnome.system.proxy.https port {{ .services.proxy.port }}
     gsettings set org.gnome.system.proxy.socks host 127.0.0.1
-    gsettings set org.gnome.system.proxy.socks port {{ .ports.proxy }}
+    gsettings set org.gnome.system.proxy.socks port {{ .services.proxy.port }}
     set --local parts (string split ',' -- "{{ .no_proxy }}")
     set --local quoted
     for part in $parts

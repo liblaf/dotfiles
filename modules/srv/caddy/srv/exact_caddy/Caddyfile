@@ -6,24 +6,14 @@
 	acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
 }
 
-dvc.{$BASE_DOMAIN} {
-	basic_auth {
-		{$DVC_USERNAME} {$DVC_HASHED_PASSWORD}
-	}
-	reverse_proxy localhost:{$DVC_PORT}
-}
-
 jellyfin.{$BASE_DOMAIN} {
 	reverse_proxy localhost:{$JELLYFIN_PORT}
 }
 
-qbt.{$BASE_DOMAIN} {
-	reverse_proxy localhost:{$QBITTORRENT_PORT}
+oplist.{$BASE_DOMAIN} {
+	reverse_proxy localhost:{$OPEN_LIST_PORT}
 }
 
-webdav.{$BASE_DOMAIN} {
-	basic_auth {
-		{$WEBDAV_USERNAME} {$WEBDAV_HASHED_PASSWORD}
-	}
-	reverse_proxy localhost:{$WEBDAV_PORT}
+qbt.{$BASE_DOMAIN} {
+	reverse_proxy localhost:{$QBITTORRENT_PORT}
 }

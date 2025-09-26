@@ -7,7 +7,7 @@ set -o pipefail
 sudo systemctl enable --now mihomo.service
 systemctl --user enable --now mihomo-pull.timer
 
-# {{ if .services.mihomo }}
+# {{ if .services.mihomo.enable }}
 systemctl --user enable --now mihomo-push.timer
 # {{ else }}
 systemctl --user disable --now mihomo-push.timer

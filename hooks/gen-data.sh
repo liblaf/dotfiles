@@ -68,7 +68,7 @@ function gen-data() {
       --input-format props \
       --output-format yaml \
       > "$CHEZMOI_SOURCE_DIR/.chezmoidata/generated.yaml"
-  yq "$CHEZMOI_SOURCE_DIR/.chezmoidata/generated.yaml"
+  yq "$CHEZMOI_SOURCE_DIR/.chezmoidata/generated.yaml" >&2
 }
 
 gen-data "$@"

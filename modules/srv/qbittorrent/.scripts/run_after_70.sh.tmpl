@@ -5,15 +5,17 @@ set -o nounset
 set -o pipefail
 
 # {{ template "docker.sh" }}
+# {{ template "service.sh" . }}
 
 cd "$HOME/srv/qbittorrent"
 
-# {{ if .services.qbittorrent }}
+# {{ if .services.qbittorrent.enable }}
 
+service-user-add 'qbittorrent' '{{ .services.qbittorrent.uid }}' 'qBittorrent'
 mkdir --parents --verbose "$PWD/config"
 mkdir --parents --verbose "$PWD/downloads"
-sudo chown --verbose 'srv:srv' "$PWD/config"
-sudo chown --verbose 'srv:srv' "$PWD/downloads"
+sudo chown --verbose 'qbittorrent:srv' "$PWD/config"
+sudo chown --verbose 'qbittorrent:srv' "$PWD/downloads"
 docker compose up --detach --remove-orphans
 
 # {{ else }}
