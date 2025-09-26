@@ -161,8 +161,10 @@ words:
   - numba
   - numpy
   - nvenc
+  - nvitop
   - omnia
   - opencl
+  - oplist
   - otrust
   - pacutils
   - peterjc
