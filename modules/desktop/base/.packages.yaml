@@ -28,8 +28,7 @@ pacman:
   - wps-office-365-fonts
 
   - vlc
-  - vlc-plugin-x264
-  - vlc-plugin-x265
+  - vlc-plugins-all
 
   - pot-translation
   - tesseract-data-chi_sim # < pot-translation, Stirling PDF
