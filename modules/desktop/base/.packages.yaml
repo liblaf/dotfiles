@@ -16,6 +16,7 @@ pacman:
   - inkscape
   - kitty
   - microsoft-edge-stable-bin
+  - mission-center
   - obs-studio
   - obsidian
   - piclist-bin

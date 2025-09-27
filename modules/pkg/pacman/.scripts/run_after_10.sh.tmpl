@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{ template "yay.sh" }}
+# {{ template "paru.sh" }}
 
 sudo pacman-key --init
 
@@ -14,20 +14,20 @@ sudo pacman-key --finger 7931B6D628C8D3BA
 sudo pacman-key --lsign-key 7931B6D628C8D3BA
 
 # remove `lib32-*` packages
-installed="$(yay --query --explicit --quiet)"
+installed="$(paru --query --explicit --quiet)"
 if echo "$installed" | grep --quiet '^lib32-'; then
   readarray -t packages < <(echo "$installed" | grep '^lib32-')
-  yay-remove "${packages[@]}"
+  paru-remove "${packages[@]}"
 fi
 
-yay --sync --noconfirm --sysupgrade --refresh
+paru --sync --noconfirm --sysupgrade --refresh
 
-packages=(arch4edu-keyring archlinuxcn-keyring yay)
-yay-install "${packages[@]}"
+packages=(arch4edu-keyring archlinuxcn-keyring paru)
+paru-install "${packages[@]}"
 
 # `argc` depends on `cargo` to build
 # This workaround is dirty. `rustup` should go to `lang-rust` module.
-yay-install rustup
+paru-install rustup
 rustup default stable
 
 # {{ if or .packages.pacman .packages.pacmanGroups }}
@@ -37,6 +37,6 @@ packages=(
 groups=(
   # {{ "\n" }} {{ join "\n" .packages.pacmanGroups }}
 )
-readarray -O "${#packages[@]}" -t packages < <(yay --sync --groups --quiet "${groups[@]}")
-yay-install "${packages[@]}"
+readarray -O "${#packages[@]}" -t packages < <(paru --sync --groups --quiet "${groups[@]}")
+paru-install "${packages[@]}"
 # {{ end }}

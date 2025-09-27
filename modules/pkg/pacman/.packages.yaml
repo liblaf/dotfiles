@@ -6,7 +6,5 @@ pacman:
   - paccache-hook
   - pacman-contrib
   - pacutils
+  - paru
   - pkgstats
-  - yay
-  - yaycache
-  - yaycache-hook
