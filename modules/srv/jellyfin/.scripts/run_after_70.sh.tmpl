@@ -1,0 +1,23 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ template "docker.sh" }}
+# {{ template "service.sh" . }}
+
+cd "$HOME/srv/jellyfin"
+
+# {{ if .services.jellyfin.enable }}
+
+service-user-add 'jellyfin' '{{ .services.jellyfin.uid }}' 'Jellyfin'
+mkdir --parents --verbose "$PWD/config"
+sudo chown --verbose 'jellyfin:srv' "$PWD/config"
+docker compose up --detach --remove-orphans
+
+# {{ else }}
+
+docker compose down
+
+# {{ end }}

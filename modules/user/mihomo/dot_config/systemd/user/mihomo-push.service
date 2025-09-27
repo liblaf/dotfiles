@@ -1,0 +1,10 @@
+# -*- mode: ini; -*-
+
+[Unit]
+Description = Push Mihomo Configuration
+
+[Service]
+ExecStart = mise run update
+Restart = on-failure
+RestartSec = 5s
+WorkingDirectory = %h/github/liblaf/proxy-config

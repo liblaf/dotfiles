@@ -1,0 +1,18 @@
+# -*- mode: dotenv; -*-
+
+# ref: <https://wiki.archlinux.org/title/Hardware_video_acceleration>
+# {{- if .hardware.nvidia.exists }}
+# LIBVA_DRIVER_NAME=vdpau
+# VDPAU_DRIVER=nvidia
+# {{- else if .hardware.intel.exists }}
+# LIBVA_DRIVER_NAME=iHD
+# VDPAU_DRIVER=va_gl
+# {{- end }}
+
+# ref: <https://gitlab.gnome.org/GNOME/totem/-/issues/616>
+GDK_GL=gles
+
+# {{- if .hardware.nvidia.exists }}
+# ref: <https://pot-app.com/docs/install.html#linux>
+WEBKIT_DISABLE_DMABUF_RENDERER=1
+# {{- end }}

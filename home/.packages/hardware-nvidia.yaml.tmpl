@@ -1,0 +1,10 @@
+# -*- mode: yaml; -*-
+
+pacman:
+  # {{ if .hardware.nvidia.exists }}
+  - cuda
+  - libva-nvidia-driver # VA-API
+  - nvidia-container-toolkit # Docker
+  - nvidia-utils # VDPAU
+  - opencl-nvidia # OpenCL
+  # {{ end }}
