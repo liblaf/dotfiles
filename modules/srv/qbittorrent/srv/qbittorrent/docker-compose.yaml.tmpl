@@ -15,7 +15,7 @@ services:
       TORRENTING_PORT: "{{ .services.qbittorrent.port }}"
       WEBUI_PORT: "{{ .services.qbittorrent_webui.port }}"
     image: lscr.io/linuxserver/qbittorrent:latest
-    network_mode: host # IPv6
+    network_mode: host # I'm too lazy to configure IPv6
     pull_policy: weekly
     restart: unless-stopped
     volumes:

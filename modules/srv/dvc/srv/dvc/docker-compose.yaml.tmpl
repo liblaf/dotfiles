@@ -8,12 +8,12 @@ name: DVC
 services:
   dvc:
     command: >-
-      serve sftp 'tsinghua:dvc' --addr ':2022'
+      serve sftp 'tsinghua:dvc' --addr ':{{ .services.dvc.port }}'
       --authorized-keys '/config/authorized_keys'
+      --vfs-cache-mode full
     container_name: dvc
     image: rclone/rclone:latest
-    ports:
-      - "{{ .services.dvc.port }}:2022"
+    network_mode: host # I'm too lazy to configure IPv6
     pull_policy: weekly
     restart: unless-stopped
     volumes:
