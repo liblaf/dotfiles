@@ -7,11 +7,11 @@
 }
 
 jellyfin.{$BASE_DOMAIN} {
-	reverse_proxy localhost:{$JELLYFIN_PORT}
+	reverse_proxy localhost:8096
 }
 
 oplist.{$BASE_DOMAIN} {
-	reverse_proxy localhost:{$OPEN_LIST_PORT}
+	reverse_proxy localhost:5244
 }
 
 qbt.{$BASE_DOMAIN} {

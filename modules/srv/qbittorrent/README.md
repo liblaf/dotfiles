@@ -10,11 +10,11 @@
 - Downloads > Saving Management > When Category Save Path changed: Relocate affected torrent
 - Downloads > Saving Management > ✅ Use Subcategories
 - Downloads > Saving Management > Default Save Path: /downloads
-- Connection > Listening Port > Port used for incoming connections: `{{ .ports.qbittorrent }}`
+- Connection > Listening Port > Port used for incoming connections: `{{ .services.qbittorrent.port }}`
 - Connection > Connections Limits > ❌ Global maximum number of upload slots
 - Connection > Connections Limits > ❌ Maximum number of upload slots per torrent
 - BitTorrent > ❌ Torrent Queueing
-- WebUI > Web User Interface (Remote control) > Port: `{{ .ports.qbittorrent_webui }}`
+- WebUI > Web User Interface (Remote control) > Port: `{{ .services.qbittorrent_webui.port }}`
 - WebUI > Web User Interface (Remote control) > Authentication > Username: `***`
 - WebUI > Web User Interface (Remote control) > Authentication > Password: `***`
 - WebUI > Web User Interface (Remote control) > ✅ Use alternative WebUI
