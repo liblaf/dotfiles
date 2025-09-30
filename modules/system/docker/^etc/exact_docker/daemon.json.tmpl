@@ -1,8 +1,10 @@
 {
+  "$schema": "https://www.schemastore.org/dockerd.json",
+  "ipv6": true,
   "proxies": {
     "http-proxy": "http://127.0.0.1:{{ .services.proxy.port }}",
     "https-proxy": "http://127.0.0.1:{{ .services.proxy.port }}",
-    "no-proxy": "localhost,127.0.0.0/8,::1"
+    "no-proxy": "{{ .no_proxy }}"
   },
   "registry-mirrors": [
     "https://docker.m.daocloud.io",
@@ -10,7 +12,7 @@
   ],
   "runtimes": {
     "nvidia": {
-      "path": "nvidia-container-runtime",
+      "path": "/usr/bin/nvidia-container-runtime",
       "runtimeArgs": []
     }
   }

@@ -15,17 +15,17 @@ services:
       TORRENTING_PORT: "{{ .services.qbittorrent.port }}"
       WEBUI_PORT: "{{ .services.qbittorrent_webui.port }}"
     image: lscr.io/linuxserver/qbittorrent:latest
-    network_mode: host # I'm too lazy to configure IPv6
+    ports:
+      - "{{ .services.qbittorrent.port }}:{{ .services.qbittorrent.port }}/tcp"
+      - "{{ .services.qbittorrent.port }}:{{ .services.qbittorrent.port }}/udp"
+      - "{{ .services.qbittorrent_webui.port }}:{{ .services.qbittorrent_webui.port }}/tcp"
+      - "{{ .services.qbittorrent_webui.port }}:{{ .services.qbittorrent_webui.port }}/udp"
     pull_policy: weekly
     restart: unless-stopped
     volumes:
-      - type: bind
-        source: ./config
-        target: /config
-        bind:
-          create_host_path: false
-      - type: bind
-        source: ./downloads
-        target: /downloads
-        bind:
-          create_host_path: false
+      - ./config:/config
+      - ./downloads:/downloads
+
+networks:
+  default:
+    enable_ipv6: true
