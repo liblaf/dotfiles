@@ -2,4 +2,4 @@
 # ref: <https://wiki.archlinux.org/title/GDM#Setup_default_monitor_settings>
 
 [Service]
-ExecStartPre = -install --backup -D --mode="u=rw,go=r" --preserve-timestamps --no-target-directory --verbose '{{ .chezmoi.homeDir }}/.config/monitors.xml' '/var/lib/gdm/.config/monitors.xml'
+ExecStartPre = -install --backup --mode="u=rw,go=r" --preserve-timestamps --verbose '{{ .chezmoi.homeDir }}/.config/monitors.xml' '/var/lib/gdm/seat0/config/monitors.xml'
