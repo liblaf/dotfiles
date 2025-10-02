@@ -1,0 +1,10 @@
+pacman:
+  - arch4edu-keyring
+  - archlinuxcn-keyring
+  - cachy-update
+  - downgrade
+  - paccache-hook
+  - pacman-contrib
+  - pacutils
+  - paru
+  - pkgstats

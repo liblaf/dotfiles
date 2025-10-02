@@ -1,0 +1,9 @@
+# -*- mode: ini; -*-
+
+[Desktop Entry]
+Name = flameshot
+Icon = flameshot
+Exec = sh -c "flameshot < /dev/null"
+Terminal = false
+Type = Application
+X-GNOME-Autostart-enabled = true

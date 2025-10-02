@@ -1,0 +1,19 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ template "docker.sh" }}
+
+cd "$HOME/srv/dvc"
+
+# {{ if .services.dvc.enable }}
+
+docker compose up --detach --remove-orphans
+
+# {{ else }}
+
+docker compose down
+
+# {{ end }}

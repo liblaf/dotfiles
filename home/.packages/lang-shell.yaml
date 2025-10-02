@@ -1,0 +1,4 @@
+pacman:
+  - argc
+  - shellcheck-static # extra/shellcheck depends on so many packages
+  - shfmt
