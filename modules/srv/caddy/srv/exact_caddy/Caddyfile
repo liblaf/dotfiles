@@ -6,6 +6,10 @@
 	acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
 }
 
+forgejo.{$BASE_DOMAIN} {
+	reverse_proxy localhost:{$FORGEJO_PORT}
+}
+
 jellyfin.{$BASE_DOMAIN} {
 	reverse_proxy localhost:8096
 }
