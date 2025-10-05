@@ -33,6 +33,7 @@ modules:
   - srv/base
   - srv/caddy
   - srv/dvc
+  - srv/forgejo
   - srv/jellyfin
   - srv/openlist
   - srv/qbittorrent

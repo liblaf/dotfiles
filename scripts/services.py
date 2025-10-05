@@ -76,6 +76,8 @@ class Service:
 SERVICES: list[Service] = [
     Service("Caddy", enable=True),
     Service("DVC", enable={"PC06"}, port=True),
+    Service("Forgejo", enable={"PC06"}, uid=True),
+    Service("Forgejo SSH", port=True),
     Service("HTTP", port=True),
     Service("HTTPS", port=True),
     Service("Jellyfin", enable={"PC06"}, uid=True),

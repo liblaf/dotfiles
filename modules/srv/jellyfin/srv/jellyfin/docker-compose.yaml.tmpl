@@ -24,7 +24,7 @@ services:
       - ./fonts/fallback:/data/fonts:ro
       - ./fonts/system:/usr/local/share/fonts:ro
       - "{{ .chezmoi.homeDir }}/srv/qbittorrent/downloads:/data/qbittorrent:ro"
-
-networks:
-  default:
-    enable_ipv6: true
+# ? I don't know why but Jellyfin doesn't work with IPv6 enabled.
+# networks:
+#   default:
+#     enable_ipv6: true
