@@ -12,8 +12,8 @@ cd "$HOME/srv/forgejo"
 # {{ if .services.forgejo.enable }}
 
 service-user-add 'forgejo' '{{ .services.forgejo.uid }}' 'forgejo'
-mkdir --parents --verbose "$PWD/config"
-sudo chown --verbose 'forgejo:srv' "$PWD/config"
+mkdir --parents --verbose "$PWD/forgejo"
+sudo chown --verbose 'forgejo:srv' "$PWD/forgejo"
 docker compose up --detach --remove-orphans
 
 # {{ else }}

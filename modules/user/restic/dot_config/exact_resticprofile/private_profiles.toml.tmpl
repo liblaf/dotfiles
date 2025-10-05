@@ -25,7 +25,7 @@ retry-lock = "5m"
 check-after = true
 check-before = true
 schedule = "hourly"
-source = ["srv/dvc"]
+source = ["srv/forgejo/forgejo/git"]
 source-base = "{{ .chezmoi.homeDir }}"
 source-relative = true
 # Flags passed to the restic command line:

@@ -9,10 +9,10 @@ services:
     container_name: qbittorrent
     environment:
       DOCKER_MODS: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest
-      PGID: "{{ .services.qbittorrent.uid }}"
-      PUID: "{{ .services.gid }}"
-      UMASK: "002"
+      PGID: "{{ .services.gid }}"
+      PUID: "{{ .services.qbittorrent.uid }}"
       TORRENTING_PORT: "{{ .services.qbittorrent.port }}"
+      UMASK: "002"
       WEBUI_PORT: "{{ .services.qbittorrent_webui.port }}"
     image: lscr.io/linuxserver/qbittorrent:latest
     ports:
