@@ -3,6 +3,7 @@ pacman:
   - git
   - git-cliff
   - git-extras
+  - git-lfs
   - pre-commit
 
 npm:

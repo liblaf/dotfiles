@@ -3,9 +3,9 @@
 
 [alias]
 # ref: <https://difftastic.wilfred.me.uk/git.html>
-dft = -c diff.external="~/.config/git/diff.sh" diff
-dl = -c diff.external="~/.config/git/diff.sh" log --ext-diff
-ds = -c diff.external="~/.config/git/diff.sh" show --ext-diff
+dft = -c diff.external='~/.config/git/diff.sh' diff
+dl = -c diff.external='~/.config/git/diff.sh' log --ext-diff
+ds = -c diff.external='~/.config/git/diff.sh' show --ext-diff
 
 [commit]
 gpgSign = true
@@ -23,11 +23,14 @@ helper = !gh auth git-credential
 [credential "https://gitlab.com"]
 helper = !glab auth git-credential
 
-# [diff]
-# external = ~/.config/git/diff.sh
-
 [fetch]
 parallel = 0
+
+[filter "lfs"]
+clean = git-lfs clean -- %f
+process = git-lfs filter-process
+required = true
+smudge = git-lfs smudge -- %f
 
 [http]
 # ref: <https://stackoverflow.com/a/78845598/18410348>

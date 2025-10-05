@@ -26,7 +26,7 @@ packages=(arch4edu-keyring archlinuxcn-keyring paru)
 paru-install "${packages[@]}"
 
 # `argc` depends on `cargo` to build
-# This workaround is dirty. `rustup` should go to `lang-rust` module.
+# TODO: This workaround is dirty. `rustup` should go to `lang-rust` module.
 paru-install rustup
 rustup default stable
 

@@ -7,7 +7,6 @@ set -o nounset
 set -o pipefail
 
 function main() {
-  # TODO: migrate to `mihomo` when <https://github.com/archlinuxcn/repo/issues/4384> is resolved
   local uuid="${argc_uuid:?}"
   tmpfile="$(mktemp --suffix='.yaml')"
   trap 'rm --force "$tmpfile"' EXIT
