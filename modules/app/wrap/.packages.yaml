@@ -1,3 +1,4 @@
 pacman:
   - graphicsmagick # < Wrap (prepare Icon)
-  - libxcrypt-compat # < Wrap
+  - libwrap # < Wrap (libwrap.so.0)
+  - libxcrypt-compat # < Wrap (libcrypt.so.1)
