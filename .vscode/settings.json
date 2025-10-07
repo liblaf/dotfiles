@@ -8,6 +8,12 @@
     "**/.ruff_cache": true,
     "**/.venv": true
   },
+  "json.schemas": [
+    {
+      "fileMatch": ["daemon.json.tmpl"],
+      "url": "https://www.schemastore.org/dockerd.json"
+    }
+  ],
   "shellcheck.ignorePatterns": {
     "**/symlink_*": true
   },
