@@ -1,0 +1,15 @@
+pacman:
+  - csvlens
+  - dasel-bin
+  - glow
+  - go-yq
+  - jless
+  - jnv
+  - markdownlint-cli
+  - pandoc-bin # extra/pandoc-cli depends on so many packages
+  - prettier
+  - tombi
+
+pypi:
+  - toml-cli
+  - toml-sort

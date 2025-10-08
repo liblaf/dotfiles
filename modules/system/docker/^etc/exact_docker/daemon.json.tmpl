@@ -1,0 +1,18 @@
+{
+  "ipv6": true,
+  "proxies": {
+    "http-proxy": "http://127.0.0.1:{{ .services.proxy.port }}",
+    "https-proxy": "http://127.0.0.1:{{ .services.proxy.port }}",
+    "no-proxy": "{{ .no_proxy }}"
+  },
+  "registry-mirrors": [
+    "https://docker.m.daocloud.io",
+    "https://docker.1panel.live"
+  ],
+  "runtimes": {
+    "nvidia": {
+      "path": "/usr/bin/nvidia-container-runtime",
+      "runtimeArgs": []
+    }
+  }
+}
