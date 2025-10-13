@@ -1,4 +1,15 @@
 # -*- mode: ignore; -*-
 
-repomix-instruction.md
+# ref: <https://github.com/github/gitignore/blob/main/Global/README.md>
+
+*.log
+*.log.*
+
+playground/
+
+# [Cherries](https://github.com/liblaf/cherries)
+.cherries/
+
+# [Repomix](https://github.com/yamadashy/repomix)
+repomix-instruction.*
 repomix-output.*
