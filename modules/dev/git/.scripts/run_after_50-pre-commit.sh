@@ -5,4 +5,4 @@ set -o pipefail
 
 template_dir="$(git config init.templateDir)"
 template_dir="${template_dir/#'~/'/"$HOME/"}"
-pre-commit init-templatedir "$template_dir"
+pre-commit init-templatedir --hook-type pre-commit "$template_dir"

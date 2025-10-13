@@ -10,15 +10,25 @@ echo '{{ (rbwFields "GitHub").GITHUB_CLI_TOKEN.value }}' |
   gh auth login --git-protocol https --with-token
 
 function gh-clone() {
+  function add-url() {
+    local path="$1"
+    local name="$2"
+    local url="$3"
+    git -C "$path" remote set-url --delete --push "$name" "$url" || true
+    git -C "$path" remote set-url --add --push "$name" "$url"
+  }
+
   local prefix="$HOME/github"
   local repository="$1"
-  local target="$prefix/$repository"
-  if [[ -d "$target/.git" ]]; then
-    git -C "$target" pull --ff-only || true
+  local path="$prefix/$repository"
+  if [[ -d "$path/.git" ]]; then
+    git -C "$path" pull --ff-only || true
   else
-    mkdir --parents --verbose "$(dirname -- "$target")"
-    gh repo clone "$repository" "$target" || true
+    mkdir --parents --verbose "$(dirname -- "$path")"
+    gh repo clone "$repository" "$path" || true
   fi
+  add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
+  add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
 }
 export -f gh-clone
 
