@@ -22,6 +22,7 @@ sudo ufw allow out on virbr0 comment 'Libvirt'
 
 # applications
 sudo ufw allow to any port '{{ .services.dvc.port }}' comment 'DVC'
+sudo ufw allow to any port '{{ .services.forgejo_ssh.port }}' comment 'Forgejo SSH'
 sudo ufw allow to any port '{{ .services.https.port }}' comment 'HTTPS'
 sudo ufw allow to any port '{{ .services.qbittorrent.port }}' comment 'qBittorrent'
 sudo ufw allow to any port '{{ .services.ssh.port }}' comment 'SSH'
