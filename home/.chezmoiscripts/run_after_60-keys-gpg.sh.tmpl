@@ -1,0 +1,8 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+gpg --import --batch --passphrase '{{ (rbw "GPG").data.password }}' \
+  --pinentry-mode loopback <<< '{{ (rbw "GPG").notes }}'
+gpg --import-ownertrust < '{{ joinPath .chezmoi.workingTree "assets" "otrust.txt" }}'
