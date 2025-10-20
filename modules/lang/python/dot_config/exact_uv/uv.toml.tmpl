@@ -2,6 +2,8 @@
 #:schema https://json.schemastore.org/uv.json
 # ref: <https://docs.astral.sh/uv/reference/settings/>
 
+python-install-mirror = "{{ .mirrors.python_build_standalone }}"
+
 [[index]]
 name = "mirror"
 url = "{{ .mirrors.pypi }}/simple"
