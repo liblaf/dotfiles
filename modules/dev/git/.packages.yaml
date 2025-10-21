@@ -11,4 +11,4 @@ npm:
 
 pypi:
   - copier
-  - dvc[all]
+  - dvc[ssh]

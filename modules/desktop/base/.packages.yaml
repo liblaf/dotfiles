@@ -19,7 +19,7 @@ pacman:
   - mission-center
   - obs-studio
   - obsidian
-  - piclist-bin
+  - paraview
   - qalculate-gtk
   - remmina
   - telegram-desktop
@@ -41,4 +41,3 @@ flatpak:
   - io.typora.Typora
   - moe.tsuna.tsukimi
   - net.meshlab.MeshLab # `aur/meshlab-appimage` does not support dark mode
-  - org.paraview.ParaView # `extra/paraview` does not support dark mode
