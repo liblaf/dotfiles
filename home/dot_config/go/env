@@ -1,0 +1,3 @@
+# -*- mode: dotenv; -*-
+GO111MODULE=on
+GOPROXY=https://goproxy.io,https://goproxy.cn,https://mirrors.aliyun.com/goproxy/,https://proxy.golang.org,direct

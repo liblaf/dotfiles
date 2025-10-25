@@ -1,0 +1,20 @@
+# -*- mode: ini; -*-
+# ref: <https://github.com/z4yx/GoAuthing/blob/master/docs/systemd/user/goauthing6.service>
+
+[Unit]
+Description = Authenticating utility for auth.tsinghua.edu.cn
+
+[Install]
+WantedBy = default.target
+
+[Service]
+ExecStartPre = sleep 1
+ExecStartPre = -auth-thu --daemonize deauth --ipv6
+ExecStartPre = sleep 1
+ExecStartPre = -auth-thu --daemonize auth --ipv6
+ExecStartPre = sleep 1
+ExecStart = auth-thu online --ipv6
+Restart = always
+RestartSec = 5s
+UnsetEnvironment = all_proxy http_proxy https_proxy
+UnsetEnvironment = ALL_PROXY HTTP_PROXY HTTPS_PROXY
