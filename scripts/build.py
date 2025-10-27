@@ -53,8 +53,15 @@ class Module:
         relative: Path = source.relative_to(self.path)
         if relative.parts[0].startswith("^"):
             # '^etc/pacman.conf' -> 'dot_cache/dotfiles/root/etc/pacman.conf'
-            return Path("dot_cache/exact_dotfiles/root").joinpath(
-                relative.parts[0].removeprefix("^"), *relative.parts[1:]
+            return Path("dot_cache/exact_dotfiles/exact_root").joinpath(
+                *[
+                    f"exact_{part}"
+                    for part in [
+                        relative.parts[0].removeprefix("^"),
+                        *relative.parts[1:-1],
+                    ]
+                ],
+                relative.parts[-1],
             )
         if len(relative.parts) == 1:
             if relative.name.startswith(".data."):
