@@ -27,8 +27,12 @@ function gh-clone() {
     mkdir --parents --verbose "$(dirname -- "$path")"
     gh repo clone "$repository" "$path" || true
   fi
-  add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
-  add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
+  if [[ $repository =~ ^liblaf/* ]]; then
+    add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
+    add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
+  else
+    git -C "$path" remote set-url --delete --push 'origin' "ssh://git@forgejo.liblaf.me/$repository.git" || true
+  fi
 }
 export -f gh-clone
 
