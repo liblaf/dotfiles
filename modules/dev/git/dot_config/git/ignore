@@ -7,6 +7,9 @@
 
 playground/
 
+# [Comet](https://www.comet.com/docs/v2/guides/experiment-management/configure-sdk/)
+.cometml-runs/
+
 # [Cherries](https://github.com/liblaf/cherries)
 .cherries/
 

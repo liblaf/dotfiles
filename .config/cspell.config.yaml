@@ -45,6 +45,7 @@ words:
   - chsrc
   - clangd
   - cmdline
+  - cometml
   - copyto
   - cppcheck
   - cpptools
@@ -158,6 +159,7 @@ words:
   - noheadings
   - nopasswd
   - noto
+  - npmmirror
   - ntsc
   - numba
   - numpy
@@ -206,7 +208,6 @@ words:
   - rdkit
   - remmina
   - repomix
-  - repomix's
   - resvg
   - rlang
   - rtprio
