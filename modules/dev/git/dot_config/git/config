@@ -47,7 +47,6 @@ show = ov --quit-if-one-screen --header 3
 
 [push]
 autoSetupRemote = true
-gpgSign = true
 
 [status]
 relativePaths = false
