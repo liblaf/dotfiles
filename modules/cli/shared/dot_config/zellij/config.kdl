@@ -1,3 +1,7 @@
+// ref: <https://zellij.dev/documentation/configuration.html>
+
+show_startup_tips false
+
 keybinds {
   shared_except "locked" {
     bind "Alt t" { NewTab; SwitchToMode "normal"; }

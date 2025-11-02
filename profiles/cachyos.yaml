@@ -2,15 +2,12 @@ modules:
   - app/kitty
   - app/wrap
   - app/zotero
-  - base/mirrors
-  - base/system
-  - base/user
-  - cli/base
   - cli/fish
+  - cli/shared
   - cli/starship
   - cli/yazi
-  - desktop/base
   - desktop/gnome
+  - desktop/shared
   - dev/direnv
   - dev/git
   - dev/github
@@ -30,13 +27,16 @@ modules:
   - lang/typescript
   - pkg/flatpak
   - pkg/pacman
-  - srv/base
+  - shared/mirrors
+  - shared/system
+  - shared/user
   - srv/caddy
   - srv/dvc
   - srv/forgejo
   - srv/jellyfin
   - srv/openlist
   - srv/qbittorrent
+  - srv/shared
   - system/docker
   - system/fonts
   - system/fwupd

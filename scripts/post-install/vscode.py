@@ -63,6 +63,7 @@ EXTENSION_PACKS: dict[str, set[str]] = {
     },
     "dotfiles": {
         "bmalehorn.vscode-fish",
+        "kdl-org.kdl-v1",
         "lkrms.inifmt",
         "matthewpi.caddyfile-support",
         "nico-castell.linux-desktop-file",

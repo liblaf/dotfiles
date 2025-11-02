@@ -1,0 +1,14 @@
+[".config/fastfetch/config.jsonc"]
+refreshPeriod = "168h"
+type = "file"
+urls = [
+  "file:///usr/share/fastfetch/presets/examples/10.jsonc",
+  "https://raw.githubusercontent.com/fastfetch-cli/fastfetch/refs/heads/dev/presets/examples/10.jsonc"
+]
+
+[".local/bin/fTetWild"]
+executable = true
+path = "bin/FloatTetwild_bin"
+refreshPeriod = "168h"
+type = "archive-file"
+url = "https://github.com/chrismile/fTetWild/releases/latest/download/fTetWild-v0.1.0-x86_64-linux.zip"

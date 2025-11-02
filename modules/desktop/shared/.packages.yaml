@@ -22,8 +22,10 @@ pacman:
   - paraview
   - qalculate-gtk
   - remmina
+  - rio
   - telegram-desktop
   - visual-studio-code-bin
+  - wl-clipboard
   - wps-office-365
   - wps-office-365-fonts
 
