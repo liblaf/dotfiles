@@ -33,6 +33,7 @@ pacman:
   - tokei
   - trash-cli
   - vhs
+  - zellij
   - zoxide
 
   # ------------------------------- Networking ------------------------------- #
