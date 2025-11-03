@@ -7,11 +7,14 @@
 
 playground/
 
+# [Cherries](https://github.com/liblaf/cherries)
+.cherries/
+
 # [Comet](https://www.comet.com/docs/v2/guides/experiment-management/configure-sdk/)
 .cometml-runs/
 
-# [Cherries](https://github.com/liblaf/cherries)
-.cherries/
+# [CSpell](https://cspell.org/docs/Configuration/properties#cachesettings-cachelocation)
+.cspellcache
 
 # [Repomix](https://github.com/yamadashy/repomix)
 repomix-instruction.*
