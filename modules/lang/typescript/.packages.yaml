@@ -9,3 +9,4 @@ pacman:
 
 npm:
   - "@biomejs/biome"
+  - setup-npm-trusted-publish

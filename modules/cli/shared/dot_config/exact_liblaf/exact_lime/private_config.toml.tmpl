@@ -47,5 +47,10 @@ litellm_params.api_base = "https://cn.gptapi.asia/v1"
 # {{- template "YutoAPI" "gemini-2.5-flash" -}}
 # {{- template "YutoAPI" "gemini-2.5-flash-lite" -}}
 # {{- template "YutoAPI" "gemini-2.5-pro" -}}
-# {{- template "YutoAPI" "gemini-2.5-pro" -}}
 # {{- template "YutoAPI" "grok-4" -}}
+
+[router.default_litellm_params]
+timeout = 30.0
+
+[[router.fallbacks]]
+gemini-2.5-flash = ["qwen3-coder-plus", "deepseek-reasoner"]
