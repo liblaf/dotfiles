@@ -21,6 +21,7 @@ function gh-clone() {
   local prefix="$HOME/github"
   local repository="$1"
   local path="$prefix/$repository"
+  echo "$repository"
   if [[ -d "$path/.git" ]]; then
     git -C "$path" pull --ff-only || true
   else
@@ -41,4 +42,4 @@ readarray -t repos < <(
     --jq '.[] | select((.archived | not) and (.fork | not)) | .full_name' \
     --paginate
 )
-parallel --bar --eta --jobs 8 --progress gh-clone ::: "${repos[@]}"
+parallel --bar --color-failed --eta --jobs 8 --progress gh-clone ::: "${repos[@]}"
