@@ -11,6 +11,7 @@ pacman:
   - blender
   - drawio-desktop
   - flameshot
+  - ghostty
   - gimp
   - haruna
   - inkscape

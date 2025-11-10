@@ -1,0 +1,8 @@
+# -*- mode: properties; -*-
+
+font-family = CaskaydiaCove Nerd Font
+font-family = Noto Sans CJK SC
+font-family = Twemoji
+
+maximize = true
+gtk-titlebar-hide-when-maximized = true
