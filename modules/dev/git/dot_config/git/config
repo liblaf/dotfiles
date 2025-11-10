@@ -40,6 +40,9 @@ postBuffer = 104857600
 defaultBranch = main
 templateDir = ~/.config/git/templates
 
+[lfs]
+locksverify = true
+
 [pager]
 diff = ov --quit-if-one-screen --section-delimiter ' --- \\w+$'
 log = ov --quit-if-one-screen --section-delimiter '^commit ' --section-header-num 3
