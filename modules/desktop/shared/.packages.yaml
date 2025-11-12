@@ -26,6 +26,7 @@ pacman:
   - rio
   - telegram-desktop
   - visual-studio-code-bin
+  - wemeet-bin # Flatpak version is out-of-date
   - wl-clipboard
   - wps-office-365
   - wps-office-365-fonts
@@ -40,7 +41,6 @@ pacman:
 flatpak:
   - com.github.tchx84.Flatseal
   - com.tencent.WeChat
-  - com.tencent.wemeet
   - io.typora.Typora
   - moe.tsuna.tsukimi
   - net.meshlab.MeshLab # `aur/meshlab-appimage` does not support dark mode
