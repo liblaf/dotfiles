@@ -1,0 +1,53 @@
+# ref: <https://yazi-rs.github.io/docs/configuration/yazi>
+
+[[opener.code]]
+run = 'code "$@"'
+orphan = true
+desc = "code"
+for = "unix"
+
+[[opener.extract]]
+run = 'ouch decompress "$@"'
+desc = "Extract"
+for = "unix"
+
+[[opener.open]]
+run = 'xdg-open "$@" &> /dev/null'
+orphan = true
+desc = "Open"
+for = "linux"
+
+[[opener.view]]
+run = '${VIEWER:-bat} "$@"'
+block = true
+desc = "$VIEWER"
+for = "unix"
+
+[[open.prepend_rules]]
+mime = "model/*"
+use = ["open", "reveal"]
+
+[[open.prepend_rules]]
+mime = "text/*"
+use = ["code", "edit", "open", "reveal", "view"]
+
+# ref: <https://github.com/yazi-rs/plugins/tree/main/git.yazi>
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*"
+run = "git"
+
+# ref: <https://github.com/yazi-rs/plugins/tree/main/git.yazi>
+[[plugin.prepend_fetchers]]
+id = "git"
+name = "*/"
+run = "git"
+
+# ref: <https://yazi-rs.github.io/docs/tips/#folder-previewer>
+[[plugin.prepend_preloaders]]
+name = "**/mnt/**"
+run = "noop"
+
+[[plugin.prepend_previewers]]
+name = "**/mnt/**"
+run = "noop"

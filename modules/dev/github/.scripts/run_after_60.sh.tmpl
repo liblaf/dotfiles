@@ -1,0 +1,45 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+if systemd-detect-virt --quiet; then exit; fi
+
+echo '{{ (rbwFields "GitHub").GITHUB_CLI_TOKEN.value }}' |
+  gh auth login --git-protocol https --with-token
+
+function gh-clone() {
+  function add-url() {
+    local path="$1"
+    local name="$2"
+    local url="$3"
+    git -C "$path" remote set-url --delete --push "$name" "$url" || true
+    git -C "$path" remote set-url --add --push "$name" "$url"
+  }
+
+  local prefix="$HOME/github"
+  local repository="$1"
+  local path="$prefix/$repository"
+  echo "$repository"
+  if [[ -d "$path/.git" ]]; then
+    git -C "$path" pull --ff-only || true
+  else
+    mkdir --parents --verbose "$(dirname -- "$path")"
+    gh repo clone "$repository" "$path" || true
+  fi
+  if [[ $repository =~ ^liblaf/* ]]; then
+    add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
+    add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
+  else
+    git -C "$path" remote set-url --delete --push 'origin' "ssh://git@forgejo.liblaf.me/$repository.git" || true
+  fi
+}
+export -f gh-clone
+
+readarray -t repos < <(
+  gh api '/user/repos' \
+    --jq '.[] | select((.archived | not) and (.fork | not)) | .full_name' \
+    --paginate
+)
+parallel --bar --color-failed --eta --jobs 8 --progress gh-clone ::: "${repos[@]}"

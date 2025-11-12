@@ -1,0 +1,20 @@
+# -*- mode: toml; -*-
+
+[".local/share/fonts/SegoeUI"]
+exact = true
+format = "zip"
+refreshPeriod = "168h"
+type = "archive"
+url = "https://aka.ms/segoeuifont"
+
+[".local/share/fonts/SegoeUIVariable"]
+exact = true
+format = "zip"
+refreshPeriod = "168h"
+type = "archive"
+url = "https://aka.ms/SegoeUIVariable"
+
+["{{ .dirs.relative.external }}/win11-fonts.zip"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/liblaf/fonts/releases/download/Win11/Win11-Chinese_Simplified.zip"

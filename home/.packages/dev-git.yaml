@@ -1,0 +1,14 @@
+pacman:
+  - ghorg
+  - git
+  - git-cliff
+  - git-extras
+  - git-lfs
+  - pre-commit
+
+npm:
+  - repomix
+
+pypi:
+  - copier
+  - dvc[ssh]

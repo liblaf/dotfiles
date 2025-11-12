@@ -1,0 +1,26 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ if .packages.npm }}
+
+bun update --latest --global || true
+
+INSTALLED="$(bun pm ls --global || true)"
+TO_INSTALL=()
+
+# {{ range $spec := .packages.npm }}
+# {{ $pkg := regexReplaceAll "^(.+)@.*$" $spec "${1}" }}
+# shellcheck disable=SC2016
+if ! grep --quiet '{{ $pkg }}' <<< "$INSTALLED"; then
+  TO_INSTALL+=('{{ $spec }}')
+fi
+# {{ end }}
+
+if ((${#TO_INSTALL[@]} > 0)); then
+  bun add --global "${TO_INSTALL[@]}"
+fi
+
+# {{ end }}

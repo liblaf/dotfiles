@@ -1,0 +1,18 @@
+# ref: <https://rioterm.com/docs/config>
+
+[bell]
+visual = true
+audio = true
+
+[fonts]
+size = 16
+family = "CaskaydiaCove Nerd Font"
+extras = [{ family = "Noto Sans CJK SC" }]
+# TODO: add symbol-map
+use-drawable-chars = true
+
+[fonts.emoji]
+family = "Twemoji"
+
+[window]
+mode = "Maximized"

@@ -1,0 +1,14 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+# {{ $filepath := joinPath .dirs.external "win11-fonts.zip" }}
+# {{ include $filepath | sha256sum }}
+set -o errexit
+set -o nounset
+set -o pipefail
+
+INSTALL_DIR="$HOME/.local/share/fonts/Win11"
+
+rm --force --recursive "$INSTALL_DIR"
+mkdir --parents --verbose "$INSTALL_DIR"
+# shellcheck disable=SC2016
+ouch decompress --dir "$INSTALL_DIR" --yes '{{ $filepath }}'

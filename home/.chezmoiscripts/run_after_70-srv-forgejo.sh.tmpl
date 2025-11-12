@@ -1,0 +1,23 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ template "docker.sh" }}
+# {{ template "service.sh" . }}
+
+cd "$HOME/srv/forgejo"
+
+# {{ if .services.forgejo.enable }}
+
+service-user-add 'forgejo' '{{ .services.forgejo.uid }}' 'forgejo'
+mkdir --parents --verbose "$PWD/forgejo"
+sudo chown --verbose 'forgejo:srv' "$PWD/forgejo"
+docker compose up --detach --remove-orphans
+
+# {{ else }}
+
+docker compose down
+
+# {{ end }}

@@ -1,0 +1,5 @@
+pacman:
+  - age # < mise, sops
+  - mise
+  - sops # < mise
+  - usage # < mise

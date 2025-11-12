@@ -1,0 +1,23 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+uv tool upgrade --all
+
+INSTALLED="$(uv tool list)"
+TO_INSTALL=()
+
+# {{ range $pkg := .packages.pypi }}
+# shellcheck disable=SC2016
+if ! grep --quiet '{{ $pkg }}' <<< "$INSTALLED"; then
+  TO_INSTALL+=('{{ $pkg }}')
+fi
+# {{ end }}
+
+for pkg in "${TO_INSTALL[@]}"; do
+  uv tool install "$pkg"
+done
+
+uv tool install --with cookiecutter copier

@@ -1,0 +1,12 @@
+pacman:
+  - biome
+  - bun-bin
+  - nodejs-lts-jod
+  - npm
+  - pnpm
+  - prettier
+  - wrangler
+
+npm:
+  - "@biomejs/biome"
+  - setup-npm-trusted-publish

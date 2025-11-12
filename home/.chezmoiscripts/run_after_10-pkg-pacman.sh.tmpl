@@ -1,0 +1,42 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ template "paru.sh" }}
+
+sudo pacman-key --init
+
+# ref: <https://github.com/arch4edu/arch4edu/wiki/Add-arch4edu-to-your-Archlinux>
+sudo pacman-key --recv-keys 7931B6D628C8D3BA
+sudo pacman-key --finger 7931B6D628C8D3BA
+sudo pacman-key --lsign-key 7931B6D628C8D3BA
+
+# remove `lib32-*` packages
+installed="$(paru --query --explicit --quiet)"
+if echo "$installed" | grep --quiet '^lib32-'; then
+  readarray -t packages < <(echo "$installed" | grep '^lib32-')
+  paru-remove "${packages[@]}"
+fi
+
+paru --sync --noconfirm --sysupgrade --refresh
+
+packages=(arch4edu-keyring archlinuxcn-keyring paru)
+paru-install "${packages[@]}"
+
+# `argc` depends on `cargo` to build
+# TODO: This workaround is dirty. `rustup` should go to `lang-rust` module.
+paru-install rustup
+rustup default stable
+
+# {{ if or .packages.pacman .packages.pacmanGroups }}
+packages=(
+  # {{ "\n" }} {{ join "\n" .packages.pacman }}
+)
+groups=(
+  # {{ "\n" }} {{ join "\n" .packages.pacmanGroups }}
+)
+readarray -O "${#packages[@]}" -t packages < <(paru --sync --groups --quiet "${groups[@]}")
+paru-install "${packages[@]}"
+# {{ end }}

@@ -1,0 +1,12 @@
+pacman:
+  - bear
+  - ccache
+  - clang
+  - cmake
+  - cppcheck
+  - doxygen
+  - gdb
+  - lldb
+  - python-cpplint
+  - vcpkg
+  - xmake

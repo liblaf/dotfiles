@@ -1,0 +1,4 @@
+[".config/git-cliff/cliff.toml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://raw.githubusercontent.com/liblaf/actions-src/refs/heads/main/actions/changelog/cliff.toml"

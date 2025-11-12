@@ -1,0 +1,27 @@
+# -*- mode: yaml; -*-
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
+
+# ref: <https://forgejo.org/docs/v11.0/admin/installation/docker/>
+
+services:
+  forgejo:
+    container_name: forgejo
+    environment:
+      USER_GID: "{{ .services.gid }}"
+      USER_UID: "{{ .services.forgejo.uid }}"
+    image: codeberg.org/forgejo/forgejo:11
+    ports:
+      - "{{ .services.forgejo_ssh.port }}:22/tcp"
+      - "{{ .services.forgejo_ssh.port }}:22/udp"
+      - "{{ .services.forgejo.port }}:3000/tcp"
+      - "{{ .services.forgejo.port }}:3000/udp"
+    pull_policy: weekly
+    restart: unless-stopped
+    volumes:
+      - ./forgejo:/data
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+networks:
+  default:
+    enable_ipv6: true

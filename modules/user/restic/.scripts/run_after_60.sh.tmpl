@@ -1,0 +1,15 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ if eq .virt "none" }}
+
+resticprofile schedule
+
+# {{ else }}
+
+resticprofile unschedule
+
+# {{ end }}

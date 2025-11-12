@@ -1,0 +1,58 @@
+#:schema https://raw.githubusercontent.com/starship/starship/refs/heads/master/.github/config-schema.json
+
+command_timeout = 100
+
+[bun]
+symbol = " "  # nf-dev-bun
+version_format = "${raw}"
+
+[character]
+error_symbol = "[](bold red)"  # nf-fa-close
+success_symbol = "[>](bold green)"
+
+[cmd_duration]
+format = '\[[󱎫 $duration]($style)\]'  # nf-md-timer
+
+[directory]
+truncation_symbol = "󰇘/"  # nf-md-dots_horizontal
+
+[git_branch]
+symbol = " "  # nf-fa-code_branch
+
+[git_status]
+ahead = ""  # nf-fa-arrow_up_long
+behind = ""  # nf-fa-arrow_down_long
+deleted = ""  # nf-fa-close
+diverged = ""  # nf-fa-arrows_up_down
+format = '(\[[$all_status$ahead_behind]($style)\])'
+renamed = ""  # nf-fa-angles_right
+
+[golang]
+symbol = "󰟓 "  # nf-md-language_go
+version_format = "${raw}"
+
+[hostname]
+format = "@[$ssh_symbol$hostname]($style) "
+ssh_symbol = ""
+
+[nodejs]
+symbol = " "  # nf-fa-node_js
+version_format = "${raw}"
+
+[package]
+symbol = "󰏗 "  # nf-md-package_variant_closed
+version_format = "${raw}"
+
+[pixi]
+disabled = true
+
+[python]
+symbol = " "  # nf-fa-python
+version_format = "${raw}"
+
+[rust]
+symbol = "󱘗 "  # nf-md-language_rust
+version_format = "${raw}"
+
+[username]
+format = "[$user]($style)"

@@ -1,0 +1,14 @@
+# -*- mode: toml; -*-
+#:schema https://json.schemastore.org/uv.json
+# ref: <https://docs.astral.sh/uv/reference/settings/>
+
+add-bounds = "major"
+python-install-mirror = "{{ .mirrors.python_build_standalone }}"
+
+[[index]]
+default = true
+name = "mirror"
+url = "{{ .mirrors.pypi }}/simple"
+
+[pip]
+index-url = "{{ .mirrors.pypi }}/simple"

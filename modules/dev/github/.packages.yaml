@@ -1,0 +1,5 @@
+pacman:
+  - github-cli
+
+npm:
+  - gh-pages

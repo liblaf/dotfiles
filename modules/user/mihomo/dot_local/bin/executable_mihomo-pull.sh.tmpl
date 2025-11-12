@@ -1,0 +1,21 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+# @option -u --uuid='{{ (rbwFields "API").UUID_ALL.value }}'
+# @meta require-tool mihomo
+set -o errexit
+set -o nounset
+set -o pipefail
+
+function main() {
+  local uuid="${argc_uuid:?}"
+  tmpfile="$(mktemp --suffix='.yaml')"
+  trap 'rm --force "$tmpfile"' EXIT
+  xhs --output "$tmpfile" --download GET \
+    'https://api.liblaf.me/subscribe/mihomo.yaml' id=="$uuid"
+  mihomo -f "$tmpfile" -t # test configuration
+  sudo install -D --mode='u=rw,go=r' --no-target-directory --verbose "$tmpfile" '/etc/mihomo/config.yaml'
+  sudo systemctl enable --now mihomo.service
+  sudo systemctl restart mihomo.service
+}
+
+eval "$(argc --argc-eval "$0" "$@")"

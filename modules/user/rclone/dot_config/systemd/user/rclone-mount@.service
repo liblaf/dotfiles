@@ -1,0 +1,13 @@
+# -*- mode: ini; -*-
+
+[Install]
+WantedBy = default.target
+
+[Service]
+ExecStartPre = mkdir --parents --verbose "%h/mnt/%I"
+ExecStart = rclone mount "%I:" "%h/mnt/%I" --vfs-cache-mode full
+Restart = always
+RestartSec = 5
+
+[Unit]
+Description = Rclone Mount '%I:'

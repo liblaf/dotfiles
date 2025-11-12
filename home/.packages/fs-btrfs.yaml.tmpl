@@ -1,0 +1,11 @@
+# -*- mode: yaml; -*-
+
+pacman:
+  # {{ if eq .fs.fstype "btrfs" }}
+  - btrfs-assistant
+  - btrfs-desktop-notification
+  - cachyos-snapper-support
+  - compsize
+  - snap-pac
+  - snapper
+  # {{ end }}

@@ -1,0 +1,10 @@
+# -*- mode: ini; -*-
+
+[Desktop Entry]
+Type = Application
+Version = 1.0
+Name = pot
+Comment = potstartup script
+Exec = sh -c "pot < /dev/null > /dev/null"
+StartupNotify = false
+Terminal = false

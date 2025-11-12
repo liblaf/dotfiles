@@ -1,0 +1,23 @@
+# -*- mode: caddyfile; -*-
+{
+	http_port {$HTTP_PORT}
+	https_port {$HTTPS_PORT}
+	# All zones - Zone:Read, DNS:Edit
+	acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+}
+
+forgejo.{$BASE_DOMAIN} {
+	reverse_proxy localhost:{$FORGEJO_PORT}
+}
+
+jellyfin.{$BASE_DOMAIN} {
+	reverse_proxy localhost:8096
+}
+
+oplist.{$BASE_DOMAIN} {
+	reverse_proxy localhost:5244
+}
+
+qbt.{$BASE_DOMAIN} {
+	reverse_proxy localhost:{$QBITTORRENT_PORT}
+}

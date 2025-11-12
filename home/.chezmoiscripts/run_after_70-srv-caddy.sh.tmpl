@@ -1,0 +1,19 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ template "docker.sh" }}
+
+cd "$HOME/srv/caddy"
+
+# {{ if .services.caddy.enable }}
+
+docker compose up --detach --remove-orphans
+
+# {{ else }}
+
+docker compose down
+
+# {{ end }}

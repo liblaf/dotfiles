@@ -1,0 +1,4 @@
+pacman:
+  - docker
+  - docker-compose
+  - lazydocker

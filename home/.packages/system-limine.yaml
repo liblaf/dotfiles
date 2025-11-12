@@ -1,0 +1,4 @@
+pacman:
+  - limine
+  - limine-mkinitcpio-hook
+  - limine-snapper-sync

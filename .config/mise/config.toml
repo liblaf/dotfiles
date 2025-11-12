@@ -1,0 +1,5 @@
+#:schema https://mise.jdx.dev/schema/mise.json
+
+[env]
+CHEZMOI_GITHUB_TOKEN = '{{ exec(command="gh auth token") }}'
+CHEZMOI_SOURCE_DIR = '{{ [config_root, "home"] | join_path }}'

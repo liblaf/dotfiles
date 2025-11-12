@@ -1,0 +1,34 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+sudo chmod --verbose "u=rw,g=r,o=" /etc/ufw/*.rules
+sudo ufw --force reset
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw default allow routed
+
+# allow connections from docker
+# ref: <https://en.wikipedia.org/wiki/IPv4#Private_networks>
+sudo ufw allow from 172.16.0.0/12 comment 'Docker'
+
+# fix libvirt virtual machine network connection
+# ref: <https://wszqkzqk.github.io/2024/07/19/libvirt-network-ufw/>
+sudo ufw allow in on virbr0 comment 'Libvirt'
+sudo ufw allow out on virbr0 comment 'Libvirt'
+
+# applications
+sudo ufw allow to any port '{{ .services.dvc.port }}' comment 'DVC'
+sudo ufw allow to any port '{{ .services.forgejo_ssh.port }}' comment 'Forgejo SSH'
+sudo ufw allow to any port '{{ .services.https.port }}' comment 'HTTPS'
+sudo ufw allow to any port '{{ .services.qbittorrent.port }}' comment 'qBittorrent'
+sudo ufw allow to any port '{{ .services.ssh.port }}' comment 'SSH'
+
+sudo ufw --force enable
+sudo ufw status verbose
+sudo systemctl enable --now ufw.service
+
+sudo find /etc/ufw -regextype gnu-awk -regex ".*.[[:digit:]]{8}_[[:digit:]]{6}" -delete

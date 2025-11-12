@@ -1,0 +1,6 @@
+# -*- mode: ini; -*-
+
+[core]
+remote = "ssh"
+analytics = false
+autostage = true

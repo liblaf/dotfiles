@@ -1,0 +1,56 @@
+# -*- mode: toml; -*-
+#:schema https://liblaf.github.io/lime/schemas/config.json
+
+model = "gemini-2.5-flash"
+
+# -------------------------------- Dashscope -------------------------------
+# ref: <https://github.com/BerriAI/litellm/issues/12571#issuecomment-3134668308>
+# {{- define "dashscope" }}
+[[router.model_list]]
+model_name = "{{ . }}"
+litellm_params.model = "dashscope/{{ . }}"
+litellm_params.api_key = '{{ (rbwFields "Aliyun").LIBLAF_LIME_API_KEY.value }}'
+litellm_params.api_base = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+# {{- end -}}
+
+# {{- template "dashscope" "qwen3-max" -}}
+# {{- template "dashscope" "qwen-plus" -}}
+# {{- template "dashscope" "qwen-flash" -}}
+# {{- template "dashscope" "qwen-long" -}}
+# {{- template "dashscope" "qwen3-coder-plus" -}}
+# {{- template "dashscope" "qwen3-coder-flash" -}}
+
+# -------------------------------- DeepSeek --------------------------------
+# {{- define "deepseek" }}
+[[router.model_list]]
+model_name = "{{ . }}"
+litellm_params.model = "deepseek/{{ . }}"
+litellm_params.api_key = '{{ (rbwFields "DeepSeek").LIBLAF_LIME_API_KEY.value }}'
+# {{- end -}}
+
+# {{- template "deepseek" "deepseek-chat" -}}
+# {{- template "deepseek" "deepseek-reasoner" -}}
+
+# --------------------------------- YutoAPI --------------------------------
+# {{- define "YutoAPI" }}
+[[router.model_list]]
+model_name = "{{ . }}"
+litellm_params.model = "openai/{{ . }}"
+litellm_params.api_key = '{{ (rbwFields "YutoAPI").API_KEY.value }}'
+litellm_params.api_base = "https://cn.gptapi.asia/v1"
+# {{- end -}}
+
+# {{- template "YutoAPI" "gpt-5" -}}
+# {{- template "YutoAPI" "gpt-5-mini" -}}
+# {{- template "YutoAPI" "gpt-5-nano" -}}
+# {{- template "YutoAPI" "gpt-5-pro" -}}
+# {{- template "YutoAPI" "gemini-2.5-flash" -}}
+# {{- template "YutoAPI" "gemini-2.5-flash-lite" -}}
+# {{- template "YutoAPI" "gemini-2.5-pro" -}}
+# {{- template "YutoAPI" "grok-4" -}}
+
+[router.default_litellm_params]
+timeout = 30.0
+
+[[router.fallbacks]]
+"gemini-2.5-flash" = ["qwen3-coder-plus", "deepseek-reasoner"]

@@ -1,0 +1,25 @@
+# -*- mode: yaml; -*-
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
+
+name: DVC
+
+services:
+  dvc:
+    command: >-
+      serve sftp 'tsinghua:dvc' --addr ':2022'
+      --authorized-keys '/config/authorized_keys'
+      --vfs-cache-mode full
+    container_name: dvc
+    image: rclone/rclone:latest
+    ports:
+      - "{{ .services.dvc.port }}:2022/tcp"
+      - "{{ .services.dvc.port }}:2022/udp"
+    pull_policy: weekly
+    restart: unless-stopped
+    volumes:
+      - "{{ .chezmoi.homeDir }}/.config/rclone:/config/rclone:ro"
+      - "{{ .chezmoi.homeDir }}/.ssh/authorized_keys:/config/authorized_keys:ro"
+
+networks:
+  default:
+    enable_ipv6: true

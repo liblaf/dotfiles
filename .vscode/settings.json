@@ -1,0 +1,21 @@
+{
+  "files.associations": {
+    "*.json.tmpl": "json",
+    "symlink_*": "plaintext",
+    "symlink_*.tmpl": "gotmpl"
+  },
+  "files.exclude": {
+    "**/.ruff_cache": true,
+    "**/.venv": true
+  },
+  "json.schemas": [
+    {
+      "fileMatch": ["daemon.json.tmpl"],
+      "url": "https://www.schemastore.org/dockerd.json"
+    }
+  ],
+  "shellcheck.ignorePatterns": {
+    "**/symlink_*": true
+  },
+  "xml.catalogs": [".vscode/catalog.xml"]
+}

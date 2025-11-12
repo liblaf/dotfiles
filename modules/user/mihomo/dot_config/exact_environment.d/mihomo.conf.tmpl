@@ -1,0 +1,12 @@
+# -*- mode: dotenv; -*-
+
+all_proxy='http://127.0.0.1:{{ .services.proxy.port }}'
+ALL_PROXY='http://127.0.0.1:{{ .services.proxy.port }}'
+ftp_proxy='http://127.0.0.1:{{ .services.proxy.port }}'
+FTP_PROXY='http://127.0.0.1:{{ .services.proxy.port }}'
+http_proxy='http://127.0.0.1:{{ .services.proxy.port }}'
+HTTP_PROXY='http://127.0.0.1:{{ .services.proxy.port }}'
+https_proxy='http://127.0.0.1:{{ .services.proxy.port }}'
+HTTPS_PROXY='http://127.0.0.1:{{ .services.proxy.port }}'
+no_proxy='{{ .no_proxy }}'
+NO_PROXY='{{ .no_proxy }}'

@@ -1,0 +1,46 @@
+pacman:
+  - journalctl-desktop-notification
+  - xdg-terminal-exec
+
+  - libva-utils # VA-API
+  - mpv
+  - vdpauinfo # VDPAU
+  - vulkan-tools # Vulkan
+
+  - 3dslicer
+  - blender
+  - drawio-desktop
+  - flameshot
+  - ghostty
+  - gimp
+  - haruna
+  - inkscape
+  - kitty
+  - microsoft-edge-stable-bin
+  - mission-center
+  - obs-studio
+  - obsidian
+  - paraview
+  - qalculate-gtk
+  - remmina
+  - rio
+  - telegram-desktop
+  - visual-studio-code-bin
+  - wemeet-bin # Flatpak version is out-of-date
+  - wl-clipboard
+  - wps-office-365
+  - wps-office-365-fonts
+
+  - vlc
+  - vlc-plugins-all
+
+  - pot-translation
+  - tesseract-data-chi_sim # < pot-translation, Stirling PDF
+  - tesseract-data-eng # < pot-translation, Stirling PDF
+
+flatpak:
+  - com.github.tchx84.Flatseal
+  - com.tencent.WeChat
+  - io.typora.Typora
+  - moe.tsuna.tsukimi
+  - net.meshlab.MeshLab # `aur/meshlab-appimage` does not support dark mode

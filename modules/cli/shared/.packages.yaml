@@ -1,0 +1,68 @@
+pacman:
+  - bat
+  - btop
+  - chezmoi
+  - difftastic
+  - duf
+  - eza
+  - fastfetch
+  - fd
+  - ffmpeg
+  - fio
+  - freeze-bin
+  - fzf
+  - gdu
+  - geekbench
+  - graphicsmagick
+  - gum
+  - helix
+  - htop
+  - hwatch-bin
+  - hyperfine
+  - imagemagick
+  - just
+  - lnav
+  - ouch
+  - ov-bin
+  - parallel
+  - rbw
+  - ripgrep
+  - rsync
+  - sd
+  - tealdeer
+  - tokei
+  - trash-cli
+  - vhs
+  - zellij
+  - zoxide
+
+  # ------------------------------- Networking ------------------------------- #
+  - aria2
+  - bandwhich
+  - doggo-bin
+  - gping
+  - httpie
+  - miniserve
+  - mtr
+  - nmap
+  - somo
+  - speedtest-cli
+  - xh
+
+  - ansible
+  - python-passlib # < ansible-core < ansible
+  - sshpass # < ansible-core < ansible
+
+npm:
+  - "@bitwarden/cli"
+  - "@liblaf/cspell-init"
+  - cspell
+  - dotenv-vault
+  - mega-linter-runner
+
+pypi:
+  - liblaf-lime
+  - liblaf-tangerine
+  # {{ if .hardware.nvidia.exists }}
+  - nvitop
+  # {{ end }}
