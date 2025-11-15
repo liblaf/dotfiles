@@ -37,9 +37,6 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "timonwong.shellcheck",
         "tombi-toml.tombi",
         "usernamehw.errorlens",
-        "visualstudioexptteam.intellicode-api-usage-examples",
-        "VisualStudioExptTeam.vscodeintellicode-completions",
-        "visualstudioexptteam.vscodeintellicode",
         "yzhang.markdown-all-in-one",
         # dependencies
         "ms-vscode.azure-repos",  # required by: ms-vscode.remote-repositories

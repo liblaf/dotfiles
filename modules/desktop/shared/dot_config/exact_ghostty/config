@@ -1,8 +1,10 @@
 # -*- mode: properties; -*-
+# ref: <https://ghostty.org/docs/config/reference>
 
 font-family = CaskaydiaCove Nerd Font
 font-family = Noto Sans CJK SC
 font-family = Twemoji
 
+mouse-scroll-multiplier = 1
 maximize = true
 gtk-titlebar-hide-when-maximized = true
