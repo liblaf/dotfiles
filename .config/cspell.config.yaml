@@ -76,7 +76,6 @@ words:
   - emptydirs
   - emscripten
   - etils
-  - expt
   - fastai
   - forgejo
   - freeipmi
@@ -114,7 +113,7 @@ words:
   - illumos
   - imgcat
   - inifmt
-  - intellicode
+  - inplace
   - jless
   - journalctl
   - kisstkondoros
@@ -256,9 +255,7 @@ words:
   - virsh
   - virt
   - virtualenv
-  - visualstudioexptteam
   - vlang
-  - vscodeintellicode
   - vuetorrent
   - webdav
   - webui

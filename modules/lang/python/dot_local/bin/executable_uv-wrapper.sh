@@ -27,6 +27,10 @@ function uv() {
     sd 'https://(\S+)/packages\b' "$UPSTREAM_CDN" "$lock_file"
     sd 'https://(\S+)/simple\b' "$UPSTREAM_INDEX" "$lock_file"
   fi
+  if [[ -n ${VIRTUAL_ENV:-} && -f "$VIRTUAL_ENV/pyvenv.cfg" ]]; then
+    yq eval '.include-system-site-packages = true' "$VIRTUAL_ENV/pyvenv.cfg" \
+      --inplace --input-format props --output-format props
+  fi
 }
 
 uv "$@"
