@@ -34,9 +34,11 @@ rustup default stable
 packages=(
   # {{ "\n" }} {{ join "\n" .packages.pacman }}
 )
+# {{ if .packages.pacmanGroups }}
 groups=(
   # {{ "\n" }} {{ join "\n" .packages.pacmanGroups }}
 )
 readarray -O "${#packages[@]}" -t packages < <(paru --sync --groups --quiet "${groups[@]}")
+# {{ end }}
 paru-install "${packages[@]}"
 # {{ end }}
