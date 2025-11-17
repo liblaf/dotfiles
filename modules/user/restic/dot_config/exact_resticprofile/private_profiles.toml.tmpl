@@ -29,7 +29,7 @@ source = ["srv/forgejo/forgejo/git/"]
 source-base = "{{ .chezmoi.homeDir }}"
 source-relative = true
 # Flags passed to the restic command line:
-exclude = [".ssh/"]
+exclude = ["srv/forgejo/forgejo/git/.ssh/"]
 one-file-system = true
 tag = ["schedule"]
 
