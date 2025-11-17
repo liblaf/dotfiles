@@ -52,17 +52,12 @@ class Module:
     def target_file(self, source: Path) -> Path:  # noqa: PLR0911
         relative: Path = source.relative_to(self.path)
         if relative.parts[0].startswith("^"):
-            # '^etc/pacman.conf' -> 'dot_cache/dotfiles/root/etc/pacman.conf'
-            return Path("dot_cache/exact_dotfiles/exact_root").joinpath(
-                *[
-                    f"exact_{part}"
-                    for part in [
-                        relative.parts[0].removeprefix("^"),
-                        *relative.parts[1:-1],
-                    ]
-                ],
-                relative.parts[-1],
-            )
+            # '^etc/pacman.conf' -> 'dot_cache/dotfiles/root/exact_etc/pacman.conf'
+            parts: list[str] = list(relative.parts)
+            parts[0] = parts[0].removeprefix("^")
+            for i, part in enumerate(parts[:-1]):
+                parts[i] = f"exact_{part.replace('exact_', '')}"
+            return Path("dot_cache/exact_dotfiles/exact_root").joinpath(*parts)
         if len(relative.parts) == 1:
             if relative.name.startswith(".data."):
                 # '.data.*' -> '.chezmoidata/{module}.*'
