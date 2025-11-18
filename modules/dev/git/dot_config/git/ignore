@@ -9,6 +9,7 @@
 
 # [Cherries](https://github.com/liblaf/cherries)
 .cherries/
+exp/**/temp/
 exp/**/tmp/
 
 # [Comet](https://www.comet.com/docs/v2/guides/experiment-management/configure-sdk/)
