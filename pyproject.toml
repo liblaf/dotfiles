@@ -9,6 +9,6 @@ dependencies = [
   "cappa>=0.30,<0.31",
   "environs>=14.3.0",
   "loguru>=0.7,<0.8",
-  "msgspec[yaml]>=0.19,<0.20",
+  "msgspec[yaml]>=0.20,<0.21",
   "pydantic>=2,<3",
 ]
