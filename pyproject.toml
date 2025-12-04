@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
   "attrs>=25,<26",
-  "cappa>=0.30,<0.31",
+  "cappa>=0.31,<0.32",
   "environs>=14.3.0",
   "loguru>=0.7,<0.8",
   "msgspec[yaml]>=0.20,<0.21",
