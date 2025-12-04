@@ -26,16 +26,16 @@ wheels = [
 
 [[package]]
 name = "cappa"
-version = "0.30.2"
+version = "0.31.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "rich" },
     { name = "type-lens" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d9/27/c8f054ff37ea59fc656002dff09e025045844f089a5043cffbc70e118688/cappa-0.30.2.tar.gz", hash = "sha256:9d964dfea9a72a0e07b64d09617bd58a25b1b6dd97c31fe33d21edfccaf98e1f", size = 311131, upload-time = "2025-09-08T13:24:59.376Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e2/42/c63e45ba87862c63d5cdf2146ad1b00c2e9d4da4be08309518d4401cd6ba/cappa-0.31.0.tar.gz", hash = "sha256:070ccdefa418c8cad81c282d265196b0a03f2ad0c159a84f7f75b7b24ab0f317", size = 319910, upload-time = "2025-12-04T15:59:38.373Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/d1/67/32afa9a82215c3ec883691bbfc811bddb574d3806211b20388d3ed61df7a/cappa-0.30.2-py3-none-any.whl", hash = "sha256:0b2da6d431447d988165539aed53bd410ccdc59d7bfa5bb99684c80ea9f0eb11", size = 68391, upload-time = "2025-09-08T13:24:57.499Z" },
+    { url = "https://files.pythonhosted.org/packages/d8/2e/fa028f325e51a37ca22099a628ef30b40fe12b9b3dbdb66b396446696267/cappa-0.31.0-py3-none-any.whl", hash = "sha256:e8575e383b42c67c797ec0c15fc7b1debcc7249e42147c294a867baffde9b841", size = 68922, upload-time = "2025-12-04T15:59:36.805Z" },
 ]
 
 [[package]]
@@ -63,7 +63,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "attrs", specifier = ">=25,<26" },
-    { name = "cappa", specifier = ">=0.30,<0.31" },
+    { name = "cappa", specifier = ">=0.31,<0.32" },
     { name = "environs", specifier = ">=14.3.0" },
     { name = "loguru", specifier = ">=0.7,<0.8" },
     { name = "msgspec", extras = ["yaml"], specifier = ">=0.20,<0.21" },
