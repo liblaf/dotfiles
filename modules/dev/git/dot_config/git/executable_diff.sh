@@ -107,7 +107,7 @@ new_mode="$7"
 
 if is-binary "$old_file" || is-binary "$new_file"; then
   diff-binary
-elif is-generated "$new_file"; then
+elif is-generated "$path" || is-generated "$new_file"; then
   diff-generated
 elif is-large "$old_file" || is-large "$new_file"; then
   diff-large
