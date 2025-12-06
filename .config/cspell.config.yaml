@@ -87,7 +87,6 @@ words:
   - gcan
   - gext
   - gfxpayload
-  - ghorg
   - ghostty
   - glab
   - gles
@@ -180,6 +179,7 @@ words:
   - plotly
   - poppler
   - powerd
+  - prek
   - pueue
   - pueued
   - puid
@@ -204,7 +204,6 @@ words:
   - rdkit
   - remmina
   - repomix
-  - repomix's
   - resvg
   - rlang
   - rtprio

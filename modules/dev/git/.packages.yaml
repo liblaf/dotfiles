@@ -1,10 +1,10 @@
 pacman:
-  - ghorg
   - git
   - git-cliff
   - git-extras
   - git-lfs
   - pre-commit
+  - prek-bin
 
 npm:
   - repomix
