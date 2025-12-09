@@ -3,6 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+COMPLETE=fish prek > "$HOME/.local/share/fish/vendor_completions.d/prek.fish"
+
 template_dir="$(git config init.templateDir)"
-template_dir="${template_dir/#'~/'/"$HOME/"}"
-pre-commit init-templatedir --hook-type pre-commit "$template_dir"
+prek init-template-dir --hook-type pre-commit "$template_dir"
