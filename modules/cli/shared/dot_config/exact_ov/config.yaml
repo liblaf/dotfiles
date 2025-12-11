@@ -16,10 +16,10 @@ KeyBind:
     - "alt+shift+F8"
   suspend:
     - "ctrl+z"
-  # edit:
-  #   - "v"
-  # status_line:
-  #   - "ctrl+F10"
+  edit:
+    - "v"
+  status_line:
+    - "ctrl+F10"
   sync:
     - "r"
     - "ctrl+l"
@@ -56,7 +56,7 @@ KeyBind:
     - "ctrl+y"
     - "k"
     - "K"
-    - "ctrl+K"
+    - "ctrl+k"
     - "Up"
   top:
     - "Home"
@@ -150,6 +150,7 @@ KeyBind:
   previous_doc:
     - "["
   toggle_mouse:
+    - "ctrl+F8"
     - "ctrl+alt+r"
   multi_color:
     - "."
@@ -183,9 +184,9 @@ KeyBind:
     - "ctrl+F9"
     - "ctrl+alt+s"
   width_left:
-    - "ctrl+shift+left"
+    - "alt+left"
   width_right:
-    - "ctrl+shift+right"
+    - "alt+right"
   begin_left:
     - "shift+Home"
   end_right:
@@ -222,6 +223,13 @@ Mode:
   bat:
     Header: 3
     WrapMode: false
+  git-diff:
+    SectionDelimiter: ^diff --git a/|--- \w+$
+  git-log:
+    Header: 3
+    SectionDelimiter: ^commit \w{40}$
+  git-show:
+    Header: 3
   man:
     SectionDelimiter: ^[^\s]
 

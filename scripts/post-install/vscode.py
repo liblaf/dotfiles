@@ -19,6 +19,7 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "gruntfuggly.todo-tree",
         "iliazeus.vscode-ansi",
         "kisstkondoros.vscode-gutter-preview",
+        "lkrms.inifmt",
         "mechatroner.rainbow-csv",
         "mikestead.dotenv",
         "mkhl.shfmt",
@@ -61,7 +62,6 @@ EXTENSION_PACKS: dict[str, set[str]] = {
     "dotfiles": {
         "bmalehorn.vscode-fish",
         "kdl-org.kdl-v1",
-        "lkrms.inifmt",
         "matthewpi.caddyfile-support",
         "nico-castell.linux-desktop-file",
         "sumneko.lua",

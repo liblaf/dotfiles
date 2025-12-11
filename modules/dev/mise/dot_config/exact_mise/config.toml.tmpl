@@ -9,18 +9,10 @@ go_download_mirror = "{{ .mirrors.golang }}"
 idiomatic_version_file_enable_tools = []
 ignored_config_paths = ["~/mnt/"]
 jobs = 1
-trusted_config_paths = [
-  "~/.local/share/chezmoi/",
-  "~/github/liblaf/",
-  "~/gitlab/liblaf/",
-  "~/secrets/",
-]
+trusted_config_paths = ["~/.local/share/chezmoi/", "~/github/liblaf/"]
 
 [settings.node]
 mirror_url = "{{ .mirrors.nodejs_release }}/"
-
-[settings.npm]
-bun = true
 
 [settings.pipx]
 registry_url = "{{ .mirrors.pypi }}/{}/json"

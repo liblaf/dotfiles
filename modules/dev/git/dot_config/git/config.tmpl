@@ -1,11 +1,5 @@
-# -*- mode: properties; -*-
+# -*- mode: ini; -*-
 # ref: <https://git-scm.com/docs/git-config>
-
-[alias]
-# ref: <https://difftastic.wilfred.me.uk/git.html>
-dft = -c diff.external='~/.config/git/diff.sh' diff
-dl = -c diff.external='~/.config/git/diff.sh' log --ext-diff
-ds = -c diff.external='~/.config/git/diff.sh' show --ext-diff
 
 [commit]
 gpgSign = true
@@ -22,6 +16,9 @@ helper = !gh auth git-credential
 
 [credential "https://gitlab.com"]
 helper = !glab auth git-credential
+
+[diff "difftastic"]
+command = difft
 
 [fetch]
 parallel = 0
@@ -44,9 +41,9 @@ templateDir = {{ .chezmoi.homeDir }}/.config/git/templates
 locksverify = true
 
 [pager]
-diff = ov --quit-if-one-screen --section-delimiter ' --- \\w+$'
-log = ov --quit-if-one-screen --section-delimiter '^commit ' --section-header-num 3
-show = ov --quit-if-one-screen --header 3
+diff = ov --quit-if-one-screen --view-mode 'git-diff'
+log = ov --quit-if-one-screen --view-mode 'git-log'
+show = ov --quit-if-one-screen --view-mode 'git-show'
 
 [push]
 autoSetupRemote = true

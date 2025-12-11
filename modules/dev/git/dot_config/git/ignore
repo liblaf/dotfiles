@@ -1,10 +1,9 @@
 # -*- mode: ignore; -*-
 
+# Globally Useful gitignores
 # ref: <https://github.com/github/gitignore/blob/main/Global/README.md>
-
 *.log
 *.log.*
-
 /playground/
 
 # [Cherries](https://github.com/liblaf/cherries)
