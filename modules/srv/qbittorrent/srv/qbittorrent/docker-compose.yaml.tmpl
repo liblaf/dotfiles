@@ -24,7 +24,11 @@ services:
     restart: unless-stopped
     volumes:
       - ./config:/config
-      - ./downloads:/downloads
+      - type: bind
+        source: /mnt/data/srv/qbittorrent/downloads
+        target: /downloads
+        bind:
+          create_host_path: false
 
 networks:
   default:
