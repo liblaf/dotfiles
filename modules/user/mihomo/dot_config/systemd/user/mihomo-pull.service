@@ -6,4 +6,4 @@ Description = Pull Mihomo Configuration
 [Service]
 ExecStart = %h/.local/bin/mihomo-pull.sh
 Restart = on-failure
-RestartSec = 5s
+RestartSec = 1 hour

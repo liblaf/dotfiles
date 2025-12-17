@@ -6,5 +6,5 @@ Description = Push Mihomo Configuration
 [Service]
 ExecStart = mise run update
 Restart = on-failure
-RestartSec = 5s
+RestartSec = 1 hour
 WorkingDirectory = %h/github/liblaf/proxy-config
