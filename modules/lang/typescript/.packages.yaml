@@ -10,3 +10,4 @@ pacman:
 npm:
   - "@biomejs/biome"
   - setup-npm-trusted-publish
+  - sort-package-json
