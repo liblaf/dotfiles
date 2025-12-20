@@ -1,7 +1,7 @@
 pacman:
   - biome
   - bun-bin
-  - nodejs-lts-jod
+  - nodejs-lts-krypton
   - npm
   - pnpm
   - prettier
