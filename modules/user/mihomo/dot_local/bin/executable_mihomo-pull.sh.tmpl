@@ -1,17 +1,21 @@
 #!/bin/bash
 # -*- mode: sh; -*-
-# @option -u --uuid='{{ (rbwFields "API").UUID_ALL.value }}'
+# @option -i --id='{{ (rbwFields "sub-store").ID_ALL.value }}'
+# @option -p --port='{{ .services.proxy.port }}'
 # @meta require-tool mihomo
 set -o errexit
 set -o nounset
 set -o pipefail
 
 function main() {
-  local uuid="${argc_uuid:?}"
+  local id="${argc_id:?}"
+  local port="${argc_port:?}"
+  export port
   tmpfile="$(mktemp --suffix='.yaml')"
   trap 'rm --force "$tmpfile"' EXIT
   xhs --output "$tmpfile" --download GET \
-    'https://api.liblaf.me/subscribe/mihomo.yaml' id=="$uuid"
+    'https://sub.liblaf.me/subscribe/mihomo.yaml' id=="$id"
+  yq eval '.mixed-port=env(port)' "$tmpfile" --inplace
   mihomo -f "$tmpfile" -t # test configuration
   sudo install -D --mode='u=rw,go=r' --no-target-directory --verbose "$tmpfile" '/etc/mihomo/config.yaml'
   sudo systemctl enable --now mihomo.service
