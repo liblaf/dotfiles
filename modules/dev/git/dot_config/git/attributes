@@ -1,2 +1,4 @@
 # -*- mode: properties -*-
 * diff=difftastic
+*-lock.* -diff
+*.lock -diff
