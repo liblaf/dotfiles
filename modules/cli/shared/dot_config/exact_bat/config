@@ -4,3 +4,5 @@
 
 --wrap "never"
 --pager "ov --view-mode bat"
+--map-syntax "*.install:bash"
+--set-terminal-title
