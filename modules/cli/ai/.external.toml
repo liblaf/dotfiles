@@ -1,0 +1,4 @@
+[".config/goose/recipes/commit.yaml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://raw.githubusercontent.com/liblaf/goose-recipes/refs/heads/main/commit/recipe.yaml"

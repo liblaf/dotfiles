@@ -2,6 +2,7 @@ modules:
   - app/kitty
   - app/wrap
   - app/zotero
+  - cli/ai
   - cli/fish
   - cli/shared
   - cli/starship

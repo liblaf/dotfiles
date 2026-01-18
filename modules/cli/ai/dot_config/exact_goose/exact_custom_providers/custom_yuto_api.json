@@ -1,0 +1,29 @@
+{
+  "name": "custom_yuto_api",
+  "engine": "openai",
+  "display_name": "YutoAPI",
+  "description": "Custom YutoAPI Provider",
+  "api_key_env": "CUSTOM_YUTO_API_KEY",
+  "base_url": "https://cn.gptapi.asia/v1",
+  "models": [
+    {
+      "name": "gemini-3-flash-preview",
+      "context_limit": 128000,
+      "input_token_cost": null,
+      "output_token_cost": null,
+      "currency": null,
+      "supports_cache_control": null
+    },
+    {
+      "name": "gemini-3-pro-preview",
+      "context_limit": 128000,
+      "input_token_cost": null,
+      "output_token_cost": null,
+      "currency": null,
+      "supports_cache_control": null
+    }
+  ],
+  "headers": null,
+  "timeout_seconds": null,
+  "supports_streaming": true
+}

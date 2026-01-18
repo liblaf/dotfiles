@@ -1,0 +1,30 @@
+user:
+  always_allow:
+    # [Developer](https://block.github.io/goose/docs/mcp/developer-mcp)
+    - developer__analyze
+    # [Filesystem](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem)
+    - filesystem__read_text_file
+    - filesystem__read_media_file
+    - filesystem__read_multiple_files
+    - filesystem__list_directory
+    - filesystem__list_directory_with_sizes
+    - filesystem__search_files
+    - filesystem__directory_tree
+    - filesystem__get_file_info
+    - filesystem__list_allowed_directories
+    # [Git](https://github.com/modelcontextprotocol/servers/tree/main/src/git)
+    - git__git_status
+    - git__git_diff_unstaged
+    - git__git_diff_staged
+    - git__git_diff
+    - git__git_log
+    - git__git_show
+    # [Repomix](https://repomix.com/guide/mcp-server)
+    - repomix__pack_codebase
+    - repomix__pack_remote_repository
+    - repomix__read_repomix_output
+    - repomix__grep_repomix_output
+    - repomix__file_system_read_file
+    - repomix__file_system_read_directory
+  ask_before: []
+  never_allow: []

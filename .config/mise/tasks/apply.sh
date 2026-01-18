@@ -5,4 +5,4 @@ set -o nounset
 set -o pipefail
 
 chezmoi init
-chezmoi apply
+chezmoi apply "$@"

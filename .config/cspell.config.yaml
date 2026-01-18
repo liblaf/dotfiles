@@ -8,8 +8,8 @@ caseSensitive: false
 enableGlobDot: true
 ignorePaths:
   - .git/
-  - "*.lock"
   - cspell.*
+  - "*.lock"
 ignoreRandomStrings: true
 maxFileSize: 500KB
 useGitignore: true
@@ -29,6 +29,7 @@ words:
   - bmalehorn
   - btop
   - btrfs
+  - bunx
   - cachy
   - cachyos
   - caffe
@@ -202,7 +203,6 @@ words:
   - rdkit
   - remmina
   - repomix
-  - repomix's
   - resvg
   - rlang
   - rtprio
@@ -234,6 +234,7 @@ words:
   - tombi
   - tomlkit
   - toolsai
+  - tput
   - tqdm
   - trimesh
   - tsukimi

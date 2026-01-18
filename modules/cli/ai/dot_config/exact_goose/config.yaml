@@ -1,0 +1,57 @@
+# ref: <https://block.github.io/goose/docs/guides/config-files>
+GOOSE_PROVIDER: custom_yuto_api
+GOOSE_MODEL: gemini-3-flash-preview
+GOOSE_MODE: smart_approve
+# goose fetches recipes from GitHub every time, so we disable this until we have a better way to use remote recipes
+# GOOSE_RECIPE_GITHUB_REPO: liblaf/goose-recipes
+
+# ref: <https://block.github.io/goose/docs/getting-started/using-extensions>
+extensions:
+  # Builtin Extensions
+  developer:
+    bundled: true
+    display_name: Developer Tools
+    enabled: true
+    name: developer
+    timeout: 10
+    type: builtin
+    description: Code editing and shell access
+  extensionmanager:
+    bundled: true
+    display_name: Extension Manager
+    enabled: false # gemini is not happy with this extension
+    name: Extension Manager
+    type: platform
+    description: Enable extension management tools for discovering, enabling, and disabling extensions
+  # MCP Servers
+  filesystem: # <https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem>
+    display_name: Filesystem
+    enabled: true
+    name: filesystem
+    timeout: 10
+    type: stdio
+    cmd: bunx
+    args:
+      - "@modelcontextprotocol/server-filesystem@latest"
+    description: MCP server for filesystem access
+  git: # <https://github.com/modelcontextprotocol/servers/tree/main/src/git>
+    display_name: Git
+    enabled: true
+    name: git
+    timeout: 10
+    type: stdio
+    cmd: uvx
+    args:
+      - mcp-server-git@latest
+    description: A Model Context Protocol server providing tools to read, search, and manipulate Git repositories programmatically via LLMs
+  repomix: # <https://repomix.com/guide/mcp-server>
+    display_name: Repomix
+    enabled: true
+    name: repomix
+    timeout: 10
+    type: stdio
+    cmd: bunx
+    args:
+      - repomix@latest
+      - --mcp
+    description: A tool to pack repository contents to single file for AI consumption
