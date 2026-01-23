@@ -1,6 +1,6 @@
 pacman:
   - biome
-  - bun-bin
+  - bun
   - nodejs-lts-krypton
   - npm
   - pnpm

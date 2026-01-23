@@ -11,9 +11,9 @@ change-ps1 = false
 ]  # {{ end }}
 #
 # {{ $mirror := .mirrors.anaconda_extra }}
-# {{ range $channel := .anaconda_extra.channels }}
-"https://conda.anaconda.org/{{ $channel }}" = [
-  "{{ $mirror }}/cloud/{{ $channel }}",
+# {{ range $extra_channel := .anaconda_extra.channels }}
+"https://conda.anaconda.org/{{ $extra_channel }}" = [
+  "{{ $mirror }}/cloud/{{ $extra_channel }}",
 ]  # {{ end }}
 #
 # ref: <https://pixi.sh/latest/reference/pixi_configuration/#mirrors-for-pypi-resolving-and-pypi-package-downloading>
