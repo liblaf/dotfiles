@@ -1,5 +1,7 @@
 pacman:
-  - codename-goose-bin
+  # AUR is out-of-date, install directly from GitHub release
+  # - codename-goose-bin
+
 
 npm:
   - repomix

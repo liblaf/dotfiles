@@ -2,3 +2,10 @@
 refreshPeriod = "168h"
 type = "file"
 url = "https://raw.githubusercontent.com/liblaf/goose-recipes/refs/heads/main/commit/recipe.yaml"
+
+[".local/bin/goose"]
+executable = true
+path = "./goose"
+refreshPeriod = "168h"
+type = "archive-file"
+url = "https://github.com/block/goose/releases/latest/download/goose-x86_64-unknown-linux-gnu.tar.bz2"
