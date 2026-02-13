@@ -7,4 +7,6 @@ pacman:
   - otf-monaspace-nerd
   - ttf-cascadia-code-nerd
   - ttf-mona-sans
+  - ttf-ms-win11-auto
+  - ttf-ms-win11-auto-zh_cn
   - ttf-twemoji

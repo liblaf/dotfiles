@@ -7,7 +7,8 @@ ghcr = "ghcr.nju.edu.cn"
 go = "https://mirrors.aliyun.com/goproxy"  # chsrc measure go
 golang = "https://mirrors.cernet.edu.cn/golang"
 nodejs_release = "https://mirrors.cernet.edu.cn/nodejs-release"
-npm = "https://registry.npmjs.org"  # chsrc measure npm
+# npm = "https://registry.npmjs.org"  # chsrc measure npm
+npm = "https://registry.npmmirror.com"
 # When I'm at home, CERNET mirror redirects to NJU. NJU mirror is broken, often
 # 404 not found.
 pypi = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web"
