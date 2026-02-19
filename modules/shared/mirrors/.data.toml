@@ -4,13 +4,10 @@ anaconda_extra = "https://mirrors.cernet.edu.cn/anaconda-extra"
 crates_io_index = "https://mirrors.cernet.edu.cn/crates.io-index"
 flathub = "https://mirrors.cernet.edu.cn/flathub"
 ghcr = "ghcr.nju.edu.cn"
-go = "https://mirrors.aliyun.com/goproxy"  # chsrc measure go
+go = "https://goproxy.cn"  # chsrc measure go
 golang = "https://mirrors.cernet.edu.cn/golang"
 nodejs_release = "https://mirrors.cernet.edu.cn/nodejs-release"
-# npm = "https://registry.npmjs.org"  # chsrc measure npm
-npm = "https://registry.npmmirror.com"
-# When I'm at home, CERNET mirror redirects to NJU. NJU mirror is broken, often
-# 404 not found.
-pypi = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web"
+npm = "https://registry.npmmirror.com"  # chsrc measure npm
+pypi = "https://mirrors.cernet.edu.cn/pypi/web"
 python_build_standalone = "https://mirrors.cernet.edu.cn/python-build-standalone"
 rustup = "https://mirrors.cernet.edu.cn/rustup"

@@ -61,7 +61,6 @@ npm:
   - mega-linter-runner
 
 pypi:
-  - liblaf-lime
   - liblaf-tangerine
   # {{ if .hardware.nvidia.exists }}
   - nvitop

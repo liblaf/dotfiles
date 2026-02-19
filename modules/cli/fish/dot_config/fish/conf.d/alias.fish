@@ -19,10 +19,6 @@ if status is-interactive
         abbr --add r --command pueue -- status status="running"
     end
 
-    if type --query lime
-        abbr --add lc -- lime commit
-    end
-
     set apps meshlab paraview typora
     for app in $apps
         if type --query $app

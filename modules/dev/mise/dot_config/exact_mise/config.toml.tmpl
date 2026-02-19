@@ -2,9 +2,7 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 
 [settings]
-default_config_filename = ".config/mise/config.toml"  # only works when set as env var
-env = ["bench", "dev", "docs", "test"]  # only works when set as env var
-experimental = true
+default_config_filename = ".config/mise/config.toml"  # This must be an env var.
 go_download_mirror = "{{ .mirrors.golang }}"
 idiomatic_version_file_enable_tools = []
 ignored_config_paths = ["~/mnt/"]
@@ -14,12 +12,14 @@ trusted_config_paths = ["~/.local/share/chezmoi/", "~/github/liblaf/"]
 [settings.node]
 mirror_url = "{{ .mirrors.nodejs_release }}/"
 
+[settings.npm]
+package_manager = "bun"
+
 [settings.pipx]
 registry_url = "{{ .mirrors.pypi }}/{}/json"
-uvx = true
 
 [settings.python]
-uv_venv_auto = true
+uv_venv_auto = "create|source"
 uv_venv_create_args = ["--system-site-packages"]
 
 [settings.sops]

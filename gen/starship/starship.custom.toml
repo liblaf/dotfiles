@@ -1,4 +1,4 @@
-#:schema https://raw.githubusercontent.com/starship/starship/refs/heads/master/.github/config-schema.json
+#:schema https://starship.rs/config-schema.json
 
 command_timeout = 100
 
