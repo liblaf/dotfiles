@@ -19,6 +19,7 @@ words:
   - aliyun
   - alpaquita
   - alpm
+  - aosc
   - archlinuxcn
   - artix
   - atztogo
@@ -44,6 +45,7 @@ words:
   - chrislajoie
   - chsrc
   - cmdline
+  - cnnic
   - cometml
   - copyto
   - cppcheck
@@ -123,10 +125,10 @@ words:
   - libvirtd
   - libxcrypt
   - limine
-  - litellm
   - lkrms
   - lldb
   - lnav
+  - localip
   - lscr
   - lshw
   - lsign
@@ -146,6 +148,7 @@ words:
   - msdos
   - msys
   - multicd
+  - netns
   - networkx
   - newgrp
   - nico
@@ -196,7 +199,6 @@ words:
   - qbittorrent
   - qgroup
   - qiime
-  - qwen
   - raku
   - rapidsai
   - rclone
@@ -210,7 +212,6 @@ words:
   - rustc
   - sccache
   - scipy
-  - segoe
   - sharzyl
   - shfmt
   - simpleitk
@@ -241,11 +242,13 @@ words:
   - tsuna
   - tuxxx
   - twemoji
+  - typst
   - uefi
   - ungrabbed
   - ursky
   - usbutils
   - usernamehw
+  - vcsh
   - vdpau
   - vdpauinfo
   - venv
@@ -264,5 +267,6 @@ words:
   - yazi
   - yuto
   - yzhang
+  - zorin
   - zotero
   - zswap

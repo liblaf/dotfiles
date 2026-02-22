@@ -8,5 +8,16 @@
 # ref: <https://dns.icoa.cn/ntp/>
 # ref: <https://tuna.moe/help/ntp/>
 # ref: <https://wiki.archlinux.org/title/Systemd-timesyncd>
-NTP = ntp.tuna.tsinghua.edu.cn ntp.ntsc.ac.cn cn.ntp.org.cn
-FallbackNTP = pool.ntp.org time.cloudflare.com time.windows.com
+# reset list of NTP servers
+NTP =
+NTP = ntp.tuna.tsinghua.edu.cn
+NTP = ntp.ntsc.ac.cn
+# NTP = ntp.cnnic.cn
+NTP = cn.ntp.org.cn
+NTP = cn.pool.ntp.org
+NTP = ntp.aliyun.com
+NTP = ntp.tencent.com
+
+FallbackNTP = pool.ntp.org
+FallbackNTP = time.cloudflare.com
+FallbackNTP = time.windows.com
