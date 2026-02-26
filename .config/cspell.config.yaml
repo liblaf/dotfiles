@@ -23,6 +23,7 @@ words:
   - archlinuxcn
   - artix
   - atztogo
+  - autodeps
   - biber
   - bingwallpaper
   - bioconda
@@ -30,6 +31,7 @@ words:
   - bmalehorn
   - btop
   - btrfs
+  - buildenv
   - bunx
   - cachy
   - cachyos
@@ -49,7 +51,6 @@ words:
   - cometml
   - copyto
   - cppcheck
-  - cpptools
   - csvlens
   - cuda
   - cytoolz
@@ -64,6 +65,7 @@ words:
   - difft
   - difftastic
   - direnv
+  - distcc
   - dmabuf
   - dnsmasq
   - dnssec
@@ -205,6 +207,7 @@ words:
   - rdkit
   - remmina
   - repomix
+  - repomix's
   - resvg
   - rlang
   - rtprio

@@ -1,6 +1,6 @@
 pacman:
   - csvlens
-  - dasel-bin
+  # - dasel-bin
   - glow
   - go-yq
   - jless
