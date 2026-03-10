@@ -21,7 +21,7 @@ registry_url = "{{ .mirrors.pypi }}/{}/json"
 
 [settings.python]
 uv_venv_auto = "create|source"
-uv_venv_create_args = ["--system-site-packages"]
+uv_venv_create_args = ["--prompt", ".", "--system-site-packages"]
 
 [settings.sops]
 age_key_file = "~/.config/sops/age/keys.txt"
