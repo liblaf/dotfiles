@@ -3,5 +3,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-uv run 'scripts/build.py' "$@"
+SCRIPT_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
+uv run "$SCRIPT_DIR/build.py" "$@"
 cp --archive --target-directory='home' --verbose '.chezmoi.toml.tmpl'

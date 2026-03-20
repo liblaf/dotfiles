@@ -7,7 +7,7 @@ function has() {
   type "$@" &> /dev/null
 }
 
-function install-packages() {
+function install-arch() {
   local to_install=()
   if ! has rbw; then to_install+=("rbw"); fi
   if ! has uv; then to_install+=("uv"); fi
@@ -17,4 +17,4 @@ function install-packages() {
   fi
 }
 
-install-packages
+install-arch
