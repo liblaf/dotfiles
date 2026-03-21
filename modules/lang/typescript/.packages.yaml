@@ -1,9 +1,7 @@
 pacman:
   - biome
-  - bun
   - nodejs-lts-krypton
   - npm
-  - pnpm
   - prettier
   - wrangler
 

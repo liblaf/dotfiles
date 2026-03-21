@@ -5,5 +5,4 @@ pacman:
   - downgrade
   - pacman-contrib
   - pacutils
-  - paru
   - pkgstats

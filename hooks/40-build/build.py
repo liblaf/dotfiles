@@ -138,7 +138,9 @@ class Module:
             return False
         parts: list[str] = list(relative.parts)
         parts[0] = parts[0].removeprefix("^")
-        parts: list[str] = [f"exact_{part}" for part in parts]
+        parts[:-1] = (
+            part if "exact_" in part else f"exact_{part}" for part in parts[:-1]
+        )
         ctx.copy_to(source, Path("dot_cache/exact_dotfiles/exact_root", *parts))
         return True
 

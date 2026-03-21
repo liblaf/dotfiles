@@ -1,0 +1,4 @@
+pacman:
+  - pot-translation
+  - tesseract-data-chi_sim # < pot-translation, Stirling PDF
+  - tesseract-data-eng # < pot-translation, Stirling PDF

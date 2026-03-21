@@ -1,55 +1,82 @@
 modules:
-  - app/kitty
-  - app/wrap
-  - app/zotero
-  - cli/ai
-  - cli/fish
-  - cli/shared
-  - cli/starship
-  - cli/yazi
+  - access/gpg
+  - access/ssh-keys
+  - access/ssh-server
+  - access/tsinghua
+  - apps/flameshot
+  - apps/ghostty
+  - apps/kitty
+  - apps/meshlab
+  - apps/pot
+  - apps/rio
+  - apps/typora
+  - apps/wrap
+  - apps/zotero
+  - base/system
+  - base/templates
+  - base/user
+  - boot/limine
+  - desktop/core
   - desktop/gnome
-  - desktop/shared
+  - dev/ai-goose
+  - dev/copier
   - dev/direnv
+  - dev/dvc
   - dev/git
   - dev/github
   - dev/mise
-  - fs/btrfs
   - hardware/intel
   - hardware/nvidia
-  - keys/gpg
-  - keys/ssh
+  - lang/bun
+  - lang/conda
   - lang/cpp
   - lang/formats
   - lang/go
+  - lang/pip
+  - lang/pixi
+  - lang/pnpm
   - lang/python
   - lang/rust
   - lang/shell
   - lang/tex
   - lang/typescript
+  - lang/uv
+  - network/ddns
+  - network/mihomo
+  - network/rclone
+  - network/ufw
   - pkg/flatpak
+  - pkg/mirrors
   - pkg/pacman
-  - shared/mirrors
-  - shared/system
-  - shared/user
-  - srv/caddy
-  - srv/dvc
-  - srv/forgejo
-  - srv/jellyfin
-  - srv/openlist
-  - srv/qbittorrent
-  - srv/shared
+  - pkg/paru
+  - pkg/yay
+  - services/base
+  - services/caddy
+  - services/dvc
+  - services/forgejo
+  - services/jellyfin
+  - services/openlist
+  - services/qbittorrent
+  - shell/bat
+  - shell/core
+  - shell/difftastic
+  - shell/fish
+  - shell/helix
+  - shell/less
+  - shell/ov
+  - shell/repomix
+  - shell/starship
+  - shell/tealdeer
+  - shell/yazi
+  - shell/zellij
+  - shell/zoxide
+  - storage/btrfs
+  - storage/restic
+  - storage/resticprofile
   - system/docker
   - system/fonts
   - system/fwupd
   - system/libvirt
-  - system/limine
   - system/mime
   - system/netdata
-  - system/ssh
-  - system/ufw
-  - user/ddns
-  - user/mihomo
-  - user/pueue
-  - user/rclone
-  - user/restic
-  - user/tsinghua
+  - system/pueue
