@@ -4,16 +4,14 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{ template "docker.sh" }}
-# {{ template "service.sh" . }}
-
-cd "$HOME/srv/openlist"
+# {{ includeTemplate "docker.sh" }}
+# {{ includeTemplate "service.sh" . }}
 
 # {{ if .services.openlist.enable }}
 
 service-user-add 'openlist' '{{ .services.openlist.uid }}' 'OpenList'
-mkdir --parents --verbose "$PWD/data"
-sudo chown --verbose 'openlist:srv' "$PWD/data"
+mkdir --parents --verbose './data'
+sudo chown --verbose 'openlist:srv' './data'
 docker compose up --detach --remove-orphans
 
 # {{ else }}

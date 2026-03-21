@@ -3,5 +3,5 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{ template "docker.sh" }}
+# {{ includeTemplate "docker.sh" }}
 docker system prune --all --force --volumes

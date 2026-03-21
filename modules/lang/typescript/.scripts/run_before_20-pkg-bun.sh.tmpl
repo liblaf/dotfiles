@@ -11,19 +11,29 @@ apply-home 'dot_config/dot_bunfig.toml.tmpl' '.config/.bunfig.toml'
 
 bun update --latest --global || true
 
-INSTALLED="$(bun pm ls --global || true)"
-TO_INSTALL=()
+declare -A installed=()
+while read -r pkg; do
+  installed["$pkg"]=1
+done < <(
+  (bun pm ls --global || true) |
+    awk '
+    {
+      gsub(/\x1b\[[0-9;]*m/, "")  # strip ANSI codes
+    }
+    /[├└]── / {
+      line = $0
+      sub(/^.*[├└]── /, "", line)            # remove tree prefix
+      sub(/@[0-9][^[:space:]]*$/, "", line)  # remove trailing @version
+      print line
+    }'
+)
 
 # {{ range $spec := .packages.npm }}
-# {{ $pkg := regexReplaceAll "^(.+)@.*$" $spec "${1}" }}
 # shellcheck disable=SC2016
-if ! grep --quiet '{{ $pkg }}' <<< "$INSTALLED"; then
-  TO_INSTALL+=('{{ $spec }}')
+if [[ -z ${installed['{{ $spec }}']:-} ]]; then
+  # shellcheck disable=SC2016
+  bun install --global '{{ $spec }}'
 fi
 # {{ end }}
-
-if ((${#TO_INSTALL[@]} > 0)); then
-  bun add --global "${TO_INSTALL[@]}"
-fi
 
 # {{ end }} // if .packages.npm

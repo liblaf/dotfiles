@@ -3,13 +3,12 @@
 function apply-root() {
   function prepend_exact() {
     awk -F'/' '{
-			for (i = 1; i < NF; i++) {
-				printf "/exact_%s", $i
-			}
-			printf "/%s\n", $NF
-		}' <<< "$1"
+      for (i = 1; i < NF; i++) {
+        printf "/exact_%s", $i
+      }
+      printf "/%s\n", $NF
+    }' <<< "$1"
   }
-
   local source="$1"
   local target="$2"
   local source_abs
@@ -22,7 +21,7 @@ function apply-root() {
     echo "'^$source' (template) -> '$target'" 1>&2
     rm --force "$tmpfile"
   else
-    sudo cp --archive --force --no-preserve='ownership' "$source_abs" "$target"
+    sudo install -D --mode='u=rw,go=r' --no-target-directory "$source_abs" "$target"
     echo "'^$source' -> '$target'" 1>&2
   fi
 }
@@ -33,10 +32,11 @@ function apply-home() {
   local source_abs="$CHEZMOI_SOURCE_DIR/$source"
   local target_abs="$HOME/$target"
   if [[ $source == *.tmpl ]]; then
+    mkdir --parents --verbose "$(dirname -- "$target_abs")"
     "$CHEZMOI_EXECUTABLE" execute-template "$source_abs" --file --output "$target_abs"
     echo "'$source' (template) -> '~/$target'" 1>&2
   else
-    cp --archive --force "$source_abs" "$target_abs"
+    install -D --mode='u=rw,go=r' --no-target-directory "$source_abs" "$target_abs"
     echo "'$source' -> '~/$target'" 1>&2
   fi
 }

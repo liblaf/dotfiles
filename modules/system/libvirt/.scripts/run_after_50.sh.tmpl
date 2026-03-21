@@ -6,7 +6,7 @@ set -o pipefail
 
 # {{ if eq .virt "none" }}
 
-# {{ template "group-add.sh" }}
+# {{ includeTemplate "group-add.sh" }}
 # ref: <https://wiki.archlinux.org/title/Libvirt#Using_libvirt_group>
 group-add "libvirt"
 

@@ -11,11 +11,32 @@ apply-home 'dot_config/exact_uv/uv.toml.tmpl' '.config/uv/uv.toml'
 
 uv tool upgrade --all
 
-# {{ range $pkg := .packages.pypi }}
-# shellcheck disable=SC2016
-uv tool install '{{ $pkg }}'
-# {{ end }}
+function package-name() {
+  local -r package="$1"
+  printf '%s\n' "${package%%[*}"
+}
 
-uv tool install --with cookiecutter copier
+declare -A installed=()
+while read -r package; do
+  installed["$package"]=true
+done < <(
+  uv tool list |
+    awk '!/^-/ { print $1 }'
+)
+packages=(
+  # {{ range .packages.pypi }}
+  '{{ . }}'
+  # {{ end }}
+)
+
+for package in "${packages[@]}"; do
+  name="${package%%[*}"
+  if [[ -z ${installed["$name"]:-} ]]; then
+    case "$package" in
+      copier) uv tool install --with cookiecutter "$package" ;;
+      *) uv tool install "$package" ;;
+    esac
+  fi
+done
 
 # {{ end }} // if .packages.pypi

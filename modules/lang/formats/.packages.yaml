@@ -1,6 +1,6 @@
 arch:
   - csvlens
-  # - dasel-bin
+  - dasel-bin
   - glow
   - go-yq
   - jless
@@ -11,5 +11,4 @@ arch:
   - tombi
 
 pypi:
-  - toml-cli
   - toml-sort

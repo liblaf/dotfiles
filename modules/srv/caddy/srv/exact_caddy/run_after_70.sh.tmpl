@@ -4,11 +4,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{ template "docker.sh" }}
+# {{ includeTemplate "docker.sh" }}
 
-cd "$HOME/srv/dvc"
-
-# {{ if .services.dvc.enable }}
+# {{ if .services.caddy.enable }}
 
 docker compose up --detach --remove-orphans
 
