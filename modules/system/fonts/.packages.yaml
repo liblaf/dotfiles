@@ -1,4 +1,4 @@
-pacman:
+arch:
   - noto-fonts
   - noto-fonts-cjk
   - noto-fonts-emoji
@@ -6,6 +6,7 @@ pacman:
   - otf-latinmodern-math
   - otf-monaspace-nerd
   - ttf-cascadia-code-nerd
+  - ttf-maplemononormal-nf-cn-unhinted
   - ttf-mona-sans
   - ttf-ms-win11-auto
   - ttf-ms-win11-auto-zh_cn

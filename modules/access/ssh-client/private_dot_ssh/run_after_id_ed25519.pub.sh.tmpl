@@ -1,0 +1,8 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+ssh-keygen -y -f 'id_ed25519' -P '{{ (rbw "SSH").data.password }}' \
+  > 'id_ed25519.pub'

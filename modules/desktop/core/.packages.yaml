@@ -1,12 +1,14 @@
-pacman:
+arch:
   - journalctl-desktop-notification
   - xdg-terminal-exec
 
+  # hardware video acceleration
   - libva-utils # VA-API
   - mpv
   - vdpauinfo # VDPAU
   - vulkan-tools # Vulkan
 
+  # applications
   - 3dslicer
   - blender
   - drawio-desktop
@@ -22,13 +24,12 @@ pacman:
   - remmina
   - telegram-desktop
   - visual-studio-code-bin
+  - vlc
+  - vlc-plugins-all
   - wemeet-bin # Flatpak version is out-of-date
   - wl-clipboard
   - wps-office-365
   - wps-office-365-fonts
-
-  - vlc
-  - vlc-plugins-all
 
 flatpak:
   - com.github.tchx84.Flatseal

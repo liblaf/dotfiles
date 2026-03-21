@@ -1,4 +1,4 @@
-pacman:
+arch:
   - git
   - git-cliff
   - git-extras

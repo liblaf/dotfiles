@@ -15,7 +15,6 @@ maxFileSize: 500KB
 useGitignore: true
 words:
   - adwaita
-  - adxxx
   - aliyun
   - alpaquita
   - alpm
@@ -46,11 +45,11 @@ words:
   - chouzz
   - chrislajoie
   - chsrc
-  - cmdline
   - cnnic
   - cometml
   - copyto
   - cppcheck
+  - cpptools
   - csvlens
   - cuda
   - cytoolz
@@ -90,12 +89,10 @@ words:
   - gcampax
   - gcan
   - gext
-  - gfxpayload
   - ghostty
   - glab
   - gles
   - gloga
-  - gmxxx
   - goauthing
   - gotmpl
   - gpasswd
@@ -142,12 +139,10 @@ words:
   - menpo
   - mihomo
   - mitchellh
-  - mkconfig
   - mkdocs
   - mkdocstrings
   - mkhl
   - mkinitcpio
-  - msdos
   - msys
   - multicd
   - netns
@@ -158,7 +153,6 @@ words:
   - nmap
   - noconfirm
   - nofile
-  - noheadings
   - nopasswd
   - noto
   - npmmirror
@@ -207,7 +201,6 @@ words:
   - rdkit
   - remmina
   - repomix
-  - repomix's
   - resvg
   - rlang
   - rtprio
@@ -243,11 +236,11 @@ words:
   - trimesh
   - tsukimi
   - tsuna
-  - tuxxx
   - twemoji
   - typst
   - uefi
   - ungrabbed
+  - unhinted
   - ursky
   - usbutils
   - usernamehw
@@ -265,11 +258,9 @@ words:
   - webui
   - wemeet
   - wezterm
-  - xcursor
   - xmake
   - yazi
   - yuto
   - yzhang
   - zorin
   - zotero
-  - zswap

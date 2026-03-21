@@ -1,0 +1,23 @@
+// ref: <https://repomix.com/guide/configuration>
+
+{
+  "$schema": "https://repomix.com/schemas/latest/schema.json",
+  "input": {
+    "maxFileSize": 524288 // 512 KiB
+  },
+  "output": {
+    "truncateBase64": true,
+    "includeFullDirectoryStructure": true
+  },
+  "ignore": {
+    "customPatterns": [
+      "**/.cspell.*",
+      "**/.vscode",
+      "**/*-lock.*",
+      "**/*.lock",
+      "**/CHANGELOG.md",
+      "**/cspell.*",
+      "**/go.sum"
+    ]
+  }
+}

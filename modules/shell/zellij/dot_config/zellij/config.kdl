@@ -4,6 +4,6 @@ show_startup_tips false
 
 keybinds {
   shared_except "locked" {
-    bind "Alt t" { NewTab; SwitchToMode "normal"; }
+    bind "Alt t" { NewTab; }
   }
 }

@@ -1,3 +1,3 @@
-{{ range gitHubKeys "liblaf" }}
-{{- .Key }}
-{{ end }}
+{{ range gitHubKeys "liblaf" -}}
+{{ .Key }} {{ .CreatedAt }}
+{{ end -}}

@@ -1,5 +1,0 @@
-pacman:
-  - mihomo
-
-npm:
-  - "@liblaf/sub-store"

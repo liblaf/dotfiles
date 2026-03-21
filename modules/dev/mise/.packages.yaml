@@ -1,6 +1,4 @@
-pacman:
-  - age # < mise, sops
+arch:
   - fnox-bin
   - mise
-  - sops # < mise
   - usage # < mise

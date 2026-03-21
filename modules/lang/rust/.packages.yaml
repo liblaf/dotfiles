@@ -1,4 +1,4 @@
-pacman:
+arch:
   - cross
   - rustup
   - sccache

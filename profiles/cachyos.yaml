@@ -1,6 +1,10 @@
 modules:
+  - base/system
+  - base/templates
+  - base/user
+
   - access/gpg
-  - access/ssh-keys
+  - access/ssh-client
   - access/ssh-server
   - access/tsinghua
   - apps/flameshot
@@ -8,55 +12,38 @@ modules:
   - apps/kitty
   - apps/meshlab
   - apps/pot
-  - apps/rio
   - apps/typora
   - apps/wrap
   - apps/zotero
-  - base/system
-  - base/templates
-  - base/user
   - boot/limine
   - desktop/core
   - desktop/gnome
-  - dev/ai-goose
+  - dev/comet
   - dev/copier
   - dev/direnv
   - dev/dvc
   - dev/git
   - dev/github
+  - dev/goose
   - dev/mise
   - hardware/intel
   - hardware/nvidia
-  - lang/bun
-  - lang/conda
   - lang/cpp
   - lang/formats
   - lang/go
-  - lang/pip
-  - lang/pixi
-  - lang/pnpm
   - lang/python
   - lang/rust
   - lang/shell
   - lang/tex
   - lang/typescript
-  - lang/uv
-  - network/ddns
-  - network/mihomo
-  - network/rclone
-  - network/ufw
+  - net/ddns
+  - net/mihomo
+  - net/rclone
+  - net/ufw
+  - net/xh
   - pkg/flatpak
   - pkg/mirrors
   - pkg/pacman
-  - pkg/paru
-  - pkg/yay
-  - services/base
-  - services/caddy
-  - services/dvc
-  - services/forgejo
-  - services/jellyfin
-  - services/openlist
-  - services/qbittorrent
   - shell/bat
   - shell/core
   - shell/difftastic
@@ -70,6 +57,13 @@ modules:
   - shell/yazi
   - shell/zellij
   - shell/zoxide
+  - srv/base
+  - srv/caddy
+  - srv/dvc
+  - srv/forgejo
+  - srv/jellyfin
+  - srv/openlist
+  - srv/qbittorrent
   - storage/btrfs
   - storage/restic
   - storage/resticprofile

@@ -23,4 +23,4 @@ extensions=(
 )
 gext enable "${extensions[@]}"
 
-dconf load / < '{{ joinPath .dirs.external "dconf.ini" }}'
+dconf load / < '{{ joinPath .dirs.abs.external "dconf.ini" }}'

@@ -1,2 +1,2 @@
 flatpak:
-  - net.meshlab.MeshLab # `aur/meshlab-appimage` does not support dark mode
+  - net.meshlab.MeshLab # MeshLab from arch4edu / AUR does not support dark mode

@@ -1,4 +1,4 @@
-pacman:
+arch:
   - docker
   - docker-compose
   - lazydocker

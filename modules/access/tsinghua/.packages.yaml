@@ -1,4 +1,4 @@
-pacman:
+arch:
   - auth-thu-bin
   - rclone
   - seadrive-daemon

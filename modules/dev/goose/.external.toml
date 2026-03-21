@@ -1,0 +1,5 @@
+# TODO: goose fetches recipes from GitHub every time it runs, which is not ideal. Remove this manual caching once goose supports caching recipes.
+[".config/goose/recipes/commit.yaml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://raw.githubusercontent.com/liblaf/goose-recipes/refs/heads/main/commit/recipe.yaml"

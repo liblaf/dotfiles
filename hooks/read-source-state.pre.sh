@@ -17,13 +17,13 @@ function validate() {
       head --lines=1 |
       cut --fields=2-
   )"
-  [[ "$CHEZMOI_SOURCE_DIR/.mtime" -nt $newest_source ]]
+  [[ "$CHEZMOI_SOURCE_DIR/.touch" -nt $newest_source ]]
 }
 
 if validate; then exit; fi
 rm --force --recursive "$CHEZMOI_SOURCE_DIR"
 mkdir --parents --verbose "$CHEZMOI_SOURCE_DIR"
-touch "$CHEZMOI_SOURCE_DIR/.mtime"
+touch "$CHEZMOI_SOURCE_DIR/.touch"
 
 PROFILE="${PROFILE:-"cachyos"}"
 SCRIPTS_DIR="$(dirname -- "${BASH_SOURCE[0]}")"

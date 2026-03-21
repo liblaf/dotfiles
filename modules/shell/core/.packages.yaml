@@ -1,4 +1,4 @@
-pacman:
+arch:
   - btop
   - chezmoi
   - duf
@@ -32,7 +32,7 @@ pacman:
   # ------------------------------- Networking ------------------------------- #
   - aria2
   - bandwhich
-  - doggo-bin
+  - doggo
   - gping
   - httpie
   - miniserve

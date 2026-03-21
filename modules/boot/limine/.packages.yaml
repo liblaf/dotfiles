@@ -1,4 +1,4 @@
-pacman:
+arch:
   - limine
   - limine-mkinitcpio-hook
   - limine-snapper-sync

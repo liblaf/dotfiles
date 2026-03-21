@@ -5,14 +5,14 @@ sourceDir = '{{ joinPath .chezmoi.workingTree "home" }}'
 [data]
 baseDomain = "liblaf.me"
 
-[data.dirs]
 # {{- $cacheDirRelative := joinPath ".cache" "dotfiles" -}}
 # {{- $cacheDir := joinPath .chezmoi.homeDir $cacheDirRelative }}
+[data.dirs.abs]
 external = '{{ joinPath $cacheDir "external" }}'
 packages = '{{ joinPath $cacheDir "packages" }}'
 root = '{{ joinPath $cacheDir "root" }}'
 
-[data.dirs.relative]
+[data.dirs.rel]
 external = '{{ joinPath $cacheDirRelative "external" }}'
 
 [data.user]

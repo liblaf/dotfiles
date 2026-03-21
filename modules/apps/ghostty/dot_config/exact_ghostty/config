@@ -1,8 +1,7 @@
 # -*- mode: properties; -*-
 # ref: <https://ghostty.org/docs/config/reference>
 
-font-family = CaskaydiaCove Nerd Font
-font-family = Noto Sans CJK SC
+font-family = Maple Mono Normal NF CN
 font-family = Twemoji
 
 mouse-scroll-multiplier = 1

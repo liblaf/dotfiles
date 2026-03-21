@@ -1,4 +1,5 @@
-pacman:
+arch:
+  - caddy
   - earlyoom
   - logrotate
   - lshw
