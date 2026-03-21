@@ -8,6 +8,8 @@ arch:
   - ttf-cascadia-code-nerd
   - ttf-maplemononormal-nf-cn-unhinted
   - ttf-mona-sans
-  - ttf-ms-win11-auto
-  - ttf-ms-win11-auto-zh_cn
+  # TODO: ttf-ms-win11-auto does not work for me. I have to use a separate
+  # script to install Microsoft fonts.
+  # - ttf-ms-win11-auto
+  # - ttf-ms-win11-auto-zh_cn
   - ttf-twemoji

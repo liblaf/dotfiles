@@ -31,11 +31,12 @@ function apply-home() {
   local source="$1"
   local target="$2"
   local source_abs="$CHEZMOI_SOURCE_DIR/$source"
+  local target_abs="$HOME/$target"
   if [[ $source == *.tmpl ]]; then
-    "$CHEZMOI_EXECUTABLE" execute-template "$source_abs" --file --output "$target"
-    echo "'$source' (template) -> '$target'" 1>&2
+    "$CHEZMOI_EXECUTABLE" execute-template "$source_abs" --file --output "$target_abs"
+    echo "'$source' (template) -> '~/$target'" 1>&2
   else
-    cp --archive --force "$source_abs" "$target"
-    echo "'$source' -> '$target'" 1>&2
+    cp --archive --force "$source_abs" "$target_abs"
+    echo "'$source' -> '~/$target'" 1>&2
   fi
 }
