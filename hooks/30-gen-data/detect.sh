@@ -15,20 +15,20 @@ function detect-nvidia() {
   # ref: <https://wiki.archlinux.org/title/NVIDIA#Installation>
   data=$(lspci -vmm -d ::03xx)
   vendor=$(yq '.Vendor' <<< "$data")
-  if [[ $vendor == "NVIDIA Corporation" ]]; then
-    echo "hardware.nvidia.exists = true"
+  if [[ $vendor == 'NVIDIA Corporation' ]]; then
+    echo 'hardware.nvidia.exists = true'
     device=$(yq '.Device' <<< "$data")
     codename=$(awk '{ print $1 }' <<< "$device")
     echo "hardware.nvidia.codename = \"$codename\""
     if grep --ignore-case mobile <<< "$device" > /dev/null; then
-      echo "hardware.nvidia.mobile = true"
+      echo 'hardware.nvidia.mobile = true'
     else
-      echo "hardware.nvidia.mobile = false"
+      echo 'hardware.nvidia.mobile = false'
     fi
   else
-    echo "hardware.nvidia.exists = false"
-    echo "hardware.nvidia.codename = null"
-    echo "hardware.nvidia.mobile = false"
+    echo 'hardware.nvidia.exists = false'
+    echo 'hardware.nvidia.codename = ""'
+    echo 'hardware.nvidia.mobile = false'
   fi
 }
 
