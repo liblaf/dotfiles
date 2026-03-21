@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env -S usage bash
 # -*- mode: sh; -*-
-# @arg files+
+# shellcheck shell=bash
+#USAGE arg "<files>..."
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -10,14 +11,16 @@ function has() {
 }
 
 function main() {
+  local -a files=()
+  eval "files=(${usage_files:?})"
   if has toml-sort; then
-    toml-sort --in-place --all -- "${argc_files[@]:?}"
-    sed --expression='s/# :schema /#:schema /g' --in-place -- "${argc_files[@]:?}"
+    toml-sort --in-place --all -- "${files[@]}"
+    sed --expression='s/# :schema /#:schema /g' --in-place -- "${files[@]}"
   fi
   if has tombi; then
-    tombi format -- "${argc_files[@]:?}"
-    tombi lint -- "${argc_files[@]:?}"
+    tombi format -- "${files[@]}"
+    tombi lint -- "${files[@]}"
   fi
 }
 
-eval "$(argc --argc-eval "$0" "$@")"
+main "$@"

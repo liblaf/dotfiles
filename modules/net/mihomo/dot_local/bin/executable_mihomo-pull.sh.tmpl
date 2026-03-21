@@ -1,15 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env -S usage bash
 # -*- mode: sh; -*-
-# @option -i --id='{{ (rbwFields "sub-store").ID_ALL.value }}'
-# @option -p --port='{{ .services.proxy.port }}'
-# @meta require-tool mihomo
+# shellcheck shell=bash
+#USAGE flag "-i --id <id>" default="{{ (rbwFields "sub-store").ID_ALL.value }}"
+#USAGE flag "-p --port <port>" default="{{ .services.proxy.port }}"
 set -o errexit
 set -o nounset
 set -o pipefail
 
 function main() {
-  local id="${argc_id:?}"
-  local port="${argc_port:?}"
+  local id="${usage_id:?}"
+  local port="${usage_port:?}"
   export port
   tmpfile="$(mktemp --suffix='.yaml')"
   trap 'rm --force "$tmpfile"' EXIT
@@ -22,4 +22,4 @@ function main() {
   sudo systemctl restart mihomo.service
 }
 
-eval "$(argc --argc-eval "$0" "$@")"
+main "$@"
