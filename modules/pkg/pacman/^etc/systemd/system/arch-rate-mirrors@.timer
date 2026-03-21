@@ -1,0 +1,15 @@
+# -*- mode: ini; -*-
+
+[Unit]
+Description = Automatically refresh %I mirror lists
+Wants = network-online.target
+After = network-online.target
+
+[Timer]
+OnBootSec = 2min
+RandomizedDelaySec = 30s
+OnUnitActiveSec = 5d
+Persistent = true
+
+[Install]
+WantedBy = timers.target

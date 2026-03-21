@@ -1,0 +1,11 @@
+# -*- mode: ini; -*-
+
+[Unit]
+Description = Refresh %I mirror lists
+After = network-online.target nss-lookup.target
+
+[Service]
+Type = oneshot
+StandardOutput = null
+StandardError = journal
+ExecStart = /usr/local/bin/arch-rate-mirrors.sh %I

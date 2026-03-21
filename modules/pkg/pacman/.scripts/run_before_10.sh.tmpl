@@ -11,11 +11,12 @@ function setup-mirrors() {
   local -r repo="$1"
   local -r mirrorlist="/etc/pacman.d/$repo-mirrorlist"
   if [[ -f $mirrorlist ]]; then return; fi
-  local -r tmpfile="$(mktemp)"
-  rate-mirrors --save "$tmpfile" "$repo"
+  local -r RATE_MIRRORS_SAVE="$(mktemp)"
+  export RATE_MIRRORS_SAVE
+  rate-mirrors "$repo"
   sudo install --backup='simple' --mode='u=rw,go=r' --suffix='-backup' \
-    "$tmpfile" "$mirrorlist"
-  rm --force "$tmpfile"
+    "$RATE_MIRRORS_SAVE" "$mirrorlist"
+  rm --force "$RATE_MIRRORS_SAVE"
 }
 setup-mirrors 'arch4edu'
 setup-mirrors 'archlinuxcn'
