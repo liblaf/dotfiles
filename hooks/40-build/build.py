@@ -38,8 +38,10 @@ class Context:
         default_factory=lambda: defaultdict(set)
     )
 
-    def add_packages(self, packages: Mapping[str, Iterable[str]]) -> None:
+    def add_packages(self, packages: Mapping[str, Iterable[str] | None]) -> None:
         for pkg_manager, pkgs in packages.items():
+            if not pkgs:
+                continue
             self.packages[pkg_manager].update(pkgs)
 
     def copy_to(self, source: Path, target: Path) -> None:
@@ -128,7 +130,7 @@ class Module:
         else:
             text: str = source.read_text()
         packages: Any = yaml.safe_load(text)
-        ctx.packages[self.slug].update(packages)
+        ctx.add_packages(packages)
         return True
 
     def _apply_root_file(self, ctx: Context, source: Path, relative: Path) -> bool:

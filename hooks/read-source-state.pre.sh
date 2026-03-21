@@ -6,14 +6,28 @@ set -o pipefail
 # prevent recursion
 if [[ -n ${DOTFILES_SKIP_READ_SOURCE_STATE_PRE:-} ]]; then exit; fi
 export DOTFILES_SKIP_READ_SOURCE_STATE_PRE=1
-
 if [[ $CHEZMOI_COMMAND == "execute-template" ]]; then exit; fi
-if [[ -d $CHEZMOI_SOURCE_DIR ]]; then exit; fi
+
+function validate() {
+  local newest_source
+  newest_source="$(
+    set +o pipefail # head closes the pipe early, so we need to disable pipefail here
+    find "$CHEZMOI_WORKING_TREE"/{hooks,modules,profiles}/ -type f -printf '%T@\t%p\n' |
+      sort --numeric-sort --reverse |
+      head --lines=1 |
+      cut --fields=2-
+  )"
+  [[ "$CHEZMOI_SOURCE_DIR/.mtime" -nt $newest_source ]]
+}
+
+if validate; then exit; fi
+rm --force --recursive "$CHEZMOI_SOURCE_DIR"
+mkdir --parents --verbose "$CHEZMOI_SOURCE_DIR"
+touch "$CHEZMOI_SOURCE_DIR/.mtime"
 
 PROFILE="${PROFILE:-"cachyos"}"
 SCRIPTS_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
-"$BASH" -- "$SCRIPTS_DIR/10-install-packages.sh"
+"$BASH" -- "$SCRIPTS_DIR/10-bootstrap.sh"
 "$BASH" -- "$SCRIPTS_DIR/20-setup-bitwarden.sh"
-rm --force --recursive "$CHEZMOI_SOURCE_DIR"
 "$BASH" -- "$SCRIPTS_DIR/30-gen-data/main.sh"
 "$BASH" -- "$SCRIPTS_DIR/40-build/build.sh"
