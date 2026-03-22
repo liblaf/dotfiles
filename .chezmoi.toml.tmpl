@@ -5,15 +5,15 @@ sourceDir = '{{ joinPath .chezmoi.workingTree "home" }}'
 [data]
 baseDomain = "liblaf.me"
 
-# {{- $cacheDirRelative := joinPath ".cache" "dotfiles" -}}
-# {{- $cacheDir := joinPath .chezmoi.homeDir $cacheDirRelative }}
+# {{- $cacheDirRel := joinPath ".cache" "dotfiles" -}}
+# {{- $cacheDirAbs := joinPath .chezmoi.homeDir $cacheDirRel }}
 [data.dirs.abs]
-external = '{{ joinPath $cacheDir "external" }}'
-packages = '{{ joinPath $cacheDir "packages" }}'
-root = '{{ joinPath $cacheDir "root" }}'
+external = '{{ joinPath $cacheDirAbs "external" }}'
+packages = '{{ joinPath $cacheDirAbs "packages" }}'
+root = '{{ joinPath $cacheDirAbs "root" }}'
 
 [data.dirs.rel]
-external = '{{ joinPath $cacheDirRelative "external" }}'
+external = '{{ joinPath $cacheDirRel "external" }}'
 
 [data.user]
 email = "30631553+liblaf@users.noreply.github.com"
