@@ -38,7 +38,6 @@ words:
   - cappa
   - cascadia
   - caskaydia
-  - ccache
   - cernet
   - changeps
   - chex
@@ -49,7 +48,6 @@ words:
   - cometml
   - copyto
   - cppcheck
-  - cpptools
   - csvlens
   - cuda
   - cytoolz
@@ -76,6 +74,7 @@ words:
   - einops
   - emptydirs
   - emscripten
+  - esac
   - etils
   - fastai
   - fnox
@@ -88,6 +87,7 @@ words:
   - gazorby
   - gcampax
   - gcan
+  - gdsm
   - gext
   - ghostty
   - glab
@@ -101,6 +101,7 @@ words:
   - groff
   - gruntfuggly
   - gsettings
+  - gsub
   - guix
   - haruna
   - haxe
@@ -162,7 +163,6 @@ words:
   - nvenc
   - nvitop
   - omnia
-  - opencl
   - oplist
   - otrust
   - pacutils

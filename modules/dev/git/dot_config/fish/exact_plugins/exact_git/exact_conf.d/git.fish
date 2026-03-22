@@ -10,4 +10,7 @@ if status is-interactive
     abbr --add gpf! "git push --force"
     abbr --add gpr "git pull --rebase"
     abbr --add gst "git status"
+
+    abbr --add gdm "git diff main"
+    abbr --add gdsm "git diff --stats main"
 end
