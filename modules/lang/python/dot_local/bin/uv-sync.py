@@ -2,9 +2,10 @@ import os
 import re
 import subprocess
 import sys
-import tomllib
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, cast
+
+import tomllib
 
 if TYPE_CHECKING:
     from _typeshed import StrOrBytesPath
@@ -31,36 +32,34 @@ def load_config_mirror() -> tuple[str, str]:
 def load_optional_dependencies() -> dict[str, list[str]]:
     with Path("pyproject.toml").open("rb") as fp:
         pyproject: dict[str, Any] = tomllib.load(fp)
-    project: dict[str, Any] = pyproject.get("project", {})
+    project: dict[str, Any] = cast("dict[str, Any]", pyproject.get("project", {}))
     return project.get("optional-dependencies", {})
 
 
 def lock_to_mirror(mirror_index: str, mirror_cdn: str) -> None:
     file: Path = Path("uv.lock")
     text: str = file.read_text()
-    text = text.replace(UPSTREAM_INDEX, mirror_index)
-    text = text.replace(UPSTREAM_CDN, mirror_cdn)
+    text: str = text.replace(UPSTREAM_INDEX, mirror_index)
+    text: str = text.replace(UPSTREAM_CDN, mirror_cdn)
     file.write_text(text)
 
 
 def lock_to_upstream() -> None:
     file: Path = Path("uv.lock")
     text: str = file.read_text()
-    text = MIRROR_INDEX.sub(UPSTREAM_INDEX, text)
-    text = MIRROR_CDN.sub(UPSTREAM_CDN, text)
+    text: str = MIRROR_INDEX.sub(UPSTREAM_INDEX, text)
+    text: str = MIRROR_CDN.sub(UPSTREAM_CDN, text)
     file.write_text(text)
 
 
 def main() -> None:
-    index: str
-    cdn: str
     index, cdn = load_config_mirror()
     lock_to_mirror(index, cdn)
 
     args: list[StrOrBytesPath] = ["uv", "sync"]
     extras: list[str] = os.getenv("UV_SYNC_EXTRA", "").split(",")
     optional_dependencies: dict[str, list[str]] = load_optional_dependencies()
-    extras = [e for e in extras if e in optional_dependencies]
+    extras: list[str] = [e for e in extras if e in optional_dependencies]
     for extra in extras:
         args.extend(["--extra", extra])
     args.extend(sys.argv[1:])
