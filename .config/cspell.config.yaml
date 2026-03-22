@@ -9,7 +9,6 @@ enableGlobDot: true
 ignorePaths:
   - .git/
   - cspell.*
-  - "*.lock"
 ignoreRandomStrings: true
 maxFileSize: 500KB
 useGitignore: true
@@ -35,10 +34,8 @@ words:
   - cachy
   - cachyos
   - caffe
-  - cappa
   - cascadia
   - caskaydia
-  - cernet
   - changeps
   - chex
   - chouzz
@@ -109,6 +106,7 @@ words:
   - hwatch
   - ibus
   - icat
+  - igncr
   - illumos
   - imgcat
   - inifmt
@@ -145,6 +143,7 @@ words:
   - mkhl
   - mkinitcpio
   - msys
+  - msystem
   - multicd
   - netns
   - networkx
@@ -164,6 +163,7 @@ words:
   - nvitop
   - omnia
   - oplist
+  - orhun
   - otrust
   - pacutils
   - paru
@@ -219,12 +219,12 @@ words:
   - srcext
   - sshfs
   - stunkymonkey
+  - subcmds
   - sumneko
   - sympy
   - sysupgrade
   - tboox
   - tchx
-  - tebi
   - tesseract
   - timesyncd
   - tmpl

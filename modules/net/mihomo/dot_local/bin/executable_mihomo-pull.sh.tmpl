@@ -1,18 +1,20 @@
-#!/usr/bin/env -S usage bash
+#!/bin/bash
 # -*- mode: sh; -*-
-# shellcheck shell=bash
-#USAGE flag "-i --id <id>" default="{{ (rbwFields "sub-store").ID_ALL.value }}"
-#USAGE flag "-p --port <port>" default="{{ .services.proxy.port }}"
+# @option -i --id='{{ (rbwFields "sub-store").ID_ALL.value }}'
+# @option -p --port=`_default_port`
 set -o errexit
 set -o nounset
 set -o pipefail
 
+function _default_port() {
+  gsettings get org.gnome.system.proxy.https port
+}
+
 function main() {
-  local id="${usage_id:?}"
-  local port="${usage_port:?}"
+  local -r id="${argc_id:?}"
+  local -r port="${argc_port:?}"
   export port
-  tmpfile="$(mktemp --suffix='.yaml')"
-  trap 'rm --force "$tmpfile"' EXIT
+  local -r tmpfile="$(mktemp --suffix='.yaml')"
   xhs --output "$tmpfile" --download GET \
     'https://sub.liblaf.me/subscribe/mihomo.yaml' id=="$id"
   yq eval '.mixed-port=env(port)' "$tmpfile" --inplace
@@ -20,6 +22,7 @@ function main() {
   sudo install -D --mode='u=rw,go=r' --no-target-directory --verbose "$tmpfile" '/etc/mihomo/config.yaml'
   sudo systemctl enable --now mihomo.service
   sudo systemctl restart mihomo.service
+  rm --force "$tmpfile"
 }
 
-main "$@"
+eval "$(argc --argc-eval "$0" "$@")"

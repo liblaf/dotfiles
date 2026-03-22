@@ -42,11 +42,6 @@ paru --sync --noconfirm --sysupgrade --refresh
 packages=(arch4edu-keyring archlinuxcn-keyring paru)
 paru-install "${packages[@]}"
 
-# `argc` depends on `cargo` to build
-# TODO: This workaround is dirty. `rustup` should go to `lang-rust` module.
-paru-install rustup
-rustup default stable
-
 # {{ if .packages.arch }}
 packages=(
   # {{ "\n" }} {{ join "\n" .packages.arch }}
