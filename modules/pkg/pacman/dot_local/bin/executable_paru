@@ -3,6 +3,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# I create this wrapper instead of a shell function because tools like
+# arch-update will call paru directly, and I want to ensure that the color and
+# width settings are applied in those cases as well.
+
 COLUMNS="$(tput cols)"
 export DFT_COLOR='always'
 export DFT_WIDTH="$((COLUMNS - 5))"

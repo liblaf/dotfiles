@@ -1,5 +1,4 @@
-if not status is-interactive
-    or not type --query fzf
+if status is-interactive
+    and type --query fzf
+    fzf_key_bindings
 end
-
-fzf_key_bindings

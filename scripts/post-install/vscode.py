@@ -29,9 +29,11 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "ms-vscode.makefile-tools",
         "ms-vscode.remote-explorer",
         "oderwat.indent-rainbow",
+        "openai.chatgpt",
         "pkief.material-icon-theme",
         "redhat.vscode-xml",
         "redhat.vscode-yaml",
+        "saoudrizwan.claude-dev",
         "shd101wyy.markdown-preview-enhanced",
         "stackbreak.comment-divider",
         "streetsidesoftware.code-spell-checker",
@@ -43,6 +45,7 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "ms-vscode.azure-repos",  # required by: ms-vscode.remote-repositories
         "ms-vscode.remote-repositories",  # required by: GitHub.remotehub
         # shared Python extensions
+        "astral-sh.ty",
         "charliermarsh.ruff",
         "kevinrose.vsc-python-indent",
         "ms-python.debugpy",
@@ -74,6 +77,7 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "sharzyl.cjk-word-handler",
     },
     "python": {
+        "astral-sh.ty",
         "charliermarsh.ruff",
         "kevinrose.vsc-python-indent",
         "ms-python.debugpy",

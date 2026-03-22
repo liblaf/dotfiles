@@ -1,11 +1,11 @@
 if status is-interactive
-    # https://fishshell.com/docs/current/interactive.html#abbreviations
+    # ref: <https://fishshell.com/docs/current/interactive.html#abbreviations>
     function multicd
         echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
     end
     abbr --add dotdot --regex '^\.\.+$' --function multicd
 
-    # https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/directories.zsh
+    # ref: <https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/directories.zsh>
     alias md 'mkdir -p'
     alias rd rmdir
 
@@ -19,14 +19,12 @@ if status is-interactive
         abbr --add r --command pueue -- status status="running"
     end
 
-    set apps meshlab paraview typora
-    for app in $apps
+    for app in meshlab paraview typora
         if type --query $app
-            echo "
-function $app --wraps $app
-    command $app \$argv < /dev/null &> /dev/null &
-    disown
-end" | source
+            function $app --wraps $app --inherit-variable app
+                command $app $argv </dev/null &>/dev/null &
+                disown
+            end
         end
     end
 end
