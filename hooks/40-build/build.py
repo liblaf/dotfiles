@@ -1,7 +1,7 @@
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
-#     "pyyaml>=6,<7"
+#     "pyyaml>=6"
 # ]
 # ///
 
@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import argparse
 import dataclasses
-import io
 import json
 import logging
 import shutil
@@ -22,7 +21,7 @@ from typing import TYPE_CHECKING, Any, Self, cast
 import yaml
 
 if TYPE_CHECKING:
-    from _typeshed import StrPath, SupportsRead
+    from _typeshed import StrPath
 
 
 logger: logging.Logger = logging.getLogger(__name__)
@@ -152,11 +151,12 @@ class Profile:
     @classmethod
     def load(
         cls,
-        stream: SupportsRead[str] | SupportsRead[bytes],
+        file: StrPath,
         modules_dir: StrPath = "modules",
     ) -> Self:
+        file: Path = Path(file)
         modules_dir: Path = Path(modules_dir)
-        profile: Any = yaml.safe_load(stream)
+        profile: Any = yaml.safe_load(file.read_text())
         module_names: list[str] = profile["modules"]
         modules: list[Module] = []
         for module_name in module_names:
@@ -185,16 +185,14 @@ class Profile:
 class Args(argparse.Namespace):
     modules: Path
     output: Path
-    profile: io.TextIOWrapper
+    profile: Path
 
 
 def parse_args() -> Args:
     parser = argparse.ArgumentParser()
     parser.add_argument("--modules", default="modules", type=Path)
     parser.add_argument("--output", default="home", type=Path)
-    parser.add_argument(
-        "--profile", default="profiles/cachyos.yaml", type=argparse.FileType("r")
-    )
+    parser.add_argument("--profile", default="profiles/cachyos.yaml", type=Path)
     return cast("Args", parser.parse_args())
 
 

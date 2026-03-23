@@ -3,7 +3,7 @@ from typing import Any
 
 def _install_grapes_icecream() -> bool:
     try:
-        from liblaf.grapes.icecream import install
+        from liblaf.grapes.icecream import install  # ty:ignore[unresolved-import]
     except ImportError:
         return False
     else:
@@ -33,7 +33,7 @@ def _install_noop_ic() -> None:
             case _:
                 return args
 
-    builtins.ic = ic  # pyright: ignore[reportAttributeAccessIssue]
+    builtins.ic = ic  # ty:ignore[unresolved-attribute]
 
 
-_ = _install_grapes_icecream() or _install_icecream() or _install_noop_ic()
+_ = _install_icecream() or _install_noop_ic()
