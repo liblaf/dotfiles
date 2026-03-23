@@ -26,6 +26,7 @@ modules:
   - dev/github
   - dev/goose
   - dev/mise
+  - dev/opencode
   - hardware/intel
   - hardware/nvidia
   - lang/cpp
