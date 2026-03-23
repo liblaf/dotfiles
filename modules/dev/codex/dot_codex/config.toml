@@ -1,0 +1,17 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+sandbox_mode = "workspace-write"
+
+[analytics]
+enabled = false
+
+[features]
+fast_mode = true
+multi_agent = true
+undo = true
+
+[sandbox_workspace_write]
+network_access = true
+writable_roots = ["~/.cache"]

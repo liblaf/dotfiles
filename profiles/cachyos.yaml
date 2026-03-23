@@ -18,6 +18,7 @@ modules:
   - boot/limine
   - desktop/core
   - desktop/gnome
+  - dev/codex
   - dev/comet
   - dev/copier
   - dev/direnv
