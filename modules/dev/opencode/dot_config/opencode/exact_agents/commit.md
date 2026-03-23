@@ -1,6 +1,6 @@
 ---
 description: Generate high-quality conventional commit messages from local git changes
-mode: subagent
+mode: primary
 temperature: 0.1
 tools:
   git_*: true
