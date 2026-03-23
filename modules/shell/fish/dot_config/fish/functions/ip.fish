@@ -1,6 +1,4 @@
-if not status is-interactive
-    or not type --query ip
-    return
+if status is-interactive
+    and type --query ip
+    alias ip 'ip -color=auto'
 end
-
-alias ip 'ip -color=auto'

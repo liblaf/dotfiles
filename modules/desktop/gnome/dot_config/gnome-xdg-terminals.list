@@ -2,6 +2,5 @@
 # ref: <https://gitlab.freedesktop.org/Vladimir-csp/xdg-terminal-exec/-/blob/master/xdg-terminals.list>
 
 com.mitchellh.ghostty.desktop
-rio.desktop
 kitty.desktop
 org.gnome.Terminal.desktop

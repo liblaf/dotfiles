@@ -1,7 +1,9 @@
+import contextlib
 import os
 import re
 import subprocess
 import sys
+from collections.abc import Generator
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, cast
 
@@ -38,18 +40,30 @@ def load_optional_dependencies() -> dict[str, list[str]]:
 
 def lock_to_mirror(mirror_index: str, mirror_cdn: str) -> None:
     file: Path = Path("uv.lock")
-    text: str = file.read_text()
-    text: str = text.replace(UPSTREAM_INDEX, mirror_index)
-    text: str = text.replace(UPSTREAM_CDN, mirror_cdn)
-    file.write_text(text)
+    with _preserve_mtime(file):
+        text: str = file.read_text()
+        text: str = text.replace(UPSTREAM_INDEX, mirror_index)
+        text: str = text.replace(UPSTREAM_CDN, mirror_cdn)
+        file.write_text(text)
 
 
 def lock_to_upstream() -> None:
     file: Path = Path("uv.lock")
-    text: str = file.read_text()
-    text: str = MIRROR_INDEX.sub(UPSTREAM_INDEX, text)
-    text: str = MIRROR_CDN.sub(UPSTREAM_CDN, text)
-    file.write_text(text)
+    with _preserve_mtime(file):
+        text: str = file.read_text()
+        text: str = MIRROR_INDEX.sub(UPSTREAM_INDEX, text)
+        text: str = MIRROR_CDN.sub(UPSTREAM_CDN, text)
+        file.write_text(text)
+
+
+@contextlib.contextmanager
+def _preserve_mtime(file: Path) -> Generator[None]:
+    atime_ns: int = file.stat().st_atime_ns
+    mtime_ns: int = file.stat().st_mtime_ns
+    try:
+        yield
+    finally:
+        os.utime(file, ns=(atime_ns, mtime_ns))
 
 
 def main() -> None:

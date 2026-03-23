@@ -33,15 +33,6 @@ function mirror-to-upstream() {
   fi
 }
 
-function resolve-cmd() {
-  local -r cmd="$1"
-  type -aP "$cmd" | awk '
-    NR == 1 { first = $0; }
-    NR == 2 { found = 1; print; exit; }
-    END { if (!found) print first; }
-  '
-}
-
 function upstream-to-mirror() {
   local -r lockfile="$1"
   if [[ -n ${MIRROR_INDEX:-} && -n ${MIRROR_CDN:-} && -f $lockfile ]]; then
@@ -63,9 +54,7 @@ function wrapper() {
   for lockfile in "${LOCKFILES[@]}"; do
     upstream-to-mirror "$lockfile"
   done
-  local -r resolved="$(resolve-cmd "$1")"
-  shift
-  "$resolved" "$@"
+  command "$@"
 }
 
 wrapper "$@"

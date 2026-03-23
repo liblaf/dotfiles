@@ -24,7 +24,7 @@ modules:
   - dev/dvc
   - dev/git
   - dev/github
-  - dev/goose
+  # - dev/goose
   - dev/mise
   - dev/opencode
   - hardware/intel
