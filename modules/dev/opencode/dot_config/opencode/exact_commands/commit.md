@@ -1,7 +1,6 @@
 ---
 description: Generate a high-quality conventional commit message from current changes
 agent: commit
-subtask: true
 ---
 
 <task>
