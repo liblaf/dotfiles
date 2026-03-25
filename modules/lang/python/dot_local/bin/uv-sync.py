@@ -77,9 +77,10 @@ def main() -> None:
     for extra in extras:
         args.extend(["--extra", extra])
     args.extend(sys.argv[1:])
-
-    subprocess.run(args, check=True)
+    process: subprocess.CompletedProcess[bytes] = subprocess.run(args, check=False)
     lock_to_upstream()
+    if process.returncode != 0:
+        sys.exit(process.returncode)
 
 
 if __name__ == "__main__":
