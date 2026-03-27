@@ -36,6 +36,7 @@ words:
   - caffe
   - cascadia
   - caskaydia
+  - ccache
   - changeps
   - chex
   - chouzz
@@ -106,7 +107,6 @@ words:
   - hwatch
   - ibus
   - icat
-  - igncr
   - illumos
   - imgcat
   - inifmt
@@ -143,7 +143,6 @@ words:
   - mkhl
   - mkinitcpio
   - msys
-  - msystem
   - multicd
   - netns
   - networkx
@@ -161,7 +160,9 @@ words:
   - numpy
   - nvenc
   - nvitop
+  - nvml
   - omnia
+  - opencl
   - oplist
   - orhun
   - otrust
@@ -188,7 +189,6 @@ words:
   - pyenv
   - pygments
   - pypi
-  - pyvenv
   - pyvista
   - pyviz
   - qalculate
@@ -219,7 +219,6 @@ words:
   - srcext
   - sshfs
   - stunkymonkey
-  - subcmds
   - sumneko
   - sympy
   - sysupgrade
