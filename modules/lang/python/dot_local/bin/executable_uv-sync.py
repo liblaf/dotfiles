@@ -6,6 +6,8 @@
 # ]
 # ///
 
+from __future__ import annotations
+
 import contextlib
 import os
 import re
@@ -25,6 +27,58 @@ MIRROR_CDN: re.Pattern[str] = re.compile(r"https://(\S+)/packages\b")
 MIRROR_INDEX: re.Pattern[str] = re.compile(r"https://(\S+)/simple\b")
 UPSTREAM_CDN: str = "https://files.pythonhosted.org/packages"
 UPSTREAM_INDEX: str = "https://pypi.org/simple"
+
+
+class LockFile:
+    file: Path = Path("uv.lock")
+    mirror_cdn: str = UPSTREAM_CDN
+    mirror_index: str = UPSTREAM_INDEX
+
+    def __init__(self) -> None:
+        self._load_mirror()
+
+    def to_mirror(self) -> None:
+        if not self.file.exists():
+            return
+        with self._preserve_time():
+            text: str = self.file.read_text()
+            text: str = text.replace(UPSTREAM_INDEX, self.mirror_index)
+            text: str = text.replace(UPSTREAM_CDN, self.mirror_cdn)
+            self.file.write_text(text)
+
+    def to_upstream(self) -> None:
+        if not self.file.exists():
+            return
+        with self._preserve_time():
+            text: str = self.file.read_text()
+            text: str = MIRROR_INDEX.sub(UPSTREAM_INDEX, text)
+            text: str = MIRROR_CDN.sub(UPSTREAM_CDN, text)
+            self.file.write_text(text)
+
+    def _load_mirror(self) -> None:
+        config_file: Path = Path("~/.config/uv/uv.toml").expanduser()
+        if not config_file.exists():
+            return
+        with config_file.open("rb") as fp:
+            config: dict[str, Any] = tomllib.load(fp)
+        for index in config.get("index", []):
+            index: dict[str, Any]
+            if not index.get("default", False):
+                continue
+            url: str = index["url"]
+            cdn: str = url.replace("/simple", "/packages")
+            self.mirror_cdn = cdn
+            self.mirror_index = url
+            break
+
+    @contextlib.contextmanager
+    def _preserve_time(self) -> Generator[None]:
+        atime_ns: int = self.file.stat().st_atime_ns
+        mtime_ns: int = self.file.stat().st_mtime_ns
+        try:
+            yield
+        finally:
+            os.utime(self.file, ns=(atime_ns, mtime_ns))
 
 
 def load_cuda_version() -> int:
@@ -52,19 +106,6 @@ def load_extras() -> list[str]:
     return extras
 
 
-def load_mirror() -> tuple[str, str]:
-    with Path("~/.config/uv/uv.toml").expanduser().open("rb") as fp:
-        config: dict[str, Any] = tomllib.load(fp)
-    for index in config.get("index", []):
-        index: dict[str, Any]
-        if not index.get("default", False):
-            continue
-        url: str = index["url"]
-        cdn: str = url.replace("/simple", "/packages")
-        return url, cdn
-    return UPSTREAM_INDEX, UPSTREAM_CDN
-
-
 def load_optional_dependencies() -> dict[str, list[str]]:
     file: Path = Path("pyproject.toml")
     if not file.exists():
@@ -75,53 +116,32 @@ def load_optional_dependencies() -> dict[str, list[str]]:
     return project.get("optional-dependencies", {})
 
 
-def lock_to_mirror(mirror_index: str, mirror_cdn: str) -> None:
-    file: Path = Path("uv.lock")
-    if not file.exists():
-        return
-    with preserve_path_time(file):
-        text: str = file.read_text()
-        text: str = text.replace(UPSTREAM_INDEX, mirror_index)
-        text: str = text.replace(UPSTREAM_CDN, mirror_cdn)
-        file.write_text(text)
-
-
-def lock_to_upstream() -> None:
-    file: Path = Path("uv.lock")
-    if not file.exists():
-        return
-    with preserve_path_time(file):
-        text: str = file.read_text()
-        text: str = MIRROR_INDEX.sub(UPSTREAM_INDEX, text)
-        text: str = MIRROR_CDN.sub(UPSTREAM_CDN, text)
-        file.write_text(text)
-
-
-@contextlib.contextmanager
-def preserve_path_time(path: Path) -> Generator[None]:
-    atime_ns: int = path.stat().st_atime_ns
-    mtime_ns: int = path.stat().st_mtime_ns
-    try:
-        yield
-    finally:
-        os.utime(path, ns=(atime_ns, mtime_ns))
-
-
-def main() -> None:
-    index, cdn = load_mirror()
-    lock_to_mirror(index, cdn)
-
-    args: list[StrOrBytesPath] = ["uv", "sync"]
-    extras: list[str] = load_extras()
+def make_args() -> list[StrOrBytesPath]:
     optional_dependencies: dict[str, list[str]] = load_optional_dependencies()
-    extras: list[str] = [e for e in extras if e in optional_dependencies]
+    extras: list[str] = [e for e in load_extras() if e in optional_dependencies]
+    args: list[StrOrBytesPath] = ["uv", "sync"]
     for extra in extras:
         args.extend(["--extra", extra])
     args.extend(sys.argv[1:])
-    process: subprocess.CompletedProcess[bytes] = subprocess.run(args, check=False)
-    lock_to_upstream()
-    if process.returncode != 0:
-        sys.exit(process.returncode)
+    return args
+
+
+def make_env() -> dict[str, str]:
+    env: dict[str, str] = os.environ.copy()
+    env.pop("VIRTUAL_ENV", None)
+    return env
+
+
+def main() -> None:
+    lockfile: LockFile = LockFile()
+    lockfile.to_mirror()
+    args: list[StrOrBytesPath] = make_args()
+    env: dict[str, str] = make_env()
+    process: subprocess.CompletedProcess[bytes] = subprocess.run(
+        args, env=env, check=False
+    )
+    lockfile.to_upstream()
+    sys.exit(process.returncode)
 
 
 if __name__ == "__main__":
