@@ -49,7 +49,6 @@ Your job is to generate exactly one high-quality Git commit message for the curr
 - Do not end the subject with a period.
 - Prefer lower-case after the colon unless a proper noun or acronym requires capitalization.
 - Always add a body when it materially improves clarity by explaining why or important impact.
-- Wrap body lines to roughly 72 characters.
 - If the change is breaking, mark it with `!` after the type or scope and include a `BREAKING CHANGE:` footer when additional migration detail is needed.
 - Preserve useful trailer/footer information from the context when it is clearly present.
 - Never include markdown fences, bullets, analysis, or commentary.
