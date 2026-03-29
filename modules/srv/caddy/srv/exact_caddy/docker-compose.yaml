@@ -9,7 +9,7 @@ services:
     container_name: caddy
     env_file:
       - ./vars.env
-    image: caddybuilds/caddy-cloudflare:alpine
+    image: caddybuilds/caddy-cloudflare:alpine@sha256:bb84fb9062a5b9266c2f8ea81f367b2e189d60157a61904282f50870b40f2529
     network_mode: host
     pull_policy: weekly
     restart: unless-stopped
