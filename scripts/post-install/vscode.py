@@ -12,8 +12,8 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "dnut.rewrap-revived",
         "esbenp.prettier-vscode",
         "fill-labs.dependi",
+        "Gerrnperl.outline-map",
         "github.copilot-chat",
-        "github.copilot",
         "GitHub.remotehub",
         "github.vscode-github-actions",
         "github.vscode-pull-request-github",
@@ -33,6 +33,7 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "pkief.material-icon-theme",
         "redhat.vscode-xml",
         "redhat.vscode-yaml",
+        "rvben.rumdl",
         "saoudrizwan.claude-dev",
         "shd101wyy.markdown-preview-enhanced",
         "stackbreak.comment-divider",
@@ -51,7 +52,8 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "ms-python.debugpy",
         "ms-python.python",
         "ms-python.vscode-pylance",
-        "ms-python.vscode-python-envs",
+        # `ms-python.vscode-python-envs` interferes with Ruff & ty extension's Python interpreter detection
+        # "ms-python.vscode-python-envs",
         # "marimo-team.vscode-marimo",
         # TODO: add marimo when it works well
     },
@@ -122,7 +124,7 @@ PROFILES: dict[str, list[str]] = {
     "LaTeX": ["shared", "latex"],
     "Python": ["shared", "python"],
     "Rust": ["shared", "rust"],
-    "Web": ["shared", "typescript"],
+    "TypeScript": ["shared", "typescript"],
 }
 
 

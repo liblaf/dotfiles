@@ -17,6 +17,7 @@ words:
   - aliyun
   - alpaquita
   - alpm
+  - anyio
   - aosc
   - archlinuxcn
   - artix
@@ -36,7 +37,6 @@ words:
   - caffe
   - cascadia
   - caskaydia
-  - ccache
   - changeps
   - chex
   - chouzz
@@ -48,6 +48,7 @@ words:
   - cppcheck
   - csvlens
   - cuda
+  - cupy
   - cytoolz
   - daml
   - dasel
@@ -86,6 +87,7 @@ words:
   - gcampax
   - gcan
   - gdsm
+  - gerrnperl
   - gext
   - ghostty
   - glab
@@ -107,10 +109,13 @@ words:
   - hwatch
   - ibus
   - icat
+  - igncr
   - illumos
   - imgcat
   - inifmt
   - inplace
+  - ipykernel
+  - jaxtyping
   - jless
   - journalctl
   - kisstkondoros
@@ -143,6 +148,7 @@ words:
   - mkhl
   - mkinitcpio
   - msys
+  - msystem
   - multicd
   - netns
   - networkx
@@ -162,8 +168,8 @@ words:
   - nvitop
   - nvml
   - omnia
-  - opencl
   - oplist
+  - optax
   - orhun
   - otrust
   - pacutils
@@ -189,6 +195,7 @@ words:
   - pyenv
   - pygments
   - pypi
+  - pytest
   - pyvista
   - pyviz
   - qalculate
@@ -205,7 +212,9 @@ words:
   - rlang
   - rtprio
   - ruamel
+  - rumdl
   - rustc
+  - rvben
   - saoudrizwan
   - sccache
   - scipy
@@ -219,6 +228,7 @@ words:
   - srcext
   - sshfs
   - stunkymonkey
+  - subcmds
   - sumneko
   - sympy
   - sysupgrade
@@ -231,6 +241,7 @@ words:
   - tombi
   - tomlkit
   - toolsai
+  - toolz
   - tput
   - tqdm
   - trimesh
@@ -254,10 +265,12 @@ words:
   - virtualenv
   - vlang
   - vuetorrent
+  - wcwidth
   - webdav
   - webui
   - wemeet
   - wezterm
+  - xdist
   - xmake
   - yazi
   - yuto

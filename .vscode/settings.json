@@ -8,10 +8,8 @@
       "url": "https://www.schemastore.org/dockerd.json"
     }
   ],
-  "ruff.interpreter": ["/usr/bin/python"],
   "shellcheck.ignorePatterns": {
     "**/symlink_*": true
   },
-  "ty.interpreter": ["/usr/bin/python"],
   "xml.catalogs": [".vscode/catalog.xml"]
 }

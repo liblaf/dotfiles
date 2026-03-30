@@ -6,6 +6,7 @@ arch:
   - miniconda3
   - pixi
   - pyright
+  - python-ipykernel
   - python-pipx
   - python-ruff
   - python-uv
@@ -19,50 +20,78 @@ arch:
   - python-hatch-vcs
   - python-hatchling
 
-  # ------------------------------ Documentation ----------------------------- #
-  - mkdocs
-  - mkdocs-autorefs
-  - mkdocs-material
-  - mkdocstrings
-
-  # -------------------------------- Packages -------------------------------- #
+  # ------------------------------ Dependencies ------------------------------ #
+  - python-anyio
   - python-attrs
   - python-beautifulsoup4
+  - python-cachetools
   - python-chex
   - python-cytoolz
   - python-einops
   - python-etils
+  - python-filelock
   - python-gitpython
+  - python-h5py
+  - python-hishel
   - python-httpx
   - python-icecream
   - python-jax
+  - python-jaxtyping
   - python-joblib
   - python-lazy-loader
-  - python-loguru
   - python-msgspec
   - python-networkx
+  - python-nox
   - python-numpy
+  - python-optax
   - python-pandas
+  - python-pendulum
   - python-platformdirs
   - python-polars
+  - python-pooch
   - python-pydantic
+  - python-pydantic-extra-types
   - python-pydantic-settings
   - python-pydicom
   - python-pyvista
   - python-rich
   - python-ruamel-yaml
   - python-scipy
+  - python-seaborn
   - python-socksio # < python-httpx[socks]
   - python-sympy
+  - python-tenacity
   - python-tomlkit
+  - python-toolz
   - python-tqdm
+  - python-treescope
   - python-trimesh
   - python-typing_extensions
+  - python-wcwidth
   - python-wrapt
+  - python-wurlitzer
   - python-yaml
 
   # {{ if .hardware.nvidia.exists }}
+  - python-cupy
+  - python-nvidia-ml-py
   - python-pytorch-opt-cuda
+  - python-torchvision-cuda
   # {{ else }}
   - python-pytorch-opt
+  - python-torchvision
   # {{ end }}
+
+  # ------------------------------ Documentation ----------------------------- #
+  - mkdocs
+  - mkdocs-autorefs
+  - mkdocs-material
+  - mkdocstrings
+
+  # ---------------------------------- Test ---------------------------------- #
+  - python-hypothesis
+  - python-pytest
+  - python-pytest-codspeed
+  - python-pytest-cov
+  - python-pytest-randomly
+  - python-pytest-xdist

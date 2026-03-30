@@ -1,4 +1,0 @@
-#:schema https://www.schemastore.org/ty.json
-
-[environment]
-python = "/usr/bin/python"
