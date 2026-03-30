@@ -3,9 +3,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-SCRIPT_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
-VENTOY_DIR="$(realpath -- "$SCRIPT_DIR/..")"
-source "$SCRIPT_DIR/config.sh"
+SCRIPTDIR="$(dirname -- "${BASH_SOURCE[0]}")"
+VENTOY_DIR="$(realpath -- "$SCRIPTDIR/..")"
+# shellcheck disable=SC1091
+source "$SCRIPTDIR/config.sh"
 
 function prepare-mihomo() {
   prompt-mountpoint

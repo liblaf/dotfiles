@@ -3,8 +3,9 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-SCRIPT_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
-source "$SCRIPT_DIR/config.sh"
+SCRIPTDIR="$(dirname -- "${BASH_SOURCE[0]}")"
+# shellcheck disable=SC1091
+source "$SCRIPTDIR/config.sh"
 
 function prepare-arch() {
   local download_url='https://mirrors.cernet.edu.cn/archlinux/iso/latest'

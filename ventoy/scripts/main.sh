@@ -1,13 +1,14 @@
 #!/bin/bash
+# shellcheck disable=SC1091
 set -o errexit
 set -o nounset
 set -o pipefail
 
-SCRIPT_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
-source "$SCRIPT_DIR/config.sh"
-source "$SCRIPT_DIR/arch.sh"
-source "$SCRIPT_DIR/cachyos.sh"
-source "$SCRIPT_DIR/mihomo.sh"
+SCRIPTDIR="$(dirname -- "${BASH_SOURCE[0]}")"
+source "$SCRIPTDIR/config.sh"
+source "$SCRIPTDIR/arch.sh"
+source "$SCRIPTDIR/cachyos.sh"
+source "$SCRIPTDIR/mihomo.sh"
 
 function main() {
   prepare-arch
