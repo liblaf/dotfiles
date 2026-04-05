@@ -21,8 +21,8 @@ function validate() {
 }
 
 if validate; then exit; fi
-rm --force --recursive "$CHEZMOI_SOURCE_DIR"
-mkdir --parents --verbose "$CHEZMOI_SOURCE_DIR"
+rm --force --recursive "$CHEZMOI_SOURCE_DIR" >&2
+mkdir --parents --verbose "$CHEZMOI_SOURCE_DIR" >&2
 touch "$CHEZMOI_SOURCE_DIR/.touch"
 
 PROFILE="${PROFILE:-"cachyos"}"
