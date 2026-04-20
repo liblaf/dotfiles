@@ -14,7 +14,7 @@ arch:
   - graphicsmagick
   - gum
   - htop
-  - hwatch-bin
+  - hwatch
   - hyperfine
   - imagemagick
   - just
