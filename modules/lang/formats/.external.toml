@@ -1,0 +1,4 @@
+[".config/rumdl/rumdl.toml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://raw.githubusercontent.com/liblaf/copier-shared/refs/heads/main/.config/rumdl.toml"
