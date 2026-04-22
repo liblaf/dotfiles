@@ -1,4 +1,5 @@
 # -*- mode: ini; -*-
+# ref: <https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-rate-mirrors/cachyos-rate-mirrors.timer>
 
 [Unit]
 Description = Automatically refresh %I mirror lists
@@ -6,7 +7,7 @@ Wants = network-online.target
 After = network-online.target
 
 [Timer]
-OnBootSec = 2min
+OnBootSec = 10min
 RandomizedDelaySec = 30s
 OnUnitActiveSec = 5d
 Persistent = true

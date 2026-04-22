@@ -1,4 +1,5 @@
 # -*- mode: ini; -*-
+# ref: <https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-rate-mirrors/cachyos-rate-mirrors.service>
 
 [Unit]
 Description = Refresh %I mirror lists
