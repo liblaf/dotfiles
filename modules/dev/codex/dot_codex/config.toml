@@ -20,4 +20,4 @@ enabled = false
 
 [sandbox_workspace_write]
 network_access = true
-writable_roots = ["~/.bun", "~/.cache", "~/.cargo"]
+writable_roots = ["~/.bun", "~/.cache", "~/.cargo", "~/.npm", "~/.pixi"]
