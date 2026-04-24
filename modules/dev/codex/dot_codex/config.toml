@@ -1,17 +1,23 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 
-model = "gpt-5.4"
-model_reasoning_effort = "medium"
+approval_policy = "on-request"
+approvals_reviewer = "guardian_subagent"
+model = "gpt-5.5"
+model_reasoning_effort = "xhigh"
+plan_mode_reasoning_effort = "xhigh"
 sandbox_mode = "workspace-write"
+service_tier = "fast"
 
 [analytics]
 enabled = false
 
 [features]
-fast_mode = true
-multi_agent = true
+memories = true
 undo = true
+
+[feedback]
+enabled = false
 
 [sandbox_workspace_write]
 network_access = true
-writable_roots = ["~/.cache"]
+writable_roots = ["~/.bun", "~/.cache", "~/.cargo"]

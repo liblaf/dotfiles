@@ -37,6 +37,7 @@ words:
   - caffe
   - cascadia
   - caskaydia
+  - ccache
   - changeps
   - chex
   - chouzz
@@ -109,9 +110,9 @@ words:
   - hwatch
   - ibus
   - icat
-  - igncr
   - illumos
   - imgcat
+  - imgpaste
   - inifmt
   - inplace
   - ipykernel
@@ -148,7 +149,6 @@ words:
   - mkhl
   - mkinitcpio
   - msys
-  - msystem
   - multicd
   - netns
   - networkx
@@ -168,6 +168,7 @@ words:
   - nvitop
   - nvml
   - omnia
+  - opencl
   - oplist
   - optax
   - orhun
@@ -228,7 +229,6 @@ words:
   - srcext
   - sshfs
   - stunkymonkey
-  - subcmds
   - sumneko
   - sympy
   - sysupgrade
@@ -271,6 +271,7 @@ words:
   - wemeet
   - wezterm
   - xdist
+  - xhigh
   - xmake
   - yazi
   - yuto

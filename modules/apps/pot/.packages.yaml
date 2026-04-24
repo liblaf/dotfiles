@@ -2,3 +2,4 @@ arch:
   - pot-translation
   - tesseract-data-chi_sim # < pot-translation
   - tesseract-data-eng # < pot-translation
+  - webkit2gtk-imgpaste # < pot-translation
