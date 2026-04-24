@@ -1,3 +1,4 @@
 # -*- mode: dotenv; -*-
-GO111MODULE=on
-GOPROXY=https://goproxy.io,https://goproxy.cn,https://mirrors.aliyun.com/goproxy/,https://proxy.golang.org,direct
+# ref: <https://go.dev/ref/mod#environment-variables>
+# ref: `chsrc measure go`
+GOPROXY=https://goproxy.cn,https://mirrors.aliyun.com/goproxy/,https://goproxy.io,https://proxy.golang.org,direct
