@@ -101,7 +101,7 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "rust-lang.rust-analyzer",
     },
     "typescript": {
-        "biomejs.biome",
+        "oxc.oxc-vscode",
     },
 }
 

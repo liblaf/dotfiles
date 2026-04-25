@@ -26,7 +26,6 @@ words:
   - biber
   - bingwallpaper
   - bioconda
-  - biomejs
   - bmalehorn
   - btop
   - btrfs
@@ -173,6 +172,8 @@ words:
   - optax
   - orhun
   - otrust
+  - oxfmt
+  - oxlint
   - pacutils
   - paru
   - peterjc

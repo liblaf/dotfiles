@@ -1,5 +1,4 @@
 arch:
-  - biome
   - bun
   - nodejs-lts-krypton
   - npm
@@ -8,6 +7,6 @@ arch:
   - wrangler
 
 npm:
-  - "@biomejs/biome"
+  - oxfmt
+  - oxlint
   - setup-npm-trusted-publish
-  - sort-package-json
