@@ -1,5 +1,8 @@
 #:schema https://www.schemastore.org/tombi.json
 # ref: <https://tombi-toml.github.io/tombi/docs/configuration/>
 
+[files]
+include = ["**/*.toml", "**/*.toml.tmpl"]
+
 [schema]
 strict = false
