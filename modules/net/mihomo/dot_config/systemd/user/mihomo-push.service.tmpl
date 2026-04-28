@@ -4,7 +4,9 @@
 Description = Push Mihomo Configuration
 
 [Service]
+Environment = CLOUDFLARE_ACCOUNT_ID='7ad40aa54c5d9453abe45eeb3c6643de'
 Environment = CLOUDFLARE_API_TOKEN='{{ (rbwFields "sub-store").CLOUDFLARE_API_TOKEN.value }}'
+Environment = REMOTE=true
 ExecStartPre = bun install
 ExecStart = mise run build
 Restart = on-failure
