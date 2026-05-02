@@ -14,8 +14,8 @@ function prepare-mihomo() {
 
   mkdir --parents --verbose "$mihomo_dir"
 
-  cp --archive '/etc/clash-meta/config.yaml' "$mihomo_dir/config.yaml"
-  cp --archive "$(type -P clash-meta)" "$mihomo_dir/clash-meta"
+  cp --archive '/etc/mihomo/config.yaml' "$mihomo_dir/config.yaml"
+  cp --archive "$(type -P mihomo)" "$mihomo_dir/mihomo"
   chezmoi execute-template "$VENTOY_DIR/assets/proxy-on.sh.tmpl" --file \
     --output "$mihomo_dir/proxy-on.sh"
   chezmoi execute-template "$VENTOY_DIR/assets/proxy-on.fish.tmpl" --file \

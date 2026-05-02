@@ -11,18 +11,18 @@ function prepare-arch() {
   local download_url='https://mirrors.cernet.edu.cn/archlinux/iso/latest'
 
   prompt-mountpoint
-  local arch_dir="$MOUNTPOINT/arch"
+  local iso_dir="$MOUNTPOINT/ISO/"
 
-  mkdir --parents --verbose "$arch_dir"
+  mkdir --parents --verbose "$iso_dir"
 
-  xhs --output "$arch_dir/sha256sums.txt" --download \
+  xhs --output "$iso_dir/archlinux-x86_64.iso.sha256" --download \
     "$download_url/sha256sums.txt"
 
   sha256=$(
-    awk '$2 == "archlinux-x86_64.iso" { print $1 }' "$arch_dir/sha256sums.txt"
+    awk '$2 == "archlinux-x86_64.iso" { print $1 }' "$iso_dir/archlinux-x86_64.iso.sha256"
   )
 
-  aria2c --dir="$arch_dir" --check-integrity=true --continue=true \
+  aria2c --dir="$iso_dir" --check-integrity=true --continue=true \
     --checksum="sha-256=$sha256" --out="archlinux-x86_64.iso" \
     --allow-overwrite=true "$download_url/archlinux-x86_64.iso"
 }
