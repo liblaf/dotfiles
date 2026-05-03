@@ -3,6 +3,10 @@
     "*.json.tmpl": "json",
     "*.toml.tmpl": "toml"
   },
+  "json.schemaDownload.trustedDomains": {
+    "https://models.dev/model-schema.json": true,
+    "https://opencode.ai/config.json": true
+  },
   "json.schemas": [
     {
       "fileMatch": ["daemon.json.tmpl"],
