@@ -191,6 +191,7 @@ words:
   - puid
   - pulumi
   - punct
+  - pycache
   - pydantic
   - pydicom
   - pyenv
