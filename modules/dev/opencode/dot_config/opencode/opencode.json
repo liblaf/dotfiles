@@ -7,7 +7,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "YutoAPI",
       "options": {
-        "baseURL": "https://cn.gptapi.asia/v1",
+        "baseURL": "https://gptapi.asia/v1",
         "apiKey": "{file:~/.config/opencode/secrets/YutoAPI_apiKey.txt}"
       },
       "models": {
