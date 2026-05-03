@@ -11,16 +11,22 @@ echo '{{ (rbwFields "GitHub").GITHUB_CLI_TOKEN.value }}' |
 
 function gh-clone() {
   function add-url() {
-    local path="$1"
-    local name="$2"
-    local url="$3"
-    git -C "$path" remote set-url --delete --push "$name" "$url" || true
+    local -r path="$1"
+    local -r name="$2"
+    local -r url="$3"
+    if git -C "$path" remote get-url --push --all "$name" |
+      grep --fixed-strings --quiet -- "$url"; then
+      return
+    fi
     git -C "$path" remote set-url --add --push "$name" "$url"
   }
 
-  local prefix="$HOME/github"
-  local repository="$1"
-  local path="$prefix/$repository"
+  local -r prefix="$HOME/github"
+  local -r repository="$1"
+  case "$repository" in
+    liblaf/dotfiles) local -r path="$CHEZMOI_WORKING_TREE" ;;
+    *) local -r path="$prefix/$repository" ;;
+  esac
   echo "$repository"
   if [[ -d "$path/.git" ]]; then
     git -C "$path" pull --ff-only || true
@@ -28,12 +34,17 @@ function gh-clone() {
     mkdir --parents --verbose "$(dirname -- "$path")"
     gh repo clone "$repository" "$path" || true
   fi
-  if [[ $repository =~ ^liblaf/* ]]; then
-    add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
-    add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
-  else
-    git -C "$path" remote set-url --delete --push 'origin' "ssh://git@forgejo.liblaf.me/$repository.git" || true
-  fi
+  case "$repository" in
+    liblaf/dotfiles)
+      add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
+      add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
+      # TODO: Add Codeberg after <https://codeberg.org/Codeberg/Community/issues/2579> is resolved.
+      ;;
+    liblaf/*)
+      add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
+      add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
+      ;;
+  esac
 }
 export -f gh-clone
 

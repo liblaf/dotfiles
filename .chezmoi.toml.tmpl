@@ -15,11 +15,6 @@ root = '{{ joinPath $cacheDirAbs "root" }}'
 [data.dirs.rel]
 external = '{{ joinPath $cacheDirRel "external" }}'
 
-[data.user]
-email = "30631553+liblaf@users.noreply.github.com"
-name = "liblaf"
-signingKey = "31D2E2AE960E5F8C"
-
 [hooks.read-source-state.pre]
 script = '{{ joinPath .chezmoi.workingTree "hooks" "read-source-state.pre.sh" }}'
 

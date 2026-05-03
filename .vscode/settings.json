@@ -1,6 +1,7 @@
 {
   "files.associations": {
-    "*.json.tmpl": "json"
+    "*.json.tmpl": "json",
+    "*.toml.tmpl": "toml"
   },
   "json.schemas": [
     {
