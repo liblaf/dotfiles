@@ -13,7 +13,6 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "esbenp.prettier-vscode",
         "fill-labs.dependi",
         "Gerrnperl.outline-map",
-        "github.copilot-chat",
         "GitHub.remotehub",
         "github.vscode-github-actions",
         "github.vscode-pull-request-github",
@@ -66,6 +65,7 @@ EXTENSION_PACKS: dict[str, set[str]] = {
     },
     "dotfiles": {
         "bmalehorn.vscode-fish",
+        "jamief.vscode-ssh-config-enhanced",
         "kdl-org.kdl-v1",
         "matthewpi.caddyfile-support",
         "nico-castell.linux-desktop-file",

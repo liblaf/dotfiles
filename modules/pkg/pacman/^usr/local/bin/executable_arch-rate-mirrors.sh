@@ -8,13 +8,24 @@ function main() {
   local -r RATE_MIRRORS_SAVE="$(mktemp)"
   local -r RATE_MIRRORS_ALLOW_ROOT=true
   export RATE_MIRRORS_SAVE RATE_MIRRORS_ALLOW_ROOT
-  # TODO: rate-mirrors downloads the upstream mirror list from GitHub, which may
-  # be unreachable behind the GFW. Setting `$https_proxy` forces all requests
-  # (including mirror probes) through the proxy, but we only need GitHub traffic
-  # proxied. We need a better solution.
-  rate-mirrors "$@"
+  python '/usr/local/lib/rate-mirrors-wrapper.py' "$repo"
+  local -r mirrorlist="/etc/pacman.d/$repo-mirrorlist"
   sudo install --backup='simple' --mode='u=rw,go=r' --suffix='-backup' --verbose \
-    "$RATE_MIRRORS_SAVE" "/etc/pacman.d/$repo-mirrorlist"
+    "$RATE_MIRRORS_SAVE" "$mirrorlist"
+  if [[ $repo == 'cachyos' ]]; then
+    local -r TMPFILE_V3="$(mktemp)"
+    # shellcheck disable=SC2016
+    sed 's|/$arch/|/$arch_v3/|g' "$RATE_MIRRORS_SAVE" > "$TMPFILE_V3"
+    sudo install --backup='simple' --mode='u=rw,go=r' --suffix='-backup' --verbose \
+      "$TMPFILE_V3" '/etc/pacman.d/cachyos-v3-mirrorlist'
+    rm --force "$TMPFILE_V3"
+    local -r TMPFILE_V4="$(mktemp)"
+    # shellcheck disable=SC2016
+    sed 's|/$arch/|/$arch_v4/|g' "$RATE_MIRRORS_SAVE" > "$TMPFILE_V4"
+    sudo install --backup='simple' --mode='u=rw,go=r' --suffix='-backup' --verbose \
+      "$TMPFILE_V4" '/etc/pacman.d/cachyos-v4-mirrorlist'
+    rm --force "$TMPFILE_V4"
+  fi
   rm --force "$RATE_MIRRORS_SAVE"
 }
 

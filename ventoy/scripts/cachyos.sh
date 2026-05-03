@@ -8,25 +8,26 @@ SCRIPTDIR="$(dirname -- "${BASH_SOURCE[0]}")"
 source "$SCRIPTDIR/config.sh"
 
 function prepare-cachyos() {
-  local version='250713'
+  # ref: <https://wiki.cachyos.org/cachyos_basic/download/>
+  local version='260426'
 
   prompt-mountpoint
-  local cachyos_dir="$MOUNTPOINT/cachyos"
+  local iso_dir="$MOUNTPOINT/ISO/"
 
   local download_url="https://mirrors.cernet.edu.cn/cachyos/ISO/desktop/$version"
   local iso_filename="cachyos-desktop-linux-$version.iso"
 
-  mkdir --parents --verbose "$cachyos_dir"
+  mkdir --parents --verbose "$iso_dir"
 
-  xhs --output "$cachyos_dir/$iso_filename.sha256" \
+  xhs --output "$iso_dir/$iso_filename.sha256" \
     --download "$download_url/$iso_filename.sha256"
 
   sha256=$(
     awk -v iso_filename="$iso_filename" '$2 == iso_filename { print $1 }' \
-      "$cachyos_dir/$iso_filename.sha256"
+      "$iso_dir/$iso_filename.sha256"
   )
 
-  aria2c --dir="$cachyos_dir" --check-integrity=true --continue=true \
+  aria2c --dir="$iso_dir" --check-integrity=true --continue=true \
     --checksum="sha-256=$sha256" --out="$iso_filename" --user-agent="curl" \
     --allow-overwrite=true "$download_url/$iso_filename"
 }
