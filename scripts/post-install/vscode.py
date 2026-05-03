@@ -40,6 +40,7 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "timonwong.shellcheck",
         "tombi-toml.tombi",
         "usernamehw.errorlens",
+        "xiangz19.codex-ratelimit",
         "yzhang.markdown-all-in-one",
         # dependencies
         "ms-vscode.azure-repos",  # required by: ms-vscode.remote-repositories
