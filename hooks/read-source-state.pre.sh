@@ -23,7 +23,6 @@ function validate() {
 if validate; then exit; fi
 rm --force --recursive "$CHEZMOI_SOURCE_DIR" >&2
 mkdir --parents --verbose "$CHEZMOI_SOURCE_DIR" >&2
-touch "$CHEZMOI_SOURCE_DIR/.touch"
 
 PROFILE="${PROFILE:-"cachyos"}"
 SCRIPTS_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
@@ -31,3 +30,5 @@ SCRIPTS_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
 "$BASH" -- "$SCRIPTS_DIR/20-setup-bitwarden.sh"
 "$BASH" -- "$SCRIPTS_DIR/30-gen-data/main.sh"
 "$BASH" -- "$SCRIPTS_DIR/40-build/build.sh"
+
+touch "$CHEZMOI_SOURCE_DIR/.touch"
