@@ -1,0 +1,24 @@
+// -*- mode: jsonc; -*-
+
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "YutoAPI": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "YutoAPI",
+      "options": {
+        "baseURL": "https://cn.gptapi.asia/v1",
+        "apiKey": "{file:~/.config/opencode/secrets/YutoAPI_apiKey.txt}"
+      },
+      "models": {
+        "deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro",
+          "limit": {
+            "context": 1048576,
+            "output": 1048576
+          }
+        }
+      }
+    }
+  }
+}
