@@ -46,7 +46,7 @@ def main() -> None:
     args: Args = parse_args()
     with cast(
         "HTTPResponse",
-        urllib.request.urlopen(args.target.mirrorlist),  # noqa: S310
+        urllib.request.urlopen(args.target.mirrorlist),
     ) as response:
         text: str = response.read().decode()
         servers: list[str] = re.findall(r"Server\s*=\s*(?P<server>.+)", text)
