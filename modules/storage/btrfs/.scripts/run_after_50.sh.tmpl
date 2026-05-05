@@ -6,6 +6,9 @@ set -o pipefail
 
 # {{ if eq .fs.fstype "btrfs" }}
 
+# ref: <https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-snapper-support/snapper-template-root-cachyos>
+sudo snapper set-config TIMELINE_CREATE='yes'
+
 # ref: <https://wiki.archlinux.org/title/Btrfs#Start_with_a_service_or_timer>
 sudo systemctl enable --now "btrfs-scrub@$(systemd-escape --path /).timer"
 

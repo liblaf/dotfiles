@@ -27,7 +27,6 @@ arch:
   - visual-studio-code-bin
   - vlc
   - vlc-plugins-all
-  - wemeet-bin # Flatpak version is out-of-date
   - wl-clipboard
   - wps-office-365
   - wps-office-365-fonts
@@ -35,4 +34,5 @@ arch:
 flatpak:
   - com.github.tchx84.Flatseal
   - com.tencent.WeChat
+  - com.tencent.wemeet
   - moe.tsuna.tsukimi

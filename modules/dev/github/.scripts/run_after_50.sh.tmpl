@@ -35,8 +35,8 @@ function gh-clone() {
   case "$repository" in
     liblaf/dotfiles)
       add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
+      add-url "$path" 'origin' "ssh://git@codeberg.org/$repository.git"
       add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
-      # TODO: Add Codeberg after <https://codeberg.org/Codeberg/Community/issues/2579> is resolved.
       ;;
     liblaf/*)
       add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"

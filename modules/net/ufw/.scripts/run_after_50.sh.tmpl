@@ -4,7 +4,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-sudo chmod --verbose "u=rw,g=r,o=" /etc/ufw/*.rules
 sudo ufw --force reset
 
 sudo ufw default deny incoming
