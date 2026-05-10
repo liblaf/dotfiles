@@ -4,6 +4,8 @@
 dictionaries='4;5;6;7;8;9;10;11;12;13;14;15'
 enable-cloud-input=true
 init-full-punct=false
+# Source From: Google CN
+cloud-input-source=2
 lookup-table-page-size=10
 # Sort candidates by: Frequency
 sort-candidate-option=0
@@ -33,7 +35,7 @@ document-font-name='Noto Sans 11'
 font-name='Noto Sans 11'
 gtk-theme='Adwaita-dark'
 locate-pointer=true
-monospace-font-name='MonaspiceNe Nerd Font 10'
+monospace-font-name='Maple Mono Normal NF CN 10'
 show-battery-percentage=true
 toolkit-accessibility=false
 
@@ -91,32 +93,27 @@ default-folder-viewer='list-view'
 maximized=true
 
 [org/gnome/settings-daemon/plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Shift><Super>s'
-command='sh -c "flameshot gui < /dev/null"'
+command='flameshot gui'
 name='Flameshot'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
-binding='<Super>q'
-command='xh ":60828/selection_translate"'
-name='Pot (Selection Translation)'
+binding='<Super>t'
+command='pot-translate.sh'
+name='Pot (Translate)'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
-binding='<Super>w'
-command='xh ":60828/input_translate"'
-name='Pot (Text Translation)'
+binding='<Super>r'
+command='pot-ocr-recognize.sh'
+name='Pot (OCR Recognize)'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
-binding='<Super>e'
-command='xh ":60828/ocr_recognize"'
-name='Pot (Text Recognition)'
-
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4]
-binding='<Super>r'
-command='xh ":60828/ocr_translate"'
-name='Pot (Screenshot Translation)'
+binding='<Super>o'
+command='pot-ocr-translate.sh'
+name='Pot (OCR Translate)'
 
 [org/gnome/settings-daemon/plugins/power]
 power-button-action='suspend'
@@ -127,13 +124,11 @@ sleep-inactive-battery-type='suspend'
 
 [org/gnome/shell]
 disable-user-extensions=false
-favorite-apps=['microsoft-edge.desktop', 'org.gnome.Nautilus.desktop', 'com.mitchellh.ghostty.desktop', 'code.desktop']
+favorite-apps=['microsoft-edge.desktop', 'com.mitchellh.ghostty.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop']
 
 [org/gnome/shell/extensions/bingwallpaper]
 always-export-bing-json=true
 delete-previous=true
-lockscreen-blur-brightness=65
-lockscreen-blur-strength=45
 override-lockscreen-blur=true
 previous-days=90
 random-interval=300
@@ -171,15 +166,19 @@ hot-sensors=['_processor_usage_', '_memory_usage_', '__network-rx_max__', '__net
 # {{- else }}
 hot-sensors=['_processor_usage_', '_memory_usage_', '__network-rx_max__', '__network-tx_max__', '__temperature_max__']
 # {{- end }}
+# Icon style: GNOME
+icon-style=1
 include-static-gpu-info=true
 position-in-panel=0
 show-gpu=true
 
 [org/gtk/gtk4/settings/file-chooser]
+show-hidden=false
 sort-directories-first=true
 view-type='list'
 
 [org/gtk/settings/file-chooser]
+show-hidden=false
 sort-directories-first=true
 
 [org/virt-manager/virt-manager]

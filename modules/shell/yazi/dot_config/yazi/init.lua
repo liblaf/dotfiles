@@ -1,72 +1,41 @@
--- ref: <https://github.com/sxyazi/yazi/blob/shipped/yazi-plugin/preset/components/status.lua>
+-- ref: <https://yazi-rs.github.io/docs/tips#symlink-in-status>
+Status:children_add(
+  function(self)
+    local h = self._current.hovered
+    if h and h.link_to then
+      return " -> " .. tostring(h.link_to)
+    else
+      return ""
+    end
+  end,
+  3300,
+  Status.LEFT
+)
+
+-- ref: <https://yazi-rs.github.io/docs/tips#user-group-in-status>
+Status:children_add(
+  function()
+    local h = cx.active.current.hovered
+    if not h or ya.target_family() ~= "unix" then
+      return ""
+    end
+
+    return ui.Line {
+      ui.Span(ya.user_name(h.cha.uid) or tostring(h.cha.uid)):fg("magenta"),
+      ":",
+      ui.Span(ya.group_name(h.cha.gid) or tostring(h.cha.gid)):fg("magenta"),
+      " "
+    }
+  end,
+  500,
+  Status.RIGHT
+)
 
 -- ref: <https://github.com/yazi-rs/plugins/tree/main/full-border.yazi>
 require("full-border"):setup()
 
 -- ref: <https://github.com/yazi-rs/plugins/tree/main/git.yazi>
-require("git"):setup()
-
-Status:children_add(
-  function()
-    local h = cx.active.current.hovered
-    if not h then
-      return
-    end
-    if h.cha.is_dir then
-      return ui.Line(
-        {
-          ui.Span(" "),
-          ui.Span(string.format("%6s", "-")):dim()
-        }
-      )
-    end
-    local size = h:size() or h.cha.len
-    local pretty_size = ya.readable_size(size)
-    return ui.Line(
-      {
-        ui.Span(" "),
-        ui.Span(string.format("%6s", pretty_size)):fg("green")
-      }
-    )
-  end,
-  1100,
-  Status.RIGHT
-)
-
-Status:children_add(
-  function()
-    local h = cx.active.current.hovered
-    if not h or not h.cha or not h.cha.uid then
-      return
-    end
-    local pretty_uid = ya.user_name(h.cha.uid) or tostring(h.cha.uid)
-    return ui.Line(
-      {
-        ui.Span(" "),
-        ui.Span(pretty_uid):fg("yellow")
-      }
-    )
-  end,
-  1200,
-  Status.RIGHT
-)
-
-Status:children_add(
-  function()
-    local h = cx.active.current.hovered
-    if not h or not h.cha or not h.cha.mtime then
-      return
-    end
-    ---@type string
-    ---@diagnostic disable-next-line: assign-type-mismatch
-    local mtime = os.date("%F %T", math.tointeger(h.cha.mtime))
-    return ui.Line(
-      {
-        ui.Span(" "),
-        ui.Span(mtime):fg("blue")
-      }
-    )
-  end,
-  1300,
-  Status.RIGHT
-)
+require("git"):setup {
+  -- Order of status signs showing in the linemode
+  order = 1500
+}

@@ -1,2 +1,6 @@
 arch:
-  - flameshot
+  # flameshot in Arch repository does not work
+  # - flameshot
+
+flatpak:
+  - org.flameshot.Flameshot

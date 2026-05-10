@@ -31,23 +31,35 @@ use = ["open", "reveal"]
 mime = "text/*"
 use = ["code", "edit", "open", "reveal", "view"]
 
-# ref: <https://github.com/yazi-rs/plugins/tree/main/git.yazi>
-[[plugin.prepend_fetchers]]
-id = "git"
-name = "*"
-run = "git"
-
-# ref: <https://github.com/yazi-rs/plugins/tree/main/git.yazi>
-[[plugin.prepend_fetchers]]
-id = "git"
-name = "*/"
-run = "git"
-
 # ref: <https://yazi-rs.github.io/docs/tips/#folder-previewer>
-[[plugin.prepend_preloaders]]
-name = "**/mnt/**"
+[[plugin.prepend_previewers]]
+url = "**/mnt/**"
 run = "noop"
 
-[[plugin.prepend_previewers]]
-name = "**/mnt/**"
+[[plugin.prepend_preloaders]]
+url = "**/mnt/**"
 run = "noop"
+
+# ref: <https://github.com/yazi-rs/plugins/tree/main/git.yazi>
+[[plugin.prepend_fetchers]]
+url = "*"
+run = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+url = "*/"
+run = "git"
+group = "git"
+
+# ref: <https://github.com/yazi-rs/plugins/tree/main/mime-ext.yazi>
+[[plugin.prepend_fetchers]]
+url = "**/mnt/**"
+run = "mime-ext.remote"
+prio = "high"
+group = "mime"
+
+[[plugin.prepend_fetchers]]
+url = "*"
+run = "mime-ext.local"
+prio = "high"
+group = "mime"
