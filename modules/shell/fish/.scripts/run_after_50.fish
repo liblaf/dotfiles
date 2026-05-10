@@ -7,7 +7,7 @@ fisher update
 
 set INSTALLED (fisher list)
 for plugin in $PLUGINS
-    if not contains $plugin $INSTALLED
+    if not contains -- $plugin $INSTALLED
         set --append TO_INSTALL $plugin
     end
 end

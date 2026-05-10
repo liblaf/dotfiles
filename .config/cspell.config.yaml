@@ -186,6 +186,7 @@ words:
   - poppler
   - powerd
   - prek
+  - prio
   - pueue
   - pueued
   - puid
@@ -202,7 +203,6 @@ words:
   - pyviz
   - qalculate
   - qbittorrent
-  - qgroup
   - qiime
   - raku
   - rapidsai
@@ -221,6 +221,7 @@ words:
   - scipy
   - sharzyl
   - shfmt
+  - shlvl
   - simpleitk
   - socksio
   - somo

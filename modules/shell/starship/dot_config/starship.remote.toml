@@ -118,20 +118,25 @@ format = "\\[[$symbol$account(@$domain)(\\($region\\))]($style)\\]"
 symbol = "󱇶 "
 
 [git_branch]
+disabled = true
 format = "\\[[$symbol$branch]($style)\\]"
 symbol = " "
 
 [git_commit]
+disabled = true
 format = "\\[[\\($hash$tag\\)]($style)\\]"
 tag_symbol = "  "
 
 [git_metrics]
+disabled = true
 format = "\\[[+$added]($added_style)\\]\\[[-$deleted]($deleted_style)\\]"
 
 [git_state]
+disabled = true
 format = "\\[[$state ($progress_current/$progress_total)]($style)\\]"
 
 [git_status]
+disabled = true
 format = "([\\[$all_status$ahead_behind\\]]($style))"
 
 [gleam]
