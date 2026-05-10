@@ -3,9 +3,12 @@ import enum
 import os
 import re
 import subprocess
+import urllib.parse
 import urllib.request
 from http.client import HTTPResponse
 from typing import cast
+
+EXCLUDE_MIRRORS: set[str] = {"mirror.nju.edu.cn"}
 
 
 class Target(enum.StrEnum):
@@ -36,6 +39,11 @@ class Args(argparse.ArgumentParser):
     target: Target
 
 
+def excluded(server: str) -> bool:
+    split: urllib.parse.SplitResult = urllib.parse.urlsplit(server)
+    return split.hostname in EXCLUDE_MIRRORS
+
+
 def parse_args() -> Args:
     parser = Args()
     parser.add_argument("target", type=Target, choices=Target)
@@ -49,25 +57,27 @@ def main() -> None:
         urllib.request.urlopen(args.target.mirrorlist),
     ) as response:
         text: str = response.read().decode()
-        servers: list[str] = re.findall(r"Server\s*=\s*(?P<server>.+)", text)
-        servers: list[str] = [
-            server.removesuffix(args.target.path_to_return) for server in servers
-        ]
-        env: dict[str, str] = {
-            key: value
-            for key, value in os.environ.items()
-            if not key.endswith(("_proxy", "_PROXY"))
-        }
-        env["RATE_MIRRORS_PATH_TO_TEST"] = args.target.path_to_test
-        env["RATE_MIRRORS_PATH_TO_RETURN"] = args.target.path_to_return
-        env["RATE_MIRRORS_OUTPUT_PREFIX"] = "Server = "
-        subprocess.run(
-            ["rate-mirrors", "stdin"],
-            env=env,
-            check=True,
-            input="\n".join(servers),
-            text=True,
-        )
+    servers: list[str] = re.findall(r"Server\s*=\s*(?P<server>.+)", text)
+    servers: list[str] = [
+        server.removesuffix(args.target.path_to_return)
+        for server in servers
+        if not excluded(server)
+    ]
+    env: dict[str, str] = {
+        key: value
+        for key, value in os.environ.items()
+        if not key.endswith(("_proxy", "_PROXY"))
+    }
+    env["RATE_MIRRORS_PATH_TO_TEST"] = args.target.path_to_test
+    env["RATE_MIRRORS_PATH_TO_RETURN"] = args.target.path_to_return
+    env["RATE_MIRRORS_OUTPUT_PREFIX"] = "Server = "
+    subprocess.run(
+        ["rate-mirrors", "stdin"],
+        env=env,
+        check=True,
+        input="\n".join(servers),
+        text=True,
+    )
 
 
 if __name__ == "__main__":
