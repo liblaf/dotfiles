@@ -1,16 +1,3 @@
--- ref: <https://yazi-rs.github.io/docs/configuration/yazi#mgr.linemode>
-function Linemode:size_and_mtime()
-  local time = math.floor(self._file.cha.mtime or 0)
-  if time == 0 then
-    time = ""
-  else
-    time = os.date("%Y-%m-%d %H:%M:%S", time)
-  end
-
-  local size = self._file:size()
-  return string.format("%s %s", size and ya.readable_size(size) or "", time)
-end
-
 -- ref: <https://yazi-rs.github.io/docs/tips#symlink-in-status>
 Status:children_add(
   function(self)

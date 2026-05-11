@@ -1,7 +1,7 @@
 # ref: <https://yazi-rs.github.io/docs/configuration/yazi>
 
 [mgr]
-linemode = "size_and_mtime"
+linemode = "mtime"
 
 [[opener.code]]
 run = 'code "$@"'
