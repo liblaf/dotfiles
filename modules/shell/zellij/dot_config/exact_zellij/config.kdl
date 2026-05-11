@@ -1,10 +1,5 @@
 // ref: <https://zellij.dev/documentation/configuration.html>
 
-env {
-  // TODO: enable query-term when <https://github.com/zellij-org/zellij/issues/899> is resolved
-  fish_features "no-query-term"
-}
-
 show_startup_tips false
 
 keybinds {

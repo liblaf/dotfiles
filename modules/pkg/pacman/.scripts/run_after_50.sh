@@ -3,8 +3,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+sudo systemctl disable --now cachyos-rate-mirrors.timer
+sudo systemctl enable --now arch-rate-mirrors@arch.timer
 sudo systemctl enable --now arch-rate-mirrors@arch4edu.timer
 sudo systemctl enable --now arch-rate-mirrors@archlinuxcn.timer
-sudo systemctl enable --now cachyos-rate-mirrors.timer
+sudo systemctl enable --now arch-rate-mirrors@cachyos.timer
 sudo systemctl start pkgstats.timer
 systemctl --user enable --now arch-update.timer

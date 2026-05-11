@@ -47,6 +47,7 @@ modules:
   - pkg/flatpak
   - pkg/mirrors
   - pkg/pacman
+  - shell/bash
   - shell/bat
   - shell/core
   - shell/difftastic
