@@ -24,3 +24,41 @@ extensions=(
 gext enable "${extensions[@]}"
 
 dconf load / < '{{ joinPath .dirs.abs.external "dconf.ini" }}'
+
+function default-network-interface() {
+  nmcli --fields 'DEVICE,TYPE,STATE' --terse device status |
+    awk -F ':' '$3 == "connected" && ($2 == "ethernet" || $2 == "wifi") { print $1; exit }'
+}
+
+function gvariant-strv() {
+  python3 - "$@" << 'PY'
+import sys
+print(sys.argv[1:])
+PY
+}
+
+hot_sensors=(
+  '__temperature_max__'
+  '_memory_usage_'
+  '_processor_usage_'
+)
+network_interface="$(default-network-interface)"
+if [[ -n $network_interface ]]; then
+  hot_sensors+=(
+    "_network-rx_${network_interface}_rx_"
+    "_network-tx_${network_interface}_tx_"
+  )
+else
+  hot_sensors+=(
+    '__network-rx_max__'
+    '__network-tx_max__'
+  )
+fi
+# {{- if .hardware.nvidia.exists }}
+hot_sensors+=(
+  '_gpu#1_utilization_'
+  '_gpu#1_memory_usage_'
+)
+# {{- end }}
+gsettings set org.gnome.shell.extensions.vitals hot-sensors \
+  "$(gvariant-strv "${hot_sensors[@]}")"

@@ -162,9 +162,9 @@ threshold=99
 [org/gnome/shell/extensions/vitals]
 fixed-widths=false
 # {{- if .hardware.nvidia.exists }}
-hot-sensors=['_processor_usage_', '_memory_usage_', '__network-rx_max__', '__network-tx_max__', '__temperature_max__', '_gpu#1_utilization_', '_gpu#1_memory_usage_']
+hot-sensors=['__temperature_max__', '_memory_usage_', '_processor_usage_', '__network-rx_max__', '__network-tx_max__', '_gpu#1_utilization_', '_gpu#1_memory_usage_']
 # {{- else }}
-hot-sensors=['_processor_usage_', '_memory_usage_', '__network-rx_max__', '__network-tx_max__', '__temperature_max__']
+hot-sensors=['__temperature_max__', '_memory_usage_', '_processor_usage_', '__network-rx_max__', '__network-tx_max__']
 # {{- end }}
 # Icon style: GNOME
 icon-style=1
