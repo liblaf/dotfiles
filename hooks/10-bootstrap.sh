@@ -9,8 +9,10 @@ function has() {
 
 function install-arch() {
   local to_install=()
+  if ! has jq; then to_install+=("jq"); fi
   if ! has rbw; then to_install+=("rbw"); fi
   if ! has uv; then to_install+=("uv"); fi
+  if ! has xhs; then to_install+=("xh"); fi
   if ! has yq; then to_install+=("go-yq"); fi
   if ((${#to_install[@]} > 0)); then
     sudo pacman --sync --noconfirm --needed "${to_install[@]}"

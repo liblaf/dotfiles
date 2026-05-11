@@ -16,7 +16,7 @@ import subprocess
 from collections import defaultdict
 from collections.abc import Generator, Iterable, Mapping
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Self, cast
+from typing import TYPE_CHECKING, Any, Self
 
 import yaml
 
@@ -27,7 +27,11 @@ if TYPE_CHECKING:
 logger: logging.Logger = logging.getLogger(__name__)
 
 
-_IGNORE: set[str] = {"README.md"}
+_IGNORE: set[str] = {"README.md", "*.pyc"}
+
+
+def _ignore(path: Path) -> bool:
+    return any(path.match(pattern) for pattern in _IGNORE)
 
 
 @dataclasses.dataclass(slots=True)
@@ -70,7 +74,7 @@ class Module:
             self._apply_file(ctx, source)
 
     def _apply_file(self, ctx: Context, source: Path) -> None:
-        if source.name in _IGNORE:
+        if _ignore(source):
             return
         relative: Path = source.relative_to(self.path)
         for handler in (
@@ -187,13 +191,13 @@ class Args(argparse.Namespace):
     output: Path
     profile: Path
 
-
-def parse_args() -> Args:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--modules", default="modules", type=Path)
-    parser.add_argument("--output", default="home", type=Path)
-    parser.add_argument("--profile", default="profiles/cachyos.yaml", type=Path)
-    return cast("Args", parser.parse_args())
+    @classmethod
+    def parse_args(cls) -> Args:
+        parser = argparse.ArgumentParser()
+        parser.add_argument("--modules", default="modules", type=Path)
+        parser.add_argument("--output", default="home", type=Path)
+        parser.add_argument("--profile", default="profiles/cachyos.yaml", type=Path)
+        return parser.parse_args(namespace=cls())
 
 
 def _long_suffix(path: Path) -> str:
@@ -216,7 +220,7 @@ def _with_stem(path: Path, stem: str) -> Path:
 
 
 def main() -> None:
-    args: Args = parse_args()
+    args: Args = Args.parse_args()
     profile: Profile = Profile.load(args.profile, args.modules)
     profile.apply(args.output)
 

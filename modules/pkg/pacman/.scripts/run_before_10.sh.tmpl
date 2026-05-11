@@ -7,22 +7,18 @@ set -o pipefail
 # {{ includeTemplate "apply.sh" }}
 
 apply-root 'etc/pacman.conf' '/etc/pacman.conf'
+apply-root 'usr/local/bin/executable_arch-rate-mirrors.sh' '/usr/local/bin/arch-rate-mirrors.sh'
+apply-root 'usr/local/lib/rate-mirrors-wrapper.py' '/usr/local/lib/rate-mirrors-wrapper.py'
+sudo chmod 'u=rwx,go=rx' '/usr/local/bin/arch-rate-mirrors.sh'
 
 function setup-mirrors() {
   local -r repo="$1"
-  local -r server="$2"
   local -r mirrorlist="/etc/pacman.d/$repo-mirrorlist"
   if [[ -f $mirrorlist ]]; then return; fi
-  local -r tmpfile="$(mktemp)"
-  echo "Server = $server" > "$tmpfile"
-  sudo install --backup='simple' --mode='u=rw,go=r' --suffix='-backup' \
-    --verbose "$tmpfile" "$mirrorlist"
-  rm --force "$tmpfile"
+  arch-rate-mirrors.sh "$repo"
 }
-# shellcheck disable=SC2016
-setup-mirrors 'arch4edu' 'https://mirrors.cernet.edu.cn/arch4edu/$arch'
-# shellcheck disable=SC2016
-setup-mirrors 'archlinuxcn' 'https://mirrors.cernet.edu.cn/archlinuxcn/$arch'
+setup-mirrors 'arch4edu'
+setup-mirrors 'archlinuxcn'
 
 # {{ includeTemplate "paru.sh" }}
 
