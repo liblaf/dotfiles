@@ -1,0 +1,7 @@
+# -*- mode: ini; -*-
+
+[Mount]
+What = //{{ (rbwFields "DATA41").IP.value }}/Users/{{ (rbw "DATA41").data.username }}
+Where = /mnt/DATA41
+Type = cifs
+Options = credentials=/etc/credentials/DATA41.credentials,uid={{ .chezmoi.uid }},gid={{ .chezmoi.gid }}
