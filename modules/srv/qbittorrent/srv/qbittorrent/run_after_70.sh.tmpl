@@ -11,9 +11,9 @@ set -o pipefail
 
 service-user-add 'qbittorrent' '{{ .services.qbittorrent.uid }}' 'qBittorrent'
 mkdir --parents --verbose './config'
-mkdir --parents --verbose './downloads'
+mkdir --parents --verbose '/mnt/pc06-sda1/srv/qbittorrent/downloads'
 sudo chown --verbose 'qbittorrent:srv' './config'
-sudo chown --verbose 'qbittorrent:srv' './downloads'
+sudo chown --verbose 'qbittorrent:srv' '/mnt/pc06-sda1/srv/qbittorrent/downloads'
 docker compose up --detach --remove-orphans
 
 # {{ else }}

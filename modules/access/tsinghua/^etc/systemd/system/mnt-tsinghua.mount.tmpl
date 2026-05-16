@@ -1,0 +1,8 @@
+# -*- mode: ini; -*-
+
+[Mount]
+What = tsinghua:
+Where = /mnt/tsinghua
+Type = rclone
+# rclone is not happy with `noatime`
+Options = nodev,_netdev,nosuid,rw,allow-other,default-permissions,gid={{ .chezmoi.gid }},uid={{ .chezmoi.uid }},umask=077,vfs-cache-max-size=10G,vfs-cache-mode=full,cache-dir='/var/cache/rclone',config='{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf'

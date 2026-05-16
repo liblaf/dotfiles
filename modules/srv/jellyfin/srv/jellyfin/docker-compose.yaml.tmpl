@@ -24,7 +24,7 @@ services:
       - ./fonts/fallback:/data/fonts:ro
       - ./fonts/system:/usr/local/share/fonts:ro
       - type: bind
-        source: /mnt/data/srv/qbittorrent/downloads
+        source: /mnt/pc06-sda1/srv/qbittorrent/downloads
         target: /data/qbittorrent
         read_only: true
         bind:

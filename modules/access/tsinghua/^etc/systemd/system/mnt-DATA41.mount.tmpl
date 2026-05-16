@@ -4,4 +4,4 @@
 What = //{{ (rbwFields "DATA41").IP.value }}/Users/{{ (rbw "DATA41").data.username }}
 Where = /mnt/DATA41
 Type = cifs
-Options = credentials=/etc/credentials/DATA41.credentials,uid={{ .chezmoi.uid }},gid={{ .chezmoi.gid }}
+Options = noatime,nodev,_netdev,nosuid,rw,credentials=/etc/credentials/DATA41.credentials,uid={{ .chezmoi.uid }},gid={{ .chezmoi.gid }},file_mode=0600,dir_mode=0700

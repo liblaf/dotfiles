@@ -151,6 +151,7 @@ words:
   - mkinitcpio
   - msys
   - multicd
+  - netdev
   - netns
   - networkx
   - newgrp
@@ -158,9 +159,12 @@ words:
   - njpwerner
   - nmap
   - nmcli
+  - noatime
   - noconfirm
+  - nodev
   - nofile
   - nopasswd
+  - nosuid
   - noto
   - npmmirror
   - ntsc

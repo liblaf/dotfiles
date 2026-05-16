@@ -69,6 +69,7 @@ modules:
   - srv/openlist
   - srv/qbittorrent
   - storage/btrfs
+  - storage/disk
   - storage/restic
   - storage/resticprofile
   - system/docker
