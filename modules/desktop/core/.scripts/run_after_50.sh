@@ -3,4 +3,4 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-systemctl --user enable --now journalctl-desktop-notification.service
+systemctl --user --now enable journalctl-desktop-notification.service

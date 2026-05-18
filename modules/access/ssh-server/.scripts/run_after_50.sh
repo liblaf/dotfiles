@@ -5,4 +5,4 @@ set -o pipefail
 
 sudo systemctl enable --now sshd.service
 # ref: <https://wiki.archlinux.org/title/GNOME/Keyring#Setup_gcr>
-systemctl --user enable --now gcr-ssh-agent.socket
+systemctl --user --now enable gcr-ssh-agent.socket

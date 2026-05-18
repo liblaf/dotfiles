@@ -3,4 +3,4 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-systemctl --user enable --now ddns.timer
+systemctl --user --now enable ddns.timer
