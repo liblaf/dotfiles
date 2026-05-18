@@ -5,5 +5,6 @@ set -o nounset
 set -o pipefail
 
 # {{ if eq .chezmoi.hostname "PC06" }}
-sudo systemctl enable --now "$(systemd-escape --suffix='automount' --path '/mnt/pc06-sda1')"
+sudo systemctl enable --now "$(systemd-escape --suffix='automount' --path '/mnt/PC06sda1')"
+sudo systemctl enable --now xfs_scrub_all.timer
 # {{ end }}

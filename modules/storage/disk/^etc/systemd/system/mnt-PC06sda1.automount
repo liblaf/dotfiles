@@ -4,5 +4,5 @@
 WantedBy = multi-user.target
 
 [Automount]
-Where = /mnt/pc06-sda1
+Where = /mnt/PC06sda1
 TimeoutIdleSec = 10min
