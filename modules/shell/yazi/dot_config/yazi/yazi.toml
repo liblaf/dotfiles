@@ -60,9 +60,3 @@ url = "**/mnt/**"
 run = "mime-ext.remote"
 prio = "high"
 group = "mime"
-
-[[plugin.prepend_fetchers]]
-url = "*"
-run = "mime-ext.local"
-prio = "high"
-group = "mime"
