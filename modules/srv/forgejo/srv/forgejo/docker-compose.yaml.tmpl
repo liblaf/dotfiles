@@ -25,6 +25,7 @@ services:
       FORGEJO__cron.git_gc_repos__ENABLED: true
       FORGEJO__cron.gc_lfs__ENABLED: true
       FORGEJO__lfs__PATH: /data/git/lfs
+      FORGEJO__actions__ENABLED: false
     image: codeberg.org/forgejo/forgejo:15
     ports:
       - "{{ .services.forgejo.ssh.port }}:22"

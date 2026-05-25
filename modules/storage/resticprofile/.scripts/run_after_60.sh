@@ -3,8 +3,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-if systemd-detect-virt --quiet; then
-  resticprofile unschedule
-else
-  resticprofile schedule
-fi
+# I don't feel the need for any backups at the moment. I'll enable resticprofile
+# when I have some important files.
+resticprofile unschedule

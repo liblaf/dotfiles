@@ -17,7 +17,7 @@ initialize = true
 # Flags passed to the restic command line:
 compression = "max"
 password-file = "{{ .chezmoi.homeDir }}/.config/restic/password.txt"
-repository = "rclone:tsinghua:restic/{{ .chezmoi.hostname }}/"
+repository = "rclone:seafile:restic/{{ .chezmoi.hostname }}/"
 retry-lock = "5m"
 
 [default.backup]
