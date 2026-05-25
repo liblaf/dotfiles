@@ -7,4 +7,4 @@ AllowUsers {{ .chezmoi.username }}
 AuthenticationMethods publickey
 PasswordAuthentication no
 PermitRootLogin no
-Port {{ .services.ssh.port }}
+Port {{ .services.ssh.ssh.port }}

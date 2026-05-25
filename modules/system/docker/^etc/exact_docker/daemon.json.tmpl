@@ -1,8 +1,8 @@
 {
   "ipv6": true,
   "proxies": {
-    "http-proxy": "http://127.0.0.1:{{ .services.proxy.port }}",
-    "https-proxy": "http://127.0.0.1:{{ .services.proxy.port }}",
+    "http-proxy": "http://127.0.0.1:{{ .services.mihomo.mixed.port }}",
+    "https-proxy": "http://127.0.0.1:{{ .services.mihomo.mixed.port }}",
     "no-proxy": "{{ .no_proxy }}"
   },
   "registry-mirrors": [

@@ -20,14 +20,14 @@ sudo ufw allow in on virbr0 comment 'Libvirt'
 sudo ufw allow out on virbr0 comment 'Libvirt'
 
 # applications
-sudo ufw allow to any port '{{ .services.dvc.port }}' comment 'DVC'
-sudo ufw allow to any port '{{ .services.forgejo_ssh.port }}' comment 'Forgejo SSH'
-sudo ufw allow to any port '{{ .services.https.port }}' comment 'HTTPS'
-sudo ufw allow to any port '{{ .services.qbittorrent.port }}' comment 'qBittorrent'
-sudo ufw allow to any port '{{ .services.ssh.port }}' comment 'SSH'
+sudo ufw allow to any port '{{ .services.caddy.https.port }}' comment 'Caddy > HTTPS'
+sudo ufw allow to any port '{{ .services.forgejo.ssh.port }}' comment 'Forgejo > SSH'
+sudo ufw allow to any port '{{ .services.qbittorrent.torrenting.port }}' comment 'qBittorrent > Torrenting'
+sudo ufw allow to any port '{{ .services.ssh.ssh.port }}' comment 'SSH'
+
+sudo find /etc/ufw -regextype gnu-awk -regex ".*.[[:digit:]]{8}_[[:digit:]]{6}" -delete
+sudo find /etc/ufw -name '*.rules' -exec chmod --verbose 'u=rw,g=r,o=' {} \;
 
 sudo ufw --force enable
 sudo ufw status verbose
 sudo systemctl enable --now ufw.service
-
-sudo find /etc/ufw -regextype gnu-awk -regex ".*.[[:digit:]]{8}_[[:digit:]]{6}" -delete

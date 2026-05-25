@@ -9,9 +9,10 @@ set -o pipefail
 
 # {{ if .services.forgejo.enable }}
 
-service-user-add 'forgejo' '{{ .services.forgejo.uid }}' 'Forgejo'
-mkdir --parents --verbose './forgejo'
-sudo chown --verbose 'forgejo:srv' './forgejo'
+service-user-add forgejo '{{ .services.forgejo.uid }}' 'Forgejo'
+mkdir --parents --verbose ./forgejo
+sudo chown --verbose forgejo:srv ./forgejo
+sudo systemctl --now enable "$(systemd-escape --suffix='automount' --path /mnt/DATA41-forgejo)"
 docker compose up --detach --remove-orphans
 
 # {{ else }}

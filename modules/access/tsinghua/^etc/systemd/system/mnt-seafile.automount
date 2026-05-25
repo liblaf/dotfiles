@@ -1,0 +1,8 @@
+# -*- mode: ini; -*-
+
+[Install]
+WantedBy = multi-user.target
+
+[Automount]
+Where = /mnt/seafile
+TimeoutIdleSec = 10min

@@ -1,0 +1,7 @@
+# -*- mode: ini; -*-
+
+[Mount]
+What = //{{ (rbwFields "DATA41").IP.value }}/Users/{{ (rbw "DATA41").data.username }}/srv/forgejo
+Where = /mnt/DATA41-forgejo
+Type = cifs
+Options = noatime,nodev,noexec,_netdev,nosuid,rw,credentials=/etc/cifs/credentials/DATA41.cred,uid={{ .chezmoi.uid }},gid={{ .chezmoi.gid }},file_mode=0600,dir_mode=0700,seal

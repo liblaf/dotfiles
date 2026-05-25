@@ -55,7 +55,6 @@ words:
   - dconf
   - ddcutil
   - ddns
-  - deauth
   - dependi
   - dglteam
   - difft
@@ -162,6 +161,7 @@ words:
   - noatime
   - noconfirm
   - nodev
+  - noexec
   - nofile
   - nopasswd
   - nosuid

@@ -9,9 +9,9 @@ set -o pipefail
 
 # {{ if .services.openlist.enable }}
 
-service-user-add 'openlist' '{{ .services.openlist.uid }}' 'OpenList'
-mkdir --parents --verbose './data'
-sudo chown --verbose 'openlist:srv' './data'
+service-user-add openlist '{{ .services.openlist.uid }}' 'OpenList'
+mkdir --parents --verbose ./data
+sudo chown --changes --recursive openlist:srv ./data
 docker compose up --detach --remove-orphans
 
 # {{ else }}
