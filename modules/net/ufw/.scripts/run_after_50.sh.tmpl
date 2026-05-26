@@ -26,7 +26,7 @@ sudo ufw allow to any port '{{ .services.qbittorrent.torrenting.port }}' comment
 sudo ufw allow to any port '{{ .services.ssh.ssh.port }}' comment 'SSH'
 
 sudo find /etc/ufw -regextype gnu-awk -regex ".*.[[:digit:]]{8}_[[:digit:]]{6}" -delete
-sudo find /etc/ufw -name '*.rules' -exec chmod --verbose 'u=rw,g=r,o=' {} \;
+sudo find /etc/ufw -name '*.rules' -exec chmod --changes 'u=rw,g=r,o=' {} \;
 
 sudo ufw --force enable
 sudo ufw status verbose
