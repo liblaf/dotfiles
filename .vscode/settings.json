@@ -3,6 +3,9 @@
     "*.json.tmpl": "json",
     "*.toml.tmpl": "toml"
   },
+  "files.exclude": {
+    "**/.ruff_cache/": true
+  },
   "json.schemaDownload.trustedDomains": {
     "https://models.dev/model-schema.json": true,
     "https://opencode.ai/config.json": true
