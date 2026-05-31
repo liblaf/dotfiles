@@ -37,7 +37,7 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
       - type: bind
-        source: /mnt/DATA41-forgejo/git/lfs
+        source: ./DATA41/git/lfs
         target: /data/git/lfs
         bind:
           create_host_path: false

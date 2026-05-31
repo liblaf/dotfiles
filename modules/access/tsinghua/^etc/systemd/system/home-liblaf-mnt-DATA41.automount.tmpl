@@ -4,5 +4,5 @@
 WantedBy = multi-user.target
 
 [Automount]
-Where = /mnt/DATA41-forgejo
+Where = {{ .chezmoi.homeDir }}/mnt/DATA41
 TimeoutIdleSec = 10min
