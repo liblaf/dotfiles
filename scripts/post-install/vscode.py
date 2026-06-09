@@ -33,7 +33,6 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "redhat.vscode-xml",
         "redhat.vscode-yaml",
         "rvben.rumdl",
-        "saoudrizwan.claude-dev",
         "shd101wyy.markdown-preview-enhanced",
         "stackbreak.comment-divider",
         "streetsidesoftware.code-spell-checker",
@@ -48,14 +47,9 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         # shared Python extensions
         "astral-sh.ty",
         "charliermarsh.ruff",
-        "kevinrose.vsc-python-indent",
         "ms-python.debugpy",
         "ms-python.python",
         "ms-python.vscode-pylance",
-        # `ms-python.vscode-python-envs` interferes with Ruff & ty extension's Python interpreter detection
-        # "ms-python.vscode-python-envs",
-        # "marimo-team.vscode-marimo",
-        # TODO: add marimo when it works well
     },
     "c/c++": {
         "llvm-vs-code-extensions.vscode-clangd",
@@ -80,13 +74,6 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "sharzyl.cjk-word-handler",
     },
     "python": {
-        "astral-sh.ty",
-        "charliermarsh.ruff",
-        "kevinrose.vsc-python-indent",
-        "ms-python.debugpy",
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-python.vscode-python-envs",
         "ms-toolsai.datawrangler",
         "ms-toolsai.jupyter-keymap",
         "ms-toolsai.jupyter-renderers",
@@ -94,8 +81,6 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "ms-toolsai.vscode-jupyter-cell-tags",
         "ms-toolsai.vscode-jupyter-slideshow",
         "njpwerner.autodocstring",
-        # "marimo-team.vscode-marimo",
-        # TODO: add marimo when it works well
     },
     "rust": {
         "dustypomerleau.rust-syntax",
@@ -160,8 +145,8 @@ def uninstall_extensions(extensions: Iterable[str], profile: str = "Default") ->
 def sync_extensions(extensions: Iterable[str], profile: str = "Default") -> None:
     source: set[str] = list_extensions(profile)
     target: set[str] = set(extensions)
-    source = {ext.lower() for ext in source}
-    target = {ext.lower() for ext in target}
+    source: set[str] = {ext.lower() for ext in source}
+    target: set[str] = {ext.lower() for ext in target}
     uninstall_extensions(source - target, profile)
     install_extensions(target - source, profile)
 
