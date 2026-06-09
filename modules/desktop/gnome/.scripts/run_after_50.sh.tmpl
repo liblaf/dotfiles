@@ -54,6 +54,9 @@ else
     '__network-tx_max__'
   )
 fi
+hot_sensors+=(
+  '_network_public_ip_'
+)
 # {{- if .hardware.nvidia.exists }}
 hot_sensors+=(
   '_gpu#1_utilization_'
