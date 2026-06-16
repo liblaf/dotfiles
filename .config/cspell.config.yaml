@@ -110,7 +110,6 @@ words:
   - ibus
   - icat
   - illumos
-  - imgcat
   - imgpaste
   - inifmt
   - inplace
@@ -163,6 +162,7 @@ words:
   - nodev
   - noexec
   - nofile
+  - nohup
   - nopasswd
   - nosuid
   - noto
@@ -223,7 +223,6 @@ words:
   - rumdl
   - rustc
   - rvben
-  - saoudrizwan
   - sccache
   - scipy
   - sharzyl
@@ -254,8 +253,6 @@ words:
   - tput
   - tqdm
   - trimesh
-  - tsukimi
-  - tsuna
   - twemoji
   - typst
   - uefi
@@ -278,7 +275,6 @@ words:
   - webdav
   - webui
   - wemeet
-  - wezterm
   - xdist
   - xhigh
   - xiangz

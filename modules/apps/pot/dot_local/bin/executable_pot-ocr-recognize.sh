@@ -3,8 +3,18 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# ref: <https://pot-app.com/docs/invoke.html>
+if ! pgrep --exact --quiet pot; then
+  if type pot &> /dev/null; then
+    declare -ar cmd=(pot)
+  else
+    declare -ar cmd=(flatpak run com.pot_app.pot)
+  fi
+  nohup "${cmd[@]}" &> /dev/null &
+  disown
+  sleep 1
+fi
 
+# ref: <https://pot-app.com/docs/invoke.html>
 declare -r screenshot="$HOME/.cache/com.pot-app.desktop/pot_screenshot_cut.png"
 mkdir --parents --verbose -- "$(dirname -- "$screenshot")"
 rm --force --verbose "$screenshot"

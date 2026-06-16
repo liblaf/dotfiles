@@ -19,7 +19,7 @@ if status is-interactive
         abbr --add r --command pueue -- status status="running"
     end
 
-    for app in meshlab paraview typora
+    for app in meshlab typora
         if type --query $app
             function $app --wraps $app --inherit-variable app
                 command $app $argv </dev/null &>/dev/null &

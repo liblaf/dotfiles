@@ -11,6 +11,7 @@ modules:
   - apps/ghostty
   - apps/kitty
   - apps/meshlab
+  - apps/paraview
   - apps/pot
   - apps/typora
   - apps/wrap
@@ -25,7 +26,6 @@ modules:
   - dev/dvc
   - dev/git
   - dev/github
-  # - dev/goose
   - dev/mise
   - dev/opencode
   - dev/skills
