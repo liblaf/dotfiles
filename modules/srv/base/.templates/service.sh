@@ -6,13 +6,13 @@ function service-user-add() {
   local comment="$3"
   shift 3
 
+  local gid='{{ .services.gid }}'
   if getent group 'srv' &> /dev/null; then
     local gid_old
     gid_old="$(
       getent group 'srv' |
         cut --delimiter=':' --fields='3'
     )"
-    local gid='{{ .services.gid }}'
     if ((gid_old != gid)); then
       sudo groupmod --gid "$gid" 'srv'
     fi

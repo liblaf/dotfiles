@@ -63,11 +63,11 @@ class Service:
 
 SERVICES: list[Service] = [
     Service("Caddy", on=True, ports=("http", "https")),
-    Service("Forgejo", on={"PC06"}, ports=("http", "ssh")),
-    Service("Jellyfin", on={"PC06"}),
-    Service("Mihomo", on={"PC06"}, ports=("mixed",)),
-    Service("OpenList", on={"PC06"}),
-    Service("qBittorrent", on={"PC06"}, ports=("torrenting", "webui")),
+    Service("Forgejo", on={"PC07"}, ports=("http", "ssh")),
+    Service("Jellyfin", on={"PC07"}),
+    Service("Mihomo", on={"PC07"}, ports=("mixed",)),
+    Service("OpenList", on={"PC07"}),
+    Service("qBittorrent", on={"PC07"}, ports=("torrenting", "webui")),
     Service("Restic", on=True),
     Service("SSH", on=True, ports=("ssh",)),
 ]

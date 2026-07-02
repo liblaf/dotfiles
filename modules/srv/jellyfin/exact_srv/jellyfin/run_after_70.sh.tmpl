@@ -11,7 +11,7 @@ set -o pipefail
 
 service-user-add jellyfin '{{ .services.jellyfin.uid }}' 'Jellyfin'
 mkdir --parents --verbose ./config
-mkdir --parents --verbose /mnt/PC06sda1/srv/qbittorrent/downloads
+mkdir --parents --verbose /mnt/PC07sda1/srv/qbittorrent/downloads
 sudo chown --changes --recursive jellyfin:srv ./config
 docker compose up --detach --remove-orphans
 
