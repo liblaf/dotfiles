@@ -86,7 +86,7 @@ Suggestions are welcome, especially for reproducibility, linting, and module hyg
 
 ---
 
-#### 📝 License
+### 📝 License
 
 Copyright © 2023 [liblaf](https://github.com/liblaf). <br />
 This project is [MIT](https://github.com/liblaf/dotfiles/blob/main/LICENSE) licensed.
