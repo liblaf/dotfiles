@@ -32,6 +32,7 @@ arch:
   - wps-office-365-fonts
 
 flatpak:
+  - cn.feishu.Feishu
   - com.github.tchx84.Flatseal
   - com.tencent.WeChat
   - com.tencent.wemeet

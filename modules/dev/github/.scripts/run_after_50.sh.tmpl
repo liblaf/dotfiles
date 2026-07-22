@@ -27,10 +27,10 @@ function gh-clone() {
   esac
   echo "$repository"
   if [[ -d "$path/.git" ]]; then
-    git -C "$path" pull --ff-only || true
+    GIT_LFS_SKIP_SMUDGE=true git -C "$path" fetch --all --prune
   else
     mkdir --parents --verbose "$(dirname -- "$path")"
-    gh repo clone "$repository" "$path" || true
+    GIT_LFS_SKIP_SMUDGE=true gh repo clone "$repository" "$path"
   fi
   case "$repository" in
     liblaf/dotfiles)

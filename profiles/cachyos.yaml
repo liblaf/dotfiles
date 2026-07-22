@@ -29,6 +29,7 @@ modules:
   - dev/mise
   - dev/opencode
   - dev/skills
+  - dev/wakatime
   - hardware/intel
   - hardware/nvidia
   - lang/cpp

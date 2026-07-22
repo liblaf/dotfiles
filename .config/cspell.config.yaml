@@ -75,6 +75,7 @@ words:
   - esac
   - etils
   - fastai
+  - feishu
   - fnox
   - forgejo
   - freeipmi
@@ -271,6 +272,8 @@ words:
   - virtualenv
   - vlang
   - vuetorrent
+  - waka
+  - wakatime
   - wcwidth
   - webdav
   - webui

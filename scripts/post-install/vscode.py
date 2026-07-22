@@ -39,6 +39,7 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "timonwong.shellcheck",
         "tombi-toml.tombi",
         "usernamehw.errorlens",
+        "WakaTime.vscode-wakatime",
         "xiangz19.codex-ratelimit",
         "yzhang.markdown-all-in-one",
         # dependencies
