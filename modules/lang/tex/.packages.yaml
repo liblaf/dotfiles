@@ -1,6 +1,6 @@
 arch:
   - biber
-  - group:texlive
+  - texlive
   - texlive-langchinese
   - texlive-langenglish
   - perl-file-homedir # < latexindent < texlive-binextra < group - texlive

@@ -8,7 +8,13 @@ if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
-extensions=(
+to_install=(
+  clipboard-indicator@tudmotu.com
+  codexbar@inled.es
+)
+gext install "${to_install[@]}"
+
+to_enable=(
   # pre-installed
   drive-menu@gnome-shell-extensions.gcampax.github.com
   screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com
@@ -20,8 +26,10 @@ extensions=(
   display-brightness-ddcutil@themightydeity.github.com
   power-profile-switcher@eliapasquali.github.io
   Vitals@CoreCoding.com
+
+  "${to_install[@]}"
 )
-gext enable "${extensions[@]}"
+gext enable "${to_enable[@]}"
 
 dconf load / < '{{ joinPath .dirs.abs.external "dconf.ini" }}'
 
@@ -41,26 +49,13 @@ hot_sensors=(
   '__temperature_max__'
   '_memory_usage_'
   '_processor_usage_'
-)
-network_interface="$(default-network-interface)"
-if [[ -n $network_interface ]]; then
-  hot_sensors+=(
-    "_network-rx_${network_interface}_rx_"
-    "_network-tx_${network_interface}_tx_"
-  )
-else
-  hot_sensors+=(
-    '__network-rx_max__'
-    '__network-tx_max__'
-  )
-fi
-hot_sensors+=(
+  '__network-rx_max__'
+  '__network-tx_max__'
   '_network_public_ip_'
 )
 # {{- if .hardware.nvidia.exists }}
 hot_sensors+=(
   '_gpu#1_utilization_'
-  '_gpu#1_memory_usage_'
 )
 # {{- end }}
 gsettings set org.gnome.shell.extensions.vitals hot-sensors \

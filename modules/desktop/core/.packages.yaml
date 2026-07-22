@@ -9,8 +9,7 @@ arch:
   - vulkan-tools # Vulkan
 
   # applications
-  #TODO: archlinuxcn/3dslicer is broken. switch to that once it's fixed
-  - 3dslicer-bin
+  - 3dslicer
   - blender
   - drawio-desktop
   - gimp
