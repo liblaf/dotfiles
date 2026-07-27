@@ -32,17 +32,8 @@ function gh-clone() {
     mkdir --parents --verbose "$(dirname -- "$path")"
     GIT_LFS_SKIP_SMUDGE=true gh repo clone "$repository" "$path"
   fi
-  case "$repository" in
-    liblaf/dotfiles)
-      add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
-      add-url "$path" 'origin' "ssh://git@codeberg.org/$repository.git"
-      add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
-      ;;
-    liblaf/*)
-      add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
-      add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
-      ;;
-  esac
+  add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
+  add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
 }
 export -f gh-clone
 
