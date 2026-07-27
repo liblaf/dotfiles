@@ -6,8 +6,22 @@ set -o pipefail
 function main() {
   local -r repo="$1"
 
+  local -r no_proxy='*'
+  local -r NO_PROXY='*'
+  export no_proxy NO_PROXY
+
+  # Use jsDelivr (instead of raw.githubusercontent.com) for better reliability.
+  case "$repo" in
+    'arch4edu')
+      export RATE_MIRRORS_MIRROR_LIST_FILE='https://cdn.jsdelivr.net/gh/arch4edu/mirrorlist/mirrorlist.arch4edu'
+      ;;
+    'archlinuxcn')
+      export RATE_MIRRORS_MIRROR_LIST_FILE='https://cdn.jsdelivr.net/gh/archlinuxcn/mirrorlist-repo/archlinuxcn-mirrorlist'
+      ;;
+  esac
+
   local -r country_code="$(
-    NO_PROXY='*' xhs GET 'https://api.ip.sb/geoip' |
+    xhs GET 'https://api.ip.sb/geoip' |
       jq --raw-output '.country_code'
   )"
   # ref: <https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-rate-mirrors/cachyos-rate-mirrors>
@@ -19,13 +33,13 @@ function main() {
     fi
   fi
 
-  # rate mirrors
+  # Run rate-mirrors and write the ranked result to a temporary file.
   local -r RATE_MIRRORS_SAVE="$(mktemp)"
   export RATE_MIRRORS_SAVE
   export RATE_MIRRORS_ALLOW_ROOT=true
-  python '/usr/local/lib/rate-mirrors-wrapper.py' "$repo"
+  rate-mirrors "$repo"
 
-  # install mirrorlist
+  # Install the generated mirrorlist to pacman's expected path.
   case "$repo" in
     'arch') local -r mirrorlist="/etc/pacman.d/mirrorlist" ;;
     *) local -r mirrorlist="/etc/pacman.d/$repo-mirrorlist" ;;

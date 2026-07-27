@@ -1,3 +1,4 @@
 arch:
   - codexbar-cli-bin
   - openai-codex
+  - openai-codex-desktop

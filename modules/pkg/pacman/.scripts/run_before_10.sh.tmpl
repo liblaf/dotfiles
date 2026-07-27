@@ -8,7 +8,6 @@ set -o pipefail
 
 apply-root 'etc/pacman.conf' '/etc/pacman.conf'
 apply-root 'usr/local/bin/executable_arch-rate-mirrors.sh' '/usr/local/bin/arch-rate-mirrors.sh'
-apply-root 'usr/local/lib/rate-mirrors-wrapper.py' '/usr/local/lib/rate-mirrors-wrapper.py'
 sudo chmod 'u=rwx,go=rx' '/usr/local/bin/arch-rate-mirrors.sh'
 
 function setup-mirrors() {
