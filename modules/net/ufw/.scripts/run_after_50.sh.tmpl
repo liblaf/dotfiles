@@ -19,6 +19,8 @@ sudo ufw allow from 172.16.0.0/12 comment 'Docker'
 sudo ufw allow in on virbr0 comment 'Libvirt'
 sudo ufw allow out on virbr0 comment 'Libvirt'
 
+sudo ufw allow in on tailscale0 comment 'Tailscale'
+
 # applications
 sudo ufw allow to any port '{{ .services.caddy.https.port }}' comment 'Caddy > HTTPS'
 sudo ufw allow to any port '{{ .services.forgejo.ssh.port }}' comment 'Forgejo > SSH'

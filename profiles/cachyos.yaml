@@ -43,6 +43,7 @@ modules:
   - net/ddns
   - net/mihomo
   - net/rclone
+  - net/tailscale
   - net/ufw
   - net/xh
   - pkg/flatpak

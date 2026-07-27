@@ -1,0 +1,25 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+if systemd-detect-virt --quiet; then exit; fi
+
+sudo systemctl enable --now tailscaled.service
+
+backend_state="$(
+  tailscale status --json |
+    jq --raw-output '.BackendState'
+)"
+readonly backend_state
+
+case "$backend_state" in
+  'NeedsLogin')
+    sudo tailscale up \
+      --advertise-tags 'tag:pc' \
+      --auth-key '{{ (rbwFields "Tailscale").AUTH_KEY.value }}' \
+      --reset \
+      --ssh
+    ;;
+  *) ;;
+esac
