@@ -5,6 +5,14 @@ set -o pipefail
 
 if systemd-detect-virt --quiet; then exit; fi
 
+if [[ ! /etc/resolv.conf -ef /run/systemd/resolve/stub-resolv.conf ]]; then
+  # ref: <https://tailscale.com/docs/reference/linux-dns#networkmanager--systemd-resolved>
+  sudo ln --force --symbolic '/run/systemd/resolve/stub-resolv.conf' '/etc/resolv.conf'
+  sudo systemctl restart systemd-resolved.service
+  sudo systemctl restart NetworkManager.service
+  sudo systemctl try-restart tailscaled.service
+fi
+
 sudo systemctl enable --now tailscaled.service
 
 backend_state="$(
@@ -18,8 +26,15 @@ case "$backend_state" in
     sudo tailscale up \
       --advertise-tags 'tag:pc' \
       --auth-key '{{ (rbwFields "Tailscale").AUTH_KEY.value }}' \
+      --operator "$USER" \
       --reset \
       --ssh
     ;;
   *) ;;
 esac
+
+sudo tailscale set \
+  --operator "$USER" \
+  --ssh
+
+tailscale configure systray --enable-startup freedesktop

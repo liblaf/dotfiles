@@ -3,7 +3,7 @@
 
 approvals_reviewer = "auto_review"
 model = "gpt-5.6-sol"
-model_reasoning_effort = "xhigh"
+model_reasoning_effort = "medium"
 sandbox_mode = "workspace-write"
 
 [analytics]
@@ -14,10 +14,6 @@ memories = true
 
 [feedback]
 enabled = false
-
-[marketplaces.wakatime]
-source = "https://github.com/wakatime/codex-cli-wakatime.git"
-source_type = "git"
 
 [sandbox_workspace_write]
 network_access = true

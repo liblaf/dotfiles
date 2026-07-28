@@ -3,6 +3,7 @@
 
 [files]
 include = ["**/*.toml", "**/*.toml.tmpl"]
+exclude = ["**/modify_*"]
 
 [schema]
 strict = false
