@@ -3,7 +3,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-rm --force 'arch-update-tray.desktop'
-sudo systemctl --global disable arch-update-tray.service
-systemctl --user --now disable arch-update-tray.service
-arch-update --tray --enable
+if [[ ! -f 'arch-update-tray.desktop' ]]; then
+  cachy-update --tray --enable
+fi

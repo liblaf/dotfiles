@@ -8,10 +8,8 @@ if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
-to_install=(
-  codexbar@inled.es
-)
-gext install "${to_install[@]}"
+gnome-extensions install --force \
+  '{{ joinPath .dirs.abs.external "codex-meter@slobbe.github.io.zip" }}'
 
 to_enable=(
   # pre-installed
@@ -26,7 +24,8 @@ to_enable=(
   display-brightness-ddcutil@themightydeity.github.com
   Vitals@CoreCoding.com
 
-  "${to_install[@]}"
+  # user
+  codex-meter@slobbe.github.io
 )
 gext enable "${to_enable[@]}"
 

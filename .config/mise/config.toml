@@ -2,5 +2,6 @@
 
 [env]
 CHEZMOI_EXECUTABLE = "chezmoi"
-CHEZMOI_GITHUB_TOKEN = '{{ exec(command="gh auth token") }}'
 CHEZMOI_SOURCE_DIR = '{{ [config_root, "home"] | join_path }}'
+CHEZMOI_GITHUB_TOKEN.redact = true
+CHEZMOI_GITHUB_TOKEN.value = '{{ exec(command="gh auth token || true") }}'
