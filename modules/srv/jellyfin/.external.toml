@@ -2,22 +2,15 @@
 path = "NotoSansCJKjp-hinted-standard/NotoSansCJKjp-Medium.woff2"
 refreshPeriod = "168h"
 type = "archive-file"
-urls = [
-  "https://github.com/CodePlayer/webfont-noto/raw/release/NotoSansCJKjp-hinted-standard.zip",
-  "https://cdn.jsdelivr.net/gh/CodePlayer/webfont-noto/release/NotoSansCJKjp-hinted-standard.zip"
-]
+url = "https://raw.githubusercontent.com/CodePlayer/webfont-noto/refs/heads/master/release/NotoSansCJKjp-hinted-standard.zip"
 
 ["srv/jellyfin/fonts/fallback/NotoSansCJKsc-Medium.woff2"]
 path = "NotoSansCJKsc-hinted-standard/NotoSansCJKsc-Medium.woff2"
 refreshPeriod = "168h"
 type = "archive-file"
-urls = [
-  "https://github.com/CodePlayer/webfont-noto/raw/release/NotoSansCJKsc-hinted-standard.zip",
-  "https://cdn.jsdelivr.net/gh/CodePlayer/webfont-noto/release/NotoSansCJKsc-hinted-standard.zip"
-]
+url = "https://raw.githubusercontent.com/CodePlayer/webfont-noto/refs/heads/master/release/NotoSansCJKsc-hinted-standard.zip"
 
-["srv/jellyfin/fonts/system/NotoSansCJK.ttc"]
-path = "NotoSansCJK.ttc"
+["srv/jellyfin/fonts/system/NotoSansCJK-VF.otf.ttc"]
 refreshPeriod = "168h"
-type = "archive-file"
-url = "https://mirrors.cernet.edu.cn/github-release/googlefonts/noto-cjk/Noto%20Sans%20CJK%20Version%202.004%20%28OTF%2C%20OTC%2C%20Super%20OTC%2C%20Subset%20OTF%2C%20Variable%20OTF_TTF%29/00_NotoSansCJK.ttc.zip"
+type = "file"
+url = "https://raw.githubusercontent.com/notofonts/noto-cjk/refs/heads/main/Sans/Variable/OTC/NotoSansCJK-VF.otf.ttc"
