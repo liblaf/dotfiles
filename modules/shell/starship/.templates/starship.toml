@@ -1,0 +1,8 @@
+#:schema https://starship.rs/config-schema.json
+# ref: <https://starship.rs/config/>
+
+[cmd_duration]
+format = '\[[󱎫 $duration]($style)\]'  # nf-md-timer
+
+[directory]
+truncation_symbol = "󰇘/"  # nf-md-dots_horizontal

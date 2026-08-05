@@ -1,3 +1,4 @@
 arch:
   - restic
   - restic-browser-bin
+  - resticprofile

@@ -6,7 +6,9 @@ set -o pipefail
 # prevent recursion
 if [[ -n ${DOTFILES_SKIP_READ_SOURCE_STATE_PRE:-} ]]; then exit; fi
 export DOTFILES_SKIP_READ_SOURCE_STATE_PRE=1
-if [[ $CHEZMOI_COMMAND == "execute-template" ]]; then exit; fi
+case $CHEZMOI_COMMAND in
+  execute-template | source-path | target-path) exit ;;
+esac
 
 function validate() {
   local newest_source

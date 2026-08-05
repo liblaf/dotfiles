@@ -1,5 +1,2 @@
 arch:
   - mihomo
-
-npm:
-  - "@liblaf/sub-store"

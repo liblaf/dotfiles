@@ -21,8 +21,8 @@ function main() {
   esac
 
   local -r country_code="$(
-    xhs GET 'https://api.ip.sb/geoip' |
-      jq --raw-output '.country_code'
+    xhs GET 'https://geoip.kde.org/v1/ubiquity' |
+      yq eval '.Response.CountryCode' --input-format xml
   )"
   # ref: <https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-rate-mirrors/cachyos-rate-mirrors>
   if [[ -n $country_code ]]; then

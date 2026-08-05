@@ -5,6 +5,6 @@ export http_proxy='http://127.0.0.1:{{ .services.mihomo.mixed.port }}'
 export https_proxy='http://127.0.0.1:{{ .services.mihomo.mixed.port }}'
 
 # ref: <https://learn.netdata.cloud/docs/alerts-&-notifications/notifications/agent-dispatched-notifications/telegram>
-SEND_TELEGRAM="YES"
+SEND_TELEGRAM='YES'
 TELEGRAM_BOT_TOKEN='{{ (rbwFields "Telegram").NETDATA_BOT_TOKEN.value }}'
 DEFAULT_RECIPIENT_TELEGRAM='{{ (rbwFields "Telegram").CHAT_ID.value }}'

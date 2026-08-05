@@ -1,0 +1,8 @@
+# -*- mode: toml; -*-
+
+[".local/bin/ddns"]
+executable = true
+path = "ddns"
+refreshPeriod = "168h"
+type = "archive-file"
+url = '{{ (gitHubLatestReleaseAssetURL "liblaf/ddns" "ddns-linux-amd64.tar.gz") }}'

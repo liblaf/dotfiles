@@ -1,9 +1,6 @@
 arch:
-  # TODO: switch from flatpak to pacman when dependency issues are resolved
-  # - pot-translation
-  - tesseract-data-chi_sim # < pot-translation
-  - tesseract-data-eng # < pot-translation
-  # - webkit2gtk-imgpaste # < pot-translation
+  - tesseract-data-chi_sim # < com.pot_app.pot
+  - tesseract-data-eng # < com.pot_app.pot
 
 flatpak:
   - com.pot_app.pot

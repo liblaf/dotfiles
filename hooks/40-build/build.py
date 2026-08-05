@@ -108,7 +108,7 @@ class Module:
         if not relative.is_relative_to(".scripts"):
             return False
         stem: str = _short_stem(relative)
-        target: Path = _with_stem(relative, f"{stem}-{self.slug}")
+        target: Path = _with_stem(relative, f"run_{stem}-{self.slug}")
         ctx.copy_to(source, Path(".chezmoiscripts", *target.parts[1:]))
         return True
 
@@ -178,7 +178,8 @@ class Profile:
         file: Path = ctx.output_dir / ".chezmoidata" / "gen" / "packages.json"
         obj: Any = {
             "packages": {
-                pkg_manager: list(pkgs) for pkg_manager, pkgs in ctx.packages.items()
+                pkg_manager: sorted(packages)
+                for pkg_manager, packages in ctx.packages.items()
             }
         }
         file.parent.mkdir(parents=True, exist_ok=True)

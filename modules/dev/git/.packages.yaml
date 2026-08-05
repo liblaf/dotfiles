@@ -4,4 +4,4 @@ arch:
   - git-extras
   - git-lfs
   - pre-commit
-  - prek-bin
+  - prek

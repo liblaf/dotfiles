@@ -3,7 +3,7 @@
 sourceDir = '{{ joinPath .chezmoi.workingTree "home" }}'
 
 [data]
-baseDomain = "liblaf.me"
+domain = "liblaf.me"
 
 # {{- $cacheDirRel := joinPath ".cache" "dotfiles" -}}
 # {{- $cacheDirAbs := joinPath .chezmoi.homeDir $cacheDirRel }}
@@ -14,6 +14,9 @@ root = '{{ joinPath $cacheDirAbs "root" }}'
 
 [data.dirs.rel]
 external = '{{ joinPath $cacheDirRel "external" }}'
+
+[github]
+refreshPeriod = "168h"
 
 [hooks.read-source-state.pre]
 script = '{{ joinPath .chezmoi.workingTree "hooks" "read-source-state.pre.sh" }}'

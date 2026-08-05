@@ -15,8 +15,8 @@ services:
       FORGEJO__repository__ROOT: /data/git/repositories
       FORGEJO__repository__ENABLE_PUSH_CREATE_USER: true
       FORGEJO__repository.signing__DEFAULT_TRUST_MODEL: committer
-      FORGEJO__server__DOMAIN: forgejo.{{ .baseDomain }}
-      FORGEJO__server__ROOT_URL: https://forgejo.{{ .baseDomain }}:{{ .services.caddy.https.port }}/
+      FORGEJO__server__DOMAIN: forgejo.{{ .domain }}
+      FORGEJO__server__ROOT_URL: https://forgejo.{{ .domain }}:{{ .services.caddy.https.port }}/
       FORGEJO__server__LFS_START_SERVER: true
       FORGEJO__database__DB_TYPE: sqlite3
       FORGEJO__cache__ADAPTER: twoqueue

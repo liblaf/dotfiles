@@ -5,9 +5,9 @@ set -o pipefail
 
 if ! pgrep --exact --quiet pot; then
   if type pot &> /dev/null; then
-    declare -ar cmd=(pot)
+    readonly -a cmd=(pot)
   else
-    declare -ar cmd=(flatpak run com.pot_app.pot)
+    readonly -a cmd=(flatpak run com.pot_app.pot)
   fi
   nohup "${cmd[@]}" &> /dev/null &
   disown
@@ -15,7 +15,7 @@ if ! pgrep --exact --quiet pot; then
 fi
 
 # ref: <https://pot-app.com/docs/invoke.html>
-declare -r screenshot="$HOME/.cache/com.pot-app.desktop/pot_screenshot_cut.png"
+readonly screenshot="$HOME/.cache/com.pot-app.desktop/pot_screenshot_cut.png"
 mkdir --parents --verbose -- "$(dirname -- "$screenshot")"
 rm --force --verbose "$screenshot"
 flameshot gui --path "$screenshot" --accept-on-select

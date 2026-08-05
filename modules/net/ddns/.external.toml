@@ -1,6 +1,0 @@
-[".local/bin/ddns"]
-executable = true
-path = "ddns"
-refreshPeriod = "168h"
-type = "archive-file"
-url = "https://github.com/liblaf/ddns/releases/latest/download/ddns-linux-amd64.tar.gz"

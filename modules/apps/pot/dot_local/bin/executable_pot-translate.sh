@@ -5,9 +5,9 @@ set -o pipefail
 
 if ! pgrep --exact --quiet pot; then
   if type pot &> /dev/null; then
-    declare -ar cmd=(pot)
+    readonly -a cmd=(pot)
   else
-    declare -ar cmd=(flatpak run com.pot_app.pot)
+    readonly -a cmd=(flatpak run com.pot_app.pot)
   fi
   nohup "${cmd[@]}" &> /dev/null &
   disown

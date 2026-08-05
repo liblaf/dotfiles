@@ -1,6 +1,5 @@
 modules:
   - base/system
-  - base/templates
   - base/user
 
   - access/gpg
@@ -17,21 +16,18 @@ modules:
   - apps/wrap
   - apps/zotero
   - boot/limine
-  - desktop/core
+  - desktop/base
   - desktop/gnome
   - dev/codex
   - dev/comet
   - dev/copier
-  - dev/direnv
-  - dev/dvc
   - dev/git
   - dev/github
   - dev/mise
-  - dev/opencode
   - dev/skills
   - dev/wakatime
-  - hardware/intel
-  - hardware/nvidia
+  - hardware/chwd
+  - hardware/fwupd
   - lang/cpp
   - lang/formats
   - lang/go
@@ -45,19 +41,17 @@ modules:
   - net/rclone
   - net/tailscale
   - net/ufw
-  - net/xh
   - pkg/flatpak
   - pkg/mirrors
   - pkg/pacman
+  - shell/base
   - shell/bash
   - shell/bat
-  - shell/core
   - shell/difftastic
   - shell/fish
   - shell/helix
   - shell/less
   - shell/ov
-  - shell/repomix
   - shell/starship
   - shell/tealdeer
   - shell/yazi
@@ -65,7 +59,6 @@ modules:
   - shell/zoxide
   - srv/base
   - srv/caddy
-  - srv/dvc
   - srv/forgejo
   - srv/jellyfin
   - srv/openlist
@@ -73,10 +66,8 @@ modules:
   - storage/btrfs
   - storage/disk
   - storage/restic
-  - storage/resticprofile
   - system/docker
   - system/fonts
-  - system/fwupd
   - system/libvirt
   - system/mime
   - system/netdata
