@@ -40,7 +40,6 @@ EXTENSION_PACKS: dict[str, set[str]] = {
         "tombi-toml.tombi",
         "usernamehw.errorlens",
         "WakaTime.vscode-wakatime",
-        "xiangz19.codex-ratelimit",
         "yzhang.markdown-all-in-one",
         # dependencies
         "ms-vscode.azure-repos",  # required by: ms-vscode.remote-repositories

@@ -161,7 +161,7 @@ step-change-keyboard=5.0
 fixed-widths=false
 # Icon style: GNOME
 icon-style=1
-include-static-gpu-info=true
+include-static-gpu-info=false
 network-public-ip-interval=15
 position-in-panel=0
 show-gpu=true
