@@ -63,6 +63,5 @@ EOF
   sudo systemctl --now enable "$(systemd-escape --suffix='automount' --path "$where")"
 }
 
-rclone-automount "DATA41:" "$HOME/DATA41"
-rclone-automount "GJM-AList:" "$HOME/GJM-AList"
-rclone-automount "seafile:" "$HOME/seafile"
+rclone-automount "GJM-AList:" "$HOME/mnt/GJM-AList"
+rclone-automount "seafile:" "$HOME/mnt/seafile"
