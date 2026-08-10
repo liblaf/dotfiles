@@ -1,0 +1,12 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+if [[ "$(git branch --show-current)" != "wip" ]]; then
+  echo "Not on branch 'wip'." >&2
+  exit 1
+fi
+
+git switch main
+git merge --squash wip

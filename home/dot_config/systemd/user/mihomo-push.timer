@@ -1,0 +1,11 @@
+# -*- mode: ini; -*-
+
+[Unit]
+Description = Push Mihomo Configuration
+
+[Install]
+WantedBy = timers.target
+
+[Timer]
+OnCalendar = daily
+Persistent = true

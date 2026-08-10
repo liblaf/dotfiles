@@ -1,0 +1,5 @@
+#:schema https://www.schemastore.org/tombi.json
+# ref: <https://tombi-toml.github.io/tombi/docs/configuration/>
+
+[schema]
+strict = false

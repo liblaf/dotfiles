@@ -1,0 +1,4 @@
+# ref: <https://docs.helix-editor.com/configuration.html>
+
+[editor.soft-wrap]
+enable = true

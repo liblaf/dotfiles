@@ -1,0 +1,22 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ includeTemplate "docker.sh" }}
+# {{ includeTemplate "service.sh" . }}
+
+# {{ if .services.jellyfin.enable }}
+
+service-user-add jellyfin '{{ .services.jellyfin.uid }}' 'Jellyfin'
+mkdir --parents --verbose ./config
+mkdir --parents --verbose /mnt/PC07sda1/srv/qbittorrent/downloads
+sudo chown --changes --recursive jellyfin:srv ./config
+docker compose up --detach --remove-orphans
+
+# {{ else }}
+
+docker compose down
+
+# {{ end }}

@@ -1,0 +1,14 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+if [[ "$(git branch --show-current)" != "main" ]]; then
+  echo "Not on branch 'main'." >&2
+  exit 1
+fi
+
+git push
+git delete-branch wip
+git switch --create wip
+git push

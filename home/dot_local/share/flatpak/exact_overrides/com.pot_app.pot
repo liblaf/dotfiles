@@ -1,0 +1,4 @@
+# -*- mode: ini; -*-
+
+[Context]
+filesystems = xdg-cache

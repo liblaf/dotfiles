@@ -1,0 +1,8 @@
+# -*- mode: toml; -*-
+#:schema https://www.schemastore.org/bunfig.json
+# ref: <https://bun.com/docs/runtime/bunfig>
+
+[install]
+registry = "{{ .mirrors.npm }}/"
+# TODO: This does not work due to <https://github.com/oven-sh/bun/issues/12886>.
+globalBinDir = "~/.local/bin"

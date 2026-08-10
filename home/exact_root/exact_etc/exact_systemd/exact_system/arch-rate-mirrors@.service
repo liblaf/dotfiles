@@ -1,0 +1,12 @@
+# -*- mode: ini; -*-
+# ref: <https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-rate-mirrors/cachyos-rate-mirrors.service>
+
+[Unit]
+Description = Refresh %I mirror lists
+After = network-online.target nss-lookup.target
+
+[Service]
+Type = oneshot
+StandardOutput = null
+StandardError = journal
+ExecStart = /usr/local/bin/arch-rate-mirrors.sh %I

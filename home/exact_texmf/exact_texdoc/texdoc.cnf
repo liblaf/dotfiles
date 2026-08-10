@@ -1,0 +1,4 @@
+# -*- mode: ini; -*-
+# ref: `texdoc texdoc`
+
+viewer_pdf = evince

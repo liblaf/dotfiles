@@ -1,0 +1,8 @@
+# -*- mode: properties; -*-
+# ref: <https://ghostty.org/docs/config/reference>
+
+font-family = Maple Mono Normal NF CN
+font-family = Twemoji
+mouse-scroll-multiplier = 1
+maximize = true
+gtk-titlebar-hide-when-maximized = true

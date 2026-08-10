@@ -1,0 +1,4 @@
+# -*- mode: dotenv; -*-
+# ref: <https://go.dev/ref/mod#environment-variables>
+# ref: `chsrc measure go`
+GOPROXY=https://goproxy.cn,https://mirrors.aliyun.com/goproxy/,https://goproxy.io,https://proxy.golang.org,direct
