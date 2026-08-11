@@ -1,8 +1,0 @@
-# -*- mode: ini; -*-
-
-[Unit]
-Description = DDNS
-
-[Service]
-ExecStart = %h/.local/bin/ddns update --quiet
-TimeoutSec = 1min

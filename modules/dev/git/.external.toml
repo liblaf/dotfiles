@@ -1,4 +1,0 @@
-[".config/git-cliff/cliff.toml"]
-refreshPeriod = "168h"
-type = "file"
-url = "https://cdn.jsdelivr.net/gh/liblaf/copier-release/cliff.toml"

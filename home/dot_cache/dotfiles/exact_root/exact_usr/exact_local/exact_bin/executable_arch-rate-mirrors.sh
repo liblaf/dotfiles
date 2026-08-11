@@ -20,14 +20,14 @@ function main() {
       ;;
   esac
 
-  local -r country_code="$(
-    xhs GET 'https://geoip.kde.org/v1/ubiquity' |
-      yq eval '.Response.CountryCode' --input-format xml
+  local -r country="$(
+    curl --silent 'https://geoip.kde.org/v1/ubiquity' |
+      sed --quiet 's|.*<CountryCode>\(.*\)</CountryCode>.*|\1|p'
   )"
   # ref: <https://github.com/CachyOS/CachyOS-PKGBUILDS/blob/master/cachyos-rate-mirrors/cachyos-rate-mirrors>
-  if [[ -n $country_code ]]; then
-    export RATE_MIRRORS_ENTRY_COUNTRY="$country_code"
-    if [[ $country_code == "CN" ]]; then
+  if [[ -n $country ]]; then
+    export RATE_MIRRORS_ENTRY_COUNTRY="$country"
+    if [[ $country == "CN" ]]; then
       export RATE_MIRRORS_COUNTRY_NEIGHBORS_PER_COUNTRY=0
       export RATE_MIRRORS_COUNTRY_TEST_MIRRORS_PER_COUNTRY=50
     fi

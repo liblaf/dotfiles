@@ -10,5 +10,5 @@ sudo flatpak remote-modify flathub --url='{{ .mirrors.flathub }}'
 install=(
   # {{ "\n" }} {{ join "\n" .packages.flatpak }}
 )
-sudo flatpak install --assumeyes --or-update "${install[@]}"
+sudo flatpak install --assumeyes "${install[@]}"
 # {{ end }}

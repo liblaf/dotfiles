@@ -4,8 +4,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{ include ".snippets/apply.sh" }}
-
 sudo cp --verbose "$CHEZMOI_SOURCE_DIR/dot_cache/dotfiles/exact_root/exact_etc/pacman.conf" '/etc/pacman.conf'
 sudo install --verbose \
   "$CHEZMOI_SOURCE_DIR/dot_cache/dotfiles/exact_root/exact_usr/exact_local/exact_bin/executable_arch-rate-mirrors.sh" \

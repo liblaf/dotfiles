@@ -1,8 +1,0 @@
-arch:
-  - caddy
-  - earlyoom
-  - logrotate
-  - lshw
-  - usbutils
-  - ventoy-bin
-  - wireguard-tools

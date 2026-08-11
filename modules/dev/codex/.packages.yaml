@@ -1,7 +1,0 @@
-arch:
-  - codexbar-cli-bin
-  - openai-codex
-  - openai-codex-desktop
-
-pypi:
-  - gnome-extensions-cli

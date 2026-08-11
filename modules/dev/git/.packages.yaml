@@ -1,7 +1,0 @@
-arch:
-  - git
-  - git-cliff
-  - git-extras
-  - git-lfs
-  - pre-commit
-  - prek
