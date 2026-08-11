@@ -4,6 +4,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# {{ include ".snippets/group-add.sh" }}
+
 sudo cp --verbose "$CHEZMOI_SOURCE_DIR/dot_cache/dotfiles/exact_root/exact_etc/pacman.conf" '/etc/pacman.conf'
 sudo install --verbose \
   "$CHEZMOI_SOURCE_DIR/dot_cache/dotfiles/exact_root/exact_usr/exact_local/exact_bin/executable_arch-rate-mirrors.sh" \
@@ -35,6 +37,12 @@ fi
 sudo pacman --sync --noconfirm --refresh
 
 sudo pacman --sync --noconfirm --needed arch4edu-keyring archlinuxcn-keyring paru
+
+# Force the `ttf-ms-win11-auto` UDisks probe to fail so its PKGBUILD uses the full-ISO
+# download path. The HTTPDirFS path otherwise creates a zero-sized loop device that
+# UDisks cannot mount. This only redirects D-Bus for this script and its child
+# processes; it does not change the system bus itself.
+export DBUS_SYSTEM_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/nonexistence"
 
 # {{ if .packages.arch }}
 packages=(
