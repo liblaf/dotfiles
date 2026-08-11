@@ -2,7 +2,7 @@
 # shellcheck disable=all
 # ref: <https://github.com/sharkdp/bat#configuration-file>
 
---wrap "never"
---pager "ov --quit-if-one-screen --view-mode bat"
---map-syntax "*.install:bash"
+--wrap 'never'
+--pager 'ov --quit-if-one-screen --view-mode bat'
+--map-syntax '*.install:bash'
 --set-terminal-title

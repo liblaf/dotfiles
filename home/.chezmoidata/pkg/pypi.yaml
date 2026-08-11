@@ -1,0 +1,7 @@
+pkg:
+  pypi:
+    - comet-ml
+    - copier
+    - gnome-extensions-cli
+    - nvitop
+    - toml-sort

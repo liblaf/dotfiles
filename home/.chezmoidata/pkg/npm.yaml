@@ -1,0 +1,12 @@
+pkg:
+  npm:
+    - "@bitwarden/cli"
+    - "@liblaf/cspell-init"
+    - cspell
+    - dotenv-vault
+    - gh-pages
+    - mega-linter-runner
+    - oxfmt
+    - oxlint
+    - setup-npm-trusted-publish
+    - skills

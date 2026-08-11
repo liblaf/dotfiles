@@ -1,0 +1,14 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+sudo systemctl --now enable mihomo.service
+systemctl --user --now enable mihomo-pull.timer
+
+# {{ if .services.mihomo.enable }}
+systemctl --user --now enable mihomo-push.timer
+# {{ else }}
+systemctl --user --now disable mihomo-push.timer
+# {{ end }}

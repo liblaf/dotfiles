@@ -1,0 +1,45 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+if systemd-detect-virt --quiet; then exit; fi
+
+echo '{{ (rbwFields "GitHub").GITHUB_CLI_TOKEN.value }}' |
+  gh auth login --git-protocol https --with-token
+
+function gh-clone() {
+  function add-url() {
+    local -r path="$1"
+    local -r name="$2"
+    local -r url="$3"
+    # Ensure push URLs stay in the desired order by removing any existing entry first, then re-adding it.
+    git -C "$path" remote set-url --delete --push "$name" "$url" || true
+    git -C "$path" remote set-url --add --push "$name" "$url"
+  }
+
+  local -r prefix="$HOME/Projects"
+  local -r repository="$1"
+  case "$repository" in
+    liblaf/dotfiles) local -r path="$CHEZMOI_WORKING_TREE" ;;
+    *) local -r path="$prefix/$repository" ;;
+  esac
+  echo "$repository"
+  if [[ -d "$path/.git" ]]; then
+    GIT_LFS_SKIP_SMUDGE=true git -C "$path" fetch --all --prune
+  else
+    mkdir --parents --verbose "$(dirname -- "$path")"
+    GIT_LFS_SKIP_SMUDGE=true gh repo clone "$repository" "$path"
+  fi
+  add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
+  add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
+}
+export -f gh-clone
+
+readarray -t repos < <(
+  gh api '/user/repos' \
+    --jq '.[] | select((.archived | not) and (.fork | not)) | .full_name' \
+    --paginate
+)
+parallel --bar --color-failed --eta --jobs 8 --progress gh-clone ::: "${repos[@]}"

@@ -9,4 +9,4 @@ yq eval-all '. as $item ireduce ({}; . * $item )' \
   --input-format toml \
   --output-format toml \
   - \
-  <(printf '%s' '{{ (includeTemplate "codex-config.toml") }}')
+  "$CHEZMOI_SOURCE_DIR/.snippets/codex-config.toml"

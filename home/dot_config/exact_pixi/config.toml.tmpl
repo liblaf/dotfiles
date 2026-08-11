@@ -1,24 +1,159 @@
 # -*- mode: toml; -*-
+# ref: <https://help.mirrors.cernet.edu.cn/anaconda/>
+# ref: <https://help.mirrors.cernet.edu.cn/anaconda-extra/>
 
 [shell]
 change-ps1 = false
 
-[mirrors]  # ref: <https://pixi.sh/latest/reference/pixi_configuration/#mirror-configuration>
-# {{ $mirror := .mirrors.anaconda }}
-# {{ range $channel := .anaconda.channels }}
-"https://conda.anaconda.org/{{ $channel }}" = [
-  "{{ $mirror }}/cloud/{{ $channel }}",
-]  # {{ end }}
-#
-# {{ $mirror := .mirrors.anaconda_extra }}
-# {{ range $extra_channel := .anaconda_extra.channels }}
-"https://conda.anaconda.org/{{ $extra_channel }}" = [
-  "{{ $mirror }}/cloud/{{ $extra_channel }}",
-]  # {{ end }}
-#
-# ref: <https://pixi.sh/latest/reference/pixi_configuration/#mirrors-for-pypi-resolving-and-pypi-package-downloading>
-"https://pypi.org/simple" = ["{{ .mirrors.pypi }}/simple"]
-"https://files.pythonhosted.org/packages" = ["{{ .mirrors.pypi }}/packages"]
+[mirrors]  # ref: <https://pixi.prefix.dev/latest/reference/pixi_configuration/#mirror-configuration>
+# TUNA 等站
+"https://conda.anaconda.org/auto" = [
+  "{{ .mirrors.anaconda }}/cloud/auto",
+]
+"https://conda.anaconda.org/biobakery" = [
+  "{{ .mirrors.anaconda }}/cloud/biobakery",
+]
+"https://conda.anaconda.org/bioconda" = [
+  "{{ .mirrors.anaconda }}/cloud/bioconda",
+]
+"https://conda.anaconda.org/c4aarch64" = [
+  "{{ .mirrors.anaconda }}/cloud/c4aarch64",
+]
+"https://conda.anaconda.org/caffe2" = [
+  "{{ .mirrors.anaconda }}/cloud/caffe2",
+]
+"https://conda.anaconda.org/conda-forge" = [
+  "{{ .mirrors.anaconda }}/cloud/conda-forge",
+]
+"https://conda.anaconda.org/deepmodeling" = [
+  "{{ .mirrors.anaconda }}/cloud/deepmodeling",
+]
+"https://conda.anaconda.org/dglteam" = [
+  "{{ .mirrors.anaconda }}/cloud/dglteam",
+]
+"https://conda.anaconda.org/fastai" = [
+  "{{ .mirrors.anaconda }}/cloud/fastai",
+]
+"https://conda.anaconda.org/fermi" = [
+  "{{ .mirrors.anaconda }}/cloud/fermi",
+]
+"https://conda.anaconda.org/idaholab" = [
+  "{{ .mirrors.anaconda }}/cloud/idaholab",
+]
+"https://conda.anaconda.org/matsci" = [
+  "{{ .mirrors.anaconda }}/cloud/matsci",
+]
+"https://conda.anaconda.org/menpo" = [
+  "{{ .mirrors.anaconda }}/cloud/menpo",
+]
+"https://conda.anaconda.org/MindSpore" = [
+  "{{ .mirrors.anaconda }}/cloud/MindSpore",
+]
+"https://conda.anaconda.org/mordred-descriptor" = [
+  "{{ .mirrors.anaconda }}/cloud/mordred-descriptor",
+]
+"https://conda.anaconda.org/numba" = [
+  "{{ .mirrors.anaconda }}/cloud/numba",
+]
+"https://conda.anaconda.org/ohmeta" = [
+  "{{ .mirrors.anaconda }}/cloud/ohmeta",
+]
+"https://conda.anaconda.org/omnia" = [
+  "{{ .mirrors.anaconda }}/cloud/omnia",
+]
+"https://conda.anaconda.org/Paddle" = [
+  "{{ .mirrors.anaconda }}/cloud/Paddle",
+]
+"https://conda.anaconda.org/peterjc123" = [
+  "{{ .mirrors.anaconda }}/cloud/peterjc123",
+]
+"https://conda.anaconda.org/plotly" = [
+  "{{ .mirrors.anaconda }}/cloud/plotly",
+]
+"https://conda.anaconda.org/psi4" = [
+  "{{ .mirrors.anaconda }}/cloud/psi4",
+]
+"https://conda.anaconda.org/pytorch" = [
+  "{{ .mirrors.anaconda }}/cloud/pytorch",
+]
+"https://conda.anaconda.org/pytorch3d" = [
+  "{{ .mirrors.anaconda }}/cloud/pytorch3d",
+]
+"https://conda.anaconda.org/pytorch-lts" = [
+  "{{ .mirrors.anaconda }}/cloud/pytorch-lts",
+]
+"https://conda.anaconda.org/pytorch-test" = [
+  "{{ .mirrors.anaconda }}/cloud/pytorch-test",
+]
+"https://conda.anaconda.org/pyviz" = [
+  "{{ .mirrors.anaconda }}/cloud/pyviz",
+]
+"https://conda.anaconda.org/qiime2" = [
+  "{{ .mirrors.anaconda }}/cloud/qiime2",
+]
+"https://conda.anaconda.org/rapidsai" = [
+  "{{ .mirrors.anaconda }}/cloud/rapidsai",
+]
+"https://conda.anaconda.org/rdkit" = [
+  "{{ .mirrors.anaconda }}/cloud/rdkit",
+]
+"https://conda.anaconda.org/simpleitk" = [
+  "{{ .mirrors.anaconda }}/cloud/simpleitk",
+]
+"https://conda.anaconda.org/stackless" = [
+  "{{ .mirrors.anaconda }}/cloud/stackless",
+]
+"https://conda.anaconda.org/ursky" = [
+  "{{ .mirrors.anaconda }}/cloud/ursky",
+]
+
+# SJTUG
+"https://conda.anaconda.org/atztogo" = [
+  "{{ .mirrors.anaconda }}/cloud/atztogo",
+]
+# "https://conda.anaconda.org/bioconda" = [
+#   "{{ .mirrors.anaconda }}/cloud/bioconda"
+# ]
+# "https://conda.anaconda.org/conda-forge" = [
+#   "{{ .mirrors.anaconda }}/cloud/conda-forge"
+# ]
+# "https://conda.anaconda.org/dglteam" = [
+#   "{{ .mirrors.anaconda }}/cloud/dglteam",
+# ]
+# "https://conda.anaconda.org/matsci" = [
+#   "{{ .mirrors.anaconda }}/cloud/matsci",
+# ]
+# "https://conda.anaconda.org/menpo" = [
+#   "{{ .mirrors.anaconda }}/cloud/menpo",
+# ]
+# "https://conda.anaconda.org/pytorch" = [
+#   "{{ .mirrors.anaconda }}/cloud/pytorch",
+# ]
+# "https://conda.anaconda.org/pytorch-lts" = [
+# "{{ .mirrors.anaconda }}/cloud/pytorch-lts"
+# ]
+# "https://conda.anaconda.org/pytorch-test" = [
+#   "{{ .mirrors.anaconda }}/cloud/pytorch-test"
+# ]
+"https://conda.anaconda.org/soumith" = [
+  "{{ .mirrors.anaconda }}/cloud/soumith",
+]
+"https://conda.anaconda.org/viscid-hub" = [
+  "{{ .mirrors.anaconda }}/cloud/viscid-hub",
+]
+
+# SUSTech anaconda-extra
+"https://conda.anaconda.org/nvidia" = [
+  "{{ .mirrors.anaconda_extra }}/cloud",
+]
+
+# ref: <https://pixi.prefix.dev/latest/reference/pixi_configuration/#mirrors-for-pypi-resolving-and-pypi-package-downloading>
+"https://pypi.org/simple" = [
+  "{{ .mirrors.pypi }}/simple",
+]
+"https://files.pythonhosted.org/packages" = [
+  "{{ .mirrors.pypi }}/packages",
+]
 
 [pypi-config]
 index-url = "{{ .mirrors.pypi }}/simple"

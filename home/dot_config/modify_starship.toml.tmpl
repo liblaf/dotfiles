@@ -10,8 +10,4 @@ yq eval-all '. as $item ireduce ({}; . * $item )' \
   --output-format toml \
   <(starship preset bracketed-segments) \
   <(starship preset nerd-font-symbols) \
-  <(
-    cat << 'EOF'
-{{ includeTemplate "starship.toml" }}
-EOF
-  )
+  "$CHEZMOI_SOURCE_DIR/.snippets/starship.toml"

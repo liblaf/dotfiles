@@ -1,4 +1,10 @@
-# -*- mode: properties; -*-
-# ref: <https://docs.npmjs.com/cli/v12/using-npm/config>
+# -*- mode: ini; -*-
+# ref: <https://pnpm.io/npmrc>
 
-registry = {{ .mirrors.npm }}/
+# Registry & Authentication Settings
+# ! `chsrc measure npm`
+# ! FASTEST mirror site: Upstream
+# registry = {{ .mirrors.npm }}/
+
+# Node.js Settings
+# node-mirror:release = {{ .mirrors.nodejs_release }}

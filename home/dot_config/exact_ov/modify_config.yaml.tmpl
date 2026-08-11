@@ -7,4 +7,4 @@ set -o pipefail
 # shellcheck disable=SC2016
 yq eval-all '. as $item ireduce ({}; . * $item )' \
   '/usr/share/doc/ov/ov-less.yaml' \
-  <(printf '%s' '{{ (includeTemplate "ov-config.yaml") }}')
+  "$CHEZMOI_SOURCE_DIR/.snippets/ov-config.yaml"

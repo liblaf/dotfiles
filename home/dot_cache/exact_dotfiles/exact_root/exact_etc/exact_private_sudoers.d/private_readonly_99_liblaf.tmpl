@@ -1,0 +1,7 @@
+Defaults env_keep += "EDITOR PAGER VISUAL"
+
+# ref: <https://wiki.archlinux.org/title/Proxy_server#Keep_proxy_through_sudo>
+Defaults env_keep += "*_proxy *_PROXY"
+
+# ref: <file:///etc/sudoers>
+{{ .chezmoi.username }} ALL=(ALL:ALL) NOPASSWD: ALL
