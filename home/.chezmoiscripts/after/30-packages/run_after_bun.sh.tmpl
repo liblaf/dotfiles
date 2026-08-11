@@ -1,0 +1,34 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ if .packages.npm }}
+
+declare -A installed=()
+while read -r pkg; do
+  installed["$pkg"]=1
+done < <(
+  (bun pm ls --global || true) |
+    awk '
+    {
+      gsub(/\x1b\[[0-9;]*m/, "")  # strip ANSI codes
+    }
+    /[├└]── / {
+      line = $0
+      sub(/^.*[├└]── /, "", line)            # remove tree prefix
+      sub(/@[0-9][^[:space:]]*$/, "", line)  # remove trailing @version
+      print line
+    }'
+)
+
+# {{ range $spec := .packages.npm }}
+# shellcheck disable=SC2016
+if [[ -z ${installed['{{ $spec }}']:-} ]]; then
+  # shellcheck disable=SC2016
+  bun install --global '{{ $spec }}'
+fi
+# {{ end }}
+
+# {{ end }} // if .packages.npm

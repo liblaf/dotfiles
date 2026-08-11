@@ -8,12 +8,5 @@ function proxy-update
     gsettings set org.gnome.system.proxy.https port '{{ .services.mihomo.mixed.port }}'
     gsettings set org.gnome.system.proxy.socks host 127.0.0.1
     gsettings set org.gnome.system.proxy.socks port '{{ .services.mihomo.mixed.port }}'
-    set --local parts (string split ',' -- "{{ .no_proxy }}")
-    set --local quoted
-    for part in $parts
-        set --local part (string trim -- $part)
-        set --append quoted "'$part'"
-    end
-    set --local joined (string join ', ' -- $quoted)
-    gsettings set org.gnome.system.proxy ignore-hosts "[$joined]"
+    gsettings reset org.gnome.system.proxy ignore-hosts
 end

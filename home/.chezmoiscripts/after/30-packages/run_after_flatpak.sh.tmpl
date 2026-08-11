@@ -1,0 +1,14 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+sudo flatpak remote-modify flathub --url='{{ .mirrors.flathub }}'
+
+# {{ if .packages.flatpak }}
+install=(
+  # {{ "\n" }} {{ join "\n" .packages.flatpak }}
+)
+sudo flatpak install --assumeyes --or-update "${install[@]}"
+# {{ end }}

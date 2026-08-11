@@ -1,0 +1,11 @@
+packages:
+  flatpak:
+    - cn.feishu.Feishu
+    - com.github.tchx84.Flatseal
+    - com.pot_app.pot
+    - com.tencent.WeChat
+    - com.tencent.wemeet
+    - io.typora.Typora
+    - net.meshlab.MeshLab
+    - org.flameshot.Flameshot
+    - org.paraview.ParaView

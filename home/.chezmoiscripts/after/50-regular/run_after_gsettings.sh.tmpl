@@ -1,0 +1,37 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ include ".snippets/has-nvidia.sh" }}
+
+dconf load / < "$CHEZMOI_SOURCE_DIR/.snippets/gnome.dconf"
+
+function default-network-interface() {
+  nmcli --fields 'DEVICE,TYPE,STATE' --terse device status |
+    awk -F ':' '$3 == "connected" && ($2 == "ethernet" || $2 == "wifi") { print $1; exit }'
+}
+
+function gvariant-strv() {
+  python3 - "$@" << 'PY'
+import sys
+print(sys.argv[1:])
+PY
+}
+
+hot_sensors=(
+  '__temperature_max__'
+  '_memory_usage_'
+  '_processor_usage_'
+  '__network-rx_max__'
+  '__network-tx_max__'
+  '_network_public_ip_'
+)
+if has-nvidia; then
+  hot_sensors+=(
+    '_gpu#1_utilization_'
+  )
+fi
+
+gsettings set org.gnome.shell.extensions.vitals hot-sensors "$(gvariant-strv "${hot_sensors[@]}")"
