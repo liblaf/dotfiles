@@ -16,6 +16,7 @@ packages:
     - bun
     - caddy
     - ccache
+    - chatgpt-desktop-bin
     - chezmoi
     - chsrc-bin
     - cmake
@@ -100,7 +101,6 @@ packages:
     - obs-studio
     - obsidian
     - openai-codex
-    - openai-codex-desktop
     - openbsd-netcat
     - otf-latinmodern-math
     - otf-monaspace-nerd
