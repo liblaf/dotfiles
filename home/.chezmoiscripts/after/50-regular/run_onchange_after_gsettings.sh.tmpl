@@ -6,8 +6,8 @@ set -o pipefail
 
 # {{ include ".snippets/has-nvidia.sh" }}
 
-# {{ include ".snippets/gnome.dconf" | sha256sum }}
-dconf load / < "$CHEZMOI_SOURCE_DIR/.snippets/gnome.dconf"
+# {{ include (joinPath .dirs.snippets "gnome.dconf") | sha256sum }}
+dconf load / < '{{ .dirs.snippets }}/gnome.dconf'
 
 gsettings reset org.gnome.shell app-picker-layout
 

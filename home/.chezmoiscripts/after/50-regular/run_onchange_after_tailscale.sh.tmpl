@@ -13,7 +13,7 @@ if [[ ! /etc/resolv.conf -ef /run/systemd/resolve/stub-resolv.conf ]]; then
   sudo systemctl try-restart tailscaled.service
 fi
 
-sudo systemctl enable --now tailscaled.service
+sudo systemctl --now enable tailscaled.service
 
 backend_state="$(
   tailscale status --json |

@@ -11,7 +11,7 @@ if systemd-detect-virt --quiet; then exit; fi
 # ref: <https://wiki.archlinux.org/title/Libvirt#Using_libvirt_group>
 group-add "libvirt"
 
-sudo systemctl enable --now libvirtd.service
+sudo systemctl --now enable libvirtd.service
 
 # Networking
 sudo virsh net-autostart default

@@ -13,5 +13,5 @@ if [[ -f "$profile_path/extensions/zoteroAddons@ytshen.com.xpi" ]]; then exit; f
 
 mkdir --parents --verbose "$profile_path/extensions/"
 cp --archive --no-target-directory --update --verbose \
-  "$HOME/.cache/dotfiles/external/zotero-addons.xpi" \
+  '{{ .dirs.external }}/zotero-addons.xpi' \
   "$profile_path/extensions/zoteroAddons@ytshen.com.xpi"

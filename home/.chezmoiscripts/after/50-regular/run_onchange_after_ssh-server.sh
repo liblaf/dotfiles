@@ -3,6 +3,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-sudo systemctl enable --now sshd.service
+sudo systemctl --now enable sshd.service
 # ref: <https://wiki.archlinux.org/title/GNOME/Keyring#Setup_gcr>
 systemctl --user --now enable gcr-ssh-agent.socket

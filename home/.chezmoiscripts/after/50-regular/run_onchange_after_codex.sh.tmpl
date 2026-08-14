@@ -3,9 +3,10 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-gnome-extensions install --force "$HOME/.cache/dotfiles/external/codex-meter@slobbe.github.io.zip"
+# {{ include (joinPath .dirs.external "codex-meter@slobbe.github.io.zip") | sha256sum }}
+gnome-extensions install --force '{{ .dirs.external }}/codex-meter@slobbe.github.io.zip'
 
 gext enable 'codex-meter@slobbe.github.io'
 
-# {{ include ".snippets/codex-meter.dconf" | sha256sum }}
-dconf load / < "$CHEZMOI_SOURCE_DIR/.snippets/codex-meter.dconf"
+# {{ include (joinPath .dirs.snippets "codex-meter.dconf") | sha256sum }}
+dconf load / < "{{ .dirs.snippets }}/codex-meter.dconf"

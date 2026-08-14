@@ -6,5 +6,5 @@ set -o pipefail
 
 if [[ "$(hostname)" != "PC07" ]]; then exit; fi
 
-sudo systemctl enable --now "$(systemd-escape --suffix='automount' --path '/mnt/PC07sda1')"
-sudo systemctl enable --now xfs_scrub_all.timer
+sudo systemctl --now enable "$(systemd-escape --suffix='automount' --path '/mnt/PC07sda1')"
+sudo systemctl --now enable xfs_scrub_all.timer

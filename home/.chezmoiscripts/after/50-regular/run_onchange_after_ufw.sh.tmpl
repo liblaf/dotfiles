@@ -32,4 +32,4 @@ sudo find /etc/ufw -name '*.rules' -exec chmod --changes 'u=rw,g=r,o=' {} \;
 
 sudo ufw --force enable
 sudo ufw status verbose
-sudo systemctl enable --now ufw.service
+sudo systemctl --now enable ufw.service

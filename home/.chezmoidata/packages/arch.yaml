@@ -128,7 +128,6 @@ packages:
     - python-cachetools
     - python-chex
     - python-cpplint
-    - python-cupy
     - python-cytoolz
     - python-einops
     - python-etils
@@ -151,7 +150,6 @@ packages:
     - python-networkx
     - python-nox
     - python-numpy
-    - python-nvidia-ml-py
     - python-optax
     - python-pandas
     - python-passlib
@@ -180,7 +178,6 @@ packages:
     - python-tenacity
     - python-tomlkit
     - python-toolz
-    - python-torchvision-cuda
     - python-tqdm
     - python-treescope
     - python-trimesh

@@ -14,10 +14,10 @@ if [[ $fstype != "btrfs" ]]; then exit; fi
 sudo snapper set-config TIMELINE_CREATE='yes'
 
 # ref: <https://wiki.archlinux.org/title/Btrfs#Start_with_a_service_or_timer>
-sudo systemctl enable --now "btrfs-scrub@$(systemd-escape --path /).timer"
+sudo systemctl --now enable "$(systemd-escape --template='btrfs-scrub@.timer' --path '/')"
 
 # snapper
-sudo systemctl enable --now snapper-backup.timer
-sudo systemctl enable --now snapper-boot.timer
-sudo systemctl enable --now snapper-cleanup.timer
-sudo systemctl enable --now snapper-timeline.timer
+sudo systemctl --now enable snapper-backup.timer
+sudo systemctl --now enable snapper-boot.timer
+sudo systemctl --now enable snapper-cleanup.timer
+sudo systemctl --now enable snapper-timeline.timer

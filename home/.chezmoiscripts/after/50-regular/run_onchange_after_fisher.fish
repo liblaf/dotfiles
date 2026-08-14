@@ -1,16 +1,24 @@
 #!/usr/bin/fish
 
-set --append PLUGINS \
-    gazorby/fish-abbreviation-tips \
+set --append --local plugins \
     gitlab.com/lusiadas/insist
 
-set INSTALLED (fisher list)
-for plugin in $PLUGINS
-    if not contains -- $plugin $INSTALLED
-        set --append TO_INSTALL $plugin
-    end
+set --local plugins_to_remove (
+    comm -2 -3 \
+        (fisher list | sort | psub) \
+        (printf '%s\n' $plugins | sort | psub)
+)
+
+if set --query plugins_to_remove[1]
+    fisher remove $plugins_to_remove
 end
 
-if test (count $TO_INSTALL) -gt 0
-    fisher install $TO_INSTALL
+set --local plugins_to_install (
+    comm -2 -3 \
+        (printf '%s\n' $plugins | sort | psub) \
+        (fisher list | sort | psub)
+)
+
+if set --query plugins_to_install[1]
+    fisher install $plugins_to_install
 end

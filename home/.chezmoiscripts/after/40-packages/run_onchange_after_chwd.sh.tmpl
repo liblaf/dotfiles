@@ -1,0 +1,17 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ include ".snippets/has-nvidia.sh" }}
+
+sudo chwd --autoconfigure --ai_sdk
+
+if has-nvidia; then
+  paru --sync --noconfirm --needed - << 'EOF'
+python-cupy
+python-nvidia-ml-py
+python-torchvision-cuda
+EOF
+  uv tool install nvitop
+fi

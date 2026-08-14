@@ -6,9 +6,10 @@ set -o pipefail
 
 if systemd-detect-virt --quiet; then exit; fi
 
-sudo systemctl enable --now netdata.service
+sudo systemctl --now enable netdata.service
 
-sudo "$HOME/.cache/dotfiles/external/netdata-kickstart.sh" \
+# {{ include (joinPath .dirs.external "netdata-kickstart.sh") | sha256sum }}
+sudo '{{ .dirs.external }}/netdata-kickstart.sh' \
   --non-interactive --stable-channel --disable-telemetry \
   --claim-token '{{ (rbwFields "Netdata").CLAIM_TOKEN.value }}' \
   --claim-rooms '{{ (rbwFields "Netdata").ROOM_ID.value }}' \

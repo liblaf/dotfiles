@@ -20,7 +20,7 @@ function main() {
   yq eval '.mixed-port=env(port)' "$tmpfile" --inplace
   mihomo -f "$tmpfile" -t # test configuration
   sudo install -D --mode='u=rw,go=r' --no-target-directory --verbose "$tmpfile" '/etc/mihomo/config.yaml'
-  sudo systemctl enable --now mihomo.service
+  sudo systemctl --now enable mihomo.service
   sudo systemctl restart mihomo.service
   rm --force "$tmpfile"
 }

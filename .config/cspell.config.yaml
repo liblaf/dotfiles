@@ -77,7 +77,6 @@ words:
   - forgejo
   - freeipmi
   - fwupdmgr
-  - gazorby
   - gcampax
   - gcan
   - gdsm
@@ -126,6 +125,7 @@ words:
   - lsign
   - lsio
   - lusiadas
+  - magick
   - matthewpi
   - mattpocock
   - mechatroner
@@ -181,6 +181,7 @@ words:
   - plotly
   - prek
   - prio
+  - psub
   - pueue
   - pueued
   - puid
