@@ -4,6 +4,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
+# {{ includeTemplate "exact_srv/openlist/docker-compose.yaml.tmpl" . | sha256sum }}
+
 # {{ include ".snippets/docker.sh" }}
 # {{ includeTemplate "service.sh" . }}
 
