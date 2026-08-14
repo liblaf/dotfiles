@@ -93,27 +93,27 @@ default-folder-viewer='list-view'
 maximized=true
 
 [org/gnome/settings-daemon/plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/pot-ocr-recognize/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/pot-ocr-translate/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/pot-translate/']
 
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot]
 binding='<Shift><Super>s'
 command='flameshot gui'
 name='Flameshot'
 
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
-binding='<Super>t'
-command='pot-translate.sh'
-name='Pot (Translate)'
-
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/pot-ocr-recognize]
 binding='<Super>r'
 command='pot-ocr-recognize.sh'
 name='Pot (OCR Recognize)'
 
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/pot-ocr-translate]
 binding='<Super>o'
 command='pot-ocr-translate.sh'
 name='Pot (OCR Translate)'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/pot-translate]
+binding='<Super>t'
+command='pot-translate.sh'
+name='Pot (Translate)'
 
 [org/gnome/settings-daemon/plugins/power]
 power-button-action='suspend'

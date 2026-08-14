@@ -1,5 +1,6 @@
 #!/bin/bash
 # -*- mode: sh; -*-
+# {{ include ".snippets/gnome.dconf" | sha256sum }}
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -8,10 +9,12 @@ set -o pipefail
 
 dconf load / < "$CHEZMOI_SOURCE_DIR/.snippets/gnome.dconf"
 
-function default-network-interface() {
-  nmcli --fields 'DEVICE,TYPE,STATE' --terse device status |
-    awk -F ':' '$3 == "connected" && ($2 == "ethernet" || $2 == "wifi") { print $1; exit }'
-}
+gsettings reset org.gnome.shell app-picker-layout
+
+# function default-network-interface() {
+#   nmcli --fields 'DEVICE,TYPE,STATE' --terse device status |
+#     awk -F ':' '$3 == "connected" && ($2 == "ethernet" || $2 == "wifi") { print $1; exit }'
+# }
 
 function gvariant-strv() {
   python3 - "$@" << 'PY'
