@@ -1,0 +1,5 @@
+# -*- mode: properties; -*-
+# ref: <https://github.com/koalaman/shellcheck/wiki/Directive#shellcheckrc-file>
+
+disable=SC1091
+external-sources=true

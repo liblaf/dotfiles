@@ -1,8 +1,0 @@
-arch:
-  - biber
-  - texlive
-  - texlive-langchinese
-  - texlive-langenglish
-  - perl-file-homedir # < latexindent < texlive-binextra < group:texlive
-  - perl-yaml-tiny # < latexindent < texlive-binextra < group:texlive
-  - python-pygments # < minted < texlive

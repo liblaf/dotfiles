@@ -1,0 +1,64 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# ref: <https://thu.services/services/#token>
+# rclone config create name type [key value]* [flags]
+rclone config create DATA41 smb \
+  host='{{ (rbwFields "DATA41").IP.value }}' \
+  user='{{ (rbw "DATA41").data.username }}' \
+  pass='{{ (rbw "DATA41").data.password }}'
+rclone config create GJM-AList webdav \
+  url='{{ (index (rbw "GJMs AList").data.uris 0).uri }}/dav/' \
+  vendor='other' \
+  user='{{ (rbw "GJMs AList").data.username }}' \
+  pass='{{ (rbw "GJMs AList").data.password }}'
+rclone config create seafile seafile \
+  url='https://cloud.tsinghua.edu.cn' \
+  user='{{ (rbw "清华大学云盘").data.username }}' \
+  auth_token='{{ (rbwFields "清华大学云盘").token.value }}'
+
+function rclone-automount() {
+  local -r what="$1"
+  local -r where="$2"
+
+  local -r automount_unit="$(systemd-escape --suffix='automount' --path "$where")"
+  local -r mount_unit="$(systemd-escape --suffix='mount' --path "$where")"
+  local -r tmpdir="$(mktemp --directory)"
+
+  cat << EOF > "$tmpdir/$automount_unit"
+# -*- mode: ini; -*-
+
+[Install]
+WantedBy = multi-user.target
+
+[Automount]
+Where = $where
+TimeoutIdleSec = 10min
+EOF
+
+  cat << EOF > "$tmpdir/$mount_unit"
+# -*- mode: ini; -*-
+
+[Mount]
+What = $what
+Where = $where
+Type = rclone
+# rclone is not happy with \`noatime\`
+Options = nodev,_netdev,nosuid,rw,allow-other,default-permissions,gid=$(id --group),uid=$(id --user),umask=077,vfs-cache-max-size=10G,vfs-cache-mode=full,config='$HOME/.config/rclone/rclone.conf'
+EOF
+
+  systemd-analyze verify "$tmpdir/$automount_unit" "$tmpdir/$mount_unit"
+  sudo install --mode='u=rw,go=r' --target-directory='/etc/systemd/system/' --verbose \
+    "$tmpdir/$automount_unit" \
+    "$tmpdir/$mount_unit"
+  rm --force --recursive "$tmpdir"
+
+  sudo systemctl daemon-reload
+  sudo systemctl --now enable "$(systemd-escape --suffix='automount' --path "$where")"
+}
+
+rclone-automount "GJM-AList:" "$HOME/mnt/GJM-AList"
+rclone-automount "seafile:" "$HOME/mnt/seafile"

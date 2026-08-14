@@ -1,9 +1,0 @@
-arch:
-  - arch4edu-keyring
-  - archlinuxcn-keyring
-  - cachy-update
-  - downgrade
-  - pacman-contrib
-  - pacutils
-  - paru
-  - pkgstats

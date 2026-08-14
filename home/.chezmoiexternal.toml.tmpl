@@ -1,0 +1,74 @@
+# -*- mode: toml; -*-
+
+[".cache/dotfiles/external/Wrap.ico"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://docs.faceform.com/Wrap/_static/Wrap.ico"
+
+[".cache/dotfiles/external/Wrap.tar.xz"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://customer.faceform.com/customer/dl/Wrap/Linux"
+
+[".cache/dotfiles/external/codex-meter@slobbe.github.io.zip"]
+refreshPeriod = "168h"
+type = "file"
+url = '{{ (gitHubLatestReleaseAssetURL "slobbe/codex-meter" "codex-meter@slobbe.github.io-*.zip") }}'
+
+[".cache/dotfiles/external/netdata-kickstart.sh"]
+executable = true
+refreshPeriod = "168h"
+type = "file"
+url = "https://get.netdata.cloud/kickstart.sh"
+
+[".cache/dotfiles/external/zotero-addons.xpi"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://github.com/syt2/zotero-addons/releases/latest/download/zotero-addons.xpi"
+
+[".config/fastfetch/config.jsonc"]
+refreshPeriod = "168h"
+type = "file"
+urls = [
+  "file:///usr/share/fastfetch/presets/examples/10.jsonc",
+  "https://cdn.jsdelivr.net/gh/fastfetch-cli/fastfetch/presets/examples/10.jsonc"
+]
+
+[".config/git-cliff/cliff.toml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://cdn.jsdelivr.net/gh/liblaf/copier-release/cliff.toml"
+
+[".config/ruff/.ruff.toml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://cdn.jsdelivr.net/gh/liblaf/copier-python/template/.config/linters/.ruff.toml"
+
+[".config/rumdl/rumdl.toml"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://cdn.jsdelivr.net/gh/liblaf/copier-shared/.config/rumdl.toml"
+
+[".local/bin/ddns"]
+executable = true
+path = "ddns"
+refreshPeriod = "168h"
+type = "archive-file"
+url = '{{ (gitHubLatestReleaseAssetURL "liblaf/ddns" "ddns-linux-amd64.tar.gz") }}'
+
+["srv/jellyfin/fonts/fallback/NotoSansCJKjp-Medium.woff2"]
+path = "NotoSansCJKjp-hinted-standard/NotoSansCJKjp-Medium.woff2"
+refreshPeriod = "168h"
+type = "archive-file"
+url = "https://raw.githubusercontent.com/CodePlayer/webfont-noto/refs/heads/master/release/NotoSansCJKjp-hinted-standard.zip"
+
+["srv/jellyfin/fonts/fallback/NotoSansCJKsc-Medium.woff2"]
+path = "NotoSansCJKsc-hinted-standard/NotoSansCJKsc-Medium.woff2"
+refreshPeriod = "168h"
+type = "archive-file"
+url = "https://raw.githubusercontent.com/CodePlayer/webfont-noto/refs/heads/master/release/NotoSansCJKsc-hinted-standard.zip"
+
+["srv/jellyfin/fonts/system/NotoSansCJK-VF.otf.ttc"]
+refreshPeriod = "168h"
+type = "file"
+url = "https://raw.githubusercontent.com/notofonts/noto-cjk/refs/heads/main/Sans/Variable/OTC/NotoSansCJK-VF.otf.ttc"

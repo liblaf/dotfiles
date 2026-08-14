@@ -1,0 +1,18 @@
+{
+  "ipv6": true,
+  "proxies": {
+    "http-proxy": "http://127.0.0.1:{{ .services.mihomo.mixed.port }}",
+    "https-proxy": "http://127.0.0.1:{{ .services.mihomo.mixed.port }}",
+    "no-proxy": "localhost,127.0.0.0/8,::1"
+  },
+  "registry-mirrors": [
+    "https://docker.m.daocloud.io",
+    "https://docker.1panel.live"
+  ],
+  "runtimes": {
+    "nvidia": {
+      "args": [],
+      "path": "nvidia-container-runtime"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+readarray -t packages_to_add < <(
+  comm -2 -3 \
+    <(
+      sort << 'EOF'
+{{ join "\n" .packages.npm }}
+EOF
+    ) \
+    <(
+      (bun pm ls --global || true) |
+        awk '
+        {
+          gsub(/\x1b\[[0-9;]*m/, "")  # strip ANSI codes
+        }
+        /[├└]── / {
+          line = $2
+          sub(/@[^@]+$/, "", line)  # remove trailing @version
+          print line
+        }' | sort
+    )
+)
+
+for package in "${packages_to_add[@]}"; do
+  bun add --global "$package"
+done

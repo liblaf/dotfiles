@@ -1,0 +1,28 @@
+# -*- mode: toml; -*-
+#:schema https://mise.jdx.dev/schema/mise.json
+
+[settings]
+experimental = true
+trusted_config_paths = ["~/.local/share/chezmoi/", "~/Projects/liblaf/"]
+
+[settings.node]
+mirror_url = "{{ .mirrors.nodejs_release }}/"
+
+[settings.npm]
+package_manager = "bun"
+
+[settings.pipx]
+registry_url = "{{ .mirrors.pypi }}/simple/{}"
+
+[settings.python]
+uv_venv_auto = "create|source"
+uv_venv_create_args = ["--prompt", ".", "--system-site-packages"]
+
+[settings.status]
+missing_tools = "always"
+show_env = true
+show_tools = true
+truncate = false
+
+[settings.task]
+show_full_cmd = true

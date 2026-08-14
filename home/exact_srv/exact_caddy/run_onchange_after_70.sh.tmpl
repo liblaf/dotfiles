@@ -1,0 +1,21 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ include "exact_srv/exact_caddy/Caddyfile" | sha256sum }}
+# {{ include "exact_srv/exact_caddy/docker-compose.yaml" | sha256sum }}
+# {{ includeTemplate "exact_srv/exact_caddy/private_vars.env.tmpl" . | sha256sum }}
+
+# {{ include ".snippets/docker.sh" }}
+
+# {{ if .services.caddy.enable }}
+
+docker compose up --detach --remove-orphans
+
+# {{ else }}
+
+docker compose down
+
+# {{ end }}

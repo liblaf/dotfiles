@@ -1,0 +1,11 @@
+packages:
+  npm:
+    - "@bitwarden/cli"
+    - "@liblaf/cspell-init"
+    - cspell
+    - gh-pages
+    - mega-linter-runner
+    - oxfmt
+    - oxlint
+    - setup-npm-trusted-publish
+    - skills

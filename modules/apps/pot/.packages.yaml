@@ -1,6 +1,0 @@
-arch:
-  - tesseract-data-chi_sim # < com.pot_app.pot
-  - tesseract-data-eng # < com.pot_app.pot
-
-flatpak:
-  - com.pot_app.pot

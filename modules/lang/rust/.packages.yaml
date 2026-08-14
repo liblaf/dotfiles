@@ -1,4 +1,0 @@
-arch:
-  - cross
-  - rustup
-  - sccache

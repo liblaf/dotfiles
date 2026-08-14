@@ -3,4 +3,4 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-chezmoi init 'liblaf' --apply
+ya pkg upgrade

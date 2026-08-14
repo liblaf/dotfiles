@@ -1,5 +1,0 @@
-arch:
-  - paraview
-
-flatpak:
-  - org.paraview.ParaView

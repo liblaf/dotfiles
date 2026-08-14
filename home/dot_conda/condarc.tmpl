@@ -1,0 +1,68 @@
+# -*- mode: yaml; -*-
+# ref: <https://help.mirrors.cernet.edu.cn/anaconda/>
+# ref: <https://help.mirrors.cernet.edu.cn/anaconda-extra/>
+
+channels:
+  - defaults
+
+show_channel_urls: true
+
+default_channels:
+  - "{{ .mirrors.anaconda }}/pkgs/main"
+  - "{{ .mirrors.anaconda }}/pkgs/r"
+  - "{{ .mirrors.anaconda }}/pkgs/msys2"
+
+custom_channels:
+  # TUNA 等站
+  auto: "{{ .mirrors.anaconda }}/cloud"
+  biobakery: "{{ .mirrors.anaconda }}/cloud"
+  bioconda: "{{ .mirrors.anaconda }}/cloud"
+  c4aarch64: "{{ .mirrors.anaconda }}/cloud"
+  caffe2: "{{ .mirrors.anaconda }}/cloud"
+  conda-forge: "{{ .mirrors.anaconda }}/cloud"
+  deepmodeling: "{{ .mirrors.anaconda }}/cloud"
+  dglteam: "{{ .mirrors.anaconda }}/cloud"
+  fastai: "{{ .mirrors.anaconda }}/cloud"
+  fermi: "{{ .mirrors.anaconda }}/cloud"
+  idaholab: "{{ .mirrors.anaconda }}/cloud"
+  matsci: "{{ .mirrors.anaconda }}/cloud"
+  menpo: "{{ .mirrors.anaconda }}/cloud"
+  MindSpore: "{{ .mirrors.anaconda }}/cloud"
+  mordred-descriptor: "{{ .mirrors.anaconda }}/cloud"
+  numba: "{{ .mirrors.anaconda }}/cloud"
+  ohmeta: "{{ .mirrors.anaconda }}/cloud"
+  omnia: "{{ .mirrors.anaconda }}/cloud"
+  Paddle: "{{ .mirrors.anaconda }}/cloud"
+  peterjc123: "{{ .mirrors.anaconda }}/cloud"
+  plotly: "{{ .mirrors.anaconda }}/cloud"
+  psi4: "{{ .mirrors.anaconda }}/cloud"
+  pytorch: "{{ .mirrors.anaconda }}/cloud"
+  pytorch3d: "{{ .mirrors.anaconda }}/cloud"
+  pytorch-lts: "{{ .mirrors.anaconda }}/cloud"
+  pytorch-test: "{{ .mirrors.anaconda }}/cloud"
+  pyviz: "{{ .mirrors.anaconda }}/cloud"
+  qiime2: "{{ .mirrors.anaconda }}/cloud"
+  rapidsai: "{{ .mirrors.anaconda }}/cloud"
+  rdkit: "{{ .mirrors.anaconda }}/cloud"
+  simpleitk: "{{ .mirrors.anaconda }}/cloud"
+  stackless: "{{ .mirrors.anaconda }}/cloud"
+  ursky: "{{ .mirrors.anaconda }}/cloud"
+
+  # SJTUG
+  atztogo: "{{ .mirrors.anaconda}}/cloud"
+  # bioconda: "{{ .mirrors.anaconda}}/cloud"
+  # conda-forge: "{{ .mirrors.anaconda}}/cloud"
+  # dglteam: "{{ .mirrors.anaconda}}/cloud"
+  # matsci: "{{ .mirrors.anaconda}}/cloud"
+  # menpo: "{{ .mirrors.anaconda}}/cloud"
+  # pytorch: "{{ .mirrors.anaconda}}/cloud"
+  # pytorch-lts: "{{ .mirrors.anaconda}}/cloud"
+  # pytorch-test: "{{ .mirrors.anaconda}}/cloud"
+  soumith: "{{ .mirrors.anaconda}}/cloud"
+  viscid-hub: "{{ .mirrors.anaconda}}/cloud"
+
+  # SUSTech anaconda-extra
+  nvidia: "{{ .mirrors.anaconda_extra }}/cloud"
+
+# ref: <https://starship.rs/config/#conda>
+changeps1: false

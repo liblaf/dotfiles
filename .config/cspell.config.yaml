@@ -13,7 +13,9 @@ ignoreRandomStrings: true
 maxFileSize: 32KB
 useGitignore: true
 words:
+  - acpi
   - adwaita
+  - alerta
   - aliyun
   - alpm
   - anyio
@@ -24,7 +26,6 @@ words:
   - bingwallpaper
   - bioconda
   - bmalehorn
-  - btop
   - btrfs
   - buildenv
   - cachy
@@ -32,6 +33,7 @@ words:
   - caffe
   - cascadia
   - caskaydia
+  - ccbin
   - changeps
   - chex
   - chouzz
@@ -48,6 +50,7 @@ words:
   - cupy
   - cytoolz
   - dasel
+  - dbus
   - dconf
   - ddcutil
   - ddns
@@ -55,9 +58,9 @@ words:
   - dglteam
   - difft
   - difftastic
+  - direnv
   - distcc
   - dmabuf
-  - dnsmasq
   - dnssec
   - dnut
   - dotenv
@@ -73,18 +76,16 @@ words:
   - fnox
   - forgejo
   - freeipmi
-  - fstype
-  - fwupd
   - fwupdmgr
   - gazorby
   - gcampax
   - gcan
   - gdsm
   - gerrnperl
+  - getid
   - gext
   - ghostty
   - glab
-  - gles
   - gloga
   - goauthing
   - gotmpl
@@ -112,11 +113,11 @@ words:
   - kohler
   - konsole
   - lessutfchardef
+  - libalpm
   - liblaf
   - libva
   - libvirtd
   - libxcrypt
-  - limine
   - lkrms
   - lldb
   - lnav
@@ -137,6 +138,8 @@ words:
   - mkinitcpio
   - msys
   - multicd
+  - myidbot
+  - netdatacli
   - netdev
   - networkx
   - newgrp
@@ -153,9 +156,11 @@ words:
   - nopasswd
   - nosuid
   - noto
+  - ntfy
   - ntsc
   - numba
   - numpy
+  - nvcc
   - nvenc
   - nvitop
   - nvml
@@ -163,9 +168,9 @@ words:
   - oplist
   - optax
   - orhun
+  - otrust
   - oxfmt
   - oxlint
-  - pacutils
   - paru
   - peterjc
   - pgid
@@ -174,7 +179,6 @@ words:
   - pkief
   - platformdirs
   - plotly
-  - poppler
   - prek
   - prio
   - pueue
@@ -205,10 +209,13 @@ words:
   - rvben
   - sccache
   - scipy
+  - setaf
   - sharzyl
   - shfmt
   - simpleitk
+  - sjtug
   - slobbe
+  - smstools
   - socksio
   - somo
   - soumith
@@ -234,12 +241,11 @@ words:
   - trimesh
   - twemoji
   - uefi
+  - unconfigured
   - ungrabbed
   - unhinted
   - ursky
-  - usbutils
   - usernamehw
-  - vdpau
   - vdpauinfo
   - venv
   - vercel
@@ -254,7 +260,6 @@ words:
   - webui
   - wemeet
   - xdist
-  - xiangz
   - xmake
   - yazi
   - yzhang

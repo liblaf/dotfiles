@@ -1,0 +1,13 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# shellcheck disable=SC2016
+yq eval-all '. as $item ireduce ({}; . * $item )' \
+  --input-format toml \
+  --output-format toml \
+  <(starship preset bracketed-segments) \
+  <(starship preset nerd-font-symbols) \
+  "$CHEZMOI_SOURCE_DIR/.snippets/starship.toml"

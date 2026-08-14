@@ -1,0 +1,11 @@
+# ref: <https://copier.readthedocs.io/en/stable/settings/>
+
+defaults:
+  author_name: liblaf
+  author_email: 30631553+liblaf@users.noreply.github.com
+  github_user: liblaf
+  gitlab_user: liblaf
+
+trust:
+  - ~/Projects/liblaf/
+  - gh:liblaf/

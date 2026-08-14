@@ -1,0 +1,53 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ include ".snippets/group-add.sh" }}
+
+sudo cp --verbose "$CHEZMOI_SOURCE_DIR/dot_cache/dotfiles/exact_root/exact_etc/pacman.conf" '/etc/pacman.conf'
+sudo install --verbose \
+  "$CHEZMOI_SOURCE_DIR/dot_cache/dotfiles/exact_root/exact_usr/exact_local/exact_bin/executable_arch-rate-mirrors.sh" \
+  '/usr/local/bin/arch-rate-mirrors.sh'
+
+function setup-mirrors() {
+  local -r repo="$1"
+  local -r mirrorlist="/etc/pacman.d/$repo-mirrorlist"
+  if [[ -f $mirrorlist ]]; then return; fi
+  arch-rate-mirrors.sh "$repo"
+}
+setup-mirrors 'arch4edu'
+setup-mirrors 'archlinuxcn'
+
+sudo pacman-key --init
+
+# ref: <https://github.com/arch4edu/arch4edu/wiki/Add-arch4edu-to-your-Archlinux>
+sudo pacman-key --recv-keys 7931B6D628C8D3BA
+sudo pacman-key --finger 7931B6D628C8D3BA
+sudo pacman-key --lsign-key 7931B6D628C8D3BA
+
+if pacman --query --explicit --quiet |
+  grep --quiet '^lib32-'; then
+  pacman --query --explicit --quiet |
+    grep '^lib32-' |
+    sudo pacman --remove --noconfirm --recursive -
+fi
+
+sudo pacman --sync --noconfirm --needed --sysupgrade --refresh - << 'EOF'
+arch4edu-keyring
+archlinuxcn-keyring
+paru
+EOF
+
+# Force the `ttf-ms-win11-auto` UDisks probe to fail so its PKGBUILD uses the full-ISO
+# download path. The HTTPDirFS path otherwise creates a zero-sized loop device that
+# UDisks cannot mount. This only redirects D-Bus for this script and its child
+# processes; it does not change the system bus itself.
+export DBUS_SYSTEM_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/nonexistence"
+
+# {{ if .packages.arch }}
+paru --sync --noconfirm --needed - << 'EOF'
+{{ join "\n" .packages.arch }}
+EOF
+# {{ end }} // if .packages.arch

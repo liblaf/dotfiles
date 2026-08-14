@@ -1,0 +1,8 @@
+[github]
+refreshPeriod = "168h"
+
+[hooks.read-source-state.pre]
+script = "{{ .chezmoi.workingTree }}/hooks/read-source-state.pre.sh"
+
+[interpreters.fish]
+command = "fish"
