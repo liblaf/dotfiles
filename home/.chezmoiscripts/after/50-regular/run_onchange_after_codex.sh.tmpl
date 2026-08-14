@@ -1,5 +1,4 @@
 #!/bin/bash
-# {{ include ".snippets/codex-meter.dconf" | sha256sum }}
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -8,4 +7,5 @@ gnome-extensions install --force "$HOME/.cache/dotfiles/external/codex-meter@slo
 
 gext enable 'codex-meter@slobbe.github.io'
 
+# {{ include ".snippets/codex-meter.dconf" | sha256sum }}
 dconf load / < "$CHEZMOI_SOURCE_DIR/.snippets/codex-meter.dconf"
