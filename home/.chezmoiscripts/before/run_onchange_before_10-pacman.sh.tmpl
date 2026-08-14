@@ -27,16 +27,18 @@ sudo pacman-key --recv-keys 7931B6D628C8D3BA
 sudo pacman-key --finger 7931B6D628C8D3BA
 sudo pacman-key --lsign-key 7931B6D628C8D3BA
 
-# remove `lib32-*` packages
-installed="$(pacman --query --explicit --quiet)"
-if echo "$installed" | grep --quiet '^lib32-'; then
-  readarray -t packages < <(echo "$installed" | grep '^lib32-')
-  sudo pacman --remove --noconfirm --nosave --recursive "${packages[@]}"
+if pacman --query --explicit --quiet |
+  grep --quiet '^lib32-'; then
+  pacman --query --explicit --quiet |
+    grep '^lib32-' |
+    sudo pacman --remove --noconfirm --recursive -
 fi
 
-sudo pacman --sync --noconfirm --refresh
-
-sudo pacman --sync --noconfirm --needed arch4edu-keyring archlinuxcn-keyring paru
+sudo pacman --sync --noconfirm --needed --sysupgrade --refresh - << 'EOF'
+arch4edu-keyring
+archlinuxcn-keyring
+paru
+EOF
 
 # Force the `ttf-ms-win11-auto` UDisks probe to fail so its PKGBUILD uses the full-ISO
 # download path. The HTTPDirFS path otherwise creates a zero-sized loop device that
