@@ -45,8 +45,7 @@ sudo pacman --sync --noconfirm --needed arch4edu-keyring archlinuxcn-keyring par
 export DBUS_SYSTEM_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/nonexistence"
 
 # {{ if .packages.arch }}
-packages=(
-  # {{ "\n" }} {{ join "\n" .packages.arch }}
-)
-paru --sync --noconfirm --needed "${packages[@]}"
-# {{ end }}
+paru --sync --noconfirm --needed - << 'EOF'
+{{ join "\n" .packages.arch }}
+EOF
+# {{ end }} // if .packages.arch

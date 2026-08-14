@@ -6,9 +6,10 @@ set -o pipefail
 
 sudo flatpak remote-modify flathub --url='{{ .mirrors.flathub }}'
 
-# {{ if .packages.flatpak }}
-install=(
-  # {{ "\n" }} {{ join "\n" .packages.flatpak }}
-)
-sudo flatpak install --assumeyes "${install[@]}"
-# {{ end }}
+readarray -t packages << 'EOF'
+{{ join "\n" .packages.flatpak }}
+EOF
+
+if ((${#packages[@]} > 0)); then
+  sudo flatpak install --assumeyes "${packages[@]}"
+fi
