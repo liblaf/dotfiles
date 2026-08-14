@@ -124,7 +124,7 @@ sleep-inactive-battery-type='suspend'
 
 [org/gnome/shell]
 disable-user-extensions=false
-favorite-apps=['microsoft-edge.desktop', 'com.mitchellh.ghostty.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop']
+favorite-apps=['microsoft-edge.desktop', 'com.mitchellh.ghostty.desktop', 'org.gnome.Nautilus.desktop', 'code.desktop', 'chatgpt.desktop']
 
 [org/gnome/shell/extensions/appindicator]
 custom-icons=[('tao application', '/var/lib/flatpak/exports/share/icons/hicolor/128x128/apps/com.pot_app.pot.png', '')]

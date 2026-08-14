@@ -3,15 +3,15 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-legacy_packages=()
+legacy_packages=(
+  wps-office-365
+  wps-office-365-fonts
+)
 
-installed_packages=()
-for package in "${legacy_packages[@]}"; do
-  if pacman --query --quiet "$package" &> /dev/null; then
-    installed_packages+=("$package")
-  fi
-done
+readarray -t packages_to_remove < <(
+  pacman --query --quiet "${legacy_packages[@]}" 2> /dev/null
+)
 
-if ((${#installed_packages[@]} > 0)); then
-  sudo pacman --remove --noconfirm --nosave --recursive "${installed_packages[@]}"
+if ((${#packages_to_remove[@]} > 0)); then
+  sudo pacman --remove --noconfirm --nosave --recursive "${packages_to_remove[@]}"
 fi

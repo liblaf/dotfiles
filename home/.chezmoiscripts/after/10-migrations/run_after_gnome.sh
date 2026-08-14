@@ -3,13 +3,17 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-deprecated_extensions=(
+legacy_extensions=(
   'clipboard-indicator@tudmotu.com'
   'codexbar@inled.es'
 )
 
-for uuid in "${deprecated_extensions[@]}"; do
-  if gnome-extensions info "$uuid" &> /dev/null; then
-    gnome-extensions uninstall "$uuid"
-  fi
+readarray -t extensions_to_uninstall < <(
+  comm -1 -2 \
+    <(printf '%s\n' "${legacy_extensions[@]}" | sort) \
+    <(gnome-extensions list --user | sort)
+)
+
+for extension in "${extensions_to_uninstall[@]}"; do
+  gnome-extensions uninstall "$extension"
 done

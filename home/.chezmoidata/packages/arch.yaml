@@ -36,6 +36,8 @@ packages:
     - drawio-desktop
     - earlyoom
     - fio
+    - flameshot
+    - flatseal
     - fnox-bin
     - freeze-bin
     - gdu
@@ -236,8 +238,6 @@ packages:
     - vulkan-tools
     - wireguard-tools
     - wl-clipboard
-    - wps-office-365
-    - wps-office-365-fonts
     - wrangler
     - xdg-terminal-exec
     - xh
