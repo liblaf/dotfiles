@@ -26,7 +26,7 @@ packages:
     - cross
     - csvlens
     - dasel-bin
-    - ddcutil
+    - ddcutil # < gnome-shell-extension-display-brightness-ddcutil-git
     - difftastic
     - docker
     - docker-compose
@@ -49,18 +49,17 @@ packages:
     - git-lfs
     - github-cli
     - glow
+    - gnome-browser-connector
     - gnome-shell-extension-appindicator
-    - gnome-shell-extension-bing-wallpaper
     - gnome-shell-extension-copyous
     - gnome-shell-extension-dash-to-dock
-    - gnome-shell-extension-display-brightness-ddcutil-git
     - gnome-shell-extension-vitals
     - gnome-shell-extensions
     - gnome-themes-extra
     - go
     - go-yq
     - gping
-    - graphicsmagick
+    - graphicsmagick # < Wrap (prepare Icon)
     - gum
     - haruna
     - helix
@@ -76,9 +75,9 @@ packages:
     - just
     - kitty
     - lazydocker
-    - libva-utils
+    - libva-utils # VA-API
     - libvirt
-    - libxcrypt-compat
+    - libxcrypt-compat # < Wrap (libcrypt.so.1)
     - lldb
     - lnav
     - lshw
@@ -103,16 +102,16 @@ packages:
     - obs-studio
     - obsidian
     - openai-codex
-    - openbsd-netcat
+    - openbsd-netcat # < libvirt: for remote management over SSH
     - otf-latinmodern-math
     - otf-monaspace-nerd
     - ouch
     - ov-bin
-    - pandoc-bin
+    - pandoc-bin # extra/pandoc-cli depends on so many packages
     - paraview
     - paru
-    - perl-file-homedir
-    - perl-yaml-tiny
+    - perl-file-homedir # < latexindent < texlive-binextra < group:texlive
+    - perl-yaml-tiny # < latexindent < texlive-binextra < group:texlive
     - pixi
     - pkgstats
     - pnpm
@@ -152,7 +151,7 @@ packages:
     - python-numpy
     - python-optax
     - python-pandas
-    - python-passlib
+    - python-passlib # < ansible-core < ansible
     - python-pendulum
     - python-pipx
     - python-platformdirs
@@ -161,7 +160,7 @@ packages:
     - python-pydantic-extra-types
     - python-pydantic-settings
     - python-pydicom
-    - python-pygments
+    - python-pygments # < minted < texlive
     - python-pytest
     - python-pytest-codspeed
     - python-pytest-cov
@@ -173,7 +172,7 @@ packages:
     - python-ruff
     - python-scipy
     - python-seaborn
-    - python-socksio
+    - python-socksio # < python-httpx[socks]
     - python-sympy
     - python-tenacity
     - python-tomlkit
@@ -187,7 +186,7 @@ packages:
     - python-wurlitzer
     - python-yaml
     - qalculate-gtk
-    - qemu-full
+    - qemu-full # < libvirt
     - rbw
     - rclone
     - remmina
@@ -199,17 +198,17 @@ packages:
     - rustup
     - sccache
     - seahorse
-    - shellcheck-static
+    - shellcheck-static # extra/shellcheck depends on so many packages
     - shfmt
     - somo
     - speedtest-cli
     - sshfs
-    - sshpass
+    - sshpass # < ansible-core < ansible
     - starship
     - tailscale
     - telegram-desktop
-    - tesseract-data-chi_sim
-    - tesseract-data-eng
+    - tesseract-data-chi_sim # < com.pot_app.pot
+    - tesseract-data-eng # < com.pot_app.pot
     - texlive
     - texlive-langchinese
     - texlive-langenglish
@@ -223,16 +222,16 @@ packages:
     - ttf-ms-win11-auto-zh_cn
     - ttf-twemoji
     - ty
-    - usage
+    - usage # < mise
     - uv
     - vcpkg
-    - vdpauinfo
+    - vdpauinfo # VDPAU
     - ventoy-bin
     - vhs
     - virt-manager
     - visual-studio-code-bin
     - vlc
-    - vulkan-tools
+    - vulkan-tools # Vulkan
     - wireguard-tools
     - wl-clipboard
     - wrangler

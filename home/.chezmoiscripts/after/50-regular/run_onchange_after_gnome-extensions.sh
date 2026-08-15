@@ -8,17 +8,23 @@ if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
-to_enable=(
+readonly extensions_to_install=(
+  BingWallpaper@ineffable-gmail.com
+  display-brightness-ddcutil@themightydeity.github.com
+)
+gext install "${extensions_to_install[@]}"
+
+readonly extensions_to_enable=(
   # pre-installed
   drive-menu@gnome-shell-extensions.gcampax.github.com
   screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com
 
   # system
   appindicatorsupport@rgcjonas.gmail.com
-  BingWallpaper@ineffable-gmail.com
   copyous@boerdereinar.dev
   dash-to-dock@micxgx.gmail.com
-  display-brightness-ddcutil@themightydeity.github.com
   Vitals@CoreCoding.com
+
+  "${extensions_to_install[@]}"
 )
-gext enable "${to_enable[@]}"
+gext enable "${extensions_to_enable[@]}"

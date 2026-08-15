@@ -8,6 +8,6 @@ readarray -d '' -t scripts < <(
     sort --zero-terminated
 )
 for script in "${scripts[@]}"; do
-  printf '%s%s==>%s %s\n' "$(tput bold)" "$(tput setaf 2)" "$(tput sgr0)" "$script"
+  printf '%s%s==>%s %s%s%s\n' "$(tput bold)" "$(tput setaf 2)" "$(tput sgr0)" "$(tput bold)" "$script" "$(tput sgr0)"
   "$script"
 done

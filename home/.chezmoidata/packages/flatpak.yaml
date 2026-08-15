@@ -6,4 +6,4 @@ packages:
     - com.tencent.WeChat
     - com.tencent.wemeet
     - io.typora.Typora
-    - net.meshlab.MeshLab
+    - net.meshlab.MeshLab # MeshLab from arch4edu / AUR does not support dark mode

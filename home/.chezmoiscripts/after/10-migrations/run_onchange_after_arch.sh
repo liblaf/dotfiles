@@ -4,6 +4,8 @@ set -o nounset
 set -o pipefail
 
 legacy_packages=(
+  gnome-shell-extension-bing-wallpaper
+  gnome-shell-extension-display-brightness-ddcutil-git
   wps-office-365
   wps-office-365-fonts
 )
