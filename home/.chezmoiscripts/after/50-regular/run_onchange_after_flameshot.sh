@@ -12,4 +12,4 @@ fi
 
 flameshot config \
   --autostart true \
-  --notifications true
+  --notifications false
