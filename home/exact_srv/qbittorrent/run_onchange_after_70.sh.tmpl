@@ -15,7 +15,7 @@ service-user-add qbittorrent '{{ .services.qbittorrent.uid }}' 'qBittorrent'
 mkdir --parents --verbose ./config
 mkdir --parents --verbose /mnt/PC07sda1/srv/qbittorrent/downloads
 sudo chown --changes --recursive qbittorrent:srv ./config
-sudo chown --changes --recursive qbittorrent:srv /mnt/PC07sda1/srv/qbittorrent/downloads
+sudo chown --changes --recursive qbittorrent:srv /mnt/PC07sda1/srv/qbittorrent
 docker compose up --detach --remove-orphans
 
 # {{ else }}

@@ -1,0 +1,42 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+if systemd-detect-virt --quiet; then exit; fi
+
+function gh-clone() {
+  function add-url() {
+    local -r path="$1"
+    local -r name="$2"
+    local -r url="$3"
+    # Ensure push URLs stay in the desired order by removing any existing entry first, then re-adding it.
+    git -C "$path" remote set-url --delete --push "$name" "$url" || true
+    git -C "$path" remote set-url --add --push "$name" "$url"
+  }
+
+  local -r prefix="$HOME/Projects"
+  local -r repository="$1"
+  case "$repository" in
+    liblaf/dotfiles) local -r path='{{ .chezmoi.workingTree }}' ;;
+    *) local -r path="$prefix/$repository" ;;
+  esac
+  echo "$repository"
+  if [[ -d "$path/.git" ]]; then
+    git -C "$path" fetch --all --prune
+  else
+    mkdir --parents --verbose "$(dirname -- "$path")"
+    gh repo clone "$repository" "$path"
+  fi
+  add-url "$path" 'origin' "$(git -C "$path" remote get-url 'origin')"
+  add-url "$path" 'origin' "ssh://git@forgejo.liblaf.me/$repository.git"
+}
+export -f gh-clone
+
+readarray -t repos < <(
+  gh api '/user/repos' \
+    --jq '.[] | .full_name' \
+    --paginate
+)
+parallel --bar --color-failed --eta --jobs 8 --progress gh-clone ::: "${repos[@]}"
