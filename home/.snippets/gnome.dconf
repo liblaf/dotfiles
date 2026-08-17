@@ -14,6 +14,13 @@ sort-candidate-option=0
 new-tab=true
 terminal='rio'
 
+[io/missioncenter/MissionCenter]
+is-maximized=true
+performance-page-cpu-graph=2
+performance-page-kernel-times=true
+performance-sliding-graphs=true
+performance-smooth-graphs=true
+
 [org/gnome/desktop/a11y/applications]
 screen-keyboard-enabled=false
 
@@ -137,6 +144,9 @@ previous-days=90
 random-interval=300
 random-mode-enabled=true
 revert-to-current-image=false
+
+[org/gnome/shell/extensions/codex-meter]
+percent-display-mode='left'
 
 [org/gnome/shell/extensions/dash-to-dock]
 disable-overview-on-startup=true

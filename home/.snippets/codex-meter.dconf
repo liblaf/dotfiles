@@ -1,4 +1,0 @@
-# -*- mode: ini; -*-
-
-[org/gnome/shell/extensions/codex-meter]
-percent-display-mode='left'

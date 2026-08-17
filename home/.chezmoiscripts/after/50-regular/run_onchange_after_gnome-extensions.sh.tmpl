@@ -14,6 +14,9 @@ readonly extensions_to_install=(
 )
 gext install "${extensions_to_install[@]}"
 
+# {{ include (joinPath .dirs.external "codex-meter@slobbe.github.io.zip") | sha256sum }}
+gnome-extensions install --force '{{ .dirs.external }}/codex-meter@slobbe.github.io.zip'
+
 readonly extensions_to_enable=(
   # pre-installed
   drive-menu@gnome-shell-extensions.gcampax.github.com
@@ -26,5 +29,7 @@ readonly extensions_to_enable=(
   Vitals@CoreCoding.com
 
   "${extensions_to_install[@]}"
+
+  codex-meter@slobbe.github.io
 )
 gext enable "${extensions_to_enable[@]}"
