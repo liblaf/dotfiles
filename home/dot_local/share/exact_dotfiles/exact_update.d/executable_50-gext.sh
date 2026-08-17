@@ -3,4 +3,4 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-gext update --yes
+gext update --yes --user
