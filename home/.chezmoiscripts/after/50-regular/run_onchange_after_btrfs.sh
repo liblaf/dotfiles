@@ -17,7 +17,7 @@ sudo snapper set-config TIMELINE_CREATE='yes'
 sudo systemctl --now enable "$(systemd-escape --template='btrfs-scrub@.timer' --path '/')"
 
 # snapper
-sudo systemctl --now enable snapper-backup.timer
+sudo systemctl --now disable snapper-backup.timer
 sudo systemctl --now enable snapper-boot.timer
 sudo systemctl --now enable snapper-cleanup.timer
 sudo systemctl --now enable snapper-timeline.timer

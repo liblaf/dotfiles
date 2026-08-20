@@ -3,4 +3,8 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-skills update --global --yes
+if [[ ${argc_yes-} == 1 ]]; then
+  skills update --global --yes
+else
+  skills update --global
+fi
