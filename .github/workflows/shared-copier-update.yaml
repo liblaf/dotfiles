@@ -25,14 +25,14 @@ jobs:
     steps:
       - id: auth
         name: Auth
-        uses: liblaf/actions/auth@ba7e8a8be5abc0d1e1bac89ccc58f86204c06a20 # v3
+        uses: liblaf/actions/auth@2d37965c7d54a87b668ea9eba3ee0d7a0a6cc8b1 # v3
         with:
           client-id: ${{ vars.APP_CLIENT_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
       - name: Install mise
-        uses: jdx/mise-action@dad1bfd3df957f44999b559dd69dc1671cb4e9ea # v4
+        uses: jdx/mise-action@3c2e0cf82a5b2e5249f0d3635a4d83d0ae861518 # v4
       - name: Install Copier
         run: pipx install --pip-args cookiecutter copier
       - name: Copier update
