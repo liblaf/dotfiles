@@ -18,5 +18,5 @@ readarray -t packages_to_uninstall < <(
 )
 
 if ((${#packages_to_uninstall[@]} > 0)); then
-  sudo flatpak uninstall --delete-data --assumeyes "${packages_to_uninstall[@]}"
+  flatpak uninstall --delete-data --assumeyes "${packages_to_uninstall[@]}"
 fi
