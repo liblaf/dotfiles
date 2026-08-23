@@ -1,13 +1,30 @@
 #:schema https://developers.openai.com/codex/config-schema.json
 # ref: <https://learn.chatgpt.com/docs/config-file/config-sample>
 
+approval_policy = "on-request"
 approvals_reviewer = "auto_review"
+model = "gpt-5.6-sol"
+model_reasoning_effort = "ultra"
 # ref: <https://github.com/openai/codex/issues/3141#issuecomment-4236522565>
 # TODO: switch to "workspace-write" until CUDA is supported in the sandbox
 sandbox_mode = "danger-full-access"
 
+[agents]
+default_subagent_model = "gpt-5.6-terra"
+default_subagent_reasoning_effort = "medium"
+
 [analytics]
 enabled = false
+
+[desktop]
+composerEnterBehavior = "cmdIfMultiline"
+composerPlainTextMode = true
+enabled-reasoning-efforts = ["high", "low", "max", "medium", "ultra", "xhigh"]
+followUpQueueMode = "steer"
+open-link-in-target-preference = "external-browser"
+open-local-url-in-target-preference = "external-browser"
+reviewDelivery = "detached"
+show-context-window-usage = true
 
 [features]
 memories = true
@@ -21,3 +38,6 @@ writable_roots = ["~/.bun", "~/.cache", "~/.cargo", "~/.config", "~/.npm", "~/.p
 
 [shell_environment_policy.set]
 UV_FROZEN = "1"
+
+[tui]
+status_line = ["approval-mode", "context-used", "current-dir", "model-with-reasoning", "permissions"]

@@ -13,6 +13,7 @@ legacy_mounts=(
   "$HOME/DATA41"
   "$HOME/GJM-AList"
   "$HOME/seafile"
+  "$HOME/srv/forgejo/DATA41"
 )
 
 for where in "${legacy_mounts[@]}"; do

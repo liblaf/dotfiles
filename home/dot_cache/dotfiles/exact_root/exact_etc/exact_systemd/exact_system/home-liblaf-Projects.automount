@@ -4,5 +4,4 @@
 WantedBy = multi-user.target
 
 [Automount]
-Where = {{ .chezmoi.homeDir }}/srv/forgejo/DATA41
-TimeoutIdleSec = 10min
+Where = /home/liblaf/Projects

@@ -4,17 +4,16 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{ includeTemplate "exact_srv/jellyfin/docker-compose.yaml.tmpl" . | sha256sum }}
-
 # {{ include ".snippets/docker.sh" }}
 # {{ includeTemplate "service.sh" . }}
 
-# {{ if .services.jellyfin.enable }}
+# {{ if .services.qbittorrent.enable }}
 
-service-user-add jellyfin '{{ .services.jellyfin.uid }}' 'Jellyfin'
+service-user-add qbittorrent '{{ .services.qbittorrent.uid }}' 'qBittorrent'
 mkdir --parents --verbose ./config
 mkdir --parents --verbose /mnt/PC07sda1/srv/qbittorrent/downloads
-sudo chown --changes --recursive jellyfin:srv ./config
+sudo chown --changes --recursive qbittorrent:srv ./config
+sudo chown --changes --recursive qbittorrent:srv /mnt/PC07sda1/srv/qbittorrent
 docker compose up --detach --remove-orphans
 
 # {{ else }}

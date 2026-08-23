@@ -234,6 +234,8 @@ packages:
     - vulkan-tools # Vulkan
     - wireguard-tools
     - wl-clipboard
+    - wps-office-365
+    - wps-office-365-fonts
     - wrangler
     - xdg-terminal-exec
     - xh

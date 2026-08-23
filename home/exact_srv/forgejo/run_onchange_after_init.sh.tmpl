@@ -4,8 +4,6 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# {{ includeTemplate "exact_srv/forgejo/docker-compose.yaml.tmpl" . | sha256sum }}
-
 # {{ include ".snippets/docker.sh" }}
 # {{ includeTemplate "service.sh" . }}
 
@@ -14,7 +12,6 @@ set -o pipefail
 service-user-add forgejo '{{ .services.forgejo.uid }}' 'Forgejo'
 mkdir --parents --verbose ./forgejo
 sudo chown --verbose forgejo:srv ./forgejo
-sudo systemctl --now enable "$(systemd-escape --suffix='automount' --path "$PWD/DATA41")"
 docker compose up --detach --remove-orphans
 
 # {{ else }}

@@ -96,6 +96,7 @@ words:
   - groff
   - gruntfuggly
   - gsettings
+  - gshadow
   - gsub
   - gvariant
   - haruna
@@ -130,6 +131,7 @@ words:
   - magick
   - matthewpi
   - mattpocock
+  - mdns
   - mechatroner
   - menpo
   - mihomo
@@ -140,7 +142,9 @@ words:
   - mkinitcpio
   - msys
   - multicd
+  - myhostname
   - myidbot
+  - mymachines
   - netdatacli
   - netdev
   - networkx
@@ -151,6 +155,7 @@ words:
   - nmcli
   - noatime
   - noconfirm
+  - nocopy
   - nodev
   - noexec
   - nofile
@@ -158,6 +163,7 @@ words:
   - nopasswd
   - nosuid
   - noto
+  - nsswitch
   - ntfy
   - ntsc
   - numba
@@ -242,6 +248,8 @@ words:
   - tput
   - tqdm
   - trimesh
+  - tsukimi
+  - tsuna
   - twemoji
   - uefi
   - unconfigured
@@ -264,6 +272,7 @@ words:
   - webui
   - wemeet
   - xdist
+  - xhigh
   - xmake
   - yazi
   - yzhang
