@@ -50,6 +50,7 @@ packages:
     - github-cli
     - glow
     - gnome-browser-connector
+    - gnome-remote-desktop
     - gnome-shell-extension-appindicator
     - gnome-shell-extension-copyous
     - gnome-shell-extension-dash-to-dock
