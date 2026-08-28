@@ -4,8 +4,9 @@ if status is-interactive
     # Zellij in Kitty.
     if contains -- "$TERM" xterm-ghostty
         # ref: <https://zellij.dev/documentation/integration.html#fish>
-        set ZELLIJ_AUTO_ATTACH true
-        set ZELLIJ_AUTO_EXIT true
-        eval (zellij setup --generate-auto-start fish | string collect)
+        if not set --query ZELLIJ
+            zellij attach --create "$hostname"
+            kill $fish_pid
+        end
     end
 end
