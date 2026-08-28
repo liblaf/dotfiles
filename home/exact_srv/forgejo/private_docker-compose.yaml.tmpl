@@ -1,8 +1,9 @@
 # -*- mode: yaml; -*-
 # yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
 
-# ref: <https://forgejo.org/docs/latest/admin/config-cheat-sheet/>
-# ref: <https://forgejo.org/docs/latest/admin/installation/docker/>
+# ref: <https://forgejo.org/docs/v15.0/admin/config-cheat-sheet/>
+# ref: <https://forgejo.org/docs/v15.0/admin/installation/docker/>
+# ref: <https://forgejo.org/docs/v15.0/admin/setup/recommendations/>
 
 services:
   forgejo:
@@ -23,6 +24,7 @@ services:
       FORGEJO__cache__HOST: |-
         {"size":100, "recent_ratio":0.25, "ghost_ratio":0.5}
       FORGEJO__cron.git_gc_repos__ENABLED: true
+      FORGEJO__cron.git_gc_repos__TIMEOUT: 10m
       FORGEJO__cron.gc_lfs__ENABLED: false
       FORGEJO__lfs__PATH: /data/git/lfs
       FORGEJO__actions__ENABLED: false
@@ -33,7 +35,7 @@ services:
     pull_policy: weekly
     restart: unless-stopped
     volumes:
-      - ./forgejo:/data
+      - ./data:/data
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
       - type: volume

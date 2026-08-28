@@ -10,8 +10,8 @@ set -o pipefail
 # {{ if .services.forgejo.enable }}
 
 service-user-add forgejo '{{ .services.forgejo.uid }}' 'Forgejo'
-mkdir --parents --verbose ./forgejo
-sudo chown --verbose forgejo:srv ./forgejo
+mkdir --parents --verbose ./data
+sudo chown --verbose forgejo:srv ./data
 docker compose up --detach --remove-orphans
 
 # {{ else }}

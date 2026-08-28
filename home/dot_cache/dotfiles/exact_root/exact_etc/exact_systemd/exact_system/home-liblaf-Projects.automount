@@ -1,7 +1,0 @@
-# -*- mode: ini; -*-
-
-[Install]
-WantedBy = multi-user.target
-
-[Automount]
-Where = /home/liblaf/Projects
