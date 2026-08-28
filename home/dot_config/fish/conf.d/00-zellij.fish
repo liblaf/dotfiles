@@ -5,7 +5,7 @@ if status is-interactive
     if contains -- "$TERM" xterm-ghostty
         # ref: <https://zellij.dev/documentation/integration.html#fish>
         if not set --query ZELLIJ
-            zellij attach --create "$hostname"
+            zellij attach --create $hostname
             kill $fish_pid
         end
     end
