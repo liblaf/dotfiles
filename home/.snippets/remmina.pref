@@ -1,0 +1,10 @@
+# -*- mode: ini; -*-
+# ref: <https://gitlab.com/Remmina/Remmina/-/wikis/Remmina-Preferences>
+
+[remmina_pref]
+
+## General ##
+remmina_file_name = %N
+
+## Applet ##
+disable_tray_icon = true

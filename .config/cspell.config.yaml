@@ -93,6 +93,7 @@ words:
   - gpasswd
   - gping
   - graphicsmagick
+  - grdctl
   - groff
   - gruntfuggly
   - gsettings
@@ -177,8 +178,6 @@ words:
   - optax
   - orhun
   - otrust
-  - oxfmt
-  - oxlint
   - paru
   - peterjc
   - pgid
@@ -235,6 +234,7 @@ words:
   - sumneko
   - sympy
   - sysupgrade
+  - tailf
   - tboox
   - tchx
   - tesseract
@@ -271,6 +271,7 @@ words:
   - webdav
   - webui
   - wemeet
+  - winpr
   - xdist
   - xhigh
   - xmake

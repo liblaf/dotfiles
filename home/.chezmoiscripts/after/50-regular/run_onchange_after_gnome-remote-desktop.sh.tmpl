@@ -4,12 +4,10 @@ set -o nounset
 set -o pipefail
 
 # ref: <https://gitlab.gnome.org/GNOME/gnome-remote-desktop/-/blob/main/docs/configuration.md>
-mkdir --parents --verbose "$HOME/.local/share/gnome-remote-desktop"
-chmod --verbose 'u=rwx,go=' "$HOME/.local/share/gnome-remote-desktop"
 winpr-makecert3 -rdp -path "$HOME/.local/share/gnome-remote-desktop" 'tls'
+chmod --verbose 'u=rwx,go=' "$HOME/.local/share/gnome-remote-desktop"
 chmod --verbose 'u=rw,go=' "$HOME/.local/share/gnome-remote-desktop/tls.crt"
 chmod --verbose 'u=rw,go=' "$HOME/.local/share/gnome-remote-desktop/tls.key"
-
 grdctl rdp set-tls-cert "$HOME/.local/share/gnome-remote-desktop/tls.crt"
 grdctl rdp set-tls-key "$HOME/.local/share/gnome-remote-desktop/tls.key"
 grdctl rdp set-credentials '{{ (rbw "RDP").data.username }}' '{{ (rbw "RDP").data.password }}'

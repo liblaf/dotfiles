@@ -52,6 +52,6 @@ volumes:
   lfs:
     driver: local
     driver_opts:
-      device: //{{ (rbwFields "DATA41").IP.value }}/Users/{{ (rbw "DATA41").data.username }}/srv/forgejo/git/lfs
+      device: //{{ (index (rbw "DATA41").data.uris 0).uri }}/Users/{{ (rbw "DATA41").data.username }}/srv/forgejo/git/lfs
       o: noatime,nodev,noexec,_netdev,nosuid,rw,username={{ (rbw "DATA41").data.username }},password={{ (rbw "DATA41").data.password }},uid={{ .services.forgejo.uid }},gid={{ .services.gid }},file_mode=0640,dir_mode=0750,seal
       type: cifs

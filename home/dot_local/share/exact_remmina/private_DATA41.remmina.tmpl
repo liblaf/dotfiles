@@ -1,0 +1,16 @@
+# -*- mode: ini; -*-
+# ref: <https://gitlab.com/Remmina/Remmina/-/wikis/Remmina-Config-File-Options>
+
+[remmina]
+password = {{ (rbw "DATA41").data.password }}
+username = {{ (rbw "DATA41").data.username }}
+name = DATA41
+protocol = RDP
+# dynamic resolution updates
+scale = 2
+server = {{ (index (rbw "DATA41").data.uris 0).uri }}
+# Good
+quality = 2
+
+## RDP Options ##
+tls-seclevel = 0

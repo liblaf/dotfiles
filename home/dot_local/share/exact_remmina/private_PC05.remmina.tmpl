@@ -1,0 +1,12 @@
+# -*- mode: ini; -*-
+# ref: <https://gitlab.com/Remmina/Remmina/-/wikis/Remmina-Config-File-Options>
+
+[remmina]
+password = {{ (rbw "RDP").data.password }}
+username = {{ (rbw "RDP").data.username }}
+name = PC05
+protocol = RDP
+# standard scaling
+scale = 1
+precommand = ssh -o BatchMode=yes pc05 sudo --non-interactive loginctl unlock-sessions
+server = pc05.tailf887c9.ts.net
