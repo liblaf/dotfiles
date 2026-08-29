@@ -7,7 +7,7 @@ set -o pipefail
 # ref: <https://thu.services/services/#token>
 # rclone config create name type [key value]* [flags]
 rclone config create DATA41 smb \
-  host='{{ (index (rbw "DATA41").data.uris 0).uri }}' \
+  host='{{ (rbwFields "DATA41").SERVER.value }}' \
   user='{{ (rbw "DATA41").data.username }}' \
   pass='{{ (rbw "DATA41").data.password }}'
 rclone config create GJM-AList webdav \

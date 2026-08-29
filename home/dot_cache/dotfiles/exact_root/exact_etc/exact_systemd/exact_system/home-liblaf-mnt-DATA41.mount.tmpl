@@ -1,7 +1,7 @@
 # -*- mode: ini; -*-
 
 [Mount]
-What = //{{ (index (rbw "DATA41").data.uris 0).uri }}/Users/{{ (rbw "DATA41").data.username }}
+What = //{{ (rbwFields "DATA41").SERVER.value }}/{{ (rbwFields "DATA41").SHARE.value }}
 Where = {{ .chezmoi.homeDir }}/mnt/DATA41
 Type = cifs
 Options = nodev,_netdev,nosuid,rw,credentials={{ .chezmoi.homeDir }}/.config/cifs/credentials/DATA41.cred,uid={{ .chezmoi.uid }},gid={{ .chezmoi.gid }},file_mode=0600,dir_mode=0700,seal
