@@ -3,7 +3,7 @@ external = "{{ .chezmoi.homeDir }}/.cache/dotfiles/external"
 snippets = "{{ .chezmoi.sourceDir }}/.snippets"
 
 [github]
-refreshPeriod = "168h"
+refreshPeriod = "1h"
 
 [hooks.read-source-state.pre]
 script = "{{ .chezmoi.workingTree }}/hooks/read-source-state.pre.sh"
