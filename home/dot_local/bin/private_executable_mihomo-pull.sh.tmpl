@@ -1,6 +1,6 @@
 #!/bin/bash
 # -*- mode: sh; -*-
-# @option -i --id='{{ (rbwFields "sub-store").ID_ALL.value }}'
+# @option -i --id='{{ (rbwFields "sub-store").ID_ALL.value }}' Profile ID used when the installed config has no marker
 # @option -p --port=`_default_port`
 set -o errexit
 set -o nounset
@@ -10,19 +10,41 @@ function _default_port() {
   gsettings get org.gnome.system.proxy.https port
 }
 
+function _subscribed_url() {
+  local -r prefix='#SUBSCRIBED '
+  local -r profile_id='([0-9A-HJKMNP-TV-Z]{20}|[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12})'
+  local marker
+  if ! IFS= read -r marker; then return 1; fi
+  if [[ $marker != "$prefix"* ]]; then return 1; fi
+  local -r url="${marker#"$prefix"}"
+  if [[ ! $url =~ ^https://subs\.liblaf\.me/subs/$profile_id/mihomo\.yaml$ ]]; then return 1; fi
+  printf '%s\n' "$url"
+}
+
 function main() {
   local -r id="${argc_id:?}"
   local -r port="${argc_port:?}"
   export port
-  local -r tmpfile="$(mktemp --suffix='.yaml')"
-  xhs --output "$tmpfile" --download GET \
-    'https://sub.liblaf.me/subscribe/mihomo.yaml' id=="$id"
-  yq eval '.mixed-port=env(port)' "$tmpfile" --inplace
-  mihomo -f "$tmpfile" -t # test configuration
-  sudo install -D --mode='u=rw,go=r' --no-target-directory --verbose "$tmpfile" '/etc/mihomo/config.yaml'
+  local url="https://subs.liblaf.me/subs/$id/mihomo.yaml"
+  local subscribed_url
+  if subscribed_url="$(sudo --non-interactive head --lines=1 '/etc/mihomo/config.yaml' | _subscribed_url)"; then
+    url="$subscribed_url"
+  fi
+  local -r config="$(mktemp --suffix='.yaml')"
+  local cleanup
+  printf -v cleanup 'rm --force -- %q' "$config"
+  # Capture the function-local path while it is in scope.
+  # shellcheck disable=SC2064
+  trap "$cleanup" EXIT
+
+  xhs --output "$config" --download GET "$url"
+  [[ $(_subscribed_url <"$config") == "$url" ]]
+  yq eval '.mixed-port=env(port)' "$config" --inplace
+  [[ $(_subscribed_url <"$config") == "$url" ]]
+  mihomo -f "$config" -t # test configuration including the subscription marker
+  sudo install -D --mode='u=rw,go=' --no-target-directory --verbose "$config" '/etc/mihomo/config.yaml'
   sudo systemctl --now enable mihomo.service
   sudo systemctl restart mihomo.service
-  rm --force "$tmpfile"
 }
 
 eval "$(argc --argc-eval "$0" "$@")"
