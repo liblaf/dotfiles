@@ -1,0 +1,5 @@
+# -*- mode: ini; -*-
+# ref: <https://learn.netdata.cloud/docs/netdata-cloud/connect-agent#method-2-via-configuration-file>
+
+[global]
+token = {{ (rbwFields "Netdata").CLAIM_TOKEN.value }}

@@ -101,6 +101,7 @@ words:
   - gsub
   - gvariant
   - haruna
+  - hjkmnp
   - httpx
   - hwatch
   - ibus
@@ -172,6 +173,7 @@ words:
   - nvcc
   - nvenc
   - nvitop
+  - nvme
   - nvml
   - omnia
   - oplist
@@ -251,6 +253,8 @@ words:
   - tsukimi
   - tsuna
   - twemoji
+  - uaccess
+  - udevadm
   - uefi
   - unconfigured
   - ungrabbed

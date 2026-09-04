@@ -6,11 +6,9 @@ set -o pipefail
 
 if systemd-detect-virt --quiet; then exit; fi
 
-sudo systemctl --now enable netdata.service
+sudo chown --verbose root:netdata '/etc/netdata/claim.conf'
+sudo chmod --verbose 'u=rw,g=r,o=' '/etc/netdata/claim.conf'
 
-# {{ include (joinPath .dirs.external "netdata-kickstart.sh") | sha256sum }}
-sudo '{{ .dirs.external }}/netdata-kickstart.sh' \
-  --non-interactive --stable-channel --disable-telemetry \
-  --claim-token '{{ (rbwFields "Netdata").CLAIM_TOKEN.value }}' \
-  --claim-rooms '{{ (rbwFields "Netdata").ROOM_ID.value }}' \
-  --claim-only || true
+# {{ include (joinPath .dirs.root "etc/netdata/claim.conf") | sha256sum }}
+sudo systemctl --now enable netdata.service
+sudo netdatacli reload-claiming-state

@@ -68,6 +68,7 @@ packages:
     - httpie
     - hwatch
     - hyperfine
+    - smartmontools
     - ibus-libpinyin
     - inkscape
     - jless
@@ -235,6 +236,7 @@ packages:
     - vulkan-tools # Vulkan
     - wireguard-tools
     - wl-clipboard
+    - nvme-cli
     - wps-office-365
     - wps-office-365-fonts
     - wrangler

@@ -160,8 +160,8 @@ transparency-mode='DYNAMIC'
 [org/gnome/shell/extensions/display-brightness-ddcutil]
 button-location=1
 ddcutil-binary-path='/usr/bin/ddcutil'
-decrease-brightness-shortcut=['<Super>F11']
-increase-brightness-shortcut=['<Super>F12']
+decrease-brightness-shortcut=['XF86MonBrightnessDown']
+increase-brightness-shortcut=['XF86MonBrightnessUp']
 show-all-slider=true
 show-sliders-in-submenu=true
 show-value-label=true
@@ -175,6 +175,10 @@ include-static-gpu-info=false
 network-public-ip-interval=15
 position-in-panel=0
 show-gpu=true
+
+[org/gnome/shell/keybindings]
+screen-brightness-down=@as []
+screen-brightness-up=@as []
 
 [org/gtk/gtk4/settings/file-chooser]
 show-hidden=false
