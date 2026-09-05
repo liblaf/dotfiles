@@ -3,7 +3,7 @@
 
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"
-model = "gpt-5.6-sol"
+model = "gpt-6-astra"
 model_reasoning_effort = "ultra"
 # ref: <https://github.com/openai/codex/issues/3141#issuecomment-4236522565>
 # TODO: switch to "workspace-write" until CUDA is supported in the sandbox
@@ -28,9 +28,7 @@ show-context-window-usage = true
 
 [features]
 memories = true
-
-[feedback]
-enabled = false
+context_management.experimental_mode = true
 
 [sandbox_workspace_write]
 network_access = true
