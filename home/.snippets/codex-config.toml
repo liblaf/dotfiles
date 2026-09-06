@@ -4,7 +4,7 @@
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"
 model = "gpt-6-astra"
-model_reasoning_effort = "ultra"
+model_reasoning_effort = "xhigh"
 # ref: <https://github.com/openai/codex/issues/3141#issuecomment-4236522565>
 # TODO: switch to "workspace-write" until CUDA is supported in the sandbox
 sandbox_mode = "danger-full-access"
@@ -17,6 +17,7 @@ default_subagent_reasoning_effort = "medium"
 enabled = false
 
 [desktop]
+browser-show-full-url = true
 composerEnterBehavior = "cmdIfMultiline"
 composerPlainTextMode = true
 enabled-reasoning-efforts = ["high", "low", "max", "medium", "ultra", "xhigh"]
@@ -28,7 +29,9 @@ show-context-window-usage = true
 
 [features]
 memories = true
-context_management.experimental_mode = true
+
+[features.context_management]
+experimental_mode = true
 
 [sandbox_workspace_write]
 network_access = true

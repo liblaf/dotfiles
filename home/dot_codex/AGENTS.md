@@ -1,17 +1,25 @@
-## Choosing Astra, Sol, Terra, and Luna
+## Subagent delegation
 
-<!-- ref: <https://learn.chatgpt.com/docs/models> -->
+<!-- ref: <https://developers.openai.com/api/docs/guides/latest-model#gpt-6-astra-subagent-delegation> -->
+
+If at any point you can parallelize work by delegating tasks to another agent (no matter if you are the root or subagent), you should do so using collaboration tools if it could save time or improve quality.
+
+Messages that you send to other agents and your final answer may be read by a human, so ensure they are legible. Always put proper spaces between words and/or numbers.
+
+### Choosing Astra, Sol, Terra, and Luna
+
+<!-- ref: <https://learn.chatgpt.com/docs/models?surface=app#app-__codexlocalizedvalueprops__codextranslations-u0207-choosing-astra-sol-terra-and-luna> -->
 
 Choose **Astra** when a task needs the strongest capability across multiple steps and tools. **Sol** offers depth and polish, **Terra** suits everyday work, and **Luna** suits clear, repeatable tasks.
 
-### Where each model shines
+#### Where each model shines
 
 - **Astra, for the hardest end-to-end work.** Choose Astra for complete workflows across code, apps, and research that need sustained reasoning and judgment. Give it the sources, templates, constraints, and checks that define a useful result. Astra is better at asking focused questions and incorporating your guidance while keeping the original goal and constraints in view.
 - **Sol, for complex, open-ended work.** Choose Sol for ambiguous, difficult, or high-value tasks that need extra analysis, judgment, or polish, such as complex code changes, deep research, or polished documents. For narrower tasks, define what done looks like to keep the work focused.
-- **Terra, the pragmatic all-rounder.** Choose Terra for everyday work that needs strong reasoning and tool use when you do not need Sol's full depth. It is a natural starting point for work you previously gave GPT-5.5.
+- **Terra, the pragmatic all-rounder.** Choose Terra for everyday work that needs strong reasoning and tool use when you do not need Sol's full depth.
 - **Luna, for clear, repeatable tasks.** Choose Luna for specific, high-volume tasks when you know what a good result looks like, such as extraction, classification, transformation, and structured summaries.
 
-### Pick a reasoning effort
+#### Pick a reasoning effort
 
 Use the lowest reasoning effort that produces the result you need. Increase it for tasks that need more planning, analysis, or checking.
 
@@ -19,7 +27,7 @@ Use the lowest reasoning effort that produces the result you need. Increase it f
 - **Medium** balances speed and depth for tasks that need more planning.
 - **High** and **Extra High** suit difficult work with multiple steps, sources, or tradeoffs.
 
-### Know when to use Max or Ultra
+#### Know when to use Max or Ultra
 
 **Max** gives the selected model more time to reason about a single task. Use it for the hardest problems, when depth matters more than speed or usage.
 
