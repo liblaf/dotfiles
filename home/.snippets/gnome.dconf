@@ -146,6 +146,7 @@ random-mode-enabled=true
 revert-to-current-image=false
 
 [org/gnome/shell/extensions/codex-meter]
+auto-apply-banked-reset=true
 percent-display-mode='left'
 
 [org/gnome/shell/extensions/dash-to-dock]
@@ -166,6 +167,12 @@ show-all-slider=true
 show-sliders-in-submenu=true
 show-value-label=true
 step-change-keyboard=5.0
+
+[org/gnome/shell/extensions/lockkeys]
+capslock-indicator='when-active'
+capslock-notification='osd'
+numlock-indicator='when-active'
+numlock-notification='osd'
 
 [org/gnome/shell/extensions/vitals]
 fixed-widths=false

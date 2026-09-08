@@ -8,7 +8,7 @@ name = DATA41
 protocol = RDP
 # dynamic resolution updates
 scale = 2
-server = {{ (index (rbw "DATA41").data.uris 0).uri }}
+server = {{ (rbwFields "DATA41").SERVER.value }}
 # Good
 quality = 2
 
