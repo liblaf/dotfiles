@@ -2,6 +2,7 @@ packages:
   npm:
     - "@bitwarden/cli"
     - "@liblaf/cspell-init"
+    - "@liblaf/sub-store"
     - cspell
     - gh-pages
     - mega-linter-runner

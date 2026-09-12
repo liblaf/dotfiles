@@ -5,10 +5,10 @@ set -o nounset
 set -o pipefail
 
 sudo systemctl --now enable mihomo.service
-systemctl --user --now enable mihomo-pull.timer
+systemctl --user --now enable mihomo-update.timer
 
 # {{ if .services.mihomo.enable }}
-systemctl --user --now enable mihomo-push.timer
+systemctl --user --now enable sub-store-publish.timer
 # {{ else }}
-systemctl --user --now disable mihomo-push.timer
+systemctl --user --now disable sub-store-publish.timer
 # {{ end }}
