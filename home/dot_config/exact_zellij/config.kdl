@@ -1,5 +1,6 @@
 // ref: <https://zellij.dev/documentation/configuration.html>
 
+session_serialization false
 show_startup_tips false
 
 keybinds {
