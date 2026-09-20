@@ -19,4 +19,16 @@
 - WebUI > Web User Interface (Remote control) > Port: `8080`
 - WebUI > Web User Interface (Remote control) > Authentication > Username: `***`
 - WebUI > Web User Interface (Remote control) > Authentication > Password: `***`
-- WebUI > Web User Interface (Remote control) > Security > ❌ Enable Host header validation (for reverse proxy to work)
+- WebUI > Web User Interface (Remote control) > Authentication > ✅ Bypass authentication for clients in whitelisted IP subnets
+- WebUI > Web User Interface (Remote control) > Authentication > Whitelisted IP subnets (one per line):
+
+  ```text
+  10.208.11.1/32
+  fd45:6e65:685e::1/128
+  100.64.0.0/10
+  fd7a:115c:a1e0::/48
+  ```
+
+- WebUI > Web User Interface (Remote control) > Security > ❌ Enable Host header validation
+- WebUI > Web User Interface (Remote control) > Security > ✅ Enable reverse proxy support
+- WebUI > Web User Interface (Remote control) > Security > Trusted proxies list: `10.208.11.1;fd45:6e65:685e::1`

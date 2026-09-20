@@ -1,0 +1,16 @@
+# ref: <https://github.com/CachyOS/cachyos-calamares/blob/8da1369f82aab092a9f9df64eb749717d99b336d/src/modules/users/SetHostNameJob.cpp#L61-L70>
+# ref: <https://man.archlinux.org/man/hosts.5#EXAMPLES>
+
+# Standard host addresses
+127.0.0.1  localhost
+::1        localhost ip6-localhost ip6-loopback
+ff02::1    ip6-allnodes
+ff02::2    ip6-allrouters
+# This host address
+127.0.1.1  {{ .chezmoi.hostname }}
+
+# Tailscale Services
+100.77.7.7  forgejo.liblaf.me
+100.77.7.7  jellyfin.liblaf.me
+100.77.7.7  oplist.liblaf.me
+100.77.7.7  qbt.liblaf.me

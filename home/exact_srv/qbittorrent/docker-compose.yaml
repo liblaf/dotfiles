@@ -31,3 +31,9 @@ services:
 networks:
   default:
     enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 10.208.11.0/24
+          gateway: 10.208.11.1
+        - subnet: fd45:6e65:685e::/64
+          gateway: fd45:6e65:685e::1

@@ -27,7 +27,7 @@ packages:
     - dasel-bin
     - ddcutil # < gnome-shell-extension-display-brightness-ddcutil-git
     - difftastic
-    - dnsmasq
+    - dnsmasq # < libvirt: required for default NAT/DHCP for guests
     - docker
     - docker-compose
     - doggo

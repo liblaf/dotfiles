@@ -18,13 +18,12 @@ fi
 tmpfile="$(mktemp --suffix='.yaml')"
 xhs --output "$tmpfile" --download GET "$url"
 
-dnsmasq_uid="$(id --user 'dnsmasq')"
 port="$(gsettings get org.gnome.system.proxy.https port)"
 systemd_resolve_uid="$(id --user 'systemd-resolve')"
-export dnsmasq_uid port systemd_resolve_uid
+export port systemd_resolve_uid
 yq eval '
 .mixed-port=env(port) |
-.tun.exclude-uid = [env(dnsmasq_uid), env(systemd_resolve_uid)]
+.tun.exclude-uid = [env(systemd_resolve_uid)]
 ' "$tmpfile" --inplace
 
 mihomo -f "$tmpfile" -t
