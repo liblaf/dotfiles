@@ -13,7 +13,7 @@ services:
       TORRENTING_PORT: 63722
       UMASK: "002"
       WEBUI_PORT: 8080
-    image: lscr.io/linuxserver/qbittorrent:latest
+    image: lscr.io/linuxserver/qbittorrent:latest@sha256:457e4eec2ee3f5e4ef59f237ad51f6143deba9f7445ab48bb5204a98888ef9aa
     ports:
       - 63722:63722/tcp
       - 63722:63722/udp
