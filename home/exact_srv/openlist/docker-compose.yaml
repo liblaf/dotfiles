@@ -10,7 +10,7 @@ services:
       PGID: 33565
       PUID: 18453
       UMASK: "002"
-    image: openlistteam/openlist:latest
+    image: openlistteam/openlist:latest@sha256:c555c6e1c8af2aead38ed12ec761ac077fdf046d19cf033414be8e056aec6b64
     ports:
       - 5244:5244
     pull_policy: weekly
