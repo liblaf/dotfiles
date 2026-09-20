@@ -7,7 +7,7 @@ set -o pipefail
 sudo systemctl --now enable mihomo.service
 systemctl --user --now enable mihomo-update.timer
 
-# {{ if .services.mihomo.enable }}
+# {{ if .server }}
 systemctl --user --now enable sub-store-publish.timer
 # {{ else }}
 systemctl --user --now disable sub-store-publish.timer

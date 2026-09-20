@@ -1,5 +1,4 @@
 #!/bin/bash
-# -*- mode: sh; -*-
 set -o errexit
 set -o nounset
 set -o pipefail
@@ -22,10 +21,9 @@ sudo ufw allow out on virbr0 comment 'Libvirt'
 sudo ufw allow in on tailscale0 comment 'Tailscale'
 
 # applications
-sudo ufw allow to any port '{{ .services.caddy.https.port }}' comment 'Caddy > HTTPS'
-sudo ufw allow to any port '{{ .services.forgejo.ssh.port }}' comment 'Forgejo > SSH'
-sudo ufw allow to any port '{{ .services.qbittorrent.torrenting.port }}' comment 'qBittorrent > Torrenting'
-sudo ufw allow to any port '{{ .services.ssh.ssh.port }}' comment 'SSH'
+sudo ufw allow to any port 63179 comment 'SSH'
+sudo ufw allow to any port 63722 comment 'qBittorrent > Torrenting'
+sudo ufw allow to any port 64573 comment 'Forgejo > SSH'
 
 sudo find /etc/ufw -regextype gnu-awk -regex ".*.[[:digit:]]{8}_[[:digit:]]{6}" -delete
 sudo find /etc/ufw -name '*.rules' -exec chmod --changes 'u=rw,g=r,o=' {} \;

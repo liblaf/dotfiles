@@ -9,7 +9,7 @@ source "$SCRIPTDIR/config.sh"
 
 function prepare-cachyos() {
   # ref: <https://wiki.cachyos.org/cachyos_basic/download/>
-  local version='260426'
+  local version='260809'
 
   prompt-mountpoint
   local iso_dir="$MOUNTPOINT/ISO/"

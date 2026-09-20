@@ -4,7 +4,10 @@ import functools
 import hashlib
 import re
 import socket
-from collections.abc import Container, Sequence
+from collections.abc import Container, Mapping, Sequence
+from pathlib import Path
+
+import tomllib
 
 # /proc/sys/net/ipv4/ip_local_port_range
 PORT_RANGE: Sequence[int] = range(32768, 60999)
@@ -12,6 +15,12 @@ PORT_RANGE: Sequence[int] = range(32768, 60999)
 UID_RANGE: Sequence[int] = range(10000, 60000)
 # /etc/login.defs > GID_MIN..GID_MAX
 GID_RANGE: Sequence[int] = range(10000, 60000)
+NETWORK = tomllib.loads(
+    (
+        Path(__file__).resolve().parent.parent / "home/.chezmoidata/network.toml"
+    ).read_text()
+)["network"]
+GATEWAY_HOSTS = {NETWORK["gateway_host"]}
 
 
 class Field(enum.StrEnum):
@@ -36,6 +45,7 @@ class Service:
     name: str
     on: bool | Container[str] = True
     ports: Sequence[str] = ()
+    fixed_ports: Mapping[str, int] = dataclasses.field(default_factory=dict)
 
     @functools.cached_property
     def enable(self) -> bool:
@@ -57,16 +67,24 @@ class Service:
         print(f"{self.slug}.enable = {'true' if self.enable else 'false'}")
         print(f"{self.slug}.uid = {self.uid}")
         for port_name in self.ports:
-            port: int = PORT_RANGE[digest(self.name, port_name) % len(PORT_RANGE)]
+            port: int = (
+                self.fixed_ports[port_name]
+                if port_name in self.fixed_ports
+                else PORT_RANGE[digest(self.name, port_name) % len(PORT_RANGE)]
+            )
             print(f"{self.slug}.{port_name}.port = {port}")
 
 
 SERVICES: list[Service] = [
-    Service("Caddy", on=True, ports=("http", "https")),
+    Service(
+        "Caddy", on=GATEWAY_HOSTS, ports=("http", "https"), fixed_ports={"https": 443}
+    ),
+    Service("Cloudflared", on=GATEWAY_HOSTS if NETWORK["tunnel"]["enabled"] else False),
+    Service("Dnsmasq", on=GATEWAY_HOSTS),
     Service("Forgejo", on={"PC07"}, ports=("http", "ssh")),
-    Service("Jellyfin", on={"PC07"}),
+    Service("Jellyfin", on={"PC07"}, ports=("http",), fixed_ports={"http": 8096}),
     Service("Mihomo", on={"PC07"}, ports=("mixed",)),
-    Service("OpenList", on={"PC07"}),
+    Service("OpenList", on={"PC07"}, ports=("http",), fixed_ports={"http": 5244}),
     Service("qBittorrent", on={"PC07"}, ports=("torrenting", "webui")),
     Service("Restic", on=True),
     Service("SSH", on=True, ports=("ssh",)),

@@ -28,6 +28,7 @@ packages:
     - dasel-bin
     - ddcutil # < gnome-shell-extension-display-brightness-ddcutil-git
     - difftastic
+    - dnsmasq
     - docker
     - docker-compose
     - doggo
@@ -68,7 +69,6 @@ packages:
     - httpie
     - hwatch
     - hyperfine
-    - smartmontools
     - ibus-libpinyin
     - inkscape
     - jless
@@ -101,6 +101,7 @@ packages:
     - nodejs-lts-krypton
     - noto-fonts-extra
     - npm
+    - nvme-cli
     - obs-studio
     - obsidian
     - openai-codex
@@ -202,6 +203,7 @@ packages:
     - seahorse
     - shellcheck-static # extra/shellcheck depends on so many packages
     - shfmt
+    - smartmontools
     - somo
     - speedtest-cli
     - sshfs
@@ -236,7 +238,6 @@ packages:
     - vulkan-tools # Vulkan
     - wireguard-tools
     - wl-clipboard
-    - nvme-cli
     - wps-office-365
     - wps-office-365-fonts
     - wrangler

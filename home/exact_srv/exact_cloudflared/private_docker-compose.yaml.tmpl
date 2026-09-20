@@ -1,0 +1,17 @@
+# -*- mode: dockercompose; -*-
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
+
+name: cloudflared
+
+services:
+  cloudflared:
+    command:
+      - tunnel
+      - run
+    container_name: cloudflared
+    environment:
+      TUNNEL_TOKEN: '{{ (rbwFields "Cloudflare").TUNNEL_TOKEN.value }}'
+    image: cloudflare/cloudflared:latest
+    network_mode: host
+    pull_policy: weekly
+    restart: unless-stopped

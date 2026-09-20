@@ -63,6 +63,7 @@ words:
   - direnv
   - distcc
   - dmabuf
+  - dnsmasq
   - dnssec
   - dnut
   - dotenv
@@ -101,7 +102,6 @@ words:
   - gsub
   - gvariant
   - haruna
-  - hjkmnp
   - httpx
   - hwatch
   - ibus
@@ -223,6 +223,7 @@ words:
   - setaf
   - sharzyl
   - shfmt
+  - shuf
   - simpleitk
   - sjtug
   - slobbe

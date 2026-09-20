@@ -5,19 +5,11 @@ set -o nounset
 set -o pipefail
 
 # {{ include ".snippets/docker.sh" }}
-# {{ includeTemplate "service.sh" . }}
+# {{ include ".snippets/service.sh" }}
 
-# {{ if .services.qbittorrent.enable }}
-
-service-user-add qbittorrent '{{ .services.qbittorrent.uid }}' 'qBittorrent'
+service-user-add qbittorrent 20811 'qBittorrent'
 mkdir --parents --verbose ./config
 mkdir --parents --verbose /mnt/PC07sda1/srv/qbittorrent/downloads
 sudo chown --changes --recursive qbittorrent:srv ./config
 sudo chown --changes --recursive qbittorrent:srv /mnt/PC07sda1/srv/qbittorrent
 docker compose up --detach --remove-orphans
-
-# {{ else }}
-
-docker compose down
-
-# {{ end }}

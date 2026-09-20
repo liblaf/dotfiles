@@ -5,18 +5,10 @@ set -o nounset
 set -o pipefail
 
 # {{ include ".snippets/docker.sh" }}
-# {{ includeTemplate "service.sh" . }}
+# {{ include ".snippets/service.sh" }}
 
-# {{ if .services.jellyfin.enable }}
-
-service-user-add jellyfin '{{ .services.jellyfin.uid }}' 'Jellyfin'
+service-user-add jellyfin 50517 'Jellyfin'
 mkdir --parents --verbose ./config
 mkdir --parents --verbose /mnt/PC07sda1/srv/qbittorrent/downloads
 sudo chown --changes --recursive jellyfin:srv ./config
 docker compose up --detach --remove-orphans
-
-# {{ else }}
-
-docker compose down
-
-# {{ end }}

@@ -1,12 +1,12 @@
 #!/bin/bash
 
 function service-user-add() {
-  local login="$1"
-  local uid="$2"
-  local comment="$3"
+  local -r login="$1"
+  local -r uid="$2"
+  local -r comment="$3"
   shift 3
 
-  local gid='{{ .services.gid }}'
+  local -r gid='33565'
   if getent group 'srv' &> /dev/null; then
     local gid_old
     gid_old="$(
@@ -29,11 +29,10 @@ function service-user-add() {
     if ((uid_old != uid)); then
       sudo usermod --comment "$comment" --groups 'srv' \
         --shell '/usr/bin/nologin' --uid "$uid" "$login"
-      # for root in "$@"; do
-      #   if [[ ! -e $root ]]; then continue; fi
-      #   chown --verbose --no-dereference --from="$uid_old" --recursive \
-      #     "$login:srv" "$root"
-      # done
+      for root in "$@"; do
+        if [[ ! -e $root ]]; then continue; fi
+        chown --verbose --no-dereference --from="$uid_old" --recursive "$login:srv" "$root"
+      done
     fi
   else
     sudo useradd --comment "$comment" --groups 'srv' --no-create-home \

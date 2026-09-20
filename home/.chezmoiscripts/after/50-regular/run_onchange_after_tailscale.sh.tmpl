@@ -38,3 +38,7 @@ sudo tailscale set \
   --ssh
 
 tailscale configure systray --enable-startup freedesktop
+
+# {{ if .server }}
+sudo systemctl --now enable dnsmasq.service
+# {{ end }}

@@ -9,15 +9,15 @@ services:
   forgejo:
     container_name: forgejo
     environment:
-      USER_GID: "{{ .services.gid }}"
-      USER_UID: "{{ .services.forgejo.uid }}"
+      USER_GID: 33565
+      USER_UID: 17084
       FORGEJO____APP_NAME: Forgejo
       FORGEJO____APP_SLOGAN: Beyond coding. We forge.
       FORGEJO__repository__ROOT: /data/git/repositories
       FORGEJO__repository__ENABLE_PUSH_CREATE_USER: true
       FORGEJO__repository.signing__DEFAULT_TRUST_MODEL: committer
       FORGEJO__server__DOMAIN: forgejo.liblaf.me
-      FORGEJO__server__ROOT_URL: https://forgejo.liblaf.me:{{ .services.caddy.https.port }}/
+      FORGEJO__server__ROOT_URL: https://forgejo.liblaf.me/
       FORGEJO__server__LFS_START_SERVER: true
       FORGEJO__database__DB_TYPE: sqlite3
       FORGEJO__cache__ADAPTER: twoqueue
@@ -30,8 +30,8 @@ services:
       FORGEJO__actions__ENABLED: false
     image: codeberg.org/forgejo/forgejo:15
     ports:
-      - "{{ .services.forgejo.ssh.port }}:22"
-      - "{{ .services.forgejo.http.port }}:3000"
+      - 3000:3000
+      - 64573:22
     pull_policy: weekly
     restart: unless-stopped
     volumes:
@@ -53,5 +53,5 @@ volumes:
     driver: local
     driver_opts:
       device: //{{ (rbwFields "DATA41").SERVER.value }}/{{ (rbwFields "DATA41").SHARE.value }}/srv/forgejo/git/lfs
-      o: noatime,nodev,noexec,_netdev,nosuid,rw,username={{ (rbw "DATA41").data.username }},password={{ (rbw "DATA41").data.password }},uid={{ .services.forgejo.uid }},gid={{ .services.gid }},file_mode=0640,dir_mode=0750,seal
+      o: noatime,nodev,noexec,_netdev,nosuid,rw,username={{ (rbw "DATA41").data.username }},password={{ (rbw "DATA41").data.password }},uid=17084,gid=33565,file_mode=0640,dir_mode=0750,seal
       type: cifs

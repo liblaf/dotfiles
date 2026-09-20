@@ -10,8 +10,8 @@ services:
     container_name: jellyfin
     environment:
       NVIDIA_VISIBLE_DEVICES: all
-      PGID: "{{ .services.gid }}"
-      PUID: "{{ .services.jellyfin.uid }}"
+      PGID: 33565
+      PUID: 50517
       UMASK: "002"
     image: lscr.io/linuxserver/jellyfin:latest
     ports:

@@ -1,4 +1,3 @@
-# -*- mode: dockercompose; -*-
 # yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-go/master/schema/compose-spec.json
 
 # ref: <https://docs.linuxserver.io/images/docker-qbittorrent/>
@@ -9,16 +8,16 @@ services:
     container_name: qbittorrent
     environment:
       # DOCKER_MODS: ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest
-      PGID: "{{ .services.gid }}"
-      PUID: "{{ .services.qbittorrent.uid }}"
-      TORRENTING_PORT: "{{ .services.qbittorrent.torrenting.port }}"
+      PGID: 33565
+      PUID: 20811
+      TORRENTING_PORT: 63722
       UMASK: "002"
-      WEBUI_PORT: "{{ .services.qbittorrent.webui.port }}"
+      WEBUI_PORT: 8080
     image: lscr.io/linuxserver/qbittorrent:latest
     ports:
-      - "{{ .services.qbittorrent.torrenting.port }}:{{ .services.qbittorrent.torrenting.port }}/tcp"
-      - "{{ .services.qbittorrent.torrenting.port }}:{{ .services.qbittorrent.torrenting.port }}/udp"
-      - "{{ .services.qbittorrent.webui.port }}:{{ .services.qbittorrent.webui.port }}"
+      - 63722:63722/tcp
+      - 63722:63722/udp
+      - 8080:8080
     pull_policy: weekly
     restart: unless-stopped
     volumes:
