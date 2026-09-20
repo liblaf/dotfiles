@@ -20,7 +20,6 @@ packages:
     - chezmoi
     - chsrc-bin
     - cmake
-    - codexbar-cli-bin
     - compsize
     - cppcheck
     - cross
@@ -209,6 +208,7 @@ packages:
     - sshfs
     - sshpass # < ansible-core < ansible
     - starship
+    - swtpm # < libvirt
     - tailscale
     - telegram-desktop
     - tesseract-data-chi_sim # < com.pot_app.pot

@@ -11,6 +11,8 @@ function skills-add() {
   skills add --global --agent 'codex' --yes "$@"
 }
 
+skills remove --global --yes --all
+
 skills-add 'cangtianhuang/humanizer-academic-zh' --skill 'humanizer-academic-zh'
 skills-add 'liblaf/cherries'
 skills-add 'liblaf/skills'

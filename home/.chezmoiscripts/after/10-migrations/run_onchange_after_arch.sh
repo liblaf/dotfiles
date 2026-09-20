@@ -4,9 +4,12 @@ set -o nounset
 set -o pipefail
 
 legacy_packages=(
+  cloudflared
+  codexbar-cli-bin
   gnome-shell-extension-bing-wallpaper
   gnome-shell-extension-display-brightness-ddcutil-git
   gnome-shell-extension-power-profile-switcher-git
+  unbound
 )
 
 readarray -t packages_to_remove < <(
