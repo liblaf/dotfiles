@@ -4,8 +4,6 @@ set -o nounset
 set -o pipefail
 
 readonly config_file='/etc/mihomo/config.yaml'
-port="$(gsettings get org.gnome.system.proxy.https port)"
-export port
 url=$(awk '
   NR == 1 {
     if ($1 == "#SUBSCRIBED" && NF == 2)
@@ -19,7 +17,16 @@ if [[ -z $url ]]; then
 fi
 tmpfile="$(mktemp --suffix='.yaml')"
 xhs --output "$tmpfile" --download GET "$url"
-yq eval '.mixed-port=env(port)' "$tmpfile" --inplace
+
+dnsmasq_uid="$(id --user 'dnsmasq')"
+port="$(gsettings get org.gnome.system.proxy.https port)"
+systemd_resolve_uid="$(id --user 'systemd-resolve')"
+export dnsmasq_uid port systemd_resolve_uid
+yq eval '
+.mixed-port=env(port) |
+.tun.exclude-uid = [env(dnsmasq_uid), env(systemd_resolve_uid)]
+' "$tmpfile" --inplace
+
 mihomo -f "$tmpfile" -t
 sudo cp --verbose "$tmpfile" "$config_file"
 rm --force "$tmpfile"
