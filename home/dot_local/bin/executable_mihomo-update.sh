@@ -19,12 +19,8 @@ tmpfile="$(mktemp --suffix='.yaml')"
 xhs --output "$tmpfile" --download GET "$url"
 
 port="$(gsettings get org.gnome.system.proxy.https port)"
-systemd_resolve_uid="$(id --user 'systemd-resolve')"
-export port systemd_resolve_uid
-yq eval '
-.mixed-port=env(port) |
-.tun.exclude-uid = [env(systemd_resolve_uid)]
-' "$tmpfile" --inplace
+export port
+yq eval '.mixed-port=env(port)' "$tmpfile" --inplace
 
 mihomo -f "$tmpfile" -t
 sudo cp --verbose "$tmpfile" "$config_file"

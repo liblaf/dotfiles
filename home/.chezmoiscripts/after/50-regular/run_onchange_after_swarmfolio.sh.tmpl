@@ -1,0 +1,15 @@
+#!/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+# {{ if .server }}
+# {{ gitHubLatestReleaseAssetURL "liblaf/swarmfolio" "swarmfolio-linux-amd64.tar.gz" }}
+
+if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+swarmfolio systemd install --force
+
+# {{ end }}
