@@ -112,8 +112,8 @@ packages:
     - pandoc-bin # extra/pandoc-cli depends on so many packages
     - paraview
     - paru
-    - perl-file-homedir # < latexindent < texlive-binextra < group:texlive
-    - perl-yaml-tiny # < latexindent < texlive-binextra < group:texlive
+    - perl-file-homedir # texlive-binextra: for latexindent
+    - perl-yaml-tiny # texlive-binextra: for latexindent
     - pixi
     - pkgstats
     - pnpm
@@ -139,7 +139,7 @@ packages:
     - python-hatch-vcs
     - python-hatchling
     - python-hishel
-    - python-httpx
+    - python-httpx2
     - python-hypothesis
     - python-icecream
     - python-ipykernel
@@ -153,7 +153,7 @@ packages:
     - python-numpy
     - python-optax
     - python-pandas
-    - python-passlib # < ansible-core < ansible
+    - python-passlib # < ansible-core: crypt values for vars_prompt
     - python-pendulum
     - python-pipx
     - python-platformdirs
@@ -162,7 +162,7 @@ packages:
     - python-pydantic-extra-types
     - python-pydantic-settings
     - python-pydicom
-    - python-pygments # < minted < texlive
+    - python-pygments # < texlive-latexextra: for pygmentex
     - python-pytest
     - python-pytest-codspeed
     - python-pytest-cov
@@ -174,7 +174,7 @@ packages:
     - python-ruff
     - python-scipy
     - python-seaborn
-    - python-socksio # < python-httpx[socks]
+    - python-socksio # < python-httpx2: SOCKS proxy support
     - python-sympy
     - python-tenacity
     - python-tomlkit
@@ -188,7 +188,7 @@ packages:
     - python-wurlitzer
     - python-yaml
     - qalculate-gtk
-    - qemu-full # < libvirt
+    - qemu-full # < libvirt: QEMU/KVM support
     - rbw
     - rclone
     - remmina
@@ -200,15 +200,15 @@ packages:
     - rustup
     - sccache
     - seahorse
-    - shellcheck-static # extra/shellcheck depends on so many packages
+    - shellcheck-static # static version not depending on GHC libraries
     - shfmt
     - smartmontools
     - somo
     - speedtest-cli
     - sshfs
-    - sshpass # < ansible-core < ansible
+    - sshpass # < ansible-core: for ssh connections with password
     - starship
-    - swtpm # < libvirt
+    - swtpm # < libvirt: TPM emulator support
     - tailscale
     - telegram-desktop
     - tesseract-data-chi_sim # < com.pot_app.pot
@@ -226,7 +226,7 @@ packages:
     - ttf-ms-win11-auto-zh_cn
     - ttf-twemoji
     - ty
-    - usage # < mise
+    - usage # < mise: completion support
     - uv
     - vcpkg
     - vdpauinfo # VDPAU

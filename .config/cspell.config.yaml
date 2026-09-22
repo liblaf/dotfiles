@@ -198,6 +198,7 @@ words:
   - pycache
   - pydantic
   - pydicom
+  - pygmentex
   - pygments
   - pypi
   - pytest

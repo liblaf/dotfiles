@@ -5,4 +5,5 @@ font-family = Maple Mono Normal NF CN
 font-family = Twemoji
 mouse-scroll-multiplier = 1
 maximize = true
+shell-integration-features = sudo,ssh-env,ssh-terminfo
 gtk-titlebar-hide-when-maximized = true
