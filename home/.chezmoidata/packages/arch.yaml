@@ -43,6 +43,7 @@ packages:
     - gdu
     - geekbench
     - ghostty
+    - ghostty-nautilus # < ghostty: Open in Ghostty context menu in GNOME Files
     - gimp
     - git-cliff
     - git-extras

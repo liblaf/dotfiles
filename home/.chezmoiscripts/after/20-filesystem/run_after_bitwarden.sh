@@ -9,7 +9,7 @@ rbw list --raw |
     target="${item/#'~'/"$HOME"}"
     mkdir --parents --verbose "$(dirname -- "$target")"
     tmpfile="$(mktemp)"
-    rbw get --folder 'Dotfiles' "$item" > "$tmpfile"
+    rbw get --folder 'Dotfiles' --field 'notes' "$item" > "$tmpfile"
     mv "$tmpfile" "$target"
     rm --force "$tmpfile"
     chmod --verbose 'u=rw,go=' "$target"
