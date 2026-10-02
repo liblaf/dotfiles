@@ -3,8 +3,13 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-gpg --import --batch --passphrase '{{ (rbw "GPG").data.password }}' \
-  --pinentry-mode loopback <<< '{{ (rbw "GPG").notes }}'
+gpg --batch --passphrase '{{ (rbw "GPG").data.password }}' --pinentry-mode loopback \
+  --import <<< '{{ (rbw "GPG").notes }}'
 gpg --import-ownertrust << 'EOF'
 F4FBD9F5AA92AE2E9D06780717BAD38DBF772DFB:6:
 EOF
+
+# ref: <https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification>
+gpg --batch --import < '{{ .dirs.external }}/github.com/web-flow.gpg'
+gpg --batch --passphrase '{{ (rbw "GPG").data.password }}' --pinentry-mode loopback \
+  --quick-lsign-key '968479A1AFF927E37D1A566BB5690EEEBB952194'

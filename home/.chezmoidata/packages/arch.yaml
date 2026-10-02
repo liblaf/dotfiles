@@ -19,6 +19,8 @@ packages:
     - chatgpt-desktop-bin
     - chezmoi
     - chsrc-bin
+    - claude-code
+    - claude-desktop
     - cmake
     - compsize
     - cppcheck
