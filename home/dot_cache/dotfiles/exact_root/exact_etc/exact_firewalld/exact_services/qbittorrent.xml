@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://raw.githubusercontent.com/firewalld/firewalld/refs/heads/main/config/xmlschema/service.xsd"?>
+<service>
+  <port port="63722" protocol="tcp" />
+  <port port="63722" protocol="udp" />
+</service>

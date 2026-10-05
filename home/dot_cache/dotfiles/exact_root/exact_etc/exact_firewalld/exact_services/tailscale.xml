@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://raw.githubusercontent.com/firewalld/firewalld/refs/heads/main/config/xmlschema/service.xsd"?>
+<service>
+  <!-- ref: <https://tailscale.com/docs/reference/faq/firewall-ports> -->
+  <port port="41641" protocol="udp" />
+</service>

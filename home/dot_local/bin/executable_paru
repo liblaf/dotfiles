@@ -10,4 +10,5 @@ set -o pipefail
 COLUMNS="$(tput cols)"
 export DFT_COLOR='always'
 export DFT_WIDTH="$((COLUMNS - 5))"
+
 exec '/usr/bin/paru' "$@"

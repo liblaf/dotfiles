@@ -57,6 +57,7 @@ words:
   - ddns
   - dependi
   - dglteam
+  - dhcpv
   - difft
   - difftastic
   - direnv
@@ -75,6 +76,7 @@ words:
   - etils
   - fastai
   - feishu
+  - firewalld
   - fnox
   - forgejo
   - freeipmi
@@ -268,7 +270,6 @@ words:
   - vdpauinfo
   - venv
   - vercel
-  - virbr
   - virsh
   - virt
   - vuetorrent

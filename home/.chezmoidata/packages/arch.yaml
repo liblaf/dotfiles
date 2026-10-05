@@ -38,6 +38,7 @@ packages:
     - drawio-desktop
     - earlyoom
     - fio
+    - firewalld
     - flameshot
     - flatseal
     - fnox-bin
@@ -76,6 +77,7 @@ packages:
     - jless
     - jnv
     - journalctl-desktop-notification
+    - jq
     - just
     - kitty
     - lazydocker

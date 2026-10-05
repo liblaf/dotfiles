@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="https://raw.githubusercontent.com/firewalld/firewalld/refs/heads/main/config/xmlschema/zone.xsd"?>
+<!-- ref: <file:///usr/lib/firewalld/zones/trusted.xml> -->
+<zone target="ACCEPT">
+  <short>Trusted</short>
+  <description>All network connections are accepted.</description>
+  <forward />
+  <interface name="tailscale0" />
+</zone>
