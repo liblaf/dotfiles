@@ -13,7 +13,7 @@ services:
       PGID: 33565
       PUID: 50517
       UMASK: "002"
-    image: lscr.io/linuxserver/jellyfin:latest@sha256:b0b6d034aa52ed6e1a76daaa3d7ed29039d2b802a50fa8ffd1d9fc8d3fd836c7
+    image: lscr.io/linuxserver/jellyfin:latest@sha256:790de2cba2780394a7335f8e08bad3381a7c8e156de8beb9ece42a4fa8c6359a
     ports:
       - 8096:8096/tcp
       - 8096:8096/udp
