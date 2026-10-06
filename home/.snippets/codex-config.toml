@@ -3,14 +3,14 @@
 
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"
-model = "gpt-6-astra"
-model_reasoning_effort = "xhigh"
+model = "gpt-6.1-sol"
+model_reasoning_effort = "ultra"
 # ref: <https://github.com/openai/codex/issues/3141#issuecomment-4236522565>
 # TODO: switch to "workspace-write" until CUDA is supported in the sandbox
 sandbox_mode = "danger-full-access"
 
 [agents]
-default_subagent_model = "gpt-5.6-terra"
+default_subagent_model = "gpt-6.1-sol"
 default_subagent_reasoning_effort = "medium"
 
 [analytics]
