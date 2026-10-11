@@ -12,6 +12,7 @@
   <service name="http3" />
   <service name="https" />
   <service name="liblaf-ssh" />
+  <service name="mdns" />
   <service name="qbittorrent" />
   <service name="tailscale" />
 </zone>
