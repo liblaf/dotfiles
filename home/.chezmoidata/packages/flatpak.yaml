@@ -1,7 +1,6 @@
 packages:
   flatpak:
     - cn.feishu.Feishu
-    - com.pot_app.pot
     - com.tencent.WeChat
     - com.tencent.wemeet
     - io.typora.Typora

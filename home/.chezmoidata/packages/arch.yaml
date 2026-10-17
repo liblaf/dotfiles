@@ -87,6 +87,7 @@ packages:
     - lldb
     - lnav
     - lshw
+    - manggo
     - markdownlint-cli
     - micromamba
     - microsoft-edge-stable-bin
@@ -216,8 +217,6 @@ packages:
     - swtpm # < libvirt: TPM emulator support
     - tailscale
     - telegram-desktop
-    - tesseract-data-chi_sim # < com.pot_app.pot
-    - tesseract-data-eng # < com.pot_app.pot
     - texlive
     - texlive-langchinese
     - texlive-langenglish

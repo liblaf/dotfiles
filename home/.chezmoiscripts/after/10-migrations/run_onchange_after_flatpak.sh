@@ -6,6 +6,7 @@ set -o pipefail
 legacy_packages=(
   cn.wps.wps_365
   com.github.tchx84.Flatseal
+  com.pot_app.pot
   moe.tsuna.tsukimi
   org.flameshot.Flameshot
   org.paraview.ParaView
