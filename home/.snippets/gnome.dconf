@@ -100,7 +100,12 @@ default-folder-viewer='list-view'
 maximized=true
 
 [org/gnome/settings-daemon/plugins/media-keys]
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/chatgpt/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/chatgpt]
+binding='F24'
+command='gtk-launch chatgpt.desktop'
+name='ChatGPT'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/flameshot]
 binding='<Shift><Super>s'
