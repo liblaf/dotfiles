@@ -13,12 +13,12 @@ import os
 import re
 import subprocess
 import sys
+import tomllib
 from collections.abc import Generator
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 import pynvml
-import tomllib
 
 if TYPE_CHECKING:
     from _typeshed import StrOrBytesPath
