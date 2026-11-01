@@ -31,6 +31,8 @@ services:
 networks:
   default:
     enable_ipv6: true
+    driver_opts:
+      com.docker.network.bridge.name: br-qbittorrent
     ipam:
       config:
         - subnet: 10.208.11.0/24
