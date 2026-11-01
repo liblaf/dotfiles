@@ -1,5 +1,9 @@
+# ref: <file:///usr/share/rime-data/rime_ice_suggestion.yaml>
 # ref: <https://github.com/archlinuxcn/repo/blob/master/archlinuxcn/rime-ice-git/post.install>
 
 patch:
   # 这里的 rime_ice_suggestion 为雾凇方案的默认预设
   __include: rime_ice_suggestion:/
+
+  switcher/hotkeys:
+    - F4

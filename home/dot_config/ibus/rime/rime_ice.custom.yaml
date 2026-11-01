@@ -1,6 +1,7 @@
 # ref: <https://github.com/iDvel/rime-ice/blob/main/others/recipes/grammar.recipe.yaml>
 
 patch:
+  engine/processors/@before 0: lua_processor@*remember_options
   grammar:
     language: wanxiang-lts-zh-hans
     collocation_max_length: 6

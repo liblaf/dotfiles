@@ -32,6 +32,7 @@ lookuptableorientation=0
 mincharcomplete=2
 offtherecord=true
 pagesize=9
+rememberinputmode=true
 
 [org/gnome/desktop/a11y/applications]
 screen-keyboard-enabled=false

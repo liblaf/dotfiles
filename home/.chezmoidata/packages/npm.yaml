@@ -3,6 +3,7 @@ packages:
     - "@bitwarden/cli"
     - "@liblaf/cspell-init"
     - "@liblaf/sub-store"
+    - ccusage
     - cspell
     - gh-pages
     - mega-linter-runner
@@ -10,3 +11,4 @@ packages:
     - oxlint
     - setup-npm-trusted-publish
     - skills
+    - t3
