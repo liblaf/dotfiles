@@ -17,13 +17,18 @@ Messages that you send to other agents and your final answer may be read by a hu
 
 Spawn subagents with explicit model and reasoning effort.
 
-- **Luna · Low:** Fine-grained edits, well-scoped problem-solving, and simple data extraction.
-- **Luna · Extra high:** Finding current context across multiple apps, prioritizing work, and solving problems with clear constraints.
-- **GPT-6.1 Sol · Medium:** Complex technical work and coordinated deliverables you expect to revise.
-- **GPT-6.1 Sol · Extra high:** Polished deliverables, connected visual systems, and decisions built from conflicting evidence.
-- **Astra · Low:** Concise writing and content adaptation that preserve facts and nuance.
-- **Astra · Medium:** Ambitious projects that need broad context, reliable interactions, and complete results.
-- **Astra · Extra high:** Demanding analysis and complex deliverables with exacting requirements.
+<!-- ref: <https://artificialanalysis.ai/leaderboards/models> -->
+
+| Model (reasoning effort) | Artificial Analysis Intelligence Index ↓ | Cost per Task (USD) |
+| --- | ---: | ---: |
+| Claude Opus 5.5 (max with fallback) | 58 | $10.04 |
+| GPT-6 Astra (max) | 57 | $6.24 |
+| GPT-6.1 Sol (max) | 55 | $1.27 |
+| GPT-6.1 Sol (xhigh) | 52 | $0.76 |
+| GPT-6.1 Sol (high) | 50 | $0.59 |
+| GPT-6.1 Sol (medium) | 46 | $0.36 |
+| GPT-6.1 Terra (high) | 42 | $0.26 |
+| GPT-6.1 Terra (medium) | 38 | $0.17 |
 
 ## Testing and verification
 

@@ -6,10 +6,15 @@ set -o pipefail
 
 # {{ include ".snippets/group-add.sh" }}
 
-sudo cp --verbose "$CHEZMOI_SOURCE_DIR/dot_cache/dotfiles/exact_root/exact_etc/pacman.conf" '/etc/pacman.conf'
+readonly SOURCE_ROOT="$CHEZMOI_SOURCE_DIR/dot_cache/dotfiles/exact_root"
+
+sudo cp --verbose "$SOURCE_ROOT/exact_etc/pacman.conf" '/etc/pacman.conf'
 sudo install --verbose \
-  "$CHEZMOI_SOURCE_DIR/dot_cache/dotfiles/exact_root/exact_usr/exact_local/exact_bin/executable_arch-rate-mirrors.sh" \
+  "$SOURCE_ROOT/exact_usr/exact_local/exact_bin/executable_arch-rate-mirrors.sh" \
   '/usr/local/bin/arch-rate-mirrors.sh'
+sudo install --verbose \
+  "$SOURCE_ROOT/exact_usr/exact_local/exact_bin/executable_direct.sh" \
+  '/usr/local/bin/direct.sh'
 
 function setup-mirrors() {
   local -r repo="$1"

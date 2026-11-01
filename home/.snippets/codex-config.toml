@@ -32,6 +32,10 @@ show-context-window-usage = true
 [features]
 memories = true
 
+[memories]
+consolidation_model = "gpt-6.1-terra"
+extract_model = "gpt-6-luna"
+
 [sandbox_workspace_write]
 network_access = true
 writable_roots = ["~/.bun", "~/.cache", "~/.cargo", "~/.config", "~/.npm", "~/.pixi"]

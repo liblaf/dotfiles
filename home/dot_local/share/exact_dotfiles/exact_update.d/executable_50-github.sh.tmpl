@@ -20,6 +20,7 @@ function gh-clone() {
   local -r repository="$1"
   case "$repository" in
     liblaf/dotfiles) local -r path='{{ .chezmoi.workingTree }}' ;;
+    liblaf/sub-store-config) local -r path="$HOME/.config/sub-store" ;;
     *) local -r path="$prefix/$repository" ;;
   esac
   echo "$repository"

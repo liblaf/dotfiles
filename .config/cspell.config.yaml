@@ -62,7 +62,6 @@ words:
   - difftastic
   - direnv
   - distcc
-  - dmabuf
   - dnsmasq
   - dnssec
   - dnut
@@ -165,6 +164,7 @@ words:
   - nofile
   - nohup
   - nopasswd
+  - noproxy
   - nosuid
   - noto
   - nsswitch
@@ -275,12 +275,14 @@ words:
   - vuetorrent
   - waka
   - wakatime
+  - wanxiang
   - wcwidth
   - webdav
   - webui
   - wemeet
   - winpr
   - xdist
+  - xhigh
   - xmake
   - yazi
   - yzhang

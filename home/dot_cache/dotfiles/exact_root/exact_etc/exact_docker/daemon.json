@@ -1,10 +1,5 @@
 {
   "ipv6": true,
-  "proxies": {
-    "http-proxy": "http://127.0.0.1:62562",
-    "https-proxy": "http://127.0.0.1:62562",
-    "no-proxy": "localhost,127.0.0.0/8,::1"
-  },
   "registry-mirrors": [
     "https://docker.m.daocloud.io",
     "https://docker.1panel.live"

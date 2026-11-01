@@ -6,10 +6,6 @@ set -o pipefail
 function main() {
   local -r repo="$1"
 
-  local -r no_proxy='*'
-  local -r NO_PROXY='*'
-  export no_proxy NO_PROXY
-
   # Use jsDelivr (instead of raw.githubusercontent.com) for better reliability.
   case "$repo" in
     'arch4edu')
@@ -37,7 +33,7 @@ function main() {
   local -r RATE_MIRRORS_SAVE="$(mktemp)"
   export RATE_MIRRORS_SAVE
   export RATE_MIRRORS_ALLOW_ROOT=true
-  rate-mirrors "$repo"
+  direct.sh rate-mirrors "$repo"
 
   # Install the generated mirrorlist to pacman's expected path.
   case "$repo" in

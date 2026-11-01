@@ -21,6 +21,18 @@ performance-page-kernel-times=true
 performance-sliding-graphs=true
 performance-smooth-graphs=true
 
+[org/freedesktop/ibus/engine/typing-booster]
+# Automatically select the best candidate: Yes, always
+autoselectcandidate=2
+dictionary='en_US'
+inputmethod='NoIME'
+keybindings={'toggle_emoji_prediction': <['Shift+F6']>, 'toggle_input_mode_on_off': <['Shift+F8']>}
+# Candidate window orientation: Horizontal
+lookuptableorientation=0
+mincharcomplete=2
+offtherecord=true
+pagesize=9
+
 [org/gnome/desktop/a11y/applications]
 screen-keyboard-enabled=false
 
@@ -31,7 +43,7 @@ show-weekdate=true
 automatic-timezone=true
 
 [org/gnome/desktop/input-sources]
-sources=[('xkb', 'us'), ('ibus', 'libpinyin')]
+sources=[('ibus', 'typing-booster'), ('ibus', 'rime')]
 
 [org/gnome/desktop/interface]
 clock-format='24h'

@@ -3,6 +3,7 @@ packages:
     - 3dslicer
     - 7zip
     - ansible
+    - antigravity-cli
     - arch4edu-keyring
     - archlinuxcn-keyring
     - argc
@@ -22,6 +23,7 @@ packages:
     - claude-code
     - claude-desktop
     - cmake
+    - codexbar-cli
     - compsize
     - cppcheck
     - cross
@@ -70,9 +72,12 @@ packages:
     - helix
     - htop
     - httpie
+    - hunspell-en_us # < ibus-typing-booster: en_US dictionary
     - hwatch
     - hyperfine
     - ibus-libpinyin
+    - ibus-rime
+    - ibus-typing-booster
     - inkscape
     - jless
     - jnv
@@ -91,7 +96,7 @@ packages:
     - markdownlint-cli
     - micromamba
     - microsoft-edge-stable-bin
-    - mihomo
+    - mihomo-smart-bin
     - miniconda3
     - miniserve
     - mise
@@ -195,13 +200,15 @@ packages:
     - python-yaml
     - qalculate-gtk
     - qemu-full # < libvirt: QEMU/KVM support
-    - rbw
+    - rbw-enhanced
     - rclone
     - remmina
     - restic
     - restic-browser-bin
     - resticprofile
-    - resvg
+    - resvg # < yazi: for SVG preview
+    - rime-ice-pinyin-git
+    - rime-wanxiang-gram-zh-hans
     - ruff
     - rustup
     - sccache
@@ -215,6 +222,7 @@ packages:
     - sshpass # < ansible-core: for ssh connections with password
     - starship
     - swtpm # < libvirt: TPM emulator support
+    - t3code-bin
     - tailscale
     - telegram-desktop
     - texlive
@@ -242,7 +250,7 @@ packages:
     - vulkan-tools # Vulkan
     - wireguard-tools
     - wl-clipboard
-    - wps-office-365
+    - wps-office-365 # Flatpak can open duplicate windows in integrated mode
     - wps-office-365-fonts
     - wrangler
     - xdg-terminal-exec
