@@ -24,14 +24,13 @@ performance-smooth-graphs=true
 [org/freedesktop/ibus/engine/typing-booster]
 # Automatically select the best candidate: Yes, always
 autoselectcandidate=2
+candidatesdelaymilliseconds=uint32 0
 dictionary='en_US'
 inputmethod='NoIME'
-keybindings={'toggle_emoji_prediction': <['Shift+F6']>, 'toggle_input_mode_on_off': <['Shift+F8']>}
+keybindings={'toggle_emoji_prediction': <['Shift+F6']>, 'toggle_input_mode_on_off': <['Shift']>}
 # Candidate window orientation: Horizontal
 lookuptableorientation=0
-mincharcomplete=2
 offtherecord=true
-pagesize=9
 rememberinputmode=true
 
 [org/gnome/desktop/a11y/applications]
