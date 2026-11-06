@@ -1,0 +1,8 @@
+# -*- mode: ini; -*-
+
+[Install]
+WantedBy = multi-user.target
+
+[Automount]
+Where = /mnt/DATA41/Users2/liqin
+TimeoutIdleSec = 10min

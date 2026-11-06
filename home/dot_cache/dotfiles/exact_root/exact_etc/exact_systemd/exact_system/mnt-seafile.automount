@@ -4,5 +4,5 @@
 WantedBy = multi-user.target
 
 [Automount]
-Where = {{ .chezmoi.homeDir }}/mnt/DATA41
+Where = /mnt/seafile
 TimeoutIdleSec = 10min

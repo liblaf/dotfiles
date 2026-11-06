@@ -27,7 +27,7 @@ autoselectcandidate=2
 candidatesdelaymilliseconds=uint32 0
 dictionary='en_US'
 inputmethod='NoIME'
-keybindings={'toggle_emoji_prediction': <['Shift+F6']>, 'toggle_input_mode_on_off': <['Shift']>}
+keybindings={'toggle_emoji_prediction': <['Shift+F6']>, 'toggle_input_mode_on_off': <['Shift_L', 'Shift_R']>}
 # Candidate window orientation: Horizontal
 lookuptableorientation=0
 offtherecord=true

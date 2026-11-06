@@ -44,7 +44,6 @@ words:
   - cifs
   - cnnic
   - cometml
-  - copyto
   - cppcheck
   - csvlens
   - cuda
@@ -117,12 +116,14 @@ words:
   - kisstkondoros
   - kohler
   - konsole
+  - koofr
   - lessutfchardef
   - libalpm
   - liblaf
   - libva
   - libvirtd
   - libxcrypt
+  - liqin
   - lkrms
   - lldb
   - lnav

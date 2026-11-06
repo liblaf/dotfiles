@@ -5,13 +5,14 @@ set -o pipefail
 
 legacy_mounts=(
   '/mnt/DATA41-forgejo'
-  '/mnt/DATA41'
   '/mnt/pc06-sda1'
   '/mnt/PC06sda1'
-  '/mnt/seafile'
   '/mnt/tsinghua'
   "$HOME/DATA41"
   "$HOME/GJM-AList"
+  "$HOME/mnt/DATA41"
+  "$HOME/mnt/GJM-AList"
+  "$HOME/mnt/seafile"
   "$HOME/seafile"
   "$HOME/srv/forgejo/DATA41"
 )
