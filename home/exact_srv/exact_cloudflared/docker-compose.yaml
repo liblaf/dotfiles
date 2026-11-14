@@ -11,7 +11,7 @@ services:
     container_name: cloudflared
     env_file:
       - .env
-    image: cloudflare/cloudflared:latest
+    image: cloudflare/cloudflared:latest@sha256:b94b96edf2c9c4360f8879c8580cfaa99077f19c849ec595ca2f711b27d4f344
     network_mode: host
     pull_policy: weekly
     restart: unless-stopped

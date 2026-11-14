@@ -28,7 +28,7 @@ services:
       FORGEJO__cron.gc_lfs__ENABLED: false
       FORGEJO__lfs__PATH: /data/git/lfs
       FORGEJO__actions__ENABLED: false
-    image: codeberg.org/forgejo/forgejo:15
+    image: codeberg.org/forgejo/forgejo:15@sha256:5d050e6d623e540923ff54b1c0c7acf41c3f9174a6c7ad515cc0c63d703fcd22
     ports:
       - 3000:3000
       - 64573:22
