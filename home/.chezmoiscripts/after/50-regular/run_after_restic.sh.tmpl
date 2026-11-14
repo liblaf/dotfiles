@@ -1,0 +1,50 @@
+#!/bin/bash
+# -*- mode: sh; -*-
+set -o errexit
+set -o nounset
+set -o pipefail
+
+readonly -a targets=(
+  .codex
+  .t3/userdata
+  # {{ if .server }}
+  srv/forgejo
+  srv/jellyfin
+  srv/qbittorrent
+  # {{ end }}
+)
+
+# avoid pipefail
+output="$(resticprofile --quiet list snapshots)"
+if grep --extended-regexp --line-regexp --quiet '[[:xdigit:]]{64}' <<< "$output"; then
+  readonly has_snapshots=true
+else
+  readonly has_snapshots=false
+fi
+
+if [[ $has_snapshots == true ]]; then
+  resticprofile snapshots latest
+fi
+for target in "${targets[@]}"; do
+  marker="$HOME/.local/state/dotfiles/resticprofile/$(systemd-escape --path "/$target")"
+  if [[ -f $marker ]]; then
+    continue
+  fi
+  mkdir --parents --verbose "$HOME/$target"
+  if [[ $has_snapshots == true ]]; then
+    if gum confirm --default=false "Are you sure to restore '$HOME/$target'?"; then
+      exclude_file="$(mktemp)"
+      chezmoi managed --include files,symlinks "$HOME/$target" |
+        awk -v target="$target" '{ print substr($0, length(target) + 1) }' > "$exclude_file"
+      sudo resticprofile restore --exclude-file "$exclude_file" --target "$HOME/$target" "latest:/$target"
+      rm --force "$exclude_file"
+      mkdir --parents --verbose "$(dirname -- "$marker")"
+      touch "$marker"
+    fi
+  else
+    mkdir --parents --verbose "$(dirname -- "$marker")"
+    touch "$marker"
+  fi
+done
+
+sudo resticprofile schedule

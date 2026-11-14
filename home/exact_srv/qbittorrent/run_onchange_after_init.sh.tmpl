@@ -6,6 +6,7 @@ set -o pipefail
 
 # {{ include ".snippets/docker.sh" }}
 # {{ include ".snippets/service.sh" }}
+# {{ include "exact_srv/qbittorrent/docker-compose.yaml" | sha256sum }}
 
 service-user-add qbittorrent 20811 'qBittorrent'
 mkdir --parents --verbose ./config

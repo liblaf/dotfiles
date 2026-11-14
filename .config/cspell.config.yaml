@@ -87,6 +87,7 @@ words:
   - getid
   - gext
   - ghostty
+  - gitea
   - glab
   - gloga
   - goauthing
@@ -227,7 +228,6 @@ words:
   - shuf
   - simpleitk
   - sjtug
-  - slobbe
   - smstools
   - socksio
   - somo
@@ -279,6 +279,7 @@ words:
   - webui
   - wemeet
   - winpr
+  - xdigit
   - xdist
   - xhigh
   - xmake

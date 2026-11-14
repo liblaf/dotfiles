@@ -30,14 +30,30 @@ RCLONE_CONFIG = "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf"
 # Flags used by resticprofile only:
 check-after = true
 check-before = true
+# {{ $targets := list ".codex/" ".t3/userdata/" }}
+# {{ if .server }}
+#   {{ $targets = concat $targets (list "srv/forgejo/" "srv/jellyfin/" "srv/qbittorrent/") }}
+# {{ end }}
+run-before = [
+  # {{ $marker_dir := joinPath .chezmoi.homeDir ".local/state/dotfiles/resticprofile" }}
+  # {{ range $targets }}
+  'test -f {{ joinPath $marker_dir (output "systemd-escape" "--path" (joinPath "/" .) | trim) | quote }}',
+  # {{ end }}
+]
 schedule = "hourly"
-source = [".codex/", ".t3/userdata/", "srv/"]
+source = [
+  ".codex/",
+  ".t3/userdata/",
+  # {{ if .server }}
+  "srv/forgejo/",
+  "srv/jellyfin/",
+  "srv/qbittorrent/"
+  # {{ end }}
+]
 source-base = "{{ .chezmoi.homeDir }}"
 source-relative = true
 # Flags passed to the restic command line:
 exclude = [
-  ".codex/worktrees/",
-  # Regenerable caches and process-local state.
   ".codex/.tmp/",
   ".codex/cache/",
   ".codex/ipc/",
@@ -47,6 +63,7 @@ exclude = [
   ".codex/shell_snapshots/",
   ".codex/thread-writer-locks/",
   ".codex/tmp/",
+  ".codex/worktrees/",
   ".t3/userdata/antigravity-tmp/",
   ".t3/userdata/model-manifest.json",
   ".t3/userdata/opencode-servers/",

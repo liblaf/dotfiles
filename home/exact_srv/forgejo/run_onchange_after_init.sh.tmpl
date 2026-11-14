@@ -6,6 +6,7 @@ set -o pipefail
 
 # {{ include ".snippets/docker.sh" }}
 # {{ include ".snippets/service.sh" }}
+# {{ include "exact_srv/forgejo/docker-compose.yaml" | sha256sum }}
 
 service-user-add forgejo 17084 'Forgejo'
 mkdir --parents --verbose ./data

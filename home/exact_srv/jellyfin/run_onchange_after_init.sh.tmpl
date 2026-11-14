@@ -6,6 +6,7 @@ set -o pipefail
 
 # {{ include ".snippets/docker.sh" }}
 # {{ include ".snippets/service.sh" }}
+# {{ include "exact_srv/jellyfin/docker-compose.yaml" | sha256sum }}
 
 service-user-add jellyfin 50517 'Jellyfin'
 mkdir --parents --verbose ./config
