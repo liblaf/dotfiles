@@ -12,7 +12,6 @@ packages:
     - bear
     - biber
     - blender
-    - btrfs-desktop-notification
     - bun
     - caddy
     - ccache

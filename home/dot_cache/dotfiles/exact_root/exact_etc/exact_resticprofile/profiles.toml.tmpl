@@ -5,9 +5,12 @@
 [global]
 initialize = true
 prevent-sleep = true
-# after-network-online is not available for "user_logged_on" permission schedules
-schedule-defaults = { ignore-on-battery = true, permission = "user_logged_on" }
 scheduler = "systemd"
+
+[global.schedule-defaults]
+after-network-online = true
+ignore-on-battery = true
+permission = "system"
 
 [default]
 # Flags used by resticprofile only:
@@ -20,6 +23,9 @@ password-file = "{{ .chezmoi.homeDir }}/.config/restic/password.txt"
 repository = "rclone:seafile:restic/{{ .chezmoi.hostname }}/"
 retry-lock = "5m"
 
+[default.env]
+RCLONE_CONFIG = "{{ .chezmoi.homeDir }}/.config/rclone/rclone.conf"
+
 [default.backup]
 # Flags used by resticprofile only:
 check-after = true
@@ -29,7 +35,32 @@ source = [".codex/", ".t3/userdata/", "srv/"]
 source-base = "{{ .chezmoi.homeDir }}"
 source-relative = true
 # Flags passed to the restic command line:
-exclude = [".codex/worktrees/"]
+exclude = [
+  ".codex/worktrees/",
+  # Regenerable caches and process-local state.
+  ".codex/.tmp/",
+  ".codex/cache/",
+  ".codex/ipc/",
+  ".codex/mcp-oauth-locks/",
+  ".codex/node_repl/",
+  ".codex/plugins/linux-runtime-cache/",
+  ".codex/shell_snapshots/",
+  ".codex/thread-writer-locks/",
+  ".codex/tmp/",
+  ".t3/userdata/antigravity-tmp/",
+  ".t3/userdata/model-manifest.json",
+  ".t3/userdata/opencode-servers/",
+  ".t3/userdata/server-owner.sqlite*",
+  ".t3/userdata/server-runtime.json",
+  ".t3/userdata/shell-environment-cache.json*",
+  "srv/forgejo/data/gitea/repo-archive/",
+  "srv/forgejo/data/gitea/tmp/",
+  "srv/forgejo/data/gitea/uploads/",
+  "srv/jellyfin/config/.cache/",
+  "srv/jellyfin/config/cache/",
+  "srv/jellyfin/config/data/transcodes/",
+  "srv/qbittorrent/config/.cache/qBittorrent/",
+]
 one-file-system = true
 tag = ["schedule"]
 

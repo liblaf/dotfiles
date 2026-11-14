@@ -10,13 +10,11 @@ fi
 
 readonly extensions_to_install=(
   BingWallpaper@ineffable-gmail.com
+  codex-usage-indicator@stone.dev
   display-brightness-ddcutil@themightydeity.github.com
   lockkeys@vaina.lt
 )
 gext install "${extensions_to_install[@]}"
-
-# {{ include (joinPath .dirs.external "codex-meter@slobbe.github.io.zip") | sha256sum }}
-gnome-extensions install --force '{{ .dirs.external }}/codex-meter@slobbe.github.io.zip'
 
 readonly extensions_to_enable=(
   # pre-installed
@@ -30,7 +28,5 @@ readonly extensions_to_enable=(
   Vitals@CoreCoding.com
 
   "${extensions_to_install[@]}"
-
-  codex-meter@slobbe.github.io
 )
 gext enable "${extensions_to_enable[@]}"
