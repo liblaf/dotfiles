@@ -4,7 +4,6 @@
 Description = Publish Sub-Store Configuration
 
 [Service]
-Environment = SUB_STORE_API_TOKEN='{{ (rbwFields "sub-store").API_TOKEN.value }}'
 ExecSearchPath = %h/.bun/bin:/usr/local/bin:/usr/bin
 ExecStart = sub-store publish
 Restart = on-failure

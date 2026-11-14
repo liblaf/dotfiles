@@ -25,11 +25,11 @@ retry-lock = "5m"
 check-after = true
 check-before = true
 schedule = "hourly"
-source = ["srv/forgejo/forgejo/git/"]
+source = [".codex/", ".t3/userdata/", "srv/"]
 source-base = "{{ .chezmoi.homeDir }}"
 source-relative = true
 # Flags passed to the restic command line:
-exclude = ["srv/forgejo/forgejo/git/.ssh/"]
+exclude = [".codex/worktrees/"]
 one-file-system = true
 tag = ["schedule"]
 
@@ -43,6 +43,5 @@ keep-within-monthly = "12m"
 keep-within-weekly = "1m"
 keep-within-yearly = "10y"
 prune = true
-repack-small = true
 repack-uncompressed = true
 tag = ["schedule"]

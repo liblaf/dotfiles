@@ -3,6 +3,5 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-codexbar config enable --provider 'antigravity'
 codexbar config enable --provider 'codex'
 codexbar config set-api-key --provider 'openrouter' --api-key '{{ (rbwFields "OpenRouter").CODEX_BAR_API_KEY.value }}'

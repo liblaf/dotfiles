@@ -9,8 +9,8 @@ services:
       - tunnel
       - run
     container_name: cloudflared
-    environment:
-      TUNNEL_TOKEN: '{{ (rbwFields "Cloudflare").TUNNEL_TOKEN.value }}'
+    env_file:
+      - .env
     image: cloudflare/cloudflared:latest
     network_mode: host
     pull_policy: weekly

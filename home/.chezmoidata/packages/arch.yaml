@@ -3,7 +3,6 @@ packages:
     - 3dslicer
     - 7zip
     - ansible
-    - antigravity-cli
     - arch4edu-keyring
     - archlinuxcn-keyring
     - argc
@@ -17,11 +16,8 @@ packages:
     - bun
     - caddy
     - ccache
-    - chatgpt-desktop-bin
     - chezmoi
     - chsrc-bin
-    - claude-code
-    - claude-desktop
     - cmake
     - codexbar-cli
     - compsize
@@ -39,6 +35,7 @@ packages:
     - doxygen
     - drawio-desktop
     - earlyoom
+    - faceform-wrap
     - fio
     - firewalld
     - flameshot
@@ -66,7 +63,6 @@ packages:
     - go
     - go-yq
     - gping
-    - graphicsmagick # < Wrap (prepare Icon)
     - gum
     - haruna
     - helix
@@ -88,7 +84,6 @@ packages:
     - lazydocker
     - libva-utils # VA-API
     - libvirt
-    - libxcrypt-compat # < Wrap (libcrypt.so.1)
     - lldb
     - lnav
     - lshw
@@ -123,8 +118,8 @@ packages:
     - pandoc-bin # extra/pandoc-cli depends on so many packages
     - paraview
     - paru
-    - perl-file-homedir # texlive-binextra: for latexindent
-    - perl-yaml-tiny # texlive-binextra: for latexindent
+    - perl-file-homedir # < texlive-binextra: for latexindent
+    - perl-yaml-tiny # < texlive-binextra: for latexindent
     - pixi
     - pkgstats
     - pnpm

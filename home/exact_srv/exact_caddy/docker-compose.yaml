@@ -8,8 +8,8 @@ services:
     cap_add:
       - NET_ADMIN
     container_name: caddy
-    environment:
-      CLOUDFLARE_API_TOKEN: '{{ (rbwFields "Cloudflare").CADDY_API_TOKEN.value }}'
+    env_file:
+      - .env
     image: caddybuilds/caddy-cloudflare:alpine
     network_mode: host
     pull_policy: weekly

@@ -1,6 +1,6 @@
 # -*- mode: caddyfile; -*-
 {
-	# All zones - Zone:Read, DNS:Edit
+	# <https://github.com/CaddyBuilds/caddy-cloudflare#configuration>
 	acme_dns cloudflare {env.CLOUDFLARE_API_TOKEN}
 }
 
@@ -10,10 +10,6 @@ forgejo.liblaf.me {
 
 jellyfin.liblaf.me {
 	reverse_proxy 127.0.0.1:8096
-}
-
-oplist.liblaf.me {
-	reverse_proxy 127.0.0.1:5244
 }
 
 qbt.liblaf.me {

@@ -1,5 +1,6 @@
 // ref: <https://zellij.dev/documentation/configuration.html>
 
+explicit_theme_hue "dark"
 session_serialization false
 show_startup_tips false
 
@@ -7,4 +8,9 @@ keybinds {
   shared_except "locked" {
     bind "Alt t" { NewTab; }
   }
+}
+
+terminal {
+  font "Maple Mono Normal NF CN"
+  terminal_requests "existing_session"
 }

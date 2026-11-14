@@ -1,9 +1,11 @@
 #!/bin/bash
+# -*- mode: sh; -*-
 set -o errexit
 set -o nounset
 set -o pipefail
 
 # {{ include ".snippets/has-nvidia.sh" }}
+# {{ output "chwd" "--version" | trim }}
 
 sudo chwd --autoconfigure --ai_sdk
 

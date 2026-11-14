@@ -38,20 +38,12 @@ services:
       - ./data:/data
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
-      - type: volume
-        source: lfs
+      - type: bind
+        source: /mnt/PC07sda1/srv/forgejo/git/lfs
         target: /data/git/lfs
-        volume:
-          nocopy: true
+        bind:
+          create_host_path: false
 
 networks:
   default:
     enable_ipv6: true
-
-volumes:
-  lfs:
-    driver: local
-    driver_opts:
-      device: //{{ (rbwFields "DATA41").SERVER.value }}/{{ (rbwFields "DATA41").SHARE.value }}/srv/forgejo/git/lfs
-      o: noatime,nodev,noexec,_netdev,nosuid,rw,username={{ (rbw "DATA41").data.username }},password={{ (rbw "DATA41").data.password }},uid=17084,gid=33565,file_mode=0640,dir_mode=0750,seal
-      type: cifs

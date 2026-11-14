@@ -16,10 +16,8 @@ function prepare-mihomo() {
 
   cp --archive '/etc/mihomo/config.yaml' "$mihomo_dir/config.yaml"
   cp --archive "$(type -P mihomo)" "$mihomo_dir/mihomo"
-  chezmoi execute-template "$VENTOY_DIR/assets/proxy-on.sh.tmpl" --file \
-    --output "$mihomo_dir/proxy-on.sh"
-  chezmoi execute-template "$VENTOY_DIR/assets/proxy-on.fish.tmpl" --file \
-    --output "$mihomo_dir/proxy-on.fish"
+  cp --archive "$VENTOY_DIR/assets/proxy-on.fish" "$mihomo_dir/proxy-on.fish"
+  cp --archive "$VENTOY_DIR/assets/proxy-on.sh" "$mihomo_dir/proxy-on.sh"
 }
 
 if [[ ${BASH_SOURCE[0]} == "$0" ]]; then
