@@ -41,22 +41,6 @@ Messages that you send to other agents and your final answer may be read by a hu
 
 Spawn subagents with explicit model and reasoning effort.
 
-<!-- ref: <https://artificialanalysis.ai/leaderboards/models> -->
-
-| Model (reasoning effort) | Artificial Analysis Intelligence Index | Cost per Task (USD) |
-| ------------------------ | -------------------------------------- | ------------------- |
-| GPT-6 Astra (Max)        | 57                                     | $6.24               |
-| GPT-6.1 Sol (Max)        | 55                                     | $1.27               |
-| GPT-6.1 Sol (Xhigh)      | 52                                     | $0.76               |
-| GPT-6.1 Sol (High)       | 50                                     | $0.59               |
-| GPT-6.1 Sol (Medium)     | 46                                     | $0.36               |
-| GPT-6.1 Terra (High)     | 42                                     | $0.26               |
-| GPT-6.1 Terra (Medium)   | 38                                     | $0.17               |
-| GPT-6.1 Sol (Low)        | 35                                     | $0.16               |
-| GPT-6.1 Terra (Low)      | 29                                     | $0.0713             |
-| GPT-6 Luna (Medium)      | 18                                     | $0.0422             |
-| GPT-6 Luna (Low)         | 10                                     | $0.0051             |
-
 ## Testing and verification
 
 Do not write tests for reversible, low-impact changes that mirror the implementation. If you do choose to verify your work with tests, make sure that the tests are meaningful and necessary to verify implementation.

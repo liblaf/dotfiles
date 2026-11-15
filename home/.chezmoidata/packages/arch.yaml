@@ -3,6 +3,7 @@ packages:
     - 3dslicer
     - 7zip
     - ansible
+    - antigravity-cli
     - arch4edu-keyring
     - archlinuxcn-keyring
     - argc
@@ -17,6 +18,7 @@ packages:
     - ccache
     - chezmoi
     - chsrc-bin
+    - claude-code
     - cmake
     - codexbar-cli
     - compsize
@@ -110,6 +112,7 @@ packages:
     - obsidian
     - openai-codex
     - openbsd-netcat # < libvirt: for remote management over SSH
+    - opencode
     - otf-latinmodern-math
     - otf-monaspace-nerd
     - ouch
