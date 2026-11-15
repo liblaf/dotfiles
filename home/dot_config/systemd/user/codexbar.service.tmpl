@@ -1,0 +1,16 @@
+# -*- mode: ini; -*-
+
+[Install]
+WantedBy = default.target
+
+[Service]
+Environment = CODEXBAR_DASHBOARD_TOKEN='{{ (rbwFields "CodexBar").DASHBOARD_TOKEN.value }}'
+ExecStart = codexbar serve --port 63736 --identity redacted
+Restart = on-failure
+RestartSec = 5s
+Type = simple
+
+[Unit]
+After = network-online.target
+Description = CodexBar HTTP Server
+Documentation = https://github.com/steipete/CodexBar/blob/main/docs/cli.md

@@ -5,6 +5,8 @@ set -o nounset
 set -o pipefail
 
 # {{ include ".snippets/docker.sh" }}
+# {{ include "exact_srv/exact_caddy/Caddyfile" | sha256sum }}
 # {{ include "exact_srv/exact_caddy/docker-compose.yaml" | sha256sum }}
+# {{ includeTemplate "exact_srv/exact_caddy/private_dot_env.tmpl" . | sha256sum }}
 
-docker compose up --detach --remove-orphans
+docker compose up --detach --force-recreate --remove-orphans

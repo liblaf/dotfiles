@@ -6,6 +6,7 @@
 ::1              localhost
 
 # Tailscale Services
+100.77.7.7       codexbar.liblaf.me
 100.77.7.7       forgejo.liblaf.me
 100.77.7.7       jellyfin.liblaf.me
 100.77.7.7       qbt.liblaf.me
