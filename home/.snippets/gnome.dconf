@@ -121,7 +121,7 @@ name='Flameshot'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/t3code]
 binding='F24'
-command='gtk-launch t3code.desktop'
+command='gtk-launch com.t3tools.T3Code.desktop'
 name='T3 Code'
 
 [org/gnome/settings-daemon/plugins/power]
@@ -133,7 +133,7 @@ sleep-inactive-battery-type='suspend'
 
 [org/gnome/shell]
 disable-user-extensions=false
-favorite-apps=['microsoft-edge.desktop', 'com.mitchellh.ghostty.desktop', 'org.gnome.Nautilus.desktop', 'com.microsoft.VSCode.desktop', 't3code.desktop']
+favorite-apps=['microsoft-edge.desktop', 'com.mitchellh.ghostty.desktop', 'org.gnome.Nautilus.desktop', 'com.microsoft.VSCode.desktop', 'com.t3tools.T3Code.desktop']
 
 [org/gnome/shell/extensions/bingwallpaper]
 always-export-bing-json=true
