@@ -1,8 +1,9 @@
 # -*- mode: ini; -*-
 
+[Service]
+ExecSearchPath = %h/.local/bin:/usr/local/bin:/usr/bin
+ExecStart = ddns update --quiet
+TimeoutSec = 1min
+
 [Unit]
 Description = DDNS
-
-[Service]
-ExecStart = %h/.local/bin/ddns update --quiet
-TimeoutSec = 1min

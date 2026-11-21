@@ -1,11 +1,11 @@
 # -*- mode: ini; -*-
 
-[Unit]
-Description = Publish Sub-Store Configuration
-
 [Install]
 WantedBy = timers.target
 
 [Timer]
 OnCalendar = daily
 Persistent = true
+
+[Unit]
+Description = Publish Sub-Store Configuration

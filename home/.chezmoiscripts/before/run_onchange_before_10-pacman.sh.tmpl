@@ -8,7 +8,6 @@ set -o pipefail
 
 readonly SOURCE_ROOT="$CHEZMOI_SOURCE_DIR/dot_cache/dotfiles/exact_root"
 
-sudo cp --verbose "$SOURCE_ROOT/exact_etc/pacman.conf" '/etc/pacman.conf'
 sudo install --verbose \
   "$SOURCE_ROOT/exact_usr/exact_local/exact_bin/executable_arch-rate-mirrors.sh" \
   '/usr/local/bin/arch-rate-mirrors.sh'
@@ -18,12 +17,18 @@ sudo install --verbose \
 
 function setup-mirrors() {
   local -r repo="$1"
-  local -r mirrorlist="/etc/pacman.d/$repo-mirrorlist"
+  case "$repo" in
+    'chaotic-aur') local -r mirrorlist="/etc/pacman.d/chaotic-mirrorlist" ;;
+    *) local -r mirrorlist="/etc/pacman.d/$repo-mirrorlist" ;;
+  esac
   if [[ -f $mirrorlist ]]; then return; fi
   arch-rate-mirrors.sh "$repo"
 }
 setup-mirrors 'arch4edu'
 setup-mirrors 'archlinuxcn'
+setup-mirrors 'chaotic-aur'
+
+sudo cp --verbose "$SOURCE_ROOT/exact_etc/pacman.conf" '/etc/pacman.conf'
 
 sudo pacman-key --init
 
@@ -31,6 +36,10 @@ sudo pacman-key --init
 sudo pacman-key --recv-keys 7931B6D628C8D3BA
 sudo pacman-key --finger 7931B6D628C8D3BA
 sudo pacman-key --lsign-key 7931B6D628C8D3BA
+
+# ref: <https://aur.chaotic.cx/docs>
+sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+sudo pacman-key --lsign-key 3056513887B78AEB
 
 if pacman --query --explicit --quiet |
   grep --quiet '^lib32-'; then
@@ -42,6 +51,7 @@ fi
 sudo pacman --sync --noconfirm --needed --sysupgrade --refresh - << 'EOF'
 arch4edu-keyring
 archlinuxcn-keyring
+chaotic-keyring
 paru
 EOF
 

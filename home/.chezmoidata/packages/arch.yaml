@@ -16,6 +16,8 @@ packages:
     - bun
     - caddy
     - ccache
+    - chaotic-keyring
+    - chaotic-mirrorlist
     - chezmoi
     - chsrc-bin
     - claude-code
@@ -100,7 +102,7 @@ packages:
     - mkdocstrings
     - mpv
     - mtr
-    - nautilus-code
+    - nautilus-code-git
     - nautilus-open-any-terminal
     - netdata
     - nmap

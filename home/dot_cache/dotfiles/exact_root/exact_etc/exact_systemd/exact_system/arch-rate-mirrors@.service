@@ -9,4 +9,4 @@ After = network-online.target nss-lookup.target
 Type = oneshot
 StandardOutput = null
 StandardError = journal
-ExecStart = /usr/local/bin/arch-rate-mirrors.sh %I
+ExecStart = arch-rate-mirrors.sh %I

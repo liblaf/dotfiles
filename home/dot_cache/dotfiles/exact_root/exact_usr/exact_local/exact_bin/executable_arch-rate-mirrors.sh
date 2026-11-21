@@ -37,7 +37,8 @@ function main() {
 
   # Install the generated mirrorlist to pacman's expected path.
   case "$repo" in
-    'arch') local -r mirrorlist="/etc/pacman.d/mirrorlist" ;;
+    'arch') local -r mirrorlist='/etc/pacman.d/mirrorlist' ;;
+    'chaotic-aur') local -r mirrorlist='/etc/pacman.d/chaotic-mirrorlist' ;;
     *) local -r mirrorlist="/etc/pacman.d/$repo-mirrorlist" ;;
   esac
   sudo install --backup='simple' --mode='u=rw,go=r' --suffix='-backup' \
