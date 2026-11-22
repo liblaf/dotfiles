@@ -9,6 +9,6 @@ if systemd-detect-virt --quiet; then exit; fi
 sudo chown --verbose root:netdata '/etc/netdata/claim.conf'
 sudo chmod --verbose 'u=rw,g=r,o=' '/etc/netdata/claim.conf'
 
-# {{ include (joinPath .dirs.root "etc/netdata/claim.conf") | sha256sum }}
+# {{ includeTemplate "dot_cache/dotfiles/exact_root/exact_etc/exact_netdata/private_claim.conf.tmpl" | sha256sum }}
 sudo systemctl --now enable netdata.service
 sudo netdatacli reload-claiming-state

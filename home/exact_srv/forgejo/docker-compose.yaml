@@ -15,7 +15,7 @@ services:
       FORGEJO____APP_SLOGAN: Beyond coding. We forge.
       FORGEJO__repository__ROOT: /data/git/repositories
       FORGEJO__repository__ENABLE_PUSH_CREATE_USER: true
-      FORGEJO__repository.signing__DEFAULT_TRUST_MODEL: committer
+      FORGEJO__repository_0x2E_signing__DEFAULT_TRUST_MODEL: committer
       FORGEJO__server__DOMAIN: forgejo.liblaf.me
       FORGEJO__server__ROOT_URL: https://forgejo.liblaf.me/
       FORGEJO__server__LFS_START_SERVER: true
@@ -23,9 +23,9 @@ services:
       FORGEJO__cache__ADAPTER: twoqueue
       FORGEJO__cache__HOST: |-
         {"size":100, "recent_ratio":0.25, "ghost_ratio":0.5}
-      FORGEJO__cron.git_gc_repos__ENABLED: true
-      FORGEJO__cron.git_gc_repos__TIMEOUT: 10m
-      FORGEJO__cron.gc_lfs__ENABLED: false
+      FORGEJO__cron_0x2E_git_gc_repos__ENABLED: true
+      FORGEJO__cron_0x2E_git_gc_repos__TIMEOUT: 10m
+      FORGEJO__cron_0x2E_gc_lfs__ENABLED: false
       FORGEJO__lfs__PATH: /data/git/lfs
       FORGEJO__actions__ENABLED: false
     image: codeberg.org/forgejo/forgejo:17@sha256:879f4f10a98e3e167b32cde5f7ae3af0163d50bfacf567559a27a0e95a95670c
